@@ -1,1 +1,0 @@
-# SPEC_CODE_PROOF
