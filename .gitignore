@@ -17,3 +17,6 @@ codex_mcp_workflow/*
 !codex_mcp_workflow/*.py
 !codex_mcp_workflow/**/*.py
 
+# Keep markdown files
+!codex_mcp_workflow/*.md
+codex_mcp_workflow/isolette/sysml/sysml-aadl-libraries/
