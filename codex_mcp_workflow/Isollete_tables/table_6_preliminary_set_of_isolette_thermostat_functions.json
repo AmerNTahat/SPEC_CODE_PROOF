@@ -1,0 +1,21 @@
+{
+  "table_id": "Table 6",
+  "title": "Preliminary Set of Isolette Thermostat Functions",
+  "columns": [
+    "Function Column 1",
+    "Function Column 2"
+  ],
+  "rows": [
+    {
+      "Function Column 1": "Turn the thermostat on and off",
+      "Function Column 2": "Indicate the thermostat status"
+    },
+    {
+      "Function Column 1": "Set the Desired Temperature Display the current temperature Recommended Practice 2.3.14: From the uses cases, assemble a preliminary set of functions to be provided by the system.",
+      "Function Column 2": "Turn heat source on and off 21"
+    }
+  ],
+  "notes": [
+    "Source table has no explicit headers; column names assigned during extraction."
+  ]
+}

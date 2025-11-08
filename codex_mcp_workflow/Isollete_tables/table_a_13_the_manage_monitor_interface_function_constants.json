@@ -1,0 +1,20 @@
+{
+  "table_id": "Table A-13",
+  "title": "The Manage Monitor Interface Function Constants",
+  "columns": [
+    "Name",
+    "Type",
+    "Value",
+    "Units",
+    "Physical Interpretation"
+  ],
+  "rows": [
+    {
+      "Name": "Max Operator Response Time",
+      "Type": "Real",
+      "Value": "0.5",
+      "Units": "Sec",
+      "Physical Interpretation": "The time an operator will tolerate between an operator request or a change in the Thermostat state and the visible response"
+    }
+  ]
+}

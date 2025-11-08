@@ -1,0 +1,26 @@
+{
+  "table_id": "Table A-1",
+  "title": "Summary of Isolette Thermostat Use and Exception Cases",
+  "columns": [
+    "ID",
+    "Primary Actors",
+    "Title and Description"
+  ],
+  "rows": [
+    {
+      "ID": "A.2.1",
+      "Primary Actors": "Nurse",
+      "Title and Description": "Normal Operation of Isolette Describes the normal operation of the Isolette by the Nurse"
+    },
+    {
+      "ID": "A.2.2",
+      "Primary Actors": "Nurse",
+      "Title and Description": "Configure the Isolette Describes how the Nurse configures the Isolette and Thermostat for the Infant"
+    },
+    {
+      "ID": "A.2.3",
+      "Primary Actors": "Thermostat",
+      "Title and Description": "Maintain Desired Temperature Describes how the Thermostat turns the Heat Source on and off to maintain the Current Temperature in the Isolette within the Desired Temperature Range A-2"
+    }
+  ]
+}

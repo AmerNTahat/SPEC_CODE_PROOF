@@ -1,0 +1,23 @@
+{
+  "table_id": "Table A-9",
+  "title": "The Manage Regulator Mode Function Constants",
+  "columns": [
+    "Name",
+    "Type",
+    "Value",
+    "Units",
+    "Physical Interpretation"
+  ],
+  "rows": [
+    {
+      "Name": "Regulator Init Timeout more than one second to initialize.",
+      "Type": "Real",
+      "Value": "1.0",
+      "Units": "Sec",
+      "Physical Interpretation": "The time allowed for initialization of the Regulate Temperature Function before declaring failure"
+    }
+  ],
+  "notes": [
+    "Rationale: A trade study has shown that users become impatient if the Thermostat requires"
+  ]
+}

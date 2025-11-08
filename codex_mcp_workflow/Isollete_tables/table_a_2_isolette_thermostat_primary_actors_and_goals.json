@@ -1,0 +1,26 @@
+{
+  "table_id": "Table A-2",
+  "title": "Isolette Thermostat Primary Actors and Goals",
+  "columns": [
+    "Actor",
+    "Primary Goals of the Actor"
+  ],
+  "rows": [
+    {
+      "Actor": "Nurse",
+      "Primary Goals of the Actor": "Provide the Infant with proper nursing care, including keeping the Infant warm"
+    },
+    {
+      "Actor": "Infant",
+      "Primary Goals of the Actor": "Be comfortable and healthy"
+    },
+    {
+      "Actor": "Isolette",
+      "Primary Goals of the Actor": "Hold the Infant and maintain the Current Temperature within the Desired Temperature Range"
+    },
+    {
+      "Actor": "Thermostat",
+      "Primary Goals of the Actor": "Maintain Current Temperature in the Isolette within the Desired Temperature Range"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "table_id": "Table A-15",
+  "title": "The Manage Monitor Mode Function Definitions",
+  "columns": [
+    "Name",
+    "Type",
+    "Definition"
+  ],
+  "rows": [
+    {
+      "Name": "Monitor Status",
+      "Type": "Boolean NOT (Monitor Interface Failure OR Monitor Internal Failure) AND Current Temperature.Status = Valid",
+      "Definition": ""
+    }
+  ]
+}

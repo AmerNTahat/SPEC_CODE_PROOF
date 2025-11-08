@@ -1,0 +1,20 @@
+{
+  "table_id": "Table A-4",
+  "title": "Thermostat Controlled Variables for Heat Source",
+  "columns": [
+    "Name",
+    "Type",
+    "Range",
+    "Units",
+    "Physical Interpretation"
+  ],
+  "rows": [
+    {
+      "Name": "Heat Control",
+      "Type": "Enumerated",
+      "Range": "Off, On",
+      "Units": "Command",
+      "Physical Interpretation": "to turn Heat Source on and off A-9"
+    }
+  ]
+}

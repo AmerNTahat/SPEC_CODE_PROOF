@@ -1,0 +1,83 @@
+{
+  "table_id": "Table A-5",
+  "title": "Thermostat Monitored Variables for Operator Interface",
+  "columns": [
+    "Name",
+    "Type",
+    "Range",
+    "Units",
+    "Physical Interpretation"
+  ],
+  "rows": [
+    {
+      "Name": "Operator Settings",
+      "Type": "",
+      "Range": "",
+      "Units": "",
+      "Physical Interpretation": "Thermostat settings provided by operator"
+    },
+    {
+      "Name": "Desired Temperature Range",
+      "Type": "",
+      "Range": "",
+      "Units": "",
+      "Physical Interpretation": "Desired range of Isolette temperature"
+    },
+    {
+      "Name": "Lower Desired",
+      "Type": "Integer",
+      "Range": "[97..99]",
+      "Units": "°F",
+      "Physical Interpretation": "Lower value of Desired Temperature"
+    },
+    {
+      "Name": "Temperature",
+      "Type": "Status",
+      "Range": "●Invalid, Valid",
+      "Units": "",
+      "Physical Interpretation": "Range"
+    },
+    {
+      "Name": "Upper Desired",
+      "Type": "Integer",
+      "Range": "[98..100]",
+      "Units": "°F",
+      "Physical Interpretation": "Upper value of Desired Temperature"
+    },
+    {
+      "Name": "Temperature Alarm Temperature Range",
+      "Type": "Status",
+      "Range": "●Invalid, Valid",
+      "Units": "",
+      "Physical Interpretation": "Range Activate Alarm when outside of this range"
+    },
+    {
+      "Name": "Lower Alarm",
+      "Type": "Integer",
+      "Range": "[93..98]",
+      "Units": "°F",
+      "Physical Interpretation": "Lower value of Alarm Temperature Range"
+    },
+    {
+      "Name": "Temperature",
+      "Type": "Status",
+      "Range": "●Invalid, Valid",
+      "Units": "",
+      "Physical Interpretation": ""
+    },
+    {
+      "Name": "Upper Alarm",
+      "Type": "Integer",
+      "Range": "[99..103]",
+      "Units": "°F",
+      "Physical Interpretation": "Upper value of Alarm Temperature Range"
+    },
+    {
+      "Name": "Temperature",
+      "Type": "Status",
+      "Range": "●Invalid, Valid",
+      "Units": "",
+      "Physical Interpretation": ""
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "table_id": "Table A-7",
+  "title": "The Regulate Temperature Internal Variables",
+  "columns": [
+    "Name",
+    "Type",
+    "Range",
+    "Units",
+    "Physical Interpretation"
+  ],
+  "rows": [
+    {
+      "Name": "Desired Range",
+      "Type": "",
+      "Range": "",
+      "Units": "",
+      "Physical Interpretation": "Desired range of Isolette temperature"
+    },
+    {
+      "Name": "Lower Desired Temp",
+      "Type": "Integer",
+      "Range": "[96..101]",
+      "Units": "°F",
+      "Physical Interpretation": "Lower value of desired range"
+    },
+    {
+      "Name": "Upper Desired Temp",
+      "Type": "Integer",
+      "Range": "[97..102]",
+      "Units": "°F",
+      "Physical Interpretation": "Upper value of desired range"
+    },
+    {
+      "Name": "Regulator Interface",
+      "Type": "Boolean",
+      "Range": "False, True",
+      "Units": "",
+      "Physical Interpretation": "Indicates an operator interface"
+    }
+  ]
+}

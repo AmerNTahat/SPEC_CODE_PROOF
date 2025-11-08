@@ -1,0 +1,20 @@
+{
+  "table_id": "Table A-11",
+  "title": "The Manage Heat Source Function Constants",
+  "columns": [
+    "Name",
+    "Type",
+    "Value",
+    "Units",
+    "Physical Interpretation"
+  ],
+  "rows": [
+    {
+      "Name": "Allowed Heat Source Latency",
+      "Type": "Real",
+      "Value": "6.0",
+      "Units": "Sec",
+      "Physical Interpretation": "The maximum time by which the Heat Source must be turned on or off to ensure acceptable operation of the Isolette system"
+    }
+  ]
+}

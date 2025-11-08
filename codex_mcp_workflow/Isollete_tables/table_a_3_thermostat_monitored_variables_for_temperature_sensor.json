@@ -1,0 +1,20 @@
+{
+  "table_id": "Table A-3",
+  "title": "Thermostat Monitored Variables for Temperature Sensor",
+  "columns": [
+    "Name",
+    "Type",
+    "Range",
+    "Units",
+    "Physical Interpretation"
+  ],
+  "rows": [
+    {
+      "Name": "Current Temperature",
+      "Type": "Real Status",
+      "Range": "[68.0..105.0] ●Invalid, Valid",
+      "Units": "°F",
+      "Physical Interpretation": "Current air temperature inside Isolette"
+    }
+  ]
+}

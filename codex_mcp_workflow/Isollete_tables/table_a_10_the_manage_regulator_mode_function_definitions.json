@@ -1,0 +1,16 @@
+{
+  "table_id": "Table A-10",
+  "title": "The Manage Regulator Mode Function Definitions",
+  "columns": [
+    "Name",
+    "Type",
+    "Definition"
+  ],
+  "rows": [
+    {
+      "Name": "Regulator Status",
+      "Type": "Boolean NOT (Regulator Interface Failure OR Regulator Internal Failure) AND Current Temperature.Status = Valid",
+      "Definition": ""
+    }
+  ]
+}

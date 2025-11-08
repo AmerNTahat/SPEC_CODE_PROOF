@@ -1,0 +1,48 @@
+{
+  "table_id": "Table A-6",
+  "title": "Thermostat Controlled Variables for Operator Interface",
+  "columns": [
+    "Name",
+    "Type",
+    "Range",
+    "Units",
+    "Physical Interpretation"
+  ],
+  "rows": [
+    {
+      "Name": "Operator Feedback",
+      "Type": "",
+      "Range": "",
+      "Units": "",
+      "Physical Interpretation": "Information provided back to the operator"
+    },
+    {
+      "Name": "Regulator Status",
+      "Type": "Enumerated",
+      "Range": "Init, On, Failed",
+      "Units": "",
+      "Physical Interpretation": "Status of the Thermostat Regulator Function"
+    },
+    {
+      "Name": "Monitor Status",
+      "Type": "Enumerated",
+      "Range": "Init, On, Failed",
+      "Units": "",
+      "Physical Interpretation": "Status of the Thermostat Monitor Function"
+    },
+    {
+      "Name": "Display Temperature",
+      "Type": "Integer",
+      "Range": "[68..105]",
+      "Units": "°F",
+      "Physical Interpretation": "Displayed temperature of Isolette"
+    },
+    {
+      "Name": "Alarm",
+      "Type": "Enumerated",
+      "Range": "Off, On A-10",
+      "Units": "",
+      "Physical Interpretation": "Command to turn Alarm on or off"
+    }
+  ]
+}

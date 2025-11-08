@@ -1,0 +1,36 @@
+{
+  "table_id": "Table 3",
+  "title": "Thermostat Monitored and Controlled Variables",
+  "columns": [
+    "Name",
+    "Type",
+    "Physical Interpretation"
+  ],
+  "rows": [
+    {
+      "Name": "Current Temperature Operator Settings Desired Temperature Range",
+      "Type": "Monitored",
+      "Physical Interpretation": "Current air temperature inside Isolette Thermostat settings provided by the operator Desired range of Isolette temperature"
+    },
+    {
+      "Name": "Lower Desired Temperature",
+      "Type": "Monitored",
+      "Physical Interpretation": "Lower value of the Desired Temperature Range"
+    },
+    {
+      "Name": "Upper Desired Temperature Operator Feedback",
+      "Type": "Monitored",
+      "Physical Interpretation": "Upper value of the Desired Temperature Range Information provided back to the operator"
+    },
+    {
+      "Name": "Display Temperature",
+      "Type": "Controlled",
+      "Physical Interpretation": "Displayed temperature of the air in Isolette"
+    },
+    {
+      "Name": "Heat Control",
+      "Type": "Controlled",
+      "Physical Interpretation": "Command to turn the heat source on or off"
+    }
+  ]
+}
