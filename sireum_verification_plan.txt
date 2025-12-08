@@ -1,0 +1,10 @@
+- Run the following verification steps in order. 
+
+1- Check model level intergration constraints use:
+   sireum hamr sysml logika --sourcepath isolette/sysml
+
+2- Verify code level contracts use:
+    isolette/hamr/slang/bin/run-logika.cmd
+
+- After applying a step, if it fails or produces any error messages, explain the errors, suggest a repair plan, and wait for my approval before continuing. 
+- If it succeeds and there are more steps, move to the next step. If the final step succeeds, report the verification status from Logika and ask me what to do next.
