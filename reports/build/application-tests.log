@@ -1,0 +1,33 @@
+test_active_stop_is_request_not_false_acknowledgement (test_controller.ControllerTests.test_active_stop_is_request_not_false_acknowledgement) ... ok
+test_cli_service_configuration_parity (test_controller.ControllerTests.test_cli_service_configuration_parity) ... ok
+test_creation_is_not_implicit (test_controller.ControllerTests.test_creation_is_not_implicit) ... ok
+test_dataset_overlap_rejected (test_controller.ControllerTests.test_dataset_overlap_rejected) ... ok
+test_evidence_tamper_rejected (test_controller.ControllerTests.test_evidence_tamper_rejected) ... ok
+test_expired_resume_fails_closed (test_controller.ControllerTests.test_expired_resume_fails_closed) ... ok
+test_explicit_override_and_null_are_preserved (test_controller.ControllerTests.test_explicit_override_and_null_are_preserved) ... ok
+test_hidden_and_evaluator_paths_rejected (test_controller.ControllerTests.test_hidden_and_evaluator_paths_rejected) ... ok
+test_invalid_budget_values (test_controller.ControllerTests.test_invalid_budget_values) ... ok
+test_lexical_difference_and_empty_vector (test_controller.ControllerTests.test_lexical_difference_and_empty_vector) ... ok
+test_manifest_tamper_rejected (test_controller.ControllerTests.test_manifest_tamper_rejected) ... ok
+test_missing_gate_never_accepted (test_controller.ControllerTests.test_missing_gate_never_accepted) ... ok
+test_missing_tool_blocks_without_source_edits (test_controller.ControllerTests.test_missing_tool_blocks_without_source_edits) ... ok
+test_modified_split_cannot_be_approved (test_controller.ControllerTests.test_modified_split_cannot_be_approved) ... ok
+test_overshoot_charges_actual_usage (test_controller.ControllerTests.test_overshoot_charges_actual_usage) ... ok
+test_pause_resume_preserves_deadline_and_usage (test_controller.ControllerTests.test_pause_resume_preserves_deadline_and_usage) ... ok
+test_related_tasks_cannot_cross_roles (test_controller.ControllerTests.test_related_tasks_cannot_cross_roles) ... ok
+test_reservation_conservation_and_cached_subset (test_controller.ControllerTests.test_reservation_conservation_and_cached_subset) ... ok
+test_restart_does_not_reset_allowance (test_controller.ControllerTests.test_restart_does_not_reset_allowance) ... ok
+test_snapshot_preserves_dirty_untracked_input (test_controller.ControllerTests.test_snapshot_preserves_dirty_untracked_input) ... ok
+test_snapshot_tamper_rejected (test_controller.ControllerTests.test_snapshot_tamper_rejected) ... ok
+test_source_change_blocks_execution (test_controller.ControllerTests.test_source_change_blocks_execution) ... ok
+test_stop_prepared_run_is_terminal (test_controller.ControllerTests.test_stop_prepared_run_is_terminal) ... ok
+test_symlink_input_rejected (test_controller.ControllerTests.test_symlink_input_rejected) ... ok
+test_unapproved_rename_rejected (test_controller.ControllerTests.test_unapproved_rename_rejected) ... ok
+test_unknown_operation_and_fields_rejected (test_controller.ControllerTests.test_unknown_operation_and_fields_rejected) ... ok
+test_unknown_usage_is_not_zero (test_controller.ControllerTests.test_unknown_usage_is_not_zero) ... ok
+test_unsupported_paid_adapter_blocks_even_with_boolean (test_controller.ControllerTests.test_unsupported_paid_adapter_blocks_even_with_boolean) ... ok
+
+----------------------------------------------------------------------
+Ran 28 tests in 0.329s
+
+OK

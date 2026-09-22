@@ -1,0 +1,89 @@
+{
+  "id": "3c374e7392e24f6ebc91c4158f9cc896",
+  "state": "BLOCKED",
+  "config": {
+    "assistance": "automatic",
+    "budget": {
+      "aggregate_model_tokens": 1000000,
+      "concurrent_model_calls": 1,
+      "enforcement": "strict",
+      "final_validation_time_reserve": 0.2,
+      "repairs_per_issue": 3,
+      "repairs_per_run": 8,
+      "wall_seconds": 180
+    },
+    "creation_authorized": false,
+    "development_validation": null,
+    "final_evaluation": null,
+    "input_files": [
+      "aadl-lib/aadl.library/AADL.sysml",
+      "aadl-lib/aadl.library/AADL_Project.sysml",
+      "aadl-lib/aadl.library/Base_Types.sysml",
+      "aadl-lib/aadl.library/Communication_Properties.sysml",
+      "aadl-lib/aadl.library/Data_Model.sysml",
+      "aadl-lib/aadl.library/Deployment_Properties.sysml",
+      "aadl-lib/aadl.library/Memory_Properties.sysml",
+      "aadl-lib/aadl.library/Programming_Properties.sysml",
+      "aadl-lib/aadl.library/Thread_Properties.sysml",
+      "aadl-lib/aadl.library/Timing_Properties.sysml",
+      "aadl-lib/aadl.library/behavior_properties.sysml",
+      "aadl-lib/hamr.aadl.library/CASE_Scheduling.sysml",
+      "aadl-lib/hamr.aadl.library/HAMR.sysml",
+      "aadl-lib/hamr.aadl.library/HAMR_AADL.sysml",
+      "aadl-lib/hamr.aadl.library/HAMR_Time_Units.sysml",
+      "prod-cons/ProdCons.sysml"
+    ],
+    "learning_materials": null,
+    "mode": "user",
+    "model": {
+      "family": "gpt",
+      "requested_profile": "astra",
+      "resolved_model_id": null
+    },
+    "model_file": "prod-cons/ProdCons.sysml",
+    "naming_policy": "preserve-existing",
+    "paid_runs_authorized": false,
+    "project": "/home/amertahat/SPEC_CODE_PROOF/HAMR-agent-configuration-experiments/hamr-claude-training/examples/HAMR-SysMLv2-Rust-seL4-P-EDP-Prod-Cons-Example/sysmlv2",
+    "rename_authorized": false,
+    "required_gates": [
+      "parse_type"
+    ],
+    "resolved_operation": "verify-only",
+    "rule_release": null,
+    "schema_version": 1,
+    "sireum": "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/sireum",
+    "sireum_sha256": "6333d4e737064b6db470bcb85863a997675182470eb5d4d763bd806487c8d952",
+    "task_operation": "verify-only"
+  },
+  "config_hash": "e5ed1d63b386bc5e5b286741e187d2b7c2609112405b24ca179624e542d2d7aa",
+  "created": 1790098804.7363896,
+  "deadline": 1790098984.7363896,
+  "used_tokens": 0,
+  "usage_unknown": 0,
+  "reserved_tokens": 0,
+  "worker": null,
+  "result": {
+    "gates": [
+      {
+        "gate": "parse_type",
+        "status": "UNKNOWN",
+        "reason": "Worker sandbox could not start; no unsandboxed fallback",
+        "evidence": {
+          "sha256": "7f6cee7a1b354b4be1ebdc56d4badd283455394f7d33b479554fcfd81211082f",
+          "path": "objects/7f6cee7a1b354b4be1ebdc56d4badd283455394f7d33b479554fcfd81211082f.json"
+        }
+      }
+    ],
+    "task_status": "BLOCKED",
+    "project_status": "NOT_ASSESSED",
+    "engineering_accepted": false,
+    "formally_verified_units": 0,
+    "model_calls": 0,
+    "scope": "Selected checks only; no application or live-demo completion claim"
+  },
+  "version": 4,
+  "remaining_seconds": 179.28828239440918,
+  "remaining_tokens": 1000000,
+  "source_changed": [],
+  "evidence_current_for_source": true
+}

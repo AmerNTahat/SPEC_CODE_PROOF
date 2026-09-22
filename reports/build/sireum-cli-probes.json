@@ -1,0 +1,68 @@
+[
+  {
+    "command": [
+      "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/sireum",
+      "--help"
+    ],
+    "exit_code": 0,
+    "stdout": "Sireum: A High Assurance System Engineering Platform\n(c) SAnToS Laboratory, Kansas State University\nBuild 4.20260323.9c4caf1f\n\nAvailable modes:\nhamr                     HAMR tools\nlogika                   Logika tools\nparser                   Parser tools\nproyek                   Build tools\nslang                    Slang tools\npresentasi               Presentation tools\nroboto                   Demo tools\nserver                   Sireum server\nsetup                    Setup\ntools                    Utility tools\n\nAvailable Standalone Options:\n    --init[-nik | -jdk]    Setup dependencies\n                             [-nik/jdk force-initializes Liberica NIK/JDK]\n    --install-fonts        Install Sireum fonts\n    --mcp                  Run Sireum MCP server\n    --native               Build native executable\n    --sbom                 Generate software bill of materials\n    --sha                  Print Sireum build SHA commit tip\n    --test-cli             Test CLI arguments (expects strings)\n-v, --version              Print version information\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/sireum",
+      "hamr",
+      "--help"
+    ],
+    "exit_code": 255,
+    "stdout": "",
+    "stderr": "--help is not a mode of hamr.\n"
+  },
+  {
+    "command": [
+      "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/sireum",
+      "hamr",
+      "sysml",
+      "--help"
+    ],
+    "exit_code": 255,
+    "stdout": "",
+    "stderr": "--help is not a mode of sysml.\n"
+  },
+  {
+    "command": [
+      "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/sireum",
+      "hamr",
+      "sysml",
+      "type-check",
+      "--help"
+    ],
+    "exit_code": 255,
+    "stdout": "",
+    "stderr": "type-check is not a mode of sysml.\n"
+  },
+  {
+    "command": [
+      "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/sireum",
+      "hamr",
+      "sysml",
+      "logika",
+      "--help"
+    ],
+    "exit_code": 0,
+    "stdout": "Sireum HAMR SysML v2 Logika Verifier\n\nUsage: <option>* <sysmlv2-file>*\n\nAvailable Options:\n    --integration-feedback-only\n                          Only output integration feedback\n    --exclude            Sourcepath exclusion as URI segment (expects a string\n                           separated by \",\")\n    --feedback           Feedback output directory (expects a path)\n    --sourcepath         Source paths of SysML v2 .sysml files (expects path\n                           strings)\n    --parseable-messages Print parseable file messages\n-h, --help               Display this information\n\nApproximation Options:\n    --c-bitwidth         Bit-width representation for C (character) values\n                           (expected 8, 16, or 32) (expects an integer; default\n                           is 32)\n    --fp-rounding        Rounding mode for floating point numbers (expects one\n                           of { NearestTiesToEven, NearestTiesToAway,\n                           TowardPositive, TowardNegative, TowardZero };\n                           default: NearestTiesToEven)\n    --use-real           Use reals to approximate floating-point numbers\n    --z-bitwidth         Bit-width representation for Z (integer) values\n                           (expected 0, 8, 16, 32, 64) (expects an integer;\n                           default is 0)\n\nControl Options:\n    --interprocedural    Enable inter-procedural verification on\n                           non-strict-pure methods\n    --interprocedural-contracts\n                          Use contracts in inter-procedural verification\n    --strictpure-mode    Strict-pure method treatment mode in\n                           compositional/interprocedural verification (expects\n                           one of { default, flip, uninterpreted }; default:\n                           default)\n    --line               Focus verification to the specified program line\n                           number (expects an integer; min is 0; default is 0)\n    --loop-bound         Loop bound for inter-procedural verification (expects\n                           an integer; min is 1; default is 3)\n    --recursive-bound    Recursive call-chain bound for inter-procedural\n                           verification (expects an integer; min is 1; default\n                           is 3)\n    --pattern-inexhaustive\n                          Disable pattern exhaustiveness checking\n    --pure-proof-fun     Always add proof functions for pure methods\n    --sat                Enable assumption satisfiability checking\n    --skip-methods       Skip checking methods with the specified\n                           fully-qualified names or identifiers (expects a\n                           string separated by \",\")\n    --skip-types         Skip checking traits, classes, and objects with the\n                           specified fully-qualified names or identifiers\n                           (expects a string separated by \",\")\n\nLogging Options:\n    --log-pc             Display path conditions before each statement\n    --log-pc-lines       Display At(...) path condition line numbers and unique\n                           symbolic value numbering\n    --log-raw-pc         Display raw path conditions before each statement\n    --log-vc             Display all verification conditions\n    --log-vc-dir         Write all verification conditions in a directory\n                           (expects a path)\n    --log-detailed-info  Display detailed feedback information\n    --log-rewrite-at     Disable At(...) rewriting as In(...)/Old(...) in\n                           symexe mode\n    --stats              Collect verification statistics\n\nOptimizations Options:\n-p, --par                Enable parallelization (with CPU cores percentage to\n                           use) (accepts an optional integer; min is 1; max is\n                           100; default is 100)\n    --par-branch         Enable branch parallelization\n    --par-branch-return  Only use branch parallelization if all branches return\n    --par-branch-pred-num\n                          Branch parallelization prediction minimum number of\n                           branches (expects an integer; min is 3; default is\n                           2)\n    --par-branch-pred-complexity\n                          Branch parallelization prediction statement\n                           complexity (expects an integer; min is 0; default is\n                           16)\n    --par-rw             Enable rewriting parallelization\n\nPath Splitting Options:\n    --dont-split-pfq     Do not force splitting in quantifiers and proof\n                           functions derived from @strictpure methods\n    --split-all          Split all\n    --split-contract     Split on contract cases\n    --split-if           Split on if-conditional expressions and statements\n    --split-match        Split on match expressions and statements\n\nRewriting Options:\n    --rw-max             Maximum number of rewriting (expects an integer; min\n                           is 1; default is 100)\n    --rw-trace           Disable rewriting trace\n    --rw-eval-trace      Disable evaluation rewriting trace\n\nSMT2 Options:\n    --elide-encoding     Strip out SMT2 encoding in feedback\n    --raw-inscription    Use raw sequent/sat preamble inscription\n    --rlimit             SMT2 solver resource limit (expects an integer; min is\n                           0; default is 2000000)\n    --smt2-seq           Disable SMT2 solvers parallelization\n    --simplify           Simplify SMT2 query (experimental)\n    --solver-sat         SMT2 configurations for satisfiability queries\n                           (expects a string; default is \"z3\")\n    --solver-valid       SMT2 configurations for validity queries (expects a\n                           string; default is \"cvc4,--full-saturate-quant; z3;\n                           cvc5,--full-saturate-quant\")\n    --sat-timeout        Use validity checking timeout for satisfiability\n                           checking (otherwise: 500ms)\n-t, --timeout            Timeout (seconds) for validity checking (expects an\n                           integer; min is 1; default is 2)\n    --search-pc          Search path conditions first before employing SMT2\n                           solvers when discharging VCs\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/sireum",
+      "hamr",
+      "sysml",
+      "codegen",
+      "--help"
+    ],
+    "exit_code": 0,
+    "stdout": "Sireum HAMR SysML v2 Code Generator\n\nUsage: <option>* [<sysmlv2-file>]\n\nAvailable Options:\n    --sourcepath         Source paths of SysML v2 .sysml files (expects path\n                           strings)\n    --line               Line number containing the system to instantiate in\n                           the <sysmlv2-file> argument (expects an integer; min\n                           is 0; default is 0)\n    --system-name        Fully qualified name of the system to instantiate\n                           (expects a string)\n-v, --verbose            Enable verbose mode\n-m, --runtime-monitoring    \n                          Enable runtime monitoring\n-p, --platform           Target platform (expects one of { JVM, Linux, Cygwin,\n                           MacOS, seL4, seL4_Only, seL4_TB, Microkit, ros2 };\n                           default: JVM)\n-o, --output-dir         Default output directory (expects a path)\n    --parseable-messages Print parseable file messages\n-h, --help               Display this information\n\nSlang Options:\n    --slang-output-dir   Output directory for the generated Slang project files\n                           (expects a path)\n-n, --package-name       Base package name for Slang project (expects a string;\n                           default is \"base\")\n    --no-proyek-ive      Do not run Proyek IVE\n    --no-embed-art       Do not embed ART project files\n    --devices-as-thread  Treat AADL devices as threads\n    --sbt-mill           Generate SBT and Mill projects in addition to Proyek\n\nTranspiler Options:\n    --aux-code-dirs      Auxiliary C source code directories (expects path\n                           strings)\n    --output-c-dir       Output directory for C artifacts (expects a path)\n-e, --exclude-component-impl    \n                          Exclude Slang component implementations, behavior\n                           code written in C\n-b, --bit-width          Default bit-width for unbounded integer types (e.g.,\n                           Z) (expects one of { 64, 32, 16, 8 })\n-s, --max-string-size    \n                          Size for statically allocated strings (expects an\n                           integer; default is 100)\n-a, --max-array-size     Default sequence size (e.g., for ISZ, MSZ (expects an\n                           integer; default is 100)\n-t, --run-transpiler     Run Transpiler during HAMR Codegen\n\nCAmkES/Microkit Options:\n    --sel4-output-dir    Output directory for the generated CAmkES/Microkit\n                           project files (expects a path)\n    --sel4-aux-code-dirs Directories containing C files to be included in\n                           CAmkES/Microkit build (expects path strings)\n-r, --workspace-root-dir    \n                          Root directory containing the architectural model\n                           project (expects a path)\n\nROS2 Options:\n    --strict-aadl-mode   Whether to generate strictly AADL-compliant code or\n                           not (will probably become obsolete soon)\n    --ros2-output-workspace-dir\n                          The path to the ROS2 workspace to generate the\n                           packages into (expects a path)\n-r, --ros2-dir           The path to your ROS2 installation, including the\n                           version (../ros/humble) (expects a path)\n-p, --ros2-nodes-language    \n                          The programming language for the generated node files\n                           (expects one of { Python, Cpp }; default: Python)\n-p, --ros2-launch-language    \n                          The programming language for the launch file (expects\n                           one of { Python, Xml }; default: Python)\n    --invert-topic-binding\n                          By default, topic names are based on in ports, and\n                           fan out ports would have multiple publishers.  This\n                           option inverts that behavior.\n\nExperimental Options:\n-x, --experimental-options    \n                           (expects a string separated by \";\")\n",
+    "stderr": ""
+  }
+]

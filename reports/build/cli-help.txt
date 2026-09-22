@@ -1,0 +1,20 @@
+usage: inspecta-scp [-h] [--state-dir STATE_DIR] [--json]
+                    {onboard,doctor,resolve,check,run,learn,status,report,logs,pause,resume,stop,execute,compare,dataset}
+                    ...
+
+INSPECTA/SCP controller foundation; see onboard for capability status
+
+positional arguments:
+  {onboard,doctor,resolve,check,run,learn,status,report,logs,pause,resume,stop,execute,compare,dataset}
+    onboard             Show implemented capabilities and remaining gates
+    doctor              Inspect selected local tools without installing or
+                        invoking models
+    resolve             Resolve configuration without creating a run
+    compare             Offline lexical comparison; never acceptance
+    dataset             Lineage grouping of reviewed metadata; no semantic
+                        independence claim
+
+options:
+  -h, --help            show this help message and exit
+  --state-dir STATE_DIR
+  --json                Emit the same structured result used by clients

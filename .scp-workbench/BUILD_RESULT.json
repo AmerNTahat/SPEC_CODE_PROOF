@@ -1,0 +1,73 @@
+{
+  "status": "partial",
+  "live_demo_status": "blocked",
+  "cli_executable": "inspecta-scp",
+  "milestones": {
+    "M00": "completed",
+    "M01": "partial",
+    "M02": "partial",
+    "M03": "not_implemented",
+    "M04": "not_implemented",
+    "M05": "not_implemented",
+    "M06": "not_implemented",
+    "M07": "blocked",
+    "M08": "partial_checkpoint_only"
+  },
+  "evidence": [
+    {
+      "path": "docs/repository-audit.md",
+      "sha256": "9a1af755b4fdcc5e87e08e6a5015aaf8eddafc98f17b9d05230ae5fe6fcc1e82"
+    },
+    {
+      "path": "reports/build/runtime-repair.json",
+      "sha256": "805d6fe302157ca5aec910fa05631ffdf01fac430ddc05f89233d5e9ad0b73eb"
+    },
+    {
+      "path": "reports/build/handoff-integrity.json",
+      "sha256": "cafcdd458468188392a0103fa898cf6ae6634549b36e4d3be24af0c977d5c2e1"
+    },
+    {
+      "path": "reports/build/goal-install-receipt.json",
+      "sha256": "fd23db95e92a1c1e04da8be7e7d18bf47be9d04697c18a2365a276f384213353"
+    },
+    {
+      "path": "reports/build/toolchain.lock.json",
+      "sha256": "66737f67e7139be8fef63158ab423df2a2d201805cf6736e725aa6bea4dc4a60"
+    },
+    {
+      "path": "reports/build/application-tests.log",
+      "sha256": "b9ecf1c36ddf2330f3f6d9180ff23068a9a1384a6589ab8af28cc7727e9dec6c"
+    },
+    {
+      "path": "reports/build/support-tests.log",
+      "sha256": "e388c7816448b9d9cc10eac158589f5d2aba1696d96594fdaad544548fb95a19"
+    },
+    {
+      "path": "reports/build/real-worker-integration.json",
+      "sha256": "8499aef707366fde797ac73353385f094d7b903a5e831154e42f3248ba6ed589"
+    },
+    {
+      "path": "reports/build/preservation-check.json",
+      "sha256": "90cff938a7c72db659b378922623105a58f8c1019d5f2c69bb96805c092596af"
+    },
+    {
+      "path": "reports/demo/DEMO_REPORT.md",
+      "sha256": "06b2f775a145f4ec65f57deb48924f1739bd9759bf919cfb0457397ab6f37c6c"
+    },
+    {
+      "path": "workbench/README.md",
+      "sha256": "f9ed499a49a5f812960390c349b22e82756df347cf2719f5982b96776d20ac90"
+    }
+  ],
+  "budget": {
+    "build_tokens": null,
+    "build_billing": null,
+    "demo_model_calls": 0,
+    "demo_model_tokens": 0
+  },
+  "limitations": [
+    "Controller foundation only; complete Workbench not delivered.",
+    "No formal verification acceptance or live learning demo.",
+    "No published rule release, UI, attestation or accepted repair promotion."
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "format": "inspecta-toolchain-lock-v1",
+  "status": "PARTIALLY_VALIDATED",
+  "codex": {
+    "tool": "codex",
+    "path": "/home/amertahat/SPEC_CODE_PROOF/codex-155",
+    "real_path": "/home/amertahat/SPEC_CODE_PROOF/codex-155",
+    "source": "explicit_cli",
+    "exists": true,
+    "executable": true,
+    "status": "REUSE_CLI_READY",
+    "probe": "COMPLETED",
+    "sha256": "0753dfe1d8b87a52436deb13eb1c549661ef4c84fee2c5aa688385eebeccb761",
+    "version": "0.155.1",
+    "version_output": "codex-cli 0.155.1\nWARNING: proceeding, even though we could not create PATH aliases: Read-only file system (os error 30)",
+    "expected_version": "0.155.*",
+    "probes": [
+      {
+        "command": [
+          "/home/amertahat/SPEC_CODE_PROOF/codex-155",
+          "--version"
+        ],
+        "returncode": 0,
+        "output": "codex-cli 0.155.1\nWARNING: proceeding, even though we could not create PATH aliases: Read-only file system (os error 30)\n"
+      },
+      {
+        "command": [
+          "/home/amertahat/SPEC_CODE_PROOF/codex-155",
+          "--help"
+        ],
+        "returncode": 0,
+        "output": "Codex CLI\n\nIf no subcommand is specified, options will be forwarded to the interactive CLI.\n\nUsage: codex [OPTIONS] [PROMPT]\n       codex [OPTIONS] <COMMAND> [ARGS]\n\nCommands:\n  agents            Browse all agent sessions on the shared local app-server daemon\n  exec              Run Codex non-interactively [aliases: e]\n  review            Run a code review non-interactively\n  login             Manage login\n  logout            Remove stored authentication credentials\n  mcp               Manage external MCP servers for Codex\n  plugin            Manage Codex plugins\n  app-server        [experimental] Run the app server or related tooling\n  remote-control    [experimental] Manage the app-server daemon with remote control enabled\n  completion        Generate shell completion scripts\n  update            Update Codex to the latest version\n  doctor            Diagnose local Codex installation, config, auth, and runtime health\n  sandbox           Run commands within a Codex-provided sandbox\n  debug             Debugging tools\n  apply             Apply the latest diff produced by Codex agent as a `git apply` to your local\n                    working tree [aliases: a]\n  resume            Resume a previous interactive session (picker by default; use --last to continue\n                    the most recent)\n  queue             Queue a message for an existing session\n  archive           Archive a saved session by id or session name\n  delete            Permanently delete a saved session by id or session name\n  migrate-rollouts  Inspect or migrate legacy local sessions to paginated thread history\n  unarchive         Unarchive a saved session by id or session name\n  fork              Fork a previous interactive session (picker by default; use --last to fork the\n                    most recent)\n  cloud             [EXPERIMENTAL] Browse tasks from Codex Cloud and apply changes locally\n  exec-server       [EXPERIMENTAL] Run the standalone exec-server service\n  features          Inspect feature flags\n  help              Print this message or the help of the given subcommand(s)\n\nArguments:\n  [PROMPT]\n          Optional user prompt to start the session\n\nOptions:\n  -c, --config <key=value>\n          Override a configuration value that would otherwise be loaded from `~/.codex/config.toml`.\n          Use a dotted path (`foo.bar.baz`) to override nested values. The `value` portion is parsed\n          as TOML. If it fails to parse as TOML, the raw string is used as a literal.\n          \n          Examples: - `-c model=\"o3\"` - `-c 'sandbox_permissions=[\"disk-full-read-access\"]'` - `-c\n          shell_environment_policy.inherit=all`\n\n      --enable <FEATURE>\n          Enable a feature (repeatable). Equivalent to `-c features.<name>=true`\n\n      --disable <FEATURE>\n          Disable a feature (repeatable). Equivalent to `-c features.<name>=false`\n\n      --remote <ADDR>\n          Connect the TUI to a remote app server endpoint.\n          \n          Accepted forms: `ws://host:port`, `wss://host:port`, `unix://`, or `unix://PATH`.\n\n      --remote-auth-token-env <ENV_VAR>\n          Name of the environment variable containing the bearer token to send to a remote app\n          server websocket\n\n      --strict-config\n          Error out when config.toml contains fields that are not recognized by this version of\n          Codex\n\n  -i, --image <FILE>...\n          Optional image(s) to attach to the initial prompt\n\n  -m, --model <MODEL>\n          Model the agent should use\n\n      --oss\n          Use open-source provider\n\n      --local-provider <OSS_PROVIDER>\n          Specify which local provider to use (lmstudio or ollama). If not specified with --oss,\n          will use config default or show selection\n\n  -p, --profile <CONFIG_PROFILE_V2>\n          Layer $CODEX_HOME/<name>.config.toml on top of the base user config\n\n  -s, --sandbox <SANDBOX_MODE>\n          Select the sandbox policy to use when executing model-generated shell commands\n          \n          [possible values: read-only, workspace-write, danger-full-access]\n\n      --approve-for-me\n          Route approval requests through automatic review using the workspace-write sandbox\n\n      --dangerously-bypass-approvals-and-sandbox\n          Skip all confirmation prompts and execute commands without sandboxing. EXTREMELY\n          DANGEROUS. Intended solely for running in environments that are externally sandboxed\n\n      --dangerously-bypass-hook-trust\n          Run enabled hooks without requiring persisted hook trust for this invocation. DANGEROUS.\n          Intended only for automation that already vets hook sources\n\n  -C, --cd <DIR>\n          Tell the agent to use the specified directory as its working root\n\n      --worktree\n          Run the session in a new managed Git worktree\n\n      --add-dir <DIR>\n          Additional directories that should be writable alongside the primary workspace\n\n  -a, --ask-for-approval <APPROVAL_POLICY>\n          Configure when the model requires human approval before executing a command\n\n          Possible values:\n          - on-request: The model decides when to ask the user for approval\n          - never:      Never ask for user approval Execution failures are immediately returned to\n            the model\n\n      --search\n          Enable live web search. When enabled, the native Responses `web_search` tool is available\n          to the model (no per\u2011call approval)\n\n      --no-alt-screen\n          Disable alternate screen mode\n          \n          Runs the TUI in inline mode, preserving terminal scrollback history.\n\n  -h, --help\n          Print help (see a summary with '-h')\n\n  -V, --version\n          Print version\nWARNING: proceeding, even though we could not create PATH aliases: Read-only file system (os error 30)\n"
+      },
+      {
+        "command": [
+          "/home/amertahat/SPEC_CODE_PROOF/codex-155",
+          "exec",
+          "--help"
+        ],
+        "returncode": 0,
+        "output": "Run Codex non-interactively\n\nUsage: codex exec [OPTIONS] [PROMPT]\n       codex exec [OPTIONS] <COMMAND> [ARGS]\n\nCommands:\n  resume  Resume a previous session by id or pick the most recent with --last\n  fork    Fork a previous session by id into a new session\n  review  Run a code review against the current repository\n  help    Print this message or the help of the given subcommand(s)\n\nArguments:\n  [PROMPT]\n          Initial instructions for the agent. If not provided as an argument (or if `-` is used),\n          instructions are read from stdin. If stdin is piped and a prompt is also provided, stdin\n          is appended as a `<stdin>` block\n\nOptions:\n  -c, --config <key=value>\n          Override a configuration value that would otherwise be loaded from `~/.codex/config.toml`.\n          Use a dotted path (`foo.bar.baz`) to override nested values. The `value` portion is parsed\n          as TOML. If it fails to parse as TOML, the raw string is used as a literal.\n          \n          Examples: - `-c model=\"o3\"` - `-c 'sandbox_permissions=[\"disk-full-read-access\"]'` - `-c\n          shell_environment_policy.inherit=all`\n\n      --enable <FEATURE>\n          Enable a feature (repeatable). Equivalent to `-c features.<name>=true`\n\n      --disable <FEATURE>\n          Disable a feature (repeatable). Equivalent to `-c features.<name>=false`\n\n      --strict-config\n          Error out when config.toml contains fields that are not recognized by this version of\n          Codex\n\n  -i, --image <FILE>...\n          Optional image(s) to attach to the initial prompt\n\n  -m, --model <MODEL>\n          Model the agent should use\n\n      --oss\n          Use open-source provider\n\n      --local-provider <OSS_PROVIDER>\n          Specify which local provider to use (lmstudio or ollama). If not specified with --oss,\n          will use config default or show selection\n\n  -p, --profile <CONFIG_PROFILE_V2>\n          Layer $CODEX_HOME/<name>.config.toml on top of the base user config\n\n  -s, --sandbox <SANDBOX_MODE>\n          Select the sandbox policy to use when executing model-generated shell commands\n          \n          [possible values: read-only, workspace-write, danger-full-access]\n\n      --approve-for-me\n          Route approval requests through automatic review using the workspace-write sandbox\n\n      --dangerously-bypass-approvals-and-sandbox\n          Skip all confirmation prompts and execute commands without sandboxing. EXTREMELY\n          DANGEROUS. Intended solely for running in environments that are externally sandboxed\n\n      --dangerously-bypass-hook-trust\n          Run enabled hooks without requiring persisted hook trust for this invocation. DANGEROUS.\n          Intended only for automation that already vets hook sources\n\n  -C, --cd <DIR>\n          Tell the agent to use the specified directory as its working root\n\n      --worktree\n          Run the session in a new managed Git worktree\n\n      --add-dir <DIR>\n          Additional directories that should be writable alongside the primary workspace\n\n      --thread-source <SOURCE>\n          Source classification for newly created or forked threads\n\n      --skip-git-repo-check\n          Allow running Codex outside a Git repository\n\n      --ephemeral\n          Run without persisting session files to disk\n\n      --ignore-user-config\n          Do not load `$CODEX_HOME/config.toml`; auth still uses `CODEX_HOME`\n\n      --ignore-rules\n          Do not load user or project execpolicy `.rules` files\n\n      --output-schema <FILE>\n          Path to a JSON Schema file describing the model's final response shape\n\n      --color <COLOR>\n          Specifies color settings for use in the output\n          \n          [default: auto]\n          [possible values: always, never, auto]\n\n      --json\n          Print events to stdout as JSONL\n\n  -o, --output-last-message <FILE>\n          Specifies file where the last message from the agent should be written\n\n  -h, --help\n          Print help (see a summary with '-h')\n\n  -V, --version\n          Print version\nWARNING: proceeding, even though we could not create PATH aliases: Read-only file system (os error 30)\n"
+      }
+    ],
+    "reason": "Requested version and required CLI surface passed local probes.",
+    "authentication": "NOT_CHECKED",
+    "astra_access": "NOT_CHECKED",
+    "engineering_smoke_tests": "NOT_RUN"
+  },
+  "sireum": {
+    "tool": "sireum",
+    "path": "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/sireum",
+    "real_path": "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/sireum",
+    "source": "environment_SIREUM_HOME",
+    "exists": true,
+    "executable": true,
+    "status": "REUSE_CANDIDATE_NEEDS_SMOKE_TESTS",
+    "probe": "NOT_RUN",
+    "home": "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian",
+    "jar_present": true,
+    "source_checkout_present": true,
+    "engineering_smoke_tests": "NOT_RUN",
+    "required_action": "Run selected-project KSU smoke checks; reuse if they pass.",
+    "sha256": "6333d4e737064b6db470bcb85863a997675182470eb5d4d763bd806487c8d952",
+    "jar_sha256": "cac598547221ef4cda977af304bfd697207e984cd86616d12587c2cf86754d04"
+  },
+  "python": {
+    "path": "/home/amertahat/SPEC_CODE_PROOF/.venv/bin/python",
+    "version": "3.11.11"
+  },
+  "model": {
+    "requested": "astra",
+    "resolved_from_cached_metadata": "gpt-6-astra",
+    "access": "NOT_LIVE_VALIDATED",
+    "authenticated": true
+  },
+  "profiles": {
+    "current-native": {
+      "status": "PARTIALLY_VALIDATED",
+      "typechecks": [
+        "isolette",
+        "producer-consumer"
+      ],
+      "proof": "NOT_RUN",
+      "codegen": "NOT_RUN",
+      "build": "NOT_RUN",
+      "isolated_producer_consumer_typecheck": "PASS",
+      "isolated_seeded_fault_detection": "PASS",
+      "isolated_pause_resume": "PASS",
+      "isolette_codegen": "EXIT_ZERO_WITH_WARNINGS",
+      "isolette_logika": "EXIT_ZERO_NO_OBLIGATION_EVIDENCE"
+    },
+    "reference": {
+      "status": "NOT_VALIDATED",
+      "image_digest": null
+    }
+  },
+  "hard_token_cap": "UNSUPPORTED_BY_INSPECTED_CLI_SURFACE",
+  "paid_demo_authorized": false,
+  "notes": [
+    "No model calls were launched. Token accounting for this implementation session is unavailable.",
+    "Typecheck success is not engineering acceptance. Isolette reports instantiation warnings and missing substituted data types.",
+    "Original bwrap symlink is retained at codex-resources/bwrap.before-v0.155.1-repair.",
+    "Nested network namespaces are denied by the outer Codex sandbox; real integration checks ran through approved escalation with the application sandbox intact.",
+    "Logika root and Monitor probes emitted warnings but no proof-obligation records were established. No formal verification PASS is recorded."
+  ]
+}

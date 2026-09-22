@@ -1,0 +1,8 @@
+{
+  ".gitignore": true,
+  "sireum_verification_plan.txt": true,
+  "isolette/sysml/goal_learn.txt": true,
+  "isolette/sysml/goal_user.txt": true,
+  "tools/self_adapt.py": true,
+  "embedding_distance.py": true
+}

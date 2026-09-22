@@ -1,0 +1,21 @@
+{
+  "status": "applied",
+  "changed": [
+    {
+      "name": "goal_learn.txt",
+      "target": "SCP-extention-artificats/isolette_io_extnded/goal_learn.txt",
+      "before_sha256": null,
+      "after_sha256": "0b26439b3c736a96e7ddfd0b3ea4067ee756a84506b0f62606948c3bf42b24dd",
+      "action": "create"
+    },
+    {
+      "name": "goal_user.txt",
+      "target": "SCP-extention-artificats/isolette_io_extnded/goal_user.txt",
+      "before_sha256": null,
+      "after_sha256": "6b41a47c130bedcb9828a220e8149248eb523d56805ca4b8144e4ce084459831",
+      "action": "create"
+    }
+  ],
+  "backup_directory": "/home/amertahat/SPEC_CODE_PROOF/.scp-handoff/goal-backups/c8fbec1a575a43c89aa623dadbaa26e5",
+  "scope": "Two workflow goals only; not an application installation or validation."
+}

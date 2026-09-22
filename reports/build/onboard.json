@@ -1,0 +1,25 @@
+{
+  "status": "IMPLEMENTATION_IN_PROGRESS",
+  "paid_execution": "DISABLED",
+  "implemented": [
+    "config resolution",
+    "allowlisted snapshots",
+    "durable runs/events",
+    "pause/stop requests",
+    "resume without resetting budgets",
+    "typecheck adapter",
+    "lexical diagnostics",
+    "metadata-level dataset proposals"
+  ],
+  "remaining": [
+    "generation/learning isolation",
+    "rulebook import/release service",
+    "transactional repairs",
+    "proof/build and architecture adapters",
+    "React UI",
+    "attestation",
+    "live demonstrations"
+  ],
+  "start": "./inspecta-scp --json doctor; ./inspecta-scp --json check --offline --config workbench/profiles/producer-consumer.check.json",
+  "limits": "Nested worker isolation may be unavailable in this Codex sandbox. Failure blocks; it never runs without isolation."
+}

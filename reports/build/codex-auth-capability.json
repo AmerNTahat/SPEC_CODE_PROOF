@@ -1,0 +1,15 @@
+{
+  "command": [
+    "./codex-155",
+    "login",
+    "status"
+  ],
+  "exit_code": 0,
+  "authenticated": true,
+  "credentials_printed": false,
+  "model_access": "NOT_CHECKED",
+  "cached_astra_identifiers": [
+    "gpt-6-astra"
+  ],
+  "model_cache_scope": "Cached metadata only; not a live authorization or paid capability check."
+}

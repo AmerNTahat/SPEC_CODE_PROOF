@@ -1,0 +1,21 @@
+{
+  "format": "scp-goal-install-plan-v2",
+  "repository": "/home/amertahat/SPEC_CODE_PROOF",
+  "entries": [
+    {
+      "name": "goal_learn.txt",
+      "target": "SCP-extention-artificats/isolette_io_extnded/goal_learn.txt",
+      "before_sha256": null,
+      "after_sha256": "0b26439b3c736a96e7ddfd0b3ea4067ee756a84506b0f62606948c3bf42b24dd",
+      "action": "create"
+    },
+    {
+      "name": "goal_user.txt",
+      "target": "SCP-extention-artificats/isolette_io_extnded/goal_user.txt",
+      "before_sha256": null,
+      "after_sha256": "6b41a47c130bedcb9828a220e8149248eb523d56805ca4b8144e4ce084459831",
+      "action": "create"
+    }
+  ],
+  "warning": "Review the diff and local edits before explicitly applying. No other files are replaced."
+}

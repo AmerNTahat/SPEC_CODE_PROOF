@@ -1,0 +1,10 @@
+{
+  "ok": false,
+  "errors": [
+    "Build status is not ready: partial",
+    "Live demo has not completed"
+  ],
+  "status": "partial",
+  "live_demo_status": "blocked",
+  "scope": "Checks receipt/linked-file identities, not independent truth of engineering claims or authenticity of signer."
+}

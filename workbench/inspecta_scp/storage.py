@@ -1,0 +1,179 @@
+"""SQLite event/state transactions and content-addressed evidence."""
+from __future__ import annotations
+
+import hashlib
+import json
+import os
+from pathlib import Path
+import sqlite3
+import time
+import uuid
+
+from .config import PolicyError, canonical
+
+
+def sha_file(path):
+    h = hashlib.sha256()
+    with Path(path).open("rb") as stream:
+        for block in iter(lambda: stream.read(1048576), b""):
+            h.update(block)
+    return h.hexdigest()
+
+
+def safe_child(root, relative):
+    root = Path(root).resolve()
+    p = root / relative
+    if Path(relative).is_absolute() or ".." in Path(relative).parts:
+        raise PolicyError("Path escapes root")
+    for part in [p, *p.parents]:
+        if part == root:
+            break
+        if part.is_symlink():
+            raise PolicyError("Symlinks are not permitted in run inputs or state")
+    try:
+        p.resolve().relative_to(root)
+    except ValueError as exc:
+        raise PolicyError("Path escapes root") from exc
+    return p
+
+
+class Store:
+    def __init__(self, root):
+        self.root = Path(root).absolute()
+        if any(p.is_symlink() for p in [self.root, *self.root.parents]):
+            raise PolicyError("State path must not contain symlinks")
+        self.root.mkdir(parents=True, exist_ok=True)
+        for name in ("runs", "objects"):
+            safe_child(self.root, name).mkdir(exist_ok=True)
+        db = safe_child(self.root, "workbench.sqlite3")
+        self.db = sqlite3.connect(db, timeout=10, isolation_level=None)
+        self.db.row_factory = sqlite3.Row
+        self.db.executescript("""
+          PRAGMA journal_mode=WAL;
+          CREATE TABLE IF NOT EXISTS runs (
+            id TEXT PRIMARY KEY, state TEXT NOT NULL, config TEXT NOT NULL,
+            config_hash TEXT NOT NULL, created REAL NOT NULL, deadline REAL NOT NULL,
+            used_tokens INTEGER NOT NULL DEFAULT 0, usage_unknown INTEGER NOT NULL DEFAULT 0,
+            reserved_tokens INTEGER NOT NULL DEFAULT 0, worker INTEGER,
+            result TEXT, version INTEGER NOT NULL DEFAULT 0);
+          CREATE TABLE IF NOT EXISTS events (
+            id INTEGER PRIMARY KEY AUTOINCREMENT, run_id TEXT NOT NULL,
+            timestamp REAL NOT NULL, kind TEXT NOT NULL, payload TEXT NOT NULL);
+          CREATE TABLE IF NOT EXISTS reservations (
+            id TEXT PRIMARY KEY, run_id TEXT NOT NULL, tokens INTEGER NOT NULL,
+            settled INTEGER NOT NULL DEFAULT 0);
+        """)
+
+    def close(self):
+        self.db.close()
+
+    def event(self, run_id, kind, payload):
+        self.db.execute("INSERT INTO events(run_id,timestamp,kind,payload) VALUES(?,?,?,?)",
+                        (run_id, time.time(), kind, canonical(payload)))
+
+    def get(self, run_id):
+        row = self.db.execute("SELECT * FROM runs WHERE id=?", (run_id,)).fetchone()
+        if row is None:
+            raise PolicyError("Unknown run")
+        result = dict(row)
+        result["config"] = json.loads(result["config"])
+        result["result"] = json.loads(result["result"]) if result["result"] else None
+        result["remaining_seconds"] = max(0, result["deadline"] - time.time())
+        result["remaining_tokens"] = (None if result["usage_unknown"] else max(
+            0, result["config"]["budget"]["aggregate_model_tokens"] - result["used_tokens"] - result["reserved_tokens"]))
+        return result
+
+    def create(self, resolved):
+        run_id = uuid.uuid4().hex
+        now = time.time()
+        self.db.execute("BEGIN IMMEDIATE")
+        try:
+            self.db.execute("INSERT INTO runs(id,state,config,config_hash,created,deadline) VALUES(?,?,?,?,?,?)",
+                            (run_id, "CREATED", canonical(resolved["config"]), resolved["config_sha256"], now,
+                             now + resolved["config"]["budget"]["wall_seconds"]))
+            self.event(run_id, "created", resolved)
+            self.db.execute("COMMIT")
+        except BaseException:
+            self.db.execute("ROLLBACK")
+            raise
+        folder = safe_child(self.root, "runs/" + run_id)
+        folder.mkdir()
+        (folder / "resolved-config.json").write_text(canonical(resolved) + "\n")
+        return run_id
+
+    def change(self, run_id, expected, state, payload=None, worker=None):
+        self.db.execute("BEGIN IMMEDIATE")
+        try:
+            old = self.get(run_id)
+            if old["state"] not in expected:
+                raise PolicyError("Transition is not valid from " + old["state"])
+            self.db.execute("UPDATE runs SET state=?,worker=?,version=version+1 WHERE id=?",
+                            (state, worker, run_id))
+            self.event(run_id, "state", {"from": old["state"], "to": state, **(payload or {})})
+            self.db.execute("COMMIT")
+        except BaseException:
+            self.db.execute("ROLLBACK")
+            raise
+
+    def object(self, value):
+        data = canonical(value).encode()
+        digest = hashlib.sha256(data).hexdigest()
+        p = safe_child(self.root, "objects/" + digest + ".json")
+        try:
+            with p.open("xb") as stream:
+                stream.write(data)
+        except FileExistsError:
+            if p.read_bytes() != data:
+                raise PolicyError("Content-addressed evidence was modified")
+        return {"sha256": digest, "path": str(p.relative_to(self.root))}
+
+    def events(self, run_id):
+        self.get(run_id)
+        return [{**dict(row), "payload": json.loads(row["payload"])} for row in
+                self.db.execute("SELECT * FROM events WHERE run_id=? ORDER BY id", (run_id,))]
+
+    def reserve(self, run_id, tokens):
+        if type(tokens) is not int or tokens <= 0:
+            raise PolicyError("Positive reservation required")
+        self.db.execute("BEGIN IMMEDIATE")
+        try:
+            run = self.get(run_id)
+            if run["state"] != "RUNNING" or run["remaining_seconds"] <= 0:
+                raise PolicyError("Run is not executing within its deadline")
+            if self.db.execute("SELECT 1 FROM reservations WHERE run_id=? AND settled=0", (run_id,)).fetchone():
+                raise PolicyError("A model reservation is already in flight")
+            if run["remaining_tokens"] is None or tokens > run["remaining_tokens"]:
+                raise PolicyError("Budget unavailable or exhausted")
+            reservation = uuid.uuid4().hex
+            self.db.execute("INSERT INTO reservations VALUES(?,?,?,0)", (reservation, run_id, tokens))
+            self.db.execute("UPDATE runs SET reserved_tokens=reserved_tokens+? WHERE id=?", (tokens, run_id))
+            self.event(run_id, "reserved", {"reservation": reservation, "tokens": tokens})
+            self.db.execute("COMMIT")
+            return reservation
+        except BaseException:
+            self.db.execute("ROLLBACK")
+            raise
+
+    def settle(self, reservation, usage):
+        if usage is not None:
+            for key in ("input_tokens", "output_tokens", "cached_input_tokens"):
+                if type(usage.get(key)) is not int or usage[key] < 0:
+                    raise PolicyError("Invalid usage")
+            if usage["cached_input_tokens"] > usage["input_tokens"]:
+                raise PolicyError("Cached input is a subset of input")
+        self.db.execute("BEGIN IMMEDIATE")
+        try:
+            row = self.db.execute("SELECT * FROM reservations WHERE id=?", (reservation,)).fetchone()
+            if row is None or row["settled"]:
+                raise PolicyError("Unknown or already settled reservation")
+            total = usage["input_tokens"] + usage["output_tokens"] if usage is not None else 0
+            self.db.execute("UPDATE runs SET used_tokens=used_tokens+?,reserved_tokens=reserved_tokens-?,usage_unknown=MAX(usage_unknown,?) WHERE id=?",
+                            (total, row["tokens"], int(usage is None), row["run_id"]))
+            self.db.execute("UPDATE reservations SET settled=1 WHERE id=?", (reservation,))
+            self.event(row["run_id"], "usage", {"reservation": reservation, "usage": usage,
+                       "known_total": total if usage is not None else None,
+                       "reservation_overshoot": max(0, total - row["tokens"]) if usage is not None else None})
+            self.db.execute("COMMIT")
+        except BaseException:
+            self.db.execute("ROLLBACK")
+            raise

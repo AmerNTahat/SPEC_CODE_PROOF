@@ -1,0 +1,11 @@
+Sireum HAMR SysML v2 Type Checker
+
+Usage: <option>* [<sysmlv2-file>]
+
+Available Options:
+-x, --exclude            Sourcepath exclusion as URI segment (expects a string
+                           separated by ",")
+-s, --sourcepath         Source paths of SysML v2 .sysml files (expects path
+                           strings)
+    --parseable-messages Print parseable file messages
+-h, --help               Display this information

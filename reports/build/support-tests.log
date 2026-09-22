@@ -1,0 +1,27 @@
+..................................................Comparison failed: [Errno 17] File exists: '/tmp/tmpy0nm_xru/out'
+..................................................
+----------------------------------------------------------------------
+Ran 100 tests in 2.219s
+
+OK
+## M00 — completed
+
+Achieved:
+Fixture audit
+
+In progress:
+Next fixture step
+
+Remaining:
+M01
+
+Blockers:
+Not reported.
+
+Evidence:
+test.log — 70d44aca2e5ce5d1c31e42eecc902fac60d85cdbab053d30ef5d2fea7fb0948f
+
+Budget:
+Usage not reported.
+
+

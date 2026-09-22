@@ -1,0 +1,694 @@
+/goal
+
+Title: Continue, complete, extend, repair, or verify existing projects, and create
+new HAMR-compatible systems only when requested, using frozen full-stack rules
+
+Revision: 2026-09-22 / integrated-handoff-v2.0
+Status: Revised implementation goal; not a claim that the Workbench is implemented.
+Target path: SCP-extention-artificats/isolette_io_extnded/goal_user.txt
+Companion: goal_learn.txt from the same revision, used only for Learning Mode.
+
+Read this first
+==============
+
+Apply the approved persistent full-stack rulebook library to the engineering task
+actually requested. Do not rerun learning or modify the active knowledge release.
+Creation from scratch is an OPTIONAL operation, not the default.
+
+When supplied a codebase and asked to continue, complete, extend, repair, or verify
+it, work from its authorized models, contracts, implementation, proof support,
+tests, and configuration. Do not replace them with a freshly synthesized project.
+Creating a missing file does not change completion into whole-system creation.
+
+When creation from scratch is explicitly requested, create the new application in
+an isolated empty target workspace using permitted English/context, libraries, and
+rules. Do not delete or clear an existing project to satisfy a blank-project test.
+
+The requested scope defines completion. Code-only completion can preserve SysML and
+GUMBO; a proof repair can preserve executable logic. An explicitly requested whole
+system needs all of its required connected artifacts and gates. A scoped task does
+not require unrequested whole-system generation and does not imply global readiness.
+A recommendation or unexecuted command list cannot substitute for requested work.
+
+Core acceptance rule
+====================
+
+Preserve existing correct architecture, names, APIs, behavior, tests, and proof
+obligations except where the user-approved change requires an addition or correction.
+Do not freeze a known defect merely to preserve the input. Record the starting
+state, intended delta, protected scope, and acceptance policy before editing.
+
+For reconstruction, check structural equivalence under one scope-aware, role-
+preserving correspondence. Names may differ ONLY where permitted. For completion
+and extension, check the approved delta and unaffected structure rather than
+rejecting legitimate additions because the old project lacked them. Global name
+consistency applies to newly added entities and every authorized rename.
+
+Support for equivalence modulo renaming does not authorize renaming an existing
+codebase. Structure, requirement fidelity, implementation verification, tests, and
+build gates remain separate obligations. A passed scoped task does not establish
+that the full project is complete or that all behavior is equivalent.
+
+1. Configuration and execution
+==============================
+
+Select the project/input directory, output workspace, approved rule release,
+toolchain profile, task operation, assistance setting, naming/architecture policy,
+and budgets through the shared CLI/UI project configuration. Do not assume a
+personal absolute path, a specific IDE, or an existing target model.
+
+Task operations:
+auto: the default routing setting; inspect intent and approved inputs before writes.
+continue-project: continue the authorized existing project and requested remaining
+  workflow; do not interpret a to-do list as unlimited authority to change everything.
+complete-system: add declared missing model, contract, code, proof, test, or build
+  artifacts within the existing codebase. It need not be a model-completion task.
+extend-system: implement the approved feature or requirement delta while preserving
+  unaffected behavior, architecture, names, and interfaces.
+repair-system: correct the diagnosed authorized defect with a scoped change.
+verify-only: inspect and execute declared checks in a disposable copy, without
+  changing user source. Generated check outputs are confined to the run workspace.
+create-system: construct a new application ONLY on explicit request or approval of
+  a named creation experiment, never solely because a model or directory is missing.
+
+Resolve operation and per-artifact actions before generation:
+For a supplied project with a request to continue, use continue-project and identify
+specific requested gaps, repairs, or checks. Follow a more specific explicit task
+when one is given. Mixed tasks can preserve architecture, complete code, and repair
+proofs together within a recorded change scope. A missing SysML file in a code-only
+project is not permission to invent or regenerate a system model. If intent is
+insufficient to authorize edits, inspect and report the narrow missing decision;
+do not manufacture a new system to avoid resolving it.
+
+Naming policy:
+preserve-existing by default. New entities follow existing conventions and receive
+stable role bindings. Use consistent-internal-renaming only for an explicitly
+permitted naming/refactoring policy. Even a structurally equivalent rename is an
+unrequested change when the user's task does not authorize it.
+
+A scoped artifact task is labeled as such and cannot stand in for whole-system
+success. Task operation, Learning/User mode, and assistance are separate controls.
+
+Assistance:
+automatic by default, or interactive. Automatic mode may test ordinary authorized
+artifact repairs within budget. Interactive mode pauses for the user's repair
+suggestions. Neither can change requirements, protected structure, the approved
+rule release, or budget without the required approval.
+
+Model policy:
+GPT-family only; Astra is the primary configured model. Use the actually supported
+identifier. Do not silently substitute a non-GPT model. No Chinese models, Jev,
+fine-tuning, or local small-model deployment is required.
+
+Default run limits:
+20 minutes wall clock.
+1,000,000 aggregate model tokens.
+3 repair attempts per issue and 8 per run.
+One concurrent model call initially.
+20 percent of the time allowance reserved for final validation and packaging.
+All limits are user-configurable caps, not estimates of completion time.
+
+Accounting:
+Use the controller's shared budget across selection, interpretation, generation,
+confidence assessment, repairs, retries, and subagents. Include actual tool/runtime
+costs in reports. Avoid double-counting token subclasses. Require enforceable
+request limits for strict token mode; disclose and obtain approval for any
+best-effort mode with possible in-flight overshoot. Missing usage is unknown.
+
+Execution:
+Code owns invocation, filesystem permissions, checks, approvals, checkpoints,
+accounting, and evidence. Astra interprets and generates or proposes repairs.
+Use the validated, locked Sireum/Codex/toolchain profile. Discover actual installed
+commands and libraries, not obsolete copied paths. Install missing tools only
+through the approved setup workflow; do not count installation as completed
+verification or mutate the toolchain during a controlled comparison.
+
+2. Load an immutable combined and specialized rule release
+=========================================================
+
+Read the approved user-mode export manifest and validate its file identities,
+versions, dependencies, and compatible profiles. For a legacy release with no
+manifest, require a reviewed manifest containing only the intended approved files
+before proceeding; do not search evaluation folders for substitute knowledge.
+
+The release must explicitly cover the stages requested by the project:
+Requested-operation applicability and preservation/editing constraints.
+Existing-codebase completion, extension, and minimal-change patterns where relevant.
+Whole-system construction and archetype composition only when needed by the task.
+English interpretation and SysML/AADL structural patterns.
+GUMBO behavior, state, initialization, integration, and attachment.
+Target-specific code generation and developer-owned implementation patterns.
+Logika/Verus proof construction and repair.
+GumboX, property-based and independent testing patterns.
+Build/deployment procedures and cross-stack mappings.
+Diagnostic classification and approved reusable repair patterns.
+
+Retain the existing final-combined-process-meta-rule-book and specialized MR-* books
+as architecture-focused views when included. Do not assume they supply complete
+behavioral and code/proof guidance solely because their title says combined.
+Resolve the full-stack release explicitly.
+
+Load relevant rules and dependencies, not every book on every model call.
+Approved compact patterns and sanitized examples may be exported; raw learning
+logs, reference mappings, and evaluator outputs may not be substituted for rules.
+A new task's current diagnostics are legitimate User Mode context.
+
+Confidence:
+Display the release's original model-reported forecast and its assessment scope.
+Optionally obtain a new task-conditional forecast within budget, labeled separately.
+Do not overwrite the learning forecast or present it as measured success frequency.
+Neither confidence nor retrieval similarity waives a check.
+
+3. Protect inputs and distinguish reconstruction from new design
+===============================================================
+
+Approved inputs:
+Current user-requested English/context; permitted active project files; immutable
+exported rules/prompts/examples; common base libraries and tool documentation;
+approved architecture/design decisions; and current-run diagnostics.
+
+Protected answer data, not legitimate existing project inputs:
+Do not use raw learning histories, withheld completed solutions/patches, hidden
+reference models/AIR, evaluator mappings, hidden tests/results, prior answer
+workspaces, or unapproved external sources as generation context. This prohibition
+is role- and task-based: an authorized current project MAY contain complete or
+partial SysML/AADL, AIR/generated interfaces, working code, proofs, and tests.
+These are valid continuation inputs, not hidden answers merely because their names
+or content overlap the target. Existing visible tests remain usable; hidden
+acceptance tests stay evaluator-only. The full withheld final patch remains hidden
+in a completion/repair benchmark even though the starting codebase is visible.
+
+Enforce allowlists and isolation at the filesystem/process level, covering symlinks,
+parent paths, resumed sessions, history, and retrieval indexes. Restrict historical
+or side-channel answer access without deleting authorized current code. Naming a
+folder truth-values is not access control. Secret files remain excluded.
+
+Create-system input audit (only when creation is selected):
+Show that the empty target candidate workspace contains no target solution or
+architecture-bearing scaffold. Common AADL/HAMR libraries are permitted vocabulary;
+permitted source examples and parameterized rules must be declared. A scaffolded
+completion task must be labeled honestly instead of being reported from scratch.
+
+Existing-project input audit (continuation/completion/extension/repair/verification):
+Record the actual authorized starting revision and file hashes, including relevant
+uncommitted and untracked user work. Preserve that work in an isolated candidate
+snapshot; do not run destructive reset/clean operations or empty the project.
+Inspect entry points, models, contracts, code, tests, proof targets, build scripts,
+file ownership, and conventions needed for the task. Record a safe, budgeted
+baseline with current known failures and unknown checks. Do not infer intended
+requirements from tests or code alone without flagging that interpretation.
+
+Write operation-plan.json, input-workspace-manifest.json, baseline-results.json,
+and change-scope.json. Identify allowed edits, protected content, requested gaps,
+applicable gates, and any required approvals. Safely check source hashes before
+applying a final patch back to the user workspace; intervening changes require
+reconciliation, not overwrite.
+
+Architecture policies:
+
+reconstruction-equivalence:
+A reviewed reference exists. It can be an evaluator-only artifact. Compare the
+completed candidate through a trusted checker without exposing the hidden answer
+to the generator. A source-provided architecture specification may be used openly
+when that is the declared task; do not call this unassisted architecture inference.
+
+approved-change:
+A reviewed change contract describes the authorized completion, extension, or
+repair. Preserve unaffected known-correct obligations. Permit required additions
+and corrections without demanding equivalence to a defective/incomplete baseline.
+Check both the approved intended structure and the before/after delta. Do not label
+process splitting, flattening, or port-kind changes as mere renaming.
+
+new-design-conformance:
+No unique golden model is available or the requirements admit multiple designs.
+Use a reviewed source-backed architecture/requirement policy and safety invariants.
+Do not assert equivalence to a nonexistent reference or reject an allowed design
+only because one unspecified implementation chose a different decomposition.
+
+Final held-out mode:
+Keep evaluator-specific comparisons outside the repair loop. Ordinary local
+parser/verifier diagnostics are allowed as declared by the experiment. Revealing
+reference differences, mappings, or hidden scores makes the task development or
+assisted reconstruction and must be recorded as such.
+
+4. Interpret English and bind learned patterns before emitting code
+===================================================================
+
+Reuse the existing requirement ledger and trace links when available, checking
+their current evidence and scope. Otherwise derive the necessary ledger from
+approved sources for the requested task. Do not rebuild unaffected specifications
+as a prerequisite to a small code/proof task. Preserve stable IDs and existing
+bindings; add explicit IDs for approved new obligations. Record behavior, relevant
+architecture, sources, and acceptance methods. Separate normative requirements,
+examples, code-derived hypotheses, human decisions, and inference. Decompose
+compound obligations without losing exceptions or modality. A genuinely required
+missing source or decision remains a blocker, not a reason to invent requirements.
+
+Perform gap and ownership analysis:
+Identify what already works, what is unfinished, the requested correction or
+extension, existing APIs/lemmas/tests to reuse, generator-owned regions, and
+permitted modifications. Bind abstract rule parameters to existing names first.
+Check for an existing equivalent component/helper before generating a duplicate.
+A generic creation template must not overwrite valid project-specific code.
+
+For every applied pattern, record:
+Rule ID and version.
+Activating language and supporting context.
+Actor, action, object, condition, modality, quantifier, units, boundaries, and
+state/temporal dependencies.
+Applicable profile, prerequisites, exclusions, and known counterexamples.
+Semantic/formalization choice and concise engineering rationale.
+Typed target-role bindings.
+Formal template and its validation status.
+Structural owner and protected relationships.
+Expected tool outputs, checks, and possible diagnostic/repair patterns.
+Unresolved decisions and approval status.
+
+Do not turn every noun into a process or every occurrence of 'message' into an
+event-data port. Apply the supported library/profile semantics with context.
+Distinguish 'when' from 'only when', previous state from current input, threshold
+roles from their data types, and illustrative values from required constants.
+
+Where the source does not determine an initialization value, period, role, or
+binding, request the required decision or continue only independent unambiguous
+work. Missing behavior cannot be invented merely to satisfy the checker.
+
+5. Execute the requested operation in an isolated candidate workspace
+====================================================================
+
+Existing-project route: continue, complete, extend, or repair
+------------------------------------------------------------
+A. Snapshot the authorized starting codebase and record its actual current state,
+   not merely a commit ID. Preserve user edits and exclude secrets/hidden answers.
+B. Confirm the task, affected requirements, allowed delta, naming policy, protected
+   files/interfaces/behavior, and mandatory acceptance gates. Run safe relevant
+   baseline checks and record existing failures without hiding them.
+C. Select applicable spec/code/proof/test/repair rules and bind them to existing
+   roles, names, generated APIs, and verified or provisional artifacts.
+D. Complete or modify only the requested portions. For example, implement missing
+   Rust/Slang logic using the supplied model/contracts; add missing GUMBO to its
+   existing owner; fix a proof with justified support; or extend an existing model
+   under an approved feature delta. Avoid unrequested architecture/name changes.
+E. Run only required stages and their dependencies. Do not re-synthesize valid
+   SysML or GUMBO because the implementation is unfinished. Invoke normal HAMR
+   generation when model changes, dependency changes, missing/stale generated
+   artifacts, or the approved profile require it. Preserve developer-owned regions.
+F. Recheck affected requirements, structure, contracts, APIs, proof/test evidence,
+   and integration/build gates required by the declared scope. Shared changes may
+   require broader regressions. Unchanged evidence can be reused only with matching
+   artifact and dependency identities and under an approved caching policy.
+G. Compare the actual patch to change-scope.json. Verify unchanged-content hashes
+   and unchanged interface/behavior obligations as appropriate. Show new regressions
+   separately from pre-existing failures; do not redefine acceptance afterward.
+H. Keep an accepted baseline and provisional candidate snapshots separately. Rejected
+   patches do not overwrite user source. Final promotion obeys approval policy and
+   checks for intervening user edits before applying the bounded patch.
+
+Explicit create-system route only
+----------------------------------
+A. Check explicit request/approved task configuration and a separate empty target
+   workspace. Do not clear or rebuild a supplied codebase to manufacture this state.
+B. Establish the source-backed requirements, system boundary, root/profile, reviewed
+   architecture decisions, and semantic roles. Expose underdetermined decisions.
+C. Generate required packages/imports, data types, component definitions/instances,
+   ports, connections, properties, scheduling/bindings, and root configuration.
+D. Generate required GUMBO state, assumptions, guarantees, initialization, cases,
+   and helpers at their proper owners using frozen linguistic/formalization rules.
+E. Run parse/resolve/HAMR checks, requirement and structure checks, and permitted
+   rename correspondence. Then produce the requested downstream implementation,
+   proofs, tests, and builds through the configured target procedures.
+F. Complete actual mandatory validation and package traceability/evidence. A partial
+   model or list of intended commands is not full-system success.
+
+Verify-only route
+------------------
+Run the selected checks in a disposable workspace without source edits. Build or
+generate artifacts only as declared prerequisites and retain them in run outputs.
+Report failures and repair suggestions; applying a repair requires a newly
+authorized operation, not automatic conversion of verify-only into repair.
+
+Mixed tasks and completion status
+---------------------------------
+Represent per-artifact actions (preserve, create missing, modify, verify) and their
+dependencies. Keep shared budgets; do not hide multiple full runs behind auto.
+A missing source file inside an existing project is an addition under completion.
+
+Report task_status and project_status separately. A scoped task may satisfy its
+predeclared gates while unrelated baseline issues remain, but no required gate may
+be waived because it fails. Report all known unresolved issues. Full-project or
+whole-system acceptance requires all applicable system-level gates. A request for
+specification-only work must not imply implementation/proof completion.
+
+6. Check architecture under one consistent name correspondence
+==============================================================
+
+Implement/use the trusted deterministic architecture checker specified by the
+matching Learning goal. Match its scope to the operation: reference equivalence for
+reconstruction; approved delta plus preservation for completion/extension/repair;
+source-backed conformance for a new design with no unique reference. For a code-only
+project without an architectural model, do not invent one unless requested. Record
+the applicable interface/behavior checks and the absence of architectural evidence.
+
+The generator may propose correspondence information, but the checker independently
+validates it against source roles and resolved artifacts. The current run cannot
+change the matching policy to excuse a failure. Preserve existing names by default;
+permission to compare renamed models is not permission to rename current files.
+
+Local similarity:
+Use model-free token-vector cosine and corrected text-difference utilities as
+retrieval/diagnostic aids. Label them lexical, not semantic equivalence. No silent
+embedding API or non-GPT model fallback is permitted. Low lexical similarity from
+valid renaming does not override positive mapped architectural evidence. Critical
+semantic changes must be caught through the actual structure/fidelity/tool gates.
+
+Reference-aware checking:
+Use a reviewed reference and root/profile. Compare a resolved declaration/ownership
+view and an instantiated architecture view. Confirm all required elements and
+relations, not just the number of processes/ports or a bag of names. Preserve
+required declarations absent from a flattened deployment view.
+
+Permitted normalization:
+Approved internal renaming; nonsemantic declaration order/comments; exact compatible
+unit notation; source-language-specific syntax differences under a tested adapter.
+Normalization must be versioned and must not discard unhandled critical properties.
+AADL type-plus-implementation and SysML part-definition representations may need
+explicit normalization to the same logical component. Raw AST declaration counts
+are not the cross-language equivalence criterion.
+
+Required invariants:
+Component categories/archetypes and source-linked responsibilities.
+Selected root, system boundary, containment, and definition/instance relationships.
+Port owner, direction, kind, data type/range, and source-defined semantic role.
+Connections, endpoint identities, edge kinds, multiplicity, and absence constraints.
+Required scheduling, dispatch, queue, timing, binding, and deployment properties.
+GUMBO owners, required clauses/signatures, and role-resolved references.
+Required safety properties such as no unauthorized bypass or shared boundary.
+
+Mapping rule:
+For equivalent reconstruction within the declared normalized scope, one reference
+role must resolve to one candidate role and vice versa. For approved completion or
+extension, map preserved entities and separately validate explicit additions,
+removals, and modifications; do not demand a bijection to an incomplete baseline.
+Preserve required relationships and meaningful attributes under the relevant
+mapping. Merging components, swapping same-typed roles, or ignoring extra wiring is
+not renaming and requires its own approved transformation/checking policy.
+
+Illustrative role bindings, not prescribed model names:
+Reference monitoring role -> candidate safety-monitor role.
+Reference regulation role -> candidate temperature-control role.
+Reference measured-temperature port -> candidate observed-temperature port.
+
+All references to each bound role must use its mapped declaration. The monitoring
+role cannot become the regulation role just because a graph matcher finds equal
+node/port types. Reference-to-candidate role labels must be supported by actual
+requirements and artifact relationships, not unverified agent annotations.
+
+Whole-project rename checks:
+No stale references, duplicate/colliding declarations, dangling endpoints, accidental
+name capture, broken imports, or wrong owners. Check GUMBO and code/proof/test/config
+references, not just SysML declarations. Regenerate generated API names and repair
+only allowed developer references. Keep stable requirement/evidence IDs.
+
+Fixed symbols:
+Imported library keywords/types and externally fixed interface/ABI/configuration
+names stay unchanged unless a reviewed coordinated rename is explicitly requested.
+A consistent spelling change cannot change an enum's value meaning, units, threshold
+role, external behavior, or codegen target.
+
+Uncertainty:
+If symmetry yields multiple equally valid mappings, report that fact. If unresolved
+mapping affects requirements or a required construct is unsupported, return UNKNOWN
+and withhold full equivalence. Bound matcher search; timeout is not PASS or proof
+of structural difference. Report actual mismatches separately.
+
+After a repair:
+Compare the result to the approved architecture or approved-change policy AND to
+the previous candidate. Preserve already correct structure and unaffected behavior.
+Do not preserve an incorrect previous architecture merely because the patch is small.
+
+Behavioral checks:
+An architecture PASS does not establish equivalence of rewritten GUMBO formulas.
+Continue with source-fidelity checks, supported expression/proof comparison, and
+independent tests. Do not count cosine or type-checking as a behavioral proof.
+
+7. Bounded, cross-stack repair reuse
+===================================
+
+Capture raw diagnostics and a structured record of the observation point, artifact
+identity, obligation, tool/profile version, and relevant semantic/structural features.
+Classify environment, source interpretation, model, implementation, proof-support,
+and test failures separately.
+
+Retrieve compatible approved repair patterns using exact diagnostic fields, local
+lexical cosine, and structural context. A repeated error message is not necessarily
+a repeated cause. Use Astra to distinguish plausible causes when deterministic
+conditions are insufficient. Return 'no validated repair applies' when appropriate.
+
+Bind the selected repair to current roles and names. State permitted files/regions,
+required unchanged obligations, intended effect, and discriminating checks. Human
+suggestions remain part of the recorded episode and do not override acceptance.
+
+Apply into a separate snapshot. Re-run affected checks and any required final
+validation. Store useful provisional progress separately from the last accepted
+artifact. Never publish an intermediate state as accepted. Stop repeated identical
+unsuccessful edits or unsupported repairs instead of spending indefinitely.
+
+Do not obtain success by deleting requirements, strengthening assumptions without
+source justification, weakening guarantees, disabling tests, editing generated
+contracts arbitrarily, or inserting unapproved proof/trust bypasses.
+
+Record candidate lessons for the next Learning run. Do not modify the active shared
+library or retrieve raw evaluator histories during User Mode. Lessons are not
+automatically promoted because one local repair passed.
+
+8. Required validation and evidence
+===================================
+
+Use the predeclared project/task required-gate manifest. Check the requested scope
+and affected dependencies: requirement mapping, applicable HAMR subset/structure,
+name/API preservation, contracts, selected proofs, independent tests, and required
+integration/builds. Do not run all unrelated generators for a scoped task, but do
+not skip broader regressions required by a shared change. Mandatory gates cannot
+become optional because a tool is missing. A missing architectural model does not
+become a fabricated structural PASS. State task completion and overall project
+readiness separately, including pre-existing and newly introduced failures.
+
+For KSU Rust workflows, distinguish manual assertions, manual GumboX, and randomized
+GumboX/PropTest. Count rejected preconditions separately from valid behavioral cases.
+Zero valid cases is not success. Use requirement-derived assertions independent of
+the generated contract oracle. Apply initialization/state/sequence checks where
+required. Check proof assumptions/vacuity where supported; unsupported checks remain
+explicit limitations, not invented evidence.
+
+Result states:
+PASS, FAIL, UNKNOWN, NOT_RUN, and reviewed NOT_APPLICABLE per gate.
+Only the trusted controller applies the configured final acceptance policy.
+Model text saying 'verified' is not a verifier result.
+
+Evidence identity:
+Record artifact/input hashes, reference/policy/profile revisions, mapping witnesses,
+commands, actual exit codes, proof/test outcomes, source-role links, selected rules,
+repairs, human approvals, time, and usage. Any change invalidates dependent evidence.
+Cached evidence is usable only if every relevant identity remains valid.
+
+Attestation:
+Use the trusted evidence/signing service outside the agent workspace. Sign the
+scoped outcome and artifact hashes. Verify independently against expected policy
+and trusted signer. Keep incomplete or failed runs labeled as such even if signed.
+A valid signature proves integrity/origin of that record, not English correctness.
+
+9. User interface, CLI, metrics, and outputs
+===========================================
+
+Expose through both CLI and UI:
+Operation: Auto/Continue existing, Complete, Extend, Repair, Verify only, or explicit
+Create new system. Show the resolved operation and scope before paid generation.
+Existing-project or English/context inputs and separate run/output directories.
+Frozen combined release and loaded specialized books.
+Toolchain/profile, assistance mode, budget, naming and architecture policy.
+Current semantic-role bindings and unresolved decisions.
+Starting revision, known baseline failures, preserved files, proposed changes, and
+separate task/project completion status. Show creation as an explicit option, not
+the default home-screen action; existing inputs preselect the continuation route.
+Structure result, name preservation or authorized renaming, and proof/test results
+as separate statuses.
+Repair proposals, approval requests, pause/resume/stop, and remaining allowance.
+
+Authorized architecture view:
+Show source roles and candidate elements with clickable source links, correspondence,
+renaming decisions, missing/extra edges, changed properties, and checker limitations.
+In protected evaluation, reference details remain evaluator/human-only and cannot
+leak back to generator context. The UI does not invent equivalence from node labels.
+
+Expected run artifacts:
+Requested added/modified artifacts or a bounded patch; unchanged project files are
+preserved, not replaced. A complete generated system is required only when selected.
+operation-plan.json
+input-workspace-manifest.json
+baseline-results.json
+change-scope.json
+change-report.json
+requirement-ledger.json
+pattern-instantiations.json
+architecture-plan.json
+architecture-comparison.json when reference-aware evaluation applies.
+architecture-correspondence.json when a correspondence is established.
+rename-consistency.json
+source-to-model-trace.json
+validation-results.json
+usage-and-budget.json
+evidence bundle and scoped attestation when configured.
+A readable run report and queued candidate lessons, kept outside the frozen release.
+
+Metrics and plots:
+Use the same normalized records as CLI and experiment reports. Count formally
+verified units from a reviewed fixed registry, then distinguish accepted units and
+whole-system success. A repeated proof, renamed unit, or extra solver message does
+not create a new unit. Stale evidence no longer counts. Do not hard-code 42 for
+new systems or infer historical unit membership from a paper total.
+
+Show DASC-style coverage, throughput, token classes, tokens/cost per verified unit,
+task-scoped and project-level status, and budget progression. Separate creation,
+completion, extension, repair, and verification experiments. Match initial codebase,
+allowed edits, required gates, and budgets for cost comparisons. Existing verified
+units are not newly generated work; distinguish reused from newly discharged
+obligations. With zero verified units, per-unit cost
+is undefined. Historical, simulated, and live data must be separately labeled.
+Plotting and aggregation are deterministic and incur no model calls. Source links
+must resolve to exact permitted artifacts, not mutable names alone.
+
+10. Required end-to-end capability and routing tests
+====================================================
+
+These are explicit release-test scenarios, not actions performed in every user run.
+
+Test A: Existing implementation completion.
+Supply a valid SysML/GUMBO model with unfinished developer-owned code. Complete the
+requested implementation through frozen rules, run actual gates, and demonstrate
+unchanged model/contract hashes and preserved API names where no edits were allowed.
+Run a second case with a valid architecture but missing contracts, completing only
+the authorized behavior without recreating components.
+
+Test B: Existing proof repair and continuation.
+Use provided implementation/proof files, including authorized dirty or untracked
+work. Diagnose and fix the specified obligation; preserve unaffected executable
+behavior, files, and interfaces. Resume without resetting user changes. Record a
+pre-existing unrelated failure without masking it or silently expanding scope.
+
+Test C: Approved extension.
+Add a reviewed requirement/component/interface to an existing project. Validate the
+approved delta and unaffected structure. Reject unauthorized additions and accept
+required additions only with actual evidence. Do not force equality to the original
+incomplete feature set.
+
+Test D: Explicit blank-project construction.
+Choose create-system in a clearly authorized test. Start without target answers and
+produce/check the requested complete system. A separate requested renaming case
+must preserve role correspondence, references, behavior, and selected tool results.
+Low lexical similarity from valid allowed renaming is not itself rejection.
+
+Test E: Similar shape, wrong meaning.
+Swap same-typed roles/ports, change archetypes, or leave a stale reference after an
+authorized rename. Require a concrete structural, fidelity, or proof failure.
+
+Test F: Correct operation routing.
+A continuation request on an existing codebase must not launch whole-system
+synthesis or erase source. Missing models or an empty folder do not authorize a new
+system. Creating a missing file stays completion. Verify-only never applies a
+repair. Existing names stay fixed unless a naming change is authorized. A mixed
+request must follow its per-artifact action plan, not recreate all layers.
+
+Test G: Real execution and preservation boundaries.
+Test missing tools, checker timeout, rejected inputs, stale proof evidence, signing
+failure, exhaustion, pause/resume, approvals, and promotion after concurrent user
+edits. Verify protected hashes, required regression evidence, and no secret/reference
+leakage. Planned, unexecuted, and mocked gates cannot establish real acceptance.
+
+Test H: Fresh-session transfer.
+Use a frozen release on a separate task with its authorized starting codebase when
+applicable. Keep raw learning conversations and final answers hidden. Match starting
+state, operation, scope, model, tools, budget, and policy in comparisons. Do not
+present a repair benchmark as new-system generation or scoped completion as global
+readiness.
+
+Final response from the implementing agent
+==========================================
+
+Report the requested and resolved operation; starting-workspace identity; files
+actually created/changed and protected files preserved; rule release/pattern IDs;
+root/profile where applicable; source-to-role bindings; structure and naming checks;
+actual tool commands/results; pre-existing failures versus new regressions; scoped
+task acceptance versus overall project readiness; time/tokens/cost assumptions;
+attestation status; and remaining blockers. List stages reused or not required
+without implying they were re-executed. Explain any approved scope changes.
+
+Do not report a complete system when only fragments or plans exist. Do not claim
+the Workbench operates end-to-end from its package utility tests or UI preview.
+Do not push repository changes or publish a shared release without authorization.
+
+Source references and migration note
+=====================================
+
+This goal directly revises the process-definition and whole-system User goals.
+It preserves whole-system creation as an explicit capability while making
+continuation, completion, extension, repair, and verification on supplied codebases
+first-class operations. It supersedes the earlier create-system default, default
+permission to rename, and blanket exclusion of legitimate existing target artifacts.
+Reconcile master instructions, operation schemas, prompts, CLI, and UI accordingly.
+
+It retains the removal of hard-coded personal paths, mandatory IDE assumptions,
+legacy model-transfer approvals, attachment-only output as a substitute for required
+behavior, and literal name equality as the only structural comparison method.
+
+The following are implementation/audit references, not automatic permission for a
+User Mode generator to fetch a hidden target solution:
+
+https://github.com/loonwerks/INSPECTA-Spec-Code-Proof-Copilot/blob/main/SCP-extention-artificats/isolette_io_extnded/goal_user.txt
+https://github.com/santoslab/sysmlv2-models/blob/dd762e3cecfb880f1d5cf1accaa0a8c7c5cca3e4/.gitmodules
+https://github.com/santoslab/sysml-aadl-libraries/blob/6e26f80e68d16addceb21c614a1ecd6cb4b85fe1/aadl.library/AADL.sysml
+https://github.com/santoslab/sysml-isolette/blob/ba23e45d0ee4bd83f81158e6cab6e15790f4a7d2/Isolette.sysml
+https://github.com/santoslab/isolette-artifacts/blob/9fd200db5a4e9a505b0527ecbcf36072068292fa/aadl/aadl/packages/Isolette.aadl
+https://sireum.org/hamr-sysmlv2/
+https://hamr.sireum.org/hamr-doc/hamr-semantics-concepts/
+
+The reference sources were inspected during the preceding source review and are
+retained here as audit starting points, not freshly executed or rechecked by this
+scope revision. No Workbench implementation, architecture checker, model/tool run,
+formal verification, repository commit, or ZIP modification is claimed by the
+existence of this document.
+
+
+INTEGRATION CONTRACT — v2.0
+===========================
+This document defines mode behavior, not a second controller. Resolve all actual
+paths, operations, splits, rules, assistance, and budgets through the same run
+configuration used by UI and CLI. Configuration defaults live in configs/; numbers
+above describe presets only. Precedence is defaults -> selected saved profile ->
+explicit UI/CLI selections -> authorization/policy validation -> immutable resolved
+run manifest. A later approved amendment preserves already consumed resources.
+
+Dataset controls are independent of assistance mode. Support user-assigned learning
+and development directories (never silently repartition them), or a user-approved
+automatically proposed split grouped by task family and source lineage. Resolve
+duplicates/renamed variants together; do not split related source/solution files.
+Use manifests rather than moving originals. General tool documents may be shared
+only under explicit context permissions. Development results can refine knowledge;
+final-transfer answers, correspondence witnesses, and reference-derived scores
+must not feed synthesis. Final test is optional for ordinary learning but required
+for a final transfer claim. Preserve Monitor/Regulate as a named reproduction
+profile, not a universal default or proof of cross-system generality.
+
+Imported source rulebooks retain IDs, wording, provenance, original confidence, and
+historical evidence. Catalog before migration; detect duplicates and conflicting
+versions. Import does not prove current compatibility or confer approval. Publish
+immutable full-stack releases and sanitized repair knowledge through the export
+manifest. Raw training/evaluator artifacts remain protected.
+
+Report at every cycle/milestone: achieved, in progress, remaining, blockers, actual
+evidence, and consumed/remaining budget. UI and CLI render the same recorded events.
+Use goals/09_COST_TRANSFER_EXPERIMENTS.md for unit accounting/plots, not list lengths
+or agent-written success strings. Observe WORKFLOW_CONTRACT.md and MILESTONES.md.
+
+INSTALLATION REUSE CONTRACT — v2.1
+=================================
+Before running this workflow, honor the selected installed Codex v_155 and suitable Sireum CLI from the controller configuration/tool lock. No automatic reinstall or upgrade. Existing binaries may be outside PATH; use exact selected paths. Validate the active KSU/HAMR profile and prepare only missing authorized solvers/libraries/targets. Preserve original tools and local changes. This clause changes installation selection, not dataset, budget, model-family, or acceptance requirements.

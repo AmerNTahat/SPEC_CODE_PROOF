@@ -1,0 +1,224 @@
+{
+  "format": "scp-library-source-catalog-v2",
+  "root": "/home/amertahat/SPEC_CODE_PROOF/isolette/sysml/rule-books",
+  "files": [
+    {
+      "path": "final-combined-process-meta-rule-book.md",
+      "sha256": "bb706e6dde0ecbe6c6a70a4cebb883cf2f27e9b151b7634ba9b4812e95b677d7",
+      "rule_ids": [
+        "MR-CONN-001",
+        "MR-GUMBO-ATTACH-001",
+        "MR-PORT-001",
+        "MR-PROC-001",
+        "MR-SCHED-001",
+        "MR-SEL4-PROC-001",
+        "MR-SLANG-COMPAT-001",
+        "MR-THREAD-001",
+        "MR-TRACE-001",
+        "MR-VERIFY-PROC-001"
+      ],
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "bytes": 38278
+    },
+    {
+      "path": "final-gumbo-attachment-rule-book.md",
+      "sha256": "6cbee34702c1db245ef3fe9e84b9b5b918ec1617ef54e13a8da1d713a3d653bc",
+      "rule_ids": [
+        "MR-GUMBO-ATTACH-001"
+      ],
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "bytes": 10955
+    },
+    {
+      "path": "final-process-apply-rules-prompt.md",
+      "sha256": "c0ed8dd9e7438ff715c20f802b96d6eb1af1c42beaa15282f4a3e6c12518246a",
+      "rule_ids": [],
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "bytes": 1444
+    },
+    {
+      "path": "final-process-definition-rule-book.md",
+      "sha256": "745fc55d90bb4032e497d775442a23f0b82d348411431871f9c1cd9e911b59c9",
+      "rule_ids": [
+        "MR-CONN-001",
+        "MR-PORT-001",
+        "MR-PROC-001",
+        "MR-THREAD-001",
+        "MR-TRACE-001"
+      ],
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "bytes": 23120
+    },
+    {
+      "path": "final-process-port-connection-rule-book.md",
+      "sha256": "4bc4478577d475d0a8bb0066b9ba61b8565e8808fd791ba53954f44d18b9b2c0",
+      "rule_ids": [
+        "MR-CONN-001",
+        "MR-PORT-001"
+      ],
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "bytes": 14032
+    },
+    {
+      "path": "final-process-scheduling-binding-rule-book.md",
+      "sha256": "69ebd7e1a64c1cc0364282d9d04293cc5930394e2ab1623158950517ac00c5d8",
+      "rule_ids": [
+        "MR-SCHED-001",
+        "MR-SEL4-PROC-001"
+      ],
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "bytes": 13936
+    },
+    {
+      "path": "final-process-verification-repair-rule-book.md",
+      "sha256": "09677fbe24afc52039faa0bf005d51617b4ea72ea45d209676c88a9e8aef34c2",
+      "rule_ids": [
+        "MR-VERIFY-PROC-001"
+      ],
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "bytes": 11130
+    },
+    {
+      "path": "final-scala-slang-process-compatibility-rule-book.md",
+      "sha256": "74432ddfe9bbc360410836fb6c16928c901d40c31992fd4f60de4f5f6497e9c0",
+      "rule_ids": [
+        "MR-SLANG-COMPAT-001"
+      ],
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "bytes": 11025
+    },
+    {
+      "path": "final-sel4-microkit-process-rule-book.md",
+      "sha256": "2102f50ec5cbb3b0bb22aba21dca9f5b36013738c79a579012e471473a46f95b",
+      "rule_ids": [
+        "MR-SEL4-PROC-001"
+      ],
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "bytes": 10950
+    },
+    {
+      "path": "final-sysmlv2-general-rule-book.md",
+      "sha256": "303f1c4d130110b76a8ab2bed9d82adc90dca5ee1e454b215dc70ac25d091991",
+      "rule_ids": [
+        "MR-CONN-001",
+        "MR-PORT-001",
+        "MR-PROC-001",
+        "MR-THREAD-001",
+        "MR-TRACE-001"
+      ],
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "bytes": 23118
+    },
+    {
+      "path": "user-mode-export-manifest.json",
+      "sha256": "eafe2f333046843118efb86540bd8b8d8450c96cfb1d001827625b4704378486",
+      "rule_ids": [],
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "bytes": 1609
+    }
+  ],
+  "rule_occurrences": {
+    "MR-CONN-001": [
+      "final-combined-process-meta-rule-book.md",
+      "final-process-definition-rule-book.md",
+      "final-process-port-connection-rule-book.md",
+      "final-sysmlv2-general-rule-book.md"
+    ],
+    "MR-GUMBO-ATTACH-001": [
+      "final-combined-process-meta-rule-book.md",
+      "final-gumbo-attachment-rule-book.md"
+    ],
+    "MR-PORT-001": [
+      "final-combined-process-meta-rule-book.md",
+      "final-process-definition-rule-book.md",
+      "final-process-port-connection-rule-book.md",
+      "final-sysmlv2-general-rule-book.md"
+    ],
+    "MR-PROC-001": [
+      "final-combined-process-meta-rule-book.md",
+      "final-process-definition-rule-book.md",
+      "final-sysmlv2-general-rule-book.md"
+    ],
+    "MR-SCHED-001": [
+      "final-combined-process-meta-rule-book.md",
+      "final-process-scheduling-binding-rule-book.md"
+    ],
+    "MR-SEL4-PROC-001": [
+      "final-combined-process-meta-rule-book.md",
+      "final-process-scheduling-binding-rule-book.md",
+      "final-sel4-microkit-process-rule-book.md"
+    ],
+    "MR-SLANG-COMPAT-001": [
+      "final-combined-process-meta-rule-book.md",
+      "final-scala-slang-process-compatibility-rule-book.md"
+    ],
+    "MR-THREAD-001": [
+      "final-combined-process-meta-rule-book.md",
+      "final-process-definition-rule-book.md",
+      "final-sysmlv2-general-rule-book.md"
+    ],
+    "MR-TRACE-001": [
+      "final-combined-process-meta-rule-book.md",
+      "final-process-definition-rule-book.md",
+      "final-sysmlv2-general-rule-book.md"
+    ],
+    "MR-VERIFY-PROC-001": [
+      "final-combined-process-meta-rule-book.md",
+      "final-process-verification-repair-rule-book.md"
+    ]
+  },
+  "repeated_ids": {
+    "MR-CONN-001": [
+      "final-combined-process-meta-rule-book.md",
+      "final-process-definition-rule-book.md",
+      "final-process-port-connection-rule-book.md",
+      "final-sysmlv2-general-rule-book.md"
+    ],
+    "MR-GUMBO-ATTACH-001": [
+      "final-combined-process-meta-rule-book.md",
+      "final-gumbo-attachment-rule-book.md"
+    ],
+    "MR-PORT-001": [
+      "final-combined-process-meta-rule-book.md",
+      "final-process-definition-rule-book.md",
+      "final-process-port-connection-rule-book.md",
+      "final-sysmlv2-general-rule-book.md"
+    ],
+    "MR-PROC-001": [
+      "final-combined-process-meta-rule-book.md",
+      "final-process-definition-rule-book.md",
+      "final-sysmlv2-general-rule-book.md"
+    ],
+    "MR-SCHED-001": [
+      "final-combined-process-meta-rule-book.md",
+      "final-process-scheduling-binding-rule-book.md"
+    ],
+    "MR-SEL4-PROC-001": [
+      "final-combined-process-meta-rule-book.md",
+      "final-process-scheduling-binding-rule-book.md",
+      "final-sel4-microkit-process-rule-book.md"
+    ],
+    "MR-SLANG-COMPAT-001": [
+      "final-combined-process-meta-rule-book.md",
+      "final-scala-slang-process-compatibility-rule-book.md"
+    ],
+    "MR-THREAD-001": [
+      "final-combined-process-meta-rule-book.md",
+      "final-process-definition-rule-book.md",
+      "final-sysmlv2-general-rule-book.md"
+    ],
+    "MR-TRACE-001": [
+      "final-combined-process-meta-rule-book.md",
+      "final-process-definition-rule-book.md",
+      "final-sysmlv2-general-rule-book.md"
+    ],
+    "MR-VERIFY-PROC-001": [
+      "final-combined-process-meta-rule-book.md",
+      "final-process-verification-repair-rule-book.md"
+    ]
+  },
+  "skipped": [],
+  "notes": "Repeated IDs may be shared views or conflicts. Review actual records; no merge/approval was performed.",
+  "model_calls": 0,
+  "files_modified": 0
+}

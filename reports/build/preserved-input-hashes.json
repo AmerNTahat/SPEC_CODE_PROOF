@@ -1,0 +1,8 @@
+{
+  ".gitignore": "c92450e111caee1c6da3ec860ed963befab18bfb6fa7420d037d5066fb08eb4f",
+  "sireum_verification_plan.txt": "7c2fea155b96d8ad992212db812ef1a9bbe8676866b0dd9f07458a7b5db95dd6",
+  "isolette/sysml/goal_learn.txt": "9df8695535f8bbd8a490b197b4aaf7c5d4fadf00e89f617519f1b10670df6ea5",
+  "isolette/sysml/goal_user.txt": "68511db3c4be83d0f8d4c02d17b354629f6b174a4986251212037004ad52b3ae",
+  "tools/self_adapt.py": "05316229520c42fc0e8e085ad5295b899afa467268c5d5682f1eb081eb4152a4",
+  "embedding_distance.py": "a5bcd7b544f8604c6a2b2cecb8e75a74bfe8fdeb52e01b09659142f898b420ab"
+}

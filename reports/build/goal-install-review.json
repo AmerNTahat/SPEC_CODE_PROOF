@@ -1,0 +1,10 @@
+{
+  "authorization": "User requested implementation and integration of both revised goals in this session.",
+  "review": "Reviewed handoff goals, target preconditions and actual legacy locations. Canonical target directory is absent; create the two requested target files and preserve legacy goals at isolette/sysml byte-for-byte.",
+  "plan_sha256": "4cd53c2d99f3761b8f3ee178044dbad234c6470f70ea9d9bb7330329537d8af7",
+  "legacy_goal_hashes": {
+    "isolette/sysml/goal_learn.txt": "9df8695535f8bbd8a490b197b4aaf7c5d4fadf00e89f617519f1b10670df6ea5",
+    "isolette/sysml/goal_user.txt": "68511db3c4be83d0f8d4c02d17b354629f6b174a4986251212037004ad52b3ae"
+  },
+  "runtime_repair": "tools/codex-runtime-v0.155.1/REPAIR_RECORD.json"
+}

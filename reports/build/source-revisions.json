@@ -1,0 +1,27 @@
+{
+  ".": {
+    "exit_code": 0,
+    "identity": "/home/amertahat/SPEC_CODE_PROOF\ne994e5babe6701aa4907ef32f08db34e712865ee",
+    "error": ""
+  },
+  "isolette": {
+    "exit_code": 0,
+    "identity": "/home/amertahat/SPEC_CODE_PROOF\ne994e5babe6701aa4907ef32f08db34e712865ee",
+    "error": ""
+  },
+  "HAMR-agent-configuration-experiments": {
+    "exit_code": 0,
+    "identity": "/home/amertahat/SPEC_CODE_PROOF/HAMR-agent-configuration-experiments\nfa19fa25cadcb656bcb608f85b2b49687ae41cbd",
+    "error": ""
+  },
+  "sysml-aadl-libraries": {
+    "exit_code": 0,
+    "identity": "/home/amertahat/SPEC_CODE_PROOF/sysml-aadl-libraries\na0862dc63190f44322eb574ff06b2a88d4f1f8ae",
+    "error": ""
+  },
+  "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian": {
+    "exit_code": 0,
+    "identity": "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian\n9c4caf1f1a9423cb76980c5ca9dd5eb8bb5e60f8",
+    "error": ""
+  }
+}
