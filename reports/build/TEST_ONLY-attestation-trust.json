@@ -1,0 +1,12 @@
+{
+  "keys": {
+    "656b09f91bffeeff795ab2c8a41a3c60acd85d0f8926357e756e595f9036bac0": {
+      "keytype": "ed25519",
+      "scheme": "ed25519",
+      "keyval": {
+        "public": "e2247cefd5de77d65d78270e58ed61e487955a5dfb30e20d411b29235187b285"
+      }
+    }
+  },
+  "threshold": 1
+}

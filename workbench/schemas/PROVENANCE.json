@@ -13,5 +13,10 @@
     "source": "INSPECTA_SCP_CODEX_HANDOFF/schemas/instantiation.schema.json",
     "target": "workbench/schemas/instantiation.schema.json",
     "sha256": "0325d8aee93224349b4a822fcc318748f604b4346ceb6e5e06f97fb38ce5e37c"
+  },
+  {
+    "source": "INSPECTA_SCP_CODEX_HANDOFF/schemas/requirements.schema.json",
+    "target": "workbench/schemas/requirements.schema.json",
+    "sha256": "71197d8eaa4b1f8cbc15f13c5a78789ef7c2091837435936703af422e904cede"
   }
 ]

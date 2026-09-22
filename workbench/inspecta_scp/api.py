@@ -42,11 +42,53 @@ class Application:
                                          "live_demo": False, "independent_transfer_validation": False}}
             if method == "GET" and route == "/api/library":
                 return library.catalog()
+            if route.startswith('/api/datasets'):
+                from .datasets import Datasets
+                service = Datasets(controller.store)
+                if method == 'GET' and route == '/api/datasets':
+                    return service.catalog()
+                if method == 'POST' and route == '/api/datasets/propose':
+                    return service.propose(body)
+                if method == 'POST' and route == '/api/datasets/request-review':
+                    return service.request_review(body.get('dataset_id'))
             if method == "POST" and route == "/api/library/import":
                 root = self.library_roots.get(body.get("root_id"))
                 if root is None:
                     raise PolicyError("Library root was not approved when the server started")
                 return library.import_books(root)
+            metrics_match = re.fullmatch(r"/api/metrics/([0-9a-f]{32})", route)
+            if method == "GET" and metrics_match:
+                from .metrics import Metrics
+                return Metrics(controller).report(metrics_match[1])
+            if method == "GET" and route == "/api/repairs":
+                from .repairs import Repairs
+                return Repairs(controller).catalog()
+            repair_diff = re.fullmatch(r"/api/repairs/([0-9a-f]{64})/diff", route)
+            if method == "GET" and repair_diff:
+                from .repairs import Repairs
+                return Repairs(controller).diff(repair_diff[1])
+            if method == "POST" and route == "/api/repairs/stage":
+                from .repairs import Repairs
+                return Repairs(controller).stage(body.get("run_id"), body.get("issue"), body.get("patch"), body.get("parent_id"))
+            if method == "POST" and route == "/api/repairs/validate":
+                from .repairs import Repairs
+                return Repairs(controller).validate(body.get("candidate_id"))
+            if method == "GET" and route == "/api/engineering":
+                return {"snapshots": controller.store.records("architecture_snapshot"),
+                        "policies": controller.store.records("architecture_policy"),
+                        "ledgers": controller.store.records("requirement_ledger")}
+            if method == "POST" and route == "/api/architecture/propose":
+                from .architecture import Architecture
+                return Architecture(controller).propose(body.get("snapshot_id"), body.get("changes"))
+            if method == "POST" and route == "/api/architecture/request-review":
+                from .architecture import Architecture
+                return Architecture(controller).request_review(body.get("policy_id"))
+            if method == "POST" and route == "/api/requirements/propose":
+                from .requirements import Requirements
+                return Requirements(controller.store).propose(body)
+            if method == "POST" and route == "/api/requirements/request-review":
+                from .requirements import Requirements
+                return Requirements(controller.store).request_review(body.get("ledger_id"))
             source_match = re.fullmatch(r"/api/source/([0-9a-f]{64})", route)
             if method == "GET" and source_match:
                 return Sources(controller.store).view(source_match[1], "human",
@@ -55,7 +97,7 @@ class Application:
                 profile = self.profiles.get(body.get("profile_id"))
                 if profile is None:
                     raise PolicyError("Unknown server-approved profile")
-                allowed = {"mode", "assistance", "task_operation", "budget"}
+                allowed = {"mode", "assistance", "task_operation", "budget", "dataset_assignment", "dataset_task"}
                 overrides = body.get("overrides", {})
                 if not isinstance(overrides, dict) or not set(overrides) <= allowed:
                     raise PolicyError("UI override not permitted; review project/source scope via a saved profile")

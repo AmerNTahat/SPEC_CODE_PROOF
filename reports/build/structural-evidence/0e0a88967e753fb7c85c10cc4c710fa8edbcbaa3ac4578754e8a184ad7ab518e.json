@@ -1,0 +1,1 @@
+{"text":"package HAMR_Time_Units {\n  public import SI::*;\n  \n  attribute ps: DurationUnit = s * pico;\n  attribute ms: DurationUnit = s * milli;\n  attribute us: DurationUnit = s * micro;\n  attribute ns: DurationUnit = s * nano;\n}\n"}

@@ -123,6 +123,29 @@ class Store:
             self.db.execute("ROLLBACK")
             raise
 
+    def finish(self, run_id, result):
+        """Commit result and worker acknowledgement together; late controls win."""
+        self.db.execute("BEGIN IMMEDIATE")
+        try:
+            run = self.get(run_id)
+            if run["state"] not in {"CHECKING", "PAUSE_REQUESTED", "STOP_REQUESTED"}:
+                raise PolicyError("Worker no longer owns finalization")
+            state = result["task_status"]
+            if run["state"] == "STOP_REQUESTED":
+                state = "CANCELLED"
+            elif run["state"] == "PAUSE_REQUESTED":
+                state = "PAUSED"
+            elif run["remaining_seconds"] <= 0:
+                state = "BUDGET_EXHAUSTED"
+            result = {**result, "task_status": state}
+            self.db.execute("UPDATE runs SET result=?,state=?,worker=NULL,version=version+1 WHERE id=?",
+                            (canonical(result), state, run_id))
+            self.event(run_id, "state", {"from": run["state"], "to": state, "result_committed": True})
+            self.db.execute("COMMIT")
+        except BaseException:
+            self.db.execute("ROLLBACK")
+            raise
+
     def object(self, value):
         data = canonical(value).encode()
         digest = hashlib.sha256(data).hexdigest()

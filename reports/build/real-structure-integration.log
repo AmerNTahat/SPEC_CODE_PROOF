@@ -1,0 +1,7 @@
+real_capture: CHECKED
+unchanged_real_architecture: CHECKED
+missing_connection: FAILED
+changed_contract_boundary: FAILED
+unapproved_consistent_rename: FAILED
+explicitly_reviewed_consistent_rename: CHECKED
+extra_contract_change_not_covered_by_rename: FAILED

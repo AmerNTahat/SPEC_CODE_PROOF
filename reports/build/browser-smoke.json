@@ -6,10 +6,13 @@
     "Real React workflow resolve, snapshot, pause and resume",
     "Budget request, exact-subject review and approved amendment through UI",
     "Session reconnect and durable run after reload",
+    "Engineering UI reads actual backend records without inventing captures",
+    "Dataset UI saves manual membership and requests exact-subject review without moving sources",
+    "UI stages exact provisional patch, shows diff, blocks missing tool and preserves source",
     "Real source navigation; imported HTML displayed as text without executing"
   ],
   "browser": {
-    "sessionId": "31ce1927-8819-4de3-8482-335f71c31690",
+    "sessionId": "28f2c2d5-354d-4a01-a791-21f84eda104e",
     "capabilities": {
       "acceptInsecureCerts": false,
       "browserName": "firefox",
@@ -20,8 +23,8 @@
       "moz:buildID": "20250227124745",
       "moz:headless": true,
       "moz:platformVersion": "5.15.0-139-generic",
-      "moz:processID": 73159,
-      "moz:profile": "/tmp/inspecta-browser-o41zfuwu/firefox",
+      "moz:processID": 87141,
+      "moz:profile": "/tmp/inspecta-browser-wpklxx_a/firefox",
       "moz:shutdownTimeout": 60000,
       "pageLoadStrategy": "normal",
       "timeouts": {

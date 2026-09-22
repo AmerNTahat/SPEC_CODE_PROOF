@@ -1,0 +1,42 @@
+[
+  {
+    "home": "/home/amertahat/sireum-ive-linux-amd64_uninstalled_sireum/Sireum",
+    "jar_present": true,
+    "exit_code": 0,
+    "version": [
+      "Sireum v4.20250721.f13c8b0e (native)",
+      ""
+    ],
+    "stderr": ""
+  },
+  {
+    "home": "/home/amertahat/sireum-ive-linux-amd64/Sireum",
+    "jar_present": true,
+    "exit_code": 0,
+    "version": [
+      "Sireum v4.20250721.f13c8b0e (native)",
+      ""
+    ],
+    "stderr": ""
+  },
+  {
+    "home": "/home/amertahat/sireum-cli-linux-amd64/Sireum",
+    "jar_present": true,
+    "exit_code": 0,
+    "version": [
+      "Sireum v4.20250721.f13c8b0e (native)",
+      ""
+    ],
+    "stderr": ""
+  },
+  {
+    "home": "/home/amertahat/sireum-ive-linux-amd64_0/Sireum",
+    "jar_present": true,
+    "exit_code": 0,
+    "version": [
+      "Sireum v4.20250721.f13c8b0e (native)",
+      ""
+    ],
+    "stderr": ""
+  }
+]

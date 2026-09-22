@@ -30,7 +30,7 @@ def merge(base, override):
 
 OPERATIONS = {"auto", "continue-project", "complete-system", "extend-system",
               "repair-system", "verify-only", "create-system"}
-GATES = {"parse_type", "configured_formal_verification", "configured_build",
+GATES = {"parse_type", "architecture_capture", "configured_formal_verification", "configured_build",
          "requirements_coverage", "architecture", "independent_requirements_tests", "review"}
 
 
@@ -48,8 +48,10 @@ def defaults(mode):
                            "configured_build", "review"],
         "sireum": None, "sireum_sha256": None,
         "learning_materials": None, "development_validation": None, "final_evaluation": None,
+        "dataset_assignment": None, "dataset_task": None,
         "model": {"family": "gpt", "requested_profile": "astra", "resolved_model_id": None},
         "rule_release": None, "paid_runs_authorized": False,
+        "architecture_policy": None, "requirement_ledger": None, "unit_registry": None, "repair_allowed_files": [],
         "budget": {"wall_seconds": 3600 if learning else 1200,
                    "aggregate_model_tokens": 3000000 if learning else 1000000,
                    "repairs_per_issue": 5 if learning else 3,
@@ -123,10 +125,24 @@ def resolve(profile=None, overrides=None, base_dir=None):
         for b in roles[i + 1:]:
             if a == b or a in b.parents or b in a.parents:
                 raise PolicyError("Dataset role directories overlap")
+    if (config['dataset_assignment'] is None) != (config['dataset_task'] is None):
+        raise PolicyError('Dataset assignment and selected task must be supplied together')
+    if config['dataset_task'] is not None and (not isinstance(config['dataset_task'], str) or not config['dataset_task'].strip()):
+        raise PolicyError('Dataset task must be nonempty text')
+    for key in ("architecture_policy", "requirement_ledger", "unit_registry", "dataset_assignment"):
+        value = config[key]
+        if value is not None and (not isinstance(value, str) or len(value) != 64 or any(c not in "0123456789abcdef" for c in value)):
+            raise PolicyError(key + " must be an immutable record ID or null")
     files = config["input_files"]
     if not isinstance(files, list) or not files or len(files) != len(set(files)):
         raise PolicyError("Declare a nonempty unique input file allowlist")
     config["input_files"] = sorted(relative_file(p) for p in files)
+    editable = config["repair_allowed_files"]
+    if not isinstance(editable, list) or len(set(editable)) != len(editable) or not set(editable) <= set(files):
+        raise PolicyError("Repair edit scope must be a unique subset of declared inputs")
+    config["repair_allowed_files"] = sorted(relative_file(p) for p in editable)
+    if any(Path(p).suffix.lower() not in {".sysml", ".scala", ".rs", ".aadl"} for p in editable):
+        raise PolicyError("Repair scope only supports model/implementation source files")
     if config["model_file"] is not None:
         config["model_file"] = relative_file(config["model_file"])
         if config["model_file"] not in files:

@@ -1,0 +1,494 @@
+{
+  "status": "PASS",
+  "scope": "Real isolated HAMR provisional repair tests; no source promotion or live model demonstration",
+  "model_calls": 0,
+  "run_id": "85c2870daa734793bca4be4979f9a417",
+  "deadline_before": 1790110407.9894722,
+  "deadline_after": 1790110407.9894722,
+  "source_files_modified": 0,
+  "failed_validation": {
+    "candidate_id": "acbde914b5b97fe0682b97e9ceea1f16ba73ee61aedd0d7c6c17f6c4443c8ee1",
+    "run_id": "85c2870daa734793bca4be4979f9a417",
+    "status": "FAILED",
+    "gates": [
+      {
+        "gate": "architecture",
+        "status": "FAIL",
+        "reason": "19 unapproved structural/declaration differences",
+        "snapshot_id": "3a753ce2ad9256862d0e9649b437fa4d4b6770d1487cb5eeaa5479118f702678",
+        "evidence": {
+          "sha256": "20db85b048862eda3f72d3679d04736e03bb00d3e84169499a4312784dce8424",
+          "path": "objects/20db85b048862eda3f72d3679d04736e03bb00d3e84169499a4312784dce8424.json"
+        },
+        "scope": "Exact normalized HAMR/declaration conformance; not semantic requirement fidelity"
+      }
+    ],
+    "error": null,
+    "engineering_accepted": false,
+    "source_files_modified": 0,
+    "config_hash": "1994c26d3335e0dd0dd28533553c85b985f76081f9d730133db63d882f500bb9",
+    "tree_sha256": "b5fafb2f40028ec7c6131893bed1362ac46651b027ed35eba800544f0b3d3705",
+    "id": "dfff5573336c26569af3091127630fcb387a66f383ade7f254256661a491249f"
+  },
+  "corrected_validation": {
+    "candidate_id": "2ac5aa84f1c49cbadd9f9e431916e04acf8789e1cb72aa293677f26eaf730b08",
+    "run_id": "85c2870daa734793bca4be4979f9a417",
+    "status": "CHECKED_PROVISIONAL",
+    "gates": [
+      {
+        "gate": "architecture",
+        "status": "PASS",
+        "reason": "0 unapproved structural/declaration differences",
+        "snapshot_id": "192f8d1305d26d386ed33d5d034b806fd49b9348c81bc5cff922cc706d0deff7",
+        "evidence": {
+          "sha256": "34b69343f741b999a4fc0375623c5537192e6c3d4a59274a39ba90436c9115d6",
+          "path": "objects/34b69343f741b999a4fc0375623c5537192e6c3d4a59274a39ba90436c9115d6.json"
+        },
+        "scope": "Exact normalized HAMR/declaration conformance; not semantic requirement fidelity"
+      }
+    ],
+    "error": null,
+    "engineering_accepted": false,
+    "source_files_modified": 0,
+    "config_hash": "1994c26d3335e0dd0dd28533553c85b985f76081f9d730133db63d882f500bb9",
+    "tree_sha256": "60b1696055c4c3a7750d7e0c285d9c821e3322d0fcb24a22efa366e60f908095",
+    "id": "39f5066dac9d4a25d44c381540571bd5569694bb008c2a424a6566272e064cc6"
+  },
+  "events": [
+    {
+      "id": 52,
+      "run_id": "85c2870daa734793bca4be4979f9a417",
+      "timestamp": 1790110167.9895706,
+      "kind": "created",
+      "payload": {
+        "config": {
+          "architecture_policy": "30737120e1e73fb9909dccbe1426001d386b94d10f683f1f3c93f16488a4bf5b",
+          "assistance": "automatic",
+          "budget": {
+            "aggregate_model_tokens": 1000000,
+            "concurrent_model_calls": 1,
+            "enforcement": "strict",
+            "final_validation_time_reserve": 0.2,
+            "repairs_per_issue": 3,
+            "repairs_per_run": 8,
+            "wall_seconds": 240
+          },
+          "creation_authorized": false,
+          "development_validation": null,
+          "final_evaluation": null,
+          "input_files": [
+            "aadl-lib/aadl.library/AADL.sysml",
+            "aadl-lib/aadl.library/AADL_Project.sysml",
+            "aadl-lib/aadl.library/Base_Types.sysml",
+            "aadl-lib/aadl.library/Communication_Properties.sysml",
+            "aadl-lib/aadl.library/Data_Model.sysml",
+            "aadl-lib/aadl.library/Deployment_Properties.sysml",
+            "aadl-lib/aadl.library/Memory_Properties.sysml",
+            "aadl-lib/aadl.library/Programming_Properties.sysml",
+            "aadl-lib/aadl.library/Thread_Properties.sysml",
+            "aadl-lib/aadl.library/Timing_Properties.sysml",
+            "aadl-lib/aadl.library/behavior_properties.sysml",
+            "aadl-lib/hamr.aadl.library/CASE_Scheduling.sysml",
+            "aadl-lib/hamr.aadl.library/HAMR.sysml",
+            "aadl-lib/hamr.aadl.library/HAMR_AADL.sysml",
+            "aadl-lib/hamr.aadl.library/HAMR_Time_Units.sysml",
+            "prod-cons/ProdCons.sysml"
+          ],
+          "learning_materials": null,
+          "mode": "user",
+          "model": {
+            "family": "gpt",
+            "requested_profile": "astra",
+            "resolved_model_id": null
+          },
+          "model_file": "prod-cons/ProdCons.sysml",
+          "naming_policy": "preserve-existing",
+          "paid_runs_authorized": false,
+          "project": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/structure-tests/7a2820518fe4473ea54ee062fe255d47/project",
+          "rename_authorized": false,
+          "repair_allowed_files": [
+            "prod-cons/ProdCons.sysml"
+          ],
+          "required_gates": [
+            "architecture"
+          ],
+          "requirement_ledger": null,
+          "resolved_operation": "verify-only",
+          "rule_release": null,
+          "schema_version": 1,
+          "sireum": "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/sireum",
+          "sireum_sha256": "6333d4e737064b6db470bcb85863a997675182470eb5d4d763bd806487c8d952",
+          "task_operation": "verify-only"
+        },
+        "config_sha256": "1994c26d3335e0dd0dd28533553c85b985f76081f9d730133db63d882f500bb9",
+        "precedence": [
+          "defaults",
+          "profile",
+          "explicit_overrides",
+          "policy_validation"
+        ]
+      }
+    },
+    {
+      "id": 53,
+      "run_id": "85c2870daa734793bca4be4979f9a417",
+      "timestamp": 1790110167.9917085,
+      "kind": "state",
+      "payload": {
+        "from": "CREATED",
+        "to": "INSPECTING"
+      }
+    },
+    {
+      "id": 54,
+      "run_id": "85c2870daa734793bca4be4979f9a417",
+      "timestamp": 1790110168.0017767,
+      "kind": "snapshot",
+      "payload": {
+        "path": "objects/88fe6709c1c366b898527144c6865ce3c03049194c8bea1bf736094382405af5.json",
+        "sha256": "88fe6709c1c366b898527144c6865ce3c03049194c8bea1bf736094382405af5"
+      }
+    },
+    {
+      "id": 55,
+      "run_id": "85c2870daa734793bca4be4979f9a417",
+      "timestamp": 1790110168.002638,
+      "kind": "state",
+      "payload": {
+        "from": "INSPECTING",
+        "to": "READY"
+      }
+    },
+    {
+      "id": 56,
+      "run_id": "85c2870daa734793bca4be4979f9a417",
+      "timestamp": 1790110168.048189,
+      "kind": "repair_staged",
+      "payload": {
+        "attempt_number": 1,
+        "budget_reset": false,
+        "candidate_id": "acbde914b5b97fe0682b97e9ceea1f16ba73ee61aedd0d7c6c17f6c4443c8ee1",
+        "issue": "missing-connection-test",
+        "parent_id": null
+      }
+    },
+    {
+      "id": 57,
+      "run_id": "85c2870daa734793bca4be4979f9a417",
+      "timestamp": 1790110168.0739622,
+      "kind": "state",
+      "payload": {
+        "from": "READY",
+        "repair_candidate": "acbde914b5b97fe0682b97e9ceea1f16ba73ee61aedd0d7c6c17f6c4443c8ee1",
+        "to": "CHECKING"
+      }
+    },
+    {
+      "id": 58,
+      "run_id": "85c2870daa734793bca4be4979f9a417",
+      "timestamp": 1790110178.9217966,
+      "kind": "repair_checked",
+      "payload": {
+        "budget_reset": false,
+        "candidate_status": "FAILED",
+        "original_result_preserved": true,
+        "state": "READY",
+        "validation_id": "dfff5573336c26569af3091127630fcb387a66f383ade7f254256661a491249f"
+      }
+    },
+    {
+      "id": 59,
+      "run_id": "85c2870daa734793bca4be4979f9a417",
+      "timestamp": 1790110178.9307377,
+      "kind": "repair_staged",
+      "payload": {
+        "attempt_number": 2,
+        "budget_reset": false,
+        "candidate_id": "2ac5aa84f1c49cbadd9f9e431916e04acf8789e1cb72aa293677f26eaf730b08",
+        "issue": "missing-connection-test",
+        "parent_id": "acbde914b5b97fe0682b97e9ceea1f16ba73ee61aedd0d7c6c17f6c4443c8ee1"
+      }
+    },
+    {
+      "id": 60,
+      "run_id": "85c2870daa734793bca4be4979f9a417",
+      "timestamp": 1790110178.9476926,
+      "kind": "state",
+      "payload": {
+        "from": "READY",
+        "repair_candidate": "2ac5aa84f1c49cbadd9f9e431916e04acf8789e1cb72aa293677f26eaf730b08",
+        "to": "CHECKING"
+      }
+    },
+    {
+      "id": 61,
+      "run_id": "85c2870daa734793bca4be4979f9a417",
+      "timestamp": 1790110190.0539365,
+      "kind": "repair_checked",
+      "payload": {
+        "budget_reset": false,
+        "candidate_status": "CHECKED_PROVISIONAL",
+        "original_result_preserved": true,
+        "state": "READY",
+        "validation_id": "39f5066dac9d4a25d44c381540571bd5569694bb008c2a424a6566272e064cc6"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "run_id": "85c2870daa734793bca4be4979f9a417",
+      "config_hash": "1994c26d3335e0dd0dd28533553c85b985f76081f9d730133db63d882f500bb9",
+      "issue": "missing-connection-test",
+      "parent_id": null,
+      "files": {
+        "aadl-lib/aadl.library/AADL.sysml": {
+          "sha256": "3900fbea96c9326406e65c5e20b5c21e259f2ac728d6bd824332adf1bb8ec300",
+          "content": {
+            "sha256": "4ce35e65b06789836195d40abbd247bd52974bb6a4489b6aa39afcd81f0be02c",
+            "path": "objects/4ce35e65b06789836195d40abbd247bd52974bb6a4489b6aa39afcd81f0be02c.json"
+          }
+        },
+        "aadl-lib/aadl.library/AADL_Project.sysml": {
+          "sha256": "a17e5789f97183375794ffbcefc2c20345d241092a51aaaeed8fbf6ec02e58b2",
+          "content": {
+            "sha256": "2d2b498ff780bb64d4871a3b8cac5d6ab2cd636b8688981040e6af6a74ef4d23",
+            "path": "objects/2d2b498ff780bb64d4871a3b8cac5d6ab2cd636b8688981040e6af6a74ef4d23.json"
+          }
+        },
+        "aadl-lib/aadl.library/Base_Types.sysml": {
+          "sha256": "76b844c465d64b9fbb527f59aa98856ebc2545352cd596cf72ddbdcadd547695",
+          "content": {
+            "sha256": "2430fbb18954e42146bb5d7d295ff2bf5e75cb8986cf66c9a7f8df3793e6d61f",
+            "path": "objects/2430fbb18954e42146bb5d7d295ff2bf5e75cb8986cf66c9a7f8df3793e6d61f.json"
+          }
+        },
+        "aadl-lib/aadl.library/Communication_Properties.sysml": {
+          "sha256": "e09a7c2e8b9c5df567979795aba99c8a37196e03b3d9a87c95488a7c3eacff67",
+          "content": {
+            "sha256": "895921d45f7b7402bb2253d448aacf25b17df7938e029a3a1d0876d89f788137",
+            "path": "objects/895921d45f7b7402bb2253d448aacf25b17df7938e029a3a1d0876d89f788137.json"
+          }
+        },
+        "aadl-lib/aadl.library/Data_Model.sysml": {
+          "sha256": "ba9e3838d5fe4a956e87bd3b64e0edd7ebf0a1a741200bf731163c170e94f1b4",
+          "content": {
+            "sha256": "22396dfd5d94a9fca1ddcb114d01e32dda33e3686cb304a9a4691cd076d0c977",
+            "path": "objects/22396dfd5d94a9fca1ddcb114d01e32dda33e3686cb304a9a4691cd076d0c977.json"
+          }
+        },
+        "aadl-lib/aadl.library/Deployment_Properties.sysml": {
+          "sha256": "fba2178d3fc3e7eba38362b988c1968fce3c934f252ce8ca095b210194d85509",
+          "content": {
+            "sha256": "01d74e4ca06512c5b81e125c8cdf6defd83651d640ffcca00ba6ce687981ffc7",
+            "path": "objects/01d74e4ca06512c5b81e125c8cdf6defd83651d640ffcca00ba6ce687981ffc7.json"
+          }
+        },
+        "aadl-lib/aadl.library/Memory_Properties.sysml": {
+          "sha256": "375151c140066c0176b8fb20370f6713adb66b75a218d8f0075c221278690d91",
+          "content": {
+            "sha256": "025144ae0182d63d68fb94634d8f6fbccd7c8000af6a2ffe6053d540c5056654",
+            "path": "objects/025144ae0182d63d68fb94634d8f6fbccd7c8000af6a2ffe6053d540c5056654.json"
+          }
+        },
+        "aadl-lib/aadl.library/Programming_Properties.sysml": {
+          "sha256": "a7e90c1659c3a8291f31ad8ba3b92379a25398ddf72ce6ec059061ac9807fa23",
+          "content": {
+            "sha256": "d4e7ec7a9121f437dfad7608e6e25fe0ce1073601f4ea4f94a0dd6c295b4799c",
+            "path": "objects/d4e7ec7a9121f437dfad7608e6e25fe0ce1073601f4ea4f94a0dd6c295b4799c.json"
+          }
+        },
+        "aadl-lib/aadl.library/Thread_Properties.sysml": {
+          "sha256": "4b777cd2e3736ceb499c571c8432c3415cbe51374787ed366a59749e7474c1b7",
+          "content": {
+            "sha256": "f1741f183420c27592e56df7e041ade60e48e70d97244555da419062c15d7708",
+            "path": "objects/f1741f183420c27592e56df7e041ade60e48e70d97244555da419062c15d7708.json"
+          }
+        },
+        "aadl-lib/aadl.library/Timing_Properties.sysml": {
+          "sha256": "5b3916143fff5bcfeb6c840603d7221ca692f8ec1bf33d56f6de3f0ae8d68f87",
+          "content": {
+            "sha256": "075720c39c613d3de0e22a9c725c5270eb96ca82c8e968c2630aa15a021b3381",
+            "path": "objects/075720c39c613d3de0e22a9c725c5270eb96ca82c8e968c2630aa15a021b3381.json"
+          }
+        },
+        "aadl-lib/aadl.library/behavior_properties.sysml": {
+          "sha256": "6c7399d99da108050a7096c558d92554de04c387a0f4db1a77e1f716b9f07d4b",
+          "content": {
+            "sha256": "03b5285b4faf7640d0556c0b27a6f861afe510530c6396236e7c29b0b811bc0c",
+            "path": "objects/03b5285b4faf7640d0556c0b27a6f861afe510530c6396236e7c29b0b811bc0c.json"
+          }
+        },
+        "aadl-lib/hamr.aadl.library/CASE_Scheduling.sysml": {
+          "sha256": "b993abd1bcc88dda01a86f022ff9582c3d8855e252588c76cd11b5d3e90567da",
+          "content": {
+            "sha256": "00b4e05aeee3fde061ee0cd8fb9e9521562d4ae30131863574e407a0b5be325d",
+            "path": "objects/00b4e05aeee3fde061ee0cd8fb9e9521562d4ae30131863574e407a0b5be325d.json"
+          }
+        },
+        "aadl-lib/hamr.aadl.library/HAMR.sysml": {
+          "sha256": "33b5955a100ac0f13884834900ce3af9822209f923999fe9ceb2f92051b2729d",
+          "content": {
+            "sha256": "e0b33bbd7b2f4f687a1ad586637746820ef293ba6cae3828c280dceda58d6f9e",
+            "path": "objects/e0b33bbd7b2f4f687a1ad586637746820ef293ba6cae3828c280dceda58d6f9e.json"
+          }
+        },
+        "aadl-lib/hamr.aadl.library/HAMR_AADL.sysml": {
+          "sha256": "9d17db7ba81676951e1edbcafc13fbb7cff0a7452c8318bda99c790e758c4856",
+          "content": {
+            "sha256": "c3a25efe20ef8c53af3ce03b6135e7a0a7b32b90d5e7beb506f3150811205bf1",
+            "path": "objects/c3a25efe20ef8c53af3ce03b6135e7a0a7b32b90d5e7beb506f3150811205bf1.json"
+          }
+        },
+        "aadl-lib/hamr.aadl.library/HAMR_Time_Units.sysml": {
+          "sha256": "1ee89387619a2cb3459cb94bf0f55c3576998ed754dbcc8282acc7042f019d7a",
+          "content": {
+            "sha256": "0e0a88967e753fb7c85c10cc4c710fa8edbcbaa3ac4578754e8a184ad7ab518e",
+            "path": "objects/0e0a88967e753fb7c85c10cc4c710fa8edbcbaa3ac4578754e8a184ad7ab518e.json"
+          }
+        },
+        "prod-cons/ProdCons.sysml": {
+          "sha256": "c2192a6ef9342763ea31b6c299939e6d175b96b8b0d6d04889fab04b9ca62464",
+          "content": {
+            "sha256": "e44bc7aaea1c88abc9ea1f33dd9ba06e1b825a52532d088eaec50746fa70e89e",
+            "path": "objects/e44bc7aaea1c88abc9ea1f33dd9ba06e1b825a52532d088eaec50746fa70e89e.json"
+          }
+        }
+      },
+      "tree_sha256": "b5fafb2f40028ec7c6131893bed1362ac46651b027ed35eba800544f0b3d3705",
+      "changed_files": [
+        "prod-cons/ProdCons.sysml"
+      ],
+      "status": "PROVISIONAL_UNCHECKED",
+      "source_files_modified": 0,
+      "id": "acbde914b5b97fe0682b97e9ceea1f16ba73ee61aedd0d7c6c17f6c4443c8ee1"
+    },
+    {
+      "run_id": "85c2870daa734793bca4be4979f9a417",
+      "config_hash": "1994c26d3335e0dd0dd28533553c85b985f76081f9d730133db63d882f500bb9",
+      "issue": "missing-connection-test",
+      "parent_id": "acbde914b5b97fe0682b97e9ceea1f16ba73ee61aedd0d7c6c17f6c4443c8ee1",
+      "files": {
+        "aadl-lib/aadl.library/AADL.sysml": {
+          "content": {
+            "path": "objects/4ce35e65b06789836195d40abbd247bd52974bb6a4489b6aa39afcd81f0be02c.json",
+            "sha256": "4ce35e65b06789836195d40abbd247bd52974bb6a4489b6aa39afcd81f0be02c"
+          },
+          "sha256": "3900fbea96c9326406e65c5e20b5c21e259f2ac728d6bd824332adf1bb8ec300"
+        },
+        "aadl-lib/aadl.library/AADL_Project.sysml": {
+          "content": {
+            "path": "objects/2d2b498ff780bb64d4871a3b8cac5d6ab2cd636b8688981040e6af6a74ef4d23.json",
+            "sha256": "2d2b498ff780bb64d4871a3b8cac5d6ab2cd636b8688981040e6af6a74ef4d23"
+          },
+          "sha256": "a17e5789f97183375794ffbcefc2c20345d241092a51aaaeed8fbf6ec02e58b2"
+        },
+        "aadl-lib/aadl.library/Base_Types.sysml": {
+          "content": {
+            "path": "objects/2430fbb18954e42146bb5d7d295ff2bf5e75cb8986cf66c9a7f8df3793e6d61f.json",
+            "sha256": "2430fbb18954e42146bb5d7d295ff2bf5e75cb8986cf66c9a7f8df3793e6d61f"
+          },
+          "sha256": "76b844c465d64b9fbb527f59aa98856ebc2545352cd596cf72ddbdcadd547695"
+        },
+        "aadl-lib/aadl.library/Communication_Properties.sysml": {
+          "content": {
+            "path": "objects/895921d45f7b7402bb2253d448aacf25b17df7938e029a3a1d0876d89f788137.json",
+            "sha256": "895921d45f7b7402bb2253d448aacf25b17df7938e029a3a1d0876d89f788137"
+          },
+          "sha256": "e09a7c2e8b9c5df567979795aba99c8a37196e03b3d9a87c95488a7c3eacff67"
+        },
+        "aadl-lib/aadl.library/Data_Model.sysml": {
+          "content": {
+            "path": "objects/22396dfd5d94a9fca1ddcb114d01e32dda33e3686cb304a9a4691cd076d0c977.json",
+            "sha256": "22396dfd5d94a9fca1ddcb114d01e32dda33e3686cb304a9a4691cd076d0c977"
+          },
+          "sha256": "ba9e3838d5fe4a956e87bd3b64e0edd7ebf0a1a741200bf731163c170e94f1b4"
+        },
+        "aadl-lib/aadl.library/Deployment_Properties.sysml": {
+          "content": {
+            "path": "objects/01d74e4ca06512c5b81e125c8cdf6defd83651d640ffcca00ba6ce687981ffc7.json",
+            "sha256": "01d74e4ca06512c5b81e125c8cdf6defd83651d640ffcca00ba6ce687981ffc7"
+          },
+          "sha256": "fba2178d3fc3e7eba38362b988c1968fce3c934f252ce8ca095b210194d85509"
+        },
+        "aadl-lib/aadl.library/Memory_Properties.sysml": {
+          "content": {
+            "path": "objects/025144ae0182d63d68fb94634d8f6fbccd7c8000af6a2ffe6053d540c5056654.json",
+            "sha256": "025144ae0182d63d68fb94634d8f6fbccd7c8000af6a2ffe6053d540c5056654"
+          },
+          "sha256": "375151c140066c0176b8fb20370f6713adb66b75a218d8f0075c221278690d91"
+        },
+        "aadl-lib/aadl.library/Programming_Properties.sysml": {
+          "content": {
+            "path": "objects/d4e7ec7a9121f437dfad7608e6e25fe0ce1073601f4ea4f94a0dd6c295b4799c.json",
+            "sha256": "d4e7ec7a9121f437dfad7608e6e25fe0ce1073601f4ea4f94a0dd6c295b4799c"
+          },
+          "sha256": "a7e90c1659c3a8291f31ad8ba3b92379a25398ddf72ce6ec059061ac9807fa23"
+        },
+        "aadl-lib/aadl.library/Thread_Properties.sysml": {
+          "content": {
+            "path": "objects/f1741f183420c27592e56df7e041ade60e48e70d97244555da419062c15d7708.json",
+            "sha256": "f1741f183420c27592e56df7e041ade60e48e70d97244555da419062c15d7708"
+          },
+          "sha256": "4b777cd2e3736ceb499c571c8432c3415cbe51374787ed366a59749e7474c1b7"
+        },
+        "aadl-lib/aadl.library/Timing_Properties.sysml": {
+          "content": {
+            "path": "objects/075720c39c613d3de0e22a9c725c5270eb96ca82c8e968c2630aa15a021b3381.json",
+            "sha256": "075720c39c613d3de0e22a9c725c5270eb96ca82c8e968c2630aa15a021b3381"
+          },
+          "sha256": "5b3916143fff5bcfeb6c840603d7221ca692f8ec1bf33d56f6de3f0ae8d68f87"
+        },
+        "aadl-lib/aadl.library/behavior_properties.sysml": {
+          "content": {
+            "path": "objects/03b5285b4faf7640d0556c0b27a6f861afe510530c6396236e7c29b0b811bc0c.json",
+            "sha256": "03b5285b4faf7640d0556c0b27a6f861afe510530c6396236e7c29b0b811bc0c"
+          },
+          "sha256": "6c7399d99da108050a7096c558d92554de04c387a0f4db1a77e1f716b9f07d4b"
+        },
+        "aadl-lib/hamr.aadl.library/CASE_Scheduling.sysml": {
+          "content": {
+            "path": "objects/00b4e05aeee3fde061ee0cd8fb9e9521562d4ae30131863574e407a0b5be325d.json",
+            "sha256": "00b4e05aeee3fde061ee0cd8fb9e9521562d4ae30131863574e407a0b5be325d"
+          },
+          "sha256": "b993abd1bcc88dda01a86f022ff9582c3d8855e252588c76cd11b5d3e90567da"
+        },
+        "aadl-lib/hamr.aadl.library/HAMR.sysml": {
+          "content": {
+            "path": "objects/e0b33bbd7b2f4f687a1ad586637746820ef293ba6cae3828c280dceda58d6f9e.json",
+            "sha256": "e0b33bbd7b2f4f687a1ad586637746820ef293ba6cae3828c280dceda58d6f9e"
+          },
+          "sha256": "33b5955a100ac0f13884834900ce3af9822209f923999fe9ceb2f92051b2729d"
+        },
+        "aadl-lib/hamr.aadl.library/HAMR_AADL.sysml": {
+          "content": {
+            "path": "objects/c3a25efe20ef8c53af3ce03b6135e7a0a7b32b90d5e7beb506f3150811205bf1.json",
+            "sha256": "c3a25efe20ef8c53af3ce03b6135e7a0a7b32b90d5e7beb506f3150811205bf1"
+          },
+          "sha256": "9d17db7ba81676951e1edbcafc13fbb7cff0a7452c8318bda99c790e758c4856"
+        },
+        "aadl-lib/hamr.aadl.library/HAMR_Time_Units.sysml": {
+          "content": {
+            "path": "objects/0e0a88967e753fb7c85c10cc4c710fa8edbcbaa3ac4578754e8a184ad7ab518e.json",
+            "sha256": "0e0a88967e753fb7c85c10cc4c710fa8edbcbaa3ac4578754e8a184ad7ab518e"
+          },
+          "sha256": "1ee89387619a2cb3459cb94bf0f55c3576998ed754dbcc8282acc7042f019d7a"
+        },
+        "prod-cons/ProdCons.sysml": {
+          "sha256": "3a644a6a465df26167cd8a5be4c4604120ee203309134b6b951620907be3ffcf",
+          "content": {
+            "sha256": "936fca58a1c5941fc8134f3e084ab9b7e6b76ff8e51f54611af3ebcf1a1fa61c",
+            "path": "objects/936fca58a1c5941fc8134f3e084ab9b7e6b76ff8e51f54611af3ebcf1a1fa61c.json"
+          }
+        }
+      },
+      "tree_sha256": "60b1696055c4c3a7750d7e0c285d9c821e3322d0fcb24a22efa366e60f908095",
+      "changed_files": [
+        "prod-cons/ProdCons.sysml"
+      ],
+      "status": "PROVISIONAL_UNCHECKED",
+      "source_files_modified": 0,
+      "id": "2ac5aa84f1c49cbadd9f9e431916e04acf8789e1cb72aa293677f26eaf730b08"
+    }
+  ],
+  "objects_directory": "reports/build/structural-evidence"
+}

@@ -1,0 +1,14 @@
+{
+  "profile": "reference-release-4.20260810.80aad0c2",
+  "source": "https://github.com/sireum/kekinian/releases/download/4.20260810.80aad0c2/sireum-cli-linux-amd64.tar.xz",
+  "archive_sha256": "153a140b7fad24a17bfc9d7ce2d6cee8a3e41df2b400e34ba38a73b4bb81cb9d",
+  "installation": "tools/sireum-reference-4.20260810.80aad0c2",
+  "method": "Official release archive; inspected upstream CLI installer URLs; safe new-directory extraction",
+  "original_installations_modified": false,
+  "maven_cache_installed": false,
+  "compatibility": "SELECTED_ISOLETTE_WARNINGS; NATIVE_ONLY_EXPORT_UNSUPPORTED; NOT_SELECTED_AS_DEFAULT",
+  "checks": [
+    "reports/build/ksu-simple-isolette-reference-check.json",
+    "reports/build/ksu-isolette-migration.json"
+  ]
+}

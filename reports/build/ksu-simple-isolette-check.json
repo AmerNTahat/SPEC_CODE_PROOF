@@ -1,0 +1,110 @@
+{
+  "id": "1b097790773b499b810381131f82a668",
+  "state": "BLOCKED",
+  "config": {
+    "architecture_policy": null,
+    "assistance": "automatic",
+    "budget": {
+      "aggregate_model_tokens": 1000000,
+      "concurrent_model_calls": 1,
+      "enforcement": "strict",
+      "final_validation_time_reserve": 0.2,
+      "repairs_per_issue": 3,
+      "repairs_per_run": 8,
+      "wall_seconds": 240
+    },
+    "creation_authorized": false,
+    "development_validation": null,
+    "final_evaluation": null,
+    "input_files": [
+      "aadl-lib/aadl.library/AADL.sysml",
+      "aadl-lib/aadl.library/AADL_Project.sysml",
+      "aadl-lib/aadl.library/Base_Types.sysml",
+      "aadl-lib/aadl.library/Communication_Properties.sysml",
+      "aadl-lib/aadl.library/Data_Model.sysml",
+      "aadl-lib/aadl.library/Deployment_Properties.sysml",
+      "aadl-lib/aadl.library/Memory_Properties.sysml",
+      "aadl-lib/aadl.library/Programming_Properties.sysml",
+      "aadl-lib/aadl.library/Thread_Properties.sysml",
+      "aadl-lib/aadl.library/Timing_Properties.sysml",
+      "aadl-lib/aadl.library/behavior_properties.sysml",
+      "aadl-lib/hamr.aadl.library/CASE_Scheduling.sysml",
+      "aadl-lib/hamr.aadl.library/HAMR.sysml",
+      "aadl-lib/hamr.aadl.library/HAMR_AADL.sysml",
+      "aadl-lib/hamr.aadl.library/HAMR_Time_Units.sysml",
+      "isolette-simple/Devices.sysml",
+      "isolette-simple/Isolette.sysml",
+      "isolette-simple/Isolette_Data_Model.sysml",
+      "isolette-simple/Isolette_Properties.sysml",
+      "isolette-simple/Isolette_Software.sysml",
+      "isolette-simple/Platform.sysml"
+    ],
+    "learning_materials": null,
+    "mode": "user",
+    "model": {
+      "family": "gpt",
+      "requested_profile": "astra",
+      "resolved_model_id": null
+    },
+    "model_file": "isolette-simple/Isolette.sysml",
+    "naming_policy": "preserve-existing",
+    "paid_runs_authorized": false,
+    "project": "/home/amertahat/SPEC_CODE_PROOF/HAMR-agent-configuration-experiments/hamr-claude-training/examples/HAMR-SysMLv2-Rust-seL4-P-DP-Example/sysmlv2",
+    "rename_authorized": false,
+    "repair_allowed_files": [],
+    "required_gates": [
+      "parse_type",
+      "architecture_capture"
+    ],
+    "requirement_ledger": null,
+    "resolved_operation": "verify-only",
+    "rule_release": null,
+    "schema_version": 1,
+    "sireum": "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/sireum",
+    "sireum_sha256": "6333d4e737064b6db470bcb85863a997675182470eb5d4d763bd806487c8d952",
+    "task_operation": "verify-only",
+    "unit_registry": null
+  },
+  "config_hash": "d5ed3cee2ff96fbbe8f3358cd951477ac2e1df16446b122e0c1c7ec323f39387",
+  "created": 1790111136.8218055,
+  "deadline": 1790111376.8218055,
+  "used_tokens": 0,
+  "usage_unknown": 0,
+  "reserved_tokens": 0,
+  "worker": null,
+  "result": {
+    "engineering_accepted": false,
+    "formally_verified_units": 0,
+    "gates": [
+      {
+        "evidence": {
+          "path": "objects/6684f580c2041d37f4d8a175c5c35f9f75133eec913173249b79f9b7abab579c.json",
+          "sha256": "6684f580c2041d37f4d8a175c5c35f9f75133eec913173249b79f9b7abab579c"
+        },
+        "gate": "parse_type",
+        "reason": "Unresolved instantiation warnings require review",
+        "status": "UNKNOWN"
+      },
+      {
+        "evidence": {
+          "path": "objects/de62b66d6aef9bba05633ba3063bf4337db7a436cdf2c3c325f38817929466b3.json",
+          "sha256": "de62b66d6aef9bba05633ba3063bf4337db7a436cdf2c3c325f38817929466b3"
+        },
+        "gate": "architecture_capture",
+        "reason": "Unresolved instantiation warnings block structural acceptance",
+        "snapshot_id": null,
+        "status": "UNKNOWN"
+      }
+    ],
+    "model_calls": 0,
+    "project_status": "NOT_ASSESSED",
+    "scope": "Selected checks only; no application or live-demo completion claim",
+    "task_status": "BLOCKED"
+  },
+  "version": 4,
+  "remaining_seconds": 220.76148986816406,
+  "remaining_tokens": 1000000,
+  "source_changed": [],
+  "evidence_current_for_source": true,
+  "policy_current": true
+}

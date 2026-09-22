@@ -180,3 +180,137 @@ reports/demo/DEMO_REPORT.md — d55f8798b4b92c60e6f7079dc9e1a7c410f4871d4f562cee
 Budget:
 Demo model calls 0; demo model tokens 0. Implementation-session tokens, billing and aggregate wall usage unavailable; no estimates substituted.
 
+## M02 — in_progress
+
+Achieved:
+Bounded immutable provisional repair branches, explicit editable scope, exact-parent checks, attempt caps, no-progress rejection and real failure/recovery validation preserve original source/results/deadline. Atomic finalization honors late stop/pause.
+
+In progress:
+Checking KSU Simple Isolette and resolving documented toolchain prerequisites.
+
+Remaining:
+Formal proof/build/test adapters, learning execution, validated rule transfer, source promotion and full acceptance.
+
+Blockers:
+Paid demonstrations deferred by user. No production release, requirement ledger or signing trust approved. Complete engineering acceptance remains unavailable.
+
+Evidence:
+reports/build/application-tests.log — c0c04e8697b5f0b6ca6663a8d6c7e7904f23058df1044603e35d0701facd4666
+reports/build/real-repair-integration.json — 53ea97e302138c90fc957b8594cab84889e2db28ece019b228ec106d478ef7f0
+
+Budget:
+Paid-demo model calls 0; paid-demo tokens 0. Implementation-session usage/billing unavailable.
+
+## M04 — in_progress
+
+Achieved:
+Real sandboxed HAMR AIR and resolved-declaration capture; exact reviewed structural deltas; source-backed immutable ledgers and resolved ownership coverage. Seven actual structural cases including approved rename and unapproved contract/wiring changes passed.
+
+In progress:
+Checking KSU Simple Isolette and resolving documented toolchain prerequisites.
+
+Remaining:
+Formal proof/build/test adapters, learning execution, validated rule transfer, source promotion and full acceptance.
+
+Blockers:
+Paid demonstrations deferred by user. No production release, requirement ledger or signing trust approved. Complete engineering acceptance remains unavailable.
+
+Evidence:
+reports/build/real-structure-integration.json — 0405490d7d90926c4aeb240a5b952933881ed0ac94e2b2382869c64e9ec29ce9
+reports/build/architecture-producer-consumer.json — 054b8241f2568f0a23246b47ac571a54f96d0e6e14c81038c7131cd1e0586cc5
+
+Budget:
+Paid-demo model calls 0; paid-demo tokens 0. Implementation-session usage/billing unavailable.
+
+## M05 — in_progress
+
+Achieved:
+Requirements/structure and provisional-repair UI pages wired to shared services. Real Firefox staging, diff, missing-tool handling, session reload and approvals passed.
+
+In progress:
+Checking KSU Simple Isolette and resolving documented toolchain prerequisites.
+
+Remaining:
+Formal proof/build/test adapters, learning execution, validated rule transfer, source promotion and full acceptance.
+
+Blockers:
+Paid demonstrations deferred by user. No production release, requirement ledger or signing trust approved. Complete engineering acceptance remains unavailable.
+
+Evidence:
+reports/build/browser-smoke.json — 30c378bc100b2f6fbfc02d344394e1cc649d3d97bd54f10324a866ace2375ebd
+reports/build/frontend-build.log — 89fb2d88eaa0054fdb22a73c8c1f5a440c89a155a4c496fa7f60c980226b4e57
+
+Budget:
+Paid-demo model calls 0; paid-demo tokens 0. Implementation-session usage/billing unavailable.
+
+## M06 — in_progress
+
+Achieved:
+Independent DSSE verifier with external trust/policy; actual offline-tool bundle checked using an ephemeral test signer. Fixed reviewed unit registry service, current metrics, and 18 Matplotlib PNG/SVG/PDF exports. Unknown denominator/cost preserved, no formal units inferred.
+
+In progress:
+Checking KSU Simple Isolette and resolving documented toolchain prerequisites.
+
+Remaining:
+Formal proof/build/test adapters, learning execution, validated rule transfer, source promotion and full acceptance.
+
+Blockers:
+Paid demonstrations deferred by user. No production release, requirement ledger or signing trust approved. Complete engineering acceptance remains unavailable.
+
+Evidence:
+reports/build/application-tests.log — c0c04e8697b5f0b6ca6663a8d6c7e7904f23058df1044603e35d0701facd4666
+reports/build/real-reporting-integration.json — 0a811875e130d35530b5b176cb548de9ebfcb3130444736507a310b059e50c21
+reports/build/attestation-dependency.json — 7fcbd05610e1dd4694a2ee8cd151905101ba92bb0fc9cc18cbfacac0fc8efb78
+reports/build/plotting-dependencies.json — 58e4da42baadf3d8f8a7e66901ddfbde804b5b5b4f5c3f3ee9cb89705ffbdcf8
+
+Budget:
+Paid-demo model calls 0; paid-demo tokens 0. Implementation-session usage/billing unavailable.
+
+## M01 — in_progress
+
+Achieved:
+Reused Codex v0.155.1 and initialized March Sireum. Preserved all existing tool installations. Tested separate official digest-pinned August reference CLI; it did not resolve selected Isolette port warnings.
+A 12-port syntax migration in a disposable KSU Simple Isolette repair candidate passed real type checking and architecture capture using reused Sireum. Original sources unchanged; no promotion or behavioral acceptance.
+
+In progress:
+Reference/current profile compatibility and engineering adapter implementation.
+
+Remaining:
+Complete compatible proof/build/independent-test profiles and live model capability validation.
+
+Blockers:
+Native-only reference evaluator lacks the JVM CLI APIs needed by the export adapter. No further installation attempted. Paid demonstrations remain deferred by user.
+
+Evidence:
+reports/build/sireum-reference-install.json — e71d03582a0ffea9e54fc69bc520e2e3c364ce2570991ffcfec56f903ee19abb
+reports/build/ksu-simple-isolette-reference-check.json — e4f25619e0678165bbaa166a63f68a544d00cb372f337011f438ed529de1eec8
+reports/build/ksu-isolette-migration.json — c9a88301941aee77a6e37d04d0697f0cdd54849ab4d2a5a6f7b0306c4184b4b3
+reports/build/preservation-check.json — 3ad472bf162c9bedcdd769a153694d99e3d4023445cedaeea9d45cab142c1013
+
+Budget:
+Paid demonstration calls/tokens: 0/0. Build-session token/billing usage unavailable.
+
+## M05 — in_progress
+
+Achieved:
+Implemented shared CLI/API/UI manual and seeded grouped dataset proposals, exact-subject review, source freshness/revocation checks, selected-task input enforcement and evaluator duplicate rejection.
+Real Firefox passed eight application workflows. Application suite passed 79 tests. Three real Sireum worker checks passed. Preserved 49 recorded user/source revisions; handoff integrity passed 121 files.
+
+In progress:
+Packaging new implementation and refreshing evidence receipts.
+
+Remaining:
+Cross-task learning execution, complete proof/build/test adapters, accepted promotion, independent release transfer validation and deferred live demonstrations.
+
+Blockers:
+No approval requested for continued offline implementation. Paid demonstrations explicitly deferred; production signing trust and learned-release approval not established.
+
+Evidence:
+reports/build/application-tests.log — 6a76c05679c1fe488f77f614d9091f4088c57e3b97152e764e16e41c9cf8e6e2
+reports/build/browser-smoke.json — dedd37c9780f56fd90d120b6327581f4cf53497432659b141977e66b99f3fb7a
+reports/build/real-worker-integration.json — 80fb72f4dd6230bba02d0ef88814974a3125d2c0c69876acd28807bcc3672319
+reports/build/handoff-integrity.json — cafcdd458468188392a0103fa898cf6ae6634549b36e4d3be24af0c977d5c2e1
+
+Budget:
+Paid demonstration calls/tokens: 0/0. Build-session token/billing usage unavailable.
+

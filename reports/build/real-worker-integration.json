@@ -8,11 +8,12 @@
       "events": [
         {
           "id": 1,
-          "run_id": "8b4a504c262548dda879974546efdec8",
-          "timestamp": 1790099194.2167017,
+          "run_id": "3de05fb28a69418eb303377919602ee1",
+          "timestamp": 1790112268.53178,
           "kind": "created",
           "payload": {
             "config": {
+              "architecture_policy": null,
               "assistance": "automatic",
               "budget": {
                 "aggregate_model_tokens": 1000000,
@@ -24,6 +25,8 @@
                 "wall_seconds": 180
               },
               "creation_authorized": false,
+              "dataset_assignment": null,
+              "dataset_task": null,
               "development_validation": null,
               "final_evaluation": null,
               "input_files": [
@@ -56,17 +59,20 @@
               "paid_runs_authorized": false,
               "project": "/home/amertahat/SPEC_CODE_PROOF/HAMR-agent-configuration-experiments/hamr-claude-training/examples/HAMR-SysMLv2-Rust-seL4-P-EDP-Prod-Cons-Example/sysmlv2",
               "rename_authorized": false,
+              "repair_allowed_files": [],
               "required_gates": [
                 "parse_type"
               ],
+              "requirement_ledger": null,
               "resolved_operation": "verify-only",
               "rule_release": null,
               "schema_version": 1,
               "sireum": "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/sireum",
               "sireum_sha256": "6333d4e737064b6db470bcb85863a997675182470eb5d4d763bd806487c8d952",
-              "task_operation": "verify-only"
+              "task_operation": "verify-only",
+              "unit_registry": null
             },
-            "config_sha256": "e5ed1d63b386bc5e5b286741e187d2b7c2609112405b24ca179624e542d2d7aa",
+            "config_sha256": "eb0336f18a3daafde922f867fd3112e675dfc6617d303a0915bf9bbcf075799e",
             "precedence": [
               "defaults",
               "profile",
@@ -77,8 +83,8 @@
         },
         {
           "id": 2,
-          "run_id": "8b4a504c262548dda879974546efdec8",
-          "timestamp": 1790099194.2178743,
+          "run_id": "3de05fb28a69418eb303377919602ee1",
+          "timestamp": 1790112268.5330677,
           "kind": "state",
           "payload": {
             "from": "CREATED",
@@ -87,8 +93,8 @@
         },
         {
           "id": 3,
-          "run_id": "8b4a504c262548dda879974546efdec8",
-          "timestamp": 1790099194.2260985,
+          "run_id": "3de05fb28a69418eb303377919602ee1",
+          "timestamp": 1790112268.542127,
           "kind": "snapshot",
           "payload": {
             "path": "objects/cfc55b3524da10288ea1bf811fca9a093128ca3581c84b2de0d15cea0d67b5a4.json",
@@ -97,8 +103,8 @@
         },
         {
           "id": 4,
-          "run_id": "8b4a504c262548dda879974546efdec8",
-          "timestamp": 1790099194.2269304,
+          "run_id": "3de05fb28a69418eb303377919602ee1",
+          "timestamp": 1790112268.5429225,
           "kind": "state",
           "payload": {
             "from": "INSPECTING",
@@ -107,8 +113,8 @@
         },
         {
           "id": 5,
-          "run_id": "8b4a504c262548dda879974546efdec8",
-          "timestamp": 1790099194.237655,
+          "run_id": "3de05fb28a69418eb303377919602ee1",
+          "timestamp": 1790112268.5531917,
           "kind": "state",
           "payload": {
             "from": "READY",
@@ -117,13 +123,13 @@
         },
         {
           "id": 6,
-          "run_id": "8b4a504c262548dda879974546efdec8",
-          "timestamp": 1790099202.7114425,
+          "run_id": "3de05fb28a69418eb303377919602ee1",
+          "timestamp": 1790112276.7839594,
           "kind": "gate",
           "payload": {
             "evidence": {
-              "path": "objects/79a19019d8d379bf96584711ec2e75b5573217d6a5016d44a265cde204ea0e31.json",
-              "sha256": "79a19019d8d379bf96584711ec2e75b5573217d6a5016d44a265cde204ea0e31"
+              "path": "objects/de44d78255f2e933e4188b3b9fa7b08f497299801d2ff3776b062564ab842482.json",
+              "sha256": "de44d78255f2e933e4188b3b9fa7b08f497299801d2ff3776b062564ab842482"
             },
             "gate": "parse_type",
             "reason": "Type checker completed",
@@ -132,11 +138,12 @@
         },
         {
           "id": 7,
-          "run_id": "8b4a504c262548dda879974546efdec8",
-          "timestamp": 1790099202.7217884,
+          "run_id": "3de05fb28a69418eb303377919602ee1",
+          "timestamp": 1790112276.788898,
           "kind": "state",
           "payload": {
             "from": "CHECKING",
+            "result_committed": true,
             "to": "CHECKED"
           }
         }
@@ -148,11 +155,12 @@
       "events": [
         {
           "id": 8,
-          "run_id": "25ef7d2fdae94bc0bbdeeadb36adb262",
-          "timestamp": 1790099202.7330105,
+          "run_id": "db63ec6e9d2e4344843a06c1193fc127",
+          "timestamp": 1790112276.8041768,
           "kind": "created",
           "payload": {
             "config": {
+              "architecture_policy": null,
               "assistance": "automatic",
               "budget": {
                 "aggregate_model_tokens": 1000000,
@@ -164,6 +172,8 @@
                 "wall_seconds": 180
               },
               "creation_authorized": false,
+              "dataset_assignment": null,
+              "dataset_task": null,
               "development_validation": null,
               "final_evaluation": null,
               "input_files": [
@@ -194,19 +204,22 @@
               "model_file": "prod-cons/ProdCons.sysml",
               "naming_policy": "preserve-existing",
               "paid_runs_authorized": false,
-              "project": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/inspecta-integration-86k16met/invalid-project",
+              "project": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/inspecta-integration-a6o0e50v/invalid-project",
               "rename_authorized": false,
+              "repair_allowed_files": [],
               "required_gates": [
                 "parse_type"
               ],
+              "requirement_ledger": null,
               "resolved_operation": "verify-only",
               "rule_release": null,
               "schema_version": 1,
               "sireum": "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/sireum",
               "sireum_sha256": "6333d4e737064b6db470bcb85863a997675182470eb5d4d763bd806487c8d952",
-              "task_operation": "verify-only"
+              "task_operation": "verify-only",
+              "unit_registry": null
             },
-            "config_sha256": "18a5d5cafc771f7dd66c617011f3d908d8b02e2d0f2d230404ff6edcc695c2fb",
+            "config_sha256": "8cec23f89eb0e6aadc7cf1a1d4aa487b6eab4a52830e786602a247437f3fb740",
             "precedence": [
               "defaults",
               "profile",
@@ -217,8 +230,8 @@
         },
         {
           "id": 9,
-          "run_id": "25ef7d2fdae94bc0bbdeeadb36adb262",
-          "timestamp": 1790099202.7342353,
+          "run_id": "db63ec6e9d2e4344843a06c1193fc127",
+          "timestamp": 1790112276.8058956,
           "kind": "state",
           "payload": {
             "from": "CREATED",
@@ -227,18 +240,18 @@
         },
         {
           "id": 10,
-          "run_id": "25ef7d2fdae94bc0bbdeeadb36adb262",
-          "timestamp": 1790099202.742306,
+          "run_id": "db63ec6e9d2e4344843a06c1193fc127",
+          "timestamp": 1790112276.8149521,
           "kind": "snapshot",
           "payload": {
-            "path": "objects/d4dba87a941680554a628e9eec5b3ed0f5ad2cb5b7265a220621ece7bc729afd.json",
-            "sha256": "d4dba87a941680554a628e9eec5b3ed0f5ad2cb5b7265a220621ece7bc729afd"
+            "path": "objects/22b2ab42578fb0f66455fa2090a0ec2ae044112ac2f9a748e3f78b2f512ca418.json",
+            "sha256": "22b2ab42578fb0f66455fa2090a0ec2ae044112ac2f9a748e3f78b2f512ca418"
           }
         },
         {
           "id": 11,
-          "run_id": "25ef7d2fdae94bc0bbdeeadb36adb262",
-          "timestamp": 1790099202.7433107,
+          "run_id": "db63ec6e9d2e4344843a06c1193fc127",
+          "timestamp": 1790112276.815934,
           "kind": "state",
           "payload": {
             "from": "INSPECTING",
@@ -247,8 +260,8 @@
         },
         {
           "id": 12,
-          "run_id": "25ef7d2fdae94bc0bbdeeadb36adb262",
-          "timestamp": 1790099202.7534676,
+          "run_id": "db63ec6e9d2e4344843a06c1193fc127",
+          "timestamp": 1790112276.8252604,
           "kind": "state",
           "payload": {
             "from": "READY",
@@ -257,13 +270,13 @@
         },
         {
           "id": 13,
-          "run_id": "25ef7d2fdae94bc0bbdeeadb36adb262",
-          "timestamp": 1790099204.658228,
+          "run_id": "db63ec6e9d2e4344843a06c1193fc127",
+          "timestamp": 1790112278.7126937,
           "kind": "gate",
           "payload": {
             "evidence": {
-              "path": "objects/0666ce2713a78f0b747dce4eaf65654d1c3587a66fb7499688411c1cb86d5701.json",
-              "sha256": "0666ce2713a78f0b747dce4eaf65654d1c3587a66fb7499688411c1cb86d5701"
+              "path": "objects/dce28fdc7dc5d9d5df744fbc4fe47241c5478e6cd807d218f9850bf63277046d.json",
+              "sha256": "dce28fdc7dc5d9d5df744fbc4fe47241c5478e6cd807d218f9850bf63277046d"
             },
             "gate": "parse_type",
             "reason": "Checker process rejected the model",
@@ -272,11 +285,12 @@
         },
         {
           "id": 14,
-          "run_id": "25ef7d2fdae94bc0bbdeeadb36adb262",
-          "timestamp": 1790099204.669893,
+          "run_id": "db63ec6e9d2e4344843a06c1193fc127",
+          "timestamp": 1790112278.7155056,
           "kind": "state",
           "payload": {
             "from": "CHECKING",
+            "result_committed": true,
             "to": "FAILED"
           }
         }
@@ -288,11 +302,12 @@
       "events": [
         {
           "id": 15,
-          "run_id": "42f76d8e41a44a8eaf83eaead9ff5e04",
-          "timestamp": 1790099204.6786351,
+          "run_id": "11c87ab908044bb196e90e168ad7eee4",
+          "timestamp": 1790112278.7240448,
           "kind": "created",
           "payload": {
             "config": {
+              "architecture_policy": null,
               "assistance": "automatic",
               "budget": {
                 "aggregate_model_tokens": 1000000,
@@ -304,6 +319,8 @@
                 "wall_seconds": 180
               },
               "creation_authorized": false,
+              "dataset_assignment": null,
+              "dataset_task": null,
               "development_validation": null,
               "final_evaluation": null,
               "input_files": [
@@ -336,17 +353,20 @@
               "paid_runs_authorized": false,
               "project": "/home/amertahat/SPEC_CODE_PROOF/HAMR-agent-configuration-experiments/hamr-claude-training/examples/HAMR-SysMLv2-Rust-seL4-P-EDP-Prod-Cons-Example/sysmlv2",
               "rename_authorized": false,
+              "repair_allowed_files": [],
               "required_gates": [
                 "parse_type"
               ],
+              "requirement_ledger": null,
               "resolved_operation": "verify-only",
               "rule_release": null,
               "schema_version": 1,
               "sireum": "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/sireum",
               "sireum_sha256": "6333d4e737064b6db470bcb85863a997675182470eb5d4d763bd806487c8d952",
-              "task_operation": "verify-only"
+              "task_operation": "verify-only",
+              "unit_registry": null
             },
-            "config_sha256": "e5ed1d63b386bc5e5b286741e187d2b7c2609112405b24ca179624e542d2d7aa",
+            "config_sha256": "eb0336f18a3daafde922f867fd3112e675dfc6617d303a0915bf9bbcf075799e",
             "precedence": [
               "defaults",
               "profile",
@@ -357,8 +377,8 @@
         },
         {
           "id": 16,
-          "run_id": "42f76d8e41a44a8eaf83eaead9ff5e04",
-          "timestamp": 1790099204.6797798,
+          "run_id": "11c87ab908044bb196e90e168ad7eee4",
+          "timestamp": 1790112278.7252324,
           "kind": "state",
           "payload": {
             "from": "CREATED",
@@ -367,8 +387,8 @@
         },
         {
           "id": 17,
-          "run_id": "42f76d8e41a44a8eaf83eaead9ff5e04",
-          "timestamp": 1790099204.688123,
+          "run_id": "11c87ab908044bb196e90e168ad7eee4",
+          "timestamp": 1790112278.7340553,
           "kind": "snapshot",
           "payload": {
             "path": "objects/cfc55b3524da10288ea1bf811fca9a093128ca3581c84b2de0d15cea0d67b5a4.json",
@@ -377,8 +397,8 @@
         },
         {
           "id": 18,
-          "run_id": "42f76d8e41a44a8eaf83eaead9ff5e04",
-          "timestamp": 1790099204.6890795,
+          "run_id": "11c87ab908044bb196e90e168ad7eee4",
+          "timestamp": 1790112278.7349012,
           "kind": "state",
           "payload": {
             "from": "INSPECTING",
@@ -387,8 +407,8 @@
         },
         {
           "id": 19,
-          "run_id": "42f76d8e41a44a8eaf83eaead9ff5e04",
-          "timestamp": 1790099204.7609925,
+          "run_id": "11c87ab908044bb196e90e168ad7eee4",
+          "timestamp": 1790112278.8299696,
           "kind": "state",
           "payload": {
             "from": "READY",
@@ -397,8 +417,8 @@
         },
         {
           "id": 20,
-          "run_id": "42f76d8e41a44a8eaf83eaead9ff5e04",
-          "timestamp": 1790099204.7687066,
+          "run_id": "11c87ab908044bb196e90e168ad7eee4",
+          "timestamp": 1790112278.8407743,
           "kind": "state",
           "payload": {
             "from": "CHECKING",
@@ -407,13 +427,13 @@
         },
         {
           "id": 21,
-          "run_id": "42f76d8e41a44a8eaf83eaead9ff5e04",
-          "timestamp": 1790099205.3601816,
+          "run_id": "11c87ab908044bb196e90e168ad7eee4",
+          "timestamp": 1790112279.43041,
           "kind": "gate",
           "payload": {
             "evidence": {
-              "path": "objects/db16bc9349aacb6b591cadef972e4106d4d715f8b6c53e2390a3b772eb5ec48f.json",
-              "sha256": "db16bc9349aacb6b591cadef972e4106d4d715f8b6c53e2390a3b772eb5ec48f"
+              "path": "objects/9bbad8ec6b07dff277611966c1ff222445b3d11f6033547f34d1f80e9fac2d30.json",
+              "sha256": "9bbad8ec6b07dff277611966c1ff222445b3d11f6033547f34d1f80e9fac2d30"
             },
             "gate": "parse_type",
             "reason": "Execution interrupted: PAUSED",
@@ -422,30 +442,31 @@
         },
         {
           "id": 22,
-          "run_id": "42f76d8e41a44a8eaf83eaead9ff5e04",
-          "timestamp": 1790099205.3730958,
+          "run_id": "11c87ab908044bb196e90e168ad7eee4",
+          "timestamp": 1790112279.4354856,
           "kind": "state",
           "payload": {
             "from": "PAUSE_REQUESTED",
+            "result_committed": true,
             "to": "PAUSED"
           }
         },
         {
           "id": 23,
-          "run_id": "42f76d8e41a44a8eaf83eaead9ff5e04",
-          "timestamp": 1790099205.4457364,
+          "run_id": "11c87ab908044bb196e90e168ad7eee4",
+          "timestamp": 1790112279.4646597,
           "kind": "state",
           "payload": {
             "budget_reset": false,
-            "deadline": 1790099384.67858,
+            "deadline": 1790112458.7239916,
             "from": "PAUSED",
             "to": "READY"
           }
         },
         {
           "id": 24,
-          "run_id": "42f76d8e41a44a8eaf83eaead9ff5e04",
-          "timestamp": 1790099205.4517663,
+          "run_id": "11c87ab908044bb196e90e168ad7eee4",
+          "timestamp": 1790112279.4697437,
           "kind": "state",
           "payload": {
             "from": "READY",

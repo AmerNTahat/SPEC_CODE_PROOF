@@ -28,6 +28,15 @@ def parser():
     sub = p.add_subparsers(dest="command", required=True)
     sub.add_parser("onboard", help="Show implemented capabilities and remaining gates")
     sub.add_parser("doctor", help="Inspect selected local tools without installing or invoking models")
+    q = sub.add_parser('datasets', help='Review manual or seeded lineage-grouped dataset assignments')
+    actions = q.add_subparsers(dest='dataset_action', required=True)
+    a = actions.add_parser('propose'); a.add_argument('--input', type=Path, required=True)
+    actions.add_parser('catalog')
+    a = actions.add_parser('request-review'); a.add_argument('dataset_id')
+    a = actions.add_parser('register', help='Register an explicit source allowlist without copying it to an agent')
+    a.add_argument('--directory', type=Path, required=True)
+    a.add_argument('--role', choices=('learning', 'development', 'evaluator'), required=True)
+    a.add_argument('--files', nargs='+', required=True)
     config = sub.add_parser("resolve", help="Resolve configuration without creating a run")
     config.add_argument("--config", type=Path, required=True)
     config.add_argument("--time-limit-seconds", type=int)
@@ -93,6 +102,59 @@ def parser():
     q.add_argument("--token-limit", type=int)
     q.add_argument("--wall-seconds", type=int)
     q.add_argument("--approval")
+    q = sub.add_parser("registry", help="Declare and review proof-bearing units before a run")
+    actions = q.add_subparsers(dest="registry_action", required=True)
+    a = actions.add_parser("propose")
+    a.add_argument("--input", type=Path, required=True)
+    a = actions.add_parser("request-review")
+    a.add_argument("registry_id")
+    q = sub.add_parser("metrics", help="Current metrics from actual run evidence")
+    q.add_argument("run_id")
+    q = sub.add_parser("plot", help="Export actual run metrics as CSV/JSON and PNG/SVG/PDF")
+    q.add_argument("run_id")
+    q.add_argument("--output", type=Path, required=True)
+    q.add_argument("--no-plots", action="store_true")
+    q = sub.add_parser("attest", help="Local signed evidence; independent policy and trust required")
+    actions = q.add_subparsers(dest="attest_action", required=True)
+    a = actions.add_parser("policy")
+    a.add_argument("run_id")
+    a.add_argument("--scope", choices=("record_integrity", "engineering_acceptance"), default="record_integrity")
+    a = actions.add_parser("create")
+    a.add_argument("run_id")
+    a.add_argument("--key", type=Path, required=True)
+    a.add_argument("--policy", type=Path, required=True)
+    a.add_argument("--output", type=Path, required=True)
+    a = actions.add_parser("verify")
+    a.add_argument("--bundle", type=Path, required=True)
+    a.add_argument("--policy", type=Path, required=True)
+    a.add_argument("--trust", type=Path, required=True)
+    q = sub.add_parser("repairs", help="Bounded provisional repair branches; never edit original source")
+    actions = q.add_subparsers(dest="repair_action", required=True)
+    a = actions.add_parser("stage")
+    a.add_argument("run_id")
+    a.add_argument("--issue", required=True)
+    a.add_argument("--patch", type=Path, required=True)
+    a.add_argument("--parent")
+    a = actions.add_parser("validate")
+    a.add_argument("candidate_id")
+    a = actions.add_parser("catalog")
+    a.add_argument("--run-id")
+    q = sub.add_parser("architecture", help="Capture and review real HAMR structural baselines")
+    actions = q.add_subparsers(dest="architecture_action", required=True)
+    a = actions.add_parser("snapshot")
+    a.add_argument("snapshot_id")
+    a = actions.add_parser("propose")
+    a.add_argument("snapshot_id")
+    a.add_argument("--changes", type=Path)
+    a = actions.add_parser("request-review")
+    a.add_argument("policy_id")
+    q = sub.add_parser("requirements", help="Source-backed obligation ledger and independent review")
+    actions = q.add_subparsers(dest="requirements_action", required=True)
+    a = actions.add_parser("propose")
+    a.add_argument("--input", type=Path, required=True)
+    for name in ("show", "request-review"):
+        a = actions.add_parser(name)
+        a.add_argument("ledger_id")
     q = sub.add_parser("ui", help="Open the authenticated loopback UI over the same controller")
     q.add_argument("--port", type=int, default=8765)
     q.add_argument("--profile", type=Path, action="append", default=[])
@@ -101,6 +163,9 @@ def parser():
 
 
 def dispatch(args):
+    if args.command == "attest" and args.attest_action == "verify":
+        from .verify_attestation import verify_files
+        return verify_files(args.bundle, args.policy, args.trust)
     if args.command == "ui":
         from .api import serve
         repo = Path(__file__).resolve().parents[2]
@@ -112,11 +177,14 @@ def dispatch(args):
         return {"status": "IMPLEMENTATION_IN_PROGRESS", "paid_execution": "DEFERRED_BY_USER",
                 "implemented": ["config resolution", "allowlisted snapshots", "durable runs/events",
                                 "pause/stop requests", "resume without resetting budgets", "typecheck adapter",
-                                "lexical diagnostics", "metadata-level dataset proposals", "legacy rulebook import",
+                                "lexical diagnostics", "reviewed lineage-grouped dataset assignments and source invalidation", "legacy rulebook import",
                                 "registered source passages", "exact-subject approvals", "budget amendments",
-                                "candidate rules, bindings and release drafts", "authenticated local React UI"],
-                "remaining": ["generation/learning isolation", "independent rule transfer validation and publication readiness", "transactional repairs",
-                              "proof/build and architecture adapters", "complete UI split/repair workflows", "attestation", "live demonstrations"],
+                                "candidate rules, bindings and release drafts", "authenticated local React UI",
+                                "real HAMR AIR/declaration capture and reviewed structural comparison",
+                                "source-backed requirement ledgers and mapped coverage", "bounded provisional repairs",
+                                "reviewed unit registries and metrics/plots", "independent local DSSE verification"],
+                "remaining": ["generation/learning isolation", "independent rule transfer validation and publication readiness", "accepted source promotion",
+                              "complete proof/build/independent-test adapters", "cross-task learning execution", "production attestation trust setup", "live demonstrations"],
                 "start": "./inspecta-scp --json doctor; ./inspecta-scp --json check --offline --config workbench/profiles/producer-consumer.check.json",
                 "limits": "Nested worker isolation may be unavailable in this Codex sandbox. Failure blocks; it never runs without isolation."}
     if args.command == "doctor":
@@ -153,6 +221,56 @@ def dispatch(args):
             return resolve(profile, overrides, base)
     controller = Controller(args.state_dir)
     try:
+        if args.command == 'datasets':
+            from .datasets import Datasets
+            service = Datasets(controller.store)
+            if args.dataset_action == 'register':
+                sources = Sources(controller.store)
+                root = sources.register_root(args.directory, args.role)
+                return {'root': root, 'sources': [sources.register(root['id'], path) for path in args.files]}
+            if args.dataset_action == 'propose': return service.propose(read_json(args.input))
+            if args.dataset_action == 'catalog': return service.catalog()
+            return service.request_review(args.dataset_id)
+        if args.command in {"registry", "metrics", "plot"}:
+            from .metrics import Metrics
+            service = Metrics(controller)
+            if args.command == "metrics":
+                return service.report(args.run_id)
+            if args.command == "plot":
+                return service.export(args.run_id, args.output, not args.no_plots)
+            if args.registry_action == "propose":
+                return service.propose(read_json(args.input))
+            return service.request_review(args.registry_id)
+        if args.command == "attest":
+            from .attestation import Attestations
+            service = Attestations(controller)
+            if args.attest_action == "policy":
+                return service.policy(args.run_id, args.scope)
+            return service.create(args.run_id, args.key, read_json(args.policy), args.output)
+        if args.command == "repairs":
+            from .repairs import Repairs
+            service = Repairs(controller)
+            if args.repair_action == "stage":
+                return service.stage(args.run_id, args.issue, read_json(args.patch), args.parent)
+            if args.repair_action == "validate":
+                return service.validate(args.candidate_id)
+            return service.catalog(args.run_id)
+        if args.command == "architecture":
+            from .architecture import Architecture
+            service = Architecture(controller)
+            if args.architecture_action == "snapshot":
+                return controller.store.read_record("architecture_snapshot", args.snapshot_id)
+            if args.architecture_action == "propose":
+                return service.propose(args.snapshot_id, read_json(args.changes) if args.changes else None)
+            return service.request_review(args.policy_id)
+        if args.command == "requirements":
+            from .requirements import Requirements
+            service = Requirements(controller.store)
+            if args.requirements_action == "propose":
+                return service.propose(read_json(args.input))
+            if args.requirements_action == "show":
+                return controller.store.read_record("requirement_ledger", args.ledger_id)
+            return service.request_review(args.ledger_id)
         if args.command == "rules":
             library = Knowledge(controller.store)
             if args.rule_action == "import":
@@ -201,7 +319,7 @@ def main(argv=None):
         result = dispatch(args)
         print(json.dumps(result, indent=2, ensure_ascii=False, allow_nan=False))
         return {"FAILED": 1, "BLOCKED": 3, "BUDGET_EXHAUSTED": 4,
-                "CANCELLED": 5}.get(result.get("state"), 0)
+                "CANCELLED": 5, "INCOMPLETE": 3}.get(result.get("state", result.get("status")), 0)
     except (PolicyError, OSError, ValueError, TypeError, KeyError) as exc:
         print(json.dumps({"status": "CONFIGURATION_ERROR", "error": str(exc)}), file=sys.stderr)
         return 2

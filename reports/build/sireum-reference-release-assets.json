@@ -1,0 +1,20 @@
+[
+  {
+    "name": "install.cmd",
+    "size": 16912,
+    "digest": "sha256:89a1a532285bfcccc4841342873c2e8253ec4be61793e466f2ceddea7e8bf711",
+    "browser_download_url": "https://github.com/sireum/kekinian/releases/download/4.20260810.80aad0c2/install.cmd"
+  },
+  {
+    "name": "org.sireum.m2.zip",
+    "size": 253442512,
+    "digest": "sha256:1de21091b8a68c4ab28f2a8392fe606caffd0f18683275d5811509d459b74ab2",
+    "browser_download_url": "https://github.com/sireum/kekinian/releases/download/4.20260810.80aad0c2/org.sireum.m2.zip"
+  },
+  {
+    "name": "sireum-cli-linux-amd64.tar.xz",
+    "size": 71344244,
+    "digest": "sha256:153a140b7fad24a17bfc9d7ce2d6cee8a3e41df2b400e34ba38a73b4bb81cb9d",
+    "browser_download_url": "https://github.com/sireum/kekinian/releases/download/4.20260810.80aad0c2/sireum-cli-linux-amd64.tar.xz"
+  }
+]

@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0"
+    },
+    "record_type": {
+      "const": "requirement_ledger"
+    },
+    "project_id": {
+      "type": "string"
+    },
+    "state": {
+      "enum": [
+        "DRAFT",
+        "APPROVED"
+      ]
+    },
+    "source_manifest": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "obligations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "parent_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "source_reference": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "source_text": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "obligation": {
+            "type": "string"
+          },
+          "owner": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "representation": {
+            "enum": [
+              "behavior_contract",
+              "architecture",
+              "timing",
+              "deployment",
+              "review",
+              "unresolved"
+            ]
+          },
+          "required_gate_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "mapped_elements": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "review_status": {
+            "enum": [
+              "DRAFT",
+              "APPROVED",
+              "UNRESOLVED"
+            ]
+          },
+          "approval_reference": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "parent_id",
+          "source_reference",
+          "source_text",
+          "obligation",
+          "owner",
+          "representation",
+          "required_gate_ids",
+          "mapped_elements",
+          "review_status",
+          "approval_reference"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "approval_reference": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "$schema",
+    "schema_version",
+    "record_type",
+    "project_id",
+    "state",
+    "source_manifest",
+    "obligations",
+    "approval_reference",
+    "notes"
+  ],
+  "additionalProperties": false
+}

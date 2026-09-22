@@ -42,7 +42,7 @@ units, engineering acceptance, or complete system validation. Instantiation warn
 and substituted missing types currently produce UNKNOWN, pending a reviewed policy.
 
 `run` and `learn` can resolve and snapshot inputs but explicitly BLOCK before model
-generation. No learned release, model execution, complete formal gate adapter, evidence signature, or live demonstration is claimed by this version.
+generation. No learned release, model execution, complete formal gate adapter, engineering acceptance or live demonstration is claimed by this version.
 
 Exit codes: 0 completed command (inspect returned state), 1 checker rejection,
 2 invalid configuration, 3 blocked, 4 exhausted, 5 cancelled.
@@ -118,7 +118,128 @@ outer sandbox may require permission to run it from the ordinary host terminal.
 The browser sandbox stays enabled. Its screenshot is application-test evidence,
 not an Isolette/KSU engineering demonstration.
 
-Paid demonstrations are deferred by user instruction. Generation, transactional
-repair, complete engineering gate adapters, independent rule transfer, attestation,
-and full split/repair UI flows remain unfinished. No live demonstration or complete
+Paid demonstrations are deferred by user instruction. Generation, accepted source
+promotion, complete engineering gate adapters, independent rule transfer, and full
+cross-task learning workflows remain unfinished. Provisional repair and local attestation are described below. No live demonstration or complete
 Workbench acceptance is claimed.
+
+Dataset assignments use registered, hash-checked sources. Register only an explicit
+allowlist; put reference answers in a separate evaluator root:
+
+```sh
+./inspecta-scp --json datasets register --directory /absolute/task/root --role learning --files Model.sysml requirements.md
+./inspecta-scp --json datasets register --directory /absolute/reference/root --role evaluator --files Answer.sysml
+./inspecta-scp --json datasets propose --input tasks.json
+./inspecta-scp --json datasets catalog
+./inspecta-scp --json datasets request-review DATASET_ID
+```
+
+`tasks.json` contains `tasks`, `strategy`, `fractions`, and a text `seed`. Each task
+contains `id`, reviewed `family_id` and `lineage_id`, `role`, `source_ids`, and
+`reference_ids`. Source IDs come from registration. Reference IDs must be
+evaluator-only. Choose `user_assigned` with explicit learning/development/final
+roles and null fractions, or `propose_grouped` with explicit three fractions
+summing to one and null initial roles. The latter proposes membership for review;
+it never moves files. Exact source and solution duplicates connect groups.
+Unknown lineage blocks a proposal; provided metadata does not prove semantic
+independence. The older singular `dataset` command is only a stateless manifest
+utility; use plural `datasets` for durable reviewed assignments.
+
+The Dataset assignments UI uses this same service and approval queue. A saved
+profile or New workflow form can bind `dataset_assignment` and `dataset_task`.
+Both are required together. Before snapshotting or executing, the controller
+requires current approval, unchanged sources, and inputs drawn from that selected
+task. Copies of registered evaluator answers are rejected even under a new name.
+Final tasks cannot run in Learning mode. The service does not export any task
+answers to a model, and it makes no final-transfer claim.
+
+Requirement and structure checks now use the installed Sireum parser and HAMR
+instantiator through `adapters/export_architecture.sc`. The adapter runs inside
+the existing isolated worker, exports AIR plus resolved package declarations,
+and binds them to input/config/tool hashes. `architecture_capture` records this
+output; it does not approve the design. `architecture` compares both views with
+an approved immutable policy. Position metadata is ignored, recognized time units
+are normalized, and every other difference requires an exact reviewed delta.
+Unknown instantiation warnings block conformance. Text similarity never decides
+architecture equivalence.
+
+```sh
+./inspecta-scp --json check --offline --config workbench/profiles/producer-consumer.structure.check.json
+./inspecta-scp architecture snapshot SNAPSHOT_ID
+./inspecta-scp architecture propose SNAPSHOT_ID
+./inspecta-scp architecture request-review POLICY_ID
+./inspecta-scp requirements propose --input reviewed-draft.json
+./inspecta-scp requirements request-review LEDGER_ID
+```
+
+These commands create review requests; they do not approve them. Use the UI review
+queue or the exact-digest `approval` command for an actual human decision. Put
+approved record IDs in the saved profile as `architecture_policy` and
+`requirement_ledger`. Requirement sources must be exact registered revisions.
+Duplicate IDs, fabricated citations, wrong owners and missing mapped guarantees
+are rejected. Coverage means resolved mapping; proof and semantic fidelity remain
+separate gates. Source changes or approval revocation invalidate dependent runs.
+
+Provisional repair branches use the original run's deadline and attempt caps.
+Set `repair_allowed_files` explicitly in the saved profile before creating the
+run. A patch JSON maps each permitted path to `expected_sha256` and replacement
+`text`; nothing outside this declared scope is editable.
+
+```sh
+./inspecta-scp repairs stage RUN_ID --issue ISSUE_ID --patch patch.json
+./inspecta-scp repairs validate CANDIDATE_ID
+./inspecta-scp repairs catalog --run-id RUN_ID
+```
+
+`--parent CANDIDATE_ID` stages a follow-up against an earlier provisional revision,
+including a failed one. Repeated/no-change attempts are rejected. Checks preserve
+the original project and prior run result, and never replenish its budget.
+`CHECKED_PROVISIONAL` is only a result for the configured subset of checks. Source
+promotion remains unavailable until the full engineering acceptance path exists.
+The Repair revisions page shows exact diffs, parent identities and real results.
+
+Metrics use `unit_registry`, a reviewed immutable record declared before a run.
+`registry propose --input registry.json` validates obligation/formal/implementation
+mappings; `registry request-review REGISTRY_ID` requests a human decision. Duplicate
+formal targets cannot inflate the denominator. No registry means unknown coverage;
+zero verified units means undefined per-unit costs, not zero. Formal checks must
+report each registered obligation; a parser success or mapping is not counted.
+
+```sh
+./inspecta-scp metrics RUN_ID
+./inspecta-scp plot RUN_ID --output reports/my-new-run
+```
+
+Plots export CSV/JSON, PNG/SVG/PDF and a digest manifest. They use Matplotlib 3.10.7;
+missing plotting dependencies are pinned with wheel hashes in
+`plotting-requirements.lock`. Historical DASC figures and the historical 42-unit
+inventory were not found at the referenced repository paths and have not been
+reconstructed from a count. Existing metrics scripts are preserved; their embedding
+calls, assumed counts and generic result fields are not a verification source.
+
+Local attestation uses securesystemslib 1.3.1 DSSE envelopes and in-toto Statement
+v1. It reuses cryptography 46.0.3. The newer downloaded library required a crypto
+upgrade, so it was not installed. Private signing keys must be outside the
+repository, source workspace and controller state, with private file permissions.
+There is no HTTP signing endpoint and no automatic production key generation.
+
+```sh
+./inspecta-scp attest policy RUN_ID > /trusted/location/run-policy.json
+# Independently review this policy and select an external trust root before use.
+./inspecta-scp attest create RUN_ID --key /trusted/location/private.pem --policy /trusted/location/run-policy.json --output reports/new-bundle
+./inspecta-scp attest verify --bundle reports/new-bundle --policy /trusted/location/run-policy.json --trust /trusted/location/trust.json
+```
+
+The verifier can run without the controller database:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=workbench .venv/bin/python -m inspecta_scp.verify_attestation --bundle reports/new-bundle --policy /trusted/location/run-policy.json --trust /trusted/location/trust.json
+```
+
+Trust JSON contains `keys` (key ID to securesystemslib public-key object) and
+`threshold`. Both trust and expected policy must be outside the bundle. Verification
+checks signature, subjects, current source files, config/input/result/event identity,
+required gate records and external requirement dependencies. A valid signature of
+incomplete evidence reports `INCOMPLETE` and exit 3; it is not engineering acceptance,
+certification or a SLSA claim. The committed reporting integration uses an explicitly
+TEST ONLY ephemeral signer; its private key was deleted.

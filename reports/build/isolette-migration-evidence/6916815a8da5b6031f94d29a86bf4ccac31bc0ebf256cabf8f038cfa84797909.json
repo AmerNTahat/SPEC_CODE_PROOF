@@ -1,0 +1,1 @@
+{"text":"package Isolette_Properties {\n\n  private import HAMR::*;\n\n  // scheduling information\n  //   ..declaration of scheduling domain identifiers \n  \n  attribute Domain_OI: CASE_Scheduling::Domain = 2;\n  attribute Domain_TS: CASE_Scheduling::Domain = 3;\n  attribute Domain_THERM: CASE_Scheduling::Domain = 4;\n  attribute Domain_HS: CASE_Scheduling::Domain = 5;\n}\n"}

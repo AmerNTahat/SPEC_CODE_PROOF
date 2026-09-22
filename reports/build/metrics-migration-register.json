@@ -1,0 +1,27 @@
+{
+  "sources": [
+    {
+      "path": "isolette/sysml/tools/evaluate_plans.py",
+      "sha256": "98a29a973a55d6637732dd447c5daef7d6357bc4fb751c05ffd0a5b1a6f06dbe",
+      "disposition": "PRESERVED_NOT_EXECUTED",
+      "replacement": "workbench/inspecta_scp/metrics.py",
+      "reason": "Separate actual run evidence from legacy embeddings, generic metrics, assumed contract counts and last-usage summaries"
+    },
+    {
+      "path": "isolette/sysml/tools/show_codex_metrics.py",
+      "sha256": "a91277144fba632b712e522af07d3b71601f1b64d05480140bcaf4b7e6bb5c48",
+      "disposition": "PRESERVED_NOT_EXECUTED",
+      "replacement": "workbench/inspecta_scp/metrics.py",
+      "reason": "Separate actual run evidence from legacy embeddings, generic metrics, assumed contract counts and last-usage summaries"
+    },
+    {
+      "path": "isolette/sysml/tools/visualize_metrics.py",
+      "sha256": "505534b0e6fbbc978ef0453cc90e14633ba715d838944960207850ffa27a00ef",
+      "disposition": "PRESERVED_NOT_EXECUTED",
+      "replacement": "workbench/inspecta_scp/metrics.py",
+      "reason": "Separate actual run evidence from legacy embeddings, generic metrics, assumed contract counts and last-usage summaries"
+    }
+  ],
+  "missing_historical_source": "SCP_IEEE_Documentation/revision_round22_June_2026/figures/results_chart_pgfplots.tex",
+  "historical_42_unit_inventory": "NOT_ESTABLISHED"
+}

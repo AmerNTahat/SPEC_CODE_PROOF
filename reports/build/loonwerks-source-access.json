@@ -1,0 +1,17 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/loonwerks/INSPECTA-models/main/provers-env/readme.md",
+    "status": "READ",
+    "path": "/tmp/inspecta-loonwerks-docs/readme.md"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/loonwerks/INSPECTA-models/main/provers-env/bin/sireum.sh",
+    "status": "READ",
+    "path": "/tmp/inspecta-loonwerks-docs/bin/sireum.sh"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/loonwerks/INSPECTA-models/main/provers-env/bin/versions.sh",
+    "status": "READ",
+    "path": "/tmp/inspecta-loonwerks-docs/bin/versions.sh"
+  }
+]

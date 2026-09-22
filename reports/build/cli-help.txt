@@ -1,14 +1,16 @@
 usage: inspecta-scp [-h] [--state-dir STATE_DIR] [--json]
-                    {onboard,doctor,resolve,check,run,learn,status,report,logs,pause,resume,stop,execute,compare,dataset,rules,source,approval,budget,ui}
+                    {onboard,doctor,datasets,resolve,check,run,learn,status,report,logs,pause,resume,stop,execute,compare,dataset,rules,source,approval,budget,registry,metrics,plot,attest,repairs,architecture,requirements,ui}
                     ...
 
 INSPECTA/SCP controller foundation; see onboard for capability status
 
 positional arguments:
-  {onboard,doctor,resolve,check,run,learn,status,report,logs,pause,resume,stop,execute,compare,dataset,rules,source,approval,budget,ui}
+  {onboard,doctor,datasets,resolve,check,run,learn,status,report,logs,pause,resume,stop,execute,compare,dataset,rules,source,approval,budget,registry,metrics,plot,attest,repairs,architecture,requirements,ui}
     onboard             Show implemented capabilities and remaining gates
     doctor              Inspect selected local tools without installing or
                         invoking models
+    datasets            Review manual or seeded lineage-grouped dataset
+                        assignments
     resolve             Resolve configuration without creating a run
     compare             Offline lexical comparison; never acceptance
     dataset             Lineage grouping of reviewed metadata; no semantic
@@ -18,6 +20,15 @@ positional arguments:
     source              Read an exact registered source revision
     approval            Local human review; never implicit model approval
     budget              Request/apply an exact approved budget amendment
+    registry            Declare and review proof-bearing units before a run
+    metrics             Current metrics from actual run evidence
+    plot                Export actual run metrics as CSV/JSON and PNG/SVG/PDF
+    attest              Local signed evidence; independent policy and trust
+                        required
+    repairs             Bounded provisional repair branches; never edit
+                        original source
+    architecture        Capture and review real HAMR structural baselines
+    requirements        Source-backed obligation ledger and independent review
     ui                  Open the authenticated loopback UI over the same
                         controller
 

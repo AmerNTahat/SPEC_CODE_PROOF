@@ -3,6 +3,7 @@ Uses Firefox's local Marionette protocol and standard-library sockets.
 """
 import base64
 import http.client
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -12,6 +13,8 @@ import tempfile
 import threading
 import time
 from inspecta_scp.api import Application, make_server
+from inspecta_scp.controller import Controller
+from inspecta_scp.sources import Sources
 
 
 def main():
@@ -27,8 +30,17 @@ def main():
         (books / 'rules.md').write_text('# MR-BROWSER\n<script>window.inspectaInjected=true</script>\n')
         profile = root / 'browser.json'
         profile.write_text(json.dumps({'project': str(project), 'input_files': ['Model.sysml'],
-            'model_file': 'Model.sysml', 'task_operation': 'verify-only'}))
+            'model_file': 'Model.sysml', 'task_operation': 'verify-only', 'repair_allowed_files': ['Model.sysml']}))
         server, token = make_server(Application(root / 'state', [profile], [books]))
+        controller = Controller(root / 'state')
+        try:
+            sources = Sources(controller.store)
+            source_root = sources.register_root(project, 'learning')
+            source = sources.register(source_root['id'], 'Model.sysml')
+            task_inventory = [{'id': 'browser-task', 'family_id': 'browser-family', 'lineage_id': 'browser-lineage',
+                               'role': 'learning', 'source_ids': [source['id']], 'reference_ids': []}]
+        finally:
+            controller.close()
         thread = threading.Thread(target=server.serve_forever, daemon=True)
         thread.start()
         host = '127.0.0.1:' + str(server.server_port)
@@ -106,10 +118,10 @@ def main():
                     if js('return !!(' + script + ')'):
                         return
                     time.sleep(.1)
-                raise AssertionError('UI timeout: ' + script)
+                raise AssertionError('UI timeout: ' + script + '\n' + str(js('return document.body.textContent')).replace(token, '[REDACTED]'))
             def click(label):
                 script = 'Array.from(document.querySelectorAll("button")).find(b => b.textContent === ' + json.dumps(label) + ')'
-                until(script)
+                until(script + ' && !(' + script + ').disabled')
                 js(script + '.click();')
             session = command('WebDriver:NewSession', {'capabilities': {'alwaysMatch': {'acceptInsecureCerts': False}}})
             evidence['browser'] = session
@@ -151,6 +163,33 @@ def main():
             command('WebDriver:Refresh')
             until('document.body.textContent.includes("READY")')
             evidence['checks'].append('Session reconnect and durable run after reload')
+            click('Requirements & structure')
+            until('document.body.textContent.includes("No architecture captures yet")')
+            evidence['checks'].append('Engineering UI reads actual backend records without inventing captures')
+            click('Dataset assignments')
+            until('document.querySelector(\'textarea[aria-label="Task inventory JSON"]\')')
+            js('const input = document.querySelector("textarea"); Object.getOwnPropertyDescriptor(HTMLTextAreaElement.prototype,"value").set.call(input,' + json.dumps(json.dumps(task_inventory)) + '); input.dispatchEvent(new Event("input",{bubbles:true}));')
+            click('Save assignment proposal')
+            until('document.body.textContent.includes("user_assigned")')
+            click('Request assignment review')
+            until('document.body.textContent.includes("approve_dataset")')
+            status, body = request_http('GET', '/api/datasets', auth)
+            assert status == 200 and json.loads(body)['datasets'][0]['proposal']['tasks'][0]['role'] == 'learning'
+            evidence['checks'].append('Dataset UI saves manual membership and requests exact-subject review without moving sources')
+            click('Repair revisions')
+            until('document.querySelector(\'textarea[aria-label="Exact patch request JSON"]\')')
+            patch = {'run_id': recorded['id'], 'issue': 'browser-test', 'patch': {'Model.sysml': {
+                'expected_sha256': hashlib.sha256(b'package Synthetic {}').hexdigest(), 'text': 'package Proposed {}'}}}
+            js('const input = document.querySelector("textarea"); Object.getOwnPropertyDescriptor(HTMLTextAreaElement.prototype,"value").set.call(input,' + json.dumps(json.dumps(patch)) + '); input.dispatchEvent(new Event("input",{bubbles:true}));')
+            time.sleep(.15)
+            click('Stage provisional patch')
+            until('document.body.textContent.includes("browser-test")')
+            click('Inspect exact diff')
+            until('document.body.textContent.includes("+package Proposed")')
+            click('Validate revision')
+            until('document.body.textContent.includes("BLOCKED — provisional validation")')
+            assert (project / 'Model.sysml').read_text() == 'package Synthetic {}'
+            evidence['checks'].append('UI stages exact provisional patch, shows diff, blocks missing tool and preserves source')
             click('Knowledge library')
             click('Import books')
             until('document.body.textContent.includes("MR-BROWSER")')

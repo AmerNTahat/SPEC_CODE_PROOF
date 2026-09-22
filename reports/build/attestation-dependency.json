@@ -1,0 +1,8 @@
+{
+  "installed_version": "1.3.1",
+  "wheel_sha256": "2e5414bbdde33155a91805b295cbedc4ae3f12b48dccc63e1089093537f43c81",
+  "source": "https://pypi.org/project/securesystemslib/1.3.1/",
+  "reused_cryptography": "46.0.3",
+  "rejected_version": "1.5.1",
+  "rejection_reason": "Requires cryptography >=48 for crypto extra; preserve working existing library"
+}

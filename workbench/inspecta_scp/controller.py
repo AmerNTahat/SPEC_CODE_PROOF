@@ -64,9 +64,35 @@ class Controller:
             raise
         return self.status(run_id)
 
+    def _validate_policies(self, config):
+        if config.get('dataset_assignment'):
+            from .datasets import Datasets
+            Datasets(self.store).validate_run(config)
+        if config.get("architecture_policy"):
+            from .architecture import Architecture
+            Architecture(self).approved(config["architecture_policy"])
+        if config.get("requirement_ledger"):
+            from .requirements import Requirements
+            ledger = Requirements(self.store).approved(config["requirement_ledger"])
+            mandatory = {g for o in ledger["record"]["obligations"] for g in o["required_gate_ids"]}
+            if not mandatory <= set(config["required_gates"]):
+                raise PolicyError("Run omits acceptance gates required by approved obligations")
+
+        if config.get("unit_registry"):
+            from .metrics import Metrics
+            registry = Metrics(self).approved(config["unit_registry"])["record"]
+            if registry["ledger_id"] != config.get("requirement_ledger"):
+                raise PolicyError("Run ledger differs from frozen unit registry")
+            for unit in registry["units"]:
+                if not set(unit["implementation_files"]) <= set(config["input_files"]):
+                    raise PolicyError("Registered implementation file missing from run input scope")
+                if not set(unit["formal_gate_ids"]) <= set(config["required_gates"]):
+                    raise PolicyError("Run omits registered formal gates")
+
     def create(self, profile, overrides=None, base_dir=None):
         resolved = resolve(profile, overrides, base_dir)
         config = resolved["config"]
+        self._validate_policies(config)
         source = Path(config["project"] or "")
         if not config["project"] or not source.is_dir():
             raise PolicyError("Existing project directory required for this controller version")
@@ -135,6 +161,13 @@ class Controller:
                     p = safe_child(self.store.root, ref["path"])
                     if not p.is_file() or sha_file(p) != ref["sha256"]:
                         raise PolicyError("Evidence missing or modified")
+        try:
+            self._validate_policies(config)
+            result["policy_current"] = True
+        except PolicyError as exc:
+            result["policy_current"] = False
+            result["policy_problem"] = str(exc)
+            result["evidence_current_for_source"] = False
         return result
 
     def control(self, run_id, action):
@@ -158,15 +191,17 @@ class Controller:
             raise PolicyError("Unknown control action")
         return self.status(run_id)
 
-    def _sandbox_command(self, config, candidate):
+    def _sandbox_command(self, config, candidate, operation="parse_type", output=None):
         exe = Path(config["sireum"] or "")
         if not config["sireum"] or not exe.is_file() or not os.access(exe, os.X_OK):
             raise PolicyError("Selected Sireum executable is unavailable")
         if not config["sireum_sha256"] or sha_file(exe) != config["sireum_sha256"]:
             raise PolicyError("Sireum fingerprint missing or changed")
         home = exe.parent.parent
-        if exe.name != "sireum" or exe.parent.name != "bin" or not (home / "bin/sireum.jar").is_file():
-            raise PolicyError("This adapter requires an initialized Sireum home; no bootstrap is permitted")
+        has_jar = (home / "bin/sireum.jar").is_file()
+        has_native = (home / "bin/linux/sireum").is_file()
+        if exe.name != "sireum" or exe.parent.name != "bin" or not (has_jar or has_native):
+            raise PolicyError("This adapter requires an initialized native or JVM Sireum home; no bootstrap is permitted")
         repo = Path(__file__).resolve().parents[2]
         bwrap = repo / "tools/codex-runtime-v0.155.1/codex-resources/bwrap"
         if not bwrap.is_file() or sha_file(bwrap) != "77360cb751ccedc5971391444ac86a8a33c15b04d6b4a6fe45f5d25496e62c4c":
@@ -183,23 +218,43 @@ class Controller:
         cache = Path("/etc/ld.so.cache")
         if cache.is_file():
             command.extend(["--ro-bind", str(cache), str(cache)])
-        command.extend(["/opt/sireum/bin/sireum", "hamr", "sysml", "tipe",
-                        "--sourcepath", "/work", "/work/" + config["model_file"]])
-        identity = {"launcher_sha256": sha_file(exe), "jar_sha256": sha_file(home / "bin/sireum.jar"),
+        adapter = None
+        if operation == "architecture_capture":
+            if not has_jar:
+                raise PolicyError("Architecture adapter needs initialized JVM Sireum; tested native evaluator cannot resolve the CLI APIs")
+            adapter = repo / "workbench/adapters/export_architecture.sc"
+            if output is None or not adapter.is_file():
+                raise PolicyError("Architecture adapter or output directory missing")
+            command.extend(["--ro-bind", str(adapter), "/export_architecture.sc",
+                            "--bind", str(output), "/output",
+                            "/opt/sireum/bin/sireum", "slang", "run"])
+            command.extend(["/export_architecture.sc", "/work", "/output"])
+        elif operation == "parse_type":
+            command.extend(["/opt/sireum/bin/sireum", "hamr", "sysml", "tipe",
+                            "--sourcepath", "/work", "/work/" + config["model_file"]])
+        else:
+            raise PolicyError("Unknown trusted operation")
+        identity = {"launcher_sha256": sha_file(exe), "jar_sha256": sha_file(home / "bin/sireum.jar") if has_jar else None,
                     "sandbox_sha256": sha_file(bwrap), "network": "unshared", "home": "empty_tmpfs",
                     "candidate_mount": "read_only", "profile": "sireum-tipe-v1"}
         identity["runtime_files"] = {rel: sha_file(home / rel) for rel in
                                      ("bin/linux/sireum", "bin/linux/java/bin/java")
                                      if (home / rel).is_file()}
+        if adapter:
+            identity.update(adapter_sha256=sha_file(adapter), profile="sireum-architecture-v1")
         return command, identity
 
-    def _parse_type(self, run_id, config, folder):
+    def _run_tool(self, run_id, config, folder, operation):
         if not config["model_file"]:
             raise PolicyError("No root model selected")
-        argv, identity = self._sandbox_command(config, folder / "candidate")
+        output = None
+        if operation == "architecture_capture":
+            import tempfile
+            output = Path(tempfile.mkdtemp(prefix="architecture-", dir=folder))
+        argv, identity = self._sandbox_command(config, folder / "candidate", operation, output)
         start = time.monotonic()
         interrupted = None
-        stdout, stderr = folder / "typecheck.stdout", folder / "typecheck.stderr"
+        stdout, stderr = folder / (operation + ".stdout"), folder / (operation + ".stderr")
         # Only the trusted parser is invoked; never candidate scripts or model commands.
         with stdout.open("wb") as out, stderr.open("wb") as err:
             proc = subprocess.Popen(argv, stdin=subprocess.DEVNULL, stdout=out, stderr=err,
@@ -227,7 +282,7 @@ class Controller:
                     os.killpg(proc.pid, signal.SIGKILL)
                     proc.wait()
         out_text, err_text = stdout.read_text(errors="replace"), stderr.read_text(errors="replace")
-        _, final_identity = self._sandbox_command(config, folder / "candidate")
+        _, final_identity = self._sandbox_command(config, folder / "candidate", operation, output)
         if final_identity != identity:
             raise PolicyError("Tool identity changed during checking")
         record = {"command": argv, "tool_identity": identity, "exit_code": proc.returncode,
@@ -235,12 +290,17 @@ class Controller:
                   "interrupted": interrupted, "config_sha256": self.store.get(run_id)["config_hash"],
                   "input_manifest_sha256": digest(json.loads((folder / "input-workspace-manifest.json").read_text())),
                   "scope": "Real type checking only; not behavioral, proof, or architectural acceptance"}
+        return record, output, interrupted
+
+    def _parse_type(self, run_id, config, folder):
+        record, _, interrupted = self._run_tool(run_id, config, folder, "parse_type")
+        out_text, err_text = record["stdout"], record["stderr"]
         status, reason = "UNKNOWN", "No validated success marker"
         if interrupted:
             reason = "Execution interrupted: " + interrupted
         elif "bwrap:" in err_text:
             reason = "Worker sandbox could not start; no unsandboxed fallback"
-        elif proc.returncode != 0:
+        elif record["exit_code"] != 0:
             status, reason = "FAIL", "Checker process rejected the model"
         elif "Well-formed!" in out_text:
             status, reason = "PASS", "Type checker completed"
@@ -260,6 +320,11 @@ class Controller:
             self.store.change(run_id, {"READY"}, "BUDGET_EXHAUSTED")
             return self.status(run_id)
         config = run["config"]
+        try:
+            self._validate_policies(config)
+        except PolicyError as exc:
+            self.store.change(run_id, {"READY"}, "BLOCKED", {"reason": str(exc)})
+            return self.status(run_id)
         if config["resolved_operation"] != "verify-only":
             reason = "Generation/learning worker and approval isolation are not yet implemented; no paid call launched"
             if config["budget"]["enforcement"] == "strict":
@@ -285,6 +350,23 @@ class Controller:
                     break
                 if gate == "parse_type":
                     result, interrupted = self._parse_type(run_id, config, folder)
+                elif gate in {"architecture_capture", "architecture"}:
+                    from .architecture import Architecture
+                    if gate == "architecture" and not config.get("architecture_policy"):
+                        result = {"gate": gate, "status": "NOT_RUN", "reason": "Reviewed architecture policy required"}
+                    else:
+                        result, interrupted = Architecture(self).capture(run_id, config, folder)
+                        if gate == "architecture":
+                            result = Architecture(self).check(config.get("architecture_policy"), result)
+                elif gate == "requirements_coverage":
+                    from .requirements import Requirements
+                    architecture = next((g for g in gates if g["gate"] in {"architecture_capture", "architecture"}), None)
+                    if config.get("requirement_ledger") and architecture is None:
+                        from .architecture import Architecture
+                        architecture, interrupted = Architecture(self).capture(run_id, config, folder)
+                        gates.append(architecture)
+                        self.store.event(run_id, "gate", architecture)
+                    result = Requirements(self.store).coverage(config.get("requirement_ledger"), architecture)
                 else:
                     result = {"gate": gate, "status": "NOT_RUN", "reason": "Trusted adapter not yet implemented"}
                 gates.append(result)
@@ -298,13 +380,13 @@ class Controller:
                      for p in (folder / "candidate").rglob("*") if p.is_file() and not p.is_symlink()}
             if after != manifest["files"] or any(p.is_symlink() for p in (folder / "candidate").rglob("*")):
                 raise PolicyError("Candidate changed during checking; evidence invalidated")
+            self._validate_policies(config)
             state = interrupted or ("FAILED" if any(g["status"] == "FAIL" for g in gates) else
                                     "CHECKED" if gates and all(g["status"] == "PASS" for g in gates) else "BLOCKED")
             result = {"gates": gates, "task_status": state, "project_status": "NOT_ASSESSED",
                       "engineering_accepted": False, "formally_verified_units": 0,
                       "model_calls": 0, "scope": "Selected checks only; no application or live-demo completion claim"}
-            self.store.db.execute("UPDATE runs SET result=? WHERE id=?", (json.dumps(result), run_id))
-            self.store.change(run_id, {"CHECKING", "PAUSE_REQUESTED", "STOP_REQUESTED"}, state)
+            self.store.finish(run_id, result)
         except (PolicyError, OSError) as exc:
             self.store.change(run_id, {"CHECKING", "PAUSE_REQUESTED", "STOP_REQUESTED"}, "BLOCKED", {"reason": str(exc)})
         return self.status(run_id)

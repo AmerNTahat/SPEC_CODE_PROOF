@@ -1,0 +1,2 @@
+registered_count,verified_count,accepted_count,coverage,wall_seconds,total_tokens,cost_usd,verified_per_minute,tokens_per_verified_unit,dollars_per_verified_unit,run_id,config_hash,registry_id,measurement_kind,evidence_current,end_to_end_success,repair_attempts,scope,run_state
+,0,0,,11.117195129394531,0,,,,,b8640b22a3274f259e2bf8e181cc4bc2,f7926c4fcc7e345049a552d29c3b7f54eed34cf850b48227f2a4bd25a7acd4a3,,recorded_application_run,True,False,0,Current trusted run evidence; no reconstructed historical 42-unit denominator or inferred billing,CHECKED

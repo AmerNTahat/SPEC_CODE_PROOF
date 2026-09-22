@@ -1,0 +1,216 @@
+{
+  "scope": "Real disposable KSU Simple Isolette syntax migration; not approved design, formal verification or live demonstration",
+  "model_calls": 0,
+  "source_files_modified": 0,
+  "port_declarations_rewritten": 12,
+  "state_directory": ".scp-workbench/isolette-migrations/98fca5bf5f0c4ff9bdd91a6e3d34c4ff/state",
+  "run_id": "e704550927674e069d4a6c156514f34f",
+  "candidate": {
+    "run_id": "e704550927674e069d4a6c156514f34f",
+    "config_hash": "c15ac6c1ab63a370e485afff59d6d6c420edfbba7fcf0b1663f8589e9558f63d",
+    "issue": "KSU data-port direction syntax compatibility",
+    "parent_id": null,
+    "files": {
+      "aadl-lib/aadl.library/AADL.sysml": {
+        "sha256": "3900fbea96c9326406e65c5e20b5c21e259f2ac728d6bd824332adf1bb8ec300",
+        "content": {
+          "sha256": "4ce35e65b06789836195d40abbd247bd52974bb6a4489b6aa39afcd81f0be02c",
+          "path": "objects/4ce35e65b06789836195d40abbd247bd52974bb6a4489b6aa39afcd81f0be02c.json"
+        }
+      },
+      "aadl-lib/aadl.library/AADL_Project.sysml": {
+        "sha256": "a17e5789f97183375794ffbcefc2c20345d241092a51aaaeed8fbf6ec02e58b2",
+        "content": {
+          "sha256": "2d2b498ff780bb64d4871a3b8cac5d6ab2cd636b8688981040e6af6a74ef4d23",
+          "path": "objects/2d2b498ff780bb64d4871a3b8cac5d6ab2cd636b8688981040e6af6a74ef4d23.json"
+        }
+      },
+      "aadl-lib/aadl.library/Base_Types.sysml": {
+        "sha256": "76b844c465d64b9fbb527f59aa98856ebc2545352cd596cf72ddbdcadd547695",
+        "content": {
+          "sha256": "2430fbb18954e42146bb5d7d295ff2bf5e75cb8986cf66c9a7f8df3793e6d61f",
+          "path": "objects/2430fbb18954e42146bb5d7d295ff2bf5e75cb8986cf66c9a7f8df3793e6d61f.json"
+        }
+      },
+      "aadl-lib/aadl.library/Communication_Properties.sysml": {
+        "sha256": "e09a7c2e8b9c5df567979795aba99c8a37196e03b3d9a87c95488a7c3eacff67",
+        "content": {
+          "sha256": "895921d45f7b7402bb2253d448aacf25b17df7938e029a3a1d0876d89f788137",
+          "path": "objects/895921d45f7b7402bb2253d448aacf25b17df7938e029a3a1d0876d89f788137.json"
+        }
+      },
+      "aadl-lib/aadl.library/Data_Model.sysml": {
+        "sha256": "ba9e3838d5fe4a956e87bd3b64e0edd7ebf0a1a741200bf731163c170e94f1b4",
+        "content": {
+          "sha256": "22396dfd5d94a9fca1ddcb114d01e32dda33e3686cb304a9a4691cd076d0c977",
+          "path": "objects/22396dfd5d94a9fca1ddcb114d01e32dda33e3686cb304a9a4691cd076d0c977.json"
+        }
+      },
+      "aadl-lib/aadl.library/Deployment_Properties.sysml": {
+        "sha256": "fba2178d3fc3e7eba38362b988c1968fce3c934f252ce8ca095b210194d85509",
+        "content": {
+          "sha256": "01d74e4ca06512c5b81e125c8cdf6defd83651d640ffcca00ba6ce687981ffc7",
+          "path": "objects/01d74e4ca06512c5b81e125c8cdf6defd83651d640ffcca00ba6ce687981ffc7.json"
+        }
+      },
+      "aadl-lib/aadl.library/Memory_Properties.sysml": {
+        "sha256": "375151c140066c0176b8fb20370f6713adb66b75a218d8f0075c221278690d91",
+        "content": {
+          "sha256": "025144ae0182d63d68fb94634d8f6fbccd7c8000af6a2ffe6053d540c5056654",
+          "path": "objects/025144ae0182d63d68fb94634d8f6fbccd7c8000af6a2ffe6053d540c5056654.json"
+        }
+      },
+      "aadl-lib/aadl.library/Programming_Properties.sysml": {
+        "sha256": "a7e90c1659c3a8291f31ad8ba3b92379a25398ddf72ce6ec059061ac9807fa23",
+        "content": {
+          "sha256": "d4e7ec7a9121f437dfad7608e6e25fe0ce1073601f4ea4f94a0dd6c295b4799c",
+          "path": "objects/d4e7ec7a9121f437dfad7608e6e25fe0ce1073601f4ea4f94a0dd6c295b4799c.json"
+        }
+      },
+      "aadl-lib/aadl.library/Thread_Properties.sysml": {
+        "sha256": "4b777cd2e3736ceb499c571c8432c3415cbe51374787ed366a59749e7474c1b7",
+        "content": {
+          "sha256": "f1741f183420c27592e56df7e041ade60e48e70d97244555da419062c15d7708",
+          "path": "objects/f1741f183420c27592e56df7e041ade60e48e70d97244555da419062c15d7708.json"
+        }
+      },
+      "aadl-lib/aadl.library/Timing_Properties.sysml": {
+        "sha256": "5b3916143fff5bcfeb6c840603d7221ca692f8ec1bf33d56f6de3f0ae8d68f87",
+        "content": {
+          "sha256": "075720c39c613d3de0e22a9c725c5270eb96ca82c8e968c2630aa15a021b3381",
+          "path": "objects/075720c39c613d3de0e22a9c725c5270eb96ca82c8e968c2630aa15a021b3381.json"
+        }
+      },
+      "aadl-lib/aadl.library/behavior_properties.sysml": {
+        "sha256": "6c7399d99da108050a7096c558d92554de04c387a0f4db1a77e1f716b9f07d4b",
+        "content": {
+          "sha256": "03b5285b4faf7640d0556c0b27a6f861afe510530c6396236e7c29b0b811bc0c",
+          "path": "objects/03b5285b4faf7640d0556c0b27a6f861afe510530c6396236e7c29b0b811bc0c.json"
+        }
+      },
+      "aadl-lib/hamr.aadl.library/CASE_Scheduling.sysml": {
+        "sha256": "b993abd1bcc88dda01a86f022ff9582c3d8855e252588c76cd11b5d3e90567da",
+        "content": {
+          "sha256": "00b4e05aeee3fde061ee0cd8fb9e9521562d4ae30131863574e407a0b5be325d",
+          "path": "objects/00b4e05aeee3fde061ee0cd8fb9e9521562d4ae30131863574e407a0b5be325d.json"
+        }
+      },
+      "aadl-lib/hamr.aadl.library/HAMR.sysml": {
+        "sha256": "33b5955a100ac0f13884834900ce3af9822209f923999fe9ceb2f92051b2729d",
+        "content": {
+          "sha256": "e0b33bbd7b2f4f687a1ad586637746820ef293ba6cae3828c280dceda58d6f9e",
+          "path": "objects/e0b33bbd7b2f4f687a1ad586637746820ef293ba6cae3828c280dceda58d6f9e.json"
+        }
+      },
+      "aadl-lib/hamr.aadl.library/HAMR_AADL.sysml": {
+        "sha256": "9d17db7ba81676951e1edbcafc13fbb7cff0a7452c8318bda99c790e758c4856",
+        "content": {
+          "sha256": "c3a25efe20ef8c53af3ce03b6135e7a0a7b32b90d5e7beb506f3150811205bf1",
+          "path": "objects/c3a25efe20ef8c53af3ce03b6135e7a0a7b32b90d5e7beb506f3150811205bf1.json"
+        }
+      },
+      "aadl-lib/hamr.aadl.library/HAMR_Time_Units.sysml": {
+        "sha256": "1ee89387619a2cb3459cb94bf0f55c3576998ed754dbcc8282acc7042f019d7a",
+        "content": {
+          "sha256": "0e0a88967e753fb7c85c10cc4c710fa8edbcbaa3ac4578754e8a184ad7ab518e",
+          "path": "objects/0e0a88967e753fb7c85c10cc4c710fa8edbcbaa3ac4578754e8a184ad7ab518e.json"
+        }
+      },
+      "isolette-simple/Devices.sysml": {
+        "sha256": "b935bcb83102c221a294fb0e93bade627e91d9e0a24d224c7d089d5017aaa1c9",
+        "content": {
+          "sha256": "ddef0cfae299d5a7a39f5d3b853eded1809dcbe1edb0381b8822e43da33dc0c1",
+          "path": "objects/ddef0cfae299d5a7a39f5d3b853eded1809dcbe1edb0381b8822e43da33dc0c1.json"
+        }
+      },
+      "isolette-simple/Isolette.sysml": {
+        "sha256": "4a1ff94d713ea908780e1bdb2268ca324b7cbfa0ffe9bf8662632470ee090339",
+        "content": {
+          "sha256": "fabd39550d21bcb1979495dbb55a88b75ce7d64a5e3fe5d2e32246b40142f549",
+          "path": "objects/fabd39550d21bcb1979495dbb55a88b75ce7d64a5e3fe5d2e32246b40142f549.json"
+        }
+      },
+      "isolette-simple/Isolette_Data_Model.sysml": {
+        "sha256": "0581d5fe7594e0bd2581fd75e9956295e53d5dbdb812575be7ce34e4b812f32d",
+        "content": {
+          "sha256": "2d032c49d4e47d5904dd126efd9e7a078516471bb9c7933916ffd38029425b23",
+          "path": "objects/2d032c49d4e47d5904dd126efd9e7a078516471bb9c7933916ffd38029425b23.json"
+        }
+      },
+      "isolette-simple/Isolette_Properties.sysml": {
+        "sha256": "b084ef6080b08af02bdb622c0ece48217b66fa6a03121456c57d4d91405bd97a",
+        "content": {
+          "sha256": "6916815a8da5b6031f94d29a86bf4ccac31bc0ebf256cabf8f038cfa84797909",
+          "path": "objects/6916815a8da5b6031f94d29a86bf4ccac31bc0ebf256cabf8f038cfa84797909.json"
+        }
+      },
+      "isolette-simple/Isolette_Software.sysml": {
+        "sha256": "facdabd08691445eb3a150d709f0575423544247b02fca3efd1b37c119b179be",
+        "content": {
+          "sha256": "a08f12ff7fcaa7758b78296b33abaa0a6c65c397f66dc5330fa20eb7b257f208",
+          "path": "objects/a08f12ff7fcaa7758b78296b33abaa0a6c65c397f66dc5330fa20eb7b257f208.json"
+        }
+      },
+      "isolette-simple/Platform.sysml": {
+        "sha256": "7405736e51cdbfad408feab166403a1c348444819c04775c7a84844b6a5aab45",
+        "content": {
+          "sha256": "2b0f9370c97027caeb30efd6e78bed28222183385bcdd951a10713b7dafc3104",
+          "path": "objects/2b0f9370c97027caeb30efd6e78bed28222183385bcdd951a10713b7dafc3104.json"
+        }
+      }
+    },
+    "tree_sha256": "6e413d4b481b44b37ea7f610d493785b473f51efdb0e2dcf4ff4a21448d444e1",
+    "changed_files": [
+      "isolette-simple/Devices.sysml",
+      "isolette-simple/Isolette.sysml",
+      "isolette-simple/Isolette_Software.sysml"
+    ],
+    "status": "PROVISIONAL_UNCHECKED",
+    "source_files_modified": 0,
+    "id": "87d8d97519e30cb3bf752e1763f70a1055a3c0f5d0326e8b162d96be0b443b6b"
+  },
+  "validation": {
+    "candidate_id": "87d8d97519e30cb3bf752e1763f70a1055a3c0f5d0326e8b162d96be0b443b6b",
+    "run_id": "e704550927674e069d4a6c156514f34f",
+    "status": "CHECKED_PROVISIONAL",
+    "gates": [
+      {
+        "gate": "parse_type",
+        "status": "PASS",
+        "reason": "Type checker completed",
+        "evidence": {
+          "sha256": "1171ef1e91d781039a77a7551a3e1dae3ef8d5925b2d830680648afe6dd64265",
+          "path": "objects/1171ef1e91d781039a77a7551a3e1dae3ef8d5925b2d830680648afe6dd64265.json"
+        }
+      },
+      {
+        "gate": "architecture_capture",
+        "status": "PASS",
+        "reason": "Instantiated AIR and resolved declarations captured; no conformance claim",
+        "snapshot_id": "17a52469e4187ee0197540f146181ae5a929a9402bdd99b8642fe32453702cb3",
+        "evidence": {
+          "sha256": "4d237ae3243a42be692f3fdaa2698937cfa45d0ab14cde5040c1ddcb262b1379",
+          "path": "objects/4d237ae3243a42be692f3fdaa2698937cfa45d0ab14cde5040c1ddcb262b1379.json"
+        }
+      }
+    ],
+    "error": null,
+    "engineering_accepted": false,
+    "source_files_modified": 0,
+    "config_hash": "c15ac6c1ab63a370e485afff59d6d6c420edfbba7fcf0b1663f8589e9558f63d",
+    "tree_sha256": "6e413d4b481b44b37ea7f610d493785b473f51efdb0e2dcf4ff4a21448d444e1",
+    "id": "6b362991c51bcd12d87ad0741600498653a3af8f4581cdce6f4e49e8518ef1fd"
+  },
+  "diff": {
+    "candidate_id": "87d8d97519e30cb3bf752e1763f70a1055a3c0f5d0326e8b162d96be0b443b6b",
+    "patches": {
+      "isolette-simple/Devices.sysml": "--- parent/isolette-simple/Devices.sysml\n+++ provisional/isolette-simple/Devices.sysml\n@@ -25,7 +25,7 @@\n   //===============================================================================\n   part def TempSensor :> Thread {\n     //-- I n t e r f a c e  --\n-    out port current_temp : DataPort { :>> type : Isolette_Data_Model::Temp; }\n+    port current_temp : DataPort { out :>> type : Isolette_Data_Model::Temp; }\n \n     //-- P r o p e r t i e s  --\n     attribute :>> Period = 1000 [ms];\n@@ -47,7 +47,7 @@\n   //===============================================================================\n   part def HeatSource :> Thread {\n     //-- I n t e r f a c e  --\n-    in port heat_control : DataPort { :>> type : Isolette_Data_Model::On_Off; }\n+    port heat_control : DataPort { in :>> type : Isolette_Data_Model::On_Off; }\n \n     //-- P r o p e r t i e s  --\n     attribute :>> Period = 1000 [ms];\n",
+      "isolette-simple/Isolette.sysml": "--- parent/isolette-simple/Isolette.sysml\n+++ provisional/isolette-simple/Isolette.sysml\n@@ -45,7 +45,7 @@\n   //===============================================================================\n   part def TempSensor_Process :> Process {\n      //-- I n t e r f a c e  --\n-    out port current_temp : DataPort { :>> type : Isolette_Data_Model::Temp; }\n+    port current_temp : DataPort { out :>> type : Isolette_Data_Model::Temp; }\n \n     //-- P r o p e r t i e s  --\n     attribute :>> Domain = Isolette_Properties::Domain_TS;\n@@ -62,7 +62,7 @@\n   //===============================================================================\n   part def HeatSource_Process :> Process {\n     //-- I n t e r f a c e  --\n-    in port heat_control : DataPort { :>> type : Isolette_Data_Model::On_Off; }\n+    port heat_control : DataPort { in :>> type : Isolette_Data_Model::On_Off; }\n \n     //-- P r o p e r t i e s  --\n     attribute :>> Domain = Isolette_Properties::Domain_HS;\n@@ -79,7 +79,7 @@\n   //===============================================================================\n   part def OperatorInterface_Process :> Process {\n     //-- I n t e r f a c e  --\n-    out port desired_temp : DataPort { :>> type : Isolette_Data_Model::Set_Points; }\n+    port desired_temp : DataPort { out :>> type : Isolette_Data_Model::Set_Points; }\n \n     //-- P r o p e r t i e s  --\n     attribute :>> Domain = Isolette_Properties::Domain_OI;\n@@ -96,9 +96,9 @@\n   //===============================================================================\n   part def Thermostat_Process :> Process {\n     //-- I n t e r f a c e  --\n-    in port current_temp : DataPort { :>> type : Isolette_Data_Model::Temp; }\n-    in port desired_temp : DataPort { :>> type : Isolette_Data_Model::Set_Points; }\n-    out port heat_control : DataPort { :>> type : Isolette_Data_Model::On_Off; }\n+    port current_temp : DataPort { in :>> type : Isolette_Data_Model::Temp; }\n+    port desired_temp : DataPort { in :>> type : Isolette_Data_Model::Set_Points; }\n+    port heat_control : DataPort { out :>> type : Isolette_Data_Model::On_Off; }\n \n     attribute :>> Domain = Isolette_Properties::Domain_THERM;\n \n",
+      "isolette-simple/Isolette_Software.sysml": "--- parent/isolette-simple/Isolette_Software.sysml\n+++ provisional/isolette-simple/Isolette_Software.sysml\n@@ -37,9 +37,9 @@\n   //===============================================================================\n   part def Thermostat :> Periodic_Rust_Thread {\n     //-- I n t e r f a c e  --\n-    in port current_temp : DataPort { :>> type : Isolette_Data_Model::Temp; }\n-    in port desired_temp : DataPort { :>> type : Isolette_Data_Model::Set_Points; }\n-    out port heat_control : DataPort { :>> type : Isolette_Data_Model::On_Off; }\n+    port current_temp : DataPort { in :>> type : Isolette_Data_Model::Temp; }\n+    port desired_temp : DataPort { in :>> type : Isolette_Data_Model::Set_Points; }\n+    port heat_control : DataPort { out :>> type : Isolette_Data_Model::On_Off; }\n     \n     //-- B e h a v i o r    C o n s t r a i n t s --\n     language \"GUMBO\" /*{\n@@ -104,6 +104,6 @@\n     //===============================================================================\n     part def OperatorInterface :> Periodic_Rust_Thread {\n       //-- I n t e r f a c e  --\n-      out port desired_temp : DataPort { :>> type : Isolette_Data_Model::Set_Points; }\n+      port desired_temp : DataPort { out :>> type : Isolette_Data_Model::Set_Points; }\n     }\n }"
+    },
+    "scope": "Exact text change only; not a semantic acceptance result"
+  },
+  "hypothesis": "Preserve explicit in/out intent while moving it onto the feature type refinement supported by the existing HAMR instantiator",
+  "engineering_accepted": false,
+  "promotion": "NOT_REQUESTED"
+}

@@ -7,9 +7,9 @@
     "M01": "partial",
     "M02": "partial",
     "M03": "partial",
-    "M04": "not_implemented",
+    "M04": "partial",
     "M05": "partial",
-    "M06": "not_implemented",
+    "M06": "partial",
     "M07": "deferred_by_user",
     "M08": "partial_checkpoint_only"
   },
@@ -32,11 +32,11 @@
     },
     {
       "path": "reports/build/toolchain.lock.json",
-      "sha256": "66737f67e7139be8fef63158ab423df2a2d201805cf6736e725aa6bea4dc4a60"
+      "sha256": "357e7336b12ab0bbec10008661fabde8916fa0e90476fd5d283130d8625cec6b"
     },
     {
       "path": "reports/build/application-tests.log",
-      "sha256": "3cea10aeb0f95321f77555c79fa7ee8c7545e7d29696932f19510cc51dd42694"
+      "sha256": "6a76c05679c1fe488f77f614d9091f4088c57e3b97152e764e16e41c9cf8e6e2"
     },
     {
       "path": "reports/build/support-tests.log",
@@ -44,27 +44,27 @@
     },
     {
       "path": "reports/build/real-worker-integration.json",
-      "sha256": "8499aef707366fde797ac73353385f094d7b903a5e831154e42f3248ba6ed589"
+      "sha256": "80fb72f4dd6230bba02d0ef88814974a3125d2c0c69876acd28807bcc3672319"
     },
     {
       "path": "reports/build/preservation-check.json",
-      "sha256": "217f84a88c461c386a65c0e15f6f1708885ca624c07eb63118f266f00b16de85"
+      "sha256": "3ad472bf162c9bedcdd769a153694d99e3d4023445cedaeea9d45cab142c1013"
     },
     {
       "path": "reports/demo/DEMO_REPORT.md",
-      "sha256": "d55f8798b4b92c60e6f7079dc9e1a7c410f4871d4f562cee24243cd791654aef"
+      "sha256": "f0399652fc760ce1008989c60d6ad27654e423bac873ca48163d0e70a46f1352"
     },
     {
       "path": "workbench/README.md",
-      "sha256": "99e359b85c91ffb7cc92431d6ccc84b1b91f6fd6b08a588fa18707d8275ae644"
+      "sha256": "a3bc5ef596c5ac1fc350c5aaee41bc081be0fd43964e5253613c32c7286b6d74"
     },
     {
       "path": "reports/build/browser-smoke.json",
-      "sha256": "c5cd6e4b6052d0dc9d3e2d122ec67b68dc7fed96bb12b39301c177da7a0b4eec"
+      "sha256": "dedd37c9780f56fd90d120b6327581f4cf53497432659b141977e66b99f3fb7a"
     },
     {
       "path": "reports/build/workbench-browser.png",
-      "sha256": "21df782cd2c7f8399c7040fffa72833d783d7fb20ba12d7b2873d02493eafb21"
+      "sha256": "e6d85f5d6fbf369d6d6c8596867a2dc5ae72f02dc00108357553230ddee01191"
     },
     {
       "path": "reports/build/frontend-build.log",
@@ -88,7 +88,55 @@
     },
     {
       "path": "IMPLEMENTATION_PROGRESS.md",
-      "sha256": "10e01e52b1f9d8a6684ed917651d6acbc718d51e3d0f20020a2bee7138d87359"
+      "sha256": "eb7714a9709aec3d9eec3521e3ae9f7932c25fec73468145593d671c5c52f731"
+    },
+    {
+      "path": "reports/build/real-structure-integration.json",
+      "sha256": "0405490d7d90926c4aeb240a5b952933881ed0ac94e2b2382869c64e9ec29ce9"
+    },
+    {
+      "path": "reports/build/real-repair-integration.json",
+      "sha256": "53ea97e302138c90fc957b8594cab84889e2db28ece019b228ec106d478ef7f0"
+    },
+    {
+      "path": "reports/build/real-reporting-integration.json",
+      "sha256": "0a811875e130d35530b5b176cb548de9ebfcb3130444736507a310b059e50c21"
+    },
+    {
+      "path": "reports/build/ksu-isolette-migration.json",
+      "sha256": "c9a88301941aee77a6e37d04d0697f0cdd54849ab4d2a5a6f7b0306c4184b4b3"
+    },
+    {
+      "path": "reports/build/ksu-simple-isolette-reference-check.json",
+      "sha256": "e4f25619e0678165bbaa166a63f68a544d00cb372f337011f438ed529de1eec8"
+    },
+    {
+      "path": "reports/build/sireum-reference-install.json",
+      "sha256": "e71d03582a0ffea9e54fc69bc520e2e3c364ce2570991ffcfec56f903ee19abb"
+    },
+    {
+      "path": "reports/build/metrics-migration-register.json",
+      "sha256": "b2e8d9e70e8e832a72c4fa29dca462ddc7185682c081d8e97749c5d52ba908c4"
+    },
+    {
+      "path": "reports/build/architecture-attestation-policy.json",
+      "sha256": "8e8c70dd2011734cf4c13d616ceef11ed981a75a38f67e7d4d70fae090985145"
+    },
+    {
+      "path": "reports/build/TEST_ONLY-attestation-trust.json",
+      "sha256": "41aefc8eb4104ab6cf06f13ee260c3280020d0062d90c129eb4d1693219df7d9"
+    },
+    {
+      "path": "reports/build/offline-metric-plots/manifest.json",
+      "sha256": "e3bc82aea8849fa29b317dd362ea791c1f6fdffefdfcf452b0cd3a9981f5794c"
+    },
+    {
+      "path": "reports/build/onboard.json",
+      "sha256": "635cb4284793d90ff98c19da5c8411b2d2995042e6c45481429e0cf8e17737e7"
+    },
+    {
+      "path": "reports/build/cli-help.txt",
+      "sha256": "156758035343161295360b2581c2cf400aae21838a56eff7fc0504626b6ecaf9"
     }
   ],
   "budget": {
@@ -99,8 +147,9 @@
   },
   "limitations": [
     "Complete Workbench not delivered; implementation remains in progress.",
-    "No model-driven learning, formal engineering acceptance, independently validated published release, transactional repair or signed attestation.",
-    "Paid demonstrations explicitly deferred by user; application/browser tests do not replace them.",
-    "Full split/repair UI and complete engineering adapters remain unfinished."
+    "Generation/learning isolation, complete proof/build/independent-test adapters, accepted source promotion and independently validated release publication remain unfinished.",
+    "Paid demonstrations explicitly deferred by user; offline application, structural, migration and browser checks do not replace them.",
+    "Local DSSE record-integrity verification is implemented; production signing trust and engineering acceptance are not established.",
+    "Dataset grouping enforces provided lineage and exact content hashes; semantic independence is not established."
   ]
 }
