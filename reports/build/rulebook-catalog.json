@@ -1,0 +1,1947 @@
+{
+  "documents": [
+    {
+      "path": "final-process-apply-rules-prompt.md",
+      "rule_ids": [],
+      "sha256": "c0ed8dd9e7438ff715c20f802b96d6eb1af1c42beaa15282f4a3e6c12518246a",
+      "source_id": "a779065877f89512398cc0df396582598052428f602257e9cbb0b12a8aa7335e",
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "id": "039857921b183148e6acb311a38cc44655db98c635adddb9b05d0dba92b828a7"
+    },
+    {
+      "path": "sel4-microkit-process-rule-book-v1.md",
+      "rule_ids": [
+        "MR-SEL4-PROC-001"
+      ],
+      "sha256": "2fb451177391f03ecb2dd8ed33ed118c0e01717301f0d90c146759e97f488465",
+      "source_id": "45e4ec24f3bab731ec9ff1b2559c027eb8bb0e407263c81a84b5bf8eb502c6de",
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "id": "057a4b773bdd50c473492e1fd6be10e5120e8ff7761127032a93755df41402b0"
+    },
+    {
+      "path": "rejected-process-definition-rules.json",
+      "rule_ids": [],
+      "sha256": "bdfd4d75b58a14a06b15b0979a5a5e55c9b74c9d73e3a6164435b9775bc2394f",
+      "source_id": "fd40e62b0d78bdc5a2677e305868b3128a977250fb5a1f09bebc23d5980e4f7e",
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "id": "0d2e19a27fa982fe9bc62bce6095cdf985c4f58b95e0665a413c4aa875b76f5d"
+    },
+    {
+      "path": "rule-change-log.md",
+      "rule_ids": [],
+      "sha256": "796b4e29f00841e8dc73b9c4ae8f08654373b532a5146999702b875f98466cbd",
+      "source_id": "698ace9ad3e1e3131d5eeca72fdb6c839cb4a08e9b9b1247113ac8973ba4bc17",
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "id": "11609ccd62d5cd264632ca1dc8f7ab1e2c400b8be51e3680a250c6c89c4aca67"
+    },
+    {
+      "path": "process-definition-training-observations.md",
+      "rule_ids": [],
+      "sha256": "849271cb35f6a652fecd98285ff46e8146094b8b542465402d68bb44dc5415f8",
+      "source_id": "260a171f23b705618d06d0c6d0424311b60ddae57ca3ad76b1abeaade19ce70e",
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "id": "1321e210706868e462c6a66ad00ee4ee3dc422a105286e6327021b46ce3e69ed"
+    },
+    {
+      "path": "final-sel4-microkit-process-rule-book.md",
+      "rule_ids": [
+        "MR-SEL4-PROC-001"
+      ],
+      "sha256": "8a4683c23a51a1fec410e55351be91dd8fceb9737ed416ef575c2d29b585ef8f",
+      "source_id": "21bd1c98c3db5062e7c36cfc8245d31c74576df9eff621b8f98ad1938dcd105b",
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "id": "1ca68e5e1a9c217f1e988ef314f9c4d037559f390195bc7ffbe0a1f615fa1e2c"
+    },
+    {
+      "path": "final-scala-slang-process-compatibility-rule-book.md",
+      "rule_ids": [
+        "MR-SLANG-COMPAT-001"
+      ],
+      "sha256": "14ce06281f9f6fbf48ecb330e444c1580bd37b94485342b4795a693811849d20",
+      "source_id": "1675d7c786c75bfe6993850a6ff5ef08daebf4bf648fe4c10628a3eb04d35cb7",
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "id": "260b3761383e7fd4261b481555cdaff7371eb923bcc6741ac695c58554e7e979"
+    },
+    {
+      "path": "process-verification-repair-rule-book-v1.md",
+      "rule_ids": [
+        "MR-VERIFY-PROC-001"
+      ],
+      "sha256": "18b87944c7862887eeb3346d94c93f19c3b071d76dbc479afe11b9d4c402d7de",
+      "source_id": "11eb2d90ebd89992ba0000e7d014722a427e1ce44c6ff59b7b1312998940be92",
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "id": "2ef69a394697eb2cee806c9c4b10ca4ead5858203e8102fa14db3c243bfdce0c"
+    },
+    {
+      "path": "final-process-port-connection-rule-book.md",
+      "rule_ids": [
+        "MR-CONN-001",
+        "MR-PORT-001"
+      ],
+      "sha256": "293e28382abd7d8f237cd0d2fcf32b8440cd7621fea7db8462a18d4057b31720",
+      "source_id": "7164a8ad711c4788e88ef4abe0855a295f7bdeb288c0a37d22af2b0bc5395613",
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "id": "3062ece5c7877dff04e16faac38ed802dd48df8fbe9ec71cd63495821fab9626"
+    },
+    {
+      "path": "process-definition-rule-book-v1.md",
+      "rule_ids": [
+        "MR-CONN-001",
+        "MR-PORT-001",
+        "MR-PROC-001",
+        "MR-THREAD-001",
+        "MR-TRACE-001"
+      ],
+      "sha256": "51855d08c8ecb09e195a06fc7833be11c159ad1b9e26e3d3f8743f6954b1625d",
+      "source_id": "8c87a41b3bca827ef4b32f8f3016067f01156e623d809b717a767e1a4aa9a783",
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "id": "344c6818d266c26f6547430f008a9b5395a4e68fa9701a7ac372f5c6a6ae0f6d"
+    },
+    {
+      "path": "final-gumbo-attachment-rule-book.md",
+      "rule_ids": [
+        "MR-GUMBO-ATTACH-001"
+      ],
+      "sha256": "007c31c509b9213e3a487649cb02f1ca0efc6e365c34f3fd80ef6035114e9536",
+      "source_id": "cb042ff6783db40fe291ca2f1adab48e6f9ecb721862e52e2df404456fcd5ddd",
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "id": "369f750e84bfb5432426d33e77757a50c7fe639deb702fcc652a5eb4cb9acc35"
+    },
+    {
+      "path": "final-combined-process-meta-rule-book.md",
+      "rule_ids": [
+        "MR-CONN-001",
+        "MR-GUMBO-ATTACH-001",
+        "MR-PORT-001",
+        "MR-PROC-001",
+        "MR-SCHED-001",
+        "MR-SEL4-PROC-001",
+        "MR-SLANG-COMPAT-001",
+        "MR-THREAD-001",
+        "MR-TRACE-001",
+        "MR-VERIFY-PROC-001"
+      ],
+      "sha256": "ca8f993fea339a6963f7c58ba63df106bfd281965ef18687d5374bfc6395cb89",
+      "source_id": "607d5340e2cfd15cd8292b6c7e8406e8661fc84cf66bae265e28bedb5a38a5d0",
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "id": "37e5825c7d873b183112c537acab753efb53506b0871a3b7080c840fab5f5966"
+    },
+    {
+      "path": "final-process-apply-rules-prompt.md",
+      "rule_ids": [],
+      "sha256": "c0ed8dd9e7438ff715c20f802b96d6eb1af1c42beaa15282f4a3e6c12518246a",
+      "source_id": "3a1193b687f08624518838cb831ed372f45f8f245a1ac1f976899df0daa70f58",
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "id": "4311acb9e989aa8f6398cf5f15a13d3669dd08c4d78fd2e7e64a0c63df63a79b"
+    },
+    {
+      "path": "progress.md",
+      "rule_ids": [],
+      "sha256": "7657a65488c2c7404aad72b7e64f65324d4bd522b0836e458d68ea37097a8423",
+      "source_id": "8222561c1628355a244cd63926a4930dfbe791d535520362ec85f8db3e7c817d",
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "id": "5d718ddc4eda4fc12763073f3a1b4b353dd8e8919c6dfeaa5577a63f61f050ae"
+    },
+    {
+      "path": "user-mode-export-manifest.json",
+      "rule_ids": [],
+      "sha256": "dcf4385d7b0e175b6dc0d79979dc0068b8e31d2730a9a1d754ef44f73717f84b",
+      "source_id": "80a15197c5c3622197f5902428babae74dfe4bf85dc04140070d29e7188d2b42",
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "id": "5d8ec21f093be960ef88b301d2d5ccce85ca16418ecb43f24649e576e55380ce"
+    },
+    {
+      "path": "final-process-extract-rules-prompt.md",
+      "rule_ids": [],
+      "sha256": "b9830d45fe839b65cdc68a2b0d8ea33917c048359f18e57a8aa3ba844dd20711",
+      "source_id": "a4d10918bda18ec3e620053ab4daefb81454a8e80a66b3a6b8a2f9231a3c0540",
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "id": "639baa9774568409b2714f338335067e361cee5d6ecb3c9fdaff0f38f6e05020"
+    },
+    {
+      "path": "user-mode-export-manifest.json",
+      "rule_ids": [],
+      "sha256": "eafe2f333046843118efb86540bd8b8d8450c96cfb1d001827625b4704378486",
+      "source_id": "be505094869b15e5e51697fe8e84d320bbd13964371c8f815b406307b7dd0339",
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "id": "6a9811fe47a06c5f310c5205b02d00a313e794b9f362f73bd3423fbcbae17d47"
+    },
+    {
+      "path": "final-process-definition-rule-book.md",
+      "rule_ids": [
+        "MR-CONN-001",
+        "MR-PORT-001",
+        "MR-PROC-001",
+        "MR-THREAD-001",
+        "MR-TRACE-001"
+      ],
+      "sha256": "94a6c6fd93e9021506bc91b9cf36b1c15a3059ba5d190b2f4e17ae9433058f7b",
+      "source_id": "4d29579ed4bc232d208aee9ffe949bc34ed35d5bf073f52d5a7d21f34d77adf4",
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "id": "6abe811ab7ed58992615c0de029f1dbf1801a04eb91190d2085ca18f824777a7"
+    },
+    {
+      "path": "gumbo-attachment-rule-book-v1.md",
+      "rule_ids": [
+        "MR-GUMBO-ATTACH-001"
+      ],
+      "sha256": "aee3e342b49c466919fb8e470f6203af8ec2bbcb0141d9f3a12531d72e5fc876",
+      "source_id": "a2b7a8e5a3760ded144b66e8aa2b7c3f6a1f25daddb0b20f7b634a96230dcff9",
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "id": "7a72ef1e82a77f4b40c94d2edb1dea536ce51048372d288686a638e6135d9371"
+    },
+    {
+      "path": "process-port-connection-rule-book-v1.md",
+      "rule_ids": [
+        "MR-CONN-001",
+        "MR-PORT-001"
+      ],
+      "sha256": "ca2b3db166ec51a87f83e95f0af1f5c6fe6a89c3777325a9afad946da2865cad",
+      "source_id": "db64fc63d40bfda4a9b636154555023008735eca307c0895cbabb889ef7ba5b1",
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "id": "7f2ac68a072c05edbb833c317cb1cb0f31dbb56a3e847c987b9fa4078c2a3c19"
+    },
+    {
+      "path": "final-sysmlv2-general-rule-book.md",
+      "rule_ids": [
+        "MR-CONN-001",
+        "MR-PORT-001",
+        "MR-PROC-001",
+        "MR-THREAD-001",
+        "MR-TRACE-001"
+      ],
+      "sha256": "911470618e6043b6951623a421943f48c391a76a17acd1f996bc03c8d99e604a",
+      "source_id": "a03cfe7db21ccd80038b2f28638bf6152db91b9e894798c8b7cc736772902468",
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "id": "7fd34b3964eb4739246219b14b234cda19f5781348b931b5f395e6183af977b7"
+    },
+    {
+      "path": "final-scala-slang-process-compatibility-rule-book.md",
+      "rule_ids": [
+        "MR-SLANG-COMPAT-001"
+      ],
+      "sha256": "74432ddfe9bbc360410836fb6c16928c901d40c31992fd4f60de4f5f6497e9c0",
+      "source_id": "0944133925ffb07e447197954bf21bad86874c2fe002100eea31fb1b5d253700",
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "id": "886e2f697737669a9407f89acbb05ff461118376367d3ecd8413a6a990f18614"
+    },
+    {
+      "path": "final-combined-process-meta-rule-book.md",
+      "rule_ids": [
+        "MR-CONN-001",
+        "MR-GUMBO-ATTACH-001",
+        "MR-PORT-001",
+        "MR-PROC-001",
+        "MR-SCHED-001",
+        "MR-SEL4-PROC-001",
+        "MR-SLANG-COMPAT-001",
+        "MR-THREAD-001",
+        "MR-TRACE-001",
+        "MR-VERIFY-PROC-001"
+      ],
+      "sha256": "bb706e6dde0ecbe6c6a70a4cebb883cf2f27e9b151b7634ba9b4812e95b677d7",
+      "source_id": "73848c41a9a59009d38e020d563c99ee8c56271b9dddb5de4377e501bbcf904f",
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "id": "922ebc2277da5a7615ed1c3ab0d329ba7f4b1e02159d2808d3610d4434ae1091"
+    },
+    {
+      "path": "process-definition-training-observations.json",
+      "rule_ids": [],
+      "sha256": "02b07479395419b546e436275d772b8a846ef3cfbf25ea445ed62ec4e172295a",
+      "source_id": "43d1fcb381b151f9d76f3b64826b2c0286cdc1452cc8fb611f212f8894d52976",
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "id": "9d971e971f7b9478e967ff21395b1a5bf2478a28548850de4f8c972bc5e1951d"
+    },
+    {
+      "path": "final-gumbo-attachment-rule-book.md",
+      "rule_ids": [
+        "MR-GUMBO-ATTACH-001"
+      ],
+      "sha256": "6cbee34702c1db245ef3fe9e84b9b5b918ec1617ef54e13a8da1d713a3d653bc",
+      "source_id": "44367d4f2e6e3b6302ad793c1722c613e6def5399741504c5b8ffcfd180aa203",
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "id": "a0077d3b265c8662ccd0c21d9c38098313d25dc00177aa1c3f44f2b38a6afebd"
+    },
+    {
+      "path": "rejected-process-definition-rules.md",
+      "rule_ids": [],
+      "sha256": "22b6773a68026c632c9dcb80f16d9a6575a5c6225fa6166ebb33a1d5fcc3b024",
+      "source_id": "a18326f704f0aecefb26e10caaf9bb543779c3dc5a1a92dc2b5a8819e1f37216",
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "id": "a32b61ceeea3f38f6ecce50049bad758877aba29d9c9e4bf399f8dc3457569ea"
+    },
+    {
+      "path": "combined-process-meta-rule-book-v1.md",
+      "rule_ids": [
+        "MR-CONN-001",
+        "MR-GUMBO-ATTACH-001",
+        "MR-PORT-001",
+        "MR-PROC-001",
+        "MR-SCHED-001",
+        "MR-SEL4-PROC-001",
+        "MR-SLANG-COMPAT-001",
+        "MR-THREAD-001",
+        "MR-TRACE-001",
+        "MR-VERIFY-PROC-001"
+      ],
+      "sha256": "8b852e917f9dd13cc3b9ea88c4abbe6724cc7e0e7222be731ef65eba5b60bc8f",
+      "source_id": "e6bdd8c8da972e66f01bd414e63d02f1bfc40b482795c89819cf009102c1aec6",
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "id": "b12d6f2992846ddadcb2401276e55bf5ed0819d5c5ede155d9cc8f128c63c818"
+    },
+    {
+      "path": "final-sysmlv2-general-rule-book.md",
+      "rule_ids": [
+        "MR-CONN-001",
+        "MR-PORT-001",
+        "MR-PROC-001",
+        "MR-THREAD-001",
+        "MR-TRACE-001"
+      ],
+      "sha256": "303f1c4d130110b76a8ab2bed9d82adc90dca5ee1e454b215dc70ac25d091991",
+      "source_id": "504562d30f85413d8a8874b09e63a4f9c63d4150be5ba5ad948730fcf8152425",
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "id": "b40b892a5f904f3a91dfef6b2bf53b6c908d8c634d838f51bb4a0f57be439cac"
+    },
+    {
+      "path": "algorithm-summary.md",
+      "rule_ids": [],
+      "sha256": "81d00c350bb0c0c780c6e4ce0002aefb3db6cdc83f91db83b3b73f04eb2ae44f",
+      "source_id": "fe2550b383927481276f83a5485c51ea453400f1f2551ba26fc0ef0d0368695a",
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "id": "b61e8e554dcc0a0c284175736c5791f03249feb28bd35e1730bf37279c8c3a3c"
+    },
+    {
+      "path": "extracted-process-definition-rules-v1.json",
+      "rule_ids": [
+        "MR-CONN-001",
+        "MR-GUMBO-ATTACH-001",
+        "MR-PORT-001",
+        "MR-PROC-001",
+        "MR-SCHED-001",
+        "MR-SEL4-PROC-001",
+        "MR-SLANG-COMPAT-001",
+        "MR-THREAD-001",
+        "MR-TRACE-001",
+        "MR-VERIFY-PROC-001"
+      ],
+      "sha256": "0a019a09f072dbb24b6bf6b1e3cc195b0f5c9a6ad704f71376085517a4a9db94",
+      "source_id": "681b629a3b961386715243c67a4d632d7a70c8128fe87550f3d5fd17556156cb",
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "id": "bb90572a5587eca1865dfa505a72e5d05f68c5fa86154a6fc0b82561264dac8d"
+    },
+    {
+      "path": "final-process-scheduling-binding-rule-book.md",
+      "rule_ids": [
+        "MR-SCHED-001",
+        "MR-SEL4-PROC-001"
+      ],
+      "sha256": "ed9f6b963a5ef4905ed1dd0967e87aba5ee6bc7509a6a6c4b52a1020f93cdfc5",
+      "source_id": "db01faa4fc0efb7758b08cd8f3cea5289d770f9bbe90970003892036429b6d6c",
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "id": "c275578c9ca4883cd48e826ded8678370e3f02b123d5a6954ea5366b0bcf0e0c"
+    },
+    {
+      "path": "final-process-verification-repair-rule-book.md",
+      "rule_ids": [
+        "MR-VERIFY-PROC-001"
+      ],
+      "sha256": "09677fbe24afc52039faa0bf005d51617b4ea72ea45d209676c88a9e8aef34c2",
+      "source_id": "2735baa7ba4d49b977949fb5cffdc82e826b1e027971f2e93469c9f7ecea13ca",
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "id": "c2ab560a42d0992dcfd5490cb118011b6f906cc275ccc35f8d9650d45dae5fc5"
+    },
+    {
+      "path": "final-process-port-connection-rule-book.md",
+      "rule_ids": [
+        "MR-CONN-001",
+        "MR-PORT-001"
+      ],
+      "sha256": "4bc4478577d475d0a8bb0066b9ba61b8565e8808fd791ba53954f44d18b9b2c0",
+      "source_id": "24da547d6d4d4b879841b493eb10699b8cdc5685cc7db97a40a6f0767c15dfe6",
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "id": "c5a5938445861056f9f1bf9365474aac6a7c351deec1af1cc562987c7668471f"
+    },
+    {
+      "path": "final-process-definition-rule-book.md",
+      "rule_ids": [
+        "MR-CONN-001",
+        "MR-PORT-001",
+        "MR-PROC-001",
+        "MR-THREAD-001",
+        "MR-TRACE-001"
+      ],
+      "sha256": "745fc55d90bb4032e497d775442a23f0b82d348411431871f9c1cd9e911b59c9",
+      "source_id": "04f53ca56045c2bea3297bd9d1ff636f63c5da1fb524e804944e4ab6027dc0ff",
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "id": "cd5a593fe2e61b8df506dae356de708cc571d13b1191b81be44ede36d2abbb12"
+    },
+    {
+      "path": "process-scheduling-binding-rule-book-v1.md",
+      "rule_ids": [
+        "MR-SCHED-001",
+        "MR-SEL4-PROC-001"
+      ],
+      "sha256": "8054c47b9808ab93577b3e725881d0df566ecd66e75a4b07f68e82fc34f06fed",
+      "source_id": "30b44a1c4da32d79ffb2ee81f5938a0aeb4d2af76058adb05cc30f7d62593193",
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "id": "dbb66fb12b11fe55d3b7361597494a96486b9ef3e941b3c90c99f0fe254e57b7"
+    },
+    {
+      "path": "scala-slang-process-compatibility-rule-book-v1.md",
+      "rule_ids": [
+        "MR-SLANG-COMPAT-001"
+      ],
+      "sha256": "a8524138e67fd0eac49ec546f7c62719b9b29cfed5cbf471ab9c21cb2de660e9",
+      "source_id": "00d53392d94f7f3969e3633f457e1e0c515568875a5455f414f263b799774e3f",
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "id": "dde53afaba7b02a9c4b870cd6dd7068b23d58ea23574efefabd9d95212a78faf"
+    },
+    {
+      "path": "sysmlv2-general-rule-book-v1.md",
+      "rule_ids": [
+        "MR-CONN-001",
+        "MR-PORT-001",
+        "MR-PROC-001",
+        "MR-THREAD-001",
+        "MR-TRACE-001"
+      ],
+      "sha256": "43a826d01bc144985579cc9b5d530707998f019ee224f77ce28b64d88e882406",
+      "source_id": "ed16168dd18ccb574c0ff562c59d661d46dc745e3a899365e92233afd99c3f17",
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "id": "e3497679af2e94da72438e795cc729dccbdf65c22690cc70dc17f10ed1d5b6a4"
+    },
+    {
+      "path": "final-sel4-microkit-process-rule-book.md",
+      "rule_ids": [
+        "MR-SEL4-PROC-001"
+      ],
+      "sha256": "2102f50ec5cbb3b0bb22aba21dca9f5b36013738c79a579012e471473a46f95b",
+      "source_id": "e2965c8a5ce9b93770e2865d0ef09a8eb9e6cf4a7d8da1be32aa8e4fc62d49f6",
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "id": "e552ee997c21a06af7aa27db7acf837fcba68462f3087eb257f1d9a1bc192e4f"
+    },
+    {
+      "path": "final-process-scheduling-binding-rule-book.md",
+      "rule_ids": [
+        "MR-SCHED-001",
+        "MR-SEL4-PROC-001"
+      ],
+      "sha256": "69ebd7e1a64c1cc0364282d9d04293cc5930394e2ab1623158950517ac00c5d8",
+      "source_id": "61dd300bc2436d9a731114bf71bba26860fece0d57f8160dd0fffe77f34a12aa",
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "id": "e570e608eef9cea14247ba9d24b74f69bc2ce602ef3823e39a85ae2e2a6dd9b0"
+    },
+    {
+      "path": "candidate-process-definition-meta-rules.json",
+      "rule_ids": [
+        "MR-CONN-001",
+        "MR-GUMBO-ATTACH-001",
+        "MR-PORT-001",
+        "MR-PROC-001",
+        "MR-SCHED-001",
+        "MR-SEL4-PROC-001",
+        "MR-SLANG-COMPAT-001",
+        "MR-THREAD-001",
+        "MR-TRACE-001",
+        "MR-VERIFY-PROC-001"
+      ],
+      "sha256": "0a019a09f072dbb24b6bf6b1e3cc195b0f5c9a6ad704f71376085517a4a9db94",
+      "source_id": "e73dd8b549580bd5ad657cd4e3dd5240c24955a7154097da53ec2082970b2d4e",
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "id": "e8179c6394f9f24e7c8520f59bf2c7f7811afdef281df60d4bed0b398b1f21f2"
+    },
+    {
+      "path": "final-process-verification-repair-rule-book.md",
+      "rule_ids": [
+        "MR-VERIFY-PROC-001"
+      ],
+      "sha256": "3927e0c31586ed6cf41b5190f2ff7eb55faa13888525074231c3171bb6a39496",
+      "source_id": "aa7eeb69c2bb51a547c44f23a7f93345ada5e5e5601a90b534d635d9bbe8cbff",
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "id": "f208c5d19ec698512d90539edd4ec355030710ed134b7308ac73631de5dc83e2"
+    },
+    {
+      "path": "extracted-process-definition-rules-v1.md",
+      "rule_ids": [
+        "MR-CONN-001",
+        "MR-GUMBO-ATTACH-001",
+        "MR-PORT-001",
+        "MR-PROC-001",
+        "MR-SCHED-001",
+        "MR-SEL4-PROC-001",
+        "MR-SLANG-COMPAT-001",
+        "MR-THREAD-001",
+        "MR-TRACE-001",
+        "MR-VERIFY-PROC-001"
+      ],
+      "sha256": "214459111be8a99a9ae0215ece6f8d86ab8acddc291a2a95bf28df0872146edb",
+      "source_id": "9072bdaf76b3ab23f9859e17fb81950d9ac41a6fefe8ce44ddeebee66bbaeafa",
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "id": "fec1d50b85624deff01b1a0bd3abfffa4db142a9432fd85490358702fb72d156"
+    },
+    {
+      "path": "candidate-process-definition-meta-rules.md",
+      "rule_ids": [
+        "MR-CONN-001",
+        "MR-GUMBO-ATTACH-001",
+        "MR-PORT-001",
+        "MR-PROC-001",
+        "MR-SCHED-001",
+        "MR-SEL4-PROC-001",
+        "MR-SLANG-COMPAT-001",
+        "MR-THREAD-001",
+        "MR-TRACE-001",
+        "MR-VERIFY-PROC-001"
+      ],
+      "sha256": "748565a22cc89ab5e896681d9e4ce20f283ec58c9113a6b617707cd3891563d8",
+      "source_id": "174368a4537470916a2d1ae13f0fd0a7908da5e3f6580ecc7bb4ead005f8b7b3",
+      "status": "SOURCE_ONLY_PENDING_REVIEW",
+      "id": "ffbbbe4b122217c395727ae29636a0a67e3eb5d577a2535c93ff62d8d64e1376"
+    }
+  ],
+  "rules": [
+    {
+      "rule_id": "MR-CONN-001",
+      "documents": [
+        "3062ece5c7877dff04e16faac38ed802dd48df8fbe9ec71cd63495821fab9626",
+        "344c6818d266c26f6547430f008a9b5395a4e68fa9701a7ac372f5c6a6ae0f6d",
+        "37e5825c7d873b183112c537acab753efb53506b0871a3b7080c840fab5f5966",
+        "6abe811ab7ed58992615c0de029f1dbf1801a04eb91190d2085ca18f824777a7",
+        "7f2ac68a072c05edbb833c317cb1cb0f31dbb56a3e847c987b9fa4078c2a3c19",
+        "7fd34b3964eb4739246219b14b234cda19f5781348b931b5f395e6183af977b7",
+        "922ebc2277da5a7615ed1c3ab0d329ba7f4b1e02159d2808d3610d4434ae1091",
+        "b12d6f2992846ddadcb2401276e55bf5ed0819d5c5ede155d9cc8f128c63c818",
+        "b40b892a5f904f3a91dfef6b2bf53b6c908d8c634d838f51bb4a0f57be439cac",
+        "bb90572a5587eca1865dfa505a72e5d05f68c5fa86154a6fc0b82561264dac8d",
+        "c5a5938445861056f9f1bf9365474aac6a7c351deec1af1cc562987c7668471f",
+        "cd5a593fe2e61b8df506dae356de708cc571d13b1191b81be44ede36d2abbb12",
+        "e3497679af2e94da72438e795cc729dccbdf65c22690cc70dc17f10ed1d5b6a4",
+        "e8179c6394f9f24e7c8520f59bf2c7f7811afdef281df60d4bed0b398b1f21f2",
+        "fec1d50b85624deff01b1a0bd3abfffa4db142a9432fd85490358702fb72d156",
+        "ffbbbe4b122217c395727ae29636a0a67e3eb5d577a2535c93ff62d8d64e1376"
+      ],
+      "variants": [
+        {
+          "id": "72e653d087b8ca9dae782a8eb2be47b73dc1695b75626f17d8c0e515689f8e87",
+          "record": {
+            "HAMR_subset_constraints": [
+              "Use the HAMR-compatible SysML v2/AADL subset rather than arbitrary SysML v2.",
+              "Keep system architecture flat when required by HAMR tooling."
+            ],
+            "accepted_or_rejected": "accepted_seed_rule",
+            "applicable_context": "HAMR-compatible SysML v2 process-definition workflow",
+            "confidence": 0.82,
+            "cosine_distance_results": {
+              "status": "recorded_by_iteration_scoring"
+            },
+            "domain": "SysMLv2",
+            "epsilon_struct_values_tested": [
+              0.0,
+              0.05,
+              0.1,
+              0.5
+            ],
+            "epsilon_values_tested": [
+              0.01,
+              0.05,
+              0.1,
+              0.5
+            ],
+            "forbidden_context": "Unsupported SysML v2/HAMR syntax, generated-code edits, or held-out test artifacts during rule extraction",
+            "formal_output_pattern": "connection <name> connects <sourcePort> to <destinationPort> or repository-equivalent connection syntax",
+            "generated_outputs": [
+              "connection declaration",
+              "source endpoint",
+              "destination endpoint"
+            ],
+            "namespace_conventions": [
+              "Preserve package-qualified type names and enum values used in repository examples."
+            ],
+            "naming_conventions": [
+              "Derive process, thread, and port names from repository examples and English terms; do not invent unrelated names."
+            ],
+            "optional_fields": [
+              "processor binding",
+              "bus/memory binding",
+              "GUMBO attachment point",
+              "traceability comment"
+            ],
+            "rejection_reason": "",
+            "repair_hints": [
+              "Repair generated process/thread/port/connection fragments before modifying existing application logic.",
+              "Classify verification failures before editing artifacts."
+            ],
+            "required_connection_fields": [
+              "source endpoint",
+              "destination endpoint"
+            ],
+            "required_inputs": [
+              "producer component",
+              "consumer component",
+              "source port",
+              "destination port"
+            ],
+            "required_port_fields": [
+              "port name",
+              "direction",
+              "type",
+              "DataPort/EventDataPort classification when supported"
+            ],
+            "required_process_fields": [
+              "process name",
+              "package/namespace",
+              "process/thread containment"
+            ],
+            "required_thread_fields": [
+              "thread name",
+              "dispatch semantics when provided",
+              "period/domain when provided"
+            ],
+            "rule_id": "MR-CONN-001",
+            "rule_name": "Map English data-flow descriptions to process/thread connection endpoints",
+            "seL4_microkit_constraints": [
+              "For seL4 Microkit targets, model each process as a protection-domain candidate and keep one thread per process when required."
+            ],
+            "source_english_patterns": [
+              "flows to",
+              "connected to",
+              "feeds",
+              "uses output of",
+              "sends to",
+              "publishes to"
+            ],
+            "source_examples": [
+              "architecture examples",
+              "process-to-process connection examples"
+            ],
+            "structural_distance_results": {
+              "status": "recorded_by_iteration_scoring"
+            },
+            "structural_score_expectations": [
+              "Mandatory process/thread/port/connection fields must match structurally, not only semantically.",
+              "A low semantic distance is not sufficient if required structure is missing."
+            ],
+            "syntax_constraints": [
+              "Use repository examples as the source of truth for HAMR SysML syntax.",
+              "Type-check before HAMR code generation when the tool is available."
+            ],
+            "target_construct_type": "connection",
+            "traceability_conventions": [
+              "Preserve English description, requirement id, source section, or REMH comment as traceability metadata when available."
+            ],
+            "verification_expectations": [
+              "Parse/type-check the SysML v2 fragment.",
+              "Regenerate HAMR artifacts for the selected target when available.",
+              "Run Logika/Verus/GUMBOX only when the repository has the required target configured."
+            ],
+            "verification_results": {
+              "gate": "HAMR/Sireum/Logika/Verus when configured",
+              "status": "not_run_by_scaffold"
+            }
+          },
+          "sources": [
+            "681b629a3b961386715243c67a4d632d7a70c8128fe87550f3d5fd17556156cb",
+            "e73dd8b549580bd5ad657cd4e3dd5240c24955a7154097da53ec2082970b2d4e"
+          ],
+          "original_forecast": {
+            "score": 0.82,
+            "exact_question": null,
+            "interpretation": "historical model forecast; metadata may be incomplete; not measured success"
+          }
+        }
+      ],
+      "status": "SOURCE_ONLY_PENDING_REVIEW"
+    },
+    {
+      "rule_id": "MR-GUMBO-ATTACH-001",
+      "documents": [
+        "369f750e84bfb5432426d33e77757a50c7fe639deb702fcc652a5eb4cb9acc35",
+        "37e5825c7d873b183112c537acab753efb53506b0871a3b7080c840fab5f5966",
+        "7a72ef1e82a77f4b40c94d2edb1dea536ce51048372d288686a638e6135d9371",
+        "922ebc2277da5a7615ed1c3ab0d329ba7f4b1e02159d2808d3610d4434ae1091",
+        "a0077d3b265c8662ccd0c21d9c38098313d25dc00177aa1c3f44f2b38a6afebd",
+        "b12d6f2992846ddadcb2401276e55bf5ed0819d5c5ede155d9cc8f128c63c818",
+        "bb90572a5587eca1865dfa505a72e5d05f68c5fa86154a6fc0b82561264dac8d",
+        "e8179c6394f9f24e7c8520f59bf2c7f7811afdef281df60d4bed0b398b1f21f2",
+        "fec1d50b85624deff01b1a0bd3abfffa4db142a9432fd85490358702fb72d156",
+        "ffbbbe4b122217c395727ae29636a0a67e3eb5d577a2535c93ff62d8d64e1376"
+      ],
+      "variants": [
+        {
+          "id": "27e52a3d7a8b7bbc4c5e34b2b69228471b672d100f457dfb841898b2a9ba29a1",
+          "record": {
+            "HAMR_subset_constraints": [
+              "Use the HAMR-compatible SysML v2/AADL subset rather than arbitrary SysML v2.",
+              "Keep system architecture flat when required by HAMR tooling."
+            ],
+            "accepted_or_rejected": "accepted_seed_rule",
+            "applicable_context": "HAMR-compatible SysML v2 process-definition workflow",
+            "confidence": 0.92,
+            "cosine_distance_results": {
+              "status": "recorded_by_iteration_scoring"
+            },
+            "domain": "GUMBO",
+            "epsilon_struct_values_tested": [
+              0.0,
+              0.05,
+              0.1,
+              0.5
+            ],
+            "epsilon_values_tested": [
+              0.01,
+              0.05,
+              0.1,
+              0.5
+            ],
+            "forbidden_context": "Unsupported SysML v2/HAMR syntax, generated-code edits, or held-out test artifacts during rule extraction",
+            "formal_output_pattern": "language \"GUMBO\" /*{ ... }*/ attached to the behavior-owning thread/component used by repository examples",
+            "generated_outputs": [
+              "GUMBO attachment location",
+              "traceability note",
+              "contract placement decision"
+            ],
+            "namespace_conventions": [
+              "Preserve package-qualified type names and enum values used in repository examples."
+            ],
+            "naming_conventions": [
+              "Derive process, thread, and port names from repository examples and English terms; do not invent unrelated names."
+            ],
+            "optional_fields": [
+              "processor binding",
+              "bus/memory binding",
+              "GUMBO attachment point",
+              "traceability comment"
+            ],
+            "rejection_reason": "",
+            "repair_hints": [
+              "Repair generated process/thread/port/connection fragments before modifying existing application logic.",
+              "Classify verification failures before editing artifacts."
+            ],
+            "required_connection_fields": [],
+            "required_inputs": [
+              "behavioral thread",
+              "English requirements",
+              "repository attachment convention"
+            ],
+            "required_port_fields": [
+              "port name",
+              "direction",
+              "type",
+              "DataPort/EventDataPort classification when supported"
+            ],
+            "required_process_fields": [
+              "process name",
+              "package/namespace",
+              "process/thread containment"
+            ],
+            "required_thread_fields": [
+              "thread name",
+              "dispatch semantics when provided",
+              "period/domain when provided"
+            ],
+            "rule_id": "MR-GUMBO-ATTACH-001",
+            "rule_name": "Attach GUMBO behavior contracts to the project-owned behavioral thread",
+            "seL4_microkit_constraints": [
+              "For seL4 Microkit targets, model each process as a protection-domain candidate and keep one thread per process when required."
+            ],
+            "source_english_patterns": [
+              "shall",
+              "assume",
+              "guarantee",
+              "contract",
+              "behavior requirement",
+              "compute case"
+            ],
+            "source_examples": [
+              "Gumbo FSE agent plan",
+              "Monitor/Regulator GUMBO blocks"
+            ],
+            "structural_distance_results": {
+              "status": "recorded_by_iteration_scoring"
+            },
+            "structural_score_expectations": [
+              "Mandatory process/thread/port/connection fields must match structurally, not only semantically.",
+              "A low semantic distance is not sufficient if required structure is missing."
+            ],
+            "syntax_constraints": [
+              "Keep canonical GUMBO section order when behavior is included.",
+              "Do not place behavior contracts on a process if repository convention expects the thread."
+            ],
+            "target_construct_type": "contract_attachment",
+            "traceability_conventions": [
+              "Preserve English description, requirement id, source section, or REMH comment as traceability metadata when available."
+            ],
+            "verification_expectations": [
+              "Parse/type-check the SysML v2 fragment.",
+              "Regenerate HAMR artifacts for the selected target when available.",
+              "Run Logika/Verus/GUMBOX only when the repository has the required target configured."
+            ],
+            "verification_results": {
+              "gate": "HAMR/Sireum/Logika/Verus when configured",
+              "status": "not_run_by_scaffold"
+            }
+          },
+          "sources": [
+            "e73dd8b549580bd5ad657cd4e3dd5240c24955a7154097da53ec2082970b2d4e",
+            "681b629a3b961386715243c67a4d632d7a70c8128fe87550f3d5fd17556156cb"
+          ],
+          "original_forecast": {
+            "score": 0.92,
+            "exact_question": null,
+            "interpretation": "historical model forecast; metadata may be incomplete; not measured success"
+          }
+        }
+      ],
+      "status": "SOURCE_ONLY_PENDING_REVIEW"
+    },
+    {
+      "rule_id": "MR-PORT-001",
+      "documents": [
+        "3062ece5c7877dff04e16faac38ed802dd48df8fbe9ec71cd63495821fab9626",
+        "344c6818d266c26f6547430f008a9b5395a4e68fa9701a7ac372f5c6a6ae0f6d",
+        "37e5825c7d873b183112c537acab753efb53506b0871a3b7080c840fab5f5966",
+        "6abe811ab7ed58992615c0de029f1dbf1801a04eb91190d2085ca18f824777a7",
+        "7f2ac68a072c05edbb833c317cb1cb0f31dbb56a3e847c987b9fa4078c2a3c19",
+        "7fd34b3964eb4739246219b14b234cda19f5781348b931b5f395e6183af977b7",
+        "922ebc2277da5a7615ed1c3ab0d329ba7f4b1e02159d2808d3610d4434ae1091",
+        "b12d6f2992846ddadcb2401276e55bf5ed0819d5c5ede155d9cc8f128c63c818",
+        "b40b892a5f904f3a91dfef6b2bf53b6c908d8c634d838f51bb4a0f57be439cac",
+        "bb90572a5587eca1865dfa505a72e5d05f68c5fa86154a6fc0b82561264dac8d",
+        "c5a5938445861056f9f1bf9365474aac6a7c351deec1af1cc562987c7668471f",
+        "cd5a593fe2e61b8df506dae356de708cc571d13b1191b81be44ede36d2abbb12",
+        "e3497679af2e94da72438e795cc729dccbdf65c22690cc70dc17f10ed1d5b6a4",
+        "e8179c6394f9f24e7c8520f59bf2c7f7811afdef281df60d4bed0b398b1f21f2",
+        "fec1d50b85624deff01b1a0bd3abfffa4db142a9432fd85490358702fb72d156",
+        "ffbbbe4b122217c395727ae29636a0a67e3eb5d577a2535c93ff62d8d64e1376"
+      ],
+      "variants": [
+        {
+          "id": "d6ae956b91ccd0b4b551cf184ae03f1f1500b4f8ded88d708d43b72e527b92bc",
+          "record": {
+            "HAMR_subset_constraints": [
+              "Use the HAMR-compatible SysML v2/AADL subset rather than arbitrary SysML v2.",
+              "Keep system architecture flat when required by HAMR tooling."
+            ],
+            "accepted_or_rejected": "accepted_seed_rule",
+            "applicable_context": "HAMR-compatible SysML v2 process-definition workflow",
+            "confidence": 0.89,
+            "cosine_distance_results": {
+              "status": "recorded_by_iteration_scoring"
+            },
+            "domain": "SysMLv2",
+            "epsilon_struct_values_tested": [
+              0.0,
+              0.05,
+              0.1,
+              0.5
+            ],
+            "epsilon_values_tested": [
+              0.01,
+              0.05,
+              0.1,
+              0.5
+            ],
+            "forbidden_context": "Unsupported SysML v2/HAMR syntax, generated-code edits, or held-out test artifacts during rule extraction",
+            "formal_output_pattern": "<direction> port <name> : <DataPort|EventDataPort>[<type>] or repository-equivalent port refinement",
+            "generated_outputs": [
+              "input port",
+              "output port",
+              "port type",
+              "DataPort/EventDataPort classification"
+            ],
+            "namespace_conventions": [
+              "Preserve package-qualified type names and enum values used in repository examples."
+            ],
+            "naming_conventions": [
+              "Derive process, thread, and port names from repository examples and English terms; do not invent unrelated names."
+            ],
+            "optional_fields": [
+              "processor binding",
+              "bus/memory binding",
+              "GUMBO attachment point",
+              "traceability comment"
+            ],
+            "rejection_reason": "",
+            "repair_hints": [
+              "If HAMR rejects EventDataPort for a target, fall back only when repository examples show the accepted convention.",
+              "Do not change port direction to satisfy text similarity; direction is mandatory structure."
+            ],
+            "required_connection_fields": [],
+            "required_inputs": [
+              "English interface phrase",
+              "data type",
+              "direction",
+              "event vs data semantics"
+            ],
+            "required_port_fields": [
+              "port name",
+              "direction",
+              "type",
+              "DataPort/EventDataPort classification when supported"
+            ],
+            "required_process_fields": [
+              "process name",
+              "package/namespace",
+              "process/thread containment"
+            ],
+            "required_thread_fields": [
+              "thread name",
+              "dispatch semantics when provided",
+              "period/domain when provided"
+            ],
+            "rule_id": "MR-PORT-001",
+            "rule_name": "Map English interface verbs to input/output DataPort or EventDataPort declarations",
+            "seL4_microkit_constraints": [
+              "For seL4 Microkit targets, model each process as a protection-domain candidate and keep one thread per process when required."
+            ],
+            "source_english_patterns": [
+              "receives, reads, obtains, samples, input",
+              "sends, outputs, publishes, writes, provides",
+              "event, message, sporadic, asynchronous trigger"
+            ],
+            "source_examples": [
+              "process port examples",
+              "GUMBO attachment examples"
+            ],
+            "structural_distance_results": {
+              "status": "recorded_by_iteration_scoring"
+            },
+            "structural_score_expectations": [
+              "Mandatory process/thread/port/connection fields must match structurally, not only semantically.",
+              "A low semantic distance is not sufficient if required structure is missing."
+            ],
+            "syntax_constraints": [
+              "Use repository examples as the source of truth for HAMR SysML syntax.",
+              "Type-check before HAMR code generation when the tool is available."
+            ],
+            "target_construct_type": "port",
+            "traceability_conventions": [
+              "Preserve English description, requirement id, source section, or REMH comment as traceability metadata when available."
+            ],
+            "verification_expectations": [
+              "Parse/type-check the SysML v2 fragment.",
+              "Regenerate HAMR artifacts for the selected target when available.",
+              "Run Logika/Verus/GUMBOX only when the repository has the required target configured."
+            ],
+            "verification_results": {
+              "gate": "HAMR/Sireum/Logika/Verus when configured",
+              "status": "not_run_by_scaffold"
+            }
+          },
+          "sources": [
+            "681b629a3b961386715243c67a4d632d7a70c8128fe87550f3d5fd17556156cb",
+            "e73dd8b549580bd5ad657cd4e3dd5240c24955a7154097da53ec2082970b2d4e"
+          ],
+          "original_forecast": {
+            "score": 0.89,
+            "exact_question": null,
+            "interpretation": "historical model forecast; metadata may be incomplete; not measured success"
+          }
+        }
+      ],
+      "status": "SOURCE_ONLY_PENDING_REVIEW"
+    },
+    {
+      "rule_id": "MR-PROC-001",
+      "documents": [
+        "344c6818d266c26f6547430f008a9b5395a4e68fa9701a7ac372f5c6a6ae0f6d",
+        "37e5825c7d873b183112c537acab753efb53506b0871a3b7080c840fab5f5966",
+        "6abe811ab7ed58992615c0de029f1dbf1801a04eb91190d2085ca18f824777a7",
+        "7fd34b3964eb4739246219b14b234cda19f5781348b931b5f395e6183af977b7",
+        "922ebc2277da5a7615ed1c3ab0d329ba7f4b1e02159d2808d3610d4434ae1091",
+        "b12d6f2992846ddadcb2401276e55bf5ed0819d5c5ede155d9cc8f128c63c818",
+        "b40b892a5f904f3a91dfef6b2bf53b6c908d8c634d838f51bb4a0f57be439cac",
+        "bb90572a5587eca1865dfa505a72e5d05f68c5fa86154a6fc0b82561264dac8d",
+        "cd5a593fe2e61b8df506dae356de708cc571d13b1191b81be44ede36d2abbb12",
+        "e3497679af2e94da72438e795cc729dccbdf65c22690cc70dc17f10ed1d5b6a4",
+        "e8179c6394f9f24e7c8520f59bf2c7f7811afdef281df60d4bed0b398b1f21f2",
+        "fec1d50b85624deff01b1a0bd3abfffa4db142a9432fd85490358702fb72d156",
+        "ffbbbe4b122217c395727ae29636a0a67e3eb5d577a2535c93ff62d8d64e1376"
+      ],
+      "variants": [
+        {
+          "id": "5cbbf6be153dc74e706ebfc8dee0ff9249b778e2eae6376f20949d519c5fc3cd",
+          "record": {
+            "HAMR_subset_constraints": [
+              "Use the HAMR-compatible SysML v2/AADL subset rather than arbitrary SysML v2.",
+              "Keep system architecture flat when required by HAMR tooling."
+            ],
+            "accepted_or_rejected": "accepted_seed_rule",
+            "applicable_context": "HAMR-compatible SysML v2 process-definition workflow",
+            "confidence": 0.88,
+            "cosine_distance_results": {
+              "status": "recorded_by_iteration_scoring"
+            },
+            "domain": "HAMR",
+            "epsilon_struct_values_tested": [
+              0.0,
+              0.05,
+              0.1,
+              0.5
+            ],
+            "epsilon_values_tested": [
+              0.01,
+              0.05,
+              0.1,
+              0.5
+            ],
+            "forbidden_context": "Unsupported SysML v2/HAMR syntax, generated-code edits, or held-out test artifacts during rule extraction",
+            "formal_output_pattern": "part def <ProcessName> :> Process or repository-equivalent process declaration with package/namespace placement",
+            "generated_outputs": [
+              "process declaration",
+              "process part",
+              "traceability comment"
+            ],
+            "namespace_conventions": [
+              "Preserve package-qualified type names and enum values used in repository examples."
+            ],
+            "naming_conventions": [
+              "Use repository process naming style; preserve Monitor/Regulator/Operator names when present."
+            ],
+            "optional_fields": [
+              "processor binding",
+              "bus/memory binding",
+              "GUMBO attachment point",
+              "traceability comment"
+            ],
+            "rejection_reason": "",
+            "repair_hints": [
+              "Repair generated process/thread/port/connection fragments before modifying existing application logic.",
+              "Classify verification failures before editing artifacts."
+            ],
+            "required_connection_fields": [],
+            "required_inputs": [
+              "component/subsystem name",
+              "architecture context",
+              "target platform when provided"
+            ],
+            "required_port_fields": [
+              "port name",
+              "direction",
+              "type",
+              "DataPort/EventDataPort classification when supported"
+            ],
+            "required_process_fields": [
+              "process name",
+              "package/namespace",
+              "process/thread containment"
+            ],
+            "required_thread_fields": [
+              "thread name",
+              "dispatch semantics when provided",
+              "period/domain when provided"
+            ],
+            "rule_id": "MR-PROC-001",
+            "rule_name": "Create process definitions from English subsystem or deployment-bound component descriptions",
+            "seL4_microkit_constraints": [
+              "For seL4 Microkit targets, model each process as a protection-domain candidate and keep one thread per process when required."
+            ],
+            "source_english_patterns": [
+              "subsystem, component, process, protection domain, partition, or deployment unit",
+              "English description groups behavior and interfaces under a named unit"
+            ],
+            "source_examples": [
+              "monitor-related process examples",
+              "architecture examples"
+            ],
+            "structural_distance_results": {
+              "status": "recorded_by_iteration_scoring"
+            },
+            "structural_score_expectations": [
+              "Mandatory process/thread/port/connection fields must match structurally, not only semantically.",
+              "A low semantic distance is not sufficient if required structure is missing."
+            ],
+            "syntax_constraints": [
+              "Use repository examples as the source of truth for HAMR SysML syntax.",
+              "Type-check before HAMR code generation when the tool is available."
+            ],
+            "target_construct_type": "process",
+            "traceability_conventions": [
+              "Preserve English description, requirement id, source section, or REMH comment as traceability metadata when available."
+            ],
+            "verification_expectations": [
+              "Parse/type-check the SysML v2 fragment.",
+              "Regenerate HAMR artifacts for the selected target when available.",
+              "Run Logika/Verus/GUMBOX only when the repository has the required target configured."
+            ],
+            "verification_results": {
+              "gate": "HAMR/Sireum/Logika/Verus when configured",
+              "status": "not_run_by_scaffold"
+            }
+          },
+          "sources": [
+            "e73dd8b549580bd5ad657cd4e3dd5240c24955a7154097da53ec2082970b2d4e",
+            "681b629a3b961386715243c67a4d632d7a70c8128fe87550f3d5fd17556156cb"
+          ],
+          "original_forecast": {
+            "score": 0.88,
+            "exact_question": null,
+            "interpretation": "historical model forecast; metadata may be incomplete; not measured success"
+          }
+        }
+      ],
+      "status": "SOURCE_ONLY_PENDING_REVIEW"
+    },
+    {
+      "rule_id": "MR-SCHED-001",
+      "documents": [
+        "37e5825c7d873b183112c537acab753efb53506b0871a3b7080c840fab5f5966",
+        "922ebc2277da5a7615ed1c3ab0d329ba7f4b1e02159d2808d3610d4434ae1091",
+        "b12d6f2992846ddadcb2401276e55bf5ed0819d5c5ede155d9cc8f128c63c818",
+        "bb90572a5587eca1865dfa505a72e5d05f68c5fa86154a6fc0b82561264dac8d",
+        "c275578c9ca4883cd48e826ded8678370e3f02b123d5a6954ea5366b0bcf0e0c",
+        "dbb66fb12b11fe55d3b7361597494a96486b9ef3e941b3c90c99f0fe254e57b7",
+        "e570e608eef9cea14247ba9d24b74f69bc2ce602ef3823e39a85ae2e2a6dd9b0",
+        "e8179c6394f9f24e7c8520f59bf2c7f7811afdef281df60d4bed0b398b1f21f2",
+        "fec1d50b85624deff01b1a0bd3abfffa4db142a9432fd85490358702fb72d156",
+        "ffbbbe4b122217c395727ae29636a0a67e3eb5d577a2535c93ff62d8d64e1376"
+      ],
+      "variants": [
+        {
+          "id": "d3c03cf7aa2be61b4b028763bff9b0835a75a0ddef487e841d4fe7886385eb26",
+          "record": {
+            "HAMR_subset_constraints": [
+              "Use the HAMR-compatible SysML v2/AADL subset rather than arbitrary SysML v2.",
+              "Keep system architecture flat when required by HAMR tooling."
+            ],
+            "accepted_or_rejected": "accepted_seed_rule",
+            "applicable_context": "HAMR-compatible SysML v2 process-definition workflow",
+            "confidence": 0.78,
+            "cosine_distance_results": {
+              "status": "recorded_by_iteration_scoring"
+            },
+            "domain": "AADL-mapping",
+            "epsilon_struct_values_tested": [
+              0.0,
+              0.05,
+              0.1,
+              0.5
+            ],
+            "epsilon_values_tested": [
+              0.01,
+              0.05,
+              0.1,
+              0.5
+            ],
+            "forbidden_context": "Unsupported SysML v2/HAMR syntax, generated-code edits, or held-out test artifacts during rule extraction",
+            "formal_output_pattern": "dispatch/period/domain/processor-binding attributes in the repository's HAMR SysML subset",
+            "generated_outputs": [
+              "dispatch type",
+              "period",
+              "domain",
+              "processor binding"
+            ],
+            "namespace_conventions": [
+              "Preserve package-qualified type names and enum values used in repository examples."
+            ],
+            "naming_conventions": [
+              "Derive process, thread, and port names from repository examples and English terms; do not invent unrelated names."
+            ],
+            "optional_fields": [
+              "processor binding",
+              "bus/memory binding",
+              "GUMBO attachment point",
+              "traceability comment"
+            ],
+            "rejection_reason": "",
+            "repair_hints": [
+              "Repair generated process/thread/port/connection fragments before modifying existing application logic.",
+              "Classify verification failures before editing artifacts."
+            ],
+            "required_connection_fields": [],
+            "required_inputs": [
+              "timing phrase",
+              "target platform",
+              "processor/domain context"
+            ],
+            "required_port_fields": [
+              "port name",
+              "direction",
+              "type",
+              "DataPort/EventDataPort classification when supported"
+            ],
+            "required_process_fields": [
+              "process name",
+              "package/namespace",
+              "process/thread containment"
+            ],
+            "required_thread_fields": [
+              "thread name",
+              "dispatch semantics when provided",
+              "period/domain when provided"
+            ],
+            "rule_id": "MR-SCHED-001",
+            "rule_name": "Map timing and deployment phrases to dispatch, period, domain, and binding attributes",
+            "seL4_microkit_constraints": [
+              "For seL4 Microkit targets, model each process as a protection-domain candidate and keep one thread per process when required."
+            ],
+            "source_english_patterns": [
+              "periodic",
+              "sporadic",
+              "every N ms",
+              "every N seconds",
+              "domain",
+              "processor",
+              "binding"
+            ],
+            "source_examples": [
+              "modeling tips",
+              "sysmlv2-aadl concepts"
+            ],
+            "structural_distance_results": {
+              "status": "recorded_by_iteration_scoring"
+            },
+            "structural_score_expectations": [
+              "Mandatory process/thread/port/connection fields must match structurally, not only semantically.",
+              "A low semantic distance is not sufficient if required structure is missing."
+            ],
+            "syntax_constraints": [
+              "Use repository examples as the source of truth for HAMR SysML syntax.",
+              "Type-check before HAMR code generation when the tool is available."
+            ],
+            "target_construct_type": "scheduling/binding",
+            "traceability_conventions": [
+              "Preserve English description, requirement id, source section, or REMH comment as traceability metadata when available."
+            ],
+            "verification_expectations": [
+              "Parse/type-check the SysML v2 fragment.",
+              "Regenerate HAMR artifacts for the selected target when available.",
+              "Run Logika/Verus/GUMBOX only when the repository has the required target configured."
+            ],
+            "verification_results": {
+              "gate": "HAMR/Sireum/Logika/Verus when configured",
+              "status": "not_run_by_scaffold"
+            }
+          },
+          "sources": [
+            "681b629a3b961386715243c67a4d632d7a70c8128fe87550f3d5fd17556156cb",
+            "e73dd8b549580bd5ad657cd4e3dd5240c24955a7154097da53ec2082970b2d4e"
+          ],
+          "original_forecast": {
+            "score": 0.78,
+            "exact_question": null,
+            "interpretation": "historical model forecast; metadata may be incomplete; not measured success"
+          }
+        }
+      ],
+      "status": "SOURCE_ONLY_PENDING_REVIEW"
+    },
+    {
+      "rule_id": "MR-SEL4-PROC-001",
+      "documents": [
+        "057a4b773bdd50c473492e1fd6be10e5120e8ff7761127032a93755df41402b0",
+        "1ca68e5e1a9c217f1e988ef314f9c4d037559f390195bc7ffbe0a1f615fa1e2c",
+        "37e5825c7d873b183112c537acab753efb53506b0871a3b7080c840fab5f5966",
+        "922ebc2277da5a7615ed1c3ab0d329ba7f4b1e02159d2808d3610d4434ae1091",
+        "b12d6f2992846ddadcb2401276e55bf5ed0819d5c5ede155d9cc8f128c63c818",
+        "bb90572a5587eca1865dfa505a72e5d05f68c5fa86154a6fc0b82561264dac8d",
+        "c275578c9ca4883cd48e826ded8678370e3f02b123d5a6954ea5366b0bcf0e0c",
+        "dbb66fb12b11fe55d3b7361597494a96486b9ef3e941b3c90c99f0fe254e57b7",
+        "e552ee997c21a06af7aa27db7acf837fcba68462f3087eb257f1d9a1bc192e4f",
+        "e570e608eef9cea14247ba9d24b74f69bc2ce602ef3823e39a85ae2e2a6dd9b0",
+        "e8179c6394f9f24e7c8520f59bf2c7f7811afdef281df60d4bed0b398b1f21f2",
+        "fec1d50b85624deff01b1a0bd3abfffa4db142a9432fd85490358702fb72d156",
+        "ffbbbe4b122217c395727ae29636a0a67e3eb5d577a2535c93ff62d8d64e1376"
+      ],
+      "variants": [
+        {
+          "id": "2375beedb669c33ba74040d6a91928727bfd80de9632ff447954cb1d45da524b",
+          "record": {
+            "HAMR_subset_constraints": [
+              "Use the HAMR-compatible SysML v2/AADL subset rather than arbitrary SysML v2.",
+              "Keep system architecture flat when required by HAMR tooling."
+            ],
+            "accepted_or_rejected": "accepted_seed_rule",
+            "applicable_context": "HAMR-compatible SysML v2 process-definition workflow",
+            "confidence": 0.84,
+            "cosine_distance_results": {
+              "status": "recorded_by_iteration_scoring"
+            },
+            "domain": "seL4/Microkit",
+            "epsilon_struct_values_tested": [
+              0.0,
+              0.05,
+              0.1,
+              0.5
+            ],
+            "epsilon_values_tested": [
+              0.01,
+              0.05,
+              0.1,
+              0.5
+            ],
+            "forbidden_context": "Unsupported SysML v2/HAMR syntax, generated-code edits, or held-out test artifacts during rule extraction",
+            "formal_output_pattern": "Process -> protection domain candidate; one contained thread -> component entry points",
+            "generated_outputs": [
+              "one-thread-per-process structure",
+              "Microkit compatibility note",
+              "Rust/Verus downstream note"
+            ],
+            "namespace_conventions": [
+              "Preserve package-qualified type names and enum values used in repository examples."
+            ],
+            "naming_conventions": [
+              "Derive process, thread, and port names from repository examples and English terms; do not invent unrelated names."
+            ],
+            "optional_fields": [
+              "processor binding",
+              "bus/memory binding",
+              "GUMBO attachment point",
+              "traceability comment"
+            ],
+            "rejection_reason": "",
+            "repair_hints": [
+              "Repair generated process/thread/port/connection fragments before modifying existing application logic.",
+              "Classify verification failures before editing artifacts."
+            ],
+            "required_connection_fields": [],
+            "required_inputs": [
+              "target platform",
+              "process name",
+              "thread behavior"
+            ],
+            "required_port_fields": [
+              "port name",
+              "direction",
+              "type",
+              "DataPort/EventDataPort classification when supported"
+            ],
+            "required_process_fields": [
+              "process name",
+              "package/namespace",
+              "process/thread containment"
+            ],
+            "required_thread_fields": [
+              "thread name",
+              "dispatch semantics when provided",
+              "period/domain when provided"
+            ],
+            "rule_id": "MR-SEL4-PROC-001",
+            "rule_name": "Use one behavioral thread per process for seL4 Microkit targets",
+            "seL4_microkit_constraints": [
+              "For seL4 Microkit targets, model each process as a protection-domain candidate and keep one thread per process when required."
+            ],
+            "source_english_patterns": [
+              "seL4",
+              "Microkit",
+              "protection domain",
+              "domain",
+              "deployment",
+              "process target"
+            ],
+            "source_examples": [
+              "HAMR training docs",
+              "seL4/Rust/Verus examples"
+            ],
+            "structural_distance_results": {
+              "status": "recorded_by_iteration_scoring"
+            },
+            "structural_score_expectations": [
+              "Mandatory process/thread/port/connection fields must match structurally, not only semantically.",
+              "A low semantic distance is not sufficient if required structure is missing."
+            ],
+            "syntax_constraints": [
+              "Do not add Microkit-only attributes to a JVM-only profile unless the active model library defines them.",
+              "Keep target-specific attributes isolated or documented."
+            ],
+            "target_construct_type": "process/thread/protection-domain",
+            "traceability_conventions": [
+              "Preserve English description, requirement id, source section, or REMH comment as traceability metadata when available."
+            ],
+            "verification_expectations": [
+              "Parse/type-check the SysML v2 fragment.",
+              "Regenerate HAMR artifacts for the selected target when available.",
+              "Run Logika/Verus/GUMBOX only when the repository has the required target configured."
+            ],
+            "verification_results": {
+              "gate": "HAMR/Sireum/Logika/Verus when configured",
+              "status": "not_run_by_scaffold"
+            }
+          },
+          "sources": [
+            "e73dd8b549580bd5ad657cd4e3dd5240c24955a7154097da53ec2082970b2d4e",
+            "681b629a3b961386715243c67a4d632d7a70c8128fe87550f3d5fd17556156cb"
+          ],
+          "original_forecast": {
+            "score": 0.84,
+            "exact_question": null,
+            "interpretation": "historical model forecast; metadata may be incomplete; not measured success"
+          }
+        }
+      ],
+      "status": "SOURCE_ONLY_PENDING_REVIEW"
+    },
+    {
+      "rule_id": "MR-SLANG-COMPAT-001",
+      "documents": [
+        "260b3761383e7fd4261b481555cdaff7371eb923bcc6741ac695c58554e7e979",
+        "37e5825c7d873b183112c537acab753efb53506b0871a3b7080c840fab5f5966",
+        "886e2f697737669a9407f89acbb05ff461118376367d3ecd8413a6a990f18614",
+        "922ebc2277da5a7615ed1c3ab0d329ba7f4b1e02159d2808d3610d4434ae1091",
+        "b12d6f2992846ddadcb2401276e55bf5ed0819d5c5ede155d9cc8f128c63c818",
+        "bb90572a5587eca1865dfa505a72e5d05f68c5fa86154a6fc0b82561264dac8d",
+        "dde53afaba7b02a9c4b870cd6dd7068b23d58ea23574efefabd9d95212a78faf",
+        "e8179c6394f9f24e7c8520f59bf2c7f7811afdef281df60d4bed0b398b1f21f2",
+        "fec1d50b85624deff01b1a0bd3abfffa4db142a9432fd85490358702fb72d156",
+        "ffbbbe4b122217c395727ae29636a0a67e3eb5d577a2535c93ff62d8d64e1376"
+      ],
+      "variants": [
+        {
+          "id": "4bbc8ac282a0cfa719e30d82df6aa9a819239b4eb5b08c35872e34e4daff083e",
+          "record": {
+            "HAMR_subset_constraints": [
+              "Use the HAMR-compatible SysML v2/AADL subset rather than arbitrary SysML v2.",
+              "Keep system architecture flat when required by HAMR tooling."
+            ],
+            "accepted_or_rejected": "accepted_seed_rule",
+            "applicable_context": "HAMR-compatible SysML v2 process-definition workflow",
+            "confidence": 0.8,
+            "cosine_distance_results": {
+              "status": "recorded_by_iteration_scoring"
+            },
+            "domain": "Scala/Slang",
+            "epsilon_struct_values_tested": [
+              0.0,
+              0.05,
+              0.1,
+              0.5
+            ],
+            "epsilon_values_tested": [
+              0.01,
+              0.05,
+              0.1,
+              0.5
+            ],
+            "forbidden_context": "Unsupported SysML v2/HAMR syntax, generated-code edits, or held-out test artifacts during rule extraction",
+            "formal_output_pattern": "Process/thread/port names must preserve generated Slang component and API expectations",
+            "generated_outputs": [
+              "Scala/Slang compatibility note",
+              "expected generated artifact names",
+              "Logika obligation note"
+            ],
+            "namespace_conventions": [
+              "Preserve package-qualified type names and enum values used in repository examples."
+            ],
+            "naming_conventions": [
+              "Derive process, thread, and port names from repository examples and English terms; do not invent unrelated names."
+            ],
+            "optional_fields": [
+              "processor binding",
+              "bus/memory binding",
+              "GUMBO attachment point",
+              "traceability comment"
+            ],
+            "rejection_reason": "",
+            "repair_hints": [
+              "Repair generated process/thread/port/connection fragments before modifying existing application logic.",
+              "Classify verification failures before editing artifacts."
+            ],
+            "required_connection_fields": [],
+            "required_inputs": [
+              "process/thread declaration",
+              "ports",
+              "GUMBO contracts"
+            ],
+            "required_port_fields": [
+              "port name",
+              "direction",
+              "type",
+              "DataPort/EventDataPort classification when supported"
+            ],
+            "required_process_fields": [
+              "process name",
+              "package/namespace",
+              "process/thread containment"
+            ],
+            "required_thread_fields": [
+              "thread name",
+              "dispatch semantics when provided",
+              "period/domain when provided"
+            ],
+            "rule_id": "MR-SLANG-COMPAT-001",
+            "rule_name": "Preserve downstream Scala/Slang component compatibility from process/thread definitions",
+            "seL4_microkit_constraints": [
+              "For seL4 Microkit targets, model each process as a protection-domain candidate and keep one thread per process when required."
+            ],
+            "source_english_patterns": [
+              "HAMR maps thread to component",
+              "initialize",
+              "timeTriggered",
+              "port API"
+            ],
+            "source_examples": [
+              "component implementation guide",
+              "hamr overview"
+            ],
+            "structural_distance_results": {
+              "status": "recorded_by_iteration_scoring"
+            },
+            "structural_score_expectations": [
+              "Mandatory process/thread/port/connection fields must match structurally, not only semantically.",
+              "A low semantic distance is not sufficient if required structure is missing."
+            ],
+            "syntax_constraints": [
+              "Use repository examples as the source of truth for HAMR SysML syntax.",
+              "Type-check before HAMR code generation when the tool is available."
+            ],
+            "target_construct_type": "downstream_generated_artifact",
+            "traceability_conventions": [
+              "Preserve English description, requirement id, source section, or REMH comment as traceability metadata when available."
+            ],
+            "verification_expectations": [
+              "Parse/type-check the SysML v2 fragment.",
+              "Regenerate HAMR artifacts for the selected target when available.",
+              "Run Logika/Verus/GUMBOX only when the repository has the required target configured."
+            ],
+            "verification_results": {
+              "gate": "HAMR/Sireum/Logika/Verus when configured",
+              "status": "not_run_by_scaffold"
+            }
+          },
+          "sources": [
+            "e73dd8b549580bd5ad657cd4e3dd5240c24955a7154097da53ec2082970b2d4e",
+            "681b629a3b961386715243c67a4d632d7a70c8128fe87550f3d5fd17556156cb"
+          ],
+          "original_forecast": {
+            "score": 0.8,
+            "exact_question": null,
+            "interpretation": "historical model forecast; metadata may be incomplete; not measured success"
+          }
+        }
+      ],
+      "status": "SOURCE_ONLY_PENDING_REVIEW"
+    },
+    {
+      "rule_id": "MR-THREAD-001",
+      "documents": [
+        "344c6818d266c26f6547430f008a9b5395a4e68fa9701a7ac372f5c6a6ae0f6d",
+        "37e5825c7d873b183112c537acab753efb53506b0871a3b7080c840fab5f5966",
+        "6abe811ab7ed58992615c0de029f1dbf1801a04eb91190d2085ca18f824777a7",
+        "7fd34b3964eb4739246219b14b234cda19f5781348b931b5f395e6183af977b7",
+        "922ebc2277da5a7615ed1c3ab0d329ba7f4b1e02159d2808d3610d4434ae1091",
+        "b12d6f2992846ddadcb2401276e55bf5ed0819d5c5ede155d9cc8f128c63c818",
+        "b40b892a5f904f3a91dfef6b2bf53b6c908d8c634d838f51bb4a0f57be439cac",
+        "bb90572a5587eca1865dfa505a72e5d05f68c5fa86154a6fc0b82561264dac8d",
+        "cd5a593fe2e61b8df506dae356de708cc571d13b1191b81be44ede36d2abbb12",
+        "e3497679af2e94da72438e795cc729dccbdf65c22690cc70dc17f10ed1d5b6a4",
+        "e8179c6394f9f24e7c8520f59bf2c7f7811afdef281df60d4bed0b398b1f21f2",
+        "fec1d50b85624deff01b1a0bd3abfffa4db142a9432fd85490358702fb72d156",
+        "ffbbbe4b122217c395727ae29636a0a67e3eb5d577a2535c93ff62d8d64e1376"
+      ],
+      "variants": [
+        {
+          "id": "cb699246f8cc0ae2446b0fa2da1813515758fd4260312b6f43c4e8754daaeb86",
+          "record": {
+            "HAMR_subset_constraints": [
+              "Use the HAMR-compatible SysML v2/AADL subset rather than arbitrary SysML v2.",
+              "Keep system architecture flat when required by HAMR tooling."
+            ],
+            "accepted_or_rejected": "accepted_seed_rule",
+            "applicable_context": "HAMR-compatible SysML v2 process-definition workflow",
+            "confidence": 0.9,
+            "cosine_distance_results": {
+              "status": "recorded_by_iteration_scoring"
+            },
+            "domain": "HAMR",
+            "epsilon_struct_values_tested": [
+              0.0,
+              0.05,
+              0.1,
+              0.5
+            ],
+            "epsilon_values_tested": [
+              0.01,
+              0.05,
+              0.1,
+              0.5
+            ],
+            "forbidden_context": "Unsupported SysML v2/HAMR syntax, generated-code edits, or held-out test artifacts during rule extraction",
+            "formal_output_pattern": "part def <ThreadName>_i :> Thread with typed input/output ports and optional GUMBO block",
+            "generated_outputs": [
+              "thread declaration",
+              "process-thread containment",
+              "initialize/timeTriggered compatibility note"
+            ],
+            "namespace_conventions": [
+              "Preserve package-qualified type names and enum values used in repository examples."
+            ],
+            "naming_conventions": [
+              "Use the repository's thread suffix/prefix style, often <Function>_i for behavior-owning threads."
+            ],
+            "optional_fields": [
+              "processor binding",
+              "bus/memory binding",
+              "GUMBO attachment point",
+              "traceability comment"
+            ],
+            "rejection_reason": "",
+            "repair_hints": [
+              "Repair generated process/thread/port/connection fragments before modifying existing application logic.",
+              "Classify verification failures before editing artifacts."
+            ],
+            "required_connection_fields": [],
+            "required_inputs": [
+              "behavioral function name",
+              "ports",
+              "dispatch/period when available"
+            ],
+            "required_port_fields": [
+              "port name",
+              "direction",
+              "type",
+              "DataPort/EventDataPort classification when supported"
+            ],
+            "required_process_fields": [
+              "process name",
+              "package/namespace",
+              "process/thread containment"
+            ],
+            "required_thread_fields": [
+              "thread name",
+              "dispatch semantics when provided",
+              "period/domain when provided"
+            ],
+            "rule_id": "MR-THREAD-001",
+            "rule_name": "Create a behavioral thread inside each project-owned process",
+            "seL4_microkit_constraints": [
+              "For seL4 Microkit targets, model each process as a protection-domain candidate and keep one thread per process when required."
+            ],
+            "source_english_patterns": [
+              "function shall compute, monitor, regulate, control, or transform values",
+              "periodic or time-triggered behavior is described"
+            ],
+            "source_examples": [
+              "Monitor and Regulator behavioral thread examples"
+            ],
+            "structural_distance_results": {
+              "status": "recorded_by_iteration_scoring"
+            },
+            "structural_score_expectations": [
+              "Mandatory process/thread/port/connection fields must match structurally, not only semantically.",
+              "A low semantic distance is not sufficient if required structure is missing."
+            ],
+            "syntax_constraints": [
+              "Use repository examples as the source of truth for HAMR SysML syntax.",
+              "Type-check before HAMR code generation when the tool is available."
+            ],
+            "target_construct_type": "thread",
+            "traceability_conventions": [
+              "Preserve English description, requirement id, source section, or REMH comment as traceability metadata when available."
+            ],
+            "verification_expectations": [
+              "Parse/type-check the SysML v2 fragment.",
+              "Regenerate HAMR artifacts for the selected target when available.",
+              "Run Logika/Verus/GUMBOX only when the repository has the required target configured."
+            ],
+            "verification_results": {
+              "gate": "HAMR/Sireum/Logika/Verus when configured",
+              "status": "not_run_by_scaffold"
+            }
+          },
+          "sources": [
+            "e73dd8b549580bd5ad657cd4e3dd5240c24955a7154097da53ec2082970b2d4e",
+            "681b629a3b961386715243c67a4d632d7a70c8128fe87550f3d5fd17556156cb"
+          ],
+          "original_forecast": {
+            "score": 0.9,
+            "exact_question": null,
+            "interpretation": "historical model forecast; metadata may be incomplete; not measured success"
+          }
+        }
+      ],
+      "status": "SOURCE_ONLY_PENDING_REVIEW"
+    },
+    {
+      "rule_id": "MR-TRACE-001",
+      "documents": [
+        "344c6818d266c26f6547430f008a9b5395a4e68fa9701a7ac372f5c6a6ae0f6d",
+        "37e5825c7d873b183112c537acab753efb53506b0871a3b7080c840fab5f5966",
+        "6abe811ab7ed58992615c0de029f1dbf1801a04eb91190d2085ca18f824777a7",
+        "7fd34b3964eb4739246219b14b234cda19f5781348b931b5f395e6183af977b7",
+        "922ebc2277da5a7615ed1c3ab0d329ba7f4b1e02159d2808d3610d4434ae1091",
+        "b12d6f2992846ddadcb2401276e55bf5ed0819d5c5ede155d9cc8f128c63c818",
+        "b40b892a5f904f3a91dfef6b2bf53b6c908d8c634d838f51bb4a0f57be439cac",
+        "bb90572a5587eca1865dfa505a72e5d05f68c5fa86154a6fc0b82561264dac8d",
+        "cd5a593fe2e61b8df506dae356de708cc571d13b1191b81be44ede36d2abbb12",
+        "e3497679af2e94da72438e795cc729dccbdf65c22690cc70dc17f10ed1d5b6a4",
+        "e8179c6394f9f24e7c8520f59bf2c7f7811afdef281df60d4bed0b398b1f21f2",
+        "fec1d50b85624deff01b1a0bd3abfffa4db142a9432fd85490358702fb72d156",
+        "ffbbbe4b122217c395727ae29636a0a67e3eb5d577a2535c93ff62d8d64e1376"
+      ],
+      "variants": [
+        {
+          "id": "699fdae0720da2cea686b05b49b12184324fb46170e94357aec1b4d3f8b82c02",
+          "record": {
+            "HAMR_subset_constraints": [
+              "Use the HAMR-compatible SysML v2/AADL subset rather than arbitrary SysML v2.",
+              "Keep system architecture flat when required by HAMR tooling."
+            ],
+            "accepted_or_rejected": "accepted_seed_rule",
+            "applicable_context": "HAMR-compatible SysML v2 process-definition workflow",
+            "confidence": 0.86,
+            "cosine_distance_results": {
+              "status": "recorded_by_iteration_scoring"
+            },
+            "domain": "repository-specific",
+            "epsilon_struct_values_tested": [
+              0.0,
+              0.05,
+              0.1,
+              0.5
+            ],
+            "epsilon_values_tested": [
+              0.01,
+              0.05,
+              0.1,
+              0.5
+            ],
+            "forbidden_context": "Unsupported SysML v2/HAMR syntax, generated-code edits, or held-out test artifacts during rule extraction",
+            "formal_output_pattern": "trace comment or metadata linking generated process fields to English source text",
+            "generated_outputs": [
+              "source traceability note",
+              "requirement id",
+              "decision rationale"
+            ],
+            "namespace_conventions": [
+              "Preserve package-qualified type names and enum values used in repository examples."
+            ],
+            "naming_conventions": [
+              "Derive process, thread, and port names from repository examples and English terms; do not invent unrelated names."
+            ],
+            "optional_fields": [
+              "processor binding",
+              "bus/memory binding",
+              "GUMBO attachment point",
+              "traceability comment"
+            ],
+            "rejection_reason": "",
+            "repair_hints": [
+              "Repair generated process/thread/port/connection fragments before modifying existing application logic.",
+              "Classify verification failures before editing artifacts."
+            ],
+            "required_connection_fields": [],
+            "required_inputs": [
+              "source file",
+              "English snippet",
+              "generated construct"
+            ],
+            "required_port_fields": [
+              "port name",
+              "direction",
+              "type",
+              "DataPort/EventDataPort classification when supported"
+            ],
+            "required_process_fields": [
+              "process name",
+              "package/namespace",
+              "process/thread containment"
+            ],
+            "required_thread_fields": [
+              "thread name",
+              "dispatch semantics when provided",
+              "period/domain when provided"
+            ],
+            "rule_id": "MR-TRACE-001",
+            "rule_name": "Preserve traceability from English text to process/thread/port/connection decisions",
+            "seL4_microkit_constraints": [
+              "For seL4 Microkit targets, model each process as a protection-domain candidate and keep one thread per process when required."
+            ],
+            "source_english_patterns": [
+              "requirement id",
+              "REMH section",
+              "source paragraph",
+              "architecture description"
+            ],
+            "source_examples": [
+              "FAA/REMH comments",
+              "training material references"
+            ],
+            "structural_distance_results": {
+              "status": "recorded_by_iteration_scoring"
+            },
+            "structural_score_expectations": [
+              "Mandatory process/thread/port/connection fields must match structurally, not only semantically.",
+              "A low semantic distance is not sufficient if required structure is missing."
+            ],
+            "syntax_constraints": [
+              "Use repository examples as the source of truth for HAMR SysML syntax.",
+              "Type-check before HAMR code generation when the tool is available."
+            ],
+            "target_construct_type": "traceability",
+            "traceability_conventions": [
+              "Preserve English description, requirement id, source section, or REMH comment as traceability metadata when available."
+            ],
+            "verification_expectations": [
+              "Parse/type-check the SysML v2 fragment.",
+              "Regenerate HAMR artifacts for the selected target when available.",
+              "Run Logika/Verus/GUMBOX only when the repository has the required target configured."
+            ],
+            "verification_results": {
+              "gate": "HAMR/Sireum/Logika/Verus when configured",
+              "status": "not_run_by_scaffold"
+            }
+          },
+          "sources": [
+            "681b629a3b961386715243c67a4d632d7a70c8128fe87550f3d5fd17556156cb",
+            "e73dd8b549580bd5ad657cd4e3dd5240c24955a7154097da53ec2082970b2d4e"
+          ],
+          "original_forecast": {
+            "score": 0.86,
+            "exact_question": null,
+            "interpretation": "historical model forecast; metadata may be incomplete; not measured success"
+          }
+        }
+      ],
+      "status": "SOURCE_ONLY_PENDING_REVIEW"
+    },
+    {
+      "rule_id": "MR-VERIFY-PROC-001",
+      "documents": [
+        "2ef69a394697eb2cee806c9c4b10ca4ead5858203e8102fa14db3c243bfdce0c",
+        "37e5825c7d873b183112c537acab753efb53506b0871a3b7080c840fab5f5966",
+        "922ebc2277da5a7615ed1c3ab0d329ba7f4b1e02159d2808d3610d4434ae1091",
+        "b12d6f2992846ddadcb2401276e55bf5ed0819d5c5ede155d9cc8f128c63c818",
+        "bb90572a5587eca1865dfa505a72e5d05f68c5fa86154a6fc0b82561264dac8d",
+        "c2ab560a42d0992dcfd5490cb118011b6f906cc275ccc35f8d9650d45dae5fc5",
+        "e8179c6394f9f24e7c8520f59bf2c7f7811afdef281df60d4bed0b398b1f21f2",
+        "f208c5d19ec698512d90539edd4ec355030710ed134b7308ac73631de5dc83e2",
+        "fec1d50b85624deff01b1a0bd3abfffa4db142a9432fd85490358702fb72d156",
+        "ffbbbe4b122217c395727ae29636a0a67e3eb5d577a2535c93ff62d8d64e1376"
+      ],
+      "variants": [
+        {
+          "id": "56713900763ef74d759c4f74b9aaeb49b2f2c77c7819816e525fec7fa00269e9",
+          "record": {
+            "HAMR_subset_constraints": [
+              "Use the HAMR-compatible SysML v2/AADL subset rather than arbitrary SysML v2.",
+              "Keep system architecture flat when required by HAMR tooling."
+            ],
+            "accepted_or_rejected": "accepted_seed_rule",
+            "applicable_context": "HAMR-compatible SysML v2 process-definition workflow",
+            "confidence": 0.83,
+            "cosine_distance_results": {
+              "status": "recorded_by_iteration_scoring"
+            },
+            "domain": "verification-repair",
+            "epsilon_struct_values_tested": [
+              0.0,
+              0.05,
+              0.1,
+              0.5
+            ],
+            "epsilon_values_tested": [
+              0.01,
+              0.05,
+              0.1,
+              0.5
+            ],
+            "forbidden_context": "Unsupported SysML v2/HAMR syntax, generated-code edits, or held-out test artifacts during rule extraction",
+            "formal_output_pattern": "classified failure -> smallest safe repair to generated SysML process/thread/port/connection or GUMBO attachment",
+            "generated_outputs": [
+              "failure classification",
+              "repair plan",
+              "verification expectation"
+            ],
+            "namespace_conventions": [
+              "Preserve package-qualified type names and enum values used in repository examples."
+            ],
+            "naming_conventions": [
+              "Derive process, thread, and port names from repository examples and English terms; do not invent unrelated names."
+            ],
+            "optional_fields": [
+              "processor binding",
+              "bus/memory binding",
+              "GUMBO attachment point",
+              "traceability comment"
+            ],
+            "rejection_reason": "",
+            "repair_hints": [
+              "Repair generated SysML process fragments before touching application logic.",
+              "Do not weaken contracts to compensate for profile/sourcepath problems.",
+              "Stop and request approval before modifying generated code or held-out golden artifacts."
+            ],
+            "required_connection_fields": [],
+            "required_inputs": [
+              "verification log",
+              "generated artifact",
+              "rule ids applied"
+            ],
+            "required_port_fields": [
+              "port name",
+              "direction",
+              "type",
+              "DataPort/EventDataPort classification when supported"
+            ],
+            "required_process_fields": [
+              "process name",
+              "package/namespace",
+              "process/thread containment"
+            ],
+            "required_thread_fields": [
+              "thread name",
+              "dispatch semantics when provided",
+              "period/domain when provided"
+            ],
+            "rule_id": "MR-VERIFY-PROC-001",
+            "rule_name": "Treat HAMR/Sireum/Logika diagnostics as process-definition repair signals",
+            "seL4_microkit_constraints": [
+              "For seL4 Microkit targets, model each process as a protection-domain candidate and keep one thread per process when required."
+            ],
+            "source_english_patterns": [
+              "type-check error",
+              "HAMR subset violation",
+              "invalid port",
+              "missing connection",
+              "namespace error"
+            ],
+            "source_examples": [
+              "sireum verification plan",
+              "verification logs"
+            ],
+            "structural_distance_results": {
+              "status": "recorded_by_iteration_scoring"
+            },
+            "structural_score_expectations": [
+              "Mandatory process/thread/port/connection fields must match structurally, not only semantically.",
+              "A low semantic distance is not sufficient if required structure is missing."
+            ],
+            "syntax_constraints": [
+              "Use repository examples as the source of truth for HAMR SysML syntax.",
+              "Type-check before HAMR code generation when the tool is available."
+            ],
+            "target_construct_type": "process-definition repair",
+            "traceability_conventions": [
+              "Preserve English description, requirement id, source section, or REMH comment as traceability metadata when available."
+            ],
+            "verification_expectations": [
+              "Parse/type-check the SysML v2 fragment.",
+              "Regenerate HAMR artifacts for the selected target when available.",
+              "Run Logika/Verus/GUMBOX only when the repository has the required target configured."
+            ],
+            "verification_results": {
+              "gate": "HAMR/Sireum/Logika/Verus when configured",
+              "status": "not_run_by_scaffold"
+            }
+          },
+          "sources": [
+            "681b629a3b961386715243c67a4d632d7a70c8128fe87550f3d5fd17556156cb",
+            "e73dd8b549580bd5ad657cd4e3dd5240c24955a7154097da53ec2082970b2d4e"
+          ],
+          "original_forecast": {
+            "score": 0.83,
+            "exact_question": null,
+            "interpretation": "historical model forecast; metadata may be incomplete; not measured success"
+          }
+        }
+      ],
+      "status": "SOURCE_ONLY_PENDING_REVIEW"
+    }
+  ],
+  "counts": {
+    "documents": 43,
+    "rule_ids": 10,
+    "conflicting_ids": 0
+  },
+  "scope": "Exact legacy variants and references; no rule auto-approved or counted as verified"
+}

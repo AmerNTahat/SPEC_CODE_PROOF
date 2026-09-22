@@ -1,4 +1,4 @@
-# INSPECTA/SCP Workbench — controller foundation
+# INSPECTA/SCP Workbench — implementation in progress
 
 Implementation in progress. This is executable application code, separate from
 handoff support utilities. It does not yet implement a complete Workbench or live
@@ -16,7 +16,7 @@ Run from the repository root:
 ```
 
 The shell launcher reuses `.venv/bin/python` (Python 3.11+) or INSPECTA_PYTHON.
-The controller itself has no third-party Python dependencies. The vendor directory
+The core run controller uses the standard library; knowledge validation uses the pinned jsonschema dependency. The vendor directory
 records unchanged handoff helper provenance. It has no model or download fallback.
 
 Profiles resolve paths relative to their containing directory. Every input must
@@ -42,8 +42,7 @@ units, engineering acceptance, or complete system validation. Instantiation warn
 and substituted missing types currently produce UNKNOWN, pending a reviewed policy.
 
 `run` and `learn` can resolve and snapshot inputs but explicitly BLOCK before model
-generation. No learned release, approval service, model adapter, React UI, formal
-gate adapter, evidence signature, or live demonstration is claimed by this version.
+generation. No learned release, model execution, complete formal gate adapter, evidence signature, or live demonstration is claimed by this version.
 
 Exit codes: 0 completed command (inspect returned state), 1 checker rejection,
 2 invalid configuration, 3 blocked, 4 exhausted, 5 cancelled.
@@ -51,5 +50,75 @@ Exit codes: 0 completed command (inspect returned state), 1 checker rejection,
 Test application logic independently of handoff support tests:
 
 ```sh
-PYTHONPATH=workbench .venv/bin/python -m unittest discover -s workbench/tests -v
+PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=workbench .venv/bin/python -m unittest discover -s workbench/tests -v
 ```
+
+Open the local interface from the repository root:
+
+```sh
+./inspecta-scp ui
+```
+
+Open the private loopback URL printed by that command in your browser. Its
+fragment token authenticates this local session; it is removed from the address
+bar after connection. Closing the server leaves runs and imported records on disk.
+The interface prepares runs, displays evidence/status, pauses/resumes/stops them,
+imports the configured books, opens exact source revisions, and reviews requests
+for budget extensions. It uses the same resolver and controller as the CLI.
+Additional reviewed profiles can be selected with repeated `--profile PATH`;
+source-book roots with repeated `--library-root PATH`. HTTP clients cannot choose
+arbitrary filesystem roots. The default roots are the existing Isolette and
+`rule-books_7` directories.
+
+The frontend was built using the existing Node 10.19.0/npm 6.14.4 installation.
+Dependencies are pinned in `frontend/package-lock.json`; no runtime CDN is used.
+For a fresh checkout, install/build only the missing frontend dependencies:
+
+```sh
+cd workbench/frontend
+npm ci --ignore-scripts --no-audit --no-fund
+npm run build
+```
+
+Rule validation reuses jsonschema 4.25.1 in the existing Python environment.
+`requirements.txt` pins that dependency if an isolated environment needs it.
+Do not reinstall working Codex or Sireum tools to use this interface.
+
+Inspect the imported knowledge without model calls:
+
+```sh
+./inspecta-scp --json rules import --directory isolette/sysml/rule-books
+./inspecta-scp --json rules import --directory rule-books_7
+./inspecta-scp --json rules catalog
+./inspecta-scp --json source SOURCE_ID --start 1 --end 10
+./inspecta-scp rules --help
+./inspecta-scp approval --help
+./inspecta-scp budget --help
+```
+
+Import preserves original text, rule IDs, JSON variants and confidence fields.
+Markdown rule references are an index into exact documents, not a claim that all
+prose has been converted into structured rules. Historical “final” or “verified”
+titles do not grant approval. Candidate proposals require exact source hashes,
+schema validation, applicability and a counterexample. Release drafts omit raw
+source/archive fields; publication additionally requires independent validation.
+The transfer-attestation adapter is still missing, so publication fails closed,
+even after a local reviewer approves a draft. Local reviewer text is attribution,
+not cryptographic identity. Human-only sources are not generator exports.
+
+Run the opt-in browser test from the repository root:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=workbench .venv/bin/python workbench/tests/run_browser_smoke.py
+```
+
+It starts actual Firefox with a disposable profile and loopback application server,
+uses a synthetic project and never invokes a model. Socket restrictions in an
+outer sandbox may require permission to run it from the ordinary host terminal.
+The browser sandbox stays enabled. Its screenshot is application-test evidence,
+not an Isolette/KSU engineering demonstration.
+
+Paid demonstrations are deferred by user instruction. Generation, transactional
+repair, complete engineering gate adapters, independent rule transfer, attestation,
+and full split/repair UI flows remain unfinished. No live demonstration or complete
+Workbench acceptance is claimed.

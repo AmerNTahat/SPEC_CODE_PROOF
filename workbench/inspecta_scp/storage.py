@@ -8,6 +8,8 @@ from pathlib import Path
 import sqlite3
 import time
 import uuid
+import re
+import tempfile
 
 from .config import PolicyError, canonical
 
@@ -62,6 +64,12 @@ class Store:
           CREATE TABLE IF NOT EXISTS reservations (
             id TEXT PRIMARY KEY, run_id TEXT NOT NULL, tokens INTEGER NOT NULL,
             settled INTEGER NOT NULL DEFAULT 0);
+          CREATE TABLE IF NOT EXISTS records (
+            kind TEXT NOT NULL, id TEXT NOT NULL, payload TEXT NOT NULL,
+            PRIMARY KEY(kind,id));
+          CREATE TABLE IF NOT EXISTS decisions (
+            request_id TEXT PRIMARY KEY, decision TEXT NOT NULL,
+            reviewer TEXT NOT NULL, decided REAL NOT NULL);
         """)
 
     def close(self):
@@ -119,13 +127,52 @@ class Store:
         data = canonical(value).encode()
         digest = hashlib.sha256(data).hexdigest()
         p = safe_child(self.root, "objects/" + digest + ".json")
+        fd, temporary = tempfile.mkstemp(dir=p.parent, prefix=".object-")
         try:
-            with p.open("xb") as stream:
+            with os.fdopen(fd, "wb") as stream:
                 stream.write(data)
-        except FileExistsError:
-            if p.read_bytes() != data:
-                raise PolicyError("Content-addressed evidence was modified")
+                stream.flush()
+                os.fsync(stream.fileno())
+            try:
+                os.link(temporary, p)
+            except FileExistsError:
+                if p.is_symlink() or p.read_bytes() != data:
+                    raise PolicyError("Content-addressed evidence was modified")
+        finally:
+            os.unlink(temporary)
         return {"sha256": digest, "path": str(p.relative_to(self.root))}
+
+    def load_object(self, reference):
+        key = reference.get("sha256", "")
+        if not re.fullmatch(r"[0-9a-f]{64}", key):
+            raise PolicyError("Invalid object digest")
+        relative = "objects/" + key + ".json"
+        if reference.get("path", relative) != relative:
+            raise PolicyError("Object reference path does not match digest")
+        path = safe_child(self.root, relative)
+        data = path.read_bytes()
+        if hashlib.sha256(data).hexdigest() != key:
+            raise PolicyError("Evidence object was modified")
+        return json.loads(data)
+
+    def record(self, kind, value):
+        ref = self.object(value)
+        key = ref["sha256"]
+        self.db.execute("INSERT OR IGNORE INTO records VALUES(?,?,?)", (kind, key, canonical(ref)))
+        return {**value, "id": key}
+
+    def read_record(self, kind, key):
+        row = self.db.execute("SELECT payload FROM records WHERE kind=? AND id=?", (kind, key)).fetchone()
+        if row is None:
+            raise PolicyError("Unknown " + kind + " record")
+        ref = json.loads(row["payload"])
+        if ref["sha256"] != key:
+            raise PolicyError("Record identity changed")
+        return {**self.load_object(ref), "id": key}
+
+    def records(self, kind):
+        return [self.read_record(kind, row[0]) for row in self.db.execute(
+            "SELECT id FROM records WHERE kind=? ORDER BY id", (kind,)).fetchall()]
 
     def events(self, run_id):
         self.get(run_id)

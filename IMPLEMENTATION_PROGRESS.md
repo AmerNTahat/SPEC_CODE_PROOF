@@ -93,3 +93,90 @@ reports/build/build-result-check.json — 95cd24a49a0afc4118149b11118e9fd3791055
 Budget:
 Live campaign model calls 0 and model tokens 0. No campaign allowance approved. Build billing/token usage unavailable.
 
+## M02 — in_progress
+
+Achieved:
+Exact-subject approval service and budget amendment transactions preserve usage, unknown metering and elapsed time. Shared HTTP/CLI resolver and run controls.
+
+In progress:
+Saving implementation checkpoint and evidence.
+
+Remaining:
+Learning/model execution, transactional repairs, complete engineering checks, independent transfer validation, attestation and remaining UI workflows.
+
+Blockers:
+Transactional repair and model execution remain unimplemented; strict CLI token caps remain unvalidated.
+
+Evidence:
+reports/build/application-tests.log — 3cea10aeb0f95321f77555c79fa7ee8c7545e7d29696932f19510cc51dd42694
+reports/build/browser-smoke.json — c5cd6e4b6052d0dc9d3e2d122ec67b68dc7fed96bb12b39301c177da7a0b4eec
+
+Budget:
+Demo model calls 0; demo model tokens 0. Implementation-session tokens, billing and aggregate wall usage unavailable; no estimates substituted.
+
+## M03 — in_progress
+
+Achieved:
+Imported 43 exact source documents and 10 rule IDs without altering originals. Added provenance, JSON variant deduplication/conflict detection, source viewing, forecasts, candidate validation, applicability filtering, typed draft bindings and immutable release drafts.
+
+In progress:
+Saving implementation checkpoint and evidence.
+
+Remaining:
+Learning/model execution, transactional repairs, complete engineering checks, independent transfer validation, attestation and remaining UI workflows.
+
+Blockers:
+Independent transfer attestation is missing; publication refuses approval alone. Markdown references are indexed, not fully structured extraction.
+
+Evidence:
+reports/build/rulebook-import-isolette.json — ad0673a6117ab5a7ba18cfdb4e52558c727b3f7e1fecb9f4195965ccd5561aca
+reports/build/rulebook-import-specialized.json — b6155cf05b2af980b9e6d6cbdf389877c5b2c8964ec77c9db2d3dfd3aa7f2108
+reports/build/rulebook-catalog.json — 2260300dac4e68e5776d4ef3184e7e5bdc05cfe8fea29ace197872e8984124e4
+reports/build/preservation-check.json — 217f84a88c461c386a65c0e15f6f1708885ca624c07eb63118f266f00b16de85
+
+Budget:
+Demo model calls 0; demo model tokens 0. Implementation-session tokens, billing and aggregate wall usage unavailable; no estimates substituted.
+
+## M05 — in_progress
+
+Achieved:
+Local React/TypeScript UI uses actual controller for run preparation, controls, knowledge import, source viewing, exact-subject review and budget extensions. Actual Firefox workflow, reload, source-escaping and HTTP boundary tests passed.
+
+In progress:
+Saving implementation checkpoint and evidence.
+
+Remaining:
+Learning/model execution, transactional repairs, complete engineering checks, independent transfer validation, attestation and remaining UI workflows.
+
+Blockers:
+Complete split/repair interfaces and remaining backend gates are unfinished.
+
+Evidence:
+reports/build/browser-smoke.json — c5cd6e4b6052d0dc9d3e2d122ec67b68dc7fed96bb12b39301c177da7a0b4eec
+reports/build/workbench-browser.png — 21df782cd2c7f8399c7040fffa72833d783d7fb20ba12d7b2873d02493eafb21
+reports/build/frontend-build.log — 89fb2d88eaa0054fdb22a73c8c1f5a440c89a155a4c496fa7f60c980226b4e57
+workbench/frontend/package-lock.json — b1d7a3429624394710493be7b0b3cb29faedbe791f2a57a4b0c14209be4e585e
+
+Budget:
+Demo model calls 0; demo model tokens 0. Implementation-session tokens, billing and aggregate wall usage unavailable; no estimates substituted.
+
+## M07 — blocked
+
+Achieved:
+Recorded explicit user instruction: defer paid demonstrations and continue implementation. No synthetic test is reported as an engineering demonstration.
+
+In progress:
+Saving implementation checkpoint and evidence.
+
+Remaining:
+Learning/model execution, transactional repairs, complete engineering checks, independent transfer validation, attestation and remaining UI workflows.
+
+Blockers:
+Deferred by user; no paid approval is being requested. Engineering prerequisites also remain incomplete.
+
+Evidence:
+reports/demo/DEMO_REPORT.md — d55f8798b4b92c60e6f7079dc9e1a7c410f4871d4f562cee24243cd791654aef
+
+Budget:
+Demo model calls 0; demo model tokens 0. Implementation-session tokens, billing and aggregate wall usage unavailable; no estimates substituted.
+

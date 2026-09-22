@@ -1,8 +1,202 @@
 {
-  ".gitignore": true,
-  "sireum_verification_plan.txt": true,
-  "isolette/sysml/goal_learn.txt": true,
-  "isolette/sysml/goal_user.txt": true,
-  "tools/self_adapt.py": true,
-  "embedding_distance.py": true
+  "ok": true,
+  "checks": [
+    {
+      "path": ".gitignore",
+      "unchanged": true
+    },
+    {
+      "path": "sireum_verification_plan.txt",
+      "unchanged": true
+    },
+    {
+      "path": "isolette/sysml/goal_learn.txt",
+      "unchanged": true
+    },
+    {
+      "path": "isolette/sysml/goal_user.txt",
+      "unchanged": true
+    },
+    {
+      "path": "tools/self_adapt.py",
+      "unchanged": true
+    },
+    {
+      "path": "embedding_distance.py",
+      "unchanged": true
+    },
+    {
+      "path": "final-process-apply-rules-prompt.md",
+      "unchanged": true
+    },
+    {
+      "path": "sel4-microkit-process-rule-book-v1.md",
+      "unchanged": true
+    },
+    {
+      "path": "rejected-process-definition-rules.json",
+      "unchanged": true
+    },
+    {
+      "path": "rule-change-log.md",
+      "unchanged": true
+    },
+    {
+      "path": "process-definition-training-observations.md",
+      "unchanged": true
+    },
+    {
+      "path": "final-sel4-microkit-process-rule-book.md",
+      "unchanged": true
+    },
+    {
+      "path": "final-scala-slang-process-compatibility-rule-book.md",
+      "unchanged": true
+    },
+    {
+      "path": "process-verification-repair-rule-book-v1.md",
+      "unchanged": true
+    },
+    {
+      "path": "final-process-port-connection-rule-book.md",
+      "unchanged": true
+    },
+    {
+      "path": "process-definition-rule-book-v1.md",
+      "unchanged": true
+    },
+    {
+      "path": "final-gumbo-attachment-rule-book.md",
+      "unchanged": true
+    },
+    {
+      "path": "final-combined-process-meta-rule-book.md",
+      "unchanged": true
+    },
+    {
+      "path": "final-process-apply-rules-prompt.md",
+      "unchanged": true
+    },
+    {
+      "path": "progress.md",
+      "unchanged": true
+    },
+    {
+      "path": "user-mode-export-manifest.json",
+      "unchanged": true
+    },
+    {
+      "path": "final-process-extract-rules-prompt.md",
+      "unchanged": true
+    },
+    {
+      "path": "user-mode-export-manifest.json",
+      "unchanged": true
+    },
+    {
+      "path": "final-process-definition-rule-book.md",
+      "unchanged": true
+    },
+    {
+      "path": "gumbo-attachment-rule-book-v1.md",
+      "unchanged": true
+    },
+    {
+      "path": "process-port-connection-rule-book-v1.md",
+      "unchanged": true
+    },
+    {
+      "path": "final-sysmlv2-general-rule-book.md",
+      "unchanged": true
+    },
+    {
+      "path": "final-scala-slang-process-compatibility-rule-book.md",
+      "unchanged": true
+    },
+    {
+      "path": "final-combined-process-meta-rule-book.md",
+      "unchanged": true
+    },
+    {
+      "path": "process-definition-training-observations.json",
+      "unchanged": true
+    },
+    {
+      "path": "final-gumbo-attachment-rule-book.md",
+      "unchanged": true
+    },
+    {
+      "path": "rejected-process-definition-rules.md",
+      "unchanged": true
+    },
+    {
+      "path": "combined-process-meta-rule-book-v1.md",
+      "unchanged": true
+    },
+    {
+      "path": "final-sysmlv2-general-rule-book.md",
+      "unchanged": true
+    },
+    {
+      "path": "algorithm-summary.md",
+      "unchanged": true
+    },
+    {
+      "path": "extracted-process-definition-rules-v1.json",
+      "unchanged": true
+    },
+    {
+      "path": "final-process-scheduling-binding-rule-book.md",
+      "unchanged": true
+    },
+    {
+      "path": "final-process-verification-repair-rule-book.md",
+      "unchanged": true
+    },
+    {
+      "path": "final-process-port-connection-rule-book.md",
+      "unchanged": true
+    },
+    {
+      "path": "final-process-definition-rule-book.md",
+      "unchanged": true
+    },
+    {
+      "path": "process-scheduling-binding-rule-book-v1.md",
+      "unchanged": true
+    },
+    {
+      "path": "scala-slang-process-compatibility-rule-book-v1.md",
+      "unchanged": true
+    },
+    {
+      "path": "sysmlv2-general-rule-book-v1.md",
+      "unchanged": true
+    },
+    {
+      "path": "final-sel4-microkit-process-rule-book.md",
+      "unchanged": true
+    },
+    {
+      "path": "final-process-scheduling-binding-rule-book.md",
+      "unchanged": true
+    },
+    {
+      "path": "candidate-process-definition-meta-rules.json",
+      "unchanged": true
+    },
+    {
+      "path": "final-process-verification-repair-rule-book.md",
+      "unchanged": true
+    },
+    {
+      "path": "extracted-process-definition-rules-v1.md",
+      "unchanged": true
+    },
+    {
+      "path": "candidate-process-definition-meta-rules.md",
+      "unchanged": true
+    }
+  ],
+  "scope": "Six pre-recorded user files and 43 imported source revisions; unreadable historical directories remain unaudited."
 }

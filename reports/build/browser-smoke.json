@@ -1,0 +1,46 @@
+{
+  "scope": "Actual Firefox application UI smoke; synthetic input; no live engineering demo",
+  "model_calls": 0,
+  "checks": [
+    "HTTP authentication, Host, Origin, traversal rejection",
+    "Real React workflow resolve, snapshot, pause and resume",
+    "Budget request, exact-subject review and approved amendment through UI",
+    "Session reconnect and durable run after reload",
+    "Real source navigation; imported HTML displayed as text without executing"
+  ],
+  "browser": {
+    "sessionId": "31ce1927-8819-4de3-8482-335f71c31690",
+    "capabilities": {
+      "acceptInsecureCerts": false,
+      "browserName": "firefox",
+      "browserVersion": "136.0",
+      "platformName": "linux",
+      "unhandledPromptBehavior": "dismiss and notify",
+      "userAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:136.0) Gecko/20100101 Firefox/136.0",
+      "moz:buildID": "20250227124745",
+      "moz:headless": true,
+      "moz:platformVersion": "5.15.0-139-generic",
+      "moz:processID": 73159,
+      "moz:profile": "/tmp/inspecta-browser-o41zfuwu/firefox",
+      "moz:shutdownTimeout": 60000,
+      "pageLoadStrategy": "normal",
+      "timeouts": {
+        "implicit": 0,
+        "pageLoad": 300000,
+        "script": 30000
+      },
+      "setWindowRect": true,
+      "strictFileInteractability": false,
+      "moz:accessibilityChecks": false,
+      "moz:webdriverClick": true,
+      "moz:windowless": false,
+      "capabilities": {
+        "alwaysMatch": {
+          "acceptInsecureCerts": false
+        }
+      },
+      "proxy": {}
+    }
+  },
+  "status": "PASS"
+}

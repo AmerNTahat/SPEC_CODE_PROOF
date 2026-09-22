@@ -10,6 +10,9 @@ import sys
 from .config import PolicyError, resolve
 from .controller import Controller
 from .storage import sha_file
+from .approvals import Approvals
+from .knowledge import Knowledge
+from .sources import Sources
 from .vendor.local_compare import compare_text
 from .vendor.split_dataset import assign, approve
 
@@ -49,17 +52,71 @@ def parser():
     q.add_argument("--fractions", type=float, nargs=3)
     q.add_argument("--seed", default="0")
     q.add_argument("--reviewer")
+    q = sub.add_parser("rules", help="Import, inspect and review versioned knowledge without model calls")
+    actions = q.add_subparsers(dest="rule_action", required=True)
+    a = actions.add_parser("import")
+    a.add_argument("--directory", type=Path, required=True)
+    actions.add_parser("catalog")
+    for name in ("propose", "forecast"):
+        a = actions.add_parser(name)
+        a.add_argument("--input", type=Path, required=True)
+    a = actions.add_parser("retrieve")
+    a.add_argument("--query", required=True)
+    a.add_argument("--operation", required=True)
+    a.add_argument("--profile", required=True)
+    a.add_argument("--release")
+    a = actions.add_parser("review")
+    a.add_argument("candidate_id")
+    a.add_argument("--supporting-run", required=True)
+    a.add_argument("--contrasting-run", required=True)
+    a = actions.add_parser("draft-release")
+    a.add_argument("candidate_ids", nargs="+")
+    a = actions.add_parser("request-publication")
+    a.add_argument("draft_id")
+    a = actions.add_parser("publish")
+    a.add_argument("draft_id")
+    a.add_argument("--approval", required=True)
+    a = actions.add_parser("show-release")
+    a.add_argument("release_id")
+    q = sub.add_parser("source", help="Read an exact registered source revision")
+    q.add_argument("source_id")
+    q.add_argument("--audience", choices=("human", "generator"), default="human")
+    q.add_argument("--start", type=int, default=1)
+    q.add_argument("--end", type=int)
+    q = sub.add_parser("approval", help="Local human review; never implicit model approval")
+    q.add_argument("request_id")
+    q.add_argument("--decision", choices=("APPROVED", "REJECTED", "REVOKED"))
+    q.add_argument("--expected-digest")
+    q.add_argument("--reviewer")
+    q = sub.add_parser("budget", help="Request/apply an exact approved budget amendment")
+    q.add_argument("run_id")
+    q.add_argument("--token-limit", type=int)
+    q.add_argument("--wall-seconds", type=int)
+    q.add_argument("--approval")
+    q = sub.add_parser("ui", help="Open the authenticated loopback UI over the same controller")
+    q.add_argument("--port", type=int, default=8765)
+    q.add_argument("--profile", type=Path, action="append", default=[])
+    q.add_argument("--library-root", type=Path, action="append", default=[])
     return p
 
 
 def dispatch(args):
+    if args.command == "ui":
+        from .api import serve
+        repo = Path(__file__).resolve().parents[2]
+        profiles = args.profile or sorted((repo / "workbench/profiles").glob("*.check.json"))
+        roots = args.library_root or [repo / "isolette/sysml/rule-books", repo / "rule-books_7"]
+        serve(args.state_dir, profiles, roots, args.port)
+        return {"status": "STOPPED"}
     if args.command == "onboard":
-        return {"status": "IMPLEMENTATION_IN_PROGRESS", "paid_execution": "DISABLED",
+        return {"status": "IMPLEMENTATION_IN_PROGRESS", "paid_execution": "DEFERRED_BY_USER",
                 "implemented": ["config resolution", "allowlisted snapshots", "durable runs/events",
                                 "pause/stop requests", "resume without resetting budgets", "typecheck adapter",
-                                "lexical diagnostics", "metadata-level dataset proposals"],
-                "remaining": ["generation/learning isolation", "rulebook import/release service", "transactional repairs",
-                              "proof/build and architecture adapters", "React UI", "attestation", "live demonstrations"],
+                                "lexical diagnostics", "metadata-level dataset proposals", "legacy rulebook import",
+                                "registered source passages", "exact-subject approvals", "budget amendments",
+                                "candidate rules, bindings and release drafts", "authenticated local React UI"],
+                "remaining": ["generation/learning isolation", "independent rule transfer validation and publication readiness", "transactional repairs",
+                              "proof/build and architecture adapters", "complete UI split/repair workflows", "attestation", "live demonstrations"],
                 "start": "./inspecta-scp --json doctor; ./inspecta-scp --json check --offline --config workbench/profiles/producer-consumer.check.json",
                 "limits": "Nested worker isolation may be unavailable in this Codex sandbox. Failure blocks; it never runs without isolation."}
     if args.command == "doctor":
@@ -96,6 +153,34 @@ def dispatch(args):
             return resolve(profile, overrides, base)
     controller = Controller(args.state_dir)
     try:
+        if args.command == "rules":
+            library = Knowledge(controller.store)
+            if args.rule_action == "import":
+                return library.import_books(args.directory)
+            if args.rule_action == "catalog":
+                return library.catalog()
+            if args.rule_action in {"propose", "forecast"}:
+                return getattr(library, args.rule_action)(read_json(args.input))
+            if args.rule_action == "retrieve":
+                return {"matches": library.retrieve(args.query, args.operation, args.profile, args.release)}
+            if args.rule_action == "review":
+                return library.review(args.candidate_id, args.supporting_run, args.contrasting_run)
+            if args.rule_action == "draft-release":
+                return library.draft_release(args.candidate_ids)
+            if args.rule_action == "request-publication":
+                return library.request_publication(args.draft_id)
+            if args.rule_action == "publish":
+                return library.publish(args.draft_id, args.approval)
+            return library.release(args.release_id)
+        if args.command == "source":
+            return Sources(controller.store).view(args.source_id, args.audience, args.start, args.end)
+        if args.command == "approval":
+            approvals = Approvals(controller.store)
+            return (approvals.decide(args.request_id, args.expected_digest, args.decision, args.reviewer)
+                    if args.decision else approvals.get(args.request_id))
+        if args.command == "budget":
+            return (controller.amend_budget(args.run_id, args.approval) if args.approval else
+                    controller.request_budget(args.run_id, args.token_limit, args.wall_seconds))
         if args.command in {"check", "run", "learn"}:
             run = controller.create(profile, overrides, base)
             return run if args.prepare_only else controller.execute(run["id"])

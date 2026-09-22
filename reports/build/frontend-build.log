@@ -1,0 +1,11 @@
+
+> inspecta-scp-ui@0.1.0 build /home/amertahat/SPEC_CODE_PROOF/workbench/frontend
+> tsc -p tsconfig.json
+
+
+┌─────────────────────────────────────────────────────────────┐
+│                   npm update check failed                   │
+│             Try running with sudo or get access             │
+│            to the local update config store via             │
+│ sudo chown -R $USER:$(id -gn $USER) /home/amertahat/.config │
+└─────────────────────────────────────────────────────────────┘

@@ -26,8 +26,24 @@ test_unapproved_rename_rejected (test_controller.ControllerTests.test_unapproved
 test_unknown_operation_and_fields_rejected (test_controller.ControllerTests.test_unknown_operation_and_fields_rejected) ... ok
 test_unknown_usage_is_not_zero (test_controller.ControllerTests.test_unknown_usage_is_not_zero) ... ok
 test_unsupported_paid_adapter_blocks_even_with_boolean (test_controller.ControllerTests.test_unsupported_paid_adapter_blocks_even_with_boolean) ... ok
+test_api_and_controller_parity_and_scope (test_knowledge_ui.KnowledgeTests.test_api_and_controller_parity_and_scope) ... ok
+test_approval_exact_subject_replay_and_revocation (test_knowledge_ui.KnowledgeTests.test_approval_exact_subject_replay_and_revocation) ... ok
+test_budget_amendment_keeps_usage_and_elapsed_time (test_knowledge_ui.KnowledgeTests.test_budget_amendment_keeps_usage_and_elapsed_time) ... ok
+test_candidate_evaluator_provenance_rejected (test_knowledge_ui.KnowledgeTests.test_candidate_evaluator_provenance_rejected) ... ok
+test_candidate_provenance_and_no_self_approval (test_knowledge_ui.KnowledgeTests.test_candidate_provenance_and_no_self_approval) ... ok
+test_conflicting_variants_preserved (test_knowledge_ui.KnowledgeTests.test_conflicting_variants_preserved) ... ok
+test_evaluator_and_hidden_import_excluded (test_knowledge_ui.KnowledgeTests.test_evaluator_and_hidden_import_excluded) ... ok
+test_exact_source_passage_and_tamper (test_knowledge_ui.KnowledgeTests.test_exact_source_passage_and_tamper) ... ok
+test_forecast_preserves_question_without_empirical_claim (test_knowledge_ui.KnowledgeTests.test_forecast_preserves_question_without_empirical_claim) ... ok
+test_human_snapshot_survives_stale_original (test_knowledge_ui.KnowledgeTests.test_human_snapshot_survives_stale_original) ... ok
+test_import_preserves_original_and_deduplicates (test_knowledge_ui.KnowledgeTests.test_import_preserves_original_and_deduplicates) ... ok
+test_learning_and_evaluator_never_generator_visible (test_knowledge_ui.KnowledgeTests.test_learning_and_evaluator_never_generator_visible) ... ok
+test_release_excludes_source_archives_and_requires_checks (test_knowledge_ui.KnowledgeTests.test_release_excludes_source_archives_and_requires_checks) ... ok
+test_replaced_root_symlink_blocked (test_knowledge_ui.KnowledgeTests.test_replaced_root_symlink_blocked) ... ok
+test_retrieval_filters_before_ranking (test_knowledge_ui.KnowledgeTests.test_retrieval_filters_before_ranking) ... ok
+test_role_binding_rejects_swaps_and_remains_unvalidated (test_knowledge_ui.KnowledgeTests.test_role_binding_rejects_swaps_and_remains_unvalidated) ... ok
 
 ----------------------------------------------------------------------
-Ran 28 tests in 0.329s
+Ran 44 tests in 0.739s
 
 OK

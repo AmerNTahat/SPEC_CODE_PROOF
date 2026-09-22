@@ -10,6 +10,7 @@ import time
 
 from .config import PolicyError, digest, resolve
 from .storage import Store, safe_child, sha_file
+from .approvals import Approvals
 
 
 TERMINAL = {"CHECKED", "BLOCKED", "FAILED", "CANCELLED", "BUDGET_EXHAUSTED"}
@@ -21,6 +22,47 @@ class Controller:
 
     def close(self):
         self.store.close()
+
+    def request_budget(self, run_id, token_limit, wall_seconds):
+        run = self.status(run_id)
+        if type(token_limit) is not int or type(wall_seconds) is not int:
+            raise PolicyError("Budget caps must be integers")
+        if token_limit < run["config"]["budget"]["aggregate_model_tokens"] or wall_seconds < run["config"]["budget"]["wall_seconds"]:
+            raise PolicyError("An extension cannot reduce existing caps")
+        return Approvals(self.store).request("increase_budget", {
+            "run_id": run_id, "config_hash": run["config_hash"],
+            "aggregate_model_tokens": token_limit, "wall_seconds": wall_seconds})
+
+    def amend_budget(self, run_id, approval_id):
+        approvals = Approvals(self.store)
+        request = approvals.get(approval_id)
+        self.store.db.execute("BEGIN IMMEDIATE")
+        try:
+            run = self.status(run_id)
+            subject = {**request["subject"], "run_id": run_id, "config_hash": run["config_hash"]}
+            approvals.require(approval_id, "increase_budget", subject)
+            if run["state"] not in {"READY", "PAUSED", "BUDGET_EXHAUSTED"}:
+                raise PolicyError("Pause active work before amending its budget")
+            if run["reserved_tokens"]:
+                raise PolicyError("Reconcile in-flight reservations before budget amendment")
+            config = run["config"]
+            if subject["aggregate_model_tokens"] < config["budget"]["aggregate_model_tokens"] or subject["wall_seconds"] < config["budget"]["wall_seconds"]:
+                raise PolicyError("Approval cannot reduce prior allowance")
+            config["budget"].update({key: subject[key] for key in ("wall_seconds", "aggregate_model_tokens")})
+            new_hash = digest(config)
+            if new_hash == run["config_hash"]:
+                raise PolicyError("Amendment must change a cap")
+            self.store.db.execute("UPDATE runs SET config=?,config_hash=?,deadline=?,state='PAUSED',result=NULL,version=version+1 WHERE id=?",
+                                  (json.dumps(config), new_hash, run["created"] + subject["wall_seconds"], run_id))
+            self.store.event(run_id, "budget_amendment", {"approval_id": approval_id,
+                "previous_config_hash": run["config_hash"], "config_hash": new_hash,
+                "previous_result": run["result"], "used_tokens_preserved": run["used_tokens"],
+                "usage_unknown_preserved": bool(run["usage_unknown"]), "prior_evidence_invalidated": True})
+            self.store.db.execute("COMMIT")
+        except BaseException:
+            self.store.db.execute("ROLLBACK")
+            raise
+        return self.status(run_id)
 
     def create(self, profile, overrides=None, base_dir=None):
         resolved = resolve(profile, overrides, base_dir)

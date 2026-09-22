@@ -1,6 +1,6 @@
 {
   "status": "IMPLEMENTATION_IN_PROGRESS",
-  "paid_execution": "DISABLED",
+  "paid_execution": "DEFERRED_BY_USER",
   "implemented": [
     "config resolution",
     "allowlisted snapshots",
@@ -9,14 +9,20 @@
     "resume without resetting budgets",
     "typecheck adapter",
     "lexical diagnostics",
-    "metadata-level dataset proposals"
+    "metadata-level dataset proposals",
+    "legacy rulebook import",
+    "registered source passages",
+    "exact-subject approvals",
+    "budget amendments",
+    "candidate rules, bindings and release drafts",
+    "authenticated local React UI"
   ],
   "remaining": [
     "generation/learning isolation",
-    "rulebook import/release service",
+    "independent rule transfer validation and publication readiness",
     "transactional repairs",
     "proof/build and architecture adapters",
-    "React UI",
+    "complete UI split/repair workflows",
     "attestation",
     "live demonstrations"
   ],

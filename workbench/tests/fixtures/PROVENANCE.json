@@ -1,0 +1,14 @@
+[
+  {
+    "source": "INSPECTA_SCP_CODEX_HANDOFF/templates/rule.example.json",
+    "target": "workbench/tests/fixtures/synthetic-rule.json",
+    "sha256": "269a8e0865252f2362246864375e93a49a5cda86c7978e9e25b437708560502b",
+    "scope": "Synthetic application-test fixture only"
+  },
+  {
+    "source": "INSPECTA_SCP_CODEX_HANDOFF/templates/confidence.example.json",
+    "target": "workbench/tests/fixtures/synthetic-confidence.json",
+    "sha256": "e99da3216067b6170ceaf8f845b9c394148751b39e760ef7ceb33d3fba9db0a4",
+    "scope": "Synthetic application-test fixture only"
+  }
+]

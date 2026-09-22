@@ -1,11 +1,11 @@
 usage: inspecta-scp [-h] [--state-dir STATE_DIR] [--json]
-                    {onboard,doctor,resolve,check,run,learn,status,report,logs,pause,resume,stop,execute,compare,dataset}
+                    {onboard,doctor,resolve,check,run,learn,status,report,logs,pause,resume,stop,execute,compare,dataset,rules,source,approval,budget,ui}
                     ...
 
 INSPECTA/SCP controller foundation; see onboard for capability status
 
 positional arguments:
-  {onboard,doctor,resolve,check,run,learn,status,report,logs,pause,resume,stop,execute,compare,dataset}
+  {onboard,doctor,resolve,check,run,learn,status,report,logs,pause,resume,stop,execute,compare,dataset,rules,source,approval,budget,ui}
     onboard             Show implemented capabilities and remaining gates
     doctor              Inspect selected local tools without installing or
                         invoking models
@@ -13,6 +13,13 @@ positional arguments:
     compare             Offline lexical comparison; never acceptance
     dataset             Lineage grouping of reviewed metadata; no semantic
                         independence claim
+    rules               Import, inspect and review versioned knowledge without
+                        model calls
+    source              Read an exact registered source revision
+    approval            Local human review; never implicit model approval
+    budget              Request/apply an exact approved budget amendment
+    ui                  Open the authenticated loopback UI over the same
+                        controller
 
 options:
   -h, --help            show this help message and exit

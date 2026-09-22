@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0"
+    },
+    "record_type": {
+      "const": "rule_instantiation"
+    },
+    "id": {
+      "type": "string"
+    },
+    "state": {
+      "enum": [
+        "DRAFT",
+        "CHECKED",
+        "REJECTED"
+      ]
+    },
+    "rule_revision": {
+      "type": "string"
+    },
+    "target_task": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "target_requirement_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "role_bindings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "abstract_role": {
+            "type": "string"
+          },
+          "target_element_id": {
+            "type": "string"
+          },
+          "evidence_reference": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "abstract_role",
+          "target_element_id",
+          "evidence_reference"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "parameter_bindings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "parameter": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          },
+          "source_reference": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "parameter",
+          "value",
+          "source_reference"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "preserved_obligations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "required_gate_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "binding_check_evidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "$schema",
+    "schema_version",
+    "record_type",
+    "id",
+    "state",
+    "rule_revision",
+    "target_task",
+    "target_requirement_ids",
+    "role_bindings",
+    "parameter_bindings",
+    "preserved_obligations",
+    "required_gate_ids",
+    "binding_check_evidence",
+    "notes"
+  ],
+  "additionalProperties": false
+}

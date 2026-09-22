@@ -1,4 +1,4 @@
-# Live demonstration status: BLOCKED / NOT RUN
+# Live demonstration status: DEFERRED BY USER / NOT RUN
 
 No live model-driven Isolette learning -> release review -> fresh User cycle or
 additional KSU learning/application demonstration has been run. No synthetic demo
@@ -11,7 +11,10 @@ and Logika invocations, and three isolated application-worker integration checks
 The Logika invocations did not establish discharged obligations. These are not
 live learning, behavior verification, whole-system acceptance, or transfer evidence.
 
-Prerequisites for M07:
+The user explicitly deferred paid demonstrations and instructed implementation to continue.
+No paid-demo approval is currently requested. M07 remains incomplete.
+
+Prerequisites only if the user later resumes M07:
 1. Complete the missing M01/M02-M06 application and engineering capabilities.
 2. Establish a reviewed requirement/unit registry and compatible Isolette proof,
    build and independent test profile; resolve reported instantiation warnings.

@@ -1,0 +1,164 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0"
+    },
+    "record_type": {
+      "const": "model_confidence_forecast"
+    },
+    "forecast_id": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "UNASSESSED",
+        "REPORTED",
+        "INSUFFICIENT_EVIDENCE"
+      ]
+    },
+    "rule_release_revision": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "exact_question": {
+      "type": "string"
+    },
+    "available_context_manifest": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "model_configuration": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "scope": {
+      "type": "string"
+    },
+    "success_definition": {
+      "type": "string"
+    },
+    "assessed_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "outcome_visible": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "score": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 1
+    },
+    "rationale": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "supporting_references": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "prior_forecast_reference": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "interpretation": {
+      "const": "model_reported_belief_not_empirical_probability"
+    }
+  },
+  "required": [
+    "$schema",
+    "schema_version",
+    "record_type",
+    "forecast_id",
+    "status",
+    "rule_release_revision",
+    "exact_question",
+    "available_context_manifest",
+    "model_configuration",
+    "scope",
+    "success_definition",
+    "assessed_at",
+    "outcome_visible",
+    "score",
+    "rationale",
+    "limitations",
+    "supporting_references",
+    "prior_forecast_reference",
+    "interpretation"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "REPORTED"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "score": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "rule_release_revision": {
+            "type": "string",
+            "minLength": 1
+          },
+          "available_context_manifest": {
+            "type": "string",
+            "minLength": 1
+          },
+          "model_configuration": {
+            "type": "string",
+            "minLength": 1
+          },
+          "assessed_at": {
+            "type": "string",
+            "minLength": 1
+          },
+          "outcome_visible": {
+            "type": "boolean"
+          },
+          "rationale": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  ]
+}

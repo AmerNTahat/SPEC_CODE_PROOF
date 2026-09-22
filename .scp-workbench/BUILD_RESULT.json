@@ -1,16 +1,16 @@
 {
   "status": "partial",
-  "live_demo_status": "blocked",
+  "live_demo_status": "deferred_by_user",
   "cli_executable": "inspecta-scp",
   "milestones": {
     "M00": "completed",
     "M01": "partial",
     "M02": "partial",
-    "M03": "not_implemented",
+    "M03": "partial",
     "M04": "not_implemented",
-    "M05": "not_implemented",
+    "M05": "partial",
     "M06": "not_implemented",
-    "M07": "blocked",
+    "M07": "deferred_by_user",
     "M08": "partial_checkpoint_only"
   },
   "evidence": [
@@ -36,7 +36,7 @@
     },
     {
       "path": "reports/build/application-tests.log",
-      "sha256": "b9ecf1c36ddf2330f3f6d9180ff23068a9a1384a6589ab8af28cc7727e9dec6c"
+      "sha256": "3cea10aeb0f95321f77555c79fa7ee8c7545e7d29696932f19510cc51dd42694"
     },
     {
       "path": "reports/build/support-tests.log",
@@ -48,15 +48,47 @@
     },
     {
       "path": "reports/build/preservation-check.json",
-      "sha256": "90cff938a7c72db659b378922623105a58f8c1019d5f2c69bb96805c092596af"
+      "sha256": "217f84a88c461c386a65c0e15f6f1708885ca624c07eb63118f266f00b16de85"
     },
     {
       "path": "reports/demo/DEMO_REPORT.md",
-      "sha256": "06b2f775a145f4ec65f57deb48924f1739bd9759bf919cfb0457397ab6f37c6c"
+      "sha256": "d55f8798b4b92c60e6f7079dc9e1a7c410f4871d4f562cee24243cd791654aef"
     },
     {
       "path": "workbench/README.md",
-      "sha256": "f9ed499a49a5f812960390c349b22e82756df347cf2719f5982b96776d20ac90"
+      "sha256": "99e359b85c91ffb7cc92431d6ccc84b1b91f6fd6b08a588fa18707d8275ae644"
+    },
+    {
+      "path": "reports/build/browser-smoke.json",
+      "sha256": "c5cd6e4b6052d0dc9d3e2d122ec67b68dc7fed96bb12b39301c177da7a0b4eec"
+    },
+    {
+      "path": "reports/build/workbench-browser.png",
+      "sha256": "21df782cd2c7f8399c7040fffa72833d783d7fb20ba12d7b2873d02493eafb21"
+    },
+    {
+      "path": "reports/build/frontend-build.log",
+      "sha256": "89fb2d88eaa0054fdb22a73c8c1f5a440c89a155a4c496fa7f60c980226b4e57"
+    },
+    {
+      "path": "reports/build/rulebook-import-isolette.json",
+      "sha256": "ad0673a6117ab5a7ba18cfdb4e52558c727b3f7e1fecb9f4195965ccd5561aca"
+    },
+    {
+      "path": "reports/build/rulebook-import-specialized.json",
+      "sha256": "b6155cf05b2af980b9e6d6cbdf389877c5b2c8964ec77c9db2d3dfd3aa7f2108"
+    },
+    {
+      "path": "reports/build/rulebook-catalog.json",
+      "sha256": "2260300dac4e68e5776d4ef3184e7e5bdc05cfe8fea29ace197872e8984124e4"
+    },
+    {
+      "path": "workbench/frontend/package-lock.json",
+      "sha256": "b1d7a3429624394710493be7b0b3cb29faedbe791f2a57a4b0c14209be4e585e"
+    },
+    {
+      "path": "IMPLEMENTATION_PROGRESS.md",
+      "sha256": "10e01e52b1f9d8a6684ed917651d6acbc718d51e3d0f20020a2bee7138d87359"
     }
   ],
   "budget": {
@@ -66,8 +98,9 @@
     "demo_model_tokens": 0
   },
   "limitations": [
-    "Controller foundation only; complete Workbench not delivered.",
-    "No formal verification acceptance or live learning demo.",
-    "No published rule release, UI, attestation or accepted repair promotion."
+    "Complete Workbench not delivered; implementation remains in progress.",
+    "No model-driven learning, formal engineering acceptance, independently validated published release, transactional repair or signed attestation.",
+    "Paid demonstrations explicitly deferred by user; application/browser tests do not replace them.",
+    "Full split/repair UI and complete engineering adapters remain unfinished."
   ]
 }
