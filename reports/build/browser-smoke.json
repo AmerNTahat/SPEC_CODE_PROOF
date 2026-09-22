@@ -3,16 +3,19 @@
   "model_calls": 0,
   "checks": [
     "HTTP authentication, Host, Origin, traversal rejection",
+    "Incomplete dataset selection is blocked at Materials and can be cleared atomically",
     "Real React workflow resolve, snapshot, pause and resume",
     "Budget request, exact-subject review and approved amendment through UI",
     "Session reconnect and durable run after reload",
     "Engineering UI reads actual backend records without inventing captures",
-    "Dataset UI saves manual membership and requests exact-subject review without moving sources",
+    "Guided dataset UI registers a saved project, preserves manual membership and requests exact review without moving sources",
+    "Configuration errors show their cause without a misleading session-token prompt",
     "UI stages exact provisional patch, shows diff, blocks missing tool and preserves source",
-    "Real source navigation; imported HTML displayed as text without executing"
+    "Real source navigation; imported HTML displayed as text without executing",
+    "Actual authentication rejection offers reconnection and a valid token restores access"
   ],
   "browser": {
-    "sessionId": "28f2c2d5-354d-4a01-a791-21f84eda104e",
+    "sessionId": "8aaf6234-7319-48ce-92a9-8769538ca953",
     "capabilities": {
       "acceptInsecureCerts": false,
       "browserName": "firefox",
@@ -23,8 +26,8 @@
       "moz:buildID": "20250227124745",
       "moz:headless": true,
       "moz:platformVersion": "5.15.0-139-generic",
-      "moz:processID": 87141,
-      "moz:profile": "/tmp/inspecta-browser-wpklxx_a/firefox",
+      "moz:processID": 97415,
+      "moz:profile": "/tmp/inspecta-browser-1kvepgzt/firefox",
       "moz:shutdownTimeout": 60000,
       "pageLoadStrategy": "normal",
       "timeouts": {

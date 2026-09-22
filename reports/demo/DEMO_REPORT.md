@@ -16,6 +16,12 @@ No paid-demo approval is currently requested. M07 remains incomplete.
 
 Additional executed offline preparation (not a live demonstration):
 
+- The controller generated real Slang/JVM artifacts and verified a nonempty
+  Producer/Consumer connection constraint with per-connection solver feedback.
+  A deliberately incompatible receiver contract was rejected; removing receiver
+  obligations produced BLOCKED rather than a vacuous proof claim. See
+  `reports/build/real-engineering-integration.json`. Original sources were preserved.
+
 - Seven real Producer/Consumer structural checks exercised unchanged models,
   wiring/contract failures and exact reviewed consistent renaming. See
   `reports/build/real-structure-integration.json`.

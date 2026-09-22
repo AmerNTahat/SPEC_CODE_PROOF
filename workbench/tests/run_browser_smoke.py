@@ -30,7 +30,8 @@ def main():
         (books / 'rules.md').write_text('# MR-BROWSER\n<script>window.inspectaInjected=true</script>\n')
         profile = root / 'browser.json'
         profile.write_text(json.dumps({'project': str(project), 'input_files': ['Model.sysml'],
-            'model_file': 'Model.sysml', 'task_operation': 'verify-only', 'repair_allowed_files': ['Model.sysml']}))
+            'model_file': 'Model.sysml', 'task_operation': 'verify-only', 'repair_allowed_files': ['Model.sysml'],
+            'dataset_task': 'incomplete-saved-selection'}))
         server, token = make_server(Application(root / 'state', [profile], [books]))
         controller = Controller(root / 'state')
         try:
@@ -129,6 +130,11 @@ def main():
             until('document.body.textContent.includes("No runs yet")')
             assert js('return location.hash') == ''
             click('New workflow')
+            until('document.body.textContent.includes("The saved task has no dataset assignment")')
+            assert js('return Array.from(document.querySelectorAll("button")).find(b => b.textContent === "Next").disabled')
+            assert not js('return !!document.querySelector(\'input[type="password"]\')')
+            click('Use project without dataset')
+            evidence['checks'].append('Incomplete dataset selection is blocked at Materials and can be cleared atomically')
             for _ in range(3):
                 click('Next')
                 time.sleep(.15)
@@ -168,14 +174,26 @@ def main():
             evidence['checks'].append('Engineering UI reads actual backend records without inventing captures')
             click('Dataset assignments')
             until('document.querySelector(\'textarea[aria-label="Task inventory JSON"]\')')
-            js('const input = document.querySelector("textarea"); Object.getOwnPropertyDescriptor(HTMLTextAreaElement.prototype,"value").set.call(input,' + json.dumps(json.dumps(task_inventory)) + '); input.dispatchEvent(new Event("input",{bubbles:true}));')
+            fill('Task name','browser-task')
+            fill('Reviewed family','browser-family')
+            fill('Reviewed lineage','browser-lineage')
+            click('Add project to inventory')
+            until('document.querySelector("textarea").value.includes("browser-task")')
+            assert json.loads(js('return document.querySelector("textarea").value')) == task_inventory
             click('Save assignment proposal')
             until('document.body.textContent.includes("user_assigned")')
             click('Request assignment review')
             until('document.body.textContent.includes("approve_dataset")')
             status, body = request_http('GET', '/api/datasets', auth)
             assert status == 200 and json.loads(body)['datasets'][0]['proposal']['tasks'][0]['role'] == 'learning'
-            evidence['checks'].append('Dataset UI saves manual membership and requests exact-subject review without moving sources')
+            evidence['checks'].append('Guided dataset UI registers a saved project, preserves manual membership and requests exact review without moving sources')
+            click('Dataset assignments')
+            until('document.querySelector(\'textarea[aria-label="Task inventory JSON"]\')')
+            js('const input = document.querySelector("textarea"); Object.getOwnPropertyDescriptor(HTMLTextAreaElement.prototype,"value").set.call(input,"[]"); input.dispatchEvent(new Event("input",{bubbles:true}));')
+            click('Save assignment proposal')
+            until('document.body.textContent.includes("Task registry is empty")')
+            assert not js('return !!document.querySelector(\'input[type="password"]\')')
+            evidence['checks'].append('Configuration errors show their cause without a misleading session-token prompt')
             click('Repair revisions')
             until('document.querySelector(\'textarea[aria-label="Exact patch request JSON"]\')')
             patch = {'run_id': recorded['id'], 'issue': 'browser-test', 'patch': {'Model.sysml': {
@@ -199,10 +217,29 @@ def main():
             assert '<script>' in js('return document.querySelector(".source-text").textContent')
             assert js('return window.inspectaInjected === undefined')
             evidence['checks'].append('Real source navigation; imported HTML displayed as text without executing')
+            js('sessionStorage.setItem("inspecta-token", "invalid-test-token");')
+            click('Dataset assignments')
+            until('document.querySelector(\'input[type="password"]\')')
+            js('document.querySelector(".error details").open = true;')
+            fill('Session token', token)
+            click('Connect')
+            until('!document.querySelector(\'input[type="password"]\')')
+            evidence['checks'].append('Actual authentication rejection offers reconnection and a valid token restores access')
             picture = command('WebDriver:TakeScreenshot', {'id': None, 'full': True})
             if isinstance(picture, dict):
                 picture = picture['value']
             (output / 'workbench-browser.png').write_bytes(base64.b64decode(picture))
+            click('New workflow')
+            until('document.body.textContent.includes("The saved task has no dataset assignment")')
+            click('Use project without dataset')
+            for _ in range(3):
+                click('Next'); time.sleep(.15)
+            click('Resolve configuration')
+            until('Array.from(document.querySelectorAll("button")).some(b => b.textContent === "Prepare run")')
+            assert not js('return !!document.querySelector(".error")')
+            fixed_picture = command('WebDriver:TakeScreenshot', {'id': None, 'full': True})
+            if isinstance(fixed_picture, dict):fixed_picture = fixed_picture['value']
+            (output / 'workbench-workflow-fixed.png').write_bytes(base64.b64decode(fixed_picture))
             evidence['status'] = 'PASS'
             command('WebDriver:DeleteSession')
         finally:

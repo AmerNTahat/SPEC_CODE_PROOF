@@ -125,6 +125,9 @@ class Repairs:
                     if captured is None and config.get('requirement_ledger'):
                         captured, interrupted = Architecture(self.controller).capture(run['id'],config,folder)
                     result = Requirements(self.store).coverage(config.get('requirement_ledger'),captured)
+                elif gate in {'hamr_codegen', 'integration_constraints'}:
+                    from .engineering import Engineering
+                    result, interrupted = Engineering(self.controller).check(run['id'],config,folder,gate)
                 else:
                     result = {'gate': gate, 'status': 'NOT_RUN', 'reason': 'Trusted adapter not implemented'}
                 gates.append(result)

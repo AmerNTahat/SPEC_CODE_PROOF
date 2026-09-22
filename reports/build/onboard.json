@@ -20,7 +20,8 @@
     "source-backed requirement ledgers and mapped coverage",
     "bounded provisional repairs",
     "reviewed unit registries and metrics/plots",
-    "independent local DSSE verification"
+    "independent local DSSE verification",
+    "isolated HAMR Slang/JVM generation and Logika connection integration checks"
   ],
   "remaining": [
     "generation/learning isolation",

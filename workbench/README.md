@@ -11,6 +11,7 @@ Run from the repository root:
 ./inspecta-scp --json doctor
 ./inspecta-scp --json resolve --config workbench/profiles/producer-consumer.check.json
 ./inspecta-scp --json check --offline --config workbench/profiles/producer-consumer.check.json
+./inspecta-scp --json check --offline --config workbench/profiles/producer-consumer.engineering.check.json
 ./inspecta-scp --json status RUN_ID
 ./inspecta-scp --json logs RUN_ID
 ```
@@ -152,6 +153,30 @@ requires current approval, unchanged sources, and inputs drawn from that selecte
 task. Copies of registered evaluator answers are rejected even under a new name.
 Final tasks cannot run in Learning mode. The service does not export any task
 answers to a model, and it makes no final-transfer claim.
+
+In New workflow, choose **No dataset — use this project directly** for an ordinary
+project check. The optional assignment selector lists recorded proposals and
+allows only current approved assignments. Then select one of that assignment's
+tasks. **Use project without dataset** clears both fields together, including
+values inherited from the saved profile. An incomplete pair is caught in Materials
+before the Review step. A configuration error does not need a session token;
+the reconnection form appears only for an actual authentication rejection.
+
+Dataset assignments also has an **Add an inspected project** form. Select a saved
+profile, enter the task name and reviewed family/lineage, and choose its role. The
+backend registers only that profile's source allowlist and fills the inventory.
+It cannot register arbitrary filesystem paths through HTTP. Review the populated
+inventory before saving a manual or grouped proposal.
+
+The `producer-consumer.engineering.check.json` profile executes `parse_type`,
+`hamr_codegen`, and `integration_constraints` inside the existing sandbox.
+Generation saves Slang/JVM artifacts separately from the source; it does not count
+as compilation. Integration checking requires a nonempty set of claims, the
+tool's success marker, and per-connection JSON feedback with an Unsat solver
+result and the actual SMT query. A successful exit with no obligations is UNKNOWN.
+These are connection-compatibility proofs only, not implementation correctness or
+verified-unit acceptance. Full `configured_formal_verification`, build and
+independent requirements tests remain separate required gates.
 
 Requirement and structure checks now use the installed Sireum parser and HAMR
 instantiator through `adapters/export_architecture.sc`. The adapter runs inside

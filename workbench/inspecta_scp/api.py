@@ -47,6 +47,19 @@ class Application:
                 service = Datasets(controller.store)
                 if method == 'GET' and route == '/api/datasets':
                     return service.catalog()
+                if method == 'POST' and route == '/api/datasets/register-profile':
+                    profile = self.profiles.get(body.get('profile_id'))
+                    if profile is None or body.get('role') not in {'learning', 'development'}:
+                        raise PolicyError('Choose a server-approved project profile and source role')
+                    from .config import resolve
+                    data = json.loads(profile.read_text())
+                    # Register the inspected allowlist, not a previous workflow's assignment.
+                    resolved = resolve(data, {'dataset_assignment': None, 'dataset_task': None}, profile.parent)['config']
+                    sources = Sources(controller.store)
+                    root = sources.register_root(resolved['project'], body['role'])
+                    return {'root_id': root['id'], 'source_ids': [sources.register(root['id'], path)['id']
+                                                               for path in resolved['input_files']],
+                            'files': resolved['input_files'], 'source_files_modified': 0}
                 if method == 'POST' and route == '/api/datasets/propose':
                     return service.propose(body)
                 if method == 'POST' and route == '/api/datasets/request-review':

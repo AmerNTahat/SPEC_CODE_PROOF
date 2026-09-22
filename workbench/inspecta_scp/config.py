@@ -30,7 +30,7 @@ def merge(base, override):
 
 OPERATIONS = {"auto", "continue-project", "complete-system", "extend-system",
               "repair-system", "verify-only", "create-system"}
-GATES = {"parse_type", "architecture_capture", "configured_formal_verification", "configured_build",
+GATES = {"parse_type", "architecture_capture", "hamr_codegen", "integration_constraints", "configured_formal_verification", "configured_build",
          "requirements_coverage", "architecture", "independent_requirements_tests", "review"}
 
 

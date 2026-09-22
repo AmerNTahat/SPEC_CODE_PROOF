@@ -314,3 +314,49 @@ reports/build/handoff-integrity.json — cafcdd458468188392a0103fa898cf6ae663454
 Budget:
 Paid demonstration calls/tokens: 0/0. Build-session token/billing usage unavailable.
 
+## M05 — in_progress
+
+Achieved:
+Fixed screenshot-reported dataset pairing failure: guided assignment/task selectors, atomic clearing of saved defaults, early Materials validation, and reconnect controls only for actual HTTP 401 errors.
+Added guided task registration from server-approved profile allowlists. Real Firefox passed 11 workflows and captured the repaired Review page. Application suite passed 83 tests.
+
+In progress:
+Continuing missing engineering and learning capabilities; full Workbench is not complete.
+
+Remaining:
+Learning/model isolation, complete implementation proof/build/test pipeline, independent release transfer validation, accepted promotion, and deferred live demonstrations.
+
+Blockers:
+Paid demonstrations remain deferred. Configuration errors no longer ask for credentials. Existing UI process needs restart to load new backend routes.
+
+Evidence:
+reports/build/browser-smoke.json — 71dceb143caf801562de64df5a07950625d0b7073a5e884d612d582460231114
+reports/build/workbench-workflow-fixed.png — c052b8247638ba380ddf31ad478fc3836d15bf19b098cab6b3353de0916e1b0e
+reports/build/application-tests.log — bbb8303ea77b28f7ba55cfa5b2e54ba35f7d7ea3fc942b1011fedb14c57cc67a
+
+Budget:
+Paid-demo calls/tokens remain 0/0. Build token/billing usage unavailable.
+
+## M04 — in_progress
+
+Achieved:
+Implemented isolated HAMR Slang/JVM artifact generation and Logika connection integration checks with recorded tool/solver identities and per-connection SMT feedback.
+Three real cases executed: generation and nonempty integration CHECKED; incompatible receiver contract FAILED; no receiver obligations BLOCKED. Original KSU files preserved. Unexpected adapter exceptions now leave BLOCKED rather than stuck CHECKING.
+
+In progress:
+Cross-stack engineering validation; scoped connection checks do not establish implementation correctness.
+
+Remaining:
+Complete reviewed requirement mapping, implementation proofs, compilation, independent requirements tests and acceptance.
+
+Blockers:
+No production requirement/architecture approval or complete engineering acceptance. No live demonstration claim.
+
+Evidence:
+reports/build/real-engineering-integration.json — 8a9b94e86fa164780bb615bff29161b7034f0099a40674e210daf809b9216fb4
+reports/build/real-engineering-integration.log — cc41c52a84b1f70c5db69f4b63e0f933853e4948906fb0ab273e957c5372990d
+workbench/inspecta_scp/engineering.py — 47842e826d169a29f0fab6ee16d5fd07ec9c700298e42cb3c1fe8dd607e61749
+
+Budget:
+Paid-demo calls/tokens 0/0; offline tool runs only. Build usage unavailable.
+

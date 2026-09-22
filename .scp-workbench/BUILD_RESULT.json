@@ -36,7 +36,7 @@
     },
     {
       "path": "reports/build/application-tests.log",
-      "sha256": "6a76c05679c1fe488f77f614d9091f4088c57e3b97152e764e16e41c9cf8e6e2"
+      "sha256": "bbb8303ea77b28f7ba55cfa5b2e54ba35f7d7ea3fc942b1011fedb14c57cc67a"
     },
     {
       "path": "reports/build/support-tests.log",
@@ -52,15 +52,15 @@
     },
     {
       "path": "reports/demo/DEMO_REPORT.md",
-      "sha256": "f0399652fc760ce1008989c60d6ad27654e423bac873ca48163d0e70a46f1352"
+      "sha256": "551d4767eac43e4f0fba5af10f30bbf0f50eafdab13908d1a36c4babcd6fa884"
     },
     {
       "path": "workbench/README.md",
-      "sha256": "a3bc5ef596c5ac1fc350c5aaee41bc081be0fd43964e5253613c32c7286b6d74"
+      "sha256": "ab1eb97d300857fa07671f20409ab0b94539b66fc859861a41387047df865aa8"
     },
     {
       "path": "reports/build/browser-smoke.json",
-      "sha256": "dedd37c9780f56fd90d120b6327581f4cf53497432659b141977e66b99f3fb7a"
+      "sha256": "71dceb143caf801562de64df5a07950625d0b7073a5e884d612d582460231114"
     },
     {
       "path": "reports/build/workbench-browser.png",
@@ -88,7 +88,7 @@
     },
     {
       "path": "IMPLEMENTATION_PROGRESS.md",
-      "sha256": "eb7714a9709aec3d9eec3521e3ae9f7932c25fec73468145593d671c5c52f731"
+      "sha256": "9b25a1e382780d2b998295537df72e6e0747a1f66e9b288e53165dd7569b79ef"
     },
     {
       "path": "reports/build/real-structure-integration.json",
@@ -132,11 +132,23 @@
     },
     {
       "path": "reports/build/onboard.json",
-      "sha256": "635cb4284793d90ff98c19da5c8411b2d2995042e6c45481429e0cf8e17737e7"
+      "sha256": "8823529a4b13bb878b263bd92c81af47accad32cad78f67871acedf472164043"
     },
     {
       "path": "reports/build/cli-help.txt",
       "sha256": "156758035343161295360b2581c2cf400aae21838a56eff7fc0504626b6ecaf9"
+    },
+    {
+      "path": "reports/build/real-engineering-integration.json",
+      "sha256": "8a9b94e86fa164780bb615bff29161b7034f0099a40674e210daf809b9216fb4"
+    },
+    {
+      "path": "reports/build/workbench-workflow-fixed.png",
+      "sha256": "c052b8247638ba380ddf31ad478fc3836d15bf19b098cab6b3353de0916e1b0e"
+    },
+    {
+      "path": "workbench/inspecta_scp/engineering.py",
+      "sha256": "47842e826d169a29f0fab6ee16d5fd07ec9c700298e42cb3c1fe8dd607e61749"
     }
   ],
   "budget": {

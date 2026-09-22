@@ -30,6 +30,14 @@ class ControllerTests(unittest.TestCase):
         self.controller.close()
         self.tmp.cleanup()
 
+    def test_unexpected_adapter_error_does_not_leave_run_checking(self):
+        run=self.controller.create({**self.profile,'required_gates':['parse_type']})
+        def broken(*args):raise TypeError('synthetic adapter fault')
+        self.controller._parse_type=broken
+        with self.assertRaises(TypeError):self.controller.execute(run['id'])
+        self.assertEqual(self.controller.status(run['id'])['state'],'BLOCKED')
+        self.assertIsNone(self.controller.status(run['id'])['result'])
+
     def test_explicit_override_and_null_are_preserved(self):
         p = {**self.profile, "rule_release": "release", "budget": {"wall_seconds": 60}}
         r = resolve(p, {"rule_release": None, "budget": {"wall_seconds": 90}})

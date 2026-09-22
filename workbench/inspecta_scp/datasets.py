@@ -94,10 +94,14 @@ class Datasets:
 
     def catalog(self):
         records = []
+        approvals = self.store.records('approval')
         for record in self.store.records('dataset'):
             try:
                 self.fresh(record['id']); freshness = 'CURRENT'
             except (PolicyError, OSError):
                 freshness = 'STALE_OR_BROKEN'
-            records.append({**record, 'freshness': freshness})
+            subject = {'dataset_id': record['id'], 'dataset_digest': digest(record)}
+            request = next((a for a in approvals if a['action'] == 'approve_dataset' and a['subject'] == subject), None)
+            decision = self.approvals.get(request['id'])['status'] if request else 'NOT_REQUESTED'
+            records.append({**record, 'freshness': freshness, 'review_status': decision})
         return {'datasets': records, 'scope': 'Human review metadata; evaluator contents are never exported'}

@@ -2,13 +2,16 @@
   "status": "PASS",
   "checks": [
     "HTTP authentication, Host, Origin, traversal rejection",
+    "Incomplete dataset selection is blocked at Materials and can be cleared atomically",
     "Real React workflow resolve, snapshot, pause and resume",
     "Budget request, exact-subject review and approved amendment through UI",
     "Session reconnect and durable run after reload",
     "Engineering UI reads actual backend records without inventing captures",
-    "Dataset UI saves manual membership and requests exact-subject review without moving sources",
+    "Guided dataset UI registers a saved project, preserves manual membership and requests exact review without moving sources",
+    "Configuration errors show their cause without a misleading session-token prompt",
     "UI stages exact provisional patch, shows diff, blocks missing tool and preserves source",
-    "Real source navigation; imported HTML displayed as text without executing"
+    "Real source navigation; imported HTML displayed as text without executing",
+    "Actual authentication rejection offers reconnection and a valid token restores access"
   ],
   "model_calls": 0
 }

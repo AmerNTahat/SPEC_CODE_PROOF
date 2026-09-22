@@ -1,5 +1,6 @@
 """Real assignment services with disposable sources; no independence claims."""
 import copy
+import json
 import tempfile
 import unittest
 from pathlib import Path
@@ -78,6 +79,18 @@ class DatasetTests(unittest.TestCase):
         with self.assertRaises(PolicyError):self.c.create(self.profile(record))
         request['tasks'][0]['source_ids']=[ref['id']]
         with self.assertRaises(PolicyError):self.d.propose(request)
+
+    def test_ui_registration_uses_only_server_approved_allowlist(self):
+        path=self.root/'inspected.json'
+        path.write_text(json.dumps({'project':str(self.project),'input_files':['M0.sysml'],
+                                    'model_file':'M0.sysml','dataset_task':'old-incomplete-selection'}))
+        app=Application(self.root/'state',[path],[])
+        result=app.call('POST','/api/datasets/register-profile',{'profile_id':'inspected','role':'learning'})
+        self.assertEqual(result['source_ids'],self.tasks[0]['source_ids'])
+        self.assertEqual(result['files'],['M0.sysml'])
+        for body in [{'profile_id':'../../outside','role':'learning'},
+                     {'profile_id':'inspected','role':'evaluator'}]:
+            with self.assertRaises(PolicyError):app.call('POST','/api/datasets/register-profile',body)
 
 
 if __name__=='__main__':unittest.main()

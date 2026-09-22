@@ -232,6 +232,16 @@ class Controller:
         elif operation == "parse_type":
             command.extend(["/opt/sireum/bin/sireum", "hamr", "sysml", "tipe",
                             "--sourcepath", "/work", "/work/" + config["model_file"]])
+        elif operation in {"hamr_codegen", "integration_constraints"}:
+            if output is None:
+                raise PolicyError('Isolated tool output directory required')
+            command.extend(['--bind', str(output), '/output', '/opt/sireum/bin/sireum', 'hamr', 'sysml'])
+            if operation == 'hamr_codegen':
+                command.extend(['codegen', '--sourcepath', '/work', '--platform', 'JVM',
+                                '--output-dir', '/output', '--no-proyek-ive', '/work/' + config['model_file']])
+            else:
+                command.extend(['logika', '--sourcepath', '/work', '--feedback', '/output/feedback',
+                                '--log-vc-dir', '/output/vc', '--stats', '/work/' + config['model_file']])
         else:
             raise PolicyError("Unknown trusted operation")
         identity = {"launcher_sha256": sha_file(exe), "jar_sha256": sha_file(home / "bin/sireum.jar") if has_jar else None,
@@ -242,15 +252,21 @@ class Controller:
                                      if (home / rel).is_file()}
         if adapter:
             identity.update(adapter_sha256=sha_file(adapter), profile="sireum-architecture-v1")
+        elif operation in {'hamr_codegen', 'integration_constraints'}:
+            identity['profile'] = 'sireum-' + operation + '-v1'
+            identity['solver_files'] = {rel: sha_file(home / rel)
+                                       for rel in ('bin/linux/z3/bin/z3', 'bin/linux/z3/bin/libz3.so',
+                                                   'bin/linux/cvc5', 'bin/linux/cvc', 'bin/linux/alt-ergo')
+                                       if (home / rel).is_file()}
         return command, identity
 
     def _run_tool(self, run_id, config, folder, operation):
         if not config["model_file"]:
             raise PolicyError("No root model selected")
         output = None
-        if operation == "architecture_capture":
+        if operation in {"architecture_capture", "hamr_codegen", "integration_constraints"}:
             import tempfile
-            output = Path(tempfile.mkdtemp(prefix="architecture-", dir=folder))
+            output = Path(tempfile.mkdtemp(prefix=operation + "-", dir=folder))
         argv, identity = self._sandbox_command(config, folder / "candidate", operation, output)
         start = time.monotonic()
         interrupted = None
@@ -367,6 +383,9 @@ class Controller:
                         gates.append(architecture)
                         self.store.event(run_id, "gate", architecture)
                     result = Requirements(self.store).coverage(config.get("requirement_ledger"), architecture)
+                elif gate in {'hamr_codegen', 'integration_constraints'}:
+                    from .engineering import Engineering
+                    result, interrupted = Engineering(self).check(run_id, config, folder, gate)
                 else:
                     result = {"gate": gate, "status": "NOT_RUN", "reason": "Trusted adapter not yet implemented"}
                 gates.append(result)
@@ -389,4 +408,8 @@ class Controller:
             self.store.finish(run_id, result)
         except (PolicyError, OSError) as exc:
             self.store.change(run_id, {"CHECKING", "PAUSE_REQUESTED", "STOP_REQUESTED"}, "BLOCKED", {"reason": str(exc)})
+        except Exception as exc:
+            self.store.change(run_id, {"CHECKING", "PAUSE_REQUESTED", "STOP_REQUESTED"}, "BLOCKED",
+                              {"reason": "Adapter failed unexpectedly: " + type(exc).__name__})
+            raise
         return self.status(run_id)
