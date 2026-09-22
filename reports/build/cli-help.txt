@@ -1,14 +1,16 @@
 usage: inspecta-scp [-h] [--state-dir STATE_DIR] [--json]
-                    {onboard,doctor,datasets,resolve,check,run,learn,status,report,logs,pause,resume,stop,execute,compare,dataset,rules,source,approval,budget,registry,metrics,plot,attest,repairs,architecture,requirements,ui}
+                    {onboard,doctor,trace,datasets,resolve,check,run,learn,status,report,logs,pause,resume,stop,execute,compare,dataset,rules,source,approval,budget,registry,metrics,plot,attest,repairs,architecture,requirements,ui}
                     ...
 
 INSPECTA/SCP controller foundation; see onboard for capability status
 
 positional arguments:
-  {onboard,doctor,datasets,resolve,check,run,learn,status,report,logs,pause,resume,stop,execute,compare,dataset,rules,source,approval,budget,registry,metrics,plot,attest,repairs,architecture,requirements,ui}
+  {onboard,doctor,trace,datasets,resolve,check,run,learn,status,report,logs,pause,resume,stop,execute,compare,dataset,rules,source,approval,budget,registry,metrics,plot,attest,repairs,architecture,requirements,ui}
     onboard             Show implemented capabilities and remaining gates
     doctor              Inspect selected local tools without installing or
                         invoking models
+    trace               Inspect recorded requirements, units, source snapshots
+                        and executed evidence
     datasets            Review manual or seeded lineage-grouped dataset
                         assignments
     resolve             Resolve configuration without creating a run

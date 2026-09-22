@@ -5,6 +5,7 @@
     "HTTP authentication, Host, Origin, traversal rejection",
     "Incomplete dataset selection is blocked at Materials and can be cleared atomically",
     "Real React workflow resolve, snapshot, pause and resume",
+    "Run trace opens exact allowlisted snapshot and reports missing requirement/unit links",
     "Budget request, exact-subject review and approved amendment through UI",
     "Session reconnect and durable run after reload",
     "Engineering UI reads actual backend records without inventing captures",
@@ -15,7 +16,7 @@
     "Actual authentication rejection offers reconnection and a valid token restores access"
   ],
   "browser": {
-    "sessionId": "8aaf6234-7319-48ce-92a9-8769538ca953",
+    "sessionId": "8bfb4321-38e5-4a04-a68e-93aac4af9df5",
     "capabilities": {
       "acceptInsecureCerts": false,
       "browserName": "firefox",
@@ -26,8 +27,8 @@
       "moz:buildID": "20250227124745",
       "moz:headless": true,
       "moz:platformVersion": "5.15.0-139-generic",
-      "moz:processID": 97415,
-      "moz:profile": "/tmp/inspecta-browser-1kvepgzt/firefox",
+      "moz:processID": 98547,
+      "moz:profile": "/tmp/inspecta-browser-94pzzqnz/firefox",
       "moz:shutdownTimeout": 60000,
       "pageLoadStrategy": "normal",
       "timeouts": {

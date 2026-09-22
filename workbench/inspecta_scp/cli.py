@@ -28,6 +28,11 @@ def parser():
     sub = p.add_subparsers(dest="command", required=True)
     sub.add_parser("onboard", help="Show implemented capabilities and remaining gates")
     sub.add_parser("doctor", help="Inspect selected local tools without installing or invoking models")
+    q = sub.add_parser('trace', help='Inspect recorded requirements, units, source snapshots and executed evidence')
+    q.add_argument('run_id')
+    details = q.add_mutually_exclusive_group()
+    details.add_argument('--input-file')
+    details.add_argument('--evidence')
     q = sub.add_parser('datasets', help='Review manual or seeded lineage-grouped dataset assignments')
     actions = q.add_subparsers(dest='dataset_action', required=True)
     a = actions.add_parser('propose'); a.add_argument('--input', type=Path, required=True)
@@ -183,7 +188,8 @@ def dispatch(args):
                                 "real HAMR AIR/declaration capture and reviewed structural comparison",
                                 "source-backed requirement ledgers and mapped coverage", "bounded provisional repairs",
                                 "reviewed unit registries and metrics/plots", "independent local DSSE verification",
-                                "isolated HAMR Slang/JVM generation and Logika connection integration checks"],
+                                "isolated HAMR Slang/JVM generation and Logika connection integration checks",
+                                "run-specific source, requirement, unit and evidence drill-down"],
                 "remaining": ["generation/learning isolation", "independent rule transfer validation and publication readiness", "accepted source promotion",
                               "complete proof/build/independent-test adapters", "cross-task learning execution", "production attestation trust setup", "live demonstrations"],
                 "start": "./inspecta-scp --json doctor; ./inspecta-scp --json check --offline --config workbench/profiles/producer-consumer.check.json",
@@ -222,6 +228,12 @@ def dispatch(args):
             return resolve(profile, overrides, base)
     controller = Controller(args.state_dir)
     try:
+        if args.command == 'trace':
+            from .traceability import Traceability
+            service = Traceability(controller)
+            if args.input_file:return service.input(args.run_id, args.input_file)
+            if args.evidence:return service.evidence(args.run_id, args.evidence)
+            return service.report(args.run_id)
         if args.command == 'datasets':
             from .datasets import Datasets
             service = Datasets(controller.store)

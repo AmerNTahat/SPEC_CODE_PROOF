@@ -146,6 +146,12 @@ def main():
             click('resume')
             until('document.body.textContent.includes("READY")')
             evidence['checks'].append('Real React workflow resolve, snapshot, pause and resume')
+            click('Trace requirements and inputs')
+            until('document.body.textContent.includes("No reviewed unit registry")')
+            click('Model.sysml')
+            until('document.querySelector(".source-text")')
+            assert js('return document.querySelector(".source-text").textContent') == 'package Synthetic {}'
+            evidence['checks'].append('Run trace opens exact allowlisted snapshot and reports missing requirement/unit links')
             def fill(label, value):
                 js('const label = Array.from(document.querySelectorAll("label")).find(l => l.textContent === ' + json.dumps(label) + '); const input = label.querySelector("input"); Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,"value").set.call(input,' + json.dumps(value) + '); input.dispatchEvent(new Event("input",{bubbles:true}));')
                 time.sleep(.1)

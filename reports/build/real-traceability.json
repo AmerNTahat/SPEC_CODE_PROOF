@@ -1,0 +1,122 @@
+{
+  "status": "PASS",
+  "scope": "Real executed engineering run trace and CLI/service parity; no invented requirement/unit registry",
+  "model_calls": 0,
+  "trace": {
+    "run_id": "d764e4e6d78c4c4c8f703146b26a90fa",
+    "config_hash": "1c59eceb5e71fd46cf714bf352f92d96df3e04896296fb4e77362e2a7476e85f",
+    "state": "CHECKED",
+    "current": true,
+    "sources": [
+      {
+        "path": "aadl-lib/aadl.library/AADL.sysml",
+        "sha256": "3900fbea96c9326406e65c5e20b5c21e259f2ac728d6bd824332adf1bb8ec300"
+      },
+      {
+        "path": "aadl-lib/aadl.library/AADL_Project.sysml",
+        "sha256": "a17e5789f97183375794ffbcefc2c20345d241092a51aaaeed8fbf6ec02e58b2"
+      },
+      {
+        "path": "aadl-lib/aadl.library/Base_Types.sysml",
+        "sha256": "76b844c465d64b9fbb527f59aa98856ebc2545352cd596cf72ddbdcadd547695"
+      },
+      {
+        "path": "aadl-lib/aadl.library/Communication_Properties.sysml",
+        "sha256": "e09a7c2e8b9c5df567979795aba99c8a37196e03b3d9a87c95488a7c3eacff67"
+      },
+      {
+        "path": "aadl-lib/aadl.library/Data_Model.sysml",
+        "sha256": "ba9e3838d5fe4a956e87bd3b64e0edd7ebf0a1a741200bf731163c170e94f1b4"
+      },
+      {
+        "path": "aadl-lib/aadl.library/Deployment_Properties.sysml",
+        "sha256": "fba2178d3fc3e7eba38362b988c1968fce3c934f252ce8ca095b210194d85509"
+      },
+      {
+        "path": "aadl-lib/aadl.library/Memory_Properties.sysml",
+        "sha256": "375151c140066c0176b8fb20370f6713adb66b75a218d8f0075c221278690d91"
+      },
+      {
+        "path": "aadl-lib/aadl.library/Programming_Properties.sysml",
+        "sha256": "a7e90c1659c3a8291f31ad8ba3b92379a25398ddf72ce6ec059061ac9807fa23"
+      },
+      {
+        "path": "aadl-lib/aadl.library/Thread_Properties.sysml",
+        "sha256": "4b777cd2e3736ceb499c571c8432c3415cbe51374787ed366a59749e7474c1b7"
+      },
+      {
+        "path": "aadl-lib/aadl.library/Timing_Properties.sysml",
+        "sha256": "5b3916143fff5bcfeb6c840603d7221ca692f8ec1bf33d56f6de3f0ae8d68f87"
+      },
+      {
+        "path": "aadl-lib/aadl.library/behavior_properties.sysml",
+        "sha256": "6c7399d99da108050a7096c558d92554de04c387a0f4db1a77e1f716b9f07d4b"
+      },
+      {
+        "path": "aadl-lib/hamr.aadl.library/CASE_Scheduling.sysml",
+        "sha256": "b993abd1bcc88dda01a86f022ff9582c3d8855e252588c76cd11b5d3e90567da"
+      },
+      {
+        "path": "aadl-lib/hamr.aadl.library/HAMR.sysml",
+        "sha256": "33b5955a100ac0f13884834900ce3af9822209f923999fe9ceb2f92051b2729d"
+      },
+      {
+        "path": "aadl-lib/hamr.aadl.library/HAMR_AADL.sysml",
+        "sha256": "9d17db7ba81676951e1edbcafc13fbb7cff0a7452c8318bda99c790e758c4856"
+      },
+      {
+        "path": "aadl-lib/hamr.aadl.library/HAMR_Time_Units.sysml",
+        "sha256": "1ee89387619a2cb3459cb94bf0f55c3576998ed754dbcc8282acc7042f019d7a"
+      },
+      {
+        "path": "prod-cons/ProdCons.sysml",
+        "sha256": "3a644a6a465df26167cd8a5be4c4604120ee203309134b6b951620907be3ffcf"
+      }
+    ],
+    "ledger_id": null,
+    "obligations": [],
+    "registry_id": null,
+    "units": [],
+    "gates": [
+      {
+        "evidence": {
+          "path": "objects/55ccb60b52aa8355ab325d1060607c1aa127ebcda7fb36e1e5f41bbb34a3945c.json",
+          "sha256": "55ccb60b52aa8355ab325d1060607c1aa127ebcda7fb36e1e5f41bbb34a3945c"
+        },
+        "gate": "parse_type",
+        "reason": "Type checker completed",
+        "status": "PASS"
+      },
+      {
+        "evidence": {
+          "path": "objects/0e2891ed7e6405a0edb2e74813dc036f7fb144333cde7da879e71df5c30b92a1.json",
+          "sha256": "0e2891ed7e6405a0edb2e74813dc036f7fb144333cde7da879e71df5c30b92a1"
+        },
+        "gate": "hamr_codegen",
+        "reason": "HAMR emitted Slang/JVM artifacts; compilation and implementation verification are separate",
+        "status": "PASS"
+      },
+      {
+        "evidence": {
+          "path": "objects/1ac3fcb744349b9fe593f744c02abb02e4d76456859e2e4f6d77e04987aabc7a.json",
+          "sha256": "1ac3fcb744349b9fe593f744c02abb02e4d76456859e2e4f6d77e04987aabc7a"
+        },
+        "gate": "integration_constraints",
+        "reason": "Logika verified the reported connection integration constraints only",
+        "status": "PASS"
+      }
+    ],
+    "architecture_snapshots": {},
+    "configured_rule_release": null,
+    "missing_links": [
+      "No reviewed requirement ledger",
+      "No reviewed unit registry",
+      "No executed rule-binding provenance established"
+    ],
+    "scope": "Recorded relationships only; unresolved links and unsupported acceptance remain explicit"
+  },
+  "input_verified": {
+    "path": "prod-cons/ProdCons.sysml",
+    "sha256": "3a644a6a465df26167cd8a5be4c4604120ee203309134b6b951620907be3ffcf"
+  }
+}

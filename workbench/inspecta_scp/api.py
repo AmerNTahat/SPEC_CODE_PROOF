@@ -73,6 +73,18 @@ class Application:
             if method == "GET" and metrics_match:
                 from .metrics import Metrics
                 return Metrics(controller).report(metrics_match[1])
+            trace_match = re.fullmatch(r'/api/runs/([0-9a-f]{32})/(trace|input|evidence)(?:/([0-9a-f]{64}))?', route)
+            if method == 'GET' and trace_match:
+                from .traceability import Traceability
+                service = Traceability(controller)
+                run_id, action, evidence_id = trace_match.groups()
+                if action == 'trace' and evidence_id is None:
+                    return service.report(run_id)
+                if action == 'input' and evidence_id is None:
+                    return service.input(run_id, query.get('path', [''])[0])
+                if action == 'evidence' and evidence_id:
+                    return service.evidence(run_id, evidence_id)
+                raise PolicyError('Invalid traceability request')
             if method == "GET" and route == "/api/repairs":
                 from .repairs import Repairs
                 return Repairs(controller).catalog()

@@ -360,3 +360,27 @@ workbench/inspecta_scp/engineering.py — 47842e826d169a29f0fab6ee16d5fd07ec9c70
 Budget:
 Paid-demo calls/tokens 0/0; offline tool runs only. Build usage unavailable.
 
+## M06 — in_progress
+
+Achieved:
+Added shared CLI/API/UI trace from run to exact snapshot, requirement ledger, architecture elements, registered units and executed gate evidence. Missing rule-application provenance remains explicit.
+Executed CLI/service parity on the real Producer/Consumer engineering run: three gate evidence records and 16 input files, zero invented verified units. Viewer rejects changed snapshots, arbitrary paths and unrelated evidence. 87 application tests and 12 real browser checks passed.
+
+In progress:
+Full cross-stack acceptance and learning provenance remain incomplete.
+
+Remaining:
+Learning/model isolation, complete implementation proof/build/test adapters, independent rule transfer and release readiness, accepted source promotion, production trust and deferred live demonstrations.
+
+Blockers:
+No paid-demo execution authorized; no production requirement/release approval established. These limits do not imply the remaining software is complete.
+
+Evidence:
+reports/build/real-traceability.json — 2b3a6fec2567e706f47a3e7809fba868bf05b4bae983eb37a338f637420c2a37
+reports/build/application-tests.log — 95f78c5d1e4fe798f7d0313f877f0ded09996dc3b3fd69de62842bdb04453b60
+reports/build/browser-smoke.json — 3e8fdf2bb4f91b04f5d4f86ba0cee1654a76f1ae39d541d3d12f411954e5100a
+reports/build/workbench-workflow-fixed.png — 3594750dfa52aca8b246298cdd080101685b47a0fbc2f666c8bc8a83802da295
+
+Budget:
+Paid demonstration calls/tokens 0/0; implementation-session usage unavailable.
+

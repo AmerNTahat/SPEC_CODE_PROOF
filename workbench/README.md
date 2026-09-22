@@ -14,6 +14,8 @@ Run from the repository root:
 ./inspecta-scp --json check --offline --config workbench/profiles/producer-consumer.engineering.check.json
 ./inspecta-scp --json status RUN_ID
 ./inspecta-scp --json logs RUN_ID
+./inspecta-scp --json trace RUN_ID
+./inspecta-scp --json trace RUN_ID --input-file relative/Model.sysml
 ```
 
 The shell launcher reuses `.venv/bin/python` (Python 3.11+) or INSPECTA_PYTHON.
@@ -177,6 +179,22 @@ result and the actual SMT query. A successful exit with no obligations is UNKNOW
 These are connection-compatibility proofs only, not implementation correctness or
 verified-unit acceptance. Full `configured_formal_verification`, build and
 independent requirements tests remain separate required gates.
+
+Run details now includes **Trace requirements and inputs** and per-gate evidence
+buttons. The trace connects recorded obligations, architecture elements, registry
+units, implementation files and executed gates. Missing registries or executed
+rule bindings stay explicitly missing. Source links show the exact run snapshot,
+with a warning if the original source has changed. The viewer rejects changed
+snapshots, files outside the run allowlist and evidence not attached to that run.
+CLI `trace --evidence SHA256` and the UI use the same service. These authenticated
+human views are not generator context exports.
+
+After updating this checkout, stop the previous UI server with Ctrl+C in its
+terminal, rerun `./inspecta-scp ui`, and open its newly printed private URL. This
+loads updated backend routes as well as the rebuilt frontend. Existing records
+stay on disk. For the dataset-pairing error shown in the September 22 screenshot,
+choose **Use project without dataset** in Materials, then proceed to Review and
+resolve the configuration. No session token is needed to fix that configuration.
 
 Requirement and structure checks now use the installed Sireum parser and HAMR
 instantiator through `adapters/export_architecture.sc`. The adapter runs inside

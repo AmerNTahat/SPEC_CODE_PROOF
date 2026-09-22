@@ -36,7 +36,7 @@
     },
     {
       "path": "reports/build/application-tests.log",
-      "sha256": "bbb8303ea77b28f7ba55cfa5b2e54ba35f7d7ea3fc942b1011fedb14c57cc67a"
+      "sha256": "95f78c5d1e4fe798f7d0313f877f0ded09996dc3b3fd69de62842bdb04453b60"
     },
     {
       "path": "reports/build/support-tests.log",
@@ -56,11 +56,11 @@
     },
     {
       "path": "workbench/README.md",
-      "sha256": "ab1eb97d300857fa07671f20409ab0b94539b66fc859861a41387047df865aa8"
+      "sha256": "5550062a1bc6e0d184e794dbb5432ad37edc8d2eabe1ef8624807ab70c269fa0"
     },
     {
       "path": "reports/build/browser-smoke.json",
-      "sha256": "71dceb143caf801562de64df5a07950625d0b7073a5e884d612d582460231114"
+      "sha256": "3e8fdf2bb4f91b04f5d4f86ba0cee1654a76f1ae39d541d3d12f411954e5100a"
     },
     {
       "path": "reports/build/workbench-browser.png",
@@ -88,7 +88,7 @@
     },
     {
       "path": "IMPLEMENTATION_PROGRESS.md",
-      "sha256": "9b25a1e382780d2b998295537df72e6e0747a1f66e9b288e53165dd7569b79ef"
+      "sha256": "fabac03a69470c3cde089b384053481f2ef22f6984d537677e30f551c8fb52a8"
     },
     {
       "path": "reports/build/real-structure-integration.json",
@@ -132,11 +132,11 @@
     },
     {
       "path": "reports/build/onboard.json",
-      "sha256": "8823529a4b13bb878b263bd92c81af47accad32cad78f67871acedf472164043"
+      "sha256": "315f2fa7d1a9242006049066ce765f6d163de8510b39119b054b7df44dd4719f"
     },
     {
       "path": "reports/build/cli-help.txt",
-      "sha256": "156758035343161295360b2581c2cf400aae21838a56eff7fc0504626b6ecaf9"
+      "sha256": "4d0e6d8b143c315f5d1f8f7006c7a6aee2db677daa202f1b37c1b29cea397915"
     },
     {
       "path": "reports/build/real-engineering-integration.json",
@@ -144,11 +144,19 @@
     },
     {
       "path": "reports/build/workbench-workflow-fixed.png",
-      "sha256": "c052b8247638ba380ddf31ad478fc3836d15bf19b098cab6b3353de0916e1b0e"
+      "sha256": "3594750dfa52aca8b246298cdd080101685b47a0fbc2f666c8bc8a83802da295"
     },
     {
       "path": "workbench/inspecta_scp/engineering.py",
       "sha256": "47842e826d169a29f0fab6ee16d5fd07ec9c700298e42cb3c1fe8dd607e61749"
+    },
+    {
+      "path": "reports/build/real-traceability.json",
+      "sha256": "2b3a6fec2567e706f47a3e7809fba868bf05b4bae983eb37a338f637420c2a37"
+    },
+    {
+      "path": "workbench/inspecta_scp/traceability.py",
+      "sha256": "413640ef6829ebd8af5f271c3cb04da11f147b22078360d7c9cf555118873202"
     }
   ],
   "budget": {

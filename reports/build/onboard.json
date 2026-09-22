@@ -21,7 +21,8 @@
     "bounded provisional repairs",
     "reviewed unit registries and metrics/plots",
     "independent local DSSE verification",
-    "isolated HAMR Slang/JVM generation and Logika connection integration checks"
+    "isolated HAMR Slang/JVM generation and Logika connection integration checks",
+    "run-specific source, requirement, unit and evidence drill-down"
   ],
   "remaining": [
     "generation/learning isolation",
