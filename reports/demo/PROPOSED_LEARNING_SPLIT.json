@@ -1,0 +1,59 @@
+{
+  "context_ids": [
+    "77bdcaefd9adf0515305978b7e9b668a5c4e1561b7ab8803c0744bcc698e7b8d"
+  ],
+  "training": [
+    {
+      "source_id": "d7ef18732a5def5da9422e3e47db924dd4ae4c9b806fcc86f11c932b377db935",
+      "start": 1,
+      "end": 431,
+      "label": "Isolette Monitor",
+      "source_sha256": "43664d0fe5904aed949d4c12e824c905d7bc1b4e89efa0409038c1b6f52ff605",
+      "text_sha256": "6d92da0875771dc87cc8f20c57864bd9ff3c06fa0d8ef1b962841149654ccba4",
+      "normalized_text_sha256": "7e0cd6ae2d818b5d5a018b74664cd665278d24f3eeb408849e834759400e41fa"
+    }
+  ],
+  "validation": [
+    {
+      "source_id": "3450eb7742d470df493f9261c7e40fdda86d7b30459e082dcd850df7e8ecffd0",
+      "start": 1,
+      "end": 436,
+      "label": "Isolette Regulator",
+      "source_sha256": "6828c7fe1ae531b1dbc62938014dad1450a05ae04997817914aa369fd3865872",
+      "text_sha256": "f73b223778e1fb5ee2d377258c9a1acda4e835dad2812060ad6951a62255c12f",
+      "normalized_text_sha256": "9a07043ee4e643879bddad6bf8b11a3851864da5b38576dd552c44b509da641c"
+    }
+  ],
+  "retrieval": {
+    "metric": "lexical_token_count_cosine_distance",
+    "epsilon": 0.1,
+    "maximum": 0.3,
+    "comparison": "distance <= epsilon"
+  },
+  "validation_protocol": "within_system_component_holdout",
+  "final_transfer_claim": false,
+  "scope": "Human-declared component split; no inferred semantic independence or final transfer claim",
+  "id": "2849a2cebf7258e1bf081dba484e97177979ec9cff7fb352f75b6c4dc8c77977",
+  "approval": {
+    "action": "approve_learning_plan",
+    "subject": {
+      "context_documents": [
+        "Steve_Miller_FAA_docAR-08-32.pdf"
+      ],
+      "epsilon": 0.1,
+      "plan_digest": "6a2b3ab5c7c22e37e4bce0c627e2893a6073442d10d7a4a3f98ce73f15b02efc",
+      "plan_id": "2849a2cebf7258e1bf081dba484e97177979ec9cff7fb352f75b6c4dc8c77977",
+      "training_components": [
+        "Isolette Monitor"
+      ],
+      "validation_components": [
+        "Isolette Regulator"
+      ]
+    },
+    "subject_digest": "9485ffee74adb195e9ffc93ea864379a39f6c8015c5a0b03fc7ac2b8358dab2c",
+    "id": "7773bc920d462ef544478cff0e483d5f52db5d16f364a8b649e624318c10dfa2",
+    "status": "PENDING",
+    "reviewer": null,
+    "decided_at": null
+  }
+}

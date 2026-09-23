@@ -1,0 +1,182 @@
+[
+  {
+    "id": 85,
+    "run_id": "b47d2bfc9a884b539fe8e3d6755ad7ee",
+    "timestamp": 1790120910.990673,
+    "kind": "created",
+    "payload": {
+      "config": {
+        "architecture_policy": null,
+        "assistance": "automatic",
+        "budget": {
+          "aggregate_model_tokens": 1000000,
+          "concurrent_model_calls": 1,
+          "enforcement": "strict",
+          "final_validation_time_reserve": 0.2,
+          "repairs_per_issue": 3,
+          "repairs_per_run": 8,
+          "wall_seconds": 180
+        },
+        "creation_authorized": false,
+        "dataset_assignment": null,
+        "dataset_task": null,
+        "development_validation": null,
+        "final_evaluation": null,
+        "input_files": [
+          "Devices.sysml",
+          "Isolette.sysml",
+          "Isolette_Data_Model.sysml",
+          "Isolette_Environment.sysml",
+          "Monitor.sysml",
+          "Operator_Interface.sysml",
+          "Regulate.sysml",
+          "Thermostat.sysml",
+          "sysml-aadl-libraries_1/aadl.library/AADL.sysml",
+          "sysml-aadl-libraries_1/aadl.library/AADL_Project.sysml",
+          "sysml-aadl-libraries_1/aadl.library/Base_Types.sysml",
+          "sysml-aadl-libraries_1/aadl.library/Communication_Properties.sysml",
+          "sysml-aadl-libraries_1/aadl.library/Data_Model.sysml",
+          "sysml-aadl-libraries_1/aadl.library/Deployment_Properties.sysml",
+          "sysml-aadl-libraries_1/aadl.library/Memory_Properties.sysml",
+          "sysml-aadl-libraries_1/aadl.library/Programming_Properties.sysml",
+          "sysml-aadl-libraries_1/aadl.library/Thread_Properties.sysml",
+          "sysml-aadl-libraries_1/aadl.library/Timing_Properties.sysml",
+          "sysml-aadl-libraries_1/aadl.library/behavior_properties.sysml",
+          "sysml-aadl-libraries_1/hamr.aadl.library/CASE_Scheduling.sysml",
+          "sysml-aadl-libraries_1/hamr.aadl.library/HAMR.sysml",
+          "sysml-aadl-libraries_1/hamr.aadl.library/HAMR_AADL.sysml",
+          "sysml-aadl-libraries_1/hamr.aadl.library/HAMR_Microkit.sysml",
+          "sysml-aadl-libraries_1/hamr.aadl.library/HAMR_Time_Units.sysml"
+        ],
+        "learning_materials": null,
+        "mode": "user",
+        "model": {
+          "family": "gpt",
+          "requested_profile": "astra",
+          "resolved_model_id": null
+        },
+        "model_file": "Isolette.sysml",
+        "naming_policy": "preserve-existing",
+        "paid_runs_authorized": false,
+        "project": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/development-workspaces/d4068b51b5dd40129539f6ed8ff39ef2",
+        "rename_authorized": false,
+        "repair_allowed_files": [],
+        "required_gates": [
+          "parse_type",
+          "architecture_capture"
+        ],
+        "requirement_ledger": null,
+        "resolved_operation": "verify-only",
+        "rule_release": null,
+        "schema_version": 1,
+        "sireum": "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/sireum",
+        "sireum_sha256": "6333d4e737064b6db470bcb85863a997675182470eb5d4d763bd806487c8d952",
+        "task_operation": "verify-only",
+        "unit_registry": null
+      },
+      "config_sha256": "0ed425ff95f7cf9744644ceac9a6140611ecacd61437470aaee5b366f07ed0ca",
+      "precedence": [
+        "defaults",
+        "profile",
+        "explicit_overrides",
+        "policy_validation"
+      ]
+    }
+  },
+  {
+    "id": 86,
+    "run_id": "b47d2bfc9a884b539fe8e3d6755ad7ee",
+    "timestamp": 1790120910.9920952,
+    "kind": "state",
+    "payload": {
+      "from": "CREATED",
+      "to": "INSPECTING"
+    }
+  },
+  {
+    "id": 87,
+    "run_id": "b47d2bfc9a884b539fe8e3d6755ad7ee",
+    "timestamp": 1790120911.003816,
+    "kind": "snapshot",
+    "payload": {
+      "path": "objects/ed212e8910477b4d1f993c56bcc51876a4617ce3d0869879bf9f2091ab7f3c3c.json",
+      "sha256": "ed212e8910477b4d1f993c56bcc51876a4617ce3d0869879bf9f2091ab7f3c3c"
+    }
+  },
+  {
+    "id": 88,
+    "run_id": "b47d2bfc9a884b539fe8e3d6755ad7ee",
+    "timestamp": 1790120911.0048625,
+    "kind": "state",
+    "payload": {
+      "from": "INSPECTING",
+      "to": "READY"
+    }
+  },
+  {
+    "id": 89,
+    "run_id": "b47d2bfc9a884b539fe8e3d6755ad7ee",
+    "timestamp": 1790120911.0118766,
+    "kind": "generation_provenance",
+    "payload": {
+      "campaign_id": "3f16ff4ef866d414cedb448a3ade2dfc4c5b5807162e6aea7522abc218fb49d8",
+      "context_id": "40cac97975a61bace953536224b07178f9ebf47acb35cb855089a6ed4e81ac34",
+      "measured_tokens": 32365,
+      "model_call_id": "f80fd4367606f1eb7c64e4a930c71049384fbfcd93caae2785ed648b07233098",
+      "scope": "Generation tokens attributed to this check; campaign accounts for total learning and retries separately",
+      "task_id": "522b6af892ac0f8372eb28403c349b2bf19d1d81ca43695eb17e5cdc93768c42"
+    }
+  },
+  {
+    "id": 90,
+    "run_id": "b47d2bfc9a884b539fe8e3d6755ad7ee",
+    "timestamp": 1790120911.0204804,
+    "kind": "state",
+    "payload": {
+      "from": "READY",
+      "to": "CHECKING"
+    }
+  },
+  {
+    "id": 91,
+    "run_id": "b47d2bfc9a884b539fe8e3d6755ad7ee",
+    "timestamp": 1790120913.158721,
+    "kind": "gate",
+    "payload": {
+      "evidence": {
+        "path": "objects/15ea520396f6c8b8ec6164544145da04319e3fa9e5f89105294de496af4e460a.json",
+        "sha256": "15ea520396f6c8b8ec6164544145da04319e3fa9e5f89105294de496af4e460a"
+      },
+      "gate": "parse_type",
+      "reason": "No validated success marker",
+      "status": "UNKNOWN"
+    }
+  },
+  {
+    "id": 92,
+    "run_id": "b47d2bfc9a884b539fe8e3d6755ad7ee",
+    "timestamp": 1790120917.8922207,
+    "kind": "gate",
+    "payload": {
+      "evidence": {
+        "path": "objects/8099a2d9dab7437250179df874b9fdd92b78136b6c8871968edb75113d84d729.json",
+        "sha256": "8099a2d9dab7437250179df874b9fdd92b78136b6c8871968edb75113d84d729"
+      },
+      "gate": "architecture_capture",
+      "reason": "Trusted architecture export rejected or could not start",
+      "snapshot_id": null,
+      "status": "FAIL"
+    }
+  },
+  {
+    "id": 93,
+    "run_id": "b47d2bfc9a884b539fe8e3d6755ad7ee",
+    "timestamp": 1790120917.8955204,
+    "kind": "state",
+    "payload": {
+      "from": "CHECKING",
+      "result_committed": true,
+      "to": "FAILED"
+    }
+  }
+]

@@ -32,7 +32,11 @@ def parser():
     actions = q.add_subparsers(dest='learning_action', required=True)
     actions.add_parser('catalog')
     a = actions.add_parser('extract'); a.add_argument('--plan',required=True); a.add_argument('--campaign',required=True); a.add_argument('--batch-index',type=int,default=0)
+    a = actions.add_parser('extract-remaining'); a.add_argument('--plan',required=True); a.add_argument('--campaign',required=True)
+    a = actions.add_parser('campaign-control'); a.add_argument('--campaign',required=True); a.add_argument('--action',choices=['pause','resume'],required=True)
     a = actions.add_parser('prepare-validation'); a.add_argument('--config',type=Path,required=True); a.add_argument('--input',type=Path,required=True)
+    a = actions.add_parser('inspect-validation'); a.add_argument('--result',required=True)
+    a = actions.add_parser('revise-validation'); a.add_argument('--result',required=True); a.add_argument('--candidates',nargs='+',required=True)
     a = actions.add_parser('suggest-units'); a.add_argument('--plan',required=True); a.add_argument('--campaign',required=True)
     a = actions.add_parser('revise-units'); a.add_argument('--proposal',required=True); a.add_argument('--input',type=Path,required=True)
     a = actions.add_parser('refine'); a.add_argument('--candidate',required=True); a.add_argument('--development-result',required=True); a.add_argument('--campaign',required=True)
@@ -249,10 +253,18 @@ def dispatch(args):
             if args.learning_action == 'catalog':return service.catalog()
             if args.learning_action == 'refine':return service.refine(args.candidate,args.development_result,args.campaign)
             if args.learning_action == 'extract':return service.extract(args.plan,args.campaign,args.batch_index)
+            if args.learning_action == 'extract-remaining':return service.extract_remaining(args.plan,args.campaign)
+            if args.learning_action == 'campaign-control':
+                from .campaign import Campaign
+                return Campaign(controller.store).control(args.campaign,args.action)
             if args.learning_action in {'suggest-units','revise-units'}:
                 from .unit_definitions import UnitDefinitions
                 units=UnitDefinitions(controller.store)
                 return units.suggest(args.plan,args.campaign) if args.learning_action=='suggest-units' else units.revise(args.proposal,read_json(args.input))
+            if args.learning_action in {'inspect-validation','revise-validation'}:
+                from .development import Development
+                development=Development(controller)
+                return development.inspect(args.result) if args.learning_action=='inspect-validation' else development.revise_rules(args.result,args.candidates)
             if args.learning_action in {'prepare-validation','validate'}:
                 from .development import Development
                 development=Development(controller)

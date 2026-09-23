@@ -1,0 +1,77 @@
+{
+  "before": {
+    "id": "3f16ff4ef866d414cedb448a3ade2dfc4c5b5807162e6aea7522abc218fb49d8",
+    "started": 1790117782.972513,
+    "used_tokens": 417782,
+    "reserved_tokens": 0,
+    "usage_unknown": 0,
+    "estimated_debit_tokens": 3000000,
+    "failure_policy": {
+      "campaign_id": "3f16ff4ef866d414cedb448a3ade2dfc4c5b5807162e6aea7522abc218fb49d8",
+      "consent": "User 2026-09-22 explicitly selected: Authorize estimated debits within 13M. Charge a conservative 1,000,000-token debit for this failed batch and later unmetered failures within the existing 13M ceiling. Estimates remain separate from measured usage; stop before an unaffordable reservation. No clock or budget extension.",
+      "debit_per_failure": 1000000,
+      "enabled": true,
+      "hard_bound": false,
+      "id": "94898bef102214fe6d91d29cc67735122560c13c285176700abeafd4bab7c9a3"
+    },
+    "authorization": {
+      "aggregate_tokens": 13000000,
+      "automatic_extension": false,
+      "clock_starts": "first paid reservation",
+      "concurrency": 1,
+      "consent": "User authorization 2026-09-22: tokens limits should be about 14 millions tokens, wall colck 1 hour for isolette for epsilon estimation dont exceed 0.3 you may start with 0.1. for doc best efforts total tokens should not exceed 13 million. Once you reach that ask for extension. Finish all the tasks.",
+      "enforcement": "best_effort",
+      "hard_token_cap_validated": false,
+      "wall_seconds": 3600,
+      "id": "3f16ff4ef866d414cedb448a3ade2dfc4c5b5807162e6aea7522abc218fb49d8"
+    },
+    "deadline": 1790121382.972513,
+    "time_extensions": [],
+    "authorized_wall_seconds": 3600,
+    "remaining_seconds": 0,
+    "remaining_tokens": 9582218,
+    "scope": "Best-effort aggregate accounting; termination may leave uncertain in-flight usage"
+  },
+  "after": {
+    "id": "3f16ff4ef866d414cedb448a3ade2dfc4c5b5807162e6aea7522abc218fb49d8",
+    "started": 1790117782.972513,
+    "used_tokens": 417782,
+    "reserved_tokens": 0,
+    "usage_unknown": 0,
+    "estimated_debit_tokens": 3000000,
+    "failure_policy": {
+      "campaign_id": "3f16ff4ef866d414cedb448a3ade2dfc4c5b5807162e6aea7522abc218fb49d8",
+      "consent": "User 2026-09-22 explicitly selected: Authorize estimated debits within 13M. Charge a conservative 1,000,000-token debit for this failed batch and later unmetered failures within the existing 13M ceiling. Estimates remain separate from measured usage; stop before an unaffordable reservation. No clock or budget extension.",
+      "debit_per_failure": 1000000,
+      "enabled": true,
+      "hard_bound": false,
+      "id": "94898bef102214fe6d91d29cc67735122560c13c285176700abeafd4bab7c9a3"
+    },
+    "authorization": {
+      "aggregate_tokens": 13000000,
+      "automatic_extension": false,
+      "clock_starts": "first paid reservation",
+      "concurrency": 1,
+      "consent": "User authorization 2026-09-22: tokens limits should be about 14 millions tokens, wall colck 1 hour for isolette for epsilon estimation dont exceed 0.3 you may start with 0.1. for doc best efforts total tokens should not exceed 13 million. Once you reach that ask for extension. Finish all the tasks.",
+      "enforcement": "best_effort",
+      "hard_token_cap_validated": false,
+      "wall_seconds": 3600,
+      "id": "3f16ff4ef866d414cedb448a3ade2dfc4c5b5807162e6aea7522abc218fb49d8"
+    },
+    "deadline": 1790124982.972513,
+    "time_extensions": [
+      {
+        "campaign_id": "3f16ff4ef866d414cedb448a3ade2dfc4c5b5807162e6aea7522abc218fb49d8",
+        "consent": "User explicitly replied: Extend by 60 minutes; keep 13M ceiling. Preserve original measured usage, 3M estimated debits, and all prior failed calls.",
+        "previous_deadline": 1790121382.972513,
+        "seconds": 3600,
+        "token_ceiling_unchanged": 13000000,
+        "id": "7cb160b53120ee3dd2db9f78a34f2f81c921989028257570b409304094fd2179"
+      }
+    ],
+    "authorized_wall_seconds": 7200,
+    "remaining_seconds": 3491.727616786957,
+    "remaining_tokens": 9582218,
+    "scope": "Best-effort aggregate accounting; termination may leave uncertain in-flight usage"
+  }
+}

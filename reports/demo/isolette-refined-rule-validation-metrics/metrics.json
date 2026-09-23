@@ -1,0 +1,41 @@
+{
+  "registered_count": null,
+  "verified_count": 0,
+  "accepted_count": 0,
+  "coverage": null,
+  "wall_seconds": 23.621657848358154,
+  "total_tokens": 52819,
+  "cost_usd": null,
+  "verified_per_minute": null,
+  "tokens_per_verified_unit": null,
+  "dollars_per_verified_unit": null,
+  "run_id": "d7a507adaad2482287b7091587274f3b",
+  "config_hash": "b78df7ebf5e65caa27bbe4d4b6a4d3fafe202dd5f94aa5d0bc530e066bf9286a",
+  "registry_id": null,
+  "measurement_kind": "recorded_application_run",
+  "unit_results": [],
+  "verified_ids": [],
+  "accepted_ids": [],
+  "structural_registered_count": null,
+  "structural_conforming_count": 0,
+  "structural_conforming_ids": [],
+  "structural_coverage": null,
+  "requirement_registered_count": null,
+  "evidence_current": true,
+  "end_to_end_success": false,
+  "problems": [
+    "No reviewed unit registry; denominator/coverage remain unknown"
+  ],
+  "repair_attempts": 0,
+  "scope": "Current trusted run evidence; no reconstructed historical 42-unit denominator or inferred billing",
+  "run_state": "CHECKED",
+  "budget": {
+    "aggregate_model_tokens": 1000000,
+    "concurrent_model_calls": 1,
+    "enforcement": "strict",
+    "final_validation_time_reserve": 0.2,
+    "repairs_per_issue": 3,
+    "repairs_per_run": 8,
+    "wall_seconds": 180
+  }
+}

@@ -1,0 +1,297 @@
+{
+  "plan_id": "2849a2cebf7258e1bf081dba484e97177979ec9cff7fb352f75b6c4dc8c77977",
+  "manifest_id": "f636e8a143eb0ab4d68800d6029adae44b4d168a466d03b86aa816c870a7e480",
+  "batch_index": 2,
+  "batch_count": 12,
+  "model_call_id": "6408421ebc8101ff5ecc7cb51d2878c760721f5769df32ee51d39fc9517e197a",
+  "candidate_id": "b9e72e1640da2fb6bbc2847fdde9c22d990d32a3105348efa251976a4cb0758b",
+  "status": "DRAFT_PENDING_DEVELOPMENT_VALIDATION",
+  "scope": "Actual model proposal; no rule-transfer validation or publication claim",
+  "id": "815d1f0e5a94c07c4ffa547a9e09d40ee454c64b8c290ca90b8092418739080d",
+  "candidate": {
+    "record": {
+      "$schema": "",
+      "schema_version": "2.0",
+      "record_type": "rule",
+      "id": "DRAFT-MODE-GATED-HYSTERESIS-001",
+      "revision": "0",
+      "state": "DRAFT",
+      "basis": "model_inferred",
+      "assessment_timing": "before_action",
+      "source_references": [
+        "d7ef18732a5def5da9422e3e47db924dd4ae4c9b806fcc86f11c932b377db935",
+        "8539757b211ec65ebcf5df73b8125fe82011a6066fd3bcba864328af992b4bf1"
+      ],
+      "source_artifact_hashes": [
+        "43664d0fe5904aed949d4c12e824c905d7bc1b4e89efa0409038c1b6f52ff605",
+        "b4949561cb04d46f718a16e2cc1486c0bd5a26c15778e3567c464466c24731df"
+      ],
+      "source_episode": "6408421ebc8101ff5ecc7cb51d2878c760721f5769df32ee51d39fc9517e197a",
+      "available_context_manifest": "f636e8a143eb0ab4d68800d6029adae44b4d168a466d03b86aa816c870a7e480",
+      "model_configuration": "7e31988cc8d9b89ae79c126a58e57c1f5babd2bc70e3e301ffe8cee77e0969d1",
+      "prompt_version": "reviewed-learning-plan-rule-extraction",
+      "trigger": "A component requirement combines mode-qualified threshold activation, an interior reset band, and language such as 'hold' or 'retain' the command within hysteresis bands.",
+      "principle": "Preserve mode guards, exact interval boundaries, and command history together when translating a hysteresis requirement across architecture, contract, implementation, proof, tests, and repair.",
+      "semantic_choice": "Interpret 'below' and 'above' as strict comparisons, 'hold' as equality to the previously emitted command, and the reset band as inclusive at its stated endpoints. Each mode-qualified obligation applies only in that mode; normal threshold behavior must not override initialization or failure behavior.",
+      "structural_placement": "The output-producing thread owns the command and its history. In the observed example this is Manage_Alarm_i, whose GUMBO block owns alarm_control and declares lastCmd. Manage_Alarm_Process_i and Monitor_Temperature_i route existing ports; interface validation and monitor-mode production remain with their existing owners.",
+      "repair_gate": "Proposed: accept a repair only after showing that it preserves every original case implication, initialization, history semantics, interval endpoints, mode behavior, and source interface. A missing state initialization/update or incompatible numeric encoding must be resolved explicitly before applying the pattern. Do not weaken guards, add a sensor-validity guard, or alter mode behavior merely to satisfy an implementation or proof.",
+      "prerequisites": [
+        "The target has explicitly corresponding mode-gated activation, hold, and reset requirements; resemblance to a generic range controller is insufficient.",
+        "Existing port types, enum literals, connections, ownership, dispatch settings, and contract obligations are available as the baseline.",
+        "Temperature encoding, precision, units, and arithmetic semantics are established; all threshold computations are representable.",
+        "The threshold provider has a documented obligation ensuring L <= U. Any stronger range-width requirement must be justified separately.",
+        "The target supplies or can internally realize a previous-command state initialized consistently with the initial command, without changing interfaces."
+      ],
+      "exclusions": [
+        "Stateless range checks or requirements that switch off throughout the closed interval [L,U].",
+        "Timeouts, debounce, trend detection, or continuous-time response guarantees.",
+        "Inferring sensor-invalid behavior absent from the alarm cases.",
+        "Inferring a physical buzzer, light, or other operator-interface design.",
+        "Applying the pattern to the mode-manager state machine or failure detector without corresponding hysteresis requirements."
+      ],
+      "parameters": [
+        {
+          "name": "m, x, L, U",
+          "role": "Current mode, sampled temperature, lower bound, and upper bound",
+          "constraints": "Bind to existing inputs and their numeric representation; retain the source mode enum and L <= U."
+        },
+        {
+          "name": "h",
+          "role": "Hysteresis offset",
+          "constraints": "Positive and representable in the same numeric scale as x, L, and U. The example uses 1 [s32]; this syntax alone does not establish a physical temperature unit."
+        },
+        {
+          "name": "y, p",
+          "role": "Emitted command and previous emitted command",
+          "constraints": "Use the existing command type. In the example On is encoded by On_Off.Onn and Off by On_Off.Off; p is internal history."
+        }
+      ],
+      "dependencies": [],
+      "target_compatibility": [
+        "reviewed-learning-plan"
+      ],
+      "preserved_obligations": [
+        "Preserve all existing source interfaces, including names, directions, types, enum encodings, and connections; retain existing scheduling declarations.",
+        "Preserve initial Off, INIT-to-Off, FAILED-to-On, strict out-of-range activation, both hysteresis hold cases, and inclusive reset behavior.",
+        "Implementation obligation, proposed: initialize p to Off; on each dispatch compute y using the pre-dispatch p and current inputs, emit y, and update p to y for the next dispatch.",
+        "Proof obligation, proposed: establish initialization, preservation of the history invariant, and refinement of every applicable case. Check case coverage and overlapping-case consistency under the documented numeric and range assumptions.",
+        "Testing obligation, proposed: exercise every mode, activation below L and above U, all four endpoints L, L+h, U-h, U, and reachable hold cases with both previous command values. Include sequences entering a hold band from activation and reset regions.",
+        "Testing obligation, proposed: exercise narrow ordered ranges where hold bands overlap or the reset band is empty; use the conjunction of applicable case implications as the oracle.",
+        "Deployment obligation, proposed: preserve the existing component wiring and dispatch configuration and check that internal history persists across dispatches and resets consistently with initialization.",
+        "Repair obligation, proposed: rerun affected proof and behavioral checks after changes to comparisons, arithmetic, mode mapping, state updates, or generated implementation, without discarding unrelated baseline obligations."
+      ],
+      "counterexample": {
+        "scenario": "In NORMAL mode, let L=10, U=20, h=1 and x=10 in a compatible numeric encoding. Compare executions whose previous commands are On and Off.",
+        "expected_difference": "The scoped rule holds On in the first execution and Off in the second. A superficially similar requirement saying 'turn off whenever L <= x <= U' produces Off in both and must not receive this rule.",
+        "source_or_test_reference": null
+      },
+      "validation_gate_ids": [],
+      "evidence_references": [],
+      "confidence_forecast_reference": "1680ceea8bc9cf2e0bb97db4e5380cc17f5672cb7896c2da38f99fbd095ae887",
+      "approval_reference": null,
+      "notes": "Observed: Manage_Alarm_i declares lastCmd and the initialization and mode/interval cases described here; its supplied contract does not explicitly initialize or update lastCmd. The context discusses documenting environmental types, ranges, precision, units, ownership, and requirement traceability. Proposed: operational history handling and implementation/proof/testing/deployment/repair obligations are inferred requirements for applying this rule, not observed implementation results. No validation implementation or held-out component is supplied. Source references and hashes are left for the trusted controller.",
+      "source_english_patterns": [
+        "If mode NORMAL and current temperature is below alarm range then alarm control is On",
+        "If mode NORMAL and current temperature is inside the lower hysteresis band then hold alarm control",
+        "If mode NORMAL and current temperature is inside the reset band then alarm control is Off"
+      ],
+      "positive_paraphrases": [
+        "During normal operation, activate outside the limits, retain the preceding command near either limit, and deactivate within the inclusive inner band."
+      ],
+      "misleading_near_matches": [
+        "Turn the alarm off whenever temperature is within the alarm range.",
+        "Hold the alarm on for one second after crossing the threshold.",
+        "Enable hysteresis only when the temperature status is Valid."
+      ],
+      "supported_operations": [
+        "complete-system",
+        "extend-system",
+        "repair-system",
+        "verify-only"
+      ],
+      "stack_layers": [
+        "language",
+        "architecture",
+        "gumbo",
+        "implementation",
+        "proof",
+        "testing",
+        "deployment",
+        "repair"
+      ],
+      "semantic_roles": {
+        "actor": "The command-producing alarm thread; upstream components provide thresholds and mode.",
+        "condition": "Current mode and sampled temperature's exact membership in the activation, hold, or reset intervals.",
+        "effect": "Emit On, emit Off, or preserve the previous emitted command.",
+        "modality": "Required conditional guarantees for each applicable dispatch.",
+        "quantification": "Every dispatch satisfying a guard; every reachable previous command.",
+        "temporal_scope": "Initialization and discrete compute dispatches, with history from the preceding dispatch; no continuous-time latency claim.",
+        "state_dependency": "Hold cases depend on pre-dispatch history; history updates after command computation.",
+        "units_and_boundaries": "Shared documented temperature scale and representable arithmetic; strict outer comparisons, closed outer hold endpoints, and inclusive reset endpoints."
+      },
+      "formal_output_pattern": "Abstract mathematical pattern, not executable GUMBO: initialize y=Off and p=Off. For every dispatch t: m=INIT => y=Off; m=FAILED => y=On; (m=NORMAL and (x<L or x>U)) => y=On; (m=NORMAL and ((L<=x and x<L+h) or (U-h<x and x<=U))) => y=p; (m=NORMAL and L+h<=x and x<=U-h) => y=Off. After emitting y, set p_next=y. Interpret all implications conjunctively; map On to the existing source literal Onn.",
+      "formal_pattern_status": "ABSTRACT_NOT_VALIDATED",
+      "allowed_edit_scope": [
+        "The owning thread's corresponding contract clauses and internal history implementation.",
+        "Associated requirement traces, assumption documentation, proof obligations, and behavioral checks."
+      ],
+      "required_baseline": [
+        "Existing interfaces, architecture connections, scheduling declarations, initialization guarantees, and compute cases.",
+        "Documented numeric representation and upstream assumption ownership.",
+        "Existing implementation and verification artifacts if present; none are supplied here."
+      ],
+      "diagnostic_signature": null,
+      "related_rule_ids": []
+    },
+    "status": "DRAFT_PENDING_VALIDATION",
+    "id": "b9e72e1640da2fb6bbc2847fdde9c22d990d32a3105348efa251976a4cb0758b"
+  },
+  "model_result": {
+    "usage": {
+      "input_tokens": 20625,
+      "output_tokens": 2197,
+      "cached_input_tokens": 0
+    },
+    "usage_complete": true,
+    "status": "RESPONSE_RECEIVED",
+    "response": {
+      "rule": {
+        "$schema": "",
+        "schema_version": "2.0",
+        "record_type": "rule",
+        "id": "DRAFT-MODE-GATED-HYSTERESIS-001",
+        "revision": "0",
+        "state": "DRAFT",
+        "basis": "model_inferred",
+        "assessment_timing": "before_action",
+        "source_references": [],
+        "source_artifact_hashes": [],
+        "source_episode": null,
+        "available_context_manifest": null,
+        "model_configuration": null,
+        "prompt_version": "reviewed-learning-plan-rule-extraction",
+        "trigger": "A component requirement combines mode-qualified threshold activation, an interior reset band, and language such as 'hold' or 'retain' the command within hysteresis bands.",
+        "principle": "Preserve mode guards, exact interval boundaries, and command history together when translating a hysteresis requirement across architecture, contract, implementation, proof, tests, and repair.",
+        "semantic_choice": "Interpret 'below' and 'above' as strict comparisons, 'hold' as equality to the previously emitted command, and the reset band as inclusive at its stated endpoints. Each mode-qualified obligation applies only in that mode; normal threshold behavior must not override initialization or failure behavior.",
+        "structural_placement": "The output-producing thread owns the command and its history. In the observed example this is Manage_Alarm_i, whose GUMBO block owns alarm_control and declares lastCmd. Manage_Alarm_Process_i and Monitor_Temperature_i route existing ports; interface validation and monitor-mode production remain with their existing owners.",
+        "repair_gate": "Proposed: accept a repair only after showing that it preserves every original case implication, initialization, history semantics, interval endpoints, mode behavior, and source interface. A missing state initialization/update or incompatible numeric encoding must be resolved explicitly before applying the pattern. Do not weaken guards, add a sensor-validity guard, or alter mode behavior merely to satisfy an implementation or proof.",
+        "prerequisites": [
+          "The target has explicitly corresponding mode-gated activation, hold, and reset requirements; resemblance to a generic range controller is insufficient.",
+          "Existing port types, enum literals, connections, ownership, dispatch settings, and contract obligations are available as the baseline.",
+          "Temperature encoding, precision, units, and arithmetic semantics are established; all threshold computations are representable.",
+          "The threshold provider has a documented obligation ensuring L <= U. Any stronger range-width requirement must be justified separately.",
+          "The target supplies or can internally realize a previous-command state initialized consistently with the initial command, without changing interfaces."
+        ],
+        "exclusions": [
+          "Stateless range checks or requirements that switch off throughout the closed interval [L,U].",
+          "Timeouts, debounce, trend detection, or continuous-time response guarantees.",
+          "Inferring sensor-invalid behavior absent from the alarm cases.",
+          "Inferring a physical buzzer, light, or other operator-interface design.",
+          "Applying the pattern to the mode-manager state machine or failure detector without corresponding hysteresis requirements."
+        ],
+        "parameters": [
+          {
+            "name": "m, x, L, U",
+            "role": "Current mode, sampled temperature, lower bound, and upper bound",
+            "constraints": "Bind to existing inputs and their numeric representation; retain the source mode enum and L <= U."
+          },
+          {
+            "name": "h",
+            "role": "Hysteresis offset",
+            "constraints": "Positive and representable in the same numeric scale as x, L, and U. The example uses 1 [s32]; this syntax alone does not establish a physical temperature unit."
+          },
+          {
+            "name": "y, p",
+            "role": "Emitted command and previous emitted command",
+            "constraints": "Use the existing command type. In the example On is encoded by On_Off.Onn and Off by On_Off.Off; p is internal history."
+          }
+        ],
+        "dependencies": [],
+        "target_compatibility": [
+          "reviewed-learning-plan"
+        ],
+        "preserved_obligations": [
+          "Preserve all existing source interfaces, including names, directions, types, enum encodings, and connections; retain existing scheduling declarations.",
+          "Preserve initial Off, INIT-to-Off, FAILED-to-On, strict out-of-range activation, both hysteresis hold cases, and inclusive reset behavior.",
+          "Implementation obligation, proposed: initialize p to Off; on each dispatch compute y using the pre-dispatch p and current inputs, emit y, and update p to y for the next dispatch.",
+          "Proof obligation, proposed: establish initialization, preservation of the history invariant, and refinement of every applicable case. Check case coverage and overlapping-case consistency under the documented numeric and range assumptions.",
+          "Testing obligation, proposed: exercise every mode, activation below L and above U, all four endpoints L, L+h, U-h, U, and reachable hold cases with both previous command values. Include sequences entering a hold band from activation and reset regions.",
+          "Testing obligation, proposed: exercise narrow ordered ranges where hold bands overlap or the reset band is empty; use the conjunction of applicable case implications as the oracle.",
+          "Deployment obligation, proposed: preserve the existing component wiring and dispatch configuration and check that internal history persists across dispatches and resets consistently with initialization.",
+          "Repair obligation, proposed: rerun affected proof and behavioral checks after changes to comparisons, arithmetic, mode mapping, state updates, or generated implementation, without discarding unrelated baseline obligations."
+        ],
+        "counterexample": {
+          "scenario": "In NORMAL mode, let L=10, U=20, h=1 and x=10 in a compatible numeric encoding. Compare executions whose previous commands are On and Off.",
+          "expected_difference": "The scoped rule holds On in the first execution and Off in the second. A superficially similar requirement saying 'turn off whenever L <= x <= U' produces Off in both and must not receive this rule.",
+          "source_or_test_reference": null
+        },
+        "validation_gate_ids": [],
+        "evidence_references": [],
+        "confidence_forecast_reference": null,
+        "approval_reference": null,
+        "notes": "Observed: Manage_Alarm_i declares lastCmd and the initialization and mode/interval cases described here; its supplied contract does not explicitly initialize or update lastCmd. The context discusses documenting environmental types, ranges, precision, units, ownership, and requirement traceability. Proposed: operational history handling and implementation/proof/testing/deployment/repair obligations are inferred requirements for applying this rule, not observed implementation results. No validation implementation or held-out component is supplied. Source references and hashes are left for the trusted controller.",
+        "source_english_patterns": [
+          "If mode NORMAL and current temperature is below alarm range then alarm control is On",
+          "If mode NORMAL and current temperature is inside the lower hysteresis band then hold alarm control",
+          "If mode NORMAL and current temperature is inside the reset band then alarm control is Off"
+        ],
+        "positive_paraphrases": [
+          "During normal operation, activate outside the limits, retain the preceding command near either limit, and deactivate within the inclusive inner band."
+        ],
+        "misleading_near_matches": [
+          "Turn the alarm off whenever temperature is within the alarm range.",
+          "Hold the alarm on for one second after crossing the threshold.",
+          "Enable hysteresis only when the temperature status is Valid."
+        ],
+        "supported_operations": [
+          "complete-system",
+          "extend-system",
+          "repair-system",
+          "verify-only"
+        ],
+        "stack_layers": [
+          "language",
+          "architecture",
+          "gumbo",
+          "implementation",
+          "proof",
+          "testing",
+          "deployment",
+          "repair"
+        ],
+        "semantic_roles": {
+          "actor": "The command-producing alarm thread; upstream components provide thresholds and mode.",
+          "condition": "Current mode and sampled temperature's exact membership in the activation, hold, or reset intervals.",
+          "effect": "Emit On, emit Off, or preserve the previous emitted command.",
+          "modality": "Required conditional guarantees for each applicable dispatch.",
+          "quantification": "Every dispatch satisfying a guard; every reachable previous command.",
+          "temporal_scope": "Initialization and discrete compute dispatches, with history from the preceding dispatch; no continuous-time latency claim.",
+          "state_dependency": "Hold cases depend on pre-dispatch history; history updates after command computation.",
+          "units_and_boundaries": "Shared documented temperature scale and representable arithmetic; strict outer comparisons, closed outer hold endpoints, and inclusive reset endpoints."
+        },
+        "formal_output_pattern": "Abstract mathematical pattern, not executable GUMBO: initialize y=Off and p=Off. For every dispatch t: m=INIT => y=Off; m=FAILED => y=On; (m=NORMAL and (x<L or x>U)) => y=On; (m=NORMAL and ((L<=x and x<L+h) or (U-h<x and x<=U))) => y=p; (m=NORMAL and L+h<=x and x<=U-h) => y=Off. After emitting y, set p_next=y. Interpret all implications conjunctively; map On to the existing source literal Onn.",
+        "formal_pattern_status": "ABSTRACT_NOT_VALIDATED",
+        "allowed_edit_scope": [
+          "The owning thread's corresponding contract clauses and internal history implementation.",
+          "Associated requirement traces, assumption documentation, proof obligations, and behavioral checks."
+        ],
+        "required_baseline": [
+          "Existing interfaces, architecture connections, scheduling declarations, initialization guarantees, and compute cases.",
+          "Documented numeric representation and upstream assumption ownership.",
+          "Existing implementation and verification artifacts if present; none are supplied here."
+        ],
+        "diagnostic_signature": null,
+        "related_rule_ids": []
+      },
+      "confidence": {
+        "score": 0.78,
+        "rationale": "Before development results, my model-belief confidence is 0.78 conditional on the stated prerequisites. The supplied alarm cases directly support the scoped semantics, but the held-out component, numeric definitions, and executable history handling are unavailable. This is a subjective forecast, not an empirical probability or a validation claim."
+      }
+    },
+    "warnings": [
+      "Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."
+    ],
+    "reason": null,
+    "scope": "Metered response only; no truth, validation or acceptance claim"
+  }
+}

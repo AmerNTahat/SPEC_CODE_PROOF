@@ -1,0 +1,303 @@
+{
+  "plan_id": "2849a2cebf7258e1bf081dba484e97177979ec9cff7fb352f75b6c4dc8c77977",
+  "manifest_id": "5662b48d2070163782b620e8c7891d89262b8e83202dcf2115f2ee4b0642313a",
+  "batch_index": 4,
+  "batch_count": 12,
+  "model_call_id": "74ba4ef38956b0d79480adc009812803a312cc991ede85f7b5d6a22c99b8a68e",
+  "candidate_id": "67899bb3d0a26969a7455df9c4e621a1e9bf8bb9a12b99b766c01290a2bd31e6",
+  "status": "DRAFT_PENDING_DEVELOPMENT_VALIDATION",
+  "scope": "Actual model proposal; no rule-transfer validation or publication claim",
+  "id": "d22e5c9515fa67db6e050333c0e28a69940445166382a957c6839125912e8efb",
+  "candidate": {
+    "record": {
+      "$schema": "",
+      "schema_version": "2.0",
+      "record_type": "rule",
+      "id": "mode-guarded-hysteresis-owned-output",
+      "revision": "0",
+      "state": "DRAFT",
+      "basis": "model_inferred",
+      "assessment_timing": "before_action",
+      "source_references": [
+        "d7ef18732a5def5da9422e3e47db924dd4ae4c9b806fcc86f11c932b377db935",
+        "8539757b211ec65ebcf5df73b8125fe82011a6066fd3bcba864328af992b4bf1"
+      ],
+      "source_artifact_hashes": [
+        "43664d0fe5904aed949d4c12e824c905d7bc1b4e89efa0409038c1b6f52ff605",
+        "b4949561cb04d46f718a16e2cc1486c0bd5a26c15778e3567c464466c24731df"
+      ],
+      "source_episode": "74ba4ef38956b0d79480adc009812803a312cc991ede85f7b5d6a22c99b8a68e",
+      "available_context_manifest": "5662b48d2070163782b620e8c7891d89262b8e83202dcf2115f2ee4b0642313a",
+      "model_configuration": "7e31988cc8d9b89ae79c126a58e57c1f5babd2bc70e3e301ffe8cee77e0969d1",
+      "prompt_version": "1",
+      "trigger": "A requirement assigns a command according to operating mode and numerical range, and explicitly says to hold the command within hysteresis bands.",
+      "principle": "Represent mode-guarded hysteresis as a stateful output relation owned by the function producing the command, preserving exact boundaries, initialization, retained-command semantics, interfaces, and applicable system obligations throughout implementation and verification.",
+      "semantic_choice": "Interpret 'below' and 'above' as strict comparisons, explicit band endpoints with their stated inclusivity, and 'hold' as equality to the previously emitted command. Mode conditions guard the numerical cases. Do not interpret a hold band as an unconditional Off region.",
+      "structural_placement": "Place the behavioral contract and retained-command state in the command-producing thread, corresponding to Manage_Alarm_i in the example. Keep process and system ports and forwarding connections intact. Mode production remains with the mode manager; interface validation remains with the interface manager. System response latency and functional independence remain composition-level obligations.",
+      "repair_gate": "Before accepting a proposed repair, require review of interface preservation, exact guards, initialization and state updates, branch coverage and consistency, sequence tests, and affected composition obligations. Missing timing semantics, contradictory source requirements, or unsupported environmental assumptions must remain explicit unresolved issues rather than being hidden by weakened guards or invented defaults. No such checks have been performed here.",
+      "prerequisites": [
+        "The target explicitly requires hysteresis with retention of a previous command and identifies the output-producing owner.",
+        "Modes, command values, numerical representation, range endpoints, and initialization behavior can be mapped to existing target declarations.",
+        "The allowed input domain and arithmetic behavior are documented sufficiently to assess guard coverage and consistency without silently imposing new environmental restrictions.",
+        "Previous-output semantics and the dispatch/input-sampling model are defined before implementation or proof."
+      ],
+      "exclusions": [
+        "Memoryless threshold controllers or requirements that explicitly turn the command Off throughout the entire in-range interval.",
+        "Inferring timeout thresholds, numerical tolerances, sensor-validity guards, or recovery transitions absent from the provided target requirements.",
+        "Treating a periodic dispatch declaration as proof of end-to-end response latency or independent failure behavior."
+      ],
+      "parameters": [
+        {
+          "name": "M, X, L, U",
+          "role": "Current mode, sampled measurement, lower endpoint, and upper endpoint.",
+          "constraints": "Bind to existing source types and ports; compare quantities in the same declared representation."
+        },
+        {
+          "name": "h",
+          "role": "Hysteresis offset.",
+          "constraints": "The observed alarm contract uses 1 [s32] in the degrees representation. Other values require explicit target support; arithmetic must preserve intended comparisons."
+        },
+        {
+          "name": "C, P",
+          "role": "Current output command and previous emitted command.",
+          "constraints": "Use the existing command enumeration, including the source spelling Onn. Initialize retained state consistently with the initial output and update it after each emitted command."
+        }
+      ],
+      "dependencies": [
+        "Existing mode producer and its transition requirements.",
+        "Existing range-validation producer and connections.",
+        "Declared numeric semantics and environmental input-domain assumptions.",
+        "System timing and independence requirements where applicable."
+      ],
+      "target_compatibility": [
+        "reviewed-learning-plan"
+      ],
+      "preserved_obligations": [
+        "Preserve every existing source interface, port type, connection, scheduling declaration, and ownership boundary.",
+        "Preserve initial alarm Off, INIT alarm Off, FAILED alarm Onn, NORMAL strict out-of-range activation, inclusive reset-band endpoints, and state retention within the specified hysteresis bands.",
+        "Implementation obligation: read an appropriate dispatch snapshot, apply mode-guarded behavior, emit the command, and retain that emitted value for the next dispatch; initialize retained state consistently with Off.",
+        "Proof obligation: establish initialization, the retained-state invariant, each guarded output relation, and complete and consistent behavior over the documented admissible domain; analyze overlapping cases rather than hiding conflicts through branch order.",
+        "Testing obligation: exercise each mode, both previous command values, representable values at and adjacent to every threshold, mode changes, changing bounds, and arithmetic limits.",
+        "Preserve the context's alarm response within 5 seconds for out-of-range temperature or invalid current-temperature status as a separate end-to-end obligation. Analyze sampling, communication, mode transitions, scheduling, and actuation; local alarm cases alone do not establish it.",
+        "Preserve independent Monitor and Regulator failure behavior and the stated allowed failure probability below 10^-5 per hour as system obligations; this behavioral rule does not establish either.",
+        "Repair obligation: address faults at their producing owner, preserve traceability and existing guarantees, and revisit affected implementation, proof, sequence testing, and system composition evidence."
+      ],
+      "counterexample": {
+        "scenario": "In NORMAL mode, the previous alarm command is Onn after an out-of-range reading. The next reading equals the lower alarm endpoint, with U >= L + 2h and h = 1 in the source representation.",
+        "expected_difference": "The source hysteresis relation requires retaining Onn at X = L. A memoryless implementation that sets Off whenever L <= X <= U violates this obligation. With previous command Off at the same reading, retaining Off is required, demonstrating dependence on history.",
+        "source_or_test_reference": null
+      },
+      "validation_gate_ids": [],
+      "evidence_references": [],
+      "confidence_forecast_reference": "99125ad8670fbdd73ffc181ee307d6b51f367d223ccc29ffe246fc5496dcdf73",
+      "approval_reference": null,
+      "notes": "Observed facts: Manage_Alarm_i declares lastCmd and guarded initialization/compute guarantees, but the supplied passage does not show lastCmd initialization or updates, executable implementation, proof, or tests. Its period is 1000 ms. The supplied context locates requirements at the producing function and calls for completeness, consistency, explicit latency, and independent Monitor behavior. Proposed obligations: the implementation, state invariant, proof, tests, and repair checks above are inferred work requirements, not observed results. The supplied mode contract also mentions 'before timeout' without encoding a timeout guard; this gap must remain visible when assessing end-to-end behavior. Source references and hashes await trusted-controller assignment. No validation implementation was supplied.",
+      "source_english_patterns": [
+        "If mode NORMAL and current temperature is below alarm range then alarm control is On",
+        "If mode NORMAL and current temperature is inside the lower hysteresis band then hold alarm control",
+        "If mode NORMAL and current temperature is inside the reset band then alarm control is Off"
+      ],
+      "positive_paraphrases": [
+        "During normal operation, retain the previous alarm command within the specified boundary bands.",
+        "Reset the alarm only when the measurement reaches the specified inner interval; activate it outside the outer interval."
+      ],
+      "misleading_near_matches": [
+        "Turn the alarm Off whenever temperature lies anywhere inside the alarm range.",
+        "Hold the temperature within the range.",
+        "Ignore the previous command and activate the alarm only while the reading is outside the range."
+      ],
+      "supported_operations": [
+        "complete-system",
+        "extend-system",
+        "repair-system",
+        "verify-only"
+      ],
+      "stack_layers": [
+        "language",
+        "architecture",
+        "gumbo",
+        "implementation",
+        "proof",
+        "testing",
+        "repair"
+      ],
+      "semantic_roles": {
+        "actor": "The thread owning the alarm command.",
+        "condition": "Operating mode and exact measurement-to-bound comparisons.",
+        "effect": "Emit Onn, emit Off, or retain the previous command.",
+        "modality": "Required guarded output behavior.",
+        "quantification": "Every dispatch and admissible input/history combination.",
+        "temporal_scope": "Initialization and successive compute dispatches; system latency is a separate composition obligation.",
+        "state_dependency": "Hold cases depend on the previously emitted output, including outputs emitted in other modes.",
+        "units_and_boundaries": "Preserve source numerical representation and strict/inclusive endpoints; 1 [s32] is the observed offset, not a time duration."
+      },
+      "formal_output_pattern": "Abstract relation, not executable GUMBO: initialize C = Off and P = Off. At dispatch k: M=INIT => C_k=Off; M=FAILED => C_k=Onn; M=NORMAL and (X<L or X>U) => C_k=Onn; M=NORMAL and ((L<=X and X<L+h) or (U-h<X and X<=U)) => C_k=P_k; M=NORMAL and L+h<=X and X<=U-h => C_k=Off. After emission, P_(k+1)=C_k. Establish coverage and agreement of simultaneously enabled clauses over the documented admissible domain. Bind these clauses to traced contracts at the producing thread.",
+      "formal_pattern_status": "ABSTRACT_NOT_VALIDATED",
+      "allowed_edit_scope": [
+        "Producing thread's behavioral contract, internal retained state, and implementation.",
+        "Associated proof obligations, tests, traceability, and composition analysis.",
+        "No changes to existing source interfaces."
+      ],
+      "required_baseline": [
+        "Existing interfaces, connections, scheduling, and behavioral guarantees.",
+        "Target requirements and documented environmental assumptions.",
+        "Explicit record of missing implementation and validation material."
+      ],
+      "diagnostic_signature": null,
+      "related_rule_ids": []
+    },
+    "status": "DRAFT_PENDING_VALIDATION",
+    "id": "67899bb3d0a26969a7455df9c4e621a1e9bf8bb9a12b99b766c01290a2bd31e6"
+  },
+  "model_result": {
+    "usage": {
+      "input_tokens": 20001,
+      "output_tokens": 2238,
+      "cached_input_tokens": 0
+    },
+    "usage_complete": true,
+    "status": "RESPONSE_RECEIVED",
+    "response": {
+      "rule": {
+        "$schema": "",
+        "schema_version": "2.0",
+        "record_type": "rule",
+        "id": "mode-guarded-hysteresis-owned-output",
+        "revision": "0",
+        "state": "DRAFT",
+        "basis": "model_inferred",
+        "assessment_timing": "before_action",
+        "source_references": [],
+        "source_artifact_hashes": [],
+        "source_episode": null,
+        "available_context_manifest": null,
+        "model_configuration": null,
+        "prompt_version": "1",
+        "trigger": "A requirement assigns a command according to operating mode and numerical range, and explicitly says to hold the command within hysteresis bands.",
+        "principle": "Represent mode-guarded hysteresis as a stateful output relation owned by the function producing the command, preserving exact boundaries, initialization, retained-command semantics, interfaces, and applicable system obligations throughout implementation and verification.",
+        "semantic_choice": "Interpret 'below' and 'above' as strict comparisons, explicit band endpoints with their stated inclusivity, and 'hold' as equality to the previously emitted command. Mode conditions guard the numerical cases. Do not interpret a hold band as an unconditional Off region.",
+        "structural_placement": "Place the behavioral contract and retained-command state in the command-producing thread, corresponding to Manage_Alarm_i in the example. Keep process and system ports and forwarding connections intact. Mode production remains with the mode manager; interface validation remains with the interface manager. System response latency and functional independence remain composition-level obligations.",
+        "repair_gate": "Before accepting a proposed repair, require review of interface preservation, exact guards, initialization and state updates, branch coverage and consistency, sequence tests, and affected composition obligations. Missing timing semantics, contradictory source requirements, or unsupported environmental assumptions must remain explicit unresolved issues rather than being hidden by weakened guards or invented defaults. No such checks have been performed here.",
+        "prerequisites": [
+          "The target explicitly requires hysteresis with retention of a previous command and identifies the output-producing owner.",
+          "Modes, command values, numerical representation, range endpoints, and initialization behavior can be mapped to existing target declarations.",
+          "The allowed input domain and arithmetic behavior are documented sufficiently to assess guard coverage and consistency without silently imposing new environmental restrictions.",
+          "Previous-output semantics and the dispatch/input-sampling model are defined before implementation or proof."
+        ],
+        "exclusions": [
+          "Memoryless threshold controllers or requirements that explicitly turn the command Off throughout the entire in-range interval.",
+          "Inferring timeout thresholds, numerical tolerances, sensor-validity guards, or recovery transitions absent from the provided target requirements.",
+          "Treating a periodic dispatch declaration as proof of end-to-end response latency or independent failure behavior."
+        ],
+        "parameters": [
+          {
+            "name": "M, X, L, U",
+            "role": "Current mode, sampled measurement, lower endpoint, and upper endpoint.",
+            "constraints": "Bind to existing source types and ports; compare quantities in the same declared representation."
+          },
+          {
+            "name": "h",
+            "role": "Hysteresis offset.",
+            "constraints": "The observed alarm contract uses 1 [s32] in the degrees representation. Other values require explicit target support; arithmetic must preserve intended comparisons."
+          },
+          {
+            "name": "C, P",
+            "role": "Current output command and previous emitted command.",
+            "constraints": "Use the existing command enumeration, including the source spelling Onn. Initialize retained state consistently with the initial output and update it after each emitted command."
+          }
+        ],
+        "dependencies": [
+          "Existing mode producer and its transition requirements.",
+          "Existing range-validation producer and connections.",
+          "Declared numeric semantics and environmental input-domain assumptions.",
+          "System timing and independence requirements where applicable."
+        ],
+        "target_compatibility": [
+          "reviewed-learning-plan"
+        ],
+        "preserved_obligations": [
+          "Preserve every existing source interface, port type, connection, scheduling declaration, and ownership boundary.",
+          "Preserve initial alarm Off, INIT alarm Off, FAILED alarm Onn, NORMAL strict out-of-range activation, inclusive reset-band endpoints, and state retention within the specified hysteresis bands.",
+          "Implementation obligation: read an appropriate dispatch snapshot, apply mode-guarded behavior, emit the command, and retain that emitted value for the next dispatch; initialize retained state consistently with Off.",
+          "Proof obligation: establish initialization, the retained-state invariant, each guarded output relation, and complete and consistent behavior over the documented admissible domain; analyze overlapping cases rather than hiding conflicts through branch order.",
+          "Testing obligation: exercise each mode, both previous command values, representable values at and adjacent to every threshold, mode changes, changing bounds, and arithmetic limits.",
+          "Preserve the context's alarm response within 5 seconds for out-of-range temperature or invalid current-temperature status as a separate end-to-end obligation. Analyze sampling, communication, mode transitions, scheduling, and actuation; local alarm cases alone do not establish it.",
+          "Preserve independent Monitor and Regulator failure behavior and the stated allowed failure probability below 10^-5 per hour as system obligations; this behavioral rule does not establish either.",
+          "Repair obligation: address faults at their producing owner, preserve traceability and existing guarantees, and revisit affected implementation, proof, sequence testing, and system composition evidence."
+        ],
+        "counterexample": {
+          "scenario": "In NORMAL mode, the previous alarm command is Onn after an out-of-range reading. The next reading equals the lower alarm endpoint, with U >= L + 2h and h = 1 in the source representation.",
+          "expected_difference": "The source hysteresis relation requires retaining Onn at X = L. A memoryless implementation that sets Off whenever L <= X <= U violates this obligation. With previous command Off at the same reading, retaining Off is required, demonstrating dependence on history.",
+          "source_or_test_reference": null
+        },
+        "validation_gate_ids": [],
+        "evidence_references": [],
+        "confidence_forecast_reference": null,
+        "approval_reference": null,
+        "notes": "Observed facts: Manage_Alarm_i declares lastCmd and guarded initialization/compute guarantees, but the supplied passage does not show lastCmd initialization or updates, executable implementation, proof, or tests. Its period is 1000 ms. The supplied context locates requirements at the producing function and calls for completeness, consistency, explicit latency, and independent Monitor behavior. Proposed obligations: the implementation, state invariant, proof, tests, and repair checks above are inferred work requirements, not observed results. The supplied mode contract also mentions 'before timeout' without encoding a timeout guard; this gap must remain visible when assessing end-to-end behavior. Source references and hashes await trusted-controller assignment. No validation implementation was supplied.",
+        "source_english_patterns": [
+          "If mode NORMAL and current temperature is below alarm range then alarm control is On",
+          "If mode NORMAL and current temperature is inside the lower hysteresis band then hold alarm control",
+          "If mode NORMAL and current temperature is inside the reset band then alarm control is Off"
+        ],
+        "positive_paraphrases": [
+          "During normal operation, retain the previous alarm command within the specified boundary bands.",
+          "Reset the alarm only when the measurement reaches the specified inner interval; activate it outside the outer interval."
+        ],
+        "misleading_near_matches": [
+          "Turn the alarm Off whenever temperature lies anywhere inside the alarm range.",
+          "Hold the temperature within the range.",
+          "Ignore the previous command and activate the alarm only while the reading is outside the range."
+        ],
+        "supported_operations": [
+          "complete-system",
+          "extend-system",
+          "repair-system",
+          "verify-only"
+        ],
+        "stack_layers": [
+          "language",
+          "architecture",
+          "gumbo",
+          "implementation",
+          "proof",
+          "testing",
+          "repair"
+        ],
+        "semantic_roles": {
+          "actor": "The thread owning the alarm command.",
+          "condition": "Operating mode and exact measurement-to-bound comparisons.",
+          "effect": "Emit Onn, emit Off, or retain the previous command.",
+          "modality": "Required guarded output behavior.",
+          "quantification": "Every dispatch and admissible input/history combination.",
+          "temporal_scope": "Initialization and successive compute dispatches; system latency is a separate composition obligation.",
+          "state_dependency": "Hold cases depend on the previously emitted output, including outputs emitted in other modes.",
+          "units_and_boundaries": "Preserve source numerical representation and strict/inclusive endpoints; 1 [s32] is the observed offset, not a time duration."
+        },
+        "formal_output_pattern": "Abstract relation, not executable GUMBO: initialize C = Off and P = Off. At dispatch k: M=INIT => C_k=Off; M=FAILED => C_k=Onn; M=NORMAL and (X<L or X>U) => C_k=Onn; M=NORMAL and ((L<=X and X<L+h) or (U-h<X and X<=U)) => C_k=P_k; M=NORMAL and L+h<=X and X<=U-h => C_k=Off. After emission, P_(k+1)=C_k. Establish coverage and agreement of simultaneously enabled clauses over the documented admissible domain. Bind these clauses to traced contracts at the producing thread.",
+        "formal_pattern_status": "ABSTRACT_NOT_VALIDATED",
+        "allowed_edit_scope": [
+          "Producing thread's behavioral contract, internal retained state, and implementation.",
+          "Associated proof obligations, tests, traceability, and composition analysis.",
+          "No changes to existing source interfaces."
+        ],
+        "required_baseline": [
+          "Existing interfaces, connections, scheduling, and behavioral guarantees.",
+          "Target requirements and documented environmental assumptions.",
+          "Explicit record of missing implementation and validation material."
+        ],
+        "diagnostic_signature": null,
+        "related_rule_ids": []
+      },
+      "confidence": {
+        "score": 0.78,
+        "rationale": "Before any development result, my subjective confidence is 0.78 that this scoped rule preserves the stated obligations on a held-out component satisfying its prerequisites. The supplied alarm contract directly supports the guarded hysteresis relation and ownership. Unseen target semantics, absent state-update implementation, and unresolved composition timing limit confidence. This is a model-belief forecast, not an empirical probability or validation result."
+      }
+    },
+    "warnings": [
+      "Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."
+    ],
+    "reason": null,
+    "scope": "Metered response only; no truth, validation or acceptance claim"
+  }
+}

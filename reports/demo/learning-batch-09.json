@@ -1,0 +1,325 @@
+{
+  "plan_id": "2849a2cebf7258e1bf081dba484e97177979ec9cff7fb352f75b6c4dc8c77977",
+  "manifest_id": "46fda993483b8271334a2344215839d55bee15fa3970618ad413cfd6ada0a7f2",
+  "batch_index": 9,
+  "batch_count": 12,
+  "model_call_id": "0e83c1fe0e73c7fd97f6acdde29e5060d4a268a38253e7ba8580204a84cc1404",
+  "candidate_id": "6bfb6864c501b63ddfa81a5f7131f9612af5f0d71a84dc7a74fc6399dee21c1f",
+  "status": "DRAFT_PENDING_DEVELOPMENT_VALIDATION",
+  "scope": "Actual model proposal; no rule-transfer validation or publication claim",
+  "id": "ba84c70a8148800ff5bd90a0ea541bd75a115db941a08640b9555ee305dd9ee1",
+  "candidate": {
+    "record": {
+      "$schema": "",
+      "schema_version": "2.0",
+      "record_type": "rule",
+      "id": "conditional-command-retention",
+      "revision": "1",
+      "state": "DRAFT",
+      "basis": "model_inferred",
+      "assessment_timing": "before_action",
+      "source_references": [
+        "d7ef18732a5def5da9422e3e47db924dd4ae4c9b806fcc86f11c932b377db935",
+        "8539757b211ec65ebcf5df73b8125fe82011a6066fd3bcba864328af992b4bf1"
+      ],
+      "source_artifact_hashes": [
+        "43664d0fe5904aed949d4c12e824c905d7bc1b4e89efa0409038c1b6f52ff605",
+        "b4949561cb04d46f718a16e2cc1486c0bd5a26c15778e3567c464466c24731df"
+      ],
+      "source_episode": "0e83c1fe0e73c7fd97f6acdde29e5060d4a268a38253e7ba8580204a84cc1404",
+      "available_context_manifest": "46fda993483b8271334a2344215839d55bee15fa3970618ad413cfd6ada0a7f2",
+      "model_configuration": "7e31988cc8d9b89ae79c126a58e57c1f5babd2bc70e3e301ffe8cee77e0969d1",
+      "prompt_version": "1",
+      "trigger": "A requirement conditionally says that a controlled command 'shall not be changed', 'holds', or 'remains unchanged', and the owning component evaluates that condition across successive dispatches.",
+      "principle": "Translate conditional command retention into equality with the previously committed command, preserving the exact mode guard, interval boundaries, initialization, and surrounding command-setting requirements across contracts, implementation, proof, tests, and repairs.",
+      "semantic_choice": "Treat 'shall not be changed' as a history-dependent obligation under its guard. It neither selects a constant command nor makes the output unspecified. Interpret conjunctions and disjunctions so that the stated mode guard applies to every alternative retention interval.",
+      "structural_placement": "Place the retention contract and private command history in the thread that owns the controlled output: Manage_Alarm_i for the supplied alarm example. Preserve its process and system forwarding connections, port names, directions, types, dispatch settings, and scheduling domain. Do not move command ownership into the interface or mode manager.",
+      "repair_gate": "Before accepting a proposed repair, require consistent source-to-contract boundaries, established history initialization and update semantics, preservation of all sibling command cases, and checks of functional and timing obligations. Block application where numeric representation or source discrepancies remain unresolved; do not weaken guards, delete cases, or change interfaces to obtain a passing result.",
+      "prerequisites": [
+        "The component has an identified output owner and a defined sequence of committed command values.",
+        "The source specifies a retention guard and supplies or permits an established initial command.",
+        "Numeric types, units, representable input values, and interval ordering are known.",
+        "Any discrepancy between prose and an existing contract is resolved or its equivalence is established over the actual input domain.",
+        "The rule can be applied through private state, contracts, and implementation without changing existing source interfaces."
+      ],
+      "exclusions": [
+        "Outputs explicitly described as UNSPECIFIED.",
+        "Unconditional constant assignments or mode transitions without a command-retention requirement.",
+        "Inference of platform-specific failure detection behavior.",
+        "Automatic transfer of alarm thresholds, failure commands, or latency limits to another component."
+      ],
+      "parameters": [
+        {
+          "name": "command",
+          "role": "Owned controlled output",
+          "constraints": "Retain its existing type, port, encoding, and single-owner architecture."
+        },
+        {
+          "name": "history",
+          "role": "Private previous-command state",
+          "constraints": "Represents the command committed before the current computation; initialize consistently and update after every committed command, including commands outside the retention guard."
+        },
+        {
+          "name": "retention_guard",
+          "role": "Mode and interval predicate",
+          "constraints": "Preserve every Boolean operator and strict or inclusive endpoint from the resolved source semantics."
+        },
+        {
+          "name": "threshold_representation",
+          "role": "Mapping between physical thresholds and implementation values",
+          "constraints": "Establish units, quantization, and overflow safety. Do not assume that 0.5 degrees Fahrenheit and 1 [s32] are interchangeable."
+        },
+        {
+          "name": "response_bound",
+          "role": "Component-specific end-to-end response obligation",
+          "constraints": "Preserve strict bounds: alarm latency <5 seconds; heat-source latency <6 seconds when applying the pattern to that supplied context."
+        }
+      ],
+      "dependencies": [
+        "Existing initialization and non-retention command requirements.",
+        "Defined dispatch, input sampling, output commitment, and private-state update semantics.",
+        "Resolved numeric representation and admissible interval domain."
+      ],
+      "target_compatibility": [
+        "reviewed-learning-plan"
+      ],
+      "preserved_obligations": [
+        "Language: retain the modality, mode scope, Boolean grouping, units, and exact open or closed interval endpoints.",
+        "Architecture: preserve all existing source interfaces and connections, output ownership, periods, and scheduling domains.",
+        "GUMBO: express guarded command equality with private history and keep initialization and sibling compute cases.",
+        "Implementation: read the old history before computing the command; emit the required command and then record that committed value for the next computation.",
+        "Proof: establish initialization consistency and inductively show that history equals the previous committed command; establish that all simultaneously enabled cases are compatible over the admissible domain.",
+        "Testing: propose sequence tests with both possible prior commands, interval endpoints and adjacent representable values, entries and exits from retention regions, mode changes, and restart behavior.",
+        "Timing: assess the applicable end-to-end latency separately; a periodic dispatch declaration alone does not establish it.",
+        "Repair: localize changes to the owner and associated verification artifacts, retain existing obligations, and investigate semantic mismatches rather than weakening the specification."
+      ],
+      "counterexample": {
+        "scenario": "In NORMAL mode, the previous alarm command is On and the current temperature equals the lower alarm limit. Compare this with the same current inputs after a previous Off command.",
+        "expected_difference": "The first execution must retain On and the second must retain Off. An implementation that turns the alarm Off whenever temperature lies within the overall alarm range produces the same output in both executions and violates retention.",
+        "source_or_test_reference": null
+      },
+      "validation_gate_ids": [],
+      "evidence_references": [],
+      "confidence_forecast_reference": "7a6ab12a9ae35e166b01aa3200d688056736614e28b0fc4c404c47a34af877c8",
+      "approval_reference": null,
+      "notes": "Observed facts: Manage_Alarm_i declares lastCmd, initializes alarm_control to Off, and equates alarm_control with lastCmd in two NORMAL-mode hysteresis bands. The excerpt supplies no history initialization or update implementation. Its bands use 1 [s32], while the supplied FAA prose uses 0.5 degrees Fahrenheit. Integer-valued inputs might make those predicates equivalent under suitable representation assumptions, but the necessary type definitions and validation are absent. The supplied heat-control prose independently uses command retention over a closed desired interval, with different non-retention commands. Proposed obligations: history consistency, representation checks, implementation sequencing, proof, tests, timing assessment, and repair gates above are inferred requirements for applying this pattern. No validation implementation, execution results, or approval is supplied. Controller-assigned source references and hashes are intentionally empty.",
+      "source_english_patterns": [
+        "If [mode and interval condition], the value of [command] shall not be changed.",
+        "If mode NORMAL and current temperature is inside [hysteresis band] then hold alarm control."
+      ],
+      "positive_paraphrases": [
+        "While the retention condition holds, keep the command at its previous committed value.",
+        "Within the specified band in NORMAL mode, preserve whichever command was already active."
+      ],
+      "misleading_near_matches": [
+        "If the interface failure is True, the range is UNSPECIFIED.",
+        "If mode is INIT, set the command to Off.",
+        "If mode is FAILED, remain FAILED until reboot."
+      ],
+      "supported_operations": [
+        "complete-system",
+        "extend-system",
+        "repair-system",
+        "verify-only"
+      ],
+      "stack_layers": [
+        "language",
+        "architecture",
+        "gumbo",
+        "implementation",
+        "proof",
+        "testing",
+        "deployment",
+        "repair"
+      ],
+      "semantic_roles": {
+        "actor": "Thread owning the controlled command.",
+        "condition": "The resolved mode guard conjoined with the specified retention interval or union of intervals.",
+        "effect": "Current command equals the previous committed command.",
+        "modality": "Mandatory conditional retention.",
+        "quantification": "Every computation whose sampled inputs satisfy the guard.",
+        "temporal_scope": "Across consecutive computations within an execution epoch; restart reestablishes initialization.",
+        "state_dependency": "Depends on the prior command, including a command selected by a different mode or interval.",
+        "units_and_boundaries": "Use physical temperature units with an explicit numeric representation; preserve strict and inclusive comparisons."
+      },
+      "formal_output_pattern": "ABSTRACT: initialize y := y_init and h := y_init. For every computation k, h_k denotes the previously committed y. Require G(mode_k, inputs_k) => y_k = h_k, conjoined with all existing non-retention requirements. After committing y_k, establish h_(k+1) = y_k. Abstract GUMBO placement: owner-thread state h; initialization guarantees for y and h; compute case assume G, guarantee y == h; state-update semantics must separately establish the history invariant. Alarm prose instantiation: G = NORMAL AND ((L <= T AND T < L + delta) OR (U - delta < T AND T <= U)), delta = 0.5 degrees Fahrenheit. Preserve INIT => Off, FAILED => On, NORMAL AND (T < L OR T > U) => On, and NORMAL AND (L + delta <= T AND T <= U - delta) => Off. Resolve representation before translating delta into typed code.",
+      "formal_pattern_status": "ABSTRACT_NOT_VALIDATED",
+      "allowed_edit_scope": [
+        "Owning thread's private history and behavioral contract.",
+        "Owning component's implementation.",
+        "Associated proof, sequence tests, traceability, and timing assessment artifacts."
+      ],
+      "required_baseline": [
+        "Existing ports, types, connections, dispatch settings, and ownership.",
+        "Initialization, retention, and sibling command requirements.",
+        "Numeric-domain assumptions and applicable latency requirements."
+      ],
+      "diagnostic_signature": null,
+      "related_rule_ids": []
+    },
+    "status": "DRAFT_PENDING_VALIDATION",
+    "id": "6bfb6864c501b63ddfa81a5f7131f9612af5f0d71a84dc7a74fc6399dee21c1f"
+  },
+  "model_result": {
+    "usage": {
+      "input_tokens": 20271,
+      "output_tokens": 2254,
+      "cached_input_tokens": 0
+    },
+    "usage_complete": true,
+    "status": "RESPONSE_RECEIVED",
+    "response": {
+      "rule": {
+        "$schema": "",
+        "schema_version": "2.0",
+        "record_type": "rule",
+        "id": "conditional-command-retention",
+        "revision": "1",
+        "state": "DRAFT",
+        "basis": "model_inferred",
+        "assessment_timing": "before_action",
+        "source_references": [],
+        "source_artifact_hashes": [],
+        "source_episode": null,
+        "available_context_manifest": null,
+        "model_configuration": null,
+        "prompt_version": "1",
+        "trigger": "A requirement conditionally says that a controlled command 'shall not be changed', 'holds', or 'remains unchanged', and the owning component evaluates that condition across successive dispatches.",
+        "principle": "Translate conditional command retention into equality with the previously committed command, preserving the exact mode guard, interval boundaries, initialization, and surrounding command-setting requirements across contracts, implementation, proof, tests, and repairs.",
+        "semantic_choice": "Treat 'shall not be changed' as a history-dependent obligation under its guard. It neither selects a constant command nor makes the output unspecified. Interpret conjunctions and disjunctions so that the stated mode guard applies to every alternative retention interval.",
+        "structural_placement": "Place the retention contract and private command history in the thread that owns the controlled output: Manage_Alarm_i for the supplied alarm example. Preserve its process and system forwarding connections, port names, directions, types, dispatch settings, and scheduling domain. Do not move command ownership into the interface or mode manager.",
+        "repair_gate": "Before accepting a proposed repair, require consistent source-to-contract boundaries, established history initialization and update semantics, preservation of all sibling command cases, and checks of functional and timing obligations. Block application where numeric representation or source discrepancies remain unresolved; do not weaken guards, delete cases, or change interfaces to obtain a passing result.",
+        "prerequisites": [
+          "The component has an identified output owner and a defined sequence of committed command values.",
+          "The source specifies a retention guard and supplies or permits an established initial command.",
+          "Numeric types, units, representable input values, and interval ordering are known.",
+          "Any discrepancy between prose and an existing contract is resolved or its equivalence is established over the actual input domain.",
+          "The rule can be applied through private state, contracts, and implementation without changing existing source interfaces."
+        ],
+        "exclusions": [
+          "Outputs explicitly described as UNSPECIFIED.",
+          "Unconditional constant assignments or mode transitions without a command-retention requirement.",
+          "Inference of platform-specific failure detection behavior.",
+          "Automatic transfer of alarm thresholds, failure commands, or latency limits to another component."
+        ],
+        "parameters": [
+          {
+            "name": "command",
+            "role": "Owned controlled output",
+            "constraints": "Retain its existing type, port, encoding, and single-owner architecture."
+          },
+          {
+            "name": "history",
+            "role": "Private previous-command state",
+            "constraints": "Represents the command committed before the current computation; initialize consistently and update after every committed command, including commands outside the retention guard."
+          },
+          {
+            "name": "retention_guard",
+            "role": "Mode and interval predicate",
+            "constraints": "Preserve every Boolean operator and strict or inclusive endpoint from the resolved source semantics."
+          },
+          {
+            "name": "threshold_representation",
+            "role": "Mapping between physical thresholds and implementation values",
+            "constraints": "Establish units, quantization, and overflow safety. Do not assume that 0.5 degrees Fahrenheit and 1 [s32] are interchangeable."
+          },
+          {
+            "name": "response_bound",
+            "role": "Component-specific end-to-end response obligation",
+            "constraints": "Preserve strict bounds: alarm latency <5 seconds; heat-source latency <6 seconds when applying the pattern to that supplied context."
+          }
+        ],
+        "dependencies": [
+          "Existing initialization and non-retention command requirements.",
+          "Defined dispatch, input sampling, output commitment, and private-state update semantics.",
+          "Resolved numeric representation and admissible interval domain."
+        ],
+        "target_compatibility": [
+          "reviewed-learning-plan"
+        ],
+        "preserved_obligations": [
+          "Language: retain the modality, mode scope, Boolean grouping, units, and exact open or closed interval endpoints.",
+          "Architecture: preserve all existing source interfaces and connections, output ownership, periods, and scheduling domains.",
+          "GUMBO: express guarded command equality with private history and keep initialization and sibling compute cases.",
+          "Implementation: read the old history before computing the command; emit the required command and then record that committed value for the next computation.",
+          "Proof: establish initialization consistency and inductively show that history equals the previous committed command; establish that all simultaneously enabled cases are compatible over the admissible domain.",
+          "Testing: propose sequence tests with both possible prior commands, interval endpoints and adjacent representable values, entries and exits from retention regions, mode changes, and restart behavior.",
+          "Timing: assess the applicable end-to-end latency separately; a periodic dispatch declaration alone does not establish it.",
+          "Repair: localize changes to the owner and associated verification artifacts, retain existing obligations, and investigate semantic mismatches rather than weakening the specification."
+        ],
+        "counterexample": {
+          "scenario": "In NORMAL mode, the previous alarm command is On and the current temperature equals the lower alarm limit. Compare this with the same current inputs after a previous Off command.",
+          "expected_difference": "The first execution must retain On and the second must retain Off. An implementation that turns the alarm Off whenever temperature lies within the overall alarm range produces the same output in both executions and violates retention.",
+          "source_or_test_reference": null
+        },
+        "validation_gate_ids": [],
+        "evidence_references": [],
+        "confidence_forecast_reference": null,
+        "approval_reference": null,
+        "notes": "Observed facts: Manage_Alarm_i declares lastCmd, initializes alarm_control to Off, and equates alarm_control with lastCmd in two NORMAL-mode hysteresis bands. The excerpt supplies no history initialization or update implementation. Its bands use 1 [s32], while the supplied FAA prose uses 0.5 degrees Fahrenheit. Integer-valued inputs might make those predicates equivalent under suitable representation assumptions, but the necessary type definitions and validation are absent. The supplied heat-control prose independently uses command retention over a closed desired interval, with different non-retention commands. Proposed obligations: history consistency, representation checks, implementation sequencing, proof, tests, timing assessment, and repair gates above are inferred requirements for applying this pattern. No validation implementation, execution results, or approval is supplied. Controller-assigned source references and hashes are intentionally empty.",
+        "source_english_patterns": [
+          "If [mode and interval condition], the value of [command] shall not be changed.",
+          "If mode NORMAL and current temperature is inside [hysteresis band] then hold alarm control."
+        ],
+        "positive_paraphrases": [
+          "While the retention condition holds, keep the command at its previous committed value.",
+          "Within the specified band in NORMAL mode, preserve whichever command was already active."
+        ],
+        "misleading_near_matches": [
+          "If the interface failure is True, the range is UNSPECIFIED.",
+          "If mode is INIT, set the command to Off.",
+          "If mode is FAILED, remain FAILED until reboot."
+        ],
+        "supported_operations": [
+          "complete-system",
+          "extend-system",
+          "repair-system",
+          "verify-only"
+        ],
+        "stack_layers": [
+          "language",
+          "architecture",
+          "gumbo",
+          "implementation",
+          "proof",
+          "testing",
+          "deployment",
+          "repair"
+        ],
+        "semantic_roles": {
+          "actor": "Thread owning the controlled command.",
+          "condition": "The resolved mode guard conjoined with the specified retention interval or union of intervals.",
+          "effect": "Current command equals the previous committed command.",
+          "modality": "Mandatory conditional retention.",
+          "quantification": "Every computation whose sampled inputs satisfy the guard.",
+          "temporal_scope": "Across consecutive computations within an execution epoch; restart reestablishes initialization.",
+          "state_dependency": "Depends on the prior command, including a command selected by a different mode or interval.",
+          "units_and_boundaries": "Use physical temperature units with an explicit numeric representation; preserve strict and inclusive comparisons."
+        },
+        "formal_output_pattern": "ABSTRACT: initialize y := y_init and h := y_init. For every computation k, h_k denotes the previously committed y. Require G(mode_k, inputs_k) => y_k = h_k, conjoined with all existing non-retention requirements. After committing y_k, establish h_(k+1) = y_k. Abstract GUMBO placement: owner-thread state h; initialization guarantees for y and h; compute case assume G, guarantee y == h; state-update semantics must separately establish the history invariant. Alarm prose instantiation: G = NORMAL AND ((L <= T AND T < L + delta) OR (U - delta < T AND T <= U)), delta = 0.5 degrees Fahrenheit. Preserve INIT => Off, FAILED => On, NORMAL AND (T < L OR T > U) => On, and NORMAL AND (L + delta <= T AND T <= U - delta) => Off. Resolve representation before translating delta into typed code.",
+        "formal_pattern_status": "ABSTRACT_NOT_VALIDATED",
+        "allowed_edit_scope": [
+          "Owning thread's private history and behavioral contract.",
+          "Owning component's implementation.",
+          "Associated proof, sequence tests, traceability, and timing assessment artifacts."
+        ],
+        "required_baseline": [
+          "Existing ports, types, connections, dispatch settings, and ownership.",
+          "Initialization, retention, and sibling command requirements.",
+          "Numeric-domain assumptions and applicable latency requirements."
+        ],
+        "diagnostic_signature": null,
+        "related_rule_ids": []
+      },
+      "confidence": {
+        "score": 0.78,
+        "rationale": "Before seeing any development result, my model-belief confidence is 0.78 that this scoped rule will preserve the stated obligations on the held-out component under its prerequisites. Explicit retention requirements support the pattern, but the held-out component is unspecified, history semantics are not implemented in the supplied excerpt, and numeric representation remains unresolved. This is a subjective forecast, not an empirical probability or validation claim."
+      }
+    },
+    "warnings": [
+      "Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."
+    ],
+    "reason": null,
+    "scope": "Metered response only; no truth, validation or acceptance claim"
+  }
+}

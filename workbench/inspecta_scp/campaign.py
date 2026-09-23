@@ -1,11 +1,29 @@
 """One durable allowance across live trials, retries, forecasts and repairs."""
 import time
 import uuid
+import json
 from .config import PolicyError
 
 
 class Campaign:
     def __init__(self, store):self.store=store
+
+    def control_state(self,campaign_id):
+        row=self.store.db.execute("SELECT payload FROM events WHERE run_id=? AND kind='campaign_control' ORDER BY id DESC LIMIT 1",('campaign:'+campaign_id,)).fetchone()
+        return json.loads(row['payload'])['state'] if row else 'ACTIVE'
+
+    def control(self,campaign_id,action):
+        if action not in {'pause','resume'}:raise PolicyError('Choose pause or resume')
+        self.store.db.execute('BEGIN IMMEDIATE')
+        try:
+            state=self.status(campaign_id)
+            if action=='resume' and state['reserved_tokens']:raise PolicyError('Wait for the interrupted call to settle before resuming')
+            desired='PAUSED' if action=='pause' else 'ACTIVE'
+            if state['control_state']!=desired:
+                self.store.event('campaign:'+campaign_id,'campaign_control',{'state':desired,'clock_and_usage_reset':False})
+            self.store.db.execute('COMMIT')
+        except BaseException:self.store.db.execute('ROLLBACK');raise
+        return self.status(campaign_id)
 
     def authorize(self, tokens, wall_seconds, consent):
         if type(tokens) is not int or tokens <= 0 or type(wall_seconds) is not int or wall_seconds <= 0:
@@ -26,7 +44,7 @@ class Campaign:
         wall_seconds=authorization['wall_seconds']+sum(x['seconds'] for x in extensions)
         result=dict(row);result['estimated_debit_tokens']=estimated;deadline=row['started']+wall_seconds if row['started'] is not None else None
         policies=[p for p in self.store.records('campaign_failure_policy') if p['campaign_id']==campaign_id]
-        return {**result,'failure_policy':policies[-1] if policies else None,'authorization':authorization,'deadline':deadline,
+        return {**result,'control_state':self.control_state(campaign_id),'failure_policy':policies[-1] if policies else None,'authorization':authorization,'deadline':deadline,
             'time_extensions':extensions,'authorized_wall_seconds':wall_seconds,
             'remaining_seconds':max(0,deadline-time.time()) if deadline else wall_seconds,
             'remaining_tokens':None if row['usage_unknown'] else max(0,authorization['aggregate_tokens']-row['used_tokens']-estimated-row['reserved_tokens']),
@@ -55,7 +73,7 @@ class Campaign:
         try:
             state=self.status(campaign_id)
             estimate_headroom=state['failure_policy']['debit_per_failure'] if state.get('failure_policy') else 0
-            if state['remaining_tokens'] is None or tokens + estimate_headroom > state['remaining_tokens'] or state['remaining_seconds']<=0:
+            if state['control_state']!='ACTIVE' or state['remaining_tokens'] is None or tokens + estimate_headroom > state['remaining_tokens'] or state['remaining_seconds']<=0:
                 raise PolicyError('Campaign allowance exhausted or uncertain; explicit extension/reconciliation required')
             if state['reserved_tokens']:raise PolicyError('Only one paid call may be in flight')
             call_id=uuid.uuid4().hex

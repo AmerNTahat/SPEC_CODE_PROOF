@@ -1,0 +1,29 @@
+{
+  "plan_id": "2849a2cebf7258e1bf081dba484e97177979ec9cff7fb352f75b6c4dc8c77977",
+  "manifest_id": "941990ef8589bca575927c8194e21b44b898362a17f79f2b456c1d4346e8711b",
+  "revision_of": "6d23020af4c22925db119a7edea580a94c567aa90fa3bcf4c2a9822aeb709b08",
+  "development_feedback_id": "7567a5938fa194cae91807bd4f0ca863f84c60ca9015ff9f6f951d33f7c29480",
+  "batch_index": 5,
+  "batch_count": 12,
+  "model_call_id": "fda6d79b5800e339dd9f1c1718de2835a83ea70417f563ee6b3b82722d9d6742",
+  "candidate_id": null,
+  "status": "BLOCKED",
+  "scope": "Actual model proposal; no rule-transfer validation or publication claim",
+  "id": "25bc60f458be683386fcee0f939a71a0e04ad6134231caf8b79f0767677c91b2",
+  "candidate": null,
+  "model_result": {
+    "usage": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "cached_input_tokens": 0
+    },
+    "usage_complete": false,
+    "status": "BLOCKED",
+    "response": null,
+    "warnings": [
+      "Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."
+    ],
+    "reason": "PolicyError: Model call deadline reached",
+    "scope": "Metered response only; no truth, validation or acceptance claim"
+  }
+}

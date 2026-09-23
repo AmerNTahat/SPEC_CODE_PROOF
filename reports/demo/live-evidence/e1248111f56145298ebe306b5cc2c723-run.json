@@ -1,0 +1,127 @@
+{
+  "id": "e1248111f56145298ebe306b5cc2c723",
+  "state": "FAILED",
+  "config": {
+    "architecture_policy": null,
+    "assistance": "automatic",
+    "budget": {
+      "aggregate_model_tokens": 1000000,
+      "concurrent_model_calls": 1,
+      "enforcement": "strict",
+      "final_validation_time_reserve": 0.2,
+      "repairs_per_issue": 3,
+      "repairs_per_run": 8,
+      "wall_seconds": 360
+    },
+    "creation_authorized": false,
+    "dataset_assignment": null,
+    "dataset_task": null,
+    "development_validation": null,
+    "final_evaluation": null,
+    "input_files": [
+      "aadl-lib/aadl.library/AADL.sysml",
+      "aadl-lib/aadl.library/AADL_Project.sysml",
+      "aadl-lib/aadl.library/Base_Types.sysml",
+      "aadl-lib/aadl.library/Communication_Properties.sysml",
+      "aadl-lib/aadl.library/Data_Model.sysml",
+      "aadl-lib/aadl.library/Deployment_Properties.sysml",
+      "aadl-lib/aadl.library/Memory_Properties.sysml",
+      "aadl-lib/aadl.library/Programming_Properties.sysml",
+      "aadl-lib/aadl.library/Thread_Properties.sysml",
+      "aadl-lib/aadl.library/Timing_Properties.sysml",
+      "aadl-lib/aadl.library/behavior_properties.sysml",
+      "aadl-lib/hamr.aadl.library/CASE_Scheduling.sysml",
+      "aadl-lib/hamr.aadl.library/HAMR.sysml",
+      "aadl-lib/hamr.aadl.library/HAMR_AADL.sysml",
+      "aadl-lib/hamr.aadl.library/HAMR_Time_Units.sysml",
+      "prod-cons/ProdCons.sysml"
+    ],
+    "learning_materials": null,
+    "mode": "user",
+    "model": {
+      "family": "gpt",
+      "requested_profile": "astra",
+      "resolved_model_id": null
+    },
+    "model_file": "prod-cons/ProdCons.sysml",
+    "naming_policy": "preserve-existing",
+    "paid_runs_authorized": false,
+    "project": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/development-workspaces/9aa328d334b6476fb6e3377f20e433a6",
+    "rename_authorized": false,
+    "repair_allowed_files": [],
+    "required_gates": [
+      "parse_type",
+      "hamr_codegen",
+      "integration_constraints",
+      "architecture_capture"
+    ],
+    "requirement_ledger": null,
+    "resolved_operation": "verify-only",
+    "rule_release": null,
+    "schema_version": 1,
+    "sireum": "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/sireum",
+    "sireum_sha256": "6333d4e737064b6db470bcb85863a997675182470eb5d4d763bd806487c8d952",
+    "task_operation": "verify-only",
+    "unit_registry": null
+  },
+  "config_hash": "6e3dabcecd50ea45bba6e98f5a901195638ffad734586cf4cdee2526b32df323",
+  "created": 1790120975.3894038,
+  "deadline": 1790121335.3894038,
+  "used_tokens": 24048,
+  "usage_unknown": 0,
+  "reserved_tokens": 0,
+  "worker": null,
+  "result": {
+    "engineering_accepted": false,
+    "formally_verified_units": 0,
+    "gates": [
+      {
+        "evidence": {
+          "path": "objects/8af03f985146e7c1ad0c523fd601d8be5c0e0de1275ccff0512b4f86765d86b9.json",
+          "sha256": "8af03f985146e7c1ad0c523fd601d8be5c0e0de1275ccff0512b4f86765d86b9"
+        },
+        "gate": "parse_type",
+        "reason": "Checker process rejected the model",
+        "status": "FAIL"
+      },
+      {
+        "evidence": {
+          "path": "objects/35a4562f3fa88da35cb83f9cfccbad23c0d11f26805dffb5f4ef51ce3ae26e86.json",
+          "sha256": "35a4562f3fa88da35cb83f9cfccbad23c0d11f26805dffb5f4ef51ce3ae26e86"
+        },
+        "gate": "hamr_codegen",
+        "reason": "HAMR tool returned a nonzero status; inspect recorded diagnostics",
+        "status": "FAIL"
+      },
+      {
+        "evidence": {
+          "path": "objects/5472c55e0f79538709c83934cdc37ed7686139e148fa611fe16efb962d2ecf4e.json",
+          "sha256": "5472c55e0f79538709c83934cdc37ed7686139e148fa611fe16efb962d2ecf4e"
+        },
+        "gate": "integration_constraints",
+        "reason": "HAMR tool returned a nonzero status; inspect recorded diagnostics",
+        "status": "FAIL"
+      },
+      {
+        "evidence": {
+          "path": "objects/0b3bcb63a833fc140aa4824eb0cff5354eafcc7a0b4225bd8e8a954d3709faf0.json",
+          "sha256": "0b3bcb63a833fc140aa4824eb0cff5354eafcc7a0b4225bd8e8a954d3709faf0"
+        },
+        "gate": "architecture_capture",
+        "reason": "Trusted architecture export rejected or could not start",
+        "snapshot_id": null,
+        "status": "FAIL"
+      }
+    ],
+    "model_calls": 0,
+    "project_status": "NOT_ASSESSED",
+    "scope": "Selected checks only; no application or live-demo completion claim",
+    "task_status": "FAILED"
+  },
+  "version": 4,
+  "remaining_seconds": 0,
+  "remaining_tokens": 975952,
+  "source_changed": [],
+  "evidence_current_for_source": true,
+  "policy_current": true
+}

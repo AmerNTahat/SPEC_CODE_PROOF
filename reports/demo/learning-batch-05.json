@@ -1,0 +1,349 @@
+{
+  "plan_id": "2849a2cebf7258e1bf081dba484e97177979ec9cff7fb352f75b6c4dc8c77977",
+  "manifest_id": "69783cab9b27a53c10eb5a2a0c08abb9ca2228b93c6b873c313d6f3f9f8e0756",
+  "batch_index": 5,
+  "batch_count": 12,
+  "model_call_id": "10c4b0eb8a313f362111158643571a371903c1b10ea5bb1998bc96884a51813c",
+  "candidate_id": "6d23020af4c22925db119a7edea580a94c567aa90fa3bcf4c2a9822aeb709b08",
+  "status": "DRAFT_PENDING_DEVELOPMENT_VALIDATION",
+  "scope": "Actual model proposal; no rule-transfer validation or publication claim",
+  "id": "ae5b4255715795741e706f7878e182f454201a79c59248bdcb6b4fb2bb57461d",
+  "candidate": {
+    "record": {
+      "$schema": "",
+      "schema_version": "2.0",
+      "record_type": "rule",
+      "id": "draft-mode-conditioned-owned-assignment",
+      "revision": "1",
+      "state": "DRAFT",
+      "basis": "model_inferred",
+      "assessment_timing": "before_action",
+      "source_references": [
+        "d7ef18732a5def5da9422e3e47db924dd4ae4c9b806fcc86f11c932b377db935",
+        "8539757b211ec65ebcf5df73b8125fe82011a6066fd3bcba864328af992b4bf1"
+      ],
+      "source_artifact_hashes": [
+        "43664d0fe5904aed949d4c12e824c905d7bc1b4e89efa0409038c1b6f52ff605",
+        "b4949561cb04d46f718a16e2cc1486c0bd5a26c15778e3567c464466c24731df"
+      ],
+      "source_episode": "10c4b0eb8a313f362111158643571a371903c1b10ea5bb1998bc96884a51813c",
+      "available_context_manifest": "69783cab9b27a53c10eb5a2a0c08abb9ca2228b93c6b873c313d6f3f9f8e0756",
+      "model_configuration": "7e31988cc8d9b89ae79c126a58e57c1f5babd2bc70e3e301ffe8cee77e0969d1",
+      "prompt_version": "1",
+      "trigger": "A requirement assigns, retains, or explicitly leaves unspecified a controlled or internal variable under a mode and a condition, and must be represented across architecture, contracts, implementation, proof, tests, or repair.",
+      "principle": "Represent each variable's requirements as a traceable, owner-local conditional value relation. Preserve exact guards, boundary inclusivity, and prior-state semantics; establish coverage and compatible outcomes over the justified domain without inventing behavior for missing cases.",
+      "semantic_choice": "Interpret 'if C then shall assign V' as C implies the assigned value, not as a biconditional. Interpret 'hold', 'remain unchanged', and 'previous value' as equality to the preceding committed value. Treat explicit UNSPECIFIED as absence of a meaningful value constraint in that region, distinct from retention and from an undocumented gap. Multiple applicable requirements are simultaneous obligations, not an implicit priority order.",
+      "structural_placement": "Place each value relation in the function and concrete thread that produces that variable, with traceable GUMBO initialization and compute clauses. Preserve enclosing process/system ports, types, names, directions, connections, scheduling attributes, and ownership. Wrappers route values; they do not acquire competing definitions.",
+      "repair_gate": "Before accepting a repair, propose checks for guard coverage, overlap compatibility, exact boundaries, initialization, history updates, interface preservation, and implementation refinement. Missing cases, unknown state lifecycle, unsupported timeout semantics, or conflicting outcomes block declaring the relation complete. Resolve them from applicable requirements rather than adding defaults, guard restrictions, priorities, or assumptions merely to obtain a proof.",
+      "prerequisites": [
+        "The target variable has an identified producer and existing interfaces that can remain unchanged.",
+        "Applicable modes, input domains, guards, value expressions, and source requirements are available for the scoped relation.",
+        "For retained values, the preceding committed value and its initialization and update lifecycle can be established.",
+        "Units, representation, and arithmetic bounds needed by comparisons and offsets can be established.",
+        "Any environmental restriction used to establish coverage or consistency is independently justified; an unproved restriction remains an outstanding obligation.",
+        "An incomplete source relation can be represented as incomplete, but cannot be silently completed."
+      ],
+      "exclusions": [
+        "Deriving runtime priority from textual case order.",
+        "Treating an omitted assignment as explicit UNSPECIFIED or as retention.",
+        "Transferring a particular function's INIT or FAILED value to another function.",
+        "Inferring timeout behavior from a case description when the formal guard has no time condition.",
+        "Claiming physical latency from dispatch period alone.",
+        "Changing source interfaces or adding unsupported sensor-validity guards."
+      ],
+      "parameters": [
+        {
+          "name": "owner",
+          "role": "Function and concrete thread producing the variable",
+          "constraints": "Must follow existing output ownership and routing."
+        },
+        {
+          "name": "y",
+          "role": "Controlled or internal variable",
+          "constraints": "Preserve its declared type and distinguish its software image from any physical quantity."
+        },
+        {
+          "name": "D",
+          "role": "Justified domain of modes, inputs, and prior state",
+          "constraints": "May contain only independently supported restrictions."
+        },
+        {
+          "name": "cases",
+          "role": "Traceable guard and effect pairs",
+          "constraints": "Effects are assignment, retention, or explicit UNSPECIFIED; guards preserve Boolean connectives and strict versus inclusive comparisons."
+        },
+        {
+          "name": "history",
+          "role": "Previous committed value or mode",
+          "constraints": "Requires a defined initial value and an update after evaluating the current reaction."
+        },
+        {
+          "name": "physical_budgets",
+          "role": "Applicable controlled-variable latency and numerical tolerance",
+          "constraints": "Use only target-specific supported budgets; internal variables receive no independent physical latency or tolerance requirement from this rule."
+        }
+      ],
+      "dependencies": [],
+      "target_compatibility": [
+        "reviewed-learning-plan"
+      ],
+      "preserved_obligations": [
+        "Language: preserve modality, actor, mode, monitored/internal conditions, units, quantification, and temporal meaning of each requirement.",
+        "Architecture: retain all existing source interfaces, connections, producer ownership, dispatch protocols, periods, and domains.",
+        "Contracts: preserve existing initialization and compute guarantees and their requirement traceability; distinguish source gaps from explicit unconstrained regions.",
+        "Implementation: evaluate the specified relation from a coherent reaction input and prior-state snapshot; assign constrained outputs and commit history afterward. Establish history initialization rather than assuming a state declaration supplies it.",
+        "Proof: propose establishing initialization, coverage over D, compatibility of overlapping constrained effects, absence or justified consolidation of duplicate requirements, arithmetic safety, history invariants, and implementation refinement. An if/else implementation must not conceal a contract conflict.",
+        "Testing: propose cases for every mode, each guard, exact boundaries and adjacent representable values, both prior command values in retention regions, and multi-reaction initialization and transition sequences. Expected values must come from requirements, with no value oracle in explicitly unspecified regions.",
+        "Deployment: where physical controlled-variable obligations apply, account for input reconstruction, computation, scheduling, communication, and output actuation in the applicable latency and accuracy argument. Do not import the heat-source example's six-second budget into the alarm.",
+        "Repair: keep edits local to the owning relation and corresponding implementation, proof obligations, and tests; retain established obligations and require renewed checks for affected boundaries and state sequences."
+      ],
+      "counterexample": {
+        "scenario": "In Manage_Alarm_i, let mode be NORMAL, current temperature equal the lower alarm bound, the upper bound be at least two source offset units higher, and the previous alarm command be Off. A translation changes the low alarm guard from temperature < lower to temperature <= lower.",
+        "expected_difference": "The supplied strict guard leaves equality in the lower hysteresis case, which requires Off because it retains the previous command. The changed guard also requires Onn at equality, conflicting with retention. A priority branch could hide that conflict but would not preserve both obligations.",
+        "source_or_test_reference": null
+      },
+      "validation_gate_ids": [],
+      "evidence_references": [],
+      "confidence_forecast_reference": "8b5148da9992791ce5696a90698c832f7cbadac5d8451401b06238aafaab4258",
+      "approval_reference": null,
+      "notes": "Observed: Monitor.sysml places GUMBO cases in producer threads, uses explicit mode guards and comparison boundaries, initializes selected outputs, and refers to lastCmd and lastMonitorMode. The excerpt does not supply initialization or update guarantees for those history variables. The monitor INIT-stays-INIT description mentions a timeout but its guard has no time predicate. The FAA context recommends complete, consistent, nonduplicated condition/value requirements organized by producer, explicitly distinguishes UNSPECIFIED, and discusses physical latency and tolerance. Proposed: the cross-layer obligations and abstract relation in this rule are inferred from those passages. No implementation, proof execution, testing result, approval, or validation is supplied. Source references and hashes are reserved for trusted-controller assignment.",
+      "source_english_patterns": [
+        "If mode NORMAL and current temperature is inside the lower hysteresis band then hold alarm control.",
+        "If the Regulator Mode is NORMAL and the Current Temperature is greater than or equal to the Lower Desired Temperature and less than or equal to the Upper Desired Temperature, the value of the Heat Control shall not be changed.",
+        "If the Regulator Mode is not NORMAL, the value of the Display Temperature is UNSPECIFIED.",
+        "Present the detailed system requirements in the function that produces the variable being specified."
+      ],
+      "positive_paraphrases": [
+        "While condition C holds in mode M, set the owned output to V.",
+        "Within the stated band, retain the command from the preceding reaction.",
+        "Define each output's applicable cases at its producer, including explicitly unspecified regions."
+      ],
+      "misleading_near_matches": [
+        "The output may be V when C holds: permission does not impose assignment.",
+        "The output eventually becomes V: this requires a temporal interpretation beyond a reaction-local equality.",
+        "No case mentions this mode: omission does not establish UNSPECIFIED.",
+        "The mode remains INIT before timeout: a time-free guard cannot encode the before-timeout qualification.",
+        "FAILED means Off: the supplied alarm instead requires Onn in FAILED."
+      ],
+      "supported_operations": [
+        "complete-system",
+        "extend-system",
+        "repair-system",
+        "verify-only",
+        "create-system"
+      ],
+      "stack_layers": [
+        "language",
+        "architecture",
+        "gumbo",
+        "implementation",
+        "proof",
+        "testing",
+        "deployment",
+        "repair"
+      ],
+      "semantic_roles": {
+        "actor": "The existing producer of the affected controlled or internal variable.",
+        "condition": "The conjunction of applicable mode and monitored/internal predicates, retaining any source disjunctions and precise boundaries.",
+        "effect": "Assign a specified value, retain the preceding committed value, or explicitly impose no meaningful value constraint.",
+        "modality": "Mandatory for shall/guarantee clauses; explicit UNSPECIFIED is a documented absence of a value requirement.",
+        "quantification": "Every reaction state in the justified domain; every simultaneously enabled constrained clause must hold.",
+        "temporal_scope": "Initialization is distinct from compute reactions; physical latency is a separate obligation when applicable.",
+        "state_dependency": "Retention and transitions read established prior state before committing the new state.",
+        "units_and_boundaries": "Preserve declared representations, offsets, and strict/inclusive comparisons. The alarm uses an offset of 1 [s32]; its physical scaling and arithmetic safety cannot be inferred from this excerpt alone."
+      },
+      "formal_output_pattern": "ABSTRACT, not executable GUMBO: Let s=(mode, inputs, h) range over justified D. For each traceable case i, define guard g_i(s) and allowed values A_i(s): assignment gives {e_i(s)}, HOLD gives {h_y}, explicit UNSPECIFIED gives Type(y). Require coverage: forall s in D, exists i: g_i(s). Define Allowed(s)=intersection of A_i(s) over enabled i; require Allowed(s) nonempty and singleton whenever a constrained ideal assignment applies. Identify overlapping duplicate effects for requirement review; do not introduce priority. Initialization must satisfy the existing output guarantees and establish required history. Each reaction chooses y_next in Allowed(s), then commits h_y_next=y_next. Abstract GUMBO placement: owner.initialize guarantees initial obligations; owner.compute case req_i assumes g_i and guarantees y=e_i or y=h_y. Record explicit UNSPECIFIED regions as unconstrained value regions, not fabricated assignments. Prove the implementation refines this relation and separately discharge applicable physical mapping and timing obligations.",
+      "formal_pattern_status": "ABSTRACT_NOT_VALIDATED",
+      "allowed_edit_scope": [
+        "Requirement traceability and conditional relations at the existing producer",
+        "Producer-local contract and internal history lifecycle",
+        "Corresponding implementation, proof obligations, and requirement-derived tests",
+        "Physical mapping and timing arguments without interface or scheduling changes"
+      ],
+      "required_baseline": [
+        "Existing source interfaces, architecture, scheduling attributes, initialization guarantees, and compute cases",
+        "Applicable source requirements and justified domain assumptions",
+        "Established prior-state lifecycle, if available; otherwise an explicitly unresolved obligation",
+        "Existing implementation and verification artifacts, if any, without assuming they exist or have passed"
+      ],
+      "diagnostic_signature": null,
+      "related_rule_ids": []
+    },
+    "status": "DRAFT_PENDING_VALIDATION",
+    "id": "6d23020af4c22925db119a7edea580a94c567aa90fa3bcf4c2a9822aeb709b08"
+  },
+  "model_result": {
+    "usage": {
+      "input_tokens": 20332,
+      "output_tokens": 2670,
+      "cached_input_tokens": 0
+    },
+    "usage_complete": true,
+    "status": "RESPONSE_RECEIVED",
+    "response": {
+      "rule": {
+        "$schema": "",
+        "schema_version": "2.0",
+        "record_type": "rule",
+        "id": "draft-mode-conditioned-owned-assignment",
+        "revision": "1",
+        "state": "DRAFT",
+        "basis": "model_inferred",
+        "assessment_timing": "before_action",
+        "source_references": [],
+        "source_artifact_hashes": [],
+        "source_episode": null,
+        "available_context_manifest": null,
+        "model_configuration": null,
+        "prompt_version": "1",
+        "trigger": "A requirement assigns, retains, or explicitly leaves unspecified a controlled or internal variable under a mode and a condition, and must be represented across architecture, contracts, implementation, proof, tests, or repair.",
+        "principle": "Represent each variable's requirements as a traceable, owner-local conditional value relation. Preserve exact guards, boundary inclusivity, and prior-state semantics; establish coverage and compatible outcomes over the justified domain without inventing behavior for missing cases.",
+        "semantic_choice": "Interpret 'if C then shall assign V' as C implies the assigned value, not as a biconditional. Interpret 'hold', 'remain unchanged', and 'previous value' as equality to the preceding committed value. Treat explicit UNSPECIFIED as absence of a meaningful value constraint in that region, distinct from retention and from an undocumented gap. Multiple applicable requirements are simultaneous obligations, not an implicit priority order.",
+        "structural_placement": "Place each value relation in the function and concrete thread that produces that variable, with traceable GUMBO initialization and compute clauses. Preserve enclosing process/system ports, types, names, directions, connections, scheduling attributes, and ownership. Wrappers route values; they do not acquire competing definitions.",
+        "repair_gate": "Before accepting a repair, propose checks for guard coverage, overlap compatibility, exact boundaries, initialization, history updates, interface preservation, and implementation refinement. Missing cases, unknown state lifecycle, unsupported timeout semantics, or conflicting outcomes block declaring the relation complete. Resolve them from applicable requirements rather than adding defaults, guard restrictions, priorities, or assumptions merely to obtain a proof.",
+        "prerequisites": [
+          "The target variable has an identified producer and existing interfaces that can remain unchanged.",
+          "Applicable modes, input domains, guards, value expressions, and source requirements are available for the scoped relation.",
+          "For retained values, the preceding committed value and its initialization and update lifecycle can be established.",
+          "Units, representation, and arithmetic bounds needed by comparisons and offsets can be established.",
+          "Any environmental restriction used to establish coverage or consistency is independently justified; an unproved restriction remains an outstanding obligation.",
+          "An incomplete source relation can be represented as incomplete, but cannot be silently completed."
+        ],
+        "exclusions": [
+          "Deriving runtime priority from textual case order.",
+          "Treating an omitted assignment as explicit UNSPECIFIED or as retention.",
+          "Transferring a particular function's INIT or FAILED value to another function.",
+          "Inferring timeout behavior from a case description when the formal guard has no time condition.",
+          "Claiming physical latency from dispatch period alone.",
+          "Changing source interfaces or adding unsupported sensor-validity guards."
+        ],
+        "parameters": [
+          {
+            "name": "owner",
+            "role": "Function and concrete thread producing the variable",
+            "constraints": "Must follow existing output ownership and routing."
+          },
+          {
+            "name": "y",
+            "role": "Controlled or internal variable",
+            "constraints": "Preserve its declared type and distinguish its software image from any physical quantity."
+          },
+          {
+            "name": "D",
+            "role": "Justified domain of modes, inputs, and prior state",
+            "constraints": "May contain only independently supported restrictions."
+          },
+          {
+            "name": "cases",
+            "role": "Traceable guard and effect pairs",
+            "constraints": "Effects are assignment, retention, or explicit UNSPECIFIED; guards preserve Boolean connectives and strict versus inclusive comparisons."
+          },
+          {
+            "name": "history",
+            "role": "Previous committed value or mode",
+            "constraints": "Requires a defined initial value and an update after evaluating the current reaction."
+          },
+          {
+            "name": "physical_budgets",
+            "role": "Applicable controlled-variable latency and numerical tolerance",
+            "constraints": "Use only target-specific supported budgets; internal variables receive no independent physical latency or tolerance requirement from this rule."
+          }
+        ],
+        "dependencies": [],
+        "target_compatibility": [
+          "reviewed-learning-plan"
+        ],
+        "preserved_obligations": [
+          "Language: preserve modality, actor, mode, monitored/internal conditions, units, quantification, and temporal meaning of each requirement.",
+          "Architecture: retain all existing source interfaces, connections, producer ownership, dispatch protocols, periods, and domains.",
+          "Contracts: preserve existing initialization and compute guarantees and their requirement traceability; distinguish source gaps from explicit unconstrained regions.",
+          "Implementation: evaluate the specified relation from a coherent reaction input and prior-state snapshot; assign constrained outputs and commit history afterward. Establish history initialization rather than assuming a state declaration supplies it.",
+          "Proof: propose establishing initialization, coverage over D, compatibility of overlapping constrained effects, absence or justified consolidation of duplicate requirements, arithmetic safety, history invariants, and implementation refinement. An if/else implementation must not conceal a contract conflict.",
+          "Testing: propose cases for every mode, each guard, exact boundaries and adjacent representable values, both prior command values in retention regions, and multi-reaction initialization and transition sequences. Expected values must come from requirements, with no value oracle in explicitly unspecified regions.",
+          "Deployment: where physical controlled-variable obligations apply, account for input reconstruction, computation, scheduling, communication, and output actuation in the applicable latency and accuracy argument. Do not import the heat-source example's six-second budget into the alarm.",
+          "Repair: keep edits local to the owning relation and corresponding implementation, proof obligations, and tests; retain established obligations and require renewed checks for affected boundaries and state sequences."
+        ],
+        "counterexample": {
+          "scenario": "In Manage_Alarm_i, let mode be NORMAL, current temperature equal the lower alarm bound, the upper bound be at least two source offset units higher, and the previous alarm command be Off. A translation changes the low alarm guard from temperature < lower to temperature <= lower.",
+          "expected_difference": "The supplied strict guard leaves equality in the lower hysteresis case, which requires Off because it retains the previous command. The changed guard also requires Onn at equality, conflicting with retention. A priority branch could hide that conflict but would not preserve both obligations.",
+          "source_or_test_reference": null
+        },
+        "validation_gate_ids": [],
+        "evidence_references": [],
+        "confidence_forecast_reference": null,
+        "approval_reference": null,
+        "notes": "Observed: Monitor.sysml places GUMBO cases in producer threads, uses explicit mode guards and comparison boundaries, initializes selected outputs, and refers to lastCmd and lastMonitorMode. The excerpt does not supply initialization or update guarantees for those history variables. The monitor INIT-stays-INIT description mentions a timeout but its guard has no time predicate. The FAA context recommends complete, consistent, nonduplicated condition/value requirements organized by producer, explicitly distinguishes UNSPECIFIED, and discusses physical latency and tolerance. Proposed: the cross-layer obligations and abstract relation in this rule are inferred from those passages. No implementation, proof execution, testing result, approval, or validation is supplied. Source references and hashes are reserved for trusted-controller assignment.",
+        "source_english_patterns": [
+          "If mode NORMAL and current temperature is inside the lower hysteresis band then hold alarm control.",
+          "If the Regulator Mode is NORMAL and the Current Temperature is greater than or equal to the Lower Desired Temperature and less than or equal to the Upper Desired Temperature, the value of the Heat Control shall not be changed.",
+          "If the Regulator Mode is not NORMAL, the value of the Display Temperature is UNSPECIFIED.",
+          "Present the detailed system requirements in the function that produces the variable being specified."
+        ],
+        "positive_paraphrases": [
+          "While condition C holds in mode M, set the owned output to V.",
+          "Within the stated band, retain the command from the preceding reaction.",
+          "Define each output's applicable cases at its producer, including explicitly unspecified regions."
+        ],
+        "misleading_near_matches": [
+          "The output may be V when C holds: permission does not impose assignment.",
+          "The output eventually becomes V: this requires a temporal interpretation beyond a reaction-local equality.",
+          "No case mentions this mode: omission does not establish UNSPECIFIED.",
+          "The mode remains INIT before timeout: a time-free guard cannot encode the before-timeout qualification.",
+          "FAILED means Off: the supplied alarm instead requires Onn in FAILED."
+        ],
+        "supported_operations": [
+          "complete-system",
+          "extend-system",
+          "repair-system",
+          "verify-only",
+          "create-system"
+        ],
+        "stack_layers": [
+          "language",
+          "architecture",
+          "gumbo",
+          "implementation",
+          "proof",
+          "testing",
+          "deployment",
+          "repair"
+        ],
+        "semantic_roles": {
+          "actor": "The existing producer of the affected controlled or internal variable.",
+          "condition": "The conjunction of applicable mode and monitored/internal predicates, retaining any source disjunctions and precise boundaries.",
+          "effect": "Assign a specified value, retain the preceding committed value, or explicitly impose no meaningful value constraint.",
+          "modality": "Mandatory for shall/guarantee clauses; explicit UNSPECIFIED is a documented absence of a value requirement.",
+          "quantification": "Every reaction state in the justified domain; every simultaneously enabled constrained clause must hold.",
+          "temporal_scope": "Initialization is distinct from compute reactions; physical latency is a separate obligation when applicable.",
+          "state_dependency": "Retention and transitions read established prior state before committing the new state.",
+          "units_and_boundaries": "Preserve declared representations, offsets, and strict/inclusive comparisons. The alarm uses an offset of 1 [s32]; its physical scaling and arithmetic safety cannot be inferred from this excerpt alone."
+        },
+        "formal_output_pattern": "ABSTRACT, not executable GUMBO: Let s=(mode, inputs, h) range over justified D. For each traceable case i, define guard g_i(s) and allowed values A_i(s): assignment gives {e_i(s)}, HOLD gives {h_y}, explicit UNSPECIFIED gives Type(y). Require coverage: forall s in D, exists i: g_i(s). Define Allowed(s)=intersection of A_i(s) over enabled i; require Allowed(s) nonempty and singleton whenever a constrained ideal assignment applies. Identify overlapping duplicate effects for requirement review; do not introduce priority. Initialization must satisfy the existing output guarantees and establish required history. Each reaction chooses y_next in Allowed(s), then commits h_y_next=y_next. Abstract GUMBO placement: owner.initialize guarantees initial obligations; owner.compute case req_i assumes g_i and guarantees y=e_i or y=h_y. Record explicit UNSPECIFIED regions as unconstrained value regions, not fabricated assignments. Prove the implementation refines this relation and separately discharge applicable physical mapping and timing obligations.",
+        "formal_pattern_status": "ABSTRACT_NOT_VALIDATED",
+        "allowed_edit_scope": [
+          "Requirement traceability and conditional relations at the existing producer",
+          "Producer-local contract and internal history lifecycle",
+          "Corresponding implementation, proof obligations, and requirement-derived tests",
+          "Physical mapping and timing arguments without interface or scheduling changes"
+        ],
+        "required_baseline": [
+          "Existing source interfaces, architecture, scheduling attributes, initialization guarantees, and compute cases",
+          "Applicable source requirements and justified domain assumptions",
+          "Established prior-state lifecycle, if available; otherwise an explicitly unresolved obligation",
+          "Existing implementation and verification artifacts, if any, without assuming they exist or have passed"
+        ],
+        "diagnostic_signature": null,
+        "related_rule_ids": []
+      },
+      "confidence": {
+        "score": 0.78,
+        "rationale": "This is a subjective model-belief forecast before any development result, not an empirical probability. Under the stated prerequisites, owner-local conditional relations and explicit retention semantics closely match the supplied example and guidance. Confidence is limited by the unseen held-out component, missing history lifecycle details, and absent validation implementation."
+      }
+    },
+    "warnings": [
+      "Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."
+    ],
+    "reason": null,
+    "scope": "Metered response only; no truth, validation or acceptance claim"
+  }
+}

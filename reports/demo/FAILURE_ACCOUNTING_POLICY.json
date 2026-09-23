@@ -1,0 +1,41 @@
+{
+  "policy": {
+    "campaign_id": "3f16ff4ef866d414cedb448a3ade2dfc4c5b5807162e6aea7522abc218fb49d8",
+    "debit_per_failure": 1000000,
+    "consent": "User 2026-09-22 explicitly selected: Authorize estimated debits within 13M. Charge a conservative 1,000,000-token debit for this failed batch and later unmetered failures within the existing 13M ceiling. Estimates remain separate from measured usage; stop before an unaffordable reservation. No clock or budget extension.",
+    "hard_bound": false,
+    "enabled": true,
+    "id": "94898bef102214fe6d91d29cc67735122560c13c285176700abeafd4bab7c9a3"
+  },
+  "budget": {
+    "id": "3f16ff4ef866d414cedb448a3ade2dfc4c5b5807162e6aea7522abc218fb49d8",
+    "started": 1790117782.972513,
+    "used_tokens": 11898,
+    "reserved_tokens": 0,
+    "usage_unknown": 0,
+    "estimated_debit_tokens": 2000000,
+    "failure_policy": {
+      "campaign_id": "3f16ff4ef866d414cedb448a3ade2dfc4c5b5807162e6aea7522abc218fb49d8",
+      "consent": "User 2026-09-22 explicitly selected: Authorize estimated debits within 13M. Charge a conservative 1,000,000-token debit for this failed batch and later unmetered failures within the existing 13M ceiling. Estimates remain separate from measured usage; stop before an unaffordable reservation. No clock or budget extension.",
+      "debit_per_failure": 1000000,
+      "enabled": true,
+      "hard_bound": false,
+      "id": "94898bef102214fe6d91d29cc67735122560c13c285176700abeafd4bab7c9a3"
+    },
+    "authorization": {
+      "aggregate_tokens": 13000000,
+      "automatic_extension": false,
+      "clock_starts": "first paid reservation",
+      "concurrency": 1,
+      "consent": "User authorization 2026-09-22: tokens limits should be about 14 millions tokens, wall colck 1 hour for isolette for epsilon estimation dont exceed 0.3 you may start with 0.1. for doc best efforts total tokens should not exceed 13 million. Once you reach that ask for extension. Finish all the tasks.",
+      "enforcement": "best_effort",
+      "hard_token_cap_validated": false,
+      "wall_seconds": 3600,
+      "id": "3f16ff4ef866d414cedb448a3ade2dfc4c5b5807162e6aea7522abc218fb49d8"
+    },
+    "deadline": 1790121382.972513,
+    "remaining_seconds": 2403.2761058807373,
+    "remaining_tokens": 10988102,
+    "scope": "Best-effort aggregate accounting; termination may leave uncertain in-flight usage"
+  }
+}

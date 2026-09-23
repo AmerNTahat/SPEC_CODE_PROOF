@@ -1,0 +1,38 @@
+{
+  "authorization": {
+    "id": "3f16ff4ef866d414cedb448a3ade2dfc4c5b5807162e6aea7522abc218fb49d8",
+    "started": null,
+    "used_tokens": 0,
+    "reserved_tokens": 0,
+    "usage_unknown": 0,
+    "authorization": {
+      "aggregate_tokens": 13000000,
+      "automatic_extension": false,
+      "clock_starts": "first paid reservation",
+      "concurrency": 1,
+      "consent": "User authorization 2026-09-22: tokens limits should be about 14 millions tokens, wall colck 1 hour for isolette for epsilon estimation dont exceed 0.3 you may start with 0.1. for doc best efforts total tokens should not exceed 13 million. Once you reach that ask for extension. Finish all the tasks.",
+      "enforcement": "best_effort",
+      "hard_token_cap_validated": false,
+      "wall_seconds": 3600,
+      "id": "3f16ff4ef866d414cedb448a3ade2dfc4c5b5807162e6aea7522abc218fb49d8"
+    },
+    "deadline": null,
+    "remaining_seconds": 3600,
+    "remaining_tokens": 13000000,
+    "scope": "Best-effort aggregate accounting; termination may leave uncertain in-flight usage"
+  },
+  "interpretation": {
+    "aggregate_tokens": 13000000,
+    "scope": "All paid Isolette and additional KSU calls, retries and repairs",
+    "wall_clock_seconds": 3600,
+    "wall_scope": "Conservatively caps the entire paid campaign at one hour; starts on first paid reservation",
+    "best_effort_authorized": true,
+    "extension_requires_user": true,
+    "epsilon_clarification": "User corrected the algorithm explicitly: cosine DISTANCE threshold; match when 1 - cosine_similarity <= epsilon.",
+    "proof_or_stopping_threshold_changed": false,
+    "retrieval_cosine_distance_threshold": 0.1,
+    "retrieval_cosine_distance_maximum": 0.3
+  },
+  "status": "AUTHORIZED_WORKER_VALIDATION_PENDING",
+  "paid_calls_started": 0
+}

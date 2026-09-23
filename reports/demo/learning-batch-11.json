@@ -1,0 +1,315 @@
+{
+  "plan_id": "2849a2cebf7258e1bf081dba484e97177979ec9cff7fb352f75b6c4dc8c77977",
+  "manifest_id": "ed09d6df56b0f02e65c34ac4cebd1b148a9e923871462fc3b67dd8e56ecac456",
+  "batch_index": 11,
+  "batch_count": 12,
+  "model_call_id": "2da1bb2c14bf4692d31f3f926fcd9a479053da74839d25133e3c1a06182d1f54",
+  "candidate_id": "e497a7ffe86dc00a0e17e08d0b999a19529f449748e2c5c00b51497fcf1fad25",
+  "status": "DRAFT_PENDING_DEVELOPMENT_VALIDATION",
+  "scope": "Actual model proposal; no rule-transfer validation or publication claim",
+  "id": "13e8ca1e172cdd1d0cb6d9608b543e0d49a36b150bd6275d9054d43dbfe42cc8",
+  "candidate": {
+    "record": {
+      "$schema": "",
+      "schema_version": "2.0",
+      "record_type": "rule",
+      "id": "validity-gated-interface-transfer",
+      "revision": "1",
+      "state": "DRAFT",
+      "basis": "model_inferred",
+      "assessment_timing": "before_action",
+      "source_references": [
+        "d7ef18732a5def5da9422e3e47db924dd4ae4c9b806fcc86f11c932b377db935",
+        "8539757b211ec65ebcf5df73b8125fe82011a6066fd3bcba864328af992b4bf1"
+      ],
+      "source_artifact_hashes": [
+        "43664d0fe5904aed949d4c12e824c905d7bc1b4e89efa0409038c1b6f52ff605",
+        "b4949561cb04d46f718a16e2cc1486c0bd5a26c15778e3567c464466c24731df"
+      ],
+      "source_episode": "2da1bb2c14bf4692d31f3f926fcd9a479053da74839d25133e3c1a06182d1f54",
+      "available_context_manifest": "ed09d6df56b0f02e65c34ac4cebd1b148a9e923871462fc3b67dd8e56ecac456",
+      "model_configuration": "7e31988cc8d9b89ae79c126a58e57c1f5babd2bc70e3e301ffe8cee77e0969d1",
+      "prompt_version": "1",
+      "trigger": "A requirement assigns an interface component responsibility for reporting failure when any member of an explicitly identified input group is invalid, clearing failure when all are valid, and copying corresponding payloads when no interface failure exists.",
+      "principle": "Preserve the quantified validity condition and its ownership through contracts, implementation, proof, tests, and repairs: any invalid member triggers failure; all valid members clear failure; absence of failure obligates exact corresponding payload transfer.",
+      "semantic_choice": "Translate 'any invalid' as disjunction, 'both/all valid' as conjunction, and 'if no interface failure then copy' as a one-way implication. Status validity is distinct from numeric range membership and from a Boolean payload expressing operational usability.",
+      "structural_placement": "Attach the behavioral contract to the thread that owns the failure and copied outputs, as Manage_Monitor_Interface_i does. Preserve process forwarding and system connections. Consumers retain ownership of their existing reactions to failure; do not move mode selection or actuation into the interface thread.",
+      "repair_gate": "Proposed gate: accept a repair only after checking preservation of interfaces, existing guarantees, validity quantifiers, payload correspondence, and ownership. Do not weaken assumptions to exclude invalid inputs or introduce output guarantees for unspecified failure branches. These checks have not been implemented or performed.",
+      "prerequisites": [
+        "The target has explicit requirements for the same three obligations: any-invalid failure, all-valid nonfailure, and conditional payload copying.",
+        "The input group and payload-to-output correspondence are explicitly identified.",
+        "Status values are exhaustively Valid or Invalid, or additional statuses receive separately specified treatment before applying the binary equivalence.",
+        "The responsible component can observe the grouped statuses and payloads within a defined invocation snapshot.",
+        "Existing target interfaces, contracts, data representations, and scheduling constraints are available for preservation."
+      ],
+      "exclusions": [
+        "Do not infer validity from numeric bounds, resolution, or physical plausibility.",
+        "Do not include unrelated inputs merely because they also carry status fields; current_tempWstatus is not in the monitor alarm-range validity group.",
+        "Do not infer hold, reset, suppression, or default payload behavior when failure is true.",
+        "Do not derive autopilot control logic from this rule: the provided autopilot excerpt distinguishes status from Guidance Valid but does not specify this failure-and-copy contract.",
+        "Do not introduce state, timeouts, or new latency guarantees."
+      ],
+      "parameters": [
+        {
+          "name": "G",
+          "role": "Nonempty group of inputs covered by the validity requirement",
+          "constraints": "For the observed monitor contract, exactly lower_alarm_tempWstatus and upper_alarm_tempWstatus."
+        },
+        {
+          "name": "s_i, p_i, y_i",
+          "role": "Input status, input payload, and corresponding output payload",
+          "constraints": "Maintain existing types, units, and one-to-one correspondence; copying must not silently convert, clamp, or round."
+        },
+        {
+          "name": "f",
+          "role": "Failure output owned by the interface component",
+          "constraints": "Boolean flag evaluated in the same invocation as the conditional transfer."
+        }
+      ],
+      "dependencies": [
+        "Existing status type definitions and port payload types",
+        "Established invocation and port sampling semantics",
+        "Existing component allocation and forwarding connections"
+      ],
+      "target_compatibility": [
+        "reviewed-learning-plan"
+      ],
+      "preserved_obligations": [
+        "Architecture: preserve every existing source port, name, direction, type, connection, process/thread boundary, period, and scheduling domain.",
+        "Contract: retain existing initialization, monitor-status mapping, failure reporting, and conditional copying guarantees without weakening them.",
+        "Implementation: compute failure from the designated statuses and copy every corresponding payload when failure is false using a coherent invocation snapshot.",
+        "Proof: establish the three implications for every admissible snapshot, justify binary-status exhaustiveness before using an equivalence, and check compatibility with all existing guarantees.",
+        "Testing: propose all-valid, each-single-invalid, and all-invalid cases; use unequal payloads to detect swapped outputs and vary unrelated statuses to detect unintended coupling.",
+        "Testing: check the same statuses with different numeric payloads so that range checks cannot substitute for validity checks; failure-true payload outputs have no new oracle beyond existing requirements.",
+        "Repair: localize changes to the owning behavior and associated proof/test artifacts, preserve requirement identifiers, and rerun the proposed checks after changes.",
+        "Deployment: retain established scheduling and routing; this rule establishes no end-to-end timing result."
+      ],
+      "counterexample": {
+        "scenario": "The lower alarm-range status is Valid and the upper status is Invalid, while both numeric payloads appear plausible and current_tempWstatus is Valid.",
+        "expected_difference": "The failure flag must be true. An implementation requiring both statuses to be Invalid, or checking only numeric plausibility, violates the rule. Conditional copying adds no payload-output obligation in this case.",
+        "source_or_test_reference": null
+      },
+      "validation_gate_ids": [],
+      "evidence_references": [],
+      "confidence_forecast_reference": "c29af421f5f591f44a5df44e54291563e74a5c9c1309076014ca6798987e0e05",
+      "approval_reference": null,
+      "notes": "Observed facts: Monitor REQ_MMI_4 uses an invalid-status disjunction; REQ_MMI_5 uses a valid-status conjunction; REQ_MMI_6 conditionally equates corresponding degrees fields. The monitor architecture allocates these outputs to the interface thread and forwards them through its process. The supplied autopilot text separately represents status and the Guidance Valid Boolean payload. Proposed obligations: the reusable generalization, snapshot discipline, implementation constraints, proof tasks, test cases, and repair gate above. No validation implementation or development results are supplied, and no validation, test success, or approval is asserted. Source references and hashes are left for the trusted controller.",
+      "source_english_patterns": [
+        "If any alarm temperature status is Invalid then interface failure is True",
+        "If both alarm temperature statuses are Valid then interface failure is False",
+        "If no interface failure then copy alarm range"
+      ],
+      "positive_paraphrases": [
+        "An invalid status on either required input raises the interface failure flag.",
+        "When every required status is valid, clear interface failure and transfer each corresponding payload unchanged."
+      ],
+      "misleading_near_matches": [
+        "Raise failure only when every input is invalid.",
+        "Clear failure when at least one input is valid.",
+        "Values inside their permitted numeric range are valid.",
+        "A valid status on Guidance Valid means its Boolean payload is true.",
+        "When failure occurs, retain the previous payload outputs."
+      ],
+      "supported_operations": [
+        "complete-system",
+        "extend-system",
+        "repair-system",
+        "verify-only"
+      ],
+      "stack_layers": [
+        "language",
+        "architecture",
+        "gumbo",
+        "implementation",
+        "proof",
+        "testing",
+        "deployment",
+        "repair"
+      ],
+      "semantic_roles": {
+        "actor": "The interface thread owning the failure flag and copied outputs",
+        "condition": "Statuses of exactly the designated input group, followed by the resulting absence-of-failure condition",
+        "effect": "Set or clear failure and conditionally copy corresponding payloads",
+        "modality": "Mandatory conditional guarantees",
+        "quantification": "Existential invalidity; universal validity; universal copying across the designated group",
+        "temporal_scope": "Each compute invocation; no new initialization or cross-invocation behavior",
+        "state_dependency": "Stateless for this scoped relation; preserve unrelated existing state behavior",
+        "units_and_boundaries": "Exact payload equality in existing units and representations; Valid/Invalid are categorical boundaries, not numerical thresholds"
+      },
+      "formal_output_pattern": "Abstract per-invocation relation, not executable GUMBO: for every invocation k, let InvalidAny(k) = OR_{i in G}(s_i(k) = Invalid) and ValidAll(k) = AND_{i in G}(s_i(k) = Valid). Require InvalidAny(k) => f(k); ValidAll(k) => not f(k); not f(k) => AND_{i in G}(y_i(k) = p_i(k)). Under exhaustive binary statuses these imply f(k) <=> InvalidAny(k). Represent the first two as owner-local compute cases and the third as an unconditional guarantee containing the implication, matching the observed REQ_MMI_6 structure.",
+      "formal_pattern_status": "ABSTRACT_NOT_VALIDATED",
+      "allowed_edit_scope": [
+        "Owning thread's validity and conditional-transfer contract clauses",
+        "Owning implementation's corresponding failure computation and payload assignments",
+        "Associated proof and test artifacts"
+      ],
+      "required_baseline": [
+        "Existing source interfaces and connection topology",
+        "Existing contracts, initialization guarantees, scheduling attributes, and requirement identifiers",
+        "Target-specific input grouping and status-domain definitions",
+        "Target implementation and verification configuration when available; neither is supplied here"
+      ],
+      "diagnostic_signature": null,
+      "related_rule_ids": []
+    },
+    "status": "DRAFT_PENDING_VALIDATION",
+    "id": "e497a7ffe86dc00a0e17e08d0b999a19529f449748e2c5c00b51497fcf1fad25"
+  },
+  "model_result": {
+    "usage": {
+      "input_tokens": 18983,
+      "output_tokens": 2175,
+      "cached_input_tokens": 0
+    },
+    "usage_complete": true,
+    "status": "RESPONSE_RECEIVED",
+    "response": {
+      "rule": {
+        "$schema": "",
+        "schema_version": "2.0",
+        "record_type": "rule",
+        "id": "validity-gated-interface-transfer",
+        "revision": "1",
+        "state": "DRAFT",
+        "basis": "model_inferred",
+        "assessment_timing": "before_action",
+        "source_references": [],
+        "source_artifact_hashes": [],
+        "source_episode": null,
+        "available_context_manifest": null,
+        "model_configuration": null,
+        "prompt_version": "1",
+        "trigger": "A requirement assigns an interface component responsibility for reporting failure when any member of an explicitly identified input group is invalid, clearing failure when all are valid, and copying corresponding payloads when no interface failure exists.",
+        "principle": "Preserve the quantified validity condition and its ownership through contracts, implementation, proof, tests, and repairs: any invalid member triggers failure; all valid members clear failure; absence of failure obligates exact corresponding payload transfer.",
+        "semantic_choice": "Translate 'any invalid' as disjunction, 'both/all valid' as conjunction, and 'if no interface failure then copy' as a one-way implication. Status validity is distinct from numeric range membership and from a Boolean payload expressing operational usability.",
+        "structural_placement": "Attach the behavioral contract to the thread that owns the failure and copied outputs, as Manage_Monitor_Interface_i does. Preserve process forwarding and system connections. Consumers retain ownership of their existing reactions to failure; do not move mode selection or actuation into the interface thread.",
+        "repair_gate": "Proposed gate: accept a repair only after checking preservation of interfaces, existing guarantees, validity quantifiers, payload correspondence, and ownership. Do not weaken assumptions to exclude invalid inputs or introduce output guarantees for unspecified failure branches. These checks have not been implemented or performed.",
+        "prerequisites": [
+          "The target has explicit requirements for the same three obligations: any-invalid failure, all-valid nonfailure, and conditional payload copying.",
+          "The input group and payload-to-output correspondence are explicitly identified.",
+          "Status values are exhaustively Valid or Invalid, or additional statuses receive separately specified treatment before applying the binary equivalence.",
+          "The responsible component can observe the grouped statuses and payloads within a defined invocation snapshot.",
+          "Existing target interfaces, contracts, data representations, and scheduling constraints are available for preservation."
+        ],
+        "exclusions": [
+          "Do not infer validity from numeric bounds, resolution, or physical plausibility.",
+          "Do not include unrelated inputs merely because they also carry status fields; current_tempWstatus is not in the monitor alarm-range validity group.",
+          "Do not infer hold, reset, suppression, or default payload behavior when failure is true.",
+          "Do not derive autopilot control logic from this rule: the provided autopilot excerpt distinguishes status from Guidance Valid but does not specify this failure-and-copy contract.",
+          "Do not introduce state, timeouts, or new latency guarantees."
+        ],
+        "parameters": [
+          {
+            "name": "G",
+            "role": "Nonempty group of inputs covered by the validity requirement",
+            "constraints": "For the observed monitor contract, exactly lower_alarm_tempWstatus and upper_alarm_tempWstatus."
+          },
+          {
+            "name": "s_i, p_i, y_i",
+            "role": "Input status, input payload, and corresponding output payload",
+            "constraints": "Maintain existing types, units, and one-to-one correspondence; copying must not silently convert, clamp, or round."
+          },
+          {
+            "name": "f",
+            "role": "Failure output owned by the interface component",
+            "constraints": "Boolean flag evaluated in the same invocation as the conditional transfer."
+          }
+        ],
+        "dependencies": [
+          "Existing status type definitions and port payload types",
+          "Established invocation and port sampling semantics",
+          "Existing component allocation and forwarding connections"
+        ],
+        "target_compatibility": [
+          "reviewed-learning-plan"
+        ],
+        "preserved_obligations": [
+          "Architecture: preserve every existing source port, name, direction, type, connection, process/thread boundary, period, and scheduling domain.",
+          "Contract: retain existing initialization, monitor-status mapping, failure reporting, and conditional copying guarantees without weakening them.",
+          "Implementation: compute failure from the designated statuses and copy every corresponding payload when failure is false using a coherent invocation snapshot.",
+          "Proof: establish the three implications for every admissible snapshot, justify binary-status exhaustiveness before using an equivalence, and check compatibility with all existing guarantees.",
+          "Testing: propose all-valid, each-single-invalid, and all-invalid cases; use unequal payloads to detect swapped outputs and vary unrelated statuses to detect unintended coupling.",
+          "Testing: check the same statuses with different numeric payloads so that range checks cannot substitute for validity checks; failure-true payload outputs have no new oracle beyond existing requirements.",
+          "Repair: localize changes to the owning behavior and associated proof/test artifacts, preserve requirement identifiers, and rerun the proposed checks after changes.",
+          "Deployment: retain established scheduling and routing; this rule establishes no end-to-end timing result."
+        ],
+        "counterexample": {
+          "scenario": "The lower alarm-range status is Valid and the upper status is Invalid, while both numeric payloads appear plausible and current_tempWstatus is Valid.",
+          "expected_difference": "The failure flag must be true. An implementation requiring both statuses to be Invalid, or checking only numeric plausibility, violates the rule. Conditional copying adds no payload-output obligation in this case.",
+          "source_or_test_reference": null
+        },
+        "validation_gate_ids": [],
+        "evidence_references": [],
+        "confidence_forecast_reference": null,
+        "approval_reference": null,
+        "notes": "Observed facts: Monitor REQ_MMI_4 uses an invalid-status disjunction; REQ_MMI_5 uses a valid-status conjunction; REQ_MMI_6 conditionally equates corresponding degrees fields. The monitor architecture allocates these outputs to the interface thread and forwards them through its process. The supplied autopilot text separately represents status and the Guidance Valid Boolean payload. Proposed obligations: the reusable generalization, snapshot discipline, implementation constraints, proof tasks, test cases, and repair gate above. No validation implementation or development results are supplied, and no validation, test success, or approval is asserted. Source references and hashes are left for the trusted controller.",
+        "source_english_patterns": [
+          "If any alarm temperature status is Invalid then interface failure is True",
+          "If both alarm temperature statuses are Valid then interface failure is False",
+          "If no interface failure then copy alarm range"
+        ],
+        "positive_paraphrases": [
+          "An invalid status on either required input raises the interface failure flag.",
+          "When every required status is valid, clear interface failure and transfer each corresponding payload unchanged."
+        ],
+        "misleading_near_matches": [
+          "Raise failure only when every input is invalid.",
+          "Clear failure when at least one input is valid.",
+          "Values inside their permitted numeric range are valid.",
+          "A valid status on Guidance Valid means its Boolean payload is true.",
+          "When failure occurs, retain the previous payload outputs."
+        ],
+        "supported_operations": [
+          "complete-system",
+          "extend-system",
+          "repair-system",
+          "verify-only"
+        ],
+        "stack_layers": [
+          "language",
+          "architecture",
+          "gumbo",
+          "implementation",
+          "proof",
+          "testing",
+          "deployment",
+          "repair"
+        ],
+        "semantic_roles": {
+          "actor": "The interface thread owning the failure flag and copied outputs",
+          "condition": "Statuses of exactly the designated input group, followed by the resulting absence-of-failure condition",
+          "effect": "Set or clear failure and conditionally copy corresponding payloads",
+          "modality": "Mandatory conditional guarantees",
+          "quantification": "Existential invalidity; universal validity; universal copying across the designated group",
+          "temporal_scope": "Each compute invocation; no new initialization or cross-invocation behavior",
+          "state_dependency": "Stateless for this scoped relation; preserve unrelated existing state behavior",
+          "units_and_boundaries": "Exact payload equality in existing units and representations; Valid/Invalid are categorical boundaries, not numerical thresholds"
+        },
+        "formal_output_pattern": "Abstract per-invocation relation, not executable GUMBO: for every invocation k, let InvalidAny(k) = OR_{i in G}(s_i(k) = Invalid) and ValidAll(k) = AND_{i in G}(s_i(k) = Valid). Require InvalidAny(k) => f(k); ValidAll(k) => not f(k); not f(k) => AND_{i in G}(y_i(k) = p_i(k)). Under exhaustive binary statuses these imply f(k) <=> InvalidAny(k). Represent the first two as owner-local compute cases and the third as an unconditional guarantee containing the implication, matching the observed REQ_MMI_6 structure.",
+        "formal_pattern_status": "ABSTRACT_NOT_VALIDATED",
+        "allowed_edit_scope": [
+          "Owning thread's validity and conditional-transfer contract clauses",
+          "Owning implementation's corresponding failure computation and payload assignments",
+          "Associated proof and test artifacts"
+        ],
+        "required_baseline": [
+          "Existing source interfaces and connection topology",
+          "Existing contracts, initialization guarantees, scheduling attributes, and requirement identifiers",
+          "Target-specific input grouping and status-domain definitions",
+          "Target implementation and verification configuration when available; neither is supplied here"
+        ],
+        "diagnostic_signature": null,
+        "related_rule_ids": []
+      },
+      "confidence": {
+        "score": 0.8,
+        "rationale": "Before seeing any development result, my model-belief confidence is 0.8 that this scoped rule will preserve the stated obligations on the held-out component under its prerequisites. The three core implications closely match the supplied monitor contract, and the prerequisites restrict transfer to matching ownership and status semantics. The held-out implementation and validation machinery are unavailable, leaving uncertainty about snapshot semantics and interactions with existing guarantees. This is a subjective forecast, not an empirical probability."
+      }
+    },
+    "warnings": [
+      "Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."
+    ],
+    "reason": null,
+    "scope": "Metered response only; no truth, validation or acceptance claim"
+  }
+}

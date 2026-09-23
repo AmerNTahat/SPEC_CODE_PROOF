@@ -1,0 +1,5 @@
+{
+  "status": "BLOCKED",
+  "reason": "Release has unresolved rule dependencies",
+  "type": "PolicyError"
+}

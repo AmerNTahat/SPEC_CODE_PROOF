@@ -47,7 +47,7 @@ class Learning:
             matches=[a for a in self.store.records('approval') if a['action']=='approve_learning_plan' and a['subject'].get('plan_id')==plan['id']]
             plans.append({**plan,'approval':approvals.get(matches[0]['id']) if len(matches)==1 else None})
         source_paths={item['source_id']:self.store.read_record('source',item['source_id'])['relative'] for plan in plans for item in plan['training']+plan['validation']}
-        return {'source_paths':source_paths,'unit_definitions':definitions,'unit_proposals':self.store.records('unit_definition_proposal'),'development_tasks':self.store.records('development_task'),'development_results':self.store.records('development_result'),'context_documents':self.store.records('context_document'), 'extractions':self.store.records('learning_extraction'), 'plans':plans, 'campaigns':campaigns, 'model_calls':self.store.records('model_call'), 'sessions': self.store.records('learning_session'), 'candidates': candidates,
+        return {'batch_jobs':self.store.records('learning_batch_job'),'batch_job_results':self.store.records('learning_batch_job_result'),'source_paths':source_paths,'unit_definitions':definitions,'unit_proposals':self.store.records('unit_definition_proposal'),'development_tasks':self.store.records('development_task'),'development_results':self.store.records('development_result'),'context_documents':self.store.records('context_document'), 'extractions':self.store.records('learning_extraction'), 'plans':plans, 'campaigns':campaigns, 'model_calls':self.store.records('model_call'), 'sessions': self.store.records('learning_session'), 'candidates': candidates,
                 'reviews': reviews, 'lessons': lessons, 'release_drafts': self.store.records('release_draft'),
                 'releases': releases, 'library': self.knowledge.catalog(),
                 'stages': [
@@ -158,6 +158,34 @@ class Learning:
                 offset=end
         if not chunks:return [{**context,'batch_index':0,'batch_count':1}]
         return [{**context,'context':[chunk],'batch_index':i,'batch_count':len(chunks)} for i,chunk in enumerate(chunks)]
+
+    def extract_remaining(self,plan_id,campaign_id):
+        """Sequential, restartable context coverage under one existing grant."""
+        from .campaign import Campaign
+        from .learning_plan import LearningPlan
+        batches=self.context_batches(LearningPlan(self.store).training_context(plan_id))
+        completed={x['batch_index'] for x in self.store.records('learning_extraction')
+                   if x['plan_id']==plan_id and x['status']=='DRAFT_PENDING_DEVELOPMENT_VALIDATION'}
+        job=self.store.record('learning_batch_job',{'plan_id':plan_id,'campaign_id':campaign_id,
+            'batch_count':len(batches),'already_completed':sorted(completed),
+            'pending_batches':[i for i in range(len(batches)) if i not in completed],
+            'scope':'Candidate extraction only; not validation, publication or model fine-tuning'})
+        produced=[];reason=None
+        for i in job['pending_batches']:
+            state=Campaign(self.store).status(campaign_id)
+            required=100000+(state['failure_policy']['debit_per_failure'] if state.get('failure_policy') else 0)
+            if state['control_state']!='ACTIVE' or state['remaining_tokens'] is None or state['remaining_tokens']<required or state['remaining_seconds']<=0 or state['reserved_tokens']:
+                reason='Campaign unavailable or allowance exhausted; no automatic renewal';break
+            try:result=self.extract(plan_id,campaign_id,i)
+            except (PolicyError,OSError,ValueError) as exc:
+                reason=str(exc);break
+            produced.append(result['id'])
+            self.store.event('learning-job:'+job['id'],'batch_finished',{'batch_index':i,'extraction_id':result['id'],'status':result['status']})
+            if result['status']!='DRAFT_PENDING_DEVELOPMENT_VALIDATION':
+                reason='A batch failed; inspect diagnostics before retrying';break
+        return self.store.record('learning_batch_job_result',{'job_id':job['id'],'plan_id':plan_id,
+            'produced_extraction_ids':produced,'status':'BLOCKED' if reason else 'CONTEXT_BATCHES_EXTRACTED',
+            'reason':reason,'scope':job['scope']})
 
     def refine(self,candidate_id,development_result_id,campaign_id):
         result=self.store.read_record('development_result',development_result_id)

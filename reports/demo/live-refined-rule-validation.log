@@ -1,0 +1,12 @@
+producer-consumer NOT_VALIDATED
+Traceback (most recent call last):
+  File "/tmp/scp_validate_refined_rule.py", line 14, in <module>
+    result=Development(c).generate_and_check(task['id'],grant,previous['id']);(root/(name+'-refined-rule-validation.json')).write_text(json.dumps(Development(c).inspect(result['id']),indent=2)+'\n');print(name,result['status'],flush=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/amertahat/SPEC_CODE_PROOF/workbench/inspecta_scp/development.py", line 165, in generate_and_check
+    call=ModelWorker(self.store,Path(__file__).resolve().parents[2]).propose(campaign_id,prompt,schema,Path.home()/'.codex/auth.json',seconds=300)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/amertahat/SPEC_CODE_PROOF/workbench/inspecta_scp/model_worker.py", line 60, in propose
+    if not isinstance(prompt,str) or len(prompt.encode())>256000:raise PolicyError('Bounded text prompt required')
+                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+inspecta_scp.config.PolicyError: Bounded text prompt required

@@ -1,0 +1,110 @@
+{
+  "plan_id": "2849a2cebf7258e1bf081dba484e97177979ec9cff7fb352f75b6c4dc8c77977",
+  "batch_count": 12,
+  "batches": [
+    {
+      "batch_index": 0,
+      "status": "DRAFT_PENDING_DEVELOPMENT_VALIDATION",
+      "candidate_id": "0d121c62e14e382d0fba59095526a9effdb207d1323505024a958b6a3563a88d",
+      "model_call_id": "411b6b25a8f53f36db515cca7d1e597a1dc2d10e78bfb13336414a725a13adfb"
+    },
+    {
+      "batch_index": 1,
+      "status": "DRAFT_PENDING_DEVELOPMENT_VALIDATION",
+      "candidate_id": "86f8ab7b6b14e48505ca83df82e792e7ed489c7556c8fe62b48d7d396722d128",
+      "model_call_id": "045490134f2b30355cbeda2c3fe0b409ea1fd59edbad3bad74a3d5e6ab34c872"
+    },
+    {
+      "batch_index": 2,
+      "status": "DRAFT_PENDING_DEVELOPMENT_VALIDATION",
+      "candidate_id": "b9e72e1640da2fb6bbc2847fdde9c22d990d32a3105348efa251976a4cb0758b",
+      "model_call_id": "6408421ebc8101ff5ecc7cb51d2878c760721f5769df32ee51d39fc9517e197a"
+    },
+    {
+      "batch_index": 3,
+      "status": "DRAFT_PENDING_DEVELOPMENT_VALIDATION",
+      "candidate_id": "5052af9f84a61c0d5b004512674586d0952617fa55a6d53b93a7ed23f1206b07",
+      "model_call_id": "87978ba74fd3f0893b5d3cb31eb345a2ee7141c95fcbee661a2d62808e539c63"
+    },
+    {
+      "batch_index": 4,
+      "status": "DRAFT_PENDING_DEVELOPMENT_VALIDATION",
+      "candidate_id": "67899bb3d0a26969a7455df9c4e621a1e9bf8bb9a12b99b766c01290a2bd31e6",
+      "model_call_id": "74ba4ef38956b0d79480adc009812803a312cc991ede85f7b5d6a22c99b8a68e"
+    },
+    {
+      "batch_index": 5,
+      "status": "DRAFT_PENDING_DEVELOPMENT_VALIDATION",
+      "candidate_id": "6d23020af4c22925db119a7edea580a94c567aa90fa3bcf4c2a9822aeb709b08",
+      "model_call_id": "10c4b0eb8a313f362111158643571a371903c1b10ea5bb1998bc96884a51813c"
+    },
+    {
+      "batch_index": 6,
+      "status": "DRAFT_PENDING_DEVELOPMENT_VALIDATION",
+      "candidate_id": "e8f3d669144d6f4532dbd1c8b66c69de69fc874b2a714c5e5b0bbdcbf4e1c58d",
+      "model_call_id": "cbe79ae342fa47afb47ca8319adfe6805198eab67221f00253c9bda4c84040b6"
+    },
+    {
+      "batch_index": 7,
+      "status": "DRAFT_PENDING_DEVELOPMENT_VALIDATION",
+      "candidate_id": "ce107613a9bd6fca36c8edced63abe0b62ceec1887c768cf0b89f792f823904f",
+      "model_call_id": "d6bcec47a767de8d67698f282431f7826b1dbafcdaef061dbd4ed8150d5be3ca"
+    },
+    {
+      "batch_index": 8,
+      "status": "DRAFT_PENDING_DEVELOPMENT_VALIDATION",
+      "candidate_id": "bd31b63b67fba034b61991c519c68ba4b9b1a3100b78249edab5cd38b7b72c70",
+      "model_call_id": "3d59f70182e8ed9a5170d6228d153edfc4018789490cf291536dfe6cfcdcb13b"
+    },
+    {
+      "batch_index": 9,
+      "status": "DRAFT_PENDING_DEVELOPMENT_VALIDATION",
+      "candidate_id": "6bfb6864c501b63ddfa81a5f7131f9612af5f0d71a84dc7a74fc6399dee21c1f",
+      "model_call_id": "0e83c1fe0e73c7fd97f6acdde29e5060d4a268a38253e7ba8580204a84cc1404"
+    },
+    {
+      "batch_index": 10,
+      "status": "DRAFT_PENDING_DEVELOPMENT_VALIDATION",
+      "candidate_id": "580a5d8089bb6360654dbebc528ad95c2f6bdfd3e309f13af50526b73f9bb564",
+      "model_call_id": "218bf271f6b2ba0e9df7225f0b03292559df6444528f472cdeebe592a90791a3"
+    },
+    {
+      "batch_index": 11,
+      "status": "DRAFT_PENDING_DEVELOPMENT_VALIDATION",
+      "candidate_id": "e497a7ffe86dc00a0e17e08d0b999a19529f449748e2c5c00b51497fcf1fad25",
+      "model_call_id": "2da1bb2c14bf4692d31f3f926fcd9a479053da74839d25133e3c1a06182d1f54"
+    }
+  ],
+  "budget": {
+    "id": "3f16ff4ef866d414cedb448a3ade2dfc4c5b5807162e6aea7522abc218fb49d8",
+    "started": 1790117782.972513,
+    "used_tokens": 282195,
+    "reserved_tokens": 0,
+    "usage_unknown": 0,
+    "estimated_debit_tokens": 2000000,
+    "failure_policy": {
+      "campaign_id": "3f16ff4ef866d414cedb448a3ade2dfc4c5b5807162e6aea7522abc218fb49d8",
+      "consent": "User 2026-09-22 explicitly selected: Authorize estimated debits within 13M. Charge a conservative 1,000,000-token debit for this failed batch and later unmetered failures within the existing 13M ceiling. Estimates remain separate from measured usage; stop before an unaffordable reservation. No clock or budget extension.",
+      "debit_per_failure": 1000000,
+      "enabled": true,
+      "hard_bound": false,
+      "id": "94898bef102214fe6d91d29cc67735122560c13c285176700abeafd4bab7c9a3"
+    },
+    "authorization": {
+      "aggregate_tokens": 13000000,
+      "automatic_extension": false,
+      "clock_starts": "first paid reservation",
+      "concurrency": 1,
+      "consent": "User authorization 2026-09-22: tokens limits should be about 14 millions tokens, wall colck 1 hour for isolette for epsilon estimation dont exceed 0.3 you may start with 0.1. for doc best efforts total tokens should not exceed 13 million. Once you reach that ask for extension. Finish all the tasks.",
+      "enforcement": "best_effort",
+      "hard_token_cap_validated": false,
+      "wall_seconds": 3600,
+      "id": "3f16ff4ef866d414cedb448a3ade2dfc4c5b5807162e6aea7522abc218fb49d8"
+    },
+    "deadline": 1790121382.972513,
+    "remaining_seconds": 1524.1858410835266,
+    "remaining_tokens": 10717805,
+    "scope": "Best-effort aggregate accounting; termination may leave uncertain in-flight usage"
+  },
+  "scope": "Real learned drafts; development validation and publication remain pending"
+}

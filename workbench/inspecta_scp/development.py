@@ -14,8 +14,28 @@ from .storage import safe_child,sha_file
 from .vendor.local_compare import compare_text
 
 
+def bounded_inventory(items, byte_limit=48000):
+    """Keep whole diagnostic entries; explicitly report omitted entries."""
+    selected=[]
+    for item in items:
+        if len(json.dumps(selected+[item]).encode())<=byte_limit:
+            selected.append(item)
+    return {'components':selected,'total_components':len(items),
+            'omitted_components':len(items)-len(selected),
+            'scope':'Optional generated-model diagnostics; never reference evidence'}
+
+
 class Development:
     def __init__(self,controller):self.controller=controller;self.store=controller.store;self.approvals=Approvals(self.store)
+
+    def revise_rules(self,result_id,candidate_ids):
+        previous=self.store.read_record('development_result',result_id)
+        if previous['status']!='NOT_VALIDATED':raise PolicyError('Select a failed development result')
+        task=self.store.read_record('development_task',previous['task_id'])
+        profile=dict(self.controller.status(task['baseline_run_id'])['config'])
+        profile.pop('resolved_operation',None)
+        return self.prepare(profile,task['target_file'],task['shared_files'],task['requirements'],
+            candidate_ids,task['plan_id'],validation_plan_id=task['validation_plan_id'],predecessor_task_id=task['id'])
 
     def prepare(self,profile,target_file,shared_files,requirements,candidate_ids,plan_id,base_dir=None,validation_plan_id=None,predecessor_task_id=None):
         plan=LearningPlan(self.store).fresh(validation_plan_id or plan_id)
@@ -42,9 +62,17 @@ class Development:
         if any(sha_file(safe_child(root,p)) in heldout for p in shared_files):raise PolicyError('Shared context duplicates a held-out reference')
         if predecessor_task_id:
             prior=self.store.read_record('development_task',predecessor_task_id)
-            expected={'target_file':target_file,'shared_files':shared_files,'requirements':requirements,'candidate_ids':candidate_ids,'plan_id':plan_id}
+            expected={'target_file':target_file,'shared_files':shared_files,'requirements':requirements,'plan_id':plan_id}
             if any(prior[k]!=v for k,v in expected.items()):
-                raise PolicyError('Reference revision must preserve the generation task, training and selected rules')
+                raise PolicyError('Task revision must preserve generation inputs and training')
+            parents=[]
+            for key in candidate_ids:
+                if key in prior['candidate_ids']:parents.append(key);continue
+                revisions=[e for e in self.store.records('learning_extraction') if e['candidate_id']==key and e['plan_id']==plan_id and e.get('revision_of') in prior['candidate_ids']]
+                if len(revisions)!=1:raise PolicyError('Changed candidate must be a recorded refinement of a previously selected rule')
+                parents.append(revisions[0]['revision_of'])
+            if len(parents)!=len(set(parents)) or set(parents)!=set(prior['candidate_ids']):
+                raise PolicyError('A task revision may not drop or duplicate selected rule lineage')
             prior_folder=self.store.root/'runs'/prior['baseline_run_id']/'candidate'
             if any(sha_file(safe_child(prior_folder,p))!=sha_file(safe_child(root,p)) for p in shared_files):
                 raise PolicyError('Reference revision may not silently change generation-visible shared context')
@@ -125,7 +153,7 @@ class Development:
                     for child in component.get('subComponents',[]):visit(child)
                 for model in models.values():
                     for component in model['components']:visit(component)
-                context['development_retry']['own_resolved_architecture']=inventory
+                context['development_retry']['own_resolved_architecture']=bounded_inventory(inventory)
         context_ref=self.store.record('development_generation_context',context)
         schema={'type':'object','additionalProperties':False,'required':['content','rule_applications','limitations'],
                 'properties':{'content':{'type':'string'},'rule_applications':{'type':'array','items':{'type':'string'}},'limitations':{'type':'array','items':{'type':'string'}}}}
@@ -148,8 +176,11 @@ class Development:
                 'Write the processor-allocation type explicitly as Deployment_Properties::Actual_Processor_Binding; '
                 'the selected instantiator tests that qualified type name. Prefer existing package-qualified '
                 'property constants or the required literal over a new local property alias. '
+                'The enum paths in these libraries are AADL_Project::Supported_Dispatch_Protocols::Periodic '
+                'and HAMR::Implementation_Languages::Rust. Keep valid enum qualifications unchanged during unrelated repairs. '
                 'When own_resolved_architecture is supplied, check that the generated model actually realizes '
                 'the task-required ownership, wiring, processor bindings, and properties; parsed syntax alone is insufficient. '
+                'Avoid duplicate emitted properties caused by both local aliases and refinements of the same property. '
                 'The golden reference is hidden; do not pretend to have seen it. Do not claim any checks passed.\n'+json.dumps(context))
         call=ModelWorker(self.store,Path(__file__).resolve().parents[2]).propose(campaign_id,prompt,schema,Path.home()/'.codex/auth.json',seconds=300)
         if call['result']['status']!='RESPONSE_RECEIVED':

@@ -68,11 +68,14 @@ class Application:
                     from .unit_definitions import UnitDefinitions
                     units=UnitDefinitions(controller.store)
                     return units.suggest(body.get('plan_id'),body.get('campaign_id')) if route.endswith('unit-suggest') else units.revise(body.get('proposal_id'),body.get('definition'))
+                if method == 'POST' and route == '/api/learning/development-revise-rules':
+                    from .development import Development
+                    return Development(controller).revise_rules(body.get('result_id'),body.get('candidate_ids'))
                 if method == 'POST' and route == '/api/learning/development-prepare':
                     from .development import Development
                     profile=self.profiles.get(body.get('profile_id'))
                     if profile is None:raise PolicyError('Choose a registered evaluation project')
-                    return Development(controller).prepare(json.loads(profile.read_text()),body.get('target_file'),body.get('shared_files',[]),body.get('requirements'),body.get('candidate_ids'),body.get('plan_id'),profile.parent,body.get('validation_plan_id'))
+                    return Development(controller).prepare(json.loads(profile.read_text()),body.get('target_file'),body.get('shared_files',[]),body.get('requirements'),body.get('candidate_ids'),body.get('plan_id'),profile.parent,body.get('validation_plan_id'),body.get('predecessor_task_id'))
                 if method == 'GET' and route == '/api/learning/development-result':
                     from .development import Development
                     return Development(controller).inspect(query.get('result_id',[''])[0])
@@ -81,6 +84,11 @@ class Application:
                     return Development(controller).generate_and_check(body.get('task_id'),body.get('campaign_id'),body.get('previous_result_id'))
                 if method == 'POST' and route == '/api/learning/refine':
                     return service.refine(body.get('candidate_id'),body.get('development_result_id'),body.get('campaign_id'))
+                if method == 'POST' and route == '/api/learning/extract-remaining':
+                    return service.extract_remaining(body.get('plan_id'),body.get('campaign_id'))
+                if method == 'POST' and route == '/api/learning/campaign-control':
+                    from .campaign import Campaign
+                    return Campaign(controller.store).control(body.get('campaign_id'),body.get('action'))
                 if method == 'POST' and route == '/api/learning/extract':
                     return service.extract(body.get('plan_id'),body.get('campaign_id'),body.get('batch_index',0))
                 if method == 'POST' and route == '/api/learning/plan':

@@ -1,0 +1,88 @@
+{
+  "plan_id": "2849a2cebf7258e1bf081dba484e97177979ec9cff7fb352f75b6c4dc8c77977",
+  "validation_plan_id": "fbc15278f3b7ee03cdcded3f97e7d746274631f66862c494184c6a958b6bb182",
+  "baseline_run_id": "4eac304d47bf4ccfa7bbbd3bda27371f",
+  "config_hash": "2db73da31491380dee363c84104b8b7adf080915472b245255513aaa35b17dc4",
+  "target_file": "prod-cons/ProdCons.sysml",
+  "golden_sha256": "3a644a6a465df26167cd8a5be4c4604120ee203309134b6b951620907be3ffcf",
+  "shared_files": [
+    "aadl-lib/aadl.library/AADL.sysml",
+    "aadl-lib/aadl.library/AADL_Project.sysml",
+    "aadl-lib/aadl.library/Base_Types.sysml",
+    "aadl-lib/aadl.library/Communication_Properties.sysml",
+    "aadl-lib/aadl.library/Data_Model.sysml",
+    "aadl-lib/aadl.library/Deployment_Properties.sysml",
+    "aadl-lib/aadl.library/Memory_Properties.sysml",
+    "aadl-lib/aadl.library/Programming_Properties.sysml",
+    "aadl-lib/aadl.library/Thread_Properties.sysml",
+    "aadl-lib/aadl.library/Timing_Properties.sysml",
+    "aadl-lib/aadl.library/behavior_properties.sysml",
+    "aadl-lib/hamr.aadl.library/CASE_Scheduling.sysml",
+    "aadl-lib/hamr.aadl.library/HAMR.sysml",
+    "aadl-lib/hamr.aadl.library/HAMR_AADL.sysml",
+    "aadl-lib/hamr.aadl.library/HAMR_Time_Units.sysml"
+  ],
+  "requirements": "Development reconstruction task transcribed from the selected KSU example by the controller/operator, not an independent final evaluation specification.\nCreate package ProdCons importing HAMR. The public top-level system definition is ProdCons_System, containing prod: Prod_Process, cons: Cons_Process, and proc: Main_Processor. Connect prod.output to cons.input with connection pc. Bind prod and cons to proc with Actual_Processor_Binding allocations prod_to_proc and cons_to_proc.\nProd_Process owns an output EventDataPort of Message and Domain_Prod, contains prod: Prod, and forwards prod.output to its output via prod_output. Cons_Process owns an input EventDataPort of Message and Domain_Cons, contains cons: Cons, and forwards input to cons.input via cons_input. Put port direction on the typed feature inside each port, as required by the selected current HAMR dialect.\nProd is a periodic Rust Thread with period 60 ms and an output EventDataPort of Message. Its GUMBO integration guarantee named Payload_Range states that output.payload is between 0 and 90 inclusive, using Integer_32 literals.\nCons is a periodic Rust Thread with period 40 ms and an input EventDataPort of Message. Its GUMBO state payload_sum is Integer_32. Define Init_Payload_Sum returning Integer_32 zero. Its integration assumption named Payload_Range constrains input.payload to 0 through 100 inclusive. Its initialization guarantee initSum initializes payload_sum to Init_Payload_Sum(). Do not invent compute behavior: the example leaves it unspecified.\nMessage is Data with Integer_32 parts payload and control_num. Main_Processor is Processor with Frame_Period 120 ms and Clock_Period 2 ms. Domain_Prod and Domain_Cons are CASE_Scheduling::Domain attributes equal to 2 and 3 respectively.\nApply a selected rule only when its prerequisites hold. In particular, do not introduce hysteresis, alarms, additional monitor state, or mode gates into this event-data pipeline. State explicitly when a Monitor-derived rule is inapplicable. A lexical score is not proof of applicability or correctness. The golden model is withheld; preserve the declared names and obligations.",
+  "candidate_ids": [
+    "0d121c62e14e382d0fba59095526a9effdb207d1323505024a958b6a3563a88d"
+  ],
+  "operation": "isolated_reconstruction_for_development",
+  "naming_policy": "preserve_existing_reference_names",
+  "required_gates": [
+    "parse_type",
+    "hamr_codegen",
+    "integration_constraints",
+    "architecture_capture"
+  ],
+  "reference_policy": "golden excluded from model context; controller-only comparison",
+  "retrieval": {
+    "comparison": "distance <= epsilon",
+    "epsilon": 0.1,
+    "maximum": 0.3,
+    "metric": "lexical_token_count_cosine_distance"
+  },
+  "candidate_selection": "explicit selected candidates; no claim of automatic retrieval",
+  "scope": "Within-system development test, not independent final transfer or source promotion",
+  "id": "b09423d00d2c59def38fe09e5fd924cadceb4661c1f4cd6fd499410b25279530",
+  "approval": {
+    "action": "approve_development_task",
+    "subject": {
+      "candidate_ids": [
+        "0d121c62e14e382d0fba59095526a9effdb207d1323505024a958b6a3563a88d"
+      ],
+      "required_gates": [
+        "parse_type",
+        "hamr_codegen",
+        "integration_constraints",
+        "architecture_capture"
+      ],
+      "requirements": "Development reconstruction task transcribed from the selected KSU example by the controller/operator, not an independent final evaluation specification.\nCreate package ProdCons importing HAMR. The public top-level system definition is ProdCons_System, containing prod: Prod_Process, cons: Cons_Process, and proc: Main_Processor. Connect prod.output to cons.input with connection pc. Bind prod and cons to proc with Actual_Processor_Binding allocations prod_to_proc and cons_to_proc.\nProd_Process owns an output EventDataPort of Message and Domain_Prod, contains prod: Prod, and forwards prod.output to its output via prod_output. Cons_Process owns an input EventDataPort of Message and Domain_Cons, contains cons: Cons, and forwards input to cons.input via cons_input. Put port direction on the typed feature inside each port, as required by the selected current HAMR dialect.\nProd is a periodic Rust Thread with period 60 ms and an output EventDataPort of Message. Its GUMBO integration guarantee named Payload_Range states that output.payload is between 0 and 90 inclusive, using Integer_32 literals.\nCons is a periodic Rust Thread with period 40 ms and an input EventDataPort of Message. Its GUMBO state payload_sum is Integer_32. Define Init_Payload_Sum returning Integer_32 zero. Its integration assumption named Payload_Range constrains input.payload to 0 through 100 inclusive. Its initialization guarantee initSum initializes payload_sum to Init_Payload_Sum(). Do not invent compute behavior: the example leaves it unspecified.\nMessage is Data with Integer_32 parts payload and control_num. Main_Processor is Processor with Frame_Period 120 ms and Clock_Period 2 ms. Domain_Prod and Domain_Cons are CASE_Scheduling::Domain attributes equal to 2 and 3 respectively.\nApply a selected rule only when its prerequisites hold. In particular, do not introduce hysteresis, alarms, additional monitor state, or mode gates into this event-data pipeline. State explicitly when a Monitor-derived rule is inapplicable. A lexical score is not proof of applicability or correctness. The golden model is withheld; preserve the declared names and obligations.",
+      "shared_files": [
+        "aadl-lib/aadl.library/AADL.sysml",
+        "aadl-lib/aadl.library/AADL_Project.sysml",
+        "aadl-lib/aadl.library/Base_Types.sysml",
+        "aadl-lib/aadl.library/Communication_Properties.sysml",
+        "aadl-lib/aadl.library/Data_Model.sysml",
+        "aadl-lib/aadl.library/Deployment_Properties.sysml",
+        "aadl-lib/aadl.library/Memory_Properties.sysml",
+        "aadl-lib/aadl.library/Programming_Properties.sysml",
+        "aadl-lib/aadl.library/Thread_Properties.sysml",
+        "aadl-lib/aadl.library/Timing_Properties.sysml",
+        "aadl-lib/aadl.library/behavior_properties.sysml",
+        "aadl-lib/hamr.aadl.library/CASE_Scheduling.sysml",
+        "aadl-lib/hamr.aadl.library/HAMR.sysml",
+        "aadl-lib/hamr.aadl.library/HAMR_AADL.sysml",
+        "aadl-lib/hamr.aadl.library/HAMR_Time_Units.sysml"
+      ],
+      "source_promotion": false,
+      "target_file": "prod-cons/ProdCons.sysml",
+      "task_digest": "f943b3ee1c9f9d4ca8280a470b49069efaa9617a3592ee0112dfb0826eebc6ee",
+      "task_id": "b09423d00d2c59def38fe09e5fd924cadceb4661c1f4cd6fd499410b25279530"
+    },
+    "subject_digest": "d205aa14a7fdf6fd104b7d3e1cbe65b998cd0e0dd1827127eb952bfeabf99e31",
+    "id": "1e6b1574ccd60544af403ce49e5be35cf07c7e1ed8f5f5d17d9b7ea1f432eea1",
+    "status": "PENDING",
+    "reviewer": null,
+    "decided_at": null
+  }
+}

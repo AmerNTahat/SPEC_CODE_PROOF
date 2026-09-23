@@ -5,6 +5,6 @@
     "Live demo has not completed"
   ],
   "status": "partial",
-  "live_demo_status": "deferred_by_user",
+  "live_demo_status": "validation_failed",
   "scope": "Checks receipt/linked-file identities, not independent truth of engineering claims or authenticity of signer."
 }

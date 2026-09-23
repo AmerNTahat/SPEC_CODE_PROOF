@@ -1,0 +1,89 @@
+{
+  "plan_id": "2849a2cebf7258e1bf081dba484e97177979ec9cff7fb352f75b6c4dc8c77977",
+  "validation_plan_id": "fbc15278f3b7ee03cdcded3f97e7d746274631f66862c494184c6a958b6bb182",
+  "baseline_run_id": "92a81c772c40434383dd84cd10a2d258",
+  "config_hash": "2db73da31491380dee363c84104b8b7adf080915472b245255513aaa35b17dc4",
+  "target_file": "prod-cons/ProdCons.sysml",
+  "golden_sha256": "3a644a6a465df26167cd8a5be4c4604120ee203309134b6b951620907be3ffcf",
+  "predecessor_task_id": "58a715f499275b0b9d4b1a9d2d7f78ed209112b227c0e54b692f98255db8c9b2",
+  "shared_files": [
+    "aadl-lib/aadl.library/AADL.sysml",
+    "aadl-lib/aadl.library/AADL_Project.sysml",
+    "aadl-lib/aadl.library/Base_Types.sysml",
+    "aadl-lib/aadl.library/Communication_Properties.sysml",
+    "aadl-lib/aadl.library/Data_Model.sysml",
+    "aadl-lib/aadl.library/Deployment_Properties.sysml",
+    "aadl-lib/aadl.library/Memory_Properties.sysml",
+    "aadl-lib/aadl.library/Programming_Properties.sysml",
+    "aadl-lib/aadl.library/Thread_Properties.sysml",
+    "aadl-lib/aadl.library/Timing_Properties.sysml",
+    "aadl-lib/aadl.library/behavior_properties.sysml",
+    "aadl-lib/hamr.aadl.library/CASE_Scheduling.sysml",
+    "aadl-lib/hamr.aadl.library/HAMR.sysml",
+    "aadl-lib/hamr.aadl.library/HAMR_AADL.sysml",
+    "aadl-lib/hamr.aadl.library/HAMR_Time_Units.sysml"
+  ],
+  "requirements": "Development reconstruction task transcribed from the selected KSU example by the controller/operator, not an independent final evaluation specification.\nCreate package ProdCons importing HAMR. The public top-level system definition is ProdCons_System, containing prod: Prod_Process, cons: Cons_Process, and proc: Main_Processor. Connect prod.output to cons.input with connection pc. Bind prod and cons to proc with Actual_Processor_Binding allocations prod_to_proc and cons_to_proc.\nProd_Process owns an output EventDataPort of Message and Domain_Prod, contains prod: Prod, and forwards prod.output to its output via prod_output. Cons_Process owns an input EventDataPort of Message and Domain_Cons, contains cons: Cons, and forwards input to cons.input via cons_input. Put port direction on the typed feature inside each port, as required by the selected current HAMR dialect.\nProd is a periodic Rust Thread with period 60 ms and an output EventDataPort of Message. Its GUMBO integration guarantee named Payload_Range states that output.payload is between 0 and 90 inclusive, using Integer_32 literals.\nCons is a periodic Rust Thread with period 40 ms and an input EventDataPort of Message. Its GUMBO state payload_sum is Integer_32. Define Init_Payload_Sum returning Integer_32 zero. Its integration assumption named Payload_Range constrains input.payload to 0 through 100 inclusive. Its initialization guarantee initSum initializes payload_sum to Init_Payload_Sum(). Do not invent compute behavior: the example leaves it unspecified.\nMessage is Data with Integer_32 parts payload and control_num. Main_Processor is Processor with Frame_Period 120 ms and Clock_Period 2 ms. Domain_Prod and Domain_Cons are CASE_Scheduling::Domain attributes equal to 2 and 3 respectively.\nApply a selected rule only when its prerequisites hold. In particular, do not introduce hysteresis, alarms, additional monitor state, or mode gates into this event-data pipeline. State explicitly when a Monitor-derived rule is inapplicable. A lexical score is not proof of applicability or correctness. The golden model is withheld; preserve the declared names and obligations.",
+  "candidate_ids": [
+    "21c1bd02cd508b03b2bd38370d042f678b608502fc7512c54130f21d60bb34b4"
+  ],
+  "operation": "isolated_reconstruction_for_development",
+  "naming_policy": "preserve_existing_reference_names",
+  "required_gates": [
+    "parse_type",
+    "hamr_codegen",
+    "integration_constraints",
+    "architecture_capture"
+  ],
+  "reference_policy": "golden excluded from model context; controller-only comparison",
+  "retrieval": {
+    "comparison": "distance <= epsilon",
+    "epsilon": 0.1,
+    "maximum": 0.3,
+    "metric": "lexical_token_count_cosine_distance"
+  },
+  "candidate_selection": "explicit selected candidates; no claim of automatic retrieval",
+  "scope": "Within-system development test, not independent final transfer or source promotion",
+  "id": "6bad011c3f40d97e05b3a0813d7e859291286e7a728879e310301f201f7a2bb9",
+  "approval": {
+    "action": "approve_development_task",
+    "subject": {
+      "candidate_ids": [
+        "21c1bd02cd508b03b2bd38370d042f678b608502fc7512c54130f21d60bb34b4"
+      ],
+      "required_gates": [
+        "parse_type",
+        "hamr_codegen",
+        "integration_constraints",
+        "architecture_capture"
+      ],
+      "requirements": "Development reconstruction task transcribed from the selected KSU example by the controller/operator, not an independent final evaluation specification.\nCreate package ProdCons importing HAMR. The public top-level system definition is ProdCons_System, containing prod: Prod_Process, cons: Cons_Process, and proc: Main_Processor. Connect prod.output to cons.input with connection pc. Bind prod and cons to proc with Actual_Processor_Binding allocations prod_to_proc and cons_to_proc.\nProd_Process owns an output EventDataPort of Message and Domain_Prod, contains prod: Prod, and forwards prod.output to its output via prod_output. Cons_Process owns an input EventDataPort of Message and Domain_Cons, contains cons: Cons, and forwards input to cons.input via cons_input. Put port direction on the typed feature inside each port, as required by the selected current HAMR dialect.\nProd is a periodic Rust Thread with period 60 ms and an output EventDataPort of Message. Its GUMBO integration guarantee named Payload_Range states that output.payload is between 0 and 90 inclusive, using Integer_32 literals.\nCons is a periodic Rust Thread with period 40 ms and an input EventDataPort of Message. Its GUMBO state payload_sum is Integer_32. Define Init_Payload_Sum returning Integer_32 zero. Its integration assumption named Payload_Range constrains input.payload to 0 through 100 inclusive. Its initialization guarantee initSum initializes payload_sum to Init_Payload_Sum(). Do not invent compute behavior: the example leaves it unspecified.\nMessage is Data with Integer_32 parts payload and control_num. Main_Processor is Processor with Frame_Period 120 ms and Clock_Period 2 ms. Domain_Prod and Domain_Cons are CASE_Scheduling::Domain attributes equal to 2 and 3 respectively.\nApply a selected rule only when its prerequisites hold. In particular, do not introduce hysteresis, alarms, additional monitor state, or mode gates into this event-data pipeline. State explicitly when a Monitor-derived rule is inapplicable. A lexical score is not proof of applicability or correctness. The golden model is withheld; preserve the declared names and obligations.",
+      "shared_files": [
+        "aadl-lib/aadl.library/AADL.sysml",
+        "aadl-lib/aadl.library/AADL_Project.sysml",
+        "aadl-lib/aadl.library/Base_Types.sysml",
+        "aadl-lib/aadl.library/Communication_Properties.sysml",
+        "aadl-lib/aadl.library/Data_Model.sysml",
+        "aadl-lib/aadl.library/Deployment_Properties.sysml",
+        "aadl-lib/aadl.library/Memory_Properties.sysml",
+        "aadl-lib/aadl.library/Programming_Properties.sysml",
+        "aadl-lib/aadl.library/Thread_Properties.sysml",
+        "aadl-lib/aadl.library/Timing_Properties.sysml",
+        "aadl-lib/aadl.library/behavior_properties.sysml",
+        "aadl-lib/hamr.aadl.library/CASE_Scheduling.sysml",
+        "aadl-lib/hamr.aadl.library/HAMR.sysml",
+        "aadl-lib/hamr.aadl.library/HAMR_AADL.sysml",
+        "aadl-lib/hamr.aadl.library/HAMR_Time_Units.sysml"
+      ],
+      "source_promotion": false,
+      "target_file": "prod-cons/ProdCons.sysml",
+      "task_digest": "8d366dacf5005c489c906cec14ea780ab257e3a83b811d011349588e5180efc5",
+      "task_id": "6bad011c3f40d97e05b3a0813d7e859291286e7a728879e310301f201f7a2bb9"
+    },
+    "subject_digest": "8e52851b2627c4efcb4b28333bcc648cae307ab7a20dbae720f3800868649fd6",
+    "id": "9f131683990ab249ebdcb45cadb2688b6f1d91adcbef627b30f3b5d0cfd0e1f5",
+    "status": "APPROVED",
+    "reviewer": "Codex applies existing user authorization to test refined learned rules on the same approved English tasks, training/validation split, and isolated golden references; no publication or source promotion",
+    "decided_at": 1790123361.6635354
+  }
+}

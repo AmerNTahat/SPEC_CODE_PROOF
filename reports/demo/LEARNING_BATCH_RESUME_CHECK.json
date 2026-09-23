@@ -1,0 +1,13 @@
+{
+  "result": {
+    "job_id": "f208c203c1fe17a943d0c21ab2595ce6fa235bcb356b5dfaa3557b73f8028191",
+    "plan_id": "2849a2cebf7258e1bf081dba484e97177979ec9cff7fb352f75b6c4dc8c77977",
+    "produced_extraction_ids": [],
+    "status": "CONTEXT_BATCHES_EXTRACTED",
+    "reason": null,
+    "scope": "Candidate extraction only; not validation, publication or model fine-tuning",
+    "id": "fc0870e233639363f45d851a04501ef72d06d3e39502e731718d16a73d4af4ed"
+  },
+  "additional_model_calls": 0,
+  "assertion": "All 12 recorded successful batches skipped without resending training context"
+}

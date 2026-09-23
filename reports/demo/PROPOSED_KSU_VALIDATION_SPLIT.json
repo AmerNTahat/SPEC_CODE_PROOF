@@ -1,0 +1,59 @@
+{
+  "context_ids": [
+    "77bdcaefd9adf0515305978b7e9b668a5c4e1561b7ab8803c0744bcc698e7b8d"
+  ],
+  "training": [
+    {
+      "source_id": "d7ef18732a5def5da9422e3e47db924dd4ae4c9b806fcc86f11c932b377db935",
+      "start": 1,
+      "end": 431,
+      "label": "Isolette Monitor",
+      "source_sha256": "43664d0fe5904aed949d4c12e824c905d7bc1b4e89efa0409038c1b6f52ff605",
+      "text_sha256": "6d92da0875771dc87cc8f20c57864bd9ff3c06fa0d8ef1b962841149654ccba4",
+      "normalized_text_sha256": "7e0cd6ae2d818b5d5a018b74664cd665278d24f3eeb408849e834759400e41fa"
+    }
+  ],
+  "validation": [
+    {
+      "source_id": "35cbeca4677a02a0dd37a58a9a3d0fa85ccc3bd63049a5862f7e3a2fbb8718b0",
+      "start": 1,
+      "end": 160,
+      "label": "KSU Producer/Consumer",
+      "source_sha256": "3a644a6a465df26167cd8a5be4c4604120ee203309134b6b951620907be3ffcf",
+      "text_sha256": "48292c974cd88b152951dc3f982bd3a8bb7e19b420fd7356f95aecc50f81ae40",
+      "normalized_text_sha256": "8c004ec39added90367ff6f29c7830a5d371fc508059ff043e4c2be412e92544"
+    }
+  ],
+  "retrieval": {
+    "metric": "lexical_token_count_cosine_distance",
+    "epsilon": 0.1,
+    "maximum": 0.3,
+    "comparison": "distance <= epsilon"
+  },
+  "validation_protocol": "within_system_component_holdout",
+  "final_transfer_claim": false,
+  "scope": "Human-declared component split; no inferred semantic independence or final transfer claim",
+  "id": "fbc15278f3b7ee03cdcded3f97e7d746274631f66862c494184c6a958b6bb182",
+  "approval": {
+    "action": "approve_learning_plan",
+    "subject": {
+      "context_documents": [
+        "Steve_Miller_FAA_docAR-08-32.pdf"
+      ],
+      "epsilon": 0.1,
+      "plan_digest": "955ae9d421a0803a6f3f9b5f8df9e5d022c67bad15bbf5e5bc432cd408ef7036",
+      "plan_id": "fbc15278f3b7ee03cdcded3f97e7d746274631f66862c494184c6a958b6bb182",
+      "training_components": [
+        "Isolette Monitor"
+      ],
+      "validation_components": [
+        "KSU Producer/Consumer"
+      ]
+    },
+    "subject_digest": "deee18fe14e647b3daf52ff6b706f77e6a493a5fa93f0eccd35dfd751812eb3f",
+    "id": "8b8b1a18102a1b3f04eb6523a54d3205a4901855c060e43a97bcee1b491e1410",
+    "status": "PENDING",
+    "reviewer": null,
+    "decided_at": null
+  }
+}

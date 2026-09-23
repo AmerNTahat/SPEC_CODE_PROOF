@@ -1,0 +1,144 @@
+[
+  {
+    "id": 368,
+    "run_id": "ee8f9ac3e3554ec88fbad0de605f2797",
+    "timestamp": 1790123447.3024864,
+    "kind": "created",
+    "payload": {
+      "config": {
+        "architecture_policy": null,
+        "assistance": "automatic",
+        "budget": {
+          "aggregate_model_tokens": 1000000,
+          "concurrent_model_calls": 1,
+          "enforcement": "strict",
+          "final_validation_time_reserve": 0.2,
+          "repairs_per_issue": 3,
+          "repairs_per_run": 8,
+          "wall_seconds": 240
+        },
+        "creation_authorized": false,
+        "dataset_assignment": null,
+        "dataset_task": null,
+        "development_validation": null,
+        "final_evaluation": null,
+        "input_files": [
+          "aadl-lib/aadl.library/AADL.sysml",
+          "aadl-lib/aadl.library/AADL_Project.sysml",
+          "aadl-lib/aadl.library/Base_Types.sysml",
+          "aadl-lib/aadl.library/Communication_Properties.sysml",
+          "aadl-lib/aadl.library/Data_Model.sysml",
+          "aadl-lib/aadl.library/Deployment_Properties.sysml",
+          "aadl-lib/aadl.library/Memory_Properties.sysml",
+          "aadl-lib/aadl.library/Programming_Properties.sysml",
+          "aadl-lib/aadl.library/Thread_Properties.sysml",
+          "aadl-lib/aadl.library/Timing_Properties.sysml",
+          "aadl-lib/aadl.library/behavior_properties.sysml",
+          "aadl-lib/hamr.aadl.library/CASE_Scheduling.sysml",
+          "aadl-lib/hamr.aadl.library/HAMR.sysml",
+          "aadl-lib/hamr.aadl.library/HAMR_AADL.sysml",
+          "aadl-lib/hamr.aadl.library/HAMR_Time_Units.sysml",
+          "prod-cons/ProdCons.sysml"
+        ],
+        "learning_materials": null,
+        "mode": "user",
+        "model": {
+          "family": "gpt",
+          "requested_profile": "astra",
+          "resolved_model_id": null
+        },
+        "model_file": "prod-cons/ProdCons.sysml",
+        "naming_policy": "preserve-existing",
+        "paid_runs_authorized": false,
+        "project": "/home/amertahat/SPEC_CODE_PROOF/HAMR-agent-configuration-experiments/hamr-claude-training/examples/HAMR-SysMLv2-Rust-seL4-P-EDP-Prod-Cons-Example/sysmlv2",
+        "rename_authorized": false,
+        "repair_allowed_files": [],
+        "required_gates": [
+          "architecture_capture"
+        ],
+        "requirement_ledger": null,
+        "resolved_operation": "verify-only",
+        "rule_release": null,
+        "schema_version": 1,
+        "sireum": "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/sireum",
+        "sireum_sha256": "6333d4e737064b6db470bcb85863a997675182470eb5d4d763bd806487c8d952",
+        "task_operation": "verify-only",
+        "unit_registry": null
+      },
+      "config_sha256": "9f8d60d9321676729955172dc3810c07f98194c7ae84b5f3b2ace1114e2b9fcc",
+      "precedence": [
+        "defaults",
+        "profile",
+        "explicit_overrides",
+        "policy_validation"
+      ]
+    }
+  },
+  {
+    "id": 369,
+    "run_id": "ee8f9ac3e3554ec88fbad0de605f2797",
+    "timestamp": 1790123447.304186,
+    "kind": "state",
+    "payload": {
+      "from": "CREATED",
+      "to": "INSPECTING"
+    }
+  },
+  {
+    "id": 370,
+    "run_id": "ee8f9ac3e3554ec88fbad0de605f2797",
+    "timestamp": 1790123447.3146312,
+    "kind": "snapshot",
+    "payload": {
+      "path": "objects/cfc55b3524da10288ea1bf811fca9a093128ca3581c84b2de0d15cea0d67b5a4.json",
+      "sha256": "cfc55b3524da10288ea1bf811fca9a093128ca3581c84b2de0d15cea0d67b5a4"
+    }
+  },
+  {
+    "id": 371,
+    "run_id": "ee8f9ac3e3554ec88fbad0de605f2797",
+    "timestamp": 1790123447.316038,
+    "kind": "state",
+    "payload": {
+      "from": "INSPECTING",
+      "to": "READY"
+    }
+  },
+  {
+    "id": 372,
+    "run_id": "ee8f9ac3e3554ec88fbad0de605f2797",
+    "timestamp": 1790123447.3270607,
+    "kind": "state",
+    "payload": {
+      "from": "READY",
+      "to": "CHECKING"
+    }
+  },
+  {
+    "id": 373,
+    "run_id": "ee8f9ac3e3554ec88fbad0de605f2797",
+    "timestamp": 1790123458.0460017,
+    "kind": "gate",
+    "payload": {
+      "evidence": {
+        "path": "objects/e75a26f446bf61333d75cbd7710d10c24dc4847b94c89b16e561305f6f545908.json",
+        "sha256": "e75a26f446bf61333d75cbd7710d10c24dc4847b94c89b16e561305f6f545908"
+      },
+      "gate": "architecture_capture",
+      "reason": "Instantiated AIR and resolved declarations captured; no conformance claim",
+      "snapshot_id": "ee303fe6e98822be3cfb4813dd8235b15c6f04a08fead39bb0fa076658d6d11a",
+      "status": "PASS"
+    }
+  },
+  {
+    "id": 374,
+    "run_id": "ee8f9ac3e3554ec88fbad0de605f2797",
+    "timestamp": 1790123458.0486035,
+    "kind": "state",
+    "payload": {
+      "from": "CHECKING",
+      "result_committed": true,
+      "to": "CHECKED"
+    }
+  }
+]

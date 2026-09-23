@@ -1,0 +1,351 @@
+{
+  "result": {
+    "candidate_ids": [
+      "6d23020af4c22925db119a7edea580a94c567aa90fa3bcf4c2a9822aeb709b08"
+    ],
+    "comparison_id": "6c398f211d1b4fc000ed71edae9ad8057f06742005aeceb8cbeae801bb0c7f5c",
+    "context_id": "bcce8b6e61c7b9d56161c18c164debf2690fcbdb8025532227581d990ec3bbfe",
+    "generated_run_id": "6cabc7a126354a238a8bf962c459bf2c",
+    "generation_annotations": [
+      "Repaired both GUMBO bodies in prod-cons/ProdCons.sysml from ordinary comment delimiters to /*{ ... }*/, addressing the supplied parser diagnostics expecting '/*{'. Preserved the contract expressions and architecture.",
+      "Encoded the inclusive producer guarantee, consumer assumption, state, zero-returning method, and initialization guarantee in embedded GUMBO rather than documentation.",
+      "The selected Monitor-derived rule draft-mode-conditioned-owned-assignment is inapplicable: this pipeline specifies no mode-conditioned assignments or retained-value lifecycle. No hysteresis, alarms, mode gates, additional state, or compute behavior were introduced."
+    ],
+    "limitations": [
+      "No tools or checks were run. Parsing, type checking, HAMR code generation, integration constraints, and architecture capture remain unverified; the supplied diagnostics may mask further errors.",
+      "Consumer compute behavior remains unspecified as required.",
+      "The golden reference was not available or consulted."
+    ],
+    "model_call_id": "82ba6af1b5aa2dab063a7191ebeb6e0c43fef7d237914f6739c382642aa8773a",
+    "plan_id": "2849a2cebf7258e1bf081dba484e97177979ec9cff7fb352f75b6c4dc8c77977",
+    "previous_result_id": "bf6335e2385796eff07e0e1e523f5e16a78daac8182efefa7c87e748fe5fe6c5",
+    "reference_run_id": "476f62d203564e6980681f6c52f5e085",
+    "scope": "Development evidence only; publication still requires supporting/contrasting validation and review",
+    "source_files_modified": 0,
+    "status": "NOT_VALIDATED",
+    "task_id": "58a715f499275b0b9d4b1a9d2d7f78ed209112b227c0e54b692f98255db8c9b2",
+    "whole_system_acceptance": false,
+    "id": "7567a5938fa194cae91807bd4f0ca863f84c60ca9015ff9f6f951d33f7c29480"
+  },
+  "task": {
+    "baseline_run_id": "cde5b54be4264a6cad2000a12ff87d5e",
+    "candidate_ids": [
+      "6d23020af4c22925db119a7edea580a94c567aa90fa3bcf4c2a9822aeb709b08"
+    ],
+    "candidate_selection": "explicit selected candidates; no claim of automatic retrieval",
+    "config_hash": "2db73da31491380dee363c84104b8b7adf080915472b245255513aaa35b17dc4",
+    "golden_sha256": "3a644a6a465df26167cd8a5be4c4604120ee203309134b6b951620907be3ffcf",
+    "naming_policy": "preserve_existing_reference_names",
+    "operation": "isolated_reconstruction_for_development",
+    "plan_id": "2849a2cebf7258e1bf081dba484e97177979ec9cff7fb352f75b6c4dc8c77977",
+    "reference_policy": "golden excluded from model context; controller-only comparison",
+    "required_gates": [
+      "parse_type",
+      "hamr_codegen",
+      "integration_constraints",
+      "architecture_capture"
+    ],
+    "requirements": "Development reconstruction task transcribed from the selected KSU example by the controller/operator, not an independent final evaluation specification.\nCreate package ProdCons importing HAMR. The public top-level system definition is ProdCons_System, containing prod: Prod_Process, cons: Cons_Process, and proc: Main_Processor. Connect prod.output to cons.input with connection pc. Bind prod and cons to proc with Actual_Processor_Binding allocations prod_to_proc and cons_to_proc.\nProd_Process owns an output EventDataPort of Message and Domain_Prod, contains prod: Prod, and forwards prod.output to its output via prod_output. Cons_Process owns an input EventDataPort of Message and Domain_Cons, contains cons: Cons, and forwards input to cons.input via cons_input. Put port direction on the typed feature inside each port, as required by the selected current HAMR dialect.\nProd is a periodic Rust Thread with period 60 ms and an output EventDataPort of Message. Its GUMBO integration guarantee named Payload_Range states that output.payload is between 0 and 90 inclusive, using Integer_32 literals.\nCons is a periodic Rust Thread with period 40 ms and an input EventDataPort of Message. Its GUMBO state payload_sum is Integer_32. Define Init_Payload_Sum returning Integer_32 zero. Its integration assumption named Payload_Range constrains input.payload to 0 through 100 inclusive. Its initialization guarantee initSum initializes payload_sum to Init_Payload_Sum(). Do not invent compute behavior: the example leaves it unspecified.\nMessage is Data with Integer_32 parts payload and control_num. Main_Processor is Processor with Frame_Period 120 ms and Clock_Period 2 ms. Domain_Prod and Domain_Cons are CASE_Scheduling::Domain attributes equal to 2 and 3 respectively.\nApply a selected rule only when its prerequisites hold. In particular, do not introduce hysteresis, alarms, additional monitor state, or mode gates into this event-data pipeline. State explicitly when a Monitor-derived rule is inapplicable. A lexical score is not proof of applicability or correctness. The golden model is withheld; preserve the declared names and obligations.",
+    "retrieval": {
+      "comparison": "distance <= epsilon",
+      "epsilon": 0.1,
+      "maximum": 0.3,
+      "metric": "lexical_token_count_cosine_distance"
+    },
+    "scope": "Within-system development test, not independent final transfer or source promotion",
+    "shared_files": [
+      "aadl-lib/aadl.library/AADL.sysml",
+      "aadl-lib/aadl.library/AADL_Project.sysml",
+      "aadl-lib/aadl.library/Base_Types.sysml",
+      "aadl-lib/aadl.library/Communication_Properties.sysml",
+      "aadl-lib/aadl.library/Data_Model.sysml",
+      "aadl-lib/aadl.library/Deployment_Properties.sysml",
+      "aadl-lib/aadl.library/Memory_Properties.sysml",
+      "aadl-lib/aadl.library/Programming_Properties.sysml",
+      "aadl-lib/aadl.library/Thread_Properties.sysml",
+      "aadl-lib/aadl.library/Timing_Properties.sysml",
+      "aadl-lib/aadl.library/behavior_properties.sysml",
+      "aadl-lib/hamr.aadl.library/CASE_Scheduling.sysml",
+      "aadl-lib/hamr.aadl.library/HAMR.sysml",
+      "aadl-lib/hamr.aadl.library/HAMR_AADL.sysml",
+      "aadl-lib/hamr.aadl.library/HAMR_Time_Units.sysml"
+    ],
+    "target_file": "prod-cons/ProdCons.sysml",
+    "validation_plan_id": "fbc15278f3b7ee03cdcded3f97e7d746274631f66862c494184c6a958b6bb182",
+    "id": "58a715f499275b0b9d4b1a9d2d7f78ed209112b227c0e54b692f98255db8c9b2"
+  },
+  "generated_run": {
+    "id": "6cabc7a126354a238a8bf962c459bf2c",
+    "state": "FAILED",
+    "config": {
+      "architecture_policy": null,
+      "assistance": "automatic",
+      "budget": {
+        "aggregate_model_tokens": 1000000,
+        "concurrent_model_calls": 1,
+        "enforcement": "strict",
+        "final_validation_time_reserve": 0.2,
+        "repairs_per_issue": 3,
+        "repairs_per_run": 8,
+        "wall_seconds": 144
+      },
+      "creation_authorized": false,
+      "dataset_assignment": null,
+      "dataset_task": null,
+      "development_validation": null,
+      "final_evaluation": null,
+      "input_files": [
+        "aadl-lib/aadl.library/AADL.sysml",
+        "aadl-lib/aadl.library/AADL_Project.sysml",
+        "aadl-lib/aadl.library/Base_Types.sysml",
+        "aadl-lib/aadl.library/Communication_Properties.sysml",
+        "aadl-lib/aadl.library/Data_Model.sysml",
+        "aadl-lib/aadl.library/Deployment_Properties.sysml",
+        "aadl-lib/aadl.library/Memory_Properties.sysml",
+        "aadl-lib/aadl.library/Programming_Properties.sysml",
+        "aadl-lib/aadl.library/Thread_Properties.sysml",
+        "aadl-lib/aadl.library/Timing_Properties.sysml",
+        "aadl-lib/aadl.library/behavior_properties.sysml",
+        "aadl-lib/hamr.aadl.library/CASE_Scheduling.sysml",
+        "aadl-lib/hamr.aadl.library/HAMR.sysml",
+        "aadl-lib/hamr.aadl.library/HAMR_AADL.sysml",
+        "aadl-lib/hamr.aadl.library/HAMR_Time_Units.sysml",
+        "prod-cons/ProdCons.sysml"
+      ],
+      "learning_materials": null,
+      "mode": "user",
+      "model": {
+        "family": "gpt",
+        "requested_profile": "astra",
+        "resolved_model_id": null
+      },
+      "model_file": "prod-cons/ProdCons.sysml",
+      "naming_policy": "preserve-existing",
+      "paid_runs_authorized": false,
+      "project": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/development-workspaces/599f71771359430eac6bff47655cd72b",
+      "rename_authorized": false,
+      "repair_allowed_files": [],
+      "required_gates": [
+        "parse_type",
+        "hamr_codegen",
+        "integration_constraints",
+        "architecture_capture"
+      ],
+      "requirement_ledger": null,
+      "resolved_operation": "verify-only",
+      "rule_release": null,
+      "schema_version": 1,
+      "sireum": "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/sireum",
+      "sireum_sha256": "6333d4e737064b6db470bcb85863a997675182470eb5d4d763bd806487c8d952",
+      "task_operation": "verify-only",
+      "unit_registry": null
+    },
+    "config_hash": "dc4b7d0938f313ac1386b38c82ae5edc1811d7c67b9b6d5c5547ee1261cd0441",
+    "created": 1790121238.9669673,
+    "deadline": 1790121382.9669673,
+    "used_tokens": 25631,
+    "usage_unknown": 0,
+    "reserved_tokens": 0,
+    "worker": null,
+    "result": {
+      "engineering_accepted": false,
+      "formally_verified_units": 0,
+      "gates": [
+        {
+          "evidence": {
+            "path": "objects/1aa5e50b44c05692019204b2ab04d82582e4ba67b7bd00276c9604915b5ff1dc.json",
+            "sha256": "1aa5e50b44c05692019204b2ab04d82582e4ba67b7bd00276c9604915b5ff1dc"
+          },
+          "gate": "parse_type",
+          "reason": "Checker process rejected the model",
+          "status": "FAIL"
+        },
+        {
+          "evidence": {
+            "path": "objects/90a26ae617eb336cb50889d5defbca50b0ee49799d3fe22ee43b875581ef4dc5.json",
+            "sha256": "90a26ae617eb336cb50889d5defbca50b0ee49799d3fe22ee43b875581ef4dc5"
+          },
+          "gate": "hamr_codegen",
+          "reason": "HAMR tool returned a nonzero status; inspect recorded diagnostics",
+          "status": "FAIL"
+        },
+        {
+          "evidence": {
+            "path": "objects/5922e06153abd6b7d15f2f6c7a4166496dac1aaca9ed1464b372a2bad9e46ecc.json",
+            "sha256": "5922e06153abd6b7d15f2f6c7a4166496dac1aaca9ed1464b372a2bad9e46ecc"
+          },
+          "gate": "integration_constraints",
+          "reason": "HAMR tool returned a nonzero status; inspect recorded diagnostics",
+          "status": "FAIL"
+        },
+        {
+          "evidence": {
+            "path": "objects/09403e982a644b495d456b1cbf2b918afc7d9aa53b420e16542b53d4829ff436.json",
+            "sha256": "09403e982a644b495d456b1cbf2b918afc7d9aa53b420e16542b53d4829ff436"
+          },
+          "gate": "architecture_capture",
+          "reason": "Trusted architecture export rejected or could not start",
+          "snapshot_id": null,
+          "status": "FAIL"
+        }
+      ],
+      "model_calls": 0,
+      "project_status": "NOT_ASSESSED",
+      "scope": "Selected checks only; no application or live-demo completion claim",
+      "task_status": "FAILED"
+    },
+    "version": 4,
+    "remaining_seconds": 112.6055953502655,
+    "remaining_tokens": 974369,
+    "source_changed": [],
+    "evidence_current_for_source": true,
+    "policy_current": true
+  },
+  "reference_run": {
+    "id": "476f62d203564e6980681f6c52f5e085",
+    "state": "CHECKED",
+    "config": {
+      "architecture_policy": null,
+      "assistance": "automatic",
+      "budget": {
+        "aggregate_model_tokens": 1000000,
+        "concurrent_model_calls": 1,
+        "enforcement": "strict",
+        "final_validation_time_reserve": 0.2,
+        "repairs_per_issue": 3,
+        "repairs_per_run": 8,
+        "wall_seconds": 124
+      },
+      "creation_authorized": false,
+      "dataset_assignment": null,
+      "dataset_task": null,
+      "development_validation": null,
+      "final_evaluation": null,
+      "input_files": [
+        "aadl-lib/aadl.library/AADL.sysml",
+        "aadl-lib/aadl.library/AADL_Project.sysml",
+        "aadl-lib/aadl.library/Base_Types.sysml",
+        "aadl-lib/aadl.library/Communication_Properties.sysml",
+        "aadl-lib/aadl.library/Data_Model.sysml",
+        "aadl-lib/aadl.library/Deployment_Properties.sysml",
+        "aadl-lib/aadl.library/Memory_Properties.sysml",
+        "aadl-lib/aadl.library/Programming_Properties.sysml",
+        "aadl-lib/aadl.library/Thread_Properties.sysml",
+        "aadl-lib/aadl.library/Timing_Properties.sysml",
+        "aadl-lib/aadl.library/behavior_properties.sysml",
+        "aadl-lib/hamr.aadl.library/CASE_Scheduling.sysml",
+        "aadl-lib/hamr.aadl.library/HAMR.sysml",
+        "aadl-lib/hamr.aadl.library/HAMR_AADL.sysml",
+        "aadl-lib/hamr.aadl.library/HAMR_Time_Units.sysml",
+        "prod-cons/ProdCons.sysml"
+      ],
+      "learning_materials": null,
+      "mode": "user",
+      "model": {
+        "family": "gpt",
+        "requested_profile": "astra",
+        "resolved_model_id": null
+      },
+      "model_file": "prod-cons/ProdCons.sysml",
+      "naming_policy": "preserve-existing",
+      "paid_runs_authorized": false,
+      "project": "/home/amertahat/SPEC_CODE_PROOF/HAMR-agent-configuration-experiments/hamr-claude-training/examples/HAMR-SysMLv2-Rust-seL4-P-EDP-Prod-Cons-Example/sysmlv2",
+      "rename_authorized": false,
+      "repair_allowed_files": [],
+      "required_gates": [
+        "architecture_capture"
+      ],
+      "requirement_ledger": null,
+      "resolved_operation": "verify-only",
+      "rule_release": null,
+      "schema_version": 1,
+      "sireum": "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/sireum",
+      "sireum_sha256": "6333d4e737064b6db470bcb85863a997675182470eb5d4d763bd806487c8d952",
+      "task_operation": "verify-only",
+      "unit_registry": null
+    },
+    "config_hash": "edb47f3e2eed166c7276c8c28e55056093dd36171b85921faa536ef44a152fa1",
+    "created": 1790121258.3877974,
+    "deadline": 1790121382.3877974,
+    "used_tokens": 0,
+    "usage_unknown": 0,
+    "reserved_tokens": 0,
+    "worker": null,
+    "result": {
+      "engineering_accepted": false,
+      "formally_verified_units": 0,
+      "gates": [
+        {
+          "evidence": {
+            "path": "objects/feb576da1a2d14a26eed395b252d1a8307f3d88ba0aefa2cf48e64fd13b9982f.json",
+            "sha256": "feb576da1a2d14a26eed395b252d1a8307f3d88ba0aefa2cf48e64fd13b9982f"
+          },
+          "gate": "architecture_capture",
+          "reason": "Instantiated AIR and resolved declarations captured; no conformance claim",
+          "snapshot_id": "bea4b7234645568375ebd13747417acc4143bf21d189e1add1d13124d8bdf207",
+          "status": "PASS"
+        }
+      ],
+      "model_calls": 0,
+      "project_status": "NOT_ASSESSED",
+      "scope": "Selected checks only; no application or live-demo completion claim",
+      "task_status": "CHECKED"
+    },
+    "version": 4,
+    "remaining_seconds": 112.02230310440063,
+    "remaining_tokens": 1000000,
+    "source_changed": [],
+    "evidence_current_for_source": true,
+    "policy_current": true
+  },
+  "comparison": {
+    "architecture_differences": null,
+    "architecture_status": "UNKNOWN",
+    "generated_run_id": "6cabc7a126354a238a8bf962c459bf2c",
+    "generated_sha256": "7946ed12a3c5f6d18afa86a9e70ac69a7c35710e7f5f13500b7904583553535a",
+    "golden_sha256": "3a644a6a465df26167cd8a5be4c4604120ee203309134b6b951620907be3ffcf",
+    "lexical": {
+      "acceptance": "NOT_ASSESSED",
+      "architecture_check": "NOT_RUN",
+      "artifact_kind": "LEXICAL_DIAGNOSTIC_NOT_ACCEPTANCE",
+      "cosine_distance": 0.7824810830921863,
+      "cosine_similarity": 0.2175189169078137,
+      "cosine_status": "DEFINED",
+      "left_tokens": 1430,
+      "left_utf8_sha256": "3a644a6a465df26167cd8a5be4c4604120ee203309134b6b951620907be3ffcf",
+      "limitations": [
+        "Count cosine discards order and role bindings; equal vectors may encode different behavior.",
+        "Token sequence diagnostics are not a parser, proof, or minimum-edit metric.",
+        "No source/contract ownership extraction, requirement check, or model call is performed."
+      ],
+      "line_deleted_plus_inserted": 188,
+      "right_tokens": 440,
+      "right_utf8_sha256": "7946ed12a3c5f6d18afa86a9e70ac69a7c35710e7f5f13500b7904583553535a",
+      "semantic_equivalence": "NOT_ESTABLISHED",
+      "sequence_deleted_plus_inserted": 1284,
+      "sequence_edit_fraction": 0.6866310160427808,
+      "tokenizer_version": "lexical-preserve-v1"
+    },
+    "reference_run_id": "476f62d203564e6980681f6c52f5e085",
+    "scope": "Exact normalized architecture comparison; lexical scores never establish engineering acceptance",
+    "task_id": "58a715f499275b0b9d4b1a9d2d7f78ed209112b227c0e54b692f98255db8c9b2",
+    "id": "6c398f211d1b4fc000ed71edae9ad8057f06742005aeceb8cbeae801bb0c7f5c"
+  },
+  "generated_source": {
+    "run_id": "6cabc7a126354a238a8bf962c459bf2c",
+    "relative": "prod-cons/ProdCons.sysml",
+    "sha256": "7946ed12a3c5f6d18afa86a9e70ac69a7c35710e7f5f13500b7904583553535a",
+    "text": "package ProdCons {\n  private import HAMR::*;\n  private import Base_Types::Integer_32;\n\n  public part def ProdCons_System :> System {\n    part prod : Prod_Process;\n    part cons : Cons_Process;\n    part proc : Main_Processor;\n\n    connection pc : PortConnection connect prod.output to cons.input;\n    allocation prod_to_proc : Actual_Processor_Binding allocate prod to proc;\n    allocation cons_to_proc : Actual_Processor_Binding allocate cons to proc;\n  }\n\n  part def Prod_Process :> HAMR_AADL::Process {\n    attribute :>> Domain = Domain_Prod;\n    port output : EventDataPort {\n      out part :>> type : Message;\n    }\n    part prod : Prod;\n    connection prod_output : PortConnection connect prod.output to output;\n  }\n\n  part def Cons_Process :> HAMR_AADL::Process {\n    attribute :>> Domain = Domain_Cons;\n    port input : EventDataPort {\n      in part :>> type : Message;\n    }\n    part cons : Cons;\n    connection cons_input : PortConnection connect input to cons.input;\n  }\n\n  part def Prod :> HAMR_AADL::Thread {\n    attribute :>> Dispatch_Protocol = Periodic;\n    attribute :>> Period = 60 [ms];\n    attribute :>> Implementation_Language = Rust;\n\n    port output : EventDataPort {\n      out part :>> type : Message;\n    }\n\n    language \"GUMBO\" /*{\n      integration\n        guarantee Payload_Range:\n          output.payload >= 0 [Integer_32] &&\n          output.payload <= 90 [Integer_32];\n    }*/\n  }\n\n  part def Cons :> HAMR_AADL::Thread {\n    attribute :>> Dispatch_Protocol = Periodic;\n    attribute :>> Period = 40 [ms];\n    attribute :>> Implementation_Language = Rust;\n\n    port input : EventDataPort {\n      in part :>> type : Message;\n    }\n\n    language \"GUMBO\" /*{\n      state\n        payload_sum: Integer_32;\n\n      methods\n        def Init_Payload_Sum(): Integer_32 = 0 [Integer_32];\n\n      integration\n        assume Payload_Range:\n          input.payload >= 0 [Integer_32] &&\n          input.payload <= 100 [Integer_32];\n\n      initialize\n        guarantee initSum:\n          payload_sum == Init_Payload_Sum();\n    }*/\n    // Compute behavior is unspecified in the supplied requirements.\n  }\n\n  part def Message :> Data {\n    part payload : Integer_32;\n    part control_num : Integer_32;\n  }\n\n  part def Main_Processor :> HAMR_AADL::Processor {\n    attribute :>> Frame_Period = 120 [ms];\n    attribute :>> Clock_Period = 2 [ms];\n  }\n\n  attribute Domain_Prod : CASE_Scheduling::Domain = 2;\n  attribute Domain_Cons : CASE_Scheduling::Domain = 3;\n}\n",
+    "original_source_current": true,
+    "scope": "Exact run snapshot for human review; not exported to a model"
+  },
+  "golden_source": {
+    "run_id": "cde5b54be4264a6cad2000a12ff87d5e",
+    "relative": "prod-cons/ProdCons.sysml",
+    "sha256": "3a644a6a465df26167cd8a5be4c4604120ee203309134b6b951620907be3ffcf",
+    "text": "//@ HAMR: --platform Microkit --output-dir ../../hamr\n\npackage ProdCons {\n\n  private import HAMR::*;\n\n  //===============================================================================\n  // \n  //  P r o d  C o n s    S y s t e m \n  // \n  //  Top-level architecture definition integrating system subcomponents.\n  //\n  //===============================================================================\n\n  part def ProdCons_System :> System {\n    //-- I n t e r n a l s --\n    // ..indicate the processes (partitions) of the system\n    part prod: Prod_Process;\n    part cons: Cons_Process;\n    part proc : Main_Processor;\n\n    // connections (information flows) between partitions\n    connection pc : PortConnection connect prod.output to cons.input;\n    \n    //-- A l l o c a t i o n s  of software/partitions to hardware\n    allocation prod_to_proc: Deployment_Properties::Actual_Processor_Binding \n      allocate prod to proc;\n    allocation cons_to_proc: Deployment_Properties::Actual_Processor_Binding \n      allocate cons to proc;\n  }\n\n  //===============================================================================\n  // \n  //  P r o d  \n  // \n  //===============================================================================\n  \n  // ------ P r o c e s s -------\n\n  part def Prod_Process :> Process {\n     //-- I n t e r f a c e  --\n    port output : EventDataPort {out :>> type : Message; }\n\n    //-- P r o p e r t i e s  --\n    attribute :>> Domain = Domain_Prod;\n\n    //-- I n t e r n a l s --\n    part prod: Prod; \n    connection prod_output : PortConnection connect prod.output to output;\n  }\n\n  // ------ T h r e a d -------\n\n  part def Prod :> Thread {\n    //-- I n t e r f a c e  --\n    port output : EventDataPort { out :>> type : Message; }\n\n    //-- P r o p e r t i e s  --\n    attribute :>> Period = 60 [ms];  \n    attribute :>> Dispatch_Protocol = Supported_Dispatch_Protocols::Periodic;\n    attribute :>> Implementation_Language = Implementation_Languages::Rust;\n\n    //-- B e h a v i o r    C o n s t r a i n t s --\n    language \"GUMBO\" /*{\n          \n\t  //-- == I n t e g r a t i o n     C o n s t r a i n t s\t\n\t  integration\n\t    guarantee Payload_Range: \n  \t    (0 [i32] <= output.payload) & (output.payload <= 90 [i32]) ;\n \n \t  //-- == C o m p u t e \n    // TBD\n    }*/\n\n  }\n\n\n  //===============================================================================\n  // \n  //  C o n s   \n  // \n  //===============================================================================\n\n  // ------ P r o c e s s -------\n\n  part def Cons_Process :> Process {\n    //-- I n t e r f a c e  --\n    port input : EventDataPort { in :>> type : Message; }\n\n    //-- P r o p e r t i e s  --\n    attribute :>> Domain = Domain_Cons;\n\n    //-- I n t e r n a l s --\n    part cons: Cons; \n    connection cons_input : PortConnection connect input to cons.input;\n  }\n\n  // ------ T h r e a d -------\n\n  part def Cons :> Thread {\n    //-- I n t e r f a c e  --\n    port input : EventDataPort { in :>> type : Message; }\n\n    //-- P r o p e r t i e s  --\n    attribute :>> Period = 40 [ms];  \n    attribute :>> Dispatch_Protocol = Supported_Dispatch_Protocols::Periodic;\n    attribute :>> Implementation_Language = Implementation_Languages::Rust;\n\n     //-- B e h a v i o r    C o n s t r a i n t s --\n    language \"GUMBO\" /*{\n      state\n         payload_sum: Base_Types::Integer_32;\n            \n      functions\n      //  -- constant for initialization value for payload_sum\n      def Init_Payload_Sum(): Base_Types::Integer_32 := 0 [i32];\n          \n\t  //-- == I n t e g r a t i o n     C o n s t r a i n t s\t\n\t  integration\n\t    assume Payload_Range: \n  \t    (0 [i32] <= input.payload) & (input.payload <= 100 [i32]) ;\n\n\t  //-- == I n i t i a l i z e \n    initialize\n      guarantee \n\t\t    initSum: payload_sum == Init_Payload_Sum();   \n \n \t  //-- == C o m p u t e \n    // TBD\n    }*/\n\n  }\n\n  //===============================================================================\n  //\n  //  D a t a \n  //\n  //===============================================================================\n\n  part def Message :> Data {\n    part payload : Base_Types::Integer_32;\n    part control_num : Base_Types::Integer_32;\n  }\n\n  //===============================================================================\n  // \n  //  M a i n    P r o c e s s o r     Processor\n  // \n  //===============================================================================\n  part def Main_Processor :> Processor {\n    attribute :>> Frame_Period = 120 [ms];\n    attribute :>> Clock_Period = 2 [ms];\n  }\n\n  // scheduling information\n  //   ..declaration of scheduling domain identifiers \n\n  attribute Domain_Prod: CASE_Scheduling::Domain = 2;\n  attribute Domain_Cons: CASE_Scheduling::Domain = 3;\n}",
+    "original_source_current": true,
+    "scope": "Exact run snapshot for human review; not exported to a model"
+  },
+  "scope": "Authenticated human evidence inspection; never exported as generation context"
+}

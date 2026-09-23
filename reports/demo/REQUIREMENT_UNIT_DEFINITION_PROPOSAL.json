@@ -1,0 +1,109 @@
+{
+  "proposal_id": "5c35bc70718dd751cbd8f42a96e4810a6a002043549f4a723464f0376c31ec5f",
+  "plan_id": "2849a2cebf7258e1bf081dba484e97177979ec9cff7fb352f75b6c4dc8c77977",
+  "definition": {
+    "title": "Requirement-linked SysML v2 assume/guarantee obligation",
+    "granularity": "mixed_typed",
+    "definition": "One unit is one reviewed, independently checkable English requirement linked to its responsible SysML v2 owner, explicit assumptions, and complete guarantees or structural constraints. Each unit is typed as behavioral-contract or structural-conformance. Assumptions are tracked premises, not automatically verified successes.",
+    "counting_rule": "Freeze the reviewed requirement inventory and mappings before inspecting validation outcomes. Count each atomic requirement once; multiple clauses, guarantees, source lines, solver subgoals or shared proofs do not increase its count. Split a compound requirement only through a reviewed semantic decomposition. Report structural-conformance and behavioral-contract results separately; do not label a structural pass as a behavioral proof. All required obligations and subgoals for a unit must pass. Revise the denominator only through a new reviewed inventory, preserving prior results.",
+    "rationale": "Requirement-centered units preserve the connection from English intent to SysML ownership and GUMBO assumptions/guarantees, while avoiding inflated counts from lines, conjuncts or solver subgoals. Separate structural and behavioral categories make their different evidence strengths explicit.",
+    "example_unit": "Behavioral unit: retain the prior heat command when the current temperature is within the inclusive ordered desired-temperature band, under the declared mode and initialized state. Guarantee: the output equals the prior command and required state updates hold. Structural unit: the sensor output is connected to the regulator input with the required direction, type and ownership; this is checked against resolved architecture, not counted as a behavioral proof.",
+    "inclusion": [
+      "Reviewed atomic English requirements with stable IDs and source anchors.",
+      "Behavioral requirements mapped to complete GUMBO initialization, compute or invariant contracts.",
+      "Structural requirements mapped to explicit SysML v2 parts, ports, connections, ownership, types, allocations or required properties."
+    ],
+    "exclusion": [
+      "Standalone lines, syntax nodes, imports or declarations without an independently stated requirement.",
+      "Assumptions counted as satisfied merely because they were assumed.",
+      "Duplicate counts for a requirement implemented by multiple guarantees, cases, files or proof subgoals.",
+      "Unexecuted checks, model confidence and human approval as substitutes for verification evidence."
+    ],
+    "verification_evidence": [
+      "Exact requirement-to-owner-to-contract/constraint mappings bound to source and configuration identities.",
+      "For behavioral-contract units: executed formal evidence for every required guarantee/subgoal under explicit assumptions, with initialization, state, arithmetic and timing semantics justified.",
+      "Assumption provenance and discharge: upstream component guarantees or explicitly reviewed environmental assumptions, with unresolved premises reported.",
+      "For structural-conformance units: executed resolved-architecture checks for all declared constraints; report as structural conformance rather than behavioral verification.",
+      "Non-vacuity and freshness checks, tool identities, proof scope and unresolved obligations."
+    ],
+    "acceptance_evidence": [
+      "Requirement fidelity review and complete traceability.",
+      "All task-required formal, architecture, generation/build and independent-test gates, with failures or missing checks blocking acceptance.",
+      "Explicit disposition of environmental assumptions, unsupported behavior and limitations."
+    ],
+    "required_mapping_fields": [
+      "unit_id, unit_kind, atomic_requirement_id, requirement_source_revision and exact passage.",
+      "SysML owner and formal element IDs, source file/region identities, assumptions, guarantees or structural constraints, phase and state semantics.",
+      "Assumption sources, upstream guarantee references, environment review references and unresolved premise IDs.",
+      "Executed gate IDs, proof/check artifacts, all subgoal mappings, tool/configuration identities, freshness and scope.",
+      "Separate structural_status, behavioral_verified_status and acceptance_status with exact evidence references."
+    ],
+    "limitations": [
+      "This revision is an assistant suggestion responding to the user correction; it is not represented as a new Astra-generated response.",
+      "No unit inventory or verified count is established by approving this definition.",
+      "The current formal unit registry supports mapped GUMBO guarantees. Structural-unit inventories and their separate conformance aggregation must be implemented before reporting this mixed definition as an operational metric.",
+      "Reviewed requirements, assumption discharge and implementation/proof evidence remain necessary."
+    ]
+  },
+  "human_modified": true,
+  "status": "DEFINITION_ONLY_NOT_VERIFICATION",
+  "verified_count": 0,
+  "id": "218f0732801352cbefc1c2c2098016651a95a4f0e84162d180fa4ca5d689fd9c",
+  "approval": {
+    "action": "approve_unit_definition",
+    "subject": {
+      "definition": {
+        "acceptance_evidence": [
+          "Requirement fidelity review and complete traceability.",
+          "All task-required formal, architecture, generation/build and independent-test gates, with failures or missing checks blocking acceptance.",
+          "Explicit disposition of environmental assumptions, unsupported behavior and limitations."
+        ],
+        "counting_rule": "Freeze the reviewed requirement inventory and mappings before inspecting validation outcomes. Count each atomic requirement once; multiple clauses, guarantees, source lines, solver subgoals or shared proofs do not increase its count. Split a compound requirement only through a reviewed semantic decomposition. Report structural-conformance and behavioral-contract results separately; do not label a structural pass as a behavioral proof. All required obligations and subgoals for a unit must pass. Revise the denominator only through a new reviewed inventory, preserving prior results.",
+        "definition": "One unit is one reviewed, independently checkable English requirement linked to its responsible SysML v2 owner, explicit assumptions, and complete guarantees or structural constraints. Each unit is typed as behavioral-contract or structural-conformance. Assumptions are tracked premises, not automatically verified successes.",
+        "example_unit": "Behavioral unit: retain the prior heat command when the current temperature is within the inclusive ordered desired-temperature band, under the declared mode and initialized state. Guarantee: the output equals the prior command and required state updates hold. Structural unit: the sensor output is connected to the regulator input with the required direction, type and ownership; this is checked against resolved architecture, not counted as a behavioral proof.",
+        "exclusion": [
+          "Standalone lines, syntax nodes, imports or declarations without an independently stated requirement.",
+          "Assumptions counted as satisfied merely because they were assumed.",
+          "Duplicate counts for a requirement implemented by multiple guarantees, cases, files or proof subgoals.",
+          "Unexecuted checks, model confidence and human approval as substitutes for verification evidence."
+        ],
+        "granularity": "mixed_typed",
+        "inclusion": [
+          "Reviewed atomic English requirements with stable IDs and source anchors.",
+          "Behavioral requirements mapped to complete GUMBO initialization, compute or invariant contracts.",
+          "Structural requirements mapped to explicit SysML v2 parts, ports, connections, ownership, types, allocations or required properties."
+        ],
+        "limitations": [
+          "This revision is an assistant suggestion responding to the user correction; it is not represented as a new Astra-generated response.",
+          "No unit inventory or verified count is established by approving this definition.",
+          "The current formal unit registry supports mapped GUMBO guarantees. Structural-unit inventories and their separate conformance aggregation must be implemented before reporting this mixed definition as an operational metric.",
+          "Reviewed requirements, assumption discharge and implementation/proof evidence remain necessary."
+        ],
+        "rationale": "Requirement-centered units preserve the connection from English intent to SysML ownership and GUMBO assumptions/guarantees, while avoiding inflated counts from lines, conjuncts or solver subgoals. Separate structural and behavioral categories make their different evidence strengths explicit.",
+        "required_mapping_fields": [
+          "unit_id, unit_kind, atomic_requirement_id, requirement_source_revision and exact passage.",
+          "SysML owner and formal element IDs, source file/region identities, assumptions, guarantees or structural constraints, phase and state semantics.",
+          "Assumption sources, upstream guarantee references, environment review references and unresolved premise IDs.",
+          "Executed gate IDs, proof/check artifacts, all subgoal mappings, tool/configuration identities, freshness and scope.",
+          "Separate structural_status, behavioral_verified_status and acceptance_status with exact evidence references."
+        ],
+        "title": "Requirement-linked SysML v2 assume/guarantee obligation",
+        "verification_evidence": [
+          "Exact requirement-to-owner-to-contract/constraint mappings bound to source and configuration identities.",
+          "For behavioral-contract units: executed formal evidence for every required guarantee/subgoal under explicit assumptions, with initialization, state, arithmetic and timing semantics justified.",
+          "Assumption provenance and discharge: upstream component guarantees or explicitly reviewed environmental assumptions, with unresolved premises reported.",
+          "For structural-conformance units: executed resolved-architecture checks for all declared constraints; report as structural conformance rather than behavioral verification.",
+          "Non-vacuity and freshness checks, tool identities, proof scope and unresolved obligations."
+        ]
+      },
+      "definition_digest": "87adbd72820c6a35fcca20643a9dd524d8424b006c41209269e5abc5200fe570",
+      "definition_id": "218f0732801352cbefc1c2c2098016651a95a4f0e84162d180fa4ca5d689fd9c",
+      "effect": "Fix the meaning of units; does not establish a populated registry or verified results"
+    },
+    "subject_digest": "20a88181555bbea6433c4ad1a08323d88917f21729037a8efbe29909fcf0ebe9",
+    "id": "712c3824222930707ef683625ee57bf5eb166a5ae4a7f57fe8578d0369e910a3",
+    "status": "PENDING",
+    "reviewer": null,
+    "decided_at": null
+  }
+}

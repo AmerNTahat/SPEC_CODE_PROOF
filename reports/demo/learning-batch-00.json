@@ -1,0 +1,319 @@
+{
+  "plan_id": "2849a2cebf7258e1bf081dba484e97177979ec9cff7fb352f75b6c4dc8c77977",
+  "manifest_id": "cc93e76011f492a5608ecfa2d1648dcdd66f13e40ccc4e73b1e7c3744b3c6aba",
+  "batch_index": 0,
+  "batch_count": 12,
+  "model_call_id": "411b6b25a8f53f36db515cca7d1e597a1dc2d10e78bfb13336414a725a13adfb",
+  "candidate_id": "0d121c62e14e382d0fba59095526a9effdb207d1323505024a958b6a3563a88d",
+  "status": "DRAFT_PENDING_DEVELOPMENT_VALIDATION",
+  "scope": "Actual model proposal; no rule-transfer validation or publication claim",
+  "id": "134edccbf6d5564e46dabdd3b021e4d80632ed2ad68195f078c0ed49b0976f32",
+  "candidate": {
+    "record": {
+      "$schema": "",
+      "schema_version": "2.0",
+      "record_type": "rule",
+      "id": "draft-mode-gated-hysteresis",
+      "revision": "1",
+      "state": "DRAFT",
+      "basis": "model_inferred",
+      "assessment_timing": "before_action",
+      "source_references": [
+        "d7ef18732a5def5da9422e3e47db924dd4ae4c9b806fcc86f11c932b377db935",
+        "8539757b211ec65ebcf5df73b8125fe82011a6066fd3bcba864328af992b4bf1"
+      ],
+      "source_artifact_hashes": [
+        "43664d0fe5904aed949d4c12e824c905d7bc1b4e89efa0409038c1b6f52ff605",
+        "b4949561cb04d46f718a16e2cc1486c0bd5a26c15778e3567c464466c24731df"
+      ],
+      "source_episode": "411b6b25a8f53f36db515cca7d1e597a1dc2d10e78bfb13336414a725a13adfb",
+      "available_context_manifest": "cc93e76011f492a5608ecfa2d1648dcdd66f13e40ccc4e73b1e7c3744b3c6aba",
+      "model_configuration": "7e31988cc8d9b89ae79c126a58e57c1f5babd2bc70e3e301ffe8cee77e0969d1",
+      "prompt_version": "1",
+      "trigger": "A component requirement assigns a binary command by operating mode and threshold bands, and explicitly says to hold the command within hysteresis bands.",
+      "principle": "Preserve mode guards, exact interval boundaries, and command history together when translating hysteresis requirements into architecture, contracts, implementation, proof obligations, and tests.",
+      "semantic_choice": "Interpret 'hold alarm control' as equality to the previous emitted command. Interpret 'below' and 'above' strictly and retain the stated inclusive boundaries. Apply temperature cases only in NORMAL mode; initialization, INIT, and FAILED retain their separate assignments.",
+      "structural_placement": "The command-producing thread owns the output and private command history. Attach its behavioral contract there. Preserve process forwarding connections and system wiring; the mode manager supplies mode and the interface manager supplies thresholds.",
+      "repair_gate": "Before accepting a proposed repair, require interface preservation, traceability of every changed guard or assignment, initialization and history-update reasoning, interval coverage and overlap analysis, and boundary/sequence tests. Do not weaken guards, remove cases, or add input assumptions merely to discharge an obligation. Missing prerequisites leave application unresolved.",
+      "prerequisites": [
+        "The target explicitly requires the same mode-gated binary hysteresis semantics; lexical similarity alone is insufficient.",
+        "Output ownership, input sampling, initialization, and the meaning of the previous emitted command are established.",
+        "Thresholds and hysteresis width have compatible units and representable arithmetic; the supported input domain and threshold ordering are established.",
+        "Any stronger spacing assumption, such as a nonempty reset band, must come from the target requirements rather than this rule.",
+        "Target mode mappings, initial output, and mode overrides are established independently before instantiation."
+      ],
+      "exclusions": [
+        "Stateless range alarms that specify an unconditional reset throughout the range.",
+        "Timed debounce, timeout, filtering, or rate-dependent hysteresis.",
+        "Inference of sensor-validity guards or end-to-end latency from the periodic dispatch declaration.",
+        "Changes to existing ports, types, connections, scheduling declarations, or unrelated component behavior."
+      ],
+      "parameters": [
+        {
+          "name": "x, L, U",
+          "role": "Sampled measurement and lower/upper thresholds",
+          "constraints": "Use existing interfaces, a common measurement scale, and the established input domain."
+        },
+        {
+          "name": "h",
+          "role": "Hysteresis width",
+          "constraints": "Positive and requirement-backed; the observed alarm uses 1 [s32] in degrees-field arithmetic. Do not infer a physical temperature unit."
+        },
+        {
+          "name": "q, p",
+          "role": "Emitted command and private prior-command state",
+          "constraints": "Use the existing binary command type; initialize p consistently with the initial emitted command and update it after every emission."
+        },
+        {
+          "name": "mode",
+          "role": "Mode input",
+          "constraints": "Preserve existing enumerations and source-backed mode assignments."
+        }
+      ],
+      "dependencies": [
+        "Existing mode producer and threshold producer contracts",
+        "Target execution semantics for persistent state and sampled inputs",
+        "Target numeric types and arithmetic semantics"
+      ],
+      "target_compatibility": [
+        "reviewed-learning-plan"
+      ],
+      "preserved_obligations": [
+        "Architecture: retain all source interfaces, forwarding connections, ownership boundaries, and scheduling declarations.",
+        "Contract: retain source initialization, mode-specific outputs, strict outside-range tests, inclusive reset boundaries, and prior-command equality in both hysteresis bands.",
+        "Implementation: initialize history consistently, compute from pre-update history, emit the required command, then record that command, including emissions in overriding modes.",
+        "Proof: establish initialization and inductive correspondence between history and the previous emitted command; establish each guarded implication and consistent coverage over the supported input domain.",
+        "Proof: check arithmetic representability and every overlapping interval; do not assume cases are disjoint or silently impose branch priority.",
+        "Testing: exercise each mode, both prior commands, exact boundaries L, L+h, U-h, U, representable neighboring values, and multi-dispatch entry/hold/reset sequences.",
+        "Testing: exercise mode transitions and supported threshold changes to expose stale-history errors.",
+        "Repair: preserve unrelated guarantees and interfaces, localize changes to the owning behavior and its supporting verification artifacts, and repeat affected checks."
+      ],
+      "counterexample": {
+        "scenario": "In NORMAL mode with L=97, U=103, h=1 and previous command On, the sampled temperature becomes exactly 97.",
+        "expected_difference": "This rule requires On to be retained because 97 lies in the lower hold band. A stateless implementation that emits Off whenever L <= x <= U violates that obligation. If the target explicitly requires that stateless reset behavior, this rule does not apply.",
+        "source_or_test_reference": null
+      },
+      "validation_gate_ids": [],
+      "evidence_references": [],
+      "confidence_forecast_reference": "6b79b404d9c0b2086b10d6ebeb8b11e3bc7c3e4616728bd74594db062b0e7db9",
+      "approval_reference": null,
+      "notes": "Observed: Manage_Alarm_i declares lastCmd, initializes alarm_control to Off, and supplies mode-gated outside-range, hold-band, reset-band, and FAILED cases. It does not supply executable history initialization or updates. Its period is 1000 ms. Proposed: the implementation, proof, testing, and repair obligations above are inferred requirements for preserving those cases, not observed development results. No validation implementation or held-out component is supplied. Source references and hashes await assignment by the trusted controller.",
+      "source_english_patterns": [
+        "If mode NORMAL and current temperature is inside the lower hysteresis band then hold alarm control",
+        "If mode NORMAL and current temperature is inside the upper hysteresis band then hold alarm control",
+        "If mode NORMAL and current temperature is inside the reset band then alarm control is Off"
+      ],
+      "positive_paraphrases": [
+        "While operating normally, retain the previous command in either hysteresis band.",
+        "Outside the permitted range activate the alarm; reset it within the inner band, subject to the stated mode guards."
+      ],
+      "misleading_near_matches": [
+        "Turn the alarm off whenever the temperature returns anywhere inside the range.",
+        "Hold the alarm for one second after a threshold crossing.",
+        "Turn the alarm on at or below the lower threshold."
+      ],
+      "supported_operations": [
+        "create-system",
+        "extend-system",
+        "complete-system",
+        "continue-project",
+        "repair-system",
+        "verify-only"
+      ],
+      "stack_layers": [
+        "language",
+        "architecture",
+        "gumbo",
+        "implementation",
+        "proof",
+        "testing",
+        "repair"
+      ],
+      "semantic_roles": {
+        "actor": "The thread owning the binary command output",
+        "condition": "Current sampled mode and threshold interval, with prior command required for hold cases",
+        "effect": "Emit the mode override, activate outside the range, reset in the inner band, or retain the prior command",
+        "modality": "Required conditional assignments",
+        "quantification": "Every applicable compute dispatch over the established input domain",
+        "temporal_scope": "Initialization followed by successive command emissions; no additional wall-clock guarantee inferred",
+        "state_dependency": "Hold compares the new output to the previous emitted command, not to an already updated history variable",
+        "units_and_boundaries": "Preserve strict outside inequalities, half-open hold bands, and closed reset band; verify target units and arithmetic"
+      },
+      "formal_output_pattern": "ABSTRACT transition relation, not executable GUMBO: initialize q := Off and p := Off. For each compute dispatch, let p_pre be the previous emitted command. Require (mode=INIT => q=Off); (mode=FAILED => q=On); (mode=NORMAL and (x<L or x>U) => q=On); (mode=NORMAL and ((L<=x and x<L+h) or (U-h<x and x<=U)) => q=p_pre); (mode=NORMAL and L+h<=x and x<=U-h => q=Off). After emitting q, set p_post := q. All implications are simultaneous obligations; demonstrate coverage and compatibility under established domain constraints. Instantiate On with the existing source literal Onn.",
+      "formal_pattern_status": "ABSTRACT_NOT_VALIDATED",
+      "allowed_edit_scope": [
+        "Owning thread's behavioral contract and private state realization",
+        "Owning implementation's initialization and compute behavior",
+        "Associated traceability, proof obligations, and tests"
+      ],
+      "required_baseline": [
+        "Existing interfaces, wiring, scheduling declarations, and unrelated guarantees",
+        "Target requirements for mode behavior, interval boundaries, and initialization",
+        "Established numeric domain and execution semantics"
+      ],
+      "diagnostic_signature": null,
+      "related_rule_ids": []
+    },
+    "status": "DRAFT_PENDING_VALIDATION",
+    "id": "0d121c62e14e382d0fba59095526a9effdb207d1323505024a958b6a3563a88d"
+  },
+  "model_result": {
+    "usage": {
+      "input_tokens": 19938,
+      "output_tokens": 2128,
+      "cached_input_tokens": 0
+    },
+    "usage_complete": true,
+    "status": "RESPONSE_RECEIVED",
+    "response": {
+      "rule": {
+        "$schema": "",
+        "schema_version": "2.0",
+        "record_type": "rule",
+        "id": "draft-mode-gated-hysteresis",
+        "revision": "1",
+        "state": "DRAFT",
+        "basis": "model_inferred",
+        "assessment_timing": "before_action",
+        "source_references": [],
+        "source_artifact_hashes": [],
+        "source_episode": null,
+        "available_context_manifest": null,
+        "model_configuration": null,
+        "prompt_version": "1",
+        "trigger": "A component requirement assigns a binary command by operating mode and threshold bands, and explicitly says to hold the command within hysteresis bands.",
+        "principle": "Preserve mode guards, exact interval boundaries, and command history together when translating hysteresis requirements into architecture, contracts, implementation, proof obligations, and tests.",
+        "semantic_choice": "Interpret 'hold alarm control' as equality to the previous emitted command. Interpret 'below' and 'above' strictly and retain the stated inclusive boundaries. Apply temperature cases only in NORMAL mode; initialization, INIT, and FAILED retain their separate assignments.",
+        "structural_placement": "The command-producing thread owns the output and private command history. Attach its behavioral contract there. Preserve process forwarding connections and system wiring; the mode manager supplies mode and the interface manager supplies thresholds.",
+        "repair_gate": "Before accepting a proposed repair, require interface preservation, traceability of every changed guard or assignment, initialization and history-update reasoning, interval coverage and overlap analysis, and boundary/sequence tests. Do not weaken guards, remove cases, or add input assumptions merely to discharge an obligation. Missing prerequisites leave application unresolved.",
+        "prerequisites": [
+          "The target explicitly requires the same mode-gated binary hysteresis semantics; lexical similarity alone is insufficient.",
+          "Output ownership, input sampling, initialization, and the meaning of the previous emitted command are established.",
+          "Thresholds and hysteresis width have compatible units and representable arithmetic; the supported input domain and threshold ordering are established.",
+          "Any stronger spacing assumption, such as a nonempty reset band, must come from the target requirements rather than this rule.",
+          "Target mode mappings, initial output, and mode overrides are established independently before instantiation."
+        ],
+        "exclusions": [
+          "Stateless range alarms that specify an unconditional reset throughout the range.",
+          "Timed debounce, timeout, filtering, or rate-dependent hysteresis.",
+          "Inference of sensor-validity guards or end-to-end latency from the periodic dispatch declaration.",
+          "Changes to existing ports, types, connections, scheduling declarations, or unrelated component behavior."
+        ],
+        "parameters": [
+          {
+            "name": "x, L, U",
+            "role": "Sampled measurement and lower/upper thresholds",
+            "constraints": "Use existing interfaces, a common measurement scale, and the established input domain."
+          },
+          {
+            "name": "h",
+            "role": "Hysteresis width",
+            "constraints": "Positive and requirement-backed; the observed alarm uses 1 [s32] in degrees-field arithmetic. Do not infer a physical temperature unit."
+          },
+          {
+            "name": "q, p",
+            "role": "Emitted command and private prior-command state",
+            "constraints": "Use the existing binary command type; initialize p consistently with the initial emitted command and update it after every emission."
+          },
+          {
+            "name": "mode",
+            "role": "Mode input",
+            "constraints": "Preserve existing enumerations and source-backed mode assignments."
+          }
+        ],
+        "dependencies": [
+          "Existing mode producer and threshold producer contracts",
+          "Target execution semantics for persistent state and sampled inputs",
+          "Target numeric types and arithmetic semantics"
+        ],
+        "target_compatibility": [
+          "reviewed-learning-plan"
+        ],
+        "preserved_obligations": [
+          "Architecture: retain all source interfaces, forwarding connections, ownership boundaries, and scheduling declarations.",
+          "Contract: retain source initialization, mode-specific outputs, strict outside-range tests, inclusive reset boundaries, and prior-command equality in both hysteresis bands.",
+          "Implementation: initialize history consistently, compute from pre-update history, emit the required command, then record that command, including emissions in overriding modes.",
+          "Proof: establish initialization and inductive correspondence between history and the previous emitted command; establish each guarded implication and consistent coverage over the supported input domain.",
+          "Proof: check arithmetic representability and every overlapping interval; do not assume cases are disjoint or silently impose branch priority.",
+          "Testing: exercise each mode, both prior commands, exact boundaries L, L+h, U-h, U, representable neighboring values, and multi-dispatch entry/hold/reset sequences.",
+          "Testing: exercise mode transitions and supported threshold changes to expose stale-history errors.",
+          "Repair: preserve unrelated guarantees and interfaces, localize changes to the owning behavior and its supporting verification artifacts, and repeat affected checks."
+        ],
+        "counterexample": {
+          "scenario": "In NORMAL mode with L=97, U=103, h=1 and previous command On, the sampled temperature becomes exactly 97.",
+          "expected_difference": "This rule requires On to be retained because 97 lies in the lower hold band. A stateless implementation that emits Off whenever L <= x <= U violates that obligation. If the target explicitly requires that stateless reset behavior, this rule does not apply.",
+          "source_or_test_reference": null
+        },
+        "validation_gate_ids": [],
+        "evidence_references": [],
+        "confidence_forecast_reference": null,
+        "approval_reference": null,
+        "notes": "Observed: Manage_Alarm_i declares lastCmd, initializes alarm_control to Off, and supplies mode-gated outside-range, hold-band, reset-band, and FAILED cases. It does not supply executable history initialization or updates. Its period is 1000 ms. Proposed: the implementation, proof, testing, and repair obligations above are inferred requirements for preserving those cases, not observed development results. No validation implementation or held-out component is supplied. Source references and hashes await assignment by the trusted controller.",
+        "source_english_patterns": [
+          "If mode NORMAL and current temperature is inside the lower hysteresis band then hold alarm control",
+          "If mode NORMAL and current temperature is inside the upper hysteresis band then hold alarm control",
+          "If mode NORMAL and current temperature is inside the reset band then alarm control is Off"
+        ],
+        "positive_paraphrases": [
+          "While operating normally, retain the previous command in either hysteresis band.",
+          "Outside the permitted range activate the alarm; reset it within the inner band, subject to the stated mode guards."
+        ],
+        "misleading_near_matches": [
+          "Turn the alarm off whenever the temperature returns anywhere inside the range.",
+          "Hold the alarm for one second after a threshold crossing.",
+          "Turn the alarm on at or below the lower threshold."
+        ],
+        "supported_operations": [
+          "create-system",
+          "extend-system",
+          "complete-system",
+          "continue-project",
+          "repair-system",
+          "verify-only"
+        ],
+        "stack_layers": [
+          "language",
+          "architecture",
+          "gumbo",
+          "implementation",
+          "proof",
+          "testing",
+          "repair"
+        ],
+        "semantic_roles": {
+          "actor": "The thread owning the binary command output",
+          "condition": "Current sampled mode and threshold interval, with prior command required for hold cases",
+          "effect": "Emit the mode override, activate outside the range, reset in the inner band, or retain the prior command",
+          "modality": "Required conditional assignments",
+          "quantification": "Every applicable compute dispatch over the established input domain",
+          "temporal_scope": "Initialization followed by successive command emissions; no additional wall-clock guarantee inferred",
+          "state_dependency": "Hold compares the new output to the previous emitted command, not to an already updated history variable",
+          "units_and_boundaries": "Preserve strict outside inequalities, half-open hold bands, and closed reset band; verify target units and arithmetic"
+        },
+        "formal_output_pattern": "ABSTRACT transition relation, not executable GUMBO: initialize q := Off and p := Off. For each compute dispatch, let p_pre be the previous emitted command. Require (mode=INIT => q=Off); (mode=FAILED => q=On); (mode=NORMAL and (x<L or x>U) => q=On); (mode=NORMAL and ((L<=x and x<L+h) or (U-h<x and x<=U)) => q=p_pre); (mode=NORMAL and L+h<=x and x<=U-h => q=Off). After emitting q, set p_post := q. All implications are simultaneous obligations; demonstrate coverage and compatibility under established domain constraints. Instantiate On with the existing source literal Onn.",
+        "formal_pattern_status": "ABSTRACT_NOT_VALIDATED",
+        "allowed_edit_scope": [
+          "Owning thread's behavioral contract and private state realization",
+          "Owning implementation's initialization and compute behavior",
+          "Associated traceability, proof obligations, and tests"
+        ],
+        "required_baseline": [
+          "Existing interfaces, wiring, scheduling declarations, and unrelated guarantees",
+          "Target requirements for mode behavior, interval boundaries, and initialization",
+          "Established numeric domain and execution semantics"
+        ],
+        "diagnostic_signature": null,
+        "related_rule_ids": []
+      },
+      "confidence": {
+        "score": 0.78,
+        "rationale": "Before seeing any development result, my model-belief confidence is 0.78 that this scoped rule will preserve the stated obligations on the held-out component under its prerequisites. The training alarm directly supports the guarded interval semantics, but history realization, numeric constraints, and target execution semantics remain unverified. This is a subjective forecast, not an empirical probability or validation claim."
+      }
+    },
+    "warnings": [
+      "Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."
+    ],
+    "reason": null,
+    "scope": "Metered response only; no truth, validation or acceptance claim"
+  }
+}

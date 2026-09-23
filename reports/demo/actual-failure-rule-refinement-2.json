@@ -1,0 +1,387 @@
+{
+  "plan_id": "2849a2cebf7258e1bf081dba484e97177979ec9cff7fb352f75b6c4dc8c77977",
+  "manifest_id": "5676e7b2d28f29fc28664c00ac53ecdbb7599e2a39a41466e6a64bcba4660755",
+  "revision_of": "6d23020af4c22925db119a7edea580a94c567aa90fa3bcf4c2a9822aeb709b08",
+  "development_feedback_id": "ac75965cf79871144ebcc784f54f1b509eb74b1b6cd8f4bd8f0939bce9eb8aea",
+  "batch_index": 5,
+  "batch_count": 12,
+  "model_call_id": "d8371ab253a1864df71543a1461f3f02b3f1012110694ab5019b9e9badb8a573",
+  "candidate_id": "21c1bd02cd508b03b2bd38370d042f678b608502fc7512c54130f21d60bb34b4",
+  "status": "DRAFT_PENDING_DEVELOPMENT_VALIDATION",
+  "scope": "Actual model proposal; no rule-transfer validation or publication claim",
+  "id": "edb7d3b25c28aeb2ce5019eee686588163851372f3c3f7ba428ba877ecb10693",
+  "candidate": {
+    "record": {
+      "$schema": "",
+      "schema_version": "2.0",
+      "record_type": "rule",
+      "id": "draft-mode-conditioned-owned-assignment",
+      "revision": "2",
+      "state": "DRAFT",
+      "basis": "model_inferred",
+      "assessment_timing": "after_feedback",
+      "source_references": [
+        "d7ef18732a5def5da9422e3e47db924dd4ae4c9b806fcc86f11c932b377db935",
+        "8539757b211ec65ebcf5df73b8125fe82011a6066fd3bcba864328af992b4bf1"
+      ],
+      "source_artifact_hashes": [
+        "43664d0fe5904aed949d4c12e824c905d7bc1b4e89efa0409038c1b6f52ff605",
+        "b4949561cb04d46f718a16e2cc1486c0bd5a26c15778e3567c464466c24731df"
+      ],
+      "source_episode": "d8371ab253a1864df71543a1461f3f02b3f1012110694ab5019b9e9badb8a573",
+      "available_context_manifest": "5676e7b2d28f29fc28664c00ac53ecdbb7599e2a39a41466e6a64bcba4660755",
+      "model_configuration": "7e31988cc8d9b89ae79c126a58e57c1f5babd2bc70e3e301ffe8cee77e0969d1",
+      "prompt_version": "revision-2",
+      "trigger": "A requirement conditionally assigns, retains, or explicitly leaves unspecified a controlled or internal variable and must be carried through its existing producer, contracts, implementation, proof, testing, and repair.",
+      "principle": "Represent each variable's requirements as a traceable, producer-local conditional value relation over a justified domain. Preserve exact guards, prior-state semantics, and existing interfaces; require structural acceptance as well as semantic refinement, without weakening obligations to bypass diagnostics.",
+      "semantic_choice": "Translate mandatory 'if C then assign V' as implication, not equivalence. Translate hold or unchanged as equality to the preceding committed value. Explicit UNSPECIFIED documents an unconstrained value region; omission does not. Simultaneously enabled requirements impose simultaneous obligations, never textual priority.",
+      "structural_placement": "Attach initialization and compute contracts to the existing concrete producer thread. Preserve system/process/thread ports, declared types, directions, names, connections, scheduling attributes, and ownership. Routing wrappers do not acquire competing definitions. The supplied Monitor uses DataPort with a redefined payload type; preserve that source form rather than introducing substitute custom port classifiers. This observation does not establish acceptance of any generated target.",
+      "repair_gate": "Treat reported instantiation/type errors and rejected architecture capture as blocking even when the process exits zero. Inspect diagnostic content and architecture-export outcome, distinguish baseline defects from introduced changes, and require renewed parse_type and architecture_capture checks after a proposed repair. Restore introduced interface drift to the source baseline; if an existing source interface itself cannot be processed, record the unresolved compatibility blocker instead of rewriting it or deleting obligations. Structural acceptance alone cannot discharge semantic checks: retain coverage, overlap compatibility, exact boundaries, initialization, history lifecycle, arithmetic safety, refinement, and applicable physical obligations.",
+      "prerequisites": [
+        "An identified producer and a baseline of all existing source interfaces, ownership, routing, scheduling attributes, and contracts.",
+        "Applicable modes, monitored/internal predicates, value expressions, and requirement traceability.",
+        "Independently justified input and state domains; restrictions cannot be added merely to eliminate counterexamples.",
+        "Established types, units, scaling, enum members, arithmetic bounds, and field access semantics.",
+        "For retention or transitions, a defined prior-state initialization and commit lifecycle.",
+        "For concrete execution, a compatible parser/type checker and architecture exporter with diagnostic and artifact inspection; their availability or success is not established here.",
+        "For physical claims, target-specific input/output mappings, environmental assumptions, latency budgets, and applicable numerical tolerances.",
+        "Source gaps and unresolved tool compatibility can be recorded explicitly without pretending the relation is complete."
+      ],
+      "exclusions": [
+        "Deriving runtime priority from case order.",
+        "Treating missing assignments as retention or explicit UNSPECIFIED.",
+        "Transferring one function's INIT or FAILED behavior to another function.",
+        "Inferring timeout behavior from prose labels when guards contain no time condition.",
+        "Inferring physical latency from dispatch period alone.",
+        "Adding unsupported sensor-validity guards, domain restrictions, defaults, or assumptions.",
+        "Replacing existing source interfaces with custom port abstractions merely for stylistic uniformity or checker acceptance.",
+        "Interpreting zero exit status, empty stdout, or parse acceptance as sufficient evidence of architecture or behavioral correctness."
+      ],
+      "parameters": [
+        {
+          "name": "owner",
+          "role": "Existing producer function and concrete thread",
+          "constraints": "Preserve ownership and routing."
+        },
+        {
+          "name": "y",
+          "role": "Controlled or internal variable",
+          "constraints": "Preserve declared type and distinguish software image from physical quantity."
+        },
+        {
+          "name": "D",
+          "role": "Domain of modes, inputs, and previous state",
+          "constraints": "Every restriction requires independent support; unknown restrictions remain obligations."
+        },
+        {
+          "name": "cases",
+          "role": "Traceable guards and effects",
+          "constraints": "Preserve connectives, strict/inclusive comparisons, modality, and assignment/retention/UNSPECIFIED distinctions."
+        },
+        {
+          "name": "history",
+          "role": "Previous committed output or mode",
+          "constraints": "Initialize explicitly, read before updates, and commit after the reaction."
+        },
+        {
+          "name": "interface_baseline",
+          "role": "Source architecture and port declarations",
+          "constraints": "Retain exact source interfaces and compare any generated architecture against them; diagnostics do not authorize interface changes."
+        },
+        {
+          "name": "physical_budgets",
+          "role": "Controlled-variable latency and numerical tolerance",
+          "constraints": "Use target-specific support; do not impose independent physical budgets on internal variables."
+        }
+      ],
+      "dependencies": [],
+      "target_compatibility": [
+        "reviewed-learning-plan"
+      ],
+      "preserved_obligations": [
+        "Language: preserve actor, modality, mode, monitored/internal conditions, quantification, units, boundary inclusivity, and temporal meaning.",
+        "Architecture: preserve all existing source interfaces, ports, types, names, directions, connections, producer ownership, dispatch protocols, periods, and domains.",
+        "Contracts: preserve initialization and compute guarantees and requirement traceability. Expose missing cases, unsupported timeout qualifications, and explicit unconstrained regions distinctly.",
+        "Implementation: evaluate guards from a coherent input and prior-state snapshot, satisfy every enabled constrained effect, and commit history afterward. A state declaration alone does not establish history initialization or updates.",
+        "Proof: establish initialization, history invariants, coverage over the justified domain, compatible overlapping effects, absence or justified consolidation of duplicate requirements, arithmetic safety, and implementation refinement. Branch priority must not conceal contradictory obligations.",
+        "Testing: derive expected values from requirements; cover each mode and guard, exact boundaries and adjacent representable values, both retained command values, initialization, and multi-reaction transitions. Explicit UNSPECIFIED regions have no fabricated value oracle.",
+        "Structural checking: inspect reported errors independently of process status and require a usable architecture capture consistent with the source baseline before making downstream structural claims.",
+        "Deployment: account for input reconstruction, input accuracy/latency, computation, scheduling, communication, and output mapping/actuation when establishing controlled-variable budgets. Numerical controlled variables require applicable tolerance; Boolean/enumerated tolerance is normally N/A. Internal variables receive no independent physical latency or tolerance requirement.",
+        "Repair: keep changes local to the owning relation and corresponding implementation, proof, and tests; preserve all prior obligations and renew affected structural, boundary, and state-sequence checks. Do not import the heat-source six-second example into the alarm."
+      ],
+      "counterexample": {
+        "scenario": "In Manage_Alarm_i, mode is NORMAL, temperature equals the lower bound, the upper bound is at least two source offset units higher, and the previous alarm command is Off. A translation changes the low alarm guard from temperature < lower to temperature <= lower.",
+        "expected_difference": "The source requires retention at equality, hence Off. The changed guard simultaneously requires Onn, contradicting retention. A priority branch or structurally accepted export cannot preserve both obligations; the strict boundary must remain.",
+        "source_or_test_reference": "Provided Isolette Monitor: REQ_MA_2_LOW and REQ_MA_3_LOW_HYSTERESIS; proposed counterexample, not an executed test."
+      },
+      "validation_gate_ids": [
+        "parse_type",
+        "architecture_capture"
+      ],
+      "evidence_references": [],
+      "confidence_forecast_reference": "3fbeeb743af6fba5e5f291bc02ced330459b43bef25a97845115774646748002",
+      "approval_reference": null,
+      "notes": "Observed source facts: Monitor declares DataPort payload types, producer-local GUMBO cases, output initialization guarantees, and history state declarations; the excerpt does not establish the history lifecycle. Recorded development facts: parse_type reported repeated Unexpected port type instantiation errors in Regulate.sysml for custom port classifiers despite zero exit status; architecture_capture failed with the same diagnostics and INSPECTA_ARCHITECTURE_REJECTED. These diagnostics do not establish the underlying cause or a successful repair. Proposed revision: preserve source port forms and interfaces, inspect diagnostics rather than exit status alone, and require architecture capture without relaxing semantic obligations. No validation implementation or golden reference is supplied; no checking, testing, repair execution, or approval is claimed.",
+      "source_english_patterns": [
+        "If mode NORMAL and current temperature is inside the lower hysteresis band then hold alarm control.",
+        "If the Regulator Mode is NORMAL and the Current Temperature is greater than or equal to the Lower Desired Temperature and less than or equal to the Upper Desired Temperature, the value of the Heat Control shall not be changed.",
+        "If the Regulator Mode is not NORMAL, the value of the Display Temperature is UNSPECIFIED.",
+        "Present the detailed system requirements in the function that produces the variable being specified."
+      ],
+      "positive_paraphrases": [
+        "While condition C holds in mode M, set the owned output to V.",
+        "Within the stated band, retain the previous committed command.",
+        "Define each variable's conditional values at its existing producer, documenting any explicitly unspecified region."
+      ],
+      "misleading_near_matches": [
+        "The output may be V: permission does not require assignment.",
+        "The output eventually becomes V: this is not merely a reaction-local equality.",
+        "No case covers this mode: omission does not imply UNSPECIFIED.",
+        "Remain INIT before timeout: a time-free guard does not express that qualification.",
+        "FAILED always means Off: the supplied alarm requires Onn.",
+        "The checker exited zero: the recorded diagnostics still reported instantiation errors."
+      ],
+      "supported_operations": [
+        "complete-system",
+        "extend-system",
+        "repair-system",
+        "verify-only",
+        "create-system"
+      ],
+      "stack_layers": [
+        "language",
+        "architecture",
+        "gumbo",
+        "implementation",
+        "proof",
+        "testing",
+        "deployment",
+        "repair"
+      ],
+      "semantic_roles": {
+        "actor": "The existing producer of the controlled or internal variable.",
+        "condition": "Applicable mode and monitored/internal predicates, preserving conjunctions, disjunctions, and precise boundaries.",
+        "effect": "Assign the specified value, retain the preceding committed value, or explicitly leave the value unconstrained.",
+        "modality": "Mandatory for shall/guarantee; explicit UNSPECIFIED records absence of a meaningful value requirement.",
+        "quantification": "Every reaction state in the justified domain and every simultaneously enabled constrained clause.",
+        "temporal_scope": "Initialization and compute reactions are distinct; applicable physical latency is separately established.",
+        "state_dependency": "Retention and transition guards read initialized prior state before committing the new state.",
+        "units_and_boundaries": "Preserve declared representations, offsets, and comparison strictness. The alarm's 1 [s32] offset does not establish physical scaling or arithmetic safety."
+      },
+      "formal_output_pattern": "ABSTRACT, not executable GUMBO: For each owned variable y, let s=(mode, inputs, history) range over justified D. For each traceable clause i define guard g_i(s) and allowed set A_i(s): assignment gives {e_i(s)}, HOLD gives {history_y}, and explicit UNSPECIFIED gives Type(y). Require coverage forall s in D: exists i g_i(s). Let Allowed_y(s) be the intersection of A_i(s) for enabled clauses; require nonempty intersection, and a singleton wherever a constrained ideal assignment applies. Review overlapping duplicate effects; never introduce implicit priority. An uncovered state remains a gap, not an unconstrained case. Initialization satisfies source output guarantees and establishes history. Each reaction chooses y_next in Allowed_y(s), then commits history_y_next=y_next. Owner.initialize and owner.compute express these obligations with requirement identifiers while preserving source interfaces. Proposed acceptance obligations additionally require diagnostic-clean parse/type processing and architecture capture consistent with the source baseline; zero exit status alone is insufficient. Prove implementation refinement and separately discharge applicable physical mapping, timing, and accuracy obligations.",
+      "formal_pattern_status": "ABSTRACT_NOT_VALIDATED",
+      "allowed_edit_scope": [
+        "Requirement traceability and conditional relations at the existing producer",
+        "Producer-local contracts and internal history lifecycle",
+        "Corresponding implementation, proof obligations, and requirement-derived tests",
+        "Restoration of introduced structural drift to existing source interfaces",
+        "Diagnostic interpretation and architecture comparison obligations",
+        "Physical mapping and timing arguments without interface or scheduling changes"
+      ],
+      "required_baseline": [
+        "Existing source interfaces, exact port declarations, routing, ownership, and scheduling attributes",
+        "Existing initialization guarantees, compute cases, and applicable source requirements",
+        "Justified domain assumptions and type/unit representations",
+        "Established prior-state lifecycle, if available; otherwise an unresolved obligation",
+        "Existing implementation and verification artifacts, if any, without assuming success",
+        "Recorded parse_type and architecture_capture diagnostics; a baseline comparison is required before attributing their cause"
+      ],
+      "diagnostic_signature": null,
+      "related_rule_ids": []
+    },
+    "status": "DRAFT_PENDING_VALIDATION",
+    "id": "21c1bd02cd508b03b2bd38370d042f678b608502fc7512c54130f21d60bb34b4"
+  },
+  "model_result": {
+    "usage": {
+      "input_tokens": 27386,
+      "output_tokens": 2961,
+      "cached_input_tokens": 0
+    },
+    "usage_complete": true,
+    "status": "RESPONSE_RECEIVED",
+    "response": {
+      "rule": {
+        "$schema": "",
+        "schema_version": "2.0",
+        "record_type": "rule",
+        "id": "draft-mode-conditioned-owned-assignment",
+        "revision": "2",
+        "state": "DRAFT",
+        "basis": "model_inferred",
+        "assessment_timing": "after_feedback",
+        "source_references": [],
+        "source_artifact_hashes": [],
+        "source_episode": null,
+        "available_context_manifest": null,
+        "model_configuration": null,
+        "prompt_version": "revision-2",
+        "trigger": "A requirement conditionally assigns, retains, or explicitly leaves unspecified a controlled or internal variable and must be carried through its existing producer, contracts, implementation, proof, testing, and repair.",
+        "principle": "Represent each variable's requirements as a traceable, producer-local conditional value relation over a justified domain. Preserve exact guards, prior-state semantics, and existing interfaces; require structural acceptance as well as semantic refinement, without weakening obligations to bypass diagnostics.",
+        "semantic_choice": "Translate mandatory 'if C then assign V' as implication, not equivalence. Translate hold or unchanged as equality to the preceding committed value. Explicit UNSPECIFIED documents an unconstrained value region; omission does not. Simultaneously enabled requirements impose simultaneous obligations, never textual priority.",
+        "structural_placement": "Attach initialization and compute contracts to the existing concrete producer thread. Preserve system/process/thread ports, declared types, directions, names, connections, scheduling attributes, and ownership. Routing wrappers do not acquire competing definitions. The supplied Monitor uses DataPort with a redefined payload type; preserve that source form rather than introducing substitute custom port classifiers. This observation does not establish acceptance of any generated target.",
+        "repair_gate": "Treat reported instantiation/type errors and rejected architecture capture as blocking even when the process exits zero. Inspect diagnostic content and architecture-export outcome, distinguish baseline defects from introduced changes, and require renewed parse_type and architecture_capture checks after a proposed repair. Restore introduced interface drift to the source baseline; if an existing source interface itself cannot be processed, record the unresolved compatibility blocker instead of rewriting it or deleting obligations. Structural acceptance alone cannot discharge semantic checks: retain coverage, overlap compatibility, exact boundaries, initialization, history lifecycle, arithmetic safety, refinement, and applicable physical obligations.",
+        "prerequisites": [
+          "An identified producer and a baseline of all existing source interfaces, ownership, routing, scheduling attributes, and contracts.",
+          "Applicable modes, monitored/internal predicates, value expressions, and requirement traceability.",
+          "Independently justified input and state domains; restrictions cannot be added merely to eliminate counterexamples.",
+          "Established types, units, scaling, enum members, arithmetic bounds, and field access semantics.",
+          "For retention or transitions, a defined prior-state initialization and commit lifecycle.",
+          "For concrete execution, a compatible parser/type checker and architecture exporter with diagnostic and artifact inspection; their availability or success is not established here.",
+          "For physical claims, target-specific input/output mappings, environmental assumptions, latency budgets, and applicable numerical tolerances.",
+          "Source gaps and unresolved tool compatibility can be recorded explicitly without pretending the relation is complete."
+        ],
+        "exclusions": [
+          "Deriving runtime priority from case order.",
+          "Treating missing assignments as retention or explicit UNSPECIFIED.",
+          "Transferring one function's INIT or FAILED behavior to another function.",
+          "Inferring timeout behavior from prose labels when guards contain no time condition.",
+          "Inferring physical latency from dispatch period alone.",
+          "Adding unsupported sensor-validity guards, domain restrictions, defaults, or assumptions.",
+          "Replacing existing source interfaces with custom port abstractions merely for stylistic uniformity or checker acceptance.",
+          "Interpreting zero exit status, empty stdout, or parse acceptance as sufficient evidence of architecture or behavioral correctness."
+        ],
+        "parameters": [
+          {
+            "name": "owner",
+            "role": "Existing producer function and concrete thread",
+            "constraints": "Preserve ownership and routing."
+          },
+          {
+            "name": "y",
+            "role": "Controlled or internal variable",
+            "constraints": "Preserve declared type and distinguish software image from physical quantity."
+          },
+          {
+            "name": "D",
+            "role": "Domain of modes, inputs, and previous state",
+            "constraints": "Every restriction requires independent support; unknown restrictions remain obligations."
+          },
+          {
+            "name": "cases",
+            "role": "Traceable guards and effects",
+            "constraints": "Preserve connectives, strict/inclusive comparisons, modality, and assignment/retention/UNSPECIFIED distinctions."
+          },
+          {
+            "name": "history",
+            "role": "Previous committed output or mode",
+            "constraints": "Initialize explicitly, read before updates, and commit after the reaction."
+          },
+          {
+            "name": "interface_baseline",
+            "role": "Source architecture and port declarations",
+            "constraints": "Retain exact source interfaces and compare any generated architecture against them; diagnostics do not authorize interface changes."
+          },
+          {
+            "name": "physical_budgets",
+            "role": "Controlled-variable latency and numerical tolerance",
+            "constraints": "Use target-specific support; do not impose independent physical budgets on internal variables."
+          }
+        ],
+        "dependencies": [],
+        "target_compatibility": [
+          "reviewed-learning-plan"
+        ],
+        "preserved_obligations": [
+          "Language: preserve actor, modality, mode, monitored/internal conditions, quantification, units, boundary inclusivity, and temporal meaning.",
+          "Architecture: preserve all existing source interfaces, ports, types, names, directions, connections, producer ownership, dispatch protocols, periods, and domains.",
+          "Contracts: preserve initialization and compute guarantees and requirement traceability. Expose missing cases, unsupported timeout qualifications, and explicit unconstrained regions distinctly.",
+          "Implementation: evaluate guards from a coherent input and prior-state snapshot, satisfy every enabled constrained effect, and commit history afterward. A state declaration alone does not establish history initialization or updates.",
+          "Proof: establish initialization, history invariants, coverage over the justified domain, compatible overlapping effects, absence or justified consolidation of duplicate requirements, arithmetic safety, and implementation refinement. Branch priority must not conceal contradictory obligations.",
+          "Testing: derive expected values from requirements; cover each mode and guard, exact boundaries and adjacent representable values, both retained command values, initialization, and multi-reaction transitions. Explicit UNSPECIFIED regions have no fabricated value oracle.",
+          "Structural checking: inspect reported errors independently of process status and require a usable architecture capture consistent with the source baseline before making downstream structural claims.",
+          "Deployment: account for input reconstruction, input accuracy/latency, computation, scheduling, communication, and output mapping/actuation when establishing controlled-variable budgets. Numerical controlled variables require applicable tolerance; Boolean/enumerated tolerance is normally N/A. Internal variables receive no independent physical latency or tolerance requirement.",
+          "Repair: keep changes local to the owning relation and corresponding implementation, proof, and tests; preserve all prior obligations and renew affected structural, boundary, and state-sequence checks. Do not import the heat-source six-second example into the alarm."
+        ],
+        "counterexample": {
+          "scenario": "In Manage_Alarm_i, mode is NORMAL, temperature equals the lower bound, the upper bound is at least two source offset units higher, and the previous alarm command is Off. A translation changes the low alarm guard from temperature < lower to temperature <= lower.",
+          "expected_difference": "The source requires retention at equality, hence Off. The changed guard simultaneously requires Onn, contradicting retention. A priority branch or structurally accepted export cannot preserve both obligations; the strict boundary must remain.",
+          "source_or_test_reference": "Provided Isolette Monitor: REQ_MA_2_LOW and REQ_MA_3_LOW_HYSTERESIS; proposed counterexample, not an executed test."
+        },
+        "validation_gate_ids": [
+          "parse_type",
+          "architecture_capture"
+        ],
+        "evidence_references": [],
+        "confidence_forecast_reference": null,
+        "approval_reference": null,
+        "notes": "Observed source facts: Monitor declares DataPort payload types, producer-local GUMBO cases, output initialization guarantees, and history state declarations; the excerpt does not establish the history lifecycle. Recorded development facts: parse_type reported repeated Unexpected port type instantiation errors in Regulate.sysml for custom port classifiers despite zero exit status; architecture_capture failed with the same diagnostics and INSPECTA_ARCHITECTURE_REJECTED. These diagnostics do not establish the underlying cause or a successful repair. Proposed revision: preserve source port forms and interfaces, inspect diagnostics rather than exit status alone, and require architecture capture without relaxing semantic obligations. No validation implementation or golden reference is supplied; no checking, testing, repair execution, or approval is claimed.",
+        "source_english_patterns": [
+          "If mode NORMAL and current temperature is inside the lower hysteresis band then hold alarm control.",
+          "If the Regulator Mode is NORMAL and the Current Temperature is greater than or equal to the Lower Desired Temperature and less than or equal to the Upper Desired Temperature, the value of the Heat Control shall not be changed.",
+          "If the Regulator Mode is not NORMAL, the value of the Display Temperature is UNSPECIFIED.",
+          "Present the detailed system requirements in the function that produces the variable being specified."
+        ],
+        "positive_paraphrases": [
+          "While condition C holds in mode M, set the owned output to V.",
+          "Within the stated band, retain the previous committed command.",
+          "Define each variable's conditional values at its existing producer, documenting any explicitly unspecified region."
+        ],
+        "misleading_near_matches": [
+          "The output may be V: permission does not require assignment.",
+          "The output eventually becomes V: this is not merely a reaction-local equality.",
+          "No case covers this mode: omission does not imply UNSPECIFIED.",
+          "Remain INIT before timeout: a time-free guard does not express that qualification.",
+          "FAILED always means Off: the supplied alarm requires Onn.",
+          "The checker exited zero: the recorded diagnostics still reported instantiation errors."
+        ],
+        "supported_operations": [
+          "complete-system",
+          "extend-system",
+          "repair-system",
+          "verify-only",
+          "create-system"
+        ],
+        "stack_layers": [
+          "language",
+          "architecture",
+          "gumbo",
+          "implementation",
+          "proof",
+          "testing",
+          "deployment",
+          "repair"
+        ],
+        "semantic_roles": {
+          "actor": "The existing producer of the controlled or internal variable.",
+          "condition": "Applicable mode and monitored/internal predicates, preserving conjunctions, disjunctions, and precise boundaries.",
+          "effect": "Assign the specified value, retain the preceding committed value, or explicitly leave the value unconstrained.",
+          "modality": "Mandatory for shall/guarantee; explicit UNSPECIFIED records absence of a meaningful value requirement.",
+          "quantification": "Every reaction state in the justified domain and every simultaneously enabled constrained clause.",
+          "temporal_scope": "Initialization and compute reactions are distinct; applicable physical latency is separately established.",
+          "state_dependency": "Retention and transition guards read initialized prior state before committing the new state.",
+          "units_and_boundaries": "Preserve declared representations, offsets, and comparison strictness. The alarm's 1 [s32] offset does not establish physical scaling or arithmetic safety."
+        },
+        "formal_output_pattern": "ABSTRACT, not executable GUMBO: For each owned variable y, let s=(mode, inputs, history) range over justified D. For each traceable clause i define guard g_i(s) and allowed set A_i(s): assignment gives {e_i(s)}, HOLD gives {history_y}, and explicit UNSPECIFIED gives Type(y). Require coverage forall s in D: exists i g_i(s). Let Allowed_y(s) be the intersection of A_i(s) for enabled clauses; require nonempty intersection, and a singleton wherever a constrained ideal assignment applies. Review overlapping duplicate effects; never introduce implicit priority. An uncovered state remains a gap, not an unconstrained case. Initialization satisfies source output guarantees and establishes history. Each reaction chooses y_next in Allowed_y(s), then commits history_y_next=y_next. Owner.initialize and owner.compute express these obligations with requirement identifiers while preserving source interfaces. Proposed acceptance obligations additionally require diagnostic-clean parse/type processing and architecture capture consistent with the source baseline; zero exit status alone is insufficient. Prove implementation refinement and separately discharge applicable physical mapping, timing, and accuracy obligations.",
+        "formal_pattern_status": "ABSTRACT_NOT_VALIDATED",
+        "allowed_edit_scope": [
+          "Requirement traceability and conditional relations at the existing producer",
+          "Producer-local contracts and internal history lifecycle",
+          "Corresponding implementation, proof obligations, and requirement-derived tests",
+          "Restoration of introduced structural drift to existing source interfaces",
+          "Diagnostic interpretation and architecture comparison obligations",
+          "Physical mapping and timing arguments without interface or scheduling changes"
+        ],
+        "required_baseline": [
+          "Existing source interfaces, exact port declarations, routing, ownership, and scheduling attributes",
+          "Existing initialization guarantees, compute cases, and applicable source requirements",
+          "Justified domain assumptions and type/unit representations",
+          "Established prior-state lifecycle, if available; otherwise an unresolved obligation",
+          "Existing implementation and verification artifacts, if any, without assuming success",
+          "Recorded parse_type and architecture_capture diagnostics; a baseline comparison is required before attributing their cause"
+        ],
+        "diagnostic_signature": null,
+        "related_rule_ids": []
+      },
+      "confidence": {
+        "score": 0.7,
+        "rationale": "My subjective model-belief confidence that this revised rule will preserve its obligations on the next declared development task is 0.70. The revision directly addresses diagnostic inspection and interface preservation while retaining the original semantic, state, proof, testing, and physical obligations. Confidence is limited by the unresolved cause of the port errors and the absence of a supplied validation implementation or successful rerun. This is not an empirical probability or an unseen final-transfer forecast."
+      }
+    },
+    "warnings": [
+      "Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."
+    ],
+    "reason": null,
+    "scope": "Metered response only; no truth, validation or acceptance claim"
+  }
+}

@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "/tmp/scp_run_development_when_approved.py", line 20, in <module>
+    result=Development(c).generate_and_check(task['id'],grant)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/amertahat/SPEC_CODE_PROOF/workbench/inspecta_scp/development.py", line 67, in generate_and_check
+    rules=Knowledge(self.store).draft_release(task['candidate_ids'])['rules']
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/amertahat/SPEC_CODE_PROOF/workbench/inspecta_scp/knowledge.py", line 231, in draft_release
+    raise PolicyError("Release has unresolved rule dependencies")
+inspecta_scp.config.PolicyError: Release has unresolved rule dependencies
+Traceback (most recent call last):
+  File "/tmp/scp_run_development_when_approved.py", line 20, in <module>
+    result=Development(c).generate_and_check(task['id'],grant)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/amertahat/SPEC_CODE_PROOF/workbench/inspecta_scp/development.py", line 67, in generate_and_check
+    rules=Knowledge(self.store).draft_release(task['candidate_ids'])['rules']
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/amertahat/SPEC_CODE_PROOF/workbench/inspecta_scp/knowledge.py", line 231, in draft_release
+    raise PolicyError("Release has unresolved rule dependencies")
+inspecta_scp.config.PolicyError: Release has unresolved rule dependencies

@@ -1,0 +1,106 @@
+{
+  "model_call": {
+    "call_id": "7822d34b827b4790b0c14624d9bf74a9",
+    "campaign_id": "3f16ff4ef866d414cedb448a3ade2dfc4c5b5807162e6aea7522abc218fb49d8",
+    "model": "gpt-6-astra",
+    "codex_sha256": "0753dfe1d8b87a52436deb13eb1c549661ef4c84fee2c5aa688385eebeccb761",
+    "sandbox_sha256": "77360cb751ccedc5971391444ac86a8a33c15b04d6b4a6fe45f5d25496e62c4c",
+    "prompt_sha256": "f1371de039048a1bd551f1d992d08490da54ffd86db63a60f3a68fe2d788d46e",
+    "schema_sha256": "5a1f3432806139bd82aa74bd54b9d6380d61019d818106a2ea8ae298777cdd2e",
+    "exit_code": 0,
+    "events": [
+      {
+        "type": "thread.started",
+        "thread_id": "01a0cb59-07d6-7f91-a11e-606a4d13a15c"
+      },
+      {
+        "type": "item.completed",
+        "item": {
+          "id": "item_0",
+          "type": "error",
+          "message": "Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."
+        }
+      },
+      {
+        "type": "turn.started"
+      },
+      {
+        "type": "item.completed",
+        "item": {
+          "id": "item_1",
+          "type": "agent_message",
+          "text": "{\n  \"principle\": \"Preserve stateful controller contracts across the complete producer-to-actuator path: establish input assumptions at producers and transport boundaries, implement the specified hysteresis, and carry its command unchanged to the actuator interface.\",\n  \"trigger\": \"Apply when implementing, generating, or repairing the supplied Isolette model across OperatorInterface, TempSensor, Thermostat, process connections, and HeatSource.\",\n  \"structural_preservation\": \"Preserve the original packages, thread/process names, port directions and types, Temp.degrees as Integer_32, Set_Points.lower/upper, and On_Off.Onn/Off. Preserve ct, sp, hc connections and process forwarding, Domain_OI=2, Domain_TS=3, Domain_THERM=4, Domain_HS=5, bindings to isolette_processor, 1000 ms periodic Rust threads, and Processor_1 Frame_Period/Clock_Period of 1 s.\",\n  \"contract_obligation\": \"Source evidence: Devices::TempSensor.temp_range guarantees 96 <= current_temp.degrees <= 103, which mathematically implies Thermostat.ASSM_CT_Range's 95..104 bounds. Thermostat assumes ASSM_LDT_LE_UDT, but OperatorInterface has no corresponding formal guarantee; a comment only assigns it responsibility. Preserve initlastCmd, REQ_THERM_1 through REQ_THERM_4, the lastCmd guarantee, and both assumptions. Proposed obligation: establish ordered set points at OperatorInterface and preserve both input predicates through delivery, including startup.\",\n  \"implementation_obligation\": \"Proposed: initialize lastCmd and heat_control to Off. At each Thermostat compute entry, retain the incoming lastCmd; emit Onn below desired_temp.lower.degrees, Off above desired_temp.upper.degrees, and the retained command within the inclusive interval; then set lastCmd to the emitted command. Have OperatorInterface publish complete ordered Set_Points values and ensure transport delivers valid initialized inputs. Forward heat_control through hc to HeatSource without changing its value.\",\n  \"proof_obligation\": \"Proposed: prove producer guarantees imply consumer assumptions for delivered values, explicitly resolving OperatorInterface's missing guarantee and startup validity. Under ordered set points, prove the three temperature cases are disjoint and exhaustive, initialization establishes Off, and every compute step satisfies lastCmd == heat_control while REQ_THERM_4 uses In(lastCmd). Establish that generated representations and connections preserve these properties; no such implementation or proof is supplied.\",\n  \"testing_obligation\": \"Proposed: test initialization, below/above-bound transitions, both equality boundaries with each prior command, equal lower/upper set points, and multi-dispatch state retention. Exercise invalid set-point submission against the proposed producer enforcement and verify valid values and commands across process boundaries at startup and during execution. Include sensor endpoints 96 and 103 and distinguish controller assumption endpoints 95 and 104 from the sensor's narrower guarantee. No tests were executed.\",\n  \"repair_constraint\": \"Repair producer enforcement, state handling, or delivery while retaining the original interfaces, architecture, and contracts. Do not weaken ASSM_LDT_LE_UDT, replace inclusive hysteresis with a stateless threshold, rename Onn, or silently clamp/reorder inputs inside Thermostat to conceal an unmet assumption. Any added producer guarantee or invalid-input policy must be identified as a proposed extension.\",\n  \"counterexample\": \"With desired_temp.lower.degrees=98 and desired_temp.upper.degrees=100, a current_temp sequence of 97 then 98 requires Onn then Onn: the second step retains In(lastCmd). An implementation that emits Onn only below 98 and Off otherwise fails REQ_THERM_4 despite valid inputs. At 98 immediately after initialization, Off is required, demonstrating that the same temperature and set points require different outputs depending on history.\",\n  \"limitation\": \"Only the supplied model text supports this extraction; hashes were not verified and no hidden reference or independent evaluation data is available. The model supplies no Rust bodies, transport/startup semantics, concrete scheduling order, OperatorInterface validation policy, or HeatSource physical behavior contract. Period and domain declarations alone do not establish latency, freshness, physical temperature safety, or actuator response. The original 104 [s32] spelling in Temp_Upper_Bound is retained; tool acceptance is unverified.\"\n}"
+        }
+      },
+      {
+        "type": "turn.completed",
+        "usage": {
+          "input_tokens": 11001,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 897,
+          "reasoning_output_tokens": 0
+        }
+      }
+    ],
+    "result": {
+      "usage": {
+        "input_tokens": 11001,
+        "output_tokens": 897,
+        "cached_input_tokens": 0
+      },
+      "usage_complete": true,
+      "status": "RESPONSE_RECEIVED",
+      "response": {
+        "principle": "Preserve stateful controller contracts across the complete producer-to-actuator path: establish input assumptions at producers and transport boundaries, implement the specified hysteresis, and carry its command unchanged to the actuator interface.",
+        "trigger": "Apply when implementing, generating, or repairing the supplied Isolette model across OperatorInterface, TempSensor, Thermostat, process connections, and HeatSource.",
+        "structural_preservation": "Preserve the original packages, thread/process names, port directions and types, Temp.degrees as Integer_32, Set_Points.lower/upper, and On_Off.Onn/Off. Preserve ct, sp, hc connections and process forwarding, Domain_OI=2, Domain_TS=3, Domain_THERM=4, Domain_HS=5, bindings to isolette_processor, 1000 ms periodic Rust threads, and Processor_1 Frame_Period/Clock_Period of 1 s.",
+        "contract_obligation": "Source evidence: Devices::TempSensor.temp_range guarantees 96 <= current_temp.degrees <= 103, which mathematically implies Thermostat.ASSM_CT_Range's 95..104 bounds. Thermostat assumes ASSM_LDT_LE_UDT, but OperatorInterface has no corresponding formal guarantee; a comment only assigns it responsibility. Preserve initlastCmd, REQ_THERM_1 through REQ_THERM_4, the lastCmd guarantee, and both assumptions. Proposed obligation: establish ordered set points at OperatorInterface and preserve both input predicates through delivery, including startup.",
+        "implementation_obligation": "Proposed: initialize lastCmd and heat_control to Off. At each Thermostat compute entry, retain the incoming lastCmd; emit Onn below desired_temp.lower.degrees, Off above desired_temp.upper.degrees, and the retained command within the inclusive interval; then set lastCmd to the emitted command. Have OperatorInterface publish complete ordered Set_Points values and ensure transport delivers valid initialized inputs. Forward heat_control through hc to HeatSource without changing its value.",
+        "proof_obligation": "Proposed: prove producer guarantees imply consumer assumptions for delivered values, explicitly resolving OperatorInterface's missing guarantee and startup validity. Under ordered set points, prove the three temperature cases are disjoint and exhaustive, initialization establishes Off, and every compute step satisfies lastCmd == heat_control while REQ_THERM_4 uses In(lastCmd). Establish that generated representations and connections preserve these properties; no such implementation or proof is supplied.",
+        "testing_obligation": "Proposed: test initialization, below/above-bound transitions, both equality boundaries with each prior command, equal lower/upper set points, and multi-dispatch state retention. Exercise invalid set-point submission against the proposed producer enforcement and verify valid values and commands across process boundaries at startup and during execution. Include sensor endpoints 96 and 103 and distinguish controller assumption endpoints 95 and 104 from the sensor's narrower guarantee. No tests were executed.",
+        "repair_constraint": "Repair producer enforcement, state handling, or delivery while retaining the original interfaces, architecture, and contracts. Do not weaken ASSM_LDT_LE_UDT, replace inclusive hysteresis with a stateless threshold, rename Onn, or silently clamp/reorder inputs inside Thermostat to conceal an unmet assumption. Any added producer guarantee or invalid-input policy must be identified as a proposed extension.",
+        "counterexample": "With desired_temp.lower.degrees=98 and desired_temp.upper.degrees=100, a current_temp sequence of 97 then 98 requires Onn then Onn: the second step retains In(lastCmd). An implementation that emits Onn only below 98 and Off otherwise fails REQ_THERM_4 despite valid inputs. At 98 immediately after initialization, Off is required, demonstrating that the same temperature and set points require different outputs depending on history.",
+        "limitation": "Only the supplied model text supports this extraction; hashes were not verified and no hidden reference or independent evaluation data is available. The model supplies no Rust bodies, transport/startup semantics, concrete scheduling order, OperatorInterface validation policy, or HeatSource physical behavior contract. Period and domain declarations alone do not establish latency, freshness, physical temperature safety, or actuator response. The original 104 [s32] spelling in Temp_Upper_Bound is retained; tool acceptance is unverified."
+      },
+      "warnings": [
+        "Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."
+      ],
+      "reason": null,
+      "scope": "Metered response only; no truth, validation or acceptance claim"
+    },
+    "stderr_bytes": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "campaign_used_tokens": 11898,
+    "campaign_usage_unknown": false,
+    "isolation": "allowlisted mounts; selected inputs via stdin; no evaluator mount; tool network disabled; credential path denied to tools",
+    "id": "d5fc359449a3d9c1e525097419df32703cb922e9f8919e2a0eb65b4522d2a5e9"
+  },
+  "sources": [
+    {
+      "path": "isolette-simple/Devices.sysml",
+      "sha256": "53311eebe9dea5c0b3694a98ed666815b3aa5c45e456440756c55621d2259966"
+    },
+    {
+      "path": "isolette-simple/Isolette.sysml",
+      "sha256": "8faa14118f4e877b6bffbc76eed2109e36ccaa06c60d3e38b0f73ee842e391f3"
+    },
+    {
+      "path": "isolette-simple/Isolette_Data_Model.sysml",
+      "sha256": "0581d5fe7594e0bd2581fd75e9956295e53d5dbdb812575be7ce34e4b812f32d"
+    },
+    {
+      "path": "isolette-simple/Isolette_Properties.sysml",
+      "sha256": "b084ef6080b08af02bdb622c0ece48217b66fa6a03121456c57d4d91405bd97a"
+    },
+    {
+      "path": "isolette-simple/Isolette_Software.sysml",
+      "sha256": "b45e235f9b46cf75f7f3aaac51a042fea9b12a262ca8cf39b80c4a930a18ef61"
+    },
+    {
+      "path": "isolette-simple/Platform.sysml",
+      "sha256": "7405736e51cdbfad408feab166403a1c348444819c04775c7a84844b6a5aab45"
+    }
+  ],
+  "scope": "Real extraction probe only; not engineering validation or release approval"
+}

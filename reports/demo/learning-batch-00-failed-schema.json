@@ -1,0 +1,27 @@
+{
+  "plan_id": "2849a2cebf7258e1bf081dba484e97177979ec9cff7fb352f75b6c4dc8c77977",
+  "manifest_id": "cc93e76011f492a5608ecfa2d1648dcdd66f13e40ccc4e73b1e7c3744b3c6aba",
+  "batch_index": 0,
+  "batch_count": 12,
+  "model_call_id": "99ae3007892f786b33c94552b86e49379ccae80983eedf8a371039a0c52e4ca2",
+  "candidate_id": null,
+  "status": "BLOCKED",
+  "scope": "Actual model proposal; no rule-transfer validation or publication claim",
+  "id": "ee7b3d3b67485cc5988ce52c5b553c55fcad1db329ed8ee03cb2ffbecbe44057",
+  "candidate": null,
+  "model_result": {
+    "usage": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "cached_input_tokens": 0
+    },
+    "usage_complete": false,
+    "status": "BLOCKED",
+    "response": null,
+    "warnings": [
+      "Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."
+    ],
+    "reason": "PolicyError: Model turn reported failure; usage may be incomplete",
+    "scope": "Metered response only; no truth, validation or acceptance claim"
+  }
+}

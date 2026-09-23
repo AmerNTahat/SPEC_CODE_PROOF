@@ -60,3 +60,20 @@ class CampaignTests(unittest.TestCase):
             self.assertEqual(extended['authorization'],state['authorization'])
             with self.assertRaises(PolicyError):campaign.extend_time(grant['id'],3600,state['deadline'],'replayed consent')
             store.close()
+
+    def test_pause_and_resume_never_restore_time_or_tokens(self):
+        with tempfile.TemporaryDirectory() as path:
+            store=Store(path);campaign=Campaign(store)
+            grant=campaign.authorize(200,60,'TEST ONLY best effort')
+            call=campaign.reserve(grant['id'],50)
+            paused=campaign.control(grant['id'],'pause')
+            self.assertEqual(paused['control_state'],'PAUSED')
+            with self.assertRaises(PolicyError):campaign.reserve(grant['id'],1)
+            with self.assertRaises(PolicyError):campaign.control(grant['id'],'resume')
+            campaign.settle(call,{'input_tokens':5,'cached_input_tokens':0,'output_tokens':2},True)
+            resumed=campaign.control(grant['id'],'resume')
+            self.assertEqual(resumed['deadline'],paused['deadline'])
+            self.assertEqual(resumed['used_tokens'],7)
+            self.assertEqual(resumed['remaining_tokens'],193)
+            self.assertEqual(resumed['control_state'],'ACTIVE')
+            store.close()

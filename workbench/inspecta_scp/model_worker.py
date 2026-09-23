@@ -81,6 +81,7 @@ class ModelWorker:
                 selector.register(process.stdin,selectors.EVENT_WRITE,'stdin')
                 selector.register(process.stdout,selectors.EVENT_READ,'stdout');selector.register(process.stderr,selectors.EVENT_READ,'stderr')
                 while selector.get_map():
+                    if self.campaign.control_state(campaign_id)=='PAUSED':raise PolicyError('Campaign paused by user')
                     if time.time()>=deadline:raise PolicyError('Model call deadline reached')
                     for key,_ in selector.select(min(0.2,max(0,deadline-time.time()))):
                         if key.data=='stdin':

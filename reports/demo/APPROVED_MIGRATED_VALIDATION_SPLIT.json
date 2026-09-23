@@ -1,0 +1,98 @@
+{
+  "plan": {
+    "context_ids": [
+      "77bdcaefd9adf0515305978b7e9b668a5c4e1561b7ab8803c0744bcc698e7b8d"
+    ],
+    "training": [
+      {
+        "source_id": "d7ef18732a5def5da9422e3e47db924dd4ae4c9b806fcc86f11c932b377db935",
+        "start": 1,
+        "end": 431,
+        "label": "Isolette Monitor",
+        "source_sha256": "43664d0fe5904aed949d4c12e824c905d7bc1b4e89efa0409038c1b6f52ff605",
+        "text_sha256": "6d92da0875771dc87cc8f20c57864bd9ff3c06fa0d8ef1b962841149654ccba4",
+        "normalized_text_sha256": "7e0cd6ae2d818b5d5a018b74664cd665278d24f3eeb408849e834759400e41fa"
+      }
+    ],
+    "validation": [
+      {
+        "source_id": "e4ab3bdf21c821e43654d1d5060a17d67b55670948611e9157c74031cd8de58a",
+        "start": 1,
+        "end": 436,
+        "label": "Regulator \u2014 isolated port-direction compatibility reference",
+        "source_sha256": "dd7de904aed4a1e57638f0f947f527d384129d130acbe7376199a111754e7bdb",
+        "text_sha256": "55a8a241b7696635fc1779c67b1d13e637c11122ec79b64483228efa2b5a313a",
+        "normalized_text_sha256": "9fd7e573a9f8e09d686befa9210d516a93f309cbf9a1c66aca81620afdbe3295"
+      }
+    ],
+    "retrieval": {
+      "metric": "lexical_token_count_cosine_distance",
+      "epsilon": 0.1,
+      "maximum": 0.3,
+      "comparison": "distance <= epsilon"
+    },
+    "validation_protocol": "within_system_component_holdout",
+    "final_transfer_claim": false,
+    "scope": "Human-declared component split; no inferred semantic independence or final transfer claim",
+    "id": "cedc30f7ab8626b6148280b7fb8d195930c8ce578754523299497aadde153f7c",
+    "approval": {
+      "action": "approve_learning_plan",
+      "subject": {
+        "context_documents": [
+          "Steve_Miller_FAA_docAR-08-32.pdf"
+        ],
+        "epsilon": 0.1,
+        "plan_digest": "65934ce13d8a888d9a702abad027c0f90278fdb5ac92da1f20e7da27728205fa",
+        "plan_id": "cedc30f7ab8626b6148280b7fb8d195930c8ce578754523299497aadde153f7c",
+        "training_components": [
+          "Isolette Monitor"
+        ],
+        "validation_components": [
+          "Regulator \u2014 isolated port-direction compatibility reference"
+        ]
+      },
+      "subject_digest": "c3511b9ece647796773c99af8c07bde2830854fc4ec19c0c29447396d1f953b2",
+      "id": "ad1e0c71b507cd9fa9acc021ea9d82c02b0a87e5135a416eec9e52271da1d167",
+      "status": "APPROVED",
+      "reviewer": "User explicitly selected: Approve isolated compatibility reference. Exact 148 edits across seven copied files; original Monitor training unchanged.",
+      "decided_at": 1790122248.7795815
+    }
+  },
+  "migration_candidate_id": "c957d4967a64f5c260424805f8274430fc27cf44b8ec095d6e62067b63f5dbe5",
+  "changed_files": [
+    "Devices.sysml",
+    "Isolette.sysml",
+    "Isolette_Environment.sysml",
+    "Monitor.sysml",
+    "Operator_Interface.sysml",
+    "Regulate.sysml",
+    "Thermostat.sysml"
+  ],
+  "port_declarations": 148,
+  "checks": [
+    {
+      "gate": "parse_type",
+      "status": "PASS",
+      "reason": "Type checker completed",
+      "evidence": {
+        "sha256": "244a5d93deaf5f7fa2fd86e5a6067163ddd160947c50085897d35427e2f0811a",
+        "path": "objects/244a5d93deaf5f7fa2fd86e5a6067163ddd160947c50085897d35427e2f0811a.json"
+      }
+    },
+    {
+      "gate": "architecture_capture",
+      "status": "PASS",
+      "reason": "Instantiated AIR and resolved declarations captured; no conformance claim",
+      "snapshot_id": "834dcdbe6d83b7af51b90ee8bbc73c3210b4f1f050ea3e4ef61d9122f28eb135",
+      "evidence": {
+        "sha256": "9a4ae45426febf2dcf66c853de8077cfd14f5fad88a2e5471bbee88056831ed5",
+        "path": "objects/9a4ae45426febf2dcf66c853de8077cfd14f5fad88a2e5471bbee88056831ed5.json"
+      }
+    }
+  ],
+  "training_changed": false,
+  "original_sources_modified": 0,
+  "adopted": true,
+  "patch": "reports/demo/isolette-reference-port-directions.patch",
+  "scope": "Development reference only; no source promotion or verification approval"
+}

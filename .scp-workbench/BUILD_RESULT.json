@@ -1,6 +1,6 @@
 {
   "status": "partial",
-  "live_demo_status": "deferred_by_user",
+  "live_demo_status": "validation_failed",
   "cli_executable": "inspecta-scp",
   "milestones": {
     "M00": "completed",
@@ -10,7 +10,7 @@
     "M04": "partial",
     "M05": "partial",
     "M06": "partial",
-    "M07": "deferred_by_user",
+    "M07": "incomplete_validation_failed",
     "M08": "partial_checkpoint_only"
   },
   "evidence": [
@@ -36,7 +36,7 @@
     },
     {
       "path": "reports/build/application-tests.log",
-      "sha256": "95f78c5d1e4fe798f7d0313f877f0ded09996dc3b3fd69de62842bdb04453b60"
+      "sha256": "27950d430df15b1fccf0e471b2c6f280a7e8a4f747134b61a1b8de228ba64a25"
     },
     {
       "path": "reports/build/support-tests.log",
@@ -52,19 +52,19 @@
     },
     {
       "path": "reports/demo/DEMO_REPORT.md",
-      "sha256": "551d4767eac43e4f0fba5af10f30bbf0f50eafdab13908d1a36c4babcd6fa884"
+      "sha256": "da066f0393cdab5dea68c4096227ea046eebe3bae9d6f1f1cc8fd7382839c38c"
     },
     {
       "path": "workbench/README.md",
-      "sha256": "5550062a1bc6e0d184e794dbb5432ad37edc8d2eabe1ef8624807ab70c269fa0"
+      "sha256": "fd1001241614fcda5b00ac23a8493d1134774476ab7dd8276d2b1dbc1a65af83"
     },
     {
       "path": "reports/build/browser-smoke.json",
-      "sha256": "3e8fdf2bb4f91b04f5d4f86ba0cee1654a76f1ae39d541d3d12f411954e5100a"
+      "sha256": "d760285554e292cf2bfd5105447fba360a4cfeccbdca3c7d08f25f675ed78d12"
     },
     {
       "path": "reports/build/workbench-browser.png",
-      "sha256": "e6d85f5d6fbf369d6d6c8596867a2dc5ae72f02dc00108357553230ddee01191"
+      "sha256": "15e9fe0daddb80994d159cd96f3f26b2ef40aa0de58c9e004f8a37f8079c1a13"
     },
     {
       "path": "reports/build/frontend-build.log",
@@ -88,11 +88,11 @@
     },
     {
       "path": "IMPLEMENTATION_PROGRESS.md",
-      "sha256": "fabac03a69470c3cde089b384053481f2ef22f6984d537677e30f551c8fb52a8"
+      "sha256": "93a999b28bedd03c1c067d965995af30660cea3a0f76b12b3c12aa7e5f994a28"
     },
     {
       "path": "reports/build/real-structure-integration.json",
-      "sha256": "0405490d7d90926c4aeb240a5b952933881ed0ac94e2b2382869c64e9ec29ce9"
+      "sha256": "a661062010a0b1a96c7ec05417c565fcff258ad26348c749e581ff80656f7ff2"
     },
     {
       "path": "reports/build/real-repair-integration.json",
@@ -144,7 +144,7 @@
     },
     {
       "path": "reports/build/workbench-workflow-fixed.png",
-      "sha256": "3594750dfa52aca8b246298cdd080101685b47a0fbc2f666c8bc8a83802da295"
+      "sha256": "8cab77442be34321758810951c28a6e4bc179c2e8ef7d89dece3930af67e51f8"
     },
     {
       "path": "workbench/inspecta_scp/engineering.py",
@@ -157,19 +157,83 @@
     {
       "path": "workbench/inspecta_scp/traceability.py",
       "sha256": "413640ef6829ebd8af5f271c3cb04da11f147b22078360d7c9cf555118873202"
+    },
+    {
+      "path": "reports/demo/APPROVED_UNIT_DEFINITION.json",
+      "sha256": "8ba4f5a5074e79c3f044dec6e2e85c5f261abc1f65c535d061efcce4c7261ede"
+    },
+    {
+      "path": "reports/demo/TIME_EXTENSION.json",
+      "sha256": "e66cf02c832f653be7fd81a7a9898836ffd00dd1b45a5fb1f45dd9d199e8bd45"
+    },
+    {
+      "path": "reports/demo/APPROVED_MIGRATED_VALIDATION_SPLIT.json",
+      "sha256": "f0e905fa0235ff4225c7ddc609ca67e4ea1256ffa8d293d74dfca79c04f1c761"
+    },
+    {
+      "path": "reports/demo/producer-consumer-repair-round-4.json",
+      "sha256": "cc38e620651ec8748bef6d9d05a9189304630bcdafed36b2782030b47b0337e0"
+    },
+    {
+      "path": "workbench/LEARNING_WORKFLOW.md",
+      "sha256": "de7b9d89783985bab9ddebcce36c37c30cb5e210382996d7eb3289a9b5e58f9b"
+    },
+    {
+      "path": "reports/demo/isolette-refined-rule-validation.json",
+      "sha256": "d68f29fb9fe56241495faf8f9705682a86d117c2527a59dbcb7f426b8125363d"
+    },
+    {
+      "path": "reports/demo/producer-consumer-refined-rule-validation.json",
+      "sha256": "30492ecc14b5aa2429347d669357e2f996c79c1c6514a52cf23abdc45415df6c"
+    },
+    {
+      "path": "reports/demo/actual-failure-rule-refinement-2.json",
+      "sha256": "4c3831e8eb08d172ea855bae0825d5605645082c78c629d358f01c8bf056c7e5"
+    },
+    {
+      "path": "reports/demo/CAMPAIGN_STATUS.json",
+      "sha256": "82341700aa0606eefd2040bed566235536c479a550c85c73db6b4a4e7ddea2f8"
+    },
+    {
+      "path": "reports/demo/isolette-reference-port-directions.patch",
+      "sha256": "b98afb895ee99bed69f035e00def543dd919bfc4f2f65f30d893e631300e08b7"
+    },
+    {
+      "path": "reports/build/handoff-integrity-resume.json",
+      "sha256": "50b5ecc3e487d426e5633b94aaec7587988afa3287ce83084f82ece95145098b"
+    },
+    {
+      "path": "reports/build/live-session-preservation.json",
+      "sha256": "37778240c94b289941bce75ed13f29be173acbbf0176d3b227c12563b2b416c1"
+    },
+    {
+      "path": "workbench/inspecta_scp/development.py",
+      "sha256": "9c702554e44ac21bafde1f988583a867325ba2968cc416c394e6eb2bbb98614a"
+    },
+    {
+      "path": "workbench/frontend/src/app.tsx",
+      "sha256": "9abd9c49d059a2822a68900abf651514545fdc3e89ab30a1aabfc9431021ed42"
     }
   ],
   "budget": {
     "build_tokens": null,
     "build_billing": null,
-    "demo_model_calls": 0,
-    "demo_model_tokens": 0
+    "demo_model_calls": 33,
+    "demo_model_tokens": 811482,
+    "demo_estimated_debit_tokens": 3000000,
+    "demo_reserved_tokens": 0,
+    "aggregate_token_ceiling": 13000000,
+    "authorized_wall_seconds": 7200,
+    "remaining_seconds": 841.0210809707642,
+    "remaining_tokens": 9188518,
+    "snapshot_at": "2026-09-23T00:42:21.951441+00:00"
   },
   "limitations": [
-    "Complete Workbench not delivered; implementation remains in progress.",
-    "Generation/learning isolation, complete proof/build/independent-test adapters, accepted source promotion and independently validated release publication remain unfinished.",
-    "Paid demonstrations explicitly deferred by user; offline application, structural, migration and browser checks do not replace them.",
-    "Local DSSE record-integrity verification is implemented; production signing trust and engineering acceptance are not established.",
-    "Dataset grouping enforces provided lineage and exact content hashes; semantic independence is not established."
+    "Workbench remains incomplete. Both latest generated models pass selected tool gates but fail exact golden comparison (Isolette 844 differences; Producer/Consumer 41).",
+    "Bounded model extraction, development generation and repair executed; transfer acceptance, frozen User application, full implementation proof/build/test adapters and source promotion remain incomplete.",
+    "Original paid deferral was revoked; user authorized 13M best-effort tokens and subsequently extended campaign time by 60 minutes without resetting usage.",
+    "Approved requirement-linked unit definition is implemented in review UI; exact reviewed inventory and behavioral assumption-discharge adapter remain necessary.",
+    "DSSE integrity verification does not establish engineering acceptance or production signing trust.",
+    "Within-system Monitor/Regulator split is development evidence, not independent final transfer."
   ]
 }

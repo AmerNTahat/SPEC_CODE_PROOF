@@ -303,10 +303,35 @@ def main():
             definition={**{k:'Synthetic browser '+k for k in FIELDS},**{k:['Synthetic browser '+k] for k in ARRAYS},'granularity':'sysml_gumbo_obligation'}
             fixture_controller=Controller(root/'state')
             try:
+                from inspecta_scp.campaign import Campaign
+                campaign=Campaign(fixture_controller.store).authorize(200000,60,'Synthetic browser fixture; no model calls')
+                task=fixture_controller.store.record('development_task',{'baseline_run_id':recorded['id'],
+                    'target_file':'Model.sysml','candidate_ids':[]})
+                comparison=fixture_controller.store.record('development_golden_comparison',{
+                    'architecture_status':'UNKNOWN','architecture_differences':None})
+                fixture_controller.store.record('development_result',{'task_id':task['id'],
+                    'generated_run_id':recorded['id'],'reference_run_id':recorded['id'],
+                    'comparison_id':comparison['id'],'status':'NOT_VALIDATED',
+                    'whole_system_acceptance':False,'scope':'Synthetic browser display fixture, not generation evidence'})
                 proposal=fixture_controller.store.record('unit_definition_proposal',{'plan_id':records['plans'][0]['id'],'model_call_id':'synthetic-not-live','definition':definition})
                 UnitDefinitions(fixture_controller.store).revise(proposal['id'],definition)
             finally:fixture_controller.close()
             click('Home');click('Set up learning')
+            until('document.body.textContent.includes("Review selected split · APPROVED")')
+            assert js('return document.body.textContent.includes("Train on Monitor. Validate on Regulator.")')
+            click('Pause model work')
+            until('document.body.textContent.includes("Model work: PAUSED")')
+            assert js('return Array.from(document.querySelectorAll("button")).find(b=>b.textContent==="Extract all remaining context batches").disabled')
+            click('Resume model work')
+            until('document.body.textContent.includes("Model work: ACTIVE")')
+            assert not js('return Array.from(document.querySelectorAll("button")).find(b=>b.textContent==="Extract all remaining context batches").disabled')
+            evidence['checks'].append('Approved split restored after navigation; campaign pause/resume disables/enables extraction without any model call')
+            click('Inspect generated model, golden comparison and gates')
+            until('document.body.textContent.includes("Recorded development evidence · NOT_VALIDATED")')
+            assert js('return document.body.textContent.includes("Golden comparison: UNKNOWN")')
+            assert js('return document.body.textContent.includes("package Synthetic")')
+            click('Close evidence inspection')
+            evidence['checks'].append('Development evidence inspection renders actual backend snapshot text and unknown comparison without claiming validation')
             until('Array.from(document.querySelectorAll("label")).some(l=>l.textContent.startsWith("Saved unit definitions"))')
             unit_key=js('return Array.from(document.querySelectorAll("label")).find(l=>l.textContent.startsWith("Saved unit definitions")).querySelector("select").options[1].value')
             input_value('Saved unit definitions',unit_key)

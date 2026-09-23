@@ -1,0 +1,115 @@
+{
+  "id": "d7a507adaad2482287b7091587274f3b",
+  "state": "CHECKED",
+  "config": {
+    "architecture_policy": null,
+    "assistance": "automatic",
+    "budget": {
+      "aggregate_model_tokens": 1000000,
+      "concurrent_model_calls": 1,
+      "enforcement": "strict",
+      "final_validation_time_reserve": 0.2,
+      "repairs_per_issue": 3,
+      "repairs_per_run": 8,
+      "wall_seconds": 180
+    },
+    "creation_authorized": false,
+    "dataset_assignment": null,
+    "dataset_task": null,
+    "development_validation": null,
+    "final_evaluation": null,
+    "input_files": [
+      "Devices.sysml",
+      "Isolette.sysml",
+      "Isolette_Data_Model.sysml",
+      "Isolette_Environment.sysml",
+      "Monitor.sysml",
+      "Operator_Interface.sysml",
+      "Regulate.sysml",
+      "Thermostat.sysml",
+      "sysml-aadl-libraries_1/aadl.library/AADL.sysml",
+      "sysml-aadl-libraries_1/aadl.library/AADL_Project.sysml",
+      "sysml-aadl-libraries_1/aadl.library/Base_Types.sysml",
+      "sysml-aadl-libraries_1/aadl.library/Communication_Properties.sysml",
+      "sysml-aadl-libraries_1/aadl.library/Data_Model.sysml",
+      "sysml-aadl-libraries_1/aadl.library/Deployment_Properties.sysml",
+      "sysml-aadl-libraries_1/aadl.library/Memory_Properties.sysml",
+      "sysml-aadl-libraries_1/aadl.library/Programming_Properties.sysml",
+      "sysml-aadl-libraries_1/aadl.library/Thread_Properties.sysml",
+      "sysml-aadl-libraries_1/aadl.library/Timing_Properties.sysml",
+      "sysml-aadl-libraries_1/aadl.library/behavior_properties.sysml",
+      "sysml-aadl-libraries_1/hamr.aadl.library/CASE_Scheduling.sysml",
+      "sysml-aadl-libraries_1/hamr.aadl.library/HAMR.sysml",
+      "sysml-aadl-libraries_1/hamr.aadl.library/HAMR_AADL.sysml",
+      "sysml-aadl-libraries_1/hamr.aadl.library/HAMR_Microkit.sysml",
+      "sysml-aadl-libraries_1/hamr.aadl.library/HAMR_Time_Units.sysml"
+    ],
+    "learning_materials": null,
+    "mode": "user",
+    "model": {
+      "family": "gpt",
+      "requested_profile": "astra",
+      "resolved_model_id": null
+    },
+    "model_file": "Isolette.sysml",
+    "naming_policy": "preserve-existing",
+    "paid_runs_authorized": false,
+    "project": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/development-workspaces/378bd07e3b524d2cb92257d5a511e0bb",
+    "rename_authorized": false,
+    "repair_allowed_files": [],
+    "required_gates": [
+      "parse_type",
+      "architecture_capture"
+    ],
+    "requirement_ledger": null,
+    "resolved_operation": "verify-only",
+    "rule_release": null,
+    "schema_version": 1,
+    "sireum": "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/sireum",
+    "sireum_sha256": "6333d4e737064b6db470bcb85863a997675182470eb5d4d763bd806487c8d952",
+    "task_operation": "verify-only",
+    "unit_registry": null
+  },
+  "config_hash": "b78df7ebf5e65caa27bbe4d4b6a4d3fafe202dd5f94aa5d0bc530e066bf9286a",
+  "created": 1790123816.7714152,
+  "deadline": 1790123996.7714152,
+  "used_tokens": 52819,
+  "usage_unknown": 0,
+  "reserved_tokens": 0,
+  "worker": null,
+  "result": {
+    "engineering_accepted": false,
+    "formally_verified_units": 0,
+    "gates": [
+      {
+        "evidence": {
+          "path": "objects/ae9899dda456d69d06d2ed86d1891c1a630c838ef6ac53542aa533cef4e2df15.json",
+          "sha256": "ae9899dda456d69d06d2ed86d1891c1a630c838ef6ac53542aa533cef4e2df15"
+        },
+        "gate": "parse_type",
+        "reason": "Type checker completed",
+        "status": "PASS"
+      },
+      {
+        "evidence": {
+          "path": "objects/d863b77cddce5e03b3eb986a97823d3323cd91f5e93dcd7f2187afc2b7b0bbd3.json",
+          "sha256": "d863b77cddce5e03b3eb986a97823d3323cd91f5e93dcd7f2187afc2b7b0bbd3"
+        },
+        "gate": "architecture_capture",
+        "reason": "Instantiated AIR and resolved declarations captured; no conformance claim",
+        "snapshot_id": "e40994e32bcb9336482ed188ceaf0e9c77fbb2a04540a79862e6ad23b95e326a",
+        "status": "PASS"
+      }
+    ],
+    "model_calls": 0,
+    "project_status": "NOT_ASSESSED",
+    "scope": "Selected checks only; no application or live-demo completion claim",
+    "task_status": "CHECKED"
+  },
+  "version": 4,
+  "remaining_seconds": 45.8293833732605,
+  "remaining_tokens": 947181,
+  "source_changed": [],
+  "evidence_current_for_source": true,
+  "policy_current": true
+}

@@ -1,0 +1,125 @@
+{
+  "proposal_id": "5c35bc70718dd751cbd8f42a96e4810a6a002043549f4a723464f0376c31ec5f",
+  "plan_id": "2849a2cebf7258e1bf081dba484e97177979ec9cff7fb352f75b6c4dc8c77977",
+  "definition": {
+    "title": "Proposed SysML/GUMBO obligation unit for Isolette Monitor",
+    "definition": "One unit is one named initialization guarantee or one complete named compute case in a specified thread, including its assumptions, entire guarantee, phase, and required state semantics. Verification means that an independently defined behavior or implementation satisfies that obligation under explicitly justified assumptions. This is a proposal for human editing and approval; no verification outcomes are asserted.",
+    "counting_rule": "Before inspecting development outcomes, freeze a versioned manifest of eligible obligations, their exact source anchors, semantic context, requirement mappings, and verification criteria. Count each canonical obligation once. Keep conjunctive guarantees together: REQ_MMI_6 remains one unit. Separately named LOW and HIGH cases remain distinct because their triggering predicates differ. Do not additionally count their parent requirement, enclosing block, individual expressions, generated assertions, solver subgoals, tests, or repeated proof runs. Repeated representations of the same obligation map to its canonical unit. Initialization and compute obligations remain distinct phases. Unresolved, failed, blocked, and waived units remain in the frozen denominator. Changes require a new manifest version and an explicit reconciliation, never outcome-dependent removal. Report verified and accepted statuses separately against the same frozen manifest; acceptance cannot increase the verified numerator.",
+    "rationale": "The supplied scope contains explicit behavioral contracts with stable names, making obligations more appropriate than formatting-dependent lines or broad thread blocks. Cross-stack requirements would require implementation, integration, and authoritative requirement artifacts that are not supplied. This choice measures contract-obligation coverage, not complete FAA requirement coverage or system correctness.",
+    "example_unit": "Monitor::Manage_Monitor_Interface_i / compute / REQ_MMI_6: under assume T, prove that not interface_failure.flag implies both lower_alarm_temp.degrees == lower_alarm_tempWstatus.degrees and upper_alarm_temp.degrees == upper_alarm_tempWstatus.degrees. Both equalities must hold for the unit to be verified. Anchor it to source_id d7ef18732a5def5da9422e3e47db924dd4ae4c9b806fcc86f11c932b377db935 and the complete named case. Its claimed requirement reference is AR-08-32 A.5.2.1; an exact authoritative passage and demonstrated correspondence remain required. Establish that the no-failure condition is feasible so the implication is not credited solely through vacuity.",
+    "inclusion": [
+      "Manage_Monitor_Interface_i: monitorStatusInitiallyInit and REQ_MMI_1 through REQ_MMI_6.",
+      "Manage_Monitor_Mode_i: monitorModeInitiallyInit, REQ_MMM_INIT_TO_NORMAL, REQ_MMM_INIT_STAYS_INIT, REQ_MMM_NORMAL_STAYS_NORMAL, REQ_MMM_NORMAL_TO_FAILED, and REQ_MMM_FAILED_STAYS_FAILED.",
+      "Manage_Alarm_i: alarmInitiallyOff, REQ_MA_1, REQ_MA_2_LOW, REQ_MA_2_HIGH, REQ_MA_3_LOW_HYSTERESIS, REQ_MA_3_HIGH_HYSTERESIS, REQ_MA_4, and REQ_MA_5.",
+      "Imported types, state definitions, wiring, and scheduling semantics as dependencies where relevant; dependency records do not themselves add units."
+    ],
+    "exclusion": [
+      "Comments, imports, declarations, port connections, scheduling attributes, and applied-rule labels as standalone behavioral units.",
+      "Detect_Monitor_Failure_i as a verified behavioral unit: the supplied thread has no behavioral obligation. Record its missing failure-detection contract as a scope gap.",
+      "Additional units for translated contracts, generated code copies, individual conjuncts, proof lemmas, or multiple evidence artifacts.",
+      "Unspecified timing, timeout, reboot, integration, or end-to-end claims. Add such obligations only through an explicit baseline revision before evaluating their outcomes."
+    ],
+    "verification_evidence": [
+      "An immutable model or implementation under verification, dependency versions, and an explicit semantic relationship from that artifact to the obligation. A contract used as its own assumed behavior cannot establish conformance.",
+      "A reproducible proof or exhaustive model-checking result covering the complete obligation and declared domain, with tool/version, configuration, commands, logs, discharged goals, and checked certificates where supported. Document the trusted computing base. Bounded results support only an explicitly bounded claim fixed in advance.",
+      "Evidence that assumptions are consistent and trigger conditions are feasible; for implications, also address feasibility of the inner antecedent. Check applicable case coverage and overlap consistency. Establish environment assumptions independently or record the result as conditional.",
+      "For stateful cases, evidence defining initialization and update of lastMonitorMode and lastCmd, their relationship to preceding outputs, and dispatch/reset semantics. State declarations alone do not establish these relationships.",
+      "For alarm cases, resolved enum and numeric semantics, temperature units, arithmetic overflow behavior, admissible alarm ranges, and boundary behavior. Do not silently assume that Onn or 1 [s32] has the intended meaning.",
+      "For an authoritative requirement claim, exact requirement text plus a checked refinement argument connecting it to the formal obligation. Requirement labels or matching wording establish trace candidates only.",
+      "Parsing, type checking, text matching, model confidence, and human approval alone never establish verification. Sampled tests provide supporting evidence but do not establish an unrestricted universal contract."
+    ],
+    "acceptance_evidence": [
+      "A separate acceptance record naming the reviewer, date, frozen manifest version, reviewed artifacts, intended use, decision, and rationale.",
+      "Explicit disposition of unresolved mappings, assumptions, scope gaps, and any accepted deviations or bounded evidence.",
+      "Independent verification and acceptance status fields. Human approval can accept a proposal or documented residual risk while its obligations remain unverified; a proved obligation may still await acceptance."
+    ],
+    "required_mapping_fields": [
+      "baseline_id, baseline_version, manifest_digest, freeze_timestamp, eligibility_rule, and change_history.",
+      "unit_id, canonical_unit_id, obligation_kind, fully_qualified_thread_path, phase, and exact obligation_name.",
+      "source_id, source_artifact_version/digest, file/package identifier, supplied excerpt range, validated exact start/end line and column or byte offsets, exact obligation text, and text digest. Validate coordinates against the actual artifact; do not treat the supplied 1\u2013431 range as established per-obligation locations.",
+      "requirement_document_name, authoritative document version/digest, requirement_id where available, section/page, exact passage coordinates and quotation, mapping relation, and mapping_status. Map MMI cases provisionally to A.5.2.1, MMM cases to A.5.2.2, and MA cases to A.5.2.3; initialization guarantees need their own explicit provenance. The named PDF is not itself evidence of its contents.",
+      "formal_assumptions, complete_guarantee, state_initialization/update semantics, type/arithmetic/time semantics, environment constraints, and dependency_unit_ids.",
+      "verification_target_id and digest, target symbol/source coordinates, translation/refinement artifact and digest, and exact mapping from source obligation to target behavior.",
+      "proof_run_id, proof_artifact location/digest, theorem or property identifiers, generated subgoal identifiers, source-to-goal mapping, tool/version/configuration, result, domain/bounds, vacuity checks, and unresolved assumptions. Every required subgoal must map back to its canonical unit; shared proofs must identify each claim separately.",
+      "verification_status, verification_scope, evidence_review_status, acceptance_status, acceptance_record_id, reviewer/date, and deviation records."
+    ],
+    "limitations": [
+      "No implementation, authoritative PDF contents, imported model definitions, or proof artifacts are supplied. Exact external requirement mappings and verification results therefore remain unresolved.",
+      "The excerpt declares lastMonitorMode and lastCmd without showing initialization or updates. Temporal claims require those semantics before meaningful conformance verification.",
+      "REQ_MMM_INIT_STAYS_INIT mentions 'before timeout' without a timeout predicate; FAILED_STAYS_FAILED mentions reboot without explicit reboot semantics. Proving their written formulas would not establish the fuller prose claims.",
+      "Equal unit counts hide differences in difficulty, criticality, predicate complexity, and statefulness. Report initialization and compute obligations by component and disclose gaps; do not interpret the resulting fraction as a safety score.",
+      "Tiny units can inflate apparent progress through splitting; large units can conceal partial failures. Freezing named cases and retaining complete guarantees limits both effects. Partial subgoal success does not verify a unit.",
+      "This denominator covers supplied contracts only. Missing failure detection, architecture assurance, scheduling guarantees, and contract-to-requirement completeness require separate evidence and explicitly scoped work."
+    ],
+    "granularity": "sysml_gumbo_obligation"
+  },
+  "human_modified": false,
+  "status": "DEFINITION_ONLY_NOT_VERIFICATION",
+  "verified_count": 0,
+  "id": "6a04cc74f9928967b2f4207471116e504e3834da276aec361bec98e3efdcfcb0",
+  "approval": {
+    "action": "approve_unit_definition",
+    "subject": {
+      "definition": {
+        "acceptance_evidence": [
+          "A separate acceptance record naming the reviewer, date, frozen manifest version, reviewed artifacts, intended use, decision, and rationale.",
+          "Explicit disposition of unresolved mappings, assumptions, scope gaps, and any accepted deviations or bounded evidence.",
+          "Independent verification and acceptance status fields. Human approval can accept a proposal or documented residual risk while its obligations remain unverified; a proved obligation may still await acceptance."
+        ],
+        "counting_rule": "Before inspecting development outcomes, freeze a versioned manifest of eligible obligations, their exact source anchors, semantic context, requirement mappings, and verification criteria. Count each canonical obligation once. Keep conjunctive guarantees together: REQ_MMI_6 remains one unit. Separately named LOW and HIGH cases remain distinct because their triggering predicates differ. Do not additionally count their parent requirement, enclosing block, individual expressions, generated assertions, solver subgoals, tests, or repeated proof runs. Repeated representations of the same obligation map to its canonical unit. Initialization and compute obligations remain distinct phases. Unresolved, failed, blocked, and waived units remain in the frozen denominator. Changes require a new manifest version and an explicit reconciliation, never outcome-dependent removal. Report verified and accepted statuses separately against the same frozen manifest; acceptance cannot increase the verified numerator.",
+        "definition": "One unit is one named initialization guarantee or one complete named compute case in a specified thread, including its assumptions, entire guarantee, phase, and required state semantics. Verification means that an independently defined behavior or implementation satisfies that obligation under explicitly justified assumptions. This is a proposal for human editing and approval; no verification outcomes are asserted.",
+        "example_unit": "Monitor::Manage_Monitor_Interface_i / compute / REQ_MMI_6: under assume T, prove that not interface_failure.flag implies both lower_alarm_temp.degrees == lower_alarm_tempWstatus.degrees and upper_alarm_temp.degrees == upper_alarm_tempWstatus.degrees. Both equalities must hold for the unit to be verified. Anchor it to source_id d7ef18732a5def5da9422e3e47db924dd4ae4c9b806fcc86f11c932b377db935 and the complete named case. Its claimed requirement reference is AR-08-32 A.5.2.1; an exact authoritative passage and demonstrated correspondence remain required. Establish that the no-failure condition is feasible so the implication is not credited solely through vacuity.",
+        "exclusion": [
+          "Comments, imports, declarations, port connections, scheduling attributes, and applied-rule labels as standalone behavioral units.",
+          "Detect_Monitor_Failure_i as a verified behavioral unit: the supplied thread has no behavioral obligation. Record its missing failure-detection contract as a scope gap.",
+          "Additional units for translated contracts, generated code copies, individual conjuncts, proof lemmas, or multiple evidence artifacts.",
+          "Unspecified timing, timeout, reboot, integration, or end-to-end claims. Add such obligations only through an explicit baseline revision before evaluating their outcomes."
+        ],
+        "granularity": "sysml_gumbo_obligation",
+        "inclusion": [
+          "Manage_Monitor_Interface_i: monitorStatusInitiallyInit and REQ_MMI_1 through REQ_MMI_6.",
+          "Manage_Monitor_Mode_i: monitorModeInitiallyInit, REQ_MMM_INIT_TO_NORMAL, REQ_MMM_INIT_STAYS_INIT, REQ_MMM_NORMAL_STAYS_NORMAL, REQ_MMM_NORMAL_TO_FAILED, and REQ_MMM_FAILED_STAYS_FAILED.",
+          "Manage_Alarm_i: alarmInitiallyOff, REQ_MA_1, REQ_MA_2_LOW, REQ_MA_2_HIGH, REQ_MA_3_LOW_HYSTERESIS, REQ_MA_3_HIGH_HYSTERESIS, REQ_MA_4, and REQ_MA_5.",
+          "Imported types, state definitions, wiring, and scheduling semantics as dependencies where relevant; dependency records do not themselves add units."
+        ],
+        "limitations": [
+          "No implementation, authoritative PDF contents, imported model definitions, or proof artifacts are supplied. Exact external requirement mappings and verification results therefore remain unresolved.",
+          "The excerpt declares lastMonitorMode and lastCmd without showing initialization or updates. Temporal claims require those semantics before meaningful conformance verification.",
+          "REQ_MMM_INIT_STAYS_INIT mentions 'before timeout' without a timeout predicate; FAILED_STAYS_FAILED mentions reboot without explicit reboot semantics. Proving their written formulas would not establish the fuller prose claims.",
+          "Equal unit counts hide differences in difficulty, criticality, predicate complexity, and statefulness. Report initialization and compute obligations by component and disclose gaps; do not interpret the resulting fraction as a safety score.",
+          "Tiny units can inflate apparent progress through splitting; large units can conceal partial failures. Freezing named cases and retaining complete guarantees limits both effects. Partial subgoal success does not verify a unit.",
+          "This denominator covers supplied contracts only. Missing failure detection, architecture assurance, scheduling guarantees, and contract-to-requirement completeness require separate evidence and explicitly scoped work."
+        ],
+        "rationale": "The supplied scope contains explicit behavioral contracts with stable names, making obligations more appropriate than formatting-dependent lines or broad thread blocks. Cross-stack requirements would require implementation, integration, and authoritative requirement artifacts that are not supplied. This choice measures contract-obligation coverage, not complete FAA requirement coverage or system correctness.",
+        "required_mapping_fields": [
+          "baseline_id, baseline_version, manifest_digest, freeze_timestamp, eligibility_rule, and change_history.",
+          "unit_id, canonical_unit_id, obligation_kind, fully_qualified_thread_path, phase, and exact obligation_name.",
+          "source_id, source_artifact_version/digest, file/package identifier, supplied excerpt range, validated exact start/end line and column or byte offsets, exact obligation text, and text digest. Validate coordinates against the actual artifact; do not treat the supplied 1\u2013431 range as established per-obligation locations.",
+          "requirement_document_name, authoritative document version/digest, requirement_id where available, section/page, exact passage coordinates and quotation, mapping relation, and mapping_status. Map MMI cases provisionally to A.5.2.1, MMM cases to A.5.2.2, and MA cases to A.5.2.3; initialization guarantees need their own explicit provenance. The named PDF is not itself evidence of its contents.",
+          "formal_assumptions, complete_guarantee, state_initialization/update semantics, type/arithmetic/time semantics, environment constraints, and dependency_unit_ids.",
+          "verification_target_id and digest, target symbol/source coordinates, translation/refinement artifact and digest, and exact mapping from source obligation to target behavior.",
+          "proof_run_id, proof_artifact location/digest, theorem or property identifiers, generated subgoal identifiers, source-to-goal mapping, tool/version/configuration, result, domain/bounds, vacuity checks, and unresolved assumptions. Every required subgoal must map back to its canonical unit; shared proofs must identify each claim separately.",
+          "verification_status, verification_scope, evidence_review_status, acceptance_status, acceptance_record_id, reviewer/date, and deviation records."
+        ],
+        "title": "Proposed SysML/GUMBO obligation unit for Isolette Monitor",
+        "verification_evidence": [
+          "An immutable model or implementation under verification, dependency versions, and an explicit semantic relationship from that artifact to the obligation. A contract used as its own assumed behavior cannot establish conformance.",
+          "A reproducible proof or exhaustive model-checking result covering the complete obligation and declared domain, with tool/version, configuration, commands, logs, discharged goals, and checked certificates where supported. Document the trusted computing base. Bounded results support only an explicitly bounded claim fixed in advance.",
+          "Evidence that assumptions are consistent and trigger conditions are feasible; for implications, also address feasibility of the inner antecedent. Check applicable case coverage and overlap consistency. Establish environment assumptions independently or record the result as conditional.",
+          "For stateful cases, evidence defining initialization and update of lastMonitorMode and lastCmd, their relationship to preceding outputs, and dispatch/reset semantics. State declarations alone do not establish these relationships.",
+          "For alarm cases, resolved enum and numeric semantics, temperature units, arithmetic overflow behavior, admissible alarm ranges, and boundary behavior. Do not silently assume that Onn or 1 [s32] has the intended meaning.",
+          "For an authoritative requirement claim, exact requirement text plus a checked refinement argument connecting it to the formal obligation. Requirement labels or matching wording establish trace candidates only.",
+          "Parsing, type checking, text matching, model confidence, and human approval alone never establish verification. Sampled tests provide supporting evidence but do not establish an unrestricted universal contract."
+        ]
+      },
+      "definition_digest": "aace8261aedac8154bff032434c748b360d7116484437f0f8a6c209a20c378fe",
+      "definition_id": "6a04cc74f9928967b2f4207471116e504e3834da276aec361bec98e3efdcfcb0",
+      "effect": "Fix the meaning of units; does not establish a populated registry or verified results"
+    },
+    "subject_digest": "febdc8ba077087aed2dfb616f1124e73104ba0a9fde328ae404cc639c905942d",
+    "id": "3b7eaddbef8dd4f49a4c570f8691c68983f1245d117117ba33343f3f97cf02ab",
+    "status": "PENDING",
+    "reviewer": null,
+    "decided_at": null
+  }
+}

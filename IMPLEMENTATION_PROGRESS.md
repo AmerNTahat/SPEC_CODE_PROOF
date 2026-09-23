@@ -384,3 +384,137 @@ reports/build/workbench-workflow-fixed.png — 3594750dfa52aca8b246298cdd0801016
 Budget:
 Paid demonstration calls/tokens 0/0; implementation-session usage unavailable.
 
+## M07 — blocked
+
+Achieved:
+Recorded user authorization for a 13M-token best-effort campaign; credential-denial and repository-exclusion canary passed.
+
+In progress:
+Correcting v0.155.1 model event ordering; continued implementation and offline verification.
+
+Remaining:
+Metered live extraction, development transfer validation, reviewed release, fresh User run and additional KSU demonstration.
+
+Blockers:
+First live call terminated on unexpected item before turn.started; provider usage was not reported. Ledger blocks further paid calls pending reconciliation; estimated-debit consent requested.
+
+Evidence:
+reports/demo/AUTHORIZATION.json — b0b5fe6d5b887561133ea16cb138fa506a9eb95116f88851af6378390b5379e9
+reports/demo/live-model-probe.json — d1c7696626f7317899e79543faf01bd5648d27d6a813fb06edb5ae4742de0910
+reports/build/model-worker-canary.json — 14fccc247de3748134e0d10909f0f60d3ac4217ceee2b07288138565cf081585
+
+Budget:
+13,000,000 aggregate ceiling; first call usage UNKNOWN, not zero; campaign wall clock started at first reservation.
+
+## M03 — blocked
+
+Achieved:
+Completed live Astra extraction probe with 11,898 measured tokens. Implemented context PDF/text import, reviewed component holdouts, cosine-distance epsilon, and CLI/UI extraction service. User approved FAA guidebook + Monitor training / Regulate validation.
+
+In progress:
+Correcting full rule output schema and provider error diagnostics; browser workflow and application checks.
+
+Remaining:
+Successful full-schema learned drafts, real held-out generation/validation, refinement, reviewed release and frozen User application.
+
+Blockers:
+First full-schema batch returned provider error without usage. Further paid calls blocked pending explicitly requested estimated-debit reconciliation.
+
+Evidence:
+reports/demo/learning-batch-00.json — 881c4bd58f899686321469814dc136d3e8b5b47ea877d7576acd3b5e1e5e1c9e
+reports/demo/PROPOSED_LEARNING_SPLIT.json — 0ad72de7bb935814cbbed01703f3fc45b43b2266260a6ef9d0c87bcde1a20c3e
+reports/build/browser-smoke.json — fc46333f76b4be89e2f249e0dba06fd30eea3704bdf9be4e418a415232882d61
+
+Budget:
+13M total; 1M approved estimated debit plus 11,898 measured; latest failed batch usage unknown. Original one-hour clock continues.
+
+## M07 — in_progress
+
+Achieved:
+Executed all 12 FAA/Monitor extraction batches and a real Regulator generation with engineering checks. User approved requirement-linked assume/guarantee unit definition.
+
+In progress:
+Producer/Consumer generation and bounded Regulator repair; UI exposes exact approved definition and repair actions.
+
+Remaining:
+Successful declared gates, approved populated unit inventory, transfer attestation, reviewed release and fresh frozen User application.
+
+Blockers:
+Regulator generated file failed architecture export; original golden export also reports unresolved instantiation warnings. No source reference changed and no verification or release success claimed.
+
+Evidence:
+reports/demo/APPROVED_UNIT_DEFINITION.json — 8ba4f5a5074e79c3f044dec6e2e85c5f261abc1f65c535d061efcce4c7261ede
+reports/demo/isolette-live-development.json — 356c191e9a01df9182bc0a73522a1c7e0ac91f3ec9b10f50dbc011a86e6bcf6a
+reports/demo/LEARNING_PROGRESS.json — 0c5729262f9a546ebdb5662df7cfb5499da4f7db76dc16392fca958e2c3eb475
+reports/demo/CAMPAIGN_STATUS.json — 94c153dc039acee0f43a605510599576e422d5d3ff53dce895d44935220ffe9a
+
+Budget:
+Measured 353,885; estimated debit 2,000,000; reserved 100,000; remaining 10,546,115 tokens and 314 seconds under original 13M/one-hour best-effort campaign.
+
+## M07 — in_progress
+
+Achieved:
+Producer/Consumer generated model now passes real parse/type, Slang/JVM generation, Logika connection constraints and architecture capture. User approved the isolated Isolette compatibility reference after its parser and export passed.
+
+In progress:
+Bounded requirement-preserving repairs, golden comparison, and offline UI/metric/controller verification.
+
+Remaining:
+Passing scoped golden comparison and fidelity, approved populated unit inventory, validated transfer/release and frozen User cycle.
+
+Blockers:
+Producer/Consumer exact normalized comparison fails despite selected engineering gates passing. No overall acceptance or behavioral implementation proof claimed.
+
+Evidence:
+reports/demo/producer-consumer-repair-round-4.json — cc38e620651ec8748bef6d9d05a9189304630bcdafed36b2782030b47b0337e0
+reports/demo/APPROVED_MIGRATED_VALIDATION_SPLIT.json — f0e905fa0235ff4225c7ddc609ca67e4ea1256ffa8d293d74dfca79c04f1c761
+reports/demo/TIME_EXTENSION.json — e66cf02c832f653be7fd81a7a9898836ffd00dd1b45a5fb1f45dd9d199e8bd45
+reports/build/application-tests.log — 6f4ce386d92ac232acd81d7b489570ef3c861967e78a5253a4d57d8cd25d3e97
+
+Budget:
+Same 13M ceiling. 600,598 measured + 3,000,000 estimated; 0 reserved. Explicit 60-minute extension retained original start and all consumption; 2522 seconds remain.
+
+## M07 — in_progress
+
+Achieved:
+Approved isolated reference adopted; actual refined-rule reapplication executed on Isolette and Producer/Consumer. Selected real engineering gates pass on both.
+
+In progress:
+UI integration, evidence export and remaining acceptance assessment.
+
+Remaining:
+Golden conformance; approved mapped verification-unit inventory; full implementation/proof/test acceptance; reviewed release and frozen User cycle.
+
+Blockers:
+Producer/Consumer configured repair allowance reached; exact normalized differences remain (41 Producer/Consumer, 844 Isolette). No acceptance or publication claim.
+
+Evidence:
+reports/demo/APPROVED_MIGRATED_VALIDATION_SPLIT.json — f0e905fa0235ff4225c7ddc609ca67e4ea1256ffa8d293d74dfca79c04f1c761
+reports/demo/producer-consumer-refined-rule-validation.json — 30492ecc14b5aa2429347d669357e2f996c79c1c6514a52cf23abdc45415df6c
+reports/demo/isolette-refined-rule-validation.json — d68f29fb9fe56241495faf8f9705682a86d117c2527a59dbcb7f426b8125363d
+
+Budget:
+811482 measured tokens + 3000000 estimated debits; 9188518 remaining under unchanged 13M ceiling. Original clock plus approved 60-minute extension retained.
+
+## M05 — in_progress
+
+Achieved:
+Learning UI restores approved splits; supports resumable extraction, pause/resume, separate held-out split selection, refined-rule task review, and visible generated/golden/gate inspection. Shared CLI services added for refined tests and read-only replay.
+
+In progress:
+Completing guided acceptance and frozen release application.
+
+Remaining:
+Mapped verification inventory and validated publication/frozen User pipeline.
+
+Blockers:
+Passing UI/application checks does not complete the missing engineering acceptance adapters.
+
+Evidence:
+reports/build/browser-smoke.json — d760285554e292cf2bfd5105447fba360a4cfeccbdca3c7d08f25f675ed78d12
+reports/build/application-tests.log — 27950d430df15b1fccf0e471b2c6f280a7e8a4f747134b61a1b8de228ba64a25
+reports/build/handoff-integrity-resume.json — 50b5ecc3e487d426e5633b94aaec7587988afa3287ce83084f82ece95145098b
+
+Budget:
+109 application tests and 17 real Firefox checks passed without paid model calls. Campaign usage unchanged at 811482 measured + 3M estimated.
+

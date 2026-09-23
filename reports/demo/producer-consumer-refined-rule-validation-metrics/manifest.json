@@ -1,0 +1,28 @@
+{
+  "run_id": "88f0e5272ad641e4ac5df34b77f42205",
+  "config_hash": "b2c1af633160587ec0db21f2b6de51d38560a2f949cc7b9ebb9cc8c9e0eabfd9",
+  "registry_id": null,
+  "scope": "Current trusted run evidence; no reconstructed historical 42-unit denominator or inferred billing",
+  "files": {
+    "tokens_per_verified_unit.png": "c07e29df979c4e2ef09f0a369114f2aef5a68e077dc2f03f88faac9664e95081",
+    "tokens_per_verified_unit.pdf": "f87785a6aaaae97eeff1c8338ad4d813c0c5c64b3518fb8ab7fa78a292ae84f2",
+    "metrics.csv": "52f152a08d487f968080c74ab4840c02d34721259a42a391310c91212aaf3aa9",
+    "tokens_per_verified_unit.svg": "329d8cfdffeb9abf4219141cd33edd20a6f32132b0591f575bd72efb1f2050c9",
+    "coverage.png": "91612d5a54f4bde959bdc1868bbfc6b27e0132c728371485329639275aecb337",
+    "cost_usd.png": "3e02fdf2280fe7b7727cb5bff197fc2a6e8d78a3dcf0e683463b9fe64ddfe99e",
+    "total_tokens.pdf": "b98c7a6d0939b4a5110a34d5ab3e41b8a8f4a52d78351c4128364f95aa76ea1e",
+    "dollars_per_verified_unit.pdf": "34f0a64b08b41466ceac29885a9b45b201c24672db7f86b473879ed944d17f58",
+    "coverage.svg": "d17a25de4897a3d11d75aa8a8e4ac4d16213e7a1ee3825ecc11bc8bc1060bb3d",
+    "cost_usd.pdf": "d9d51695f067cf9523e5ae98a1646c0e828b2f38888a603ec4ae14133d8b20b1",
+    "metrics.json": "297454588e1b99a70b26d7ee8bb009c3fd5ee8b53eae9a7c8be96dc802202ca8",
+    "cost_usd.svg": "666eadd74119a7a4caada498d09fecb0cdadec4d25336828262d83a222094d84",
+    "verified_per_minute.pdf": "e9f5e5a8760804cd12c5d3a9612ebb90f477c19b43b356d26b69c7bc736819e8",
+    "verified_per_minute.png": "a12a9a73f915c74bf9522a2befefe8f896d5fc930cbbe4e9078b74c4fdf1c21c",
+    "coverage.pdf": "c66735cceb4ba13fbc094290339e0ab51bd08d13846a0a02cc0dd12c62477b26",
+    "total_tokens.svg": "3833e3f0267cb6bc5cf260e5286d456ede685546aa29bdbfc583077b30248c47",
+    "total_tokens.png": "0e6d5adbbcc485b19c8c8ef8eaaad4ad3d4f93a28651235dd16fe09ada90afdc",
+    "dollars_per_verified_unit.png": "27d28cd5da7843f0b4f5869fe34cb02c0178bd5c6d79b77e31dc796ff4c5eb9d",
+    "dollars_per_verified_unit.svg": "3cb3f429a62b591646bbc0a39bb74bbc42f4d99bcabcfc62036c8f9e3a3f1fc4",
+    "verified_per_minute.svg": "8d4064ac44b408cf0caba06b5cc8d92f12c7a926e5c5380567611f3f1f108d0c"
+  }
+}

@@ -2,12 +2,12 @@
   "status": "PASS",
   "scope": "Real HAMR captures/comparisons on disposable source copies; not proof or live learning/demo",
   "model_calls": 0,
-  "source_workspace": ".scp-workbench/structure-tests/7a2820518fe4473ea54ee062fe255d47/project",
+  "source_workspace": ".scp-workbench/structure-tests/1e82efa299b040ebb03cf289a518915d/project",
   "cases": [
     {
       "case": "real_capture",
       "run": {
-        "id": "0d445b0e003d428286422ecc2d052647",
+        "id": "83731aa1735b4b02b990fe99fb526bc6",
         "state": "CHECKED",
         "config": {
           "architecture_policy": null,
@@ -22,6 +22,8 @@
             "wall_seconds": 240
           },
           "creation_authorized": false,
+          "dataset_assignment": null,
+          "dataset_task": null,
           "development_validation": null,
           "final_evaluation": null,
           "input_files": [
@@ -52,8 +54,9 @@
           "model_file": "prod-cons/ProdCons.sysml",
           "naming_policy": "preserve-existing",
           "paid_runs_authorized": false,
-          "project": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/structure-tests/7a2820518fe4473ea54ee062fe255d47/project",
+          "project": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/structure-tests/1e82efa299b040ebb03cf289a518915d/project",
           "rename_authorized": false,
+          "repair_allowed_files": [],
           "required_gates": [
             "architecture_capture"
           ],
@@ -63,46 +66,48 @@
           "schema_version": 1,
           "sireum": "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/sireum",
           "sireum_sha256": "6333d4e737064b6db470bcb85863a997675182470eb5d4d763bd806487c8d952",
-          "task_operation": "verify-only"
+          "task_operation": "verify-only",
+          "unit_registry": null
         },
-        "config_hash": "8871ef5d223460ec970f51a7f68a4b043b8ffaeaba9ab5ffedbb922e9b0e365d",
-        "created": 1790109804.6547246,
-        "deadline": 1790110044.6547246,
+        "config_hash": "f8d141a18d8e7831b6e486cea504b1de8ab8a669450e31e03707aa3d09fc4e19",
+        "created": 1790122461.1971784,
+        "deadline": 1790122701.1971784,
         "used_tokens": 0,
         "usage_unknown": 0,
         "reserved_tokens": 0,
         "worker": null,
         "result": {
-          "gates": [
-            {
-              "gate": "architecture_capture",
-              "status": "PASS",
-              "reason": "Instantiated AIR and resolved declarations captured; no conformance claim",
-              "snapshot_id": "3f4b329098d9dcfd0e1ea74c661e2146f56dcdd8117fd1e25fec4d46ec8eb17b",
-              "evidence": {
-                "sha256": "ca3e3b585fb1a48881037c96892e793e2ae899baa4b00896d87eee9c62b4340e",
-                "path": "objects/ca3e3b585fb1a48881037c96892e793e2ae899baa4b00896d87eee9c62b4340e.json"
-              }
-            }
-          ],
-          "task_status": "CHECKED",
-          "project_status": "NOT_ASSESSED",
           "engineering_accepted": false,
           "formally_verified_units": 0,
+          "gates": [
+            {
+              "evidence": {
+                "path": "objects/4ea6b6e8d5736127b8fa77369e6da2bd72925093968874475664bba31a95d5fd.json",
+                "sha256": "4ea6b6e8d5736127b8fa77369e6da2bd72925093968874475664bba31a95d5fd"
+              },
+              "gate": "architecture_capture",
+              "reason": "Instantiated AIR and resolved declarations captured; no conformance claim",
+              "snapshot_id": "bdb33fd57effb28607daf3a7292a83c479f9bd2590c0098071b6e56f115e48e3",
+              "status": "PASS"
+            }
+          ],
           "model_calls": 0,
-          "scope": "Selected checks only; no application or live-demo completion claim"
+          "project_status": "NOT_ASSESSED",
+          "scope": "Selected checks only; no application or live-demo completion claim",
+          "task_status": "CHECKED"
         },
         "version": 4,
-        "remaining_seconds": 228.2647204399109,
+        "remaining_seconds": 226.39196944236755,
         "remaining_tokens": 1000000,
         "source_changed": [],
-        "evidence_current_for_source": true
+        "evidence_current_for_source": true,
+        "policy_current": true
       },
       "events": [
         {
           "id": 1,
-          "run_id": "0d445b0e003d428286422ecc2d052647",
-          "timestamp": 1790109804.654836,
+          "run_id": "83731aa1735b4b02b990fe99fb526bc6",
+          "timestamp": 1790122461.1973748,
           "kind": "created",
           "payload": {
             "config": {
@@ -118,6 +123,8 @@
                 "wall_seconds": 240
               },
               "creation_authorized": false,
+              "dataset_assignment": null,
+              "dataset_task": null,
               "development_validation": null,
               "final_evaluation": null,
               "input_files": [
@@ -148,8 +155,9 @@
               "model_file": "prod-cons/ProdCons.sysml",
               "naming_policy": "preserve-existing",
               "paid_runs_authorized": false,
-              "project": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/structure-tests/7a2820518fe4473ea54ee062fe255d47/project",
+              "project": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/structure-tests/1e82efa299b040ebb03cf289a518915d/project",
               "rename_authorized": false,
+              "repair_allowed_files": [],
               "required_gates": [
                 "architecture_capture"
               ],
@@ -159,9 +167,10 @@
               "schema_version": 1,
               "sireum": "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/sireum",
               "sireum_sha256": "6333d4e737064b6db470bcb85863a997675182470eb5d4d763bd806487c8d952",
-              "task_operation": "verify-only"
+              "task_operation": "verify-only",
+              "unit_registry": null
             },
-            "config_sha256": "8871ef5d223460ec970f51a7f68a4b043b8ffaeaba9ab5ffedbb922e9b0e365d",
+            "config_sha256": "f8d141a18d8e7831b6e486cea504b1de8ab8a669450e31e03707aa3d09fc4e19",
             "precedence": [
               "defaults",
               "profile",
@@ -172,8 +181,8 @@
         },
         {
           "id": 2,
-          "run_id": "0d445b0e003d428286422ecc2d052647",
-          "timestamp": 1790109804.6560729,
+          "run_id": "83731aa1735b4b02b990fe99fb526bc6",
+          "timestamp": 1790122461.1988196,
           "kind": "state",
           "payload": {
             "from": "CREATED",
@@ -182,18 +191,18 @@
         },
         {
           "id": 3,
-          "run_id": "0d445b0e003d428286422ecc2d052647",
-          "timestamp": 1790109804.6651552,
+          "run_id": "83731aa1735b4b02b990fe99fb526bc6",
+          "timestamp": 1790122461.2083113,
           "kind": "snapshot",
           "payload": {
-            "path": "objects/88fe6709c1c366b898527144c6865ce3c03049194c8bea1bf736094382405af5.json",
-            "sha256": "88fe6709c1c366b898527144c6865ce3c03049194c8bea1bf736094382405af5"
+            "path": "objects/57bf003810e6fb3c1507228b549379be1a5bf144eb67bfa1d1328e16c607b288.json",
+            "sha256": "57bf003810e6fb3c1507228b549379be1a5bf144eb67bfa1d1328e16c607b288"
           }
         },
         {
           "id": 4,
-          "run_id": "0d445b0e003d428286422ecc2d052647",
-          "timestamp": 1790109804.6659334,
+          "run_id": "83731aa1735b4b02b990fe99fb526bc6",
+          "timestamp": 1790122461.2091398,
           "kind": "state",
           "payload": {
             "from": "INSPECTING",
@@ -202,8 +211,8 @@
         },
         {
           "id": 5,
-          "run_id": "0d445b0e003d428286422ecc2d052647",
-          "timestamp": 1790109804.6760156,
+          "run_id": "83731aa1735b4b02b990fe99fb526bc6",
+          "timestamp": 1790122461.2279015,
           "kind": "state",
           "payload": {
             "from": "READY",
@@ -212,27 +221,28 @@
         },
         {
           "id": 6,
-          "run_id": "0d445b0e003d428286422ecc2d052647",
-          "timestamp": 1790109816.3860059,
+          "run_id": "83731aa1735b4b02b990fe99fb526bc6",
+          "timestamp": 1790122474.8018162,
           "kind": "gate",
           "payload": {
             "evidence": {
-              "path": "objects/ca3e3b585fb1a48881037c96892e793e2ae899baa4b00896d87eee9c62b4340e.json",
-              "sha256": "ca3e3b585fb1a48881037c96892e793e2ae899baa4b00896d87eee9c62b4340e"
+              "path": "objects/4ea6b6e8d5736127b8fa77369e6da2bd72925093968874475664bba31a95d5fd.json",
+              "sha256": "4ea6b6e8d5736127b8fa77369e6da2bd72925093968874475664bba31a95d5fd"
             },
             "gate": "architecture_capture",
             "reason": "Instantiated AIR and resolved declarations captured; no conformance claim",
-            "snapshot_id": "3f4b329098d9dcfd0e1ea74c661e2146f56dcdd8117fd1e25fec4d46ec8eb17b",
+            "snapshot_id": "bdb33fd57effb28607daf3a7292a83c479f9bd2590c0098071b6e56f115e48e3",
             "status": "PASS"
           }
         },
         {
           "id": 7,
-          "run_id": "0d445b0e003d428286422ecc2d052647",
-          "timestamp": 1790109816.3892462,
+          "run_id": "83731aa1735b4b02b990fe99fb526bc6",
+          "timestamp": 1790122474.804485,
           "kind": "state",
           "payload": {
             "from": "CHECKING",
+            "result_committed": true,
             "to": "CHECKED"
           }
         }
@@ -241,10 +251,10 @@
     {
       "case": "unchanged_real_architecture",
       "run": {
-        "id": "6f7b5a7da5d64751874f9d30051d8eca",
+        "id": "8a8ed6e8e0864944aadf8fcafe290742",
         "state": "CHECKED",
         "config": {
-          "architecture_policy": "30737120e1e73fb9909dccbe1426001d386b94d10f683f1f3c93f16488a4bf5b",
+          "architecture_policy": "0ec6a3533ad5ead0c2f8a05f91be42acae934025956c9b0252d790c2d642104d",
           "assistance": "automatic",
           "budget": {
             "aggregate_model_tokens": 1000000,
@@ -256,6 +266,8 @@
             "wall_seconds": 240
           },
           "creation_authorized": false,
+          "dataset_assignment": null,
+          "dataset_task": null,
           "development_validation": null,
           "final_evaluation": null,
           "input_files": [
@@ -286,8 +298,9 @@
           "model_file": "prod-cons/ProdCons.sysml",
           "naming_policy": "preserve-existing",
           "paid_runs_authorized": false,
-          "project": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/structure-tests/7a2820518fe4473ea54ee062fe255d47/project",
+          "project": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/structure-tests/1e82efa299b040ebb03cf289a518915d/project",
           "rename_authorized": false,
+          "repair_allowed_files": [],
           "required_gates": [
             "architecture"
           ],
@@ -297,51 +310,53 @@
           "schema_version": 1,
           "sireum": "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/sireum",
           "sireum_sha256": "6333d4e737064b6db470bcb85863a997675182470eb5d4d763bd806487c8d952",
-          "task_operation": "verify-only"
+          "task_operation": "verify-only",
+          "unit_registry": null
         },
-        "config_hash": "654874fe18e07617c02165b473025a93208249c19e6391a79107f0efbd3443b3",
-        "created": 1790109816.4205282,
-        "deadline": 1790110056.4205282,
+        "config_hash": "369fae94f758c3aabe4c2d2114864a5373a44f8b7a75af588328a42f33e0e870",
+        "created": 1790122474.83677,
+        "deadline": 1790122714.83677,
         "used_tokens": 0,
         "usage_unknown": 0,
         "reserved_tokens": 0,
         "worker": null,
         "result": {
-          "gates": [
-            {
-              "gate": "architecture",
-              "status": "PASS",
-              "reason": "0 unapproved structural/declaration differences",
-              "snapshot_id": "8a70bd56516daa718cc6bee039ef255be9cf6e9618001e826387010eac7027a2",
-              "evidence": {
-                "sha256": "b161e61a543ff025c6a5efa8e91e105cab4149aca418939c47a215c9d401c9f5",
-                "path": "objects/b161e61a543ff025c6a5efa8e91e105cab4149aca418939c47a215c9d401c9f5.json"
-              },
-              "scope": "Exact normalized HAMR/declaration conformance; not semantic requirement fidelity"
-            }
-          ],
-          "task_status": "CHECKED",
-          "project_status": "NOT_ASSESSED",
           "engineering_accepted": false,
           "formally_verified_units": 0,
+          "gates": [
+            {
+              "evidence": {
+                "path": "objects/eaffebadaf71daef5c55a9253ce6f19d769c111df26f8d40b12bde38fc406392.json",
+                "sha256": "eaffebadaf71daef5c55a9253ce6f19d769c111df26f8d40b12bde38fc406392"
+              },
+              "gate": "architecture",
+              "reason": "0 unapproved structural/declaration differences",
+              "scope": "Exact normalized HAMR/declaration conformance; not semantic requirement fidelity",
+              "snapshot_id": "52a0b07eae53a8adf37e681509ca93fe96783b9372d2bff4a2459765b766a093",
+              "status": "PASS"
+            }
+          ],
           "model_calls": 0,
-          "scope": "Selected checks only; no application or live-demo completion claim"
+          "project_status": "NOT_ASSESSED",
+          "scope": "Selected checks only; no application or live-demo completion claim",
+          "task_status": "CHECKED"
         },
         "version": 4,
-        "remaining_seconds": 228.44461631774902,
+        "remaining_seconds": 224.61870455741882,
         "remaining_tokens": 1000000,
         "source_changed": [],
-        "evidence_current_for_source": true
+        "evidence_current_for_source": true,
+        "policy_current": true
       },
       "events": [
         {
           "id": 9,
-          "run_id": "6f7b5a7da5d64751874f9d30051d8eca",
-          "timestamp": 1790109816.420595,
+          "run_id": "8a8ed6e8e0864944aadf8fcafe290742",
+          "timestamp": 1790122474.836831,
           "kind": "created",
           "payload": {
             "config": {
-              "architecture_policy": "30737120e1e73fb9909dccbe1426001d386b94d10f683f1f3c93f16488a4bf5b",
+              "architecture_policy": "0ec6a3533ad5ead0c2f8a05f91be42acae934025956c9b0252d790c2d642104d",
               "assistance": "automatic",
               "budget": {
                 "aggregate_model_tokens": 1000000,
@@ -353,6 +368,8 @@
                 "wall_seconds": 240
               },
               "creation_authorized": false,
+              "dataset_assignment": null,
+              "dataset_task": null,
               "development_validation": null,
               "final_evaluation": null,
               "input_files": [
@@ -383,8 +400,9 @@
               "model_file": "prod-cons/ProdCons.sysml",
               "naming_policy": "preserve-existing",
               "paid_runs_authorized": false,
-              "project": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/structure-tests/7a2820518fe4473ea54ee062fe255d47/project",
+              "project": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/structure-tests/1e82efa299b040ebb03cf289a518915d/project",
               "rename_authorized": false,
+              "repair_allowed_files": [],
               "required_gates": [
                 "architecture"
               ],
@@ -394,9 +412,10 @@
               "schema_version": 1,
               "sireum": "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/sireum",
               "sireum_sha256": "6333d4e737064b6db470bcb85863a997675182470eb5d4d763bd806487c8d952",
-              "task_operation": "verify-only"
+              "task_operation": "verify-only",
+              "unit_registry": null
             },
-            "config_sha256": "654874fe18e07617c02165b473025a93208249c19e6391a79107f0efbd3443b3",
+            "config_sha256": "369fae94f758c3aabe4c2d2114864a5373a44f8b7a75af588328a42f33e0e870",
             "precedence": [
               "defaults",
               "profile",
@@ -407,8 +426,8 @@
         },
         {
           "id": 10,
-          "run_id": "6f7b5a7da5d64751874f9d30051d8eca",
-          "timestamp": 1790109816.4218612,
+          "run_id": "8a8ed6e8e0864944aadf8fcafe290742",
+          "timestamp": 1790122474.8380027,
           "kind": "state",
           "payload": {
             "from": "CREATED",
@@ -417,18 +436,18 @@
         },
         {
           "id": 11,
-          "run_id": "6f7b5a7da5d64751874f9d30051d8eca",
-          "timestamp": 1790109816.4307663,
+          "run_id": "8a8ed6e8e0864944aadf8fcafe290742",
+          "timestamp": 1790122474.8475425,
           "kind": "snapshot",
           "payload": {
-            "path": "objects/88fe6709c1c366b898527144c6865ce3c03049194c8bea1bf736094382405af5.json",
-            "sha256": "88fe6709c1c366b898527144c6865ce3c03049194c8bea1bf736094382405af5"
+            "path": "objects/57bf003810e6fb3c1507228b549379be1a5bf144eb67bfa1d1328e16c607b288.json",
+            "sha256": "57bf003810e6fb3c1507228b549379be1a5bf144eb67bfa1d1328e16c607b288"
           }
         },
         {
           "id": 12,
-          "run_id": "6f7b5a7da5d64751874f9d30051d8eca",
-          "timestamp": 1790109816.4315794,
+          "run_id": "8a8ed6e8e0864944aadf8fcafe290742",
+          "timestamp": 1790122474.8484845,
           "kind": "state",
           "payload": {
             "from": "INSPECTING",
@@ -437,8 +456,8 @@
         },
         {
           "id": 13,
-          "run_id": "6f7b5a7da5d64751874f9d30051d8eca",
-          "timestamp": 1790109816.4429824,
+          "run_id": "8a8ed6e8e0864944aadf8fcafe290742",
+          "timestamp": 1790122474.864499,
           "kind": "state",
           "payload": {
             "from": "READY",
@@ -447,28 +466,29 @@
         },
         {
           "id": 14,
-          "run_id": "6f7b5a7da5d64751874f9d30051d8eca",
-          "timestamp": 1790109827.969621,
+          "run_id": "8a8ed6e8e0864944aadf8fcafe290742",
+          "timestamp": 1790122490.1840532,
           "kind": "gate",
           "payload": {
             "evidence": {
-              "path": "objects/b161e61a543ff025c6a5efa8e91e105cab4149aca418939c47a215c9d401c9f5.json",
-              "sha256": "b161e61a543ff025c6a5efa8e91e105cab4149aca418939c47a215c9d401c9f5"
+              "path": "objects/eaffebadaf71daef5c55a9253ce6f19d769c111df26f8d40b12bde38fc406392.json",
+              "sha256": "eaffebadaf71daef5c55a9253ce6f19d769c111df26f8d40b12bde38fc406392"
             },
             "gate": "architecture",
             "reason": "0 unapproved structural/declaration differences",
             "scope": "Exact normalized HAMR/declaration conformance; not semantic requirement fidelity",
-            "snapshot_id": "8a70bd56516daa718cc6bee039ef255be9cf6e9618001e826387010eac7027a2",
+            "snapshot_id": "52a0b07eae53a8adf37e681509ca93fe96783b9372d2bff4a2459765b766a093",
             "status": "PASS"
           }
         },
         {
           "id": 15,
-          "run_id": "6f7b5a7da5d64751874f9d30051d8eca",
-          "timestamp": 1790109827.9748514,
+          "run_id": "8a8ed6e8e0864944aadf8fcafe290742",
+          "timestamp": 1790122490.216405,
           "kind": "state",
           "payload": {
             "from": "CHECKING",
+            "result_committed": true,
             "to": "CHECKED"
           }
         }
@@ -477,10 +497,10 @@
     {
       "case": "missing_connection",
       "run": {
-        "id": "274aa009aac24416957b85498d327596",
+        "id": "0e7ba373706b49ca8da6f2a79ecfd775",
         "state": "FAILED",
         "config": {
-          "architecture_policy": "30737120e1e73fb9909dccbe1426001d386b94d10f683f1f3c93f16488a4bf5b",
+          "architecture_policy": "0ec6a3533ad5ead0c2f8a05f91be42acae934025956c9b0252d790c2d642104d",
           "assistance": "automatic",
           "budget": {
             "aggregate_model_tokens": 1000000,
@@ -492,6 +512,8 @@
             "wall_seconds": 240
           },
           "creation_authorized": false,
+          "dataset_assignment": null,
+          "dataset_task": null,
           "development_validation": null,
           "final_evaluation": null,
           "input_files": [
@@ -522,8 +544,9 @@
           "model_file": "prod-cons/ProdCons.sysml",
           "naming_policy": "preserve-existing",
           "paid_runs_authorized": false,
-          "project": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/structure-tests/7a2820518fe4473ea54ee062fe255d47/project",
+          "project": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/structure-tests/1e82efa299b040ebb03cf289a518915d/project",
           "rename_authorized": false,
+          "repair_allowed_files": [],
           "required_gates": [
             "architecture"
           ],
@@ -533,51 +556,53 @@
           "schema_version": 1,
           "sireum": "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/sireum",
           "sireum_sha256": "6333d4e737064b6db470bcb85863a997675182470eb5d4d763bd806487c8d952",
-          "task_operation": "verify-only"
+          "task_operation": "verify-only",
+          "unit_registry": null
         },
-        "config_hash": "654874fe18e07617c02165b473025a93208249c19e6391a79107f0efbd3443b3",
-        "created": 1790109827.985391,
-        "deadline": 1790110067.985391,
+        "config_hash": "369fae94f758c3aabe4c2d2114864a5373a44f8b7a75af588328a42f33e0e870",
+        "created": 1790122490.259732,
+        "deadline": 1790122730.259732,
         "used_tokens": 0,
         "usage_unknown": 0,
         "reserved_tokens": 0,
         "worker": null,
         "result": {
-          "gates": [
-            {
-              "gate": "architecture",
-              "status": "FAIL",
-              "reason": "19 unapproved structural/declaration differences",
-              "snapshot_id": "c3ac2c04c48312e4957ebd58542c4bc85ea306d2269c40c2666de89448bf0c32",
-              "evidence": {
-                "sha256": "25a88ef334281ea1d8aab975b1f50d4a9196190ea19e28113acbce4d839b87d4",
-                "path": "objects/25a88ef334281ea1d8aab975b1f50d4a9196190ea19e28113acbce4d839b87d4.json"
-              },
-              "scope": "Exact normalized HAMR/declaration conformance; not semantic requirement fidelity"
-            }
-          ],
-          "task_status": "FAILED",
-          "project_status": "NOT_ASSESSED",
           "engineering_accepted": false,
           "formally_verified_units": 0,
+          "gates": [
+            {
+              "evidence": {
+                "path": "objects/558cf8cffbe09575b28625fb552fa592688c02cdbba9cb5fb34af81f0d01e64e.json",
+                "sha256": "558cf8cffbe09575b28625fb552fa592688c02cdbba9cb5fb34af81f0d01e64e"
+              },
+              "gate": "architecture",
+              "reason": "5 unapproved structural/declaration differences",
+              "scope": "Exact normalized HAMR/declaration conformance; not semantic requirement fidelity",
+              "snapshot_id": "9b19740bfe9f9ae684e1ee234f99e16b1bcc49c4f947af9a28509f23757e3a37",
+              "status": "FAIL"
+            }
+          ],
           "model_calls": 0,
-          "scope": "Selected checks only; no application or live-demo completion claim"
+          "project_status": "NOT_ASSESSED",
+          "scope": "Selected checks only; no application or live-demo completion claim",
+          "task_status": "FAILED"
         },
         "version": 4,
-        "remaining_seconds": 228.3178744316101,
+        "remaining_seconds": 224.4393630027771,
         "remaining_tokens": 1000000,
         "source_changed": [],
-        "evidence_current_for_source": true
+        "evidence_current_for_source": true,
+        "policy_current": true
       },
       "events": [
         {
           "id": 16,
-          "run_id": "274aa009aac24416957b85498d327596",
-          "timestamp": 1790109827.985449,
+          "run_id": "0e7ba373706b49ca8da6f2a79ecfd775",
+          "timestamp": 1790122490.2598867,
           "kind": "created",
           "payload": {
             "config": {
-              "architecture_policy": "30737120e1e73fb9909dccbe1426001d386b94d10f683f1f3c93f16488a4bf5b",
+              "architecture_policy": "0ec6a3533ad5ead0c2f8a05f91be42acae934025956c9b0252d790c2d642104d",
               "assistance": "automatic",
               "budget": {
                 "aggregate_model_tokens": 1000000,
@@ -589,6 +614,8 @@
                 "wall_seconds": 240
               },
               "creation_authorized": false,
+              "dataset_assignment": null,
+              "dataset_task": null,
               "development_validation": null,
               "final_evaluation": null,
               "input_files": [
@@ -619,8 +646,9 @@
               "model_file": "prod-cons/ProdCons.sysml",
               "naming_policy": "preserve-existing",
               "paid_runs_authorized": false,
-              "project": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/structure-tests/7a2820518fe4473ea54ee062fe255d47/project",
+              "project": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/structure-tests/1e82efa299b040ebb03cf289a518915d/project",
               "rename_authorized": false,
+              "repair_allowed_files": [],
               "required_gates": [
                 "architecture"
               ],
@@ -630,9 +658,10 @@
               "schema_version": 1,
               "sireum": "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/sireum",
               "sireum_sha256": "6333d4e737064b6db470bcb85863a997675182470eb5d4d763bd806487c8d952",
-              "task_operation": "verify-only"
+              "task_operation": "verify-only",
+              "unit_registry": null
             },
-            "config_sha256": "654874fe18e07617c02165b473025a93208249c19e6391a79107f0efbd3443b3",
+            "config_sha256": "369fae94f758c3aabe4c2d2114864a5373a44f8b7a75af588328a42f33e0e870",
             "precedence": [
               "defaults",
               "profile",
@@ -643,8 +672,8 @@
         },
         {
           "id": 17,
-          "run_id": "274aa009aac24416957b85498d327596",
-          "timestamp": 1790109827.9867942,
+          "run_id": "0e7ba373706b49ca8da6f2a79ecfd775",
+          "timestamp": 1790122490.2617483,
           "kind": "state",
           "payload": {
             "from": "CREATED",
@@ -653,18 +682,18 @@
         },
         {
           "id": 18,
-          "run_id": "274aa009aac24416957b85498d327596",
-          "timestamp": 1790109827.9961755,
+          "run_id": "0e7ba373706b49ca8da6f2a79ecfd775",
+          "timestamp": 1790122490.2763038,
           "kind": "snapshot",
           "payload": {
-            "path": "objects/8d01ebba7a0731a3e69e4bab9cc197d8f9567005d7906aa0324784fa89198a69.json",
-            "sha256": "8d01ebba7a0731a3e69e4bab9cc197d8f9567005d7906aa0324784fa89198a69"
+            "path": "objects/c5ade2514c02f80fb3613b9a61543fec12aa27d592ddf8c57cc0fa45e254fbe5.json",
+            "sha256": "c5ade2514c02f80fb3613b9a61543fec12aa27d592ddf8c57cc0fa45e254fbe5"
           }
         },
         {
           "id": 19,
-          "run_id": "274aa009aac24416957b85498d327596",
-          "timestamp": 1790109827.9973917,
+          "run_id": "0e7ba373706b49ca8da6f2a79ecfd775",
+          "timestamp": 1790122490.2772503,
           "kind": "state",
           "payload": {
             "from": "INSPECTING",
@@ -673,8 +702,8 @@
         },
         {
           "id": 20,
-          "run_id": "274aa009aac24416957b85498d327596",
-          "timestamp": 1790109828.0168054,
+          "run_id": "0e7ba373706b49ca8da6f2a79ecfd775",
+          "timestamp": 1790122490.3017793,
           "kind": "state",
           "payload": {
             "from": "READY",
@@ -683,28 +712,29 @@
         },
         {
           "id": 21,
-          "run_id": "274aa009aac24416957b85498d327596",
-          "timestamp": 1790109839.6614904,
+          "run_id": "0e7ba373706b49ca8da6f2a79ecfd775",
+          "timestamp": 1790122505.8142948,
           "kind": "gate",
           "payload": {
             "evidence": {
-              "path": "objects/25a88ef334281ea1d8aab975b1f50d4a9196190ea19e28113acbce4d839b87d4.json",
-              "sha256": "25a88ef334281ea1d8aab975b1f50d4a9196190ea19e28113acbce4d839b87d4"
+              "path": "objects/558cf8cffbe09575b28625fb552fa592688c02cdbba9cb5fb34af81f0d01e64e.json",
+              "sha256": "558cf8cffbe09575b28625fb552fa592688c02cdbba9cb5fb34af81f0d01e64e"
             },
             "gate": "architecture",
-            "reason": "19 unapproved structural/declaration differences",
+            "reason": "5 unapproved structural/declaration differences",
             "scope": "Exact normalized HAMR/declaration conformance; not semantic requirement fidelity",
-            "snapshot_id": "c3ac2c04c48312e4957ebd58542c4bc85ea306d2269c40c2666de89448bf0c32",
+            "snapshot_id": "9b19740bfe9f9ae684e1ee234f99e16b1bcc49c4f947af9a28509f23757e3a37",
             "status": "FAIL"
           }
         },
         {
           "id": 22,
-          "run_id": "274aa009aac24416957b85498d327596",
-          "timestamp": 1790109839.6666467,
+          "run_id": "0e7ba373706b49ca8da6f2a79ecfd775",
+          "timestamp": 1790122505.819246,
           "kind": "state",
           "payload": {
             "from": "CHECKING",
+            "result_committed": true,
             "to": "FAILED"
           }
         }
@@ -713,10 +743,10 @@
     {
       "case": "changed_contract_boundary",
       "run": {
-        "id": "5d1a88d08e3f4f9b9eb5ad16373c64d2",
+        "id": "3fd82262bf0c46eea15f083243e4c765",
         "state": "FAILED",
         "config": {
-          "architecture_policy": "30737120e1e73fb9909dccbe1426001d386b94d10f683f1f3c93f16488a4bf5b",
+          "architecture_policy": "0ec6a3533ad5ead0c2f8a05f91be42acae934025956c9b0252d790c2d642104d",
           "assistance": "automatic",
           "budget": {
             "aggregate_model_tokens": 1000000,
@@ -728,6 +758,8 @@
             "wall_seconds": 240
           },
           "creation_authorized": false,
+          "dataset_assignment": null,
+          "dataset_task": null,
           "development_validation": null,
           "final_evaluation": null,
           "input_files": [
@@ -758,8 +790,9 @@
           "model_file": "prod-cons/ProdCons.sysml",
           "naming_policy": "preserve-existing",
           "paid_runs_authorized": false,
-          "project": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/structure-tests/7a2820518fe4473ea54ee062fe255d47/project",
+          "project": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/structure-tests/1e82efa299b040ebb03cf289a518915d/project",
           "rename_authorized": false,
+          "repair_allowed_files": [],
           "required_gates": [
             "architecture"
           ],
@@ -769,51 +802,53 @@
           "schema_version": 1,
           "sireum": "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/sireum",
           "sireum_sha256": "6333d4e737064b6db470bcb85863a997675182470eb5d4d763bd806487c8d952",
-          "task_operation": "verify-only"
+          "task_operation": "verify-only",
+          "unit_registry": null
         },
-        "config_hash": "654874fe18e07617c02165b473025a93208249c19e6391a79107f0efbd3443b3",
-        "created": 1790109839.6777174,
-        "deadline": 1790110079.6777174,
+        "config_hash": "369fae94f758c3aabe4c2d2114864a5373a44f8b7a75af588328a42f33e0e870",
+        "created": 1790122505.8319407,
+        "deadline": 1790122745.8319407,
         "used_tokens": 0,
         "usage_unknown": 0,
         "reserved_tokens": 0,
         "worker": null,
         "result": {
-          "gates": [
-            {
-              "gate": "architecture",
-              "status": "FAIL",
-              "reason": "18 unapproved structural/declaration differences",
-              "snapshot_id": "7ce414d1abb2d5231bc53de44e22fddddd8b66a8554f1e924d453fe16d328e10",
-              "evidence": {
-                "sha256": "a59106453e22d6e6d37d34490b6a1172a625ab54f8be42bd2f06a5325552efc6",
-                "path": "objects/a59106453e22d6e6d37d34490b6a1172a625ab54f8be42bd2f06a5325552efc6.json"
-              },
-              "scope": "Exact normalized HAMR/declaration conformance; not semantic requirement fidelity"
-            }
-          ],
-          "task_status": "FAILED",
-          "project_status": "NOT_ASSESSED",
           "engineering_accepted": false,
           "formally_verified_units": 0,
+          "gates": [
+            {
+              "evidence": {
+                "path": "objects/09b32fbd133fc4d9f4f8facf0d57ffb437be13ee4f1b02762a0f28c8c6159845.json",
+                "sha256": "09b32fbd133fc4d9f4f8facf0d57ffb437be13ee4f1b02762a0f28c8c6159845"
+              },
+              "gate": "architecture",
+              "reason": "2 unapproved structural/declaration differences",
+              "scope": "Exact normalized HAMR/declaration conformance; not semantic requirement fidelity",
+              "snapshot_id": "f8eaa815bfd15eb55b1e2fde9ca6c3a1b17832a2d9b3a14dfe9f9c74f4f551cf",
+              "status": "FAIL"
+            }
+          ],
           "model_calls": 0,
-          "scope": "Selected checks only; no application or live-demo completion claim"
+          "project_status": "NOT_ASSESSED",
+          "scope": "Selected checks only; no application or live-demo completion claim",
+          "task_status": "FAILED"
         },
         "version": 4,
-        "remaining_seconds": 228.0269694328308,
+        "remaining_seconds": 228.6355574131012,
         "remaining_tokens": 1000000,
         "source_changed": [],
-        "evidence_current_for_source": true
+        "evidence_current_for_source": true,
+        "policy_current": true
       },
       "events": [
         {
           "id": 23,
-          "run_id": "5d1a88d08e3f4f9b9eb5ad16373c64d2",
-          "timestamp": 1790109839.6777754,
+          "run_id": "3fd82262bf0c46eea15f083243e4c765",
+          "timestamp": 1790122505.8319955,
           "kind": "created",
           "payload": {
             "config": {
-              "architecture_policy": "30737120e1e73fb9909dccbe1426001d386b94d10f683f1f3c93f16488a4bf5b",
+              "architecture_policy": "0ec6a3533ad5ead0c2f8a05f91be42acae934025956c9b0252d790c2d642104d",
               "assistance": "automatic",
               "budget": {
                 "aggregate_model_tokens": 1000000,
@@ -825,6 +860,8 @@
                 "wall_seconds": 240
               },
               "creation_authorized": false,
+              "dataset_assignment": null,
+              "dataset_task": null,
               "development_validation": null,
               "final_evaluation": null,
               "input_files": [
@@ -855,8 +892,9 @@
               "model_file": "prod-cons/ProdCons.sysml",
               "naming_policy": "preserve-existing",
               "paid_runs_authorized": false,
-              "project": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/structure-tests/7a2820518fe4473ea54ee062fe255d47/project",
+              "project": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/structure-tests/1e82efa299b040ebb03cf289a518915d/project",
               "rename_authorized": false,
+              "repair_allowed_files": [],
               "required_gates": [
                 "architecture"
               ],
@@ -866,9 +904,10 @@
               "schema_version": 1,
               "sireum": "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/sireum",
               "sireum_sha256": "6333d4e737064b6db470bcb85863a997675182470eb5d4d763bd806487c8d952",
-              "task_operation": "verify-only"
+              "task_operation": "verify-only",
+              "unit_registry": null
             },
-            "config_sha256": "654874fe18e07617c02165b473025a93208249c19e6391a79107f0efbd3443b3",
+            "config_sha256": "369fae94f758c3aabe4c2d2114864a5373a44f8b7a75af588328a42f33e0e870",
             "precedence": [
               "defaults",
               "profile",
@@ -879,8 +918,8 @@
         },
         {
           "id": 24,
-          "run_id": "5d1a88d08e3f4f9b9eb5ad16373c64d2",
-          "timestamp": 1790109839.6795015,
+          "run_id": "3fd82262bf0c46eea15f083243e4c765",
+          "timestamp": 1790122505.8331947,
           "kind": "state",
           "payload": {
             "from": "CREATED",
@@ -889,18 +928,18 @@
         },
         {
           "id": 25,
-          "run_id": "5d1a88d08e3f4f9b9eb5ad16373c64d2",
-          "timestamp": 1790109839.6885655,
+          "run_id": "3fd82262bf0c46eea15f083243e4c765",
+          "timestamp": 1790122505.8422718,
           "kind": "snapshot",
           "payload": {
-            "path": "objects/a71d2202aec3aca9b8ae3bb81ba8c1c881be283ac7aba92203569d0f6cf9b4af.json",
-            "sha256": "a71d2202aec3aca9b8ae3bb81ba8c1c881be283ac7aba92203569d0f6cf9b4af"
+            "path": "objects/176d51bbfc70605feabc5d6fff9bb6756a1940279a389d3c48eb93e56d1c2ed5.json",
+            "sha256": "176d51bbfc70605feabc5d6fff9bb6756a1940279a389d3c48eb93e56d1c2ed5"
           }
         },
         {
           "id": 26,
-          "run_id": "5d1a88d08e3f4f9b9eb5ad16373c64d2",
-          "timestamp": 1790109839.689381,
+          "run_id": "3fd82262bf0c46eea15f083243e4c765",
+          "timestamp": 1790122505.8431325,
           "kind": "state",
           "payload": {
             "from": "INSPECTING",
@@ -909,8 +948,8 @@
         },
         {
           "id": 27,
-          "run_id": "5d1a88d08e3f4f9b9eb5ad16373c64d2",
-          "timestamp": 1790109839.7008767,
+          "run_id": "3fd82262bf0c46eea15f083243e4c765",
+          "timestamp": 1790122505.858819,
           "kind": "state",
           "payload": {
             "from": "READY",
@@ -919,28 +958,29 @@
         },
         {
           "id": 28,
-          "run_id": "5d1a88d08e3f4f9b9eb5ad16373c64d2",
-          "timestamp": 1790109851.6448998,
+          "run_id": "3fd82262bf0c46eea15f083243e4c765",
+          "timestamp": 1790122517.1911712,
           "kind": "gate",
           "payload": {
             "evidence": {
-              "path": "objects/a59106453e22d6e6d37d34490b6a1172a625ab54f8be42bd2f06a5325552efc6.json",
-              "sha256": "a59106453e22d6e6d37d34490b6a1172a625ab54f8be42bd2f06a5325552efc6"
+              "path": "objects/09b32fbd133fc4d9f4f8facf0d57ffb437be13ee4f1b02762a0f28c8c6159845.json",
+              "sha256": "09b32fbd133fc4d9f4f8facf0d57ffb437be13ee4f1b02762a0f28c8c6159845"
             },
             "gate": "architecture",
-            "reason": "18 unapproved structural/declaration differences",
+            "reason": "2 unapproved structural/declaration differences",
             "scope": "Exact normalized HAMR/declaration conformance; not semantic requirement fidelity",
-            "snapshot_id": "7ce414d1abb2d5231bc53de44e22fddddd8b66a8554f1e924d453fe16d328e10",
+            "snapshot_id": "f8eaa815bfd15eb55b1e2fde9ca6c3a1b17832a2d9b3a14dfe9f9c74f4f551cf",
             "status": "FAIL"
           }
         },
         {
           "id": 29,
-          "run_id": "5d1a88d08e3f4f9b9eb5ad16373c64d2",
-          "timestamp": 1790109851.6500144,
+          "run_id": "3fd82262bf0c46eea15f083243e4c765",
+          "timestamp": 1790122517.1955154,
           "kind": "state",
           "payload": {
             "from": "CHECKING",
+            "result_committed": true,
             "to": "FAILED"
           }
         }
@@ -949,10 +989,10 @@
     {
       "case": "unapproved_consistent_rename",
       "run": {
-        "id": "2ce3cdabc74c451697364cf3d99ff52d",
+        "id": "0ee5dad6139d4f03bbcd09c2dbe0c0e0",
         "state": "FAILED",
         "config": {
-          "architecture_policy": "30737120e1e73fb9909dccbe1426001d386b94d10f683f1f3c93f16488a4bf5b",
+          "architecture_policy": "0ec6a3533ad5ead0c2f8a05f91be42acae934025956c9b0252d790c2d642104d",
           "assistance": "automatic",
           "budget": {
             "aggregate_model_tokens": 1000000,
@@ -964,6 +1004,8 @@
             "wall_seconds": 240
           },
           "creation_authorized": false,
+          "dataset_assignment": null,
+          "dataset_task": null,
           "development_validation": null,
           "final_evaluation": null,
           "input_files": [
@@ -994,8 +1036,9 @@
           "model_file": "prod-cons/ProdCons.sysml",
           "naming_policy": "preserve-existing",
           "paid_runs_authorized": false,
-          "project": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/structure-tests/7a2820518fe4473ea54ee062fe255d47/project",
+          "project": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/structure-tests/1e82efa299b040ebb03cf289a518915d/project",
           "rename_authorized": false,
+          "repair_allowed_files": [],
           "required_gates": [
             "architecture"
           ],
@@ -1005,51 +1048,53 @@
           "schema_version": 1,
           "sireum": "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/sireum",
           "sireum_sha256": "6333d4e737064b6db470bcb85863a997675182470eb5d4d763bd806487c8d952",
-          "task_operation": "verify-only"
+          "task_operation": "verify-only",
+          "unit_registry": null
         },
-        "config_hash": "654874fe18e07617c02165b473025a93208249c19e6391a79107f0efbd3443b3",
-        "created": 1790109851.6600626,
-        "deadline": 1790110091.6600626,
+        "config_hash": "369fae94f758c3aabe4c2d2114864a5373a44f8b7a75af588328a42f33e0e870",
+        "created": 1790122517.207898,
+        "deadline": 1790122757.207898,
         "used_tokens": 0,
         "usage_unknown": 0,
         "reserved_tokens": 0,
         "worker": null,
         "result": {
-          "gates": [
-            {
-              "gate": "architecture",
-              "status": "FAIL",
-              "reason": "33 unapproved structural/declaration differences",
-              "snapshot_id": "635e25e76f97e171952518a5bbe6e53fc0ad0795f633cf06a9c9b85742457d1b",
-              "evidence": {
-                "sha256": "98bab65e2af9d446bdf43e3708a1ef9f4d7d42076f7719a231a3c898b24388ad",
-                "path": "objects/98bab65e2af9d446bdf43e3708a1ef9f4d7d42076f7719a231a3c898b24388ad.json"
-              },
-              "scope": "Exact normalized HAMR/declaration conformance; not semantic requirement fidelity"
-            }
-          ],
-          "task_status": "FAILED",
-          "project_status": "NOT_ASSESSED",
           "engineering_accepted": false,
           "formally_verified_units": 0,
+          "gates": [
+            {
+              "evidence": {
+                "path": "objects/62ecb93faa3c8d54f030b30cb1c582f2ed68b172aa24e41c524098ded8761dd9.json",
+                "sha256": "62ecb93faa3c8d54f030b30cb1c582f2ed68b172aa24e41c524098ded8761dd9"
+              },
+              "gate": "architecture",
+              "reason": "19 unapproved structural/declaration differences",
+              "scope": "Exact normalized HAMR/declaration conformance; not semantic requirement fidelity",
+              "snapshot_id": "0c3fc291b663158430c3dc42da5f95d8263bc12e8a50de49d72f8862eb7bb086",
+              "status": "FAIL"
+            }
+          ],
           "model_calls": 0,
-          "scope": "Selected checks only; no application or live-demo completion claim"
+          "project_status": "NOT_ASSESSED",
+          "scope": "Selected checks only; no application or live-demo completion claim",
+          "task_status": "FAILED"
         },
         "version": 4,
-        "remaining_seconds": 228.2402446269989,
+        "remaining_seconds": 228.21415090560913,
         "remaining_tokens": 1000000,
         "source_changed": [],
-        "evidence_current_for_source": true
+        "evidence_current_for_source": true,
+        "policy_current": true
       },
       "events": [
         {
           "id": 30,
-          "run_id": "2ce3cdabc74c451697364cf3d99ff52d",
-          "timestamp": 1790109851.660113,
+          "run_id": "0ee5dad6139d4f03bbcd09c2dbe0c0e0",
+          "timestamp": 1790122517.2079563,
           "kind": "created",
           "payload": {
             "config": {
-              "architecture_policy": "30737120e1e73fb9909dccbe1426001d386b94d10f683f1f3c93f16488a4bf5b",
+              "architecture_policy": "0ec6a3533ad5ead0c2f8a05f91be42acae934025956c9b0252d790c2d642104d",
               "assistance": "automatic",
               "budget": {
                 "aggregate_model_tokens": 1000000,
@@ -1061,6 +1106,8 @@
                 "wall_seconds": 240
               },
               "creation_authorized": false,
+              "dataset_assignment": null,
+              "dataset_task": null,
               "development_validation": null,
               "final_evaluation": null,
               "input_files": [
@@ -1091,8 +1138,9 @@
               "model_file": "prod-cons/ProdCons.sysml",
               "naming_policy": "preserve-existing",
               "paid_runs_authorized": false,
-              "project": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/structure-tests/7a2820518fe4473ea54ee062fe255d47/project",
+              "project": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/structure-tests/1e82efa299b040ebb03cf289a518915d/project",
               "rename_authorized": false,
+              "repair_allowed_files": [],
               "required_gates": [
                 "architecture"
               ],
@@ -1102,9 +1150,10 @@
               "schema_version": 1,
               "sireum": "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/sireum",
               "sireum_sha256": "6333d4e737064b6db470bcb85863a997675182470eb5d4d763bd806487c8d952",
-              "task_operation": "verify-only"
+              "task_operation": "verify-only",
+              "unit_registry": null
             },
-            "config_sha256": "654874fe18e07617c02165b473025a93208249c19e6391a79107f0efbd3443b3",
+            "config_sha256": "369fae94f758c3aabe4c2d2114864a5373a44f8b7a75af588328a42f33e0e870",
             "precedence": [
               "defaults",
               "profile",
@@ -1115,8 +1164,8 @@
         },
         {
           "id": 31,
-          "run_id": "2ce3cdabc74c451697364cf3d99ff52d",
-          "timestamp": 1790109851.6612654,
+          "run_id": "0ee5dad6139d4f03bbcd09c2dbe0c0e0",
+          "timestamp": 1790122517.2091641,
           "kind": "state",
           "payload": {
             "from": "CREATED",
@@ -1125,18 +1174,18 @@
         },
         {
           "id": 32,
-          "run_id": "2ce3cdabc74c451697364cf3d99ff52d",
-          "timestamp": 1790109851.6700456,
+          "run_id": "0ee5dad6139d4f03bbcd09c2dbe0c0e0",
+          "timestamp": 1790122517.2181609,
           "kind": "snapshot",
           "payload": {
-            "path": "objects/fa850612845de1d5e7913003acc8ba199c34206f01f52e4c58de444745b1bd21.json",
-            "sha256": "fa850612845de1d5e7913003acc8ba199c34206f01f52e4c58de444745b1bd21"
+            "path": "objects/bb93d858bcce4ad1b41e3caa02404c83d88decd265446966b114c89dba5a093e.json",
+            "sha256": "bb93d858bcce4ad1b41e3caa02404c83d88decd265446966b114c89dba5a093e"
           }
         },
         {
           "id": 33,
-          "run_id": "2ce3cdabc74c451697364cf3d99ff52d",
-          "timestamp": 1790109851.6709208,
+          "run_id": "0ee5dad6139d4f03bbcd09c2dbe0c0e0",
+          "timestamp": 1790122517.2190876,
           "kind": "state",
           "payload": {
             "from": "INSPECTING",
@@ -1145,8 +1194,8 @@
         },
         {
           "id": 34,
-          "run_id": "2ce3cdabc74c451697364cf3d99ff52d",
-          "timestamp": 1790109851.6833088,
+          "run_id": "0ee5dad6139d4f03bbcd09c2dbe0c0e0",
+          "timestamp": 1790122517.2358296,
           "kind": "state",
           "payload": {
             "from": "READY",
@@ -1155,28 +1204,29 @@
         },
         {
           "id": 35,
-          "run_id": "2ce3cdabc74c451697364cf3d99ff52d",
-          "timestamp": 1790109863.4125948,
+          "run_id": "0ee5dad6139d4f03bbcd09c2dbe0c0e0",
+          "timestamp": 1790122528.988697,
           "kind": "gate",
           "payload": {
             "evidence": {
-              "path": "objects/98bab65e2af9d446bdf43e3708a1ef9f4d7d42076f7719a231a3c898b24388ad.json",
-              "sha256": "98bab65e2af9d446bdf43e3708a1ef9f4d7d42076f7719a231a3c898b24388ad"
+              "path": "objects/62ecb93faa3c8d54f030b30cb1c582f2ed68b172aa24e41c524098ded8761dd9.json",
+              "sha256": "62ecb93faa3c8d54f030b30cb1c582f2ed68b172aa24e41c524098ded8761dd9"
             },
             "gate": "architecture",
-            "reason": "33 unapproved structural/declaration differences",
+            "reason": "19 unapproved structural/declaration differences",
             "scope": "Exact normalized HAMR/declaration conformance; not semantic requirement fidelity",
-            "snapshot_id": "635e25e76f97e171952518a5bbe6e53fc0ad0795f633cf06a9c9b85742457d1b",
+            "snapshot_id": "0c3fc291b663158430c3dc42da5f95d8263bc12e8a50de49d72f8862eb7bb086",
             "status": "FAIL"
           }
         },
         {
           "id": 36,
-          "run_id": "2ce3cdabc74c451697364cf3d99ff52d",
-          "timestamp": 1790109863.4189687,
+          "run_id": "0ee5dad6139d4f03bbcd09c2dbe0c0e0",
+          "timestamp": 1790122528.9929457,
           "kind": "state",
           "payload": {
             "from": "CHECKING",
+            "result_committed": true,
             "to": "FAILED"
           }
         }
@@ -1185,10 +1235,10 @@
     {
       "case": "explicitly_reviewed_consistent_rename",
       "run": {
-        "id": "bd1bf0b9305440539d93f479bdd35004",
+        "id": "33a11d902d4046a5be31e623285c14da",
         "state": "CHECKED",
         "config": {
-          "architecture_policy": "37130c72310920ec1253fbe7e4215476b46b9cb8f192f0fdd08accb88dbe9613",
+          "architecture_policy": "137f1f524e8ea84878a591855744065aa9afb867edcfda46aa38986097ab305e",
           "assistance": "automatic",
           "budget": {
             "aggregate_model_tokens": 1000000,
@@ -1200,6 +1250,8 @@
             "wall_seconds": 240
           },
           "creation_authorized": false,
+          "dataset_assignment": null,
+          "dataset_task": null,
           "development_validation": null,
           "final_evaluation": null,
           "input_files": [
@@ -1230,8 +1282,9 @@
           "model_file": "prod-cons/ProdCons.sysml",
           "naming_policy": "preserve-existing",
           "paid_runs_authorized": false,
-          "project": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/structure-tests/7a2820518fe4473ea54ee062fe255d47/project",
+          "project": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/structure-tests/1e82efa299b040ebb03cf289a518915d/project",
           "rename_authorized": false,
+          "repair_allowed_files": [],
           "required_gates": [
             "architecture"
           ],
@@ -1241,51 +1294,53 @@
           "schema_version": 1,
           "sireum": "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/sireum",
           "sireum_sha256": "6333d4e737064b6db470bcb85863a997675182470eb5d4d763bd806487c8d952",
-          "task_operation": "verify-only"
+          "task_operation": "verify-only",
+          "unit_registry": null
         },
-        "config_hash": "67de469fad70bad21be5614421dfeea41f927b9e1c682c379d7c64e90a3109ff",
-        "created": 1790109863.464427,
-        "deadline": 1790110103.464427,
+        "config_hash": "8b4eae5379050ccd937ced463e92fc01100292f107f96b63222be9717b48652f",
+        "created": 1790122529.035724,
+        "deadline": 1790122769.035724,
         "used_tokens": 0,
         "usage_unknown": 0,
         "reserved_tokens": 0,
         "worker": null,
         "result": {
-          "gates": [
-            {
-              "gate": "architecture",
-              "status": "PASS",
-              "reason": "0 unapproved structural/declaration differences",
-              "snapshot_id": "8e2b20f9679fba23d154b460a8a06563d5ac9c6a8909b6303a1373115954cf5c",
-              "evidence": {
-                "sha256": "3aedde28095bd618665deaaa0a7c8406ea1934c29bd4986586f86a04bf4753d4",
-                "path": "objects/3aedde28095bd618665deaaa0a7c8406ea1934c29bd4986586f86a04bf4753d4.json"
-              },
-              "scope": "Exact normalized HAMR/declaration conformance; not semantic requirement fidelity"
-            }
-          ],
-          "task_status": "CHECKED",
-          "project_status": "NOT_ASSESSED",
           "engineering_accepted": false,
           "formally_verified_units": 0,
+          "gates": [
+            {
+              "evidence": {
+                "path": "objects/7f19903253220e9ae27ccc0c521c46b0fbd1a72f58b4282e6b62aef139720981.json",
+                "sha256": "7f19903253220e9ae27ccc0c521c46b0fbd1a72f58b4282e6b62aef139720981"
+              },
+              "gate": "architecture",
+              "reason": "0 unapproved structural/declaration differences",
+              "scope": "Exact normalized HAMR/declaration conformance; not semantic requirement fidelity",
+              "snapshot_id": "21c0232a3fb00cdfc011c828f983b8024c89d5571299e5a7b07d70bc6a8678ba",
+              "status": "PASS"
+            }
+          ],
           "model_calls": 0,
-          "scope": "Selected checks only; no application or live-demo completion claim"
+          "project_status": "NOT_ASSESSED",
+          "scope": "Selected checks only; no application or live-demo completion claim",
+          "task_status": "CHECKED"
         },
         "version": 4,
-        "remaining_seconds": 228.38901782035828,
+        "remaining_seconds": 228.43204164505005,
         "remaining_tokens": 1000000,
         "source_changed": [],
-        "evidence_current_for_source": true
+        "evidence_current_for_source": true,
+        "policy_current": true
       },
       "events": [
         {
           "id": 38,
-          "run_id": "bd1bf0b9305440539d93f479bdd35004",
-          "timestamp": 1790109863.46448,
+          "run_id": "33a11d902d4046a5be31e623285c14da",
+          "timestamp": 1790122529.035777,
           "kind": "created",
           "payload": {
             "config": {
-              "architecture_policy": "37130c72310920ec1253fbe7e4215476b46b9cb8f192f0fdd08accb88dbe9613",
+              "architecture_policy": "137f1f524e8ea84878a591855744065aa9afb867edcfda46aa38986097ab305e",
               "assistance": "automatic",
               "budget": {
                 "aggregate_model_tokens": 1000000,
@@ -1297,6 +1352,8 @@
                 "wall_seconds": 240
               },
               "creation_authorized": false,
+              "dataset_assignment": null,
+              "dataset_task": null,
               "development_validation": null,
               "final_evaluation": null,
               "input_files": [
@@ -1327,8 +1384,9 @@
               "model_file": "prod-cons/ProdCons.sysml",
               "naming_policy": "preserve-existing",
               "paid_runs_authorized": false,
-              "project": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/structure-tests/7a2820518fe4473ea54ee062fe255d47/project",
+              "project": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/structure-tests/1e82efa299b040ebb03cf289a518915d/project",
               "rename_authorized": false,
+              "repair_allowed_files": [],
               "required_gates": [
                 "architecture"
               ],
@@ -1338,9 +1396,10 @@
               "schema_version": 1,
               "sireum": "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/sireum",
               "sireum_sha256": "6333d4e737064b6db470bcb85863a997675182470eb5d4d763bd806487c8d952",
-              "task_operation": "verify-only"
+              "task_operation": "verify-only",
+              "unit_registry": null
             },
-            "config_sha256": "67de469fad70bad21be5614421dfeea41f927b9e1c682c379d7c64e90a3109ff",
+            "config_sha256": "8b4eae5379050ccd937ced463e92fc01100292f107f96b63222be9717b48652f",
             "precedence": [
               "defaults",
               "profile",
@@ -1351,8 +1410,8 @@
         },
         {
           "id": 39,
-          "run_id": "bd1bf0b9305440539d93f479bdd35004",
-          "timestamp": 1790109863.4656763,
+          "run_id": "33a11d902d4046a5be31e623285c14da",
+          "timestamp": 1790122529.0369387,
           "kind": "state",
           "payload": {
             "from": "CREATED",
@@ -1361,18 +1420,18 @@
         },
         {
           "id": 40,
-          "run_id": "bd1bf0b9305440539d93f479bdd35004",
-          "timestamp": 1790109863.474443,
+          "run_id": "33a11d902d4046a5be31e623285c14da",
+          "timestamp": 1790122529.0457375,
           "kind": "snapshot",
           "payload": {
-            "path": "objects/fa850612845de1d5e7913003acc8ba199c34206f01f52e4c58de444745b1bd21.json",
-            "sha256": "fa850612845de1d5e7913003acc8ba199c34206f01f52e4c58de444745b1bd21"
+            "path": "objects/bb93d858bcce4ad1b41e3caa02404c83d88decd265446966b114c89dba5a093e.json",
+            "sha256": "bb93d858bcce4ad1b41e3caa02404c83d88decd265446966b114c89dba5a093e"
           }
         },
         {
           "id": 41,
-          "run_id": "bd1bf0b9305440539d93f479bdd35004",
-          "timestamp": 1790109863.4756496,
+          "run_id": "33a11d902d4046a5be31e623285c14da",
+          "timestamp": 1790122529.046577,
           "kind": "state",
           "payload": {
             "from": "INSPECTING",
@@ -1381,8 +1440,8 @@
         },
         {
           "id": 42,
-          "run_id": "bd1bf0b9305440539d93f479bdd35004",
-          "timestamp": 1790109863.4881756,
+          "run_id": "33a11d902d4046a5be31e623285c14da",
+          "timestamp": 1790122529.0625055,
           "kind": "state",
           "payload": {
             "from": "READY",
@@ -1391,28 +1450,29 @@
         },
         {
           "id": 43,
-          "run_id": "bd1bf0b9305440539d93f479bdd35004",
-          "timestamp": 1790109875.0692677,
+          "run_id": "33a11d902d4046a5be31e623285c14da",
+          "timestamp": 1790122540.5981405,
           "kind": "gate",
           "payload": {
             "evidence": {
-              "path": "objects/3aedde28095bd618665deaaa0a7c8406ea1934c29bd4986586f86a04bf4753d4.json",
-              "sha256": "3aedde28095bd618665deaaa0a7c8406ea1934c29bd4986586f86a04bf4753d4"
+              "path": "objects/7f19903253220e9ae27ccc0c521c46b0fbd1a72f58b4282e6b62aef139720981.json",
+              "sha256": "7f19903253220e9ae27ccc0c521c46b0fbd1a72f58b4282e6b62aef139720981"
             },
             "gate": "architecture",
             "reason": "0 unapproved structural/declaration differences",
             "scope": "Exact normalized HAMR/declaration conformance; not semantic requirement fidelity",
-            "snapshot_id": "8e2b20f9679fba23d154b460a8a06563d5ac9c6a8909b6303a1373115954cf5c",
+            "snapshot_id": "21c0232a3fb00cdfc011c828f983b8024c89d5571299e5a7b07d70bc6a8678ba",
             "status": "PASS"
           }
         },
         {
           "id": 44,
-          "run_id": "bd1bf0b9305440539d93f479bdd35004",
-          "timestamp": 1790109875.0746207,
+          "run_id": "33a11d902d4046a5be31e623285c14da",
+          "timestamp": 1790122540.6026077,
           "kind": "state",
           "payload": {
             "from": "CHECKING",
+            "result_committed": true,
             "to": "CHECKED"
           }
         }
@@ -1421,10 +1481,10 @@
     {
       "case": "extra_contract_change_not_covered_by_rename",
       "run": {
-        "id": "72d1a0a68eaf42da872392676b2d1ba4",
+        "id": "d19d9044a7e24478aa8d46c1cbab223f",
         "state": "FAILED",
         "config": {
-          "architecture_policy": "37130c72310920ec1253fbe7e4215476b46b9cb8f192f0fdd08accb88dbe9613",
+          "architecture_policy": "137f1f524e8ea84878a591855744065aa9afb867edcfda46aa38986097ab305e",
           "assistance": "automatic",
           "budget": {
             "aggregate_model_tokens": 1000000,
@@ -1436,6 +1496,8 @@
             "wall_seconds": 240
           },
           "creation_authorized": false,
+          "dataset_assignment": null,
+          "dataset_task": null,
           "development_validation": null,
           "final_evaluation": null,
           "input_files": [
@@ -1466,8 +1528,9 @@
           "model_file": "prod-cons/ProdCons.sysml",
           "naming_policy": "preserve-existing",
           "paid_runs_authorized": false,
-          "project": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/structure-tests/7a2820518fe4473ea54ee062fe255d47/project",
+          "project": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/structure-tests/1e82efa299b040ebb03cf289a518915d/project",
           "rename_authorized": false,
+          "repair_allowed_files": [],
           "required_gates": [
             "architecture"
           ],
@@ -1477,51 +1540,53 @@
           "schema_version": 1,
           "sireum": "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/sireum",
           "sireum_sha256": "6333d4e737064b6db470bcb85863a997675182470eb5d4d763bd806487c8d952",
-          "task_operation": "verify-only"
+          "task_operation": "verify-only",
+          "unit_registry": null
         },
-        "config_hash": "67de469fad70bad21be5614421dfeea41f927b9e1c682c379d7c64e90a3109ff",
-        "created": 1790109875.0852296,
-        "deadline": 1790110115.0852296,
+        "config_hash": "8b4eae5379050ccd937ced463e92fc01100292f107f96b63222be9717b48652f",
+        "created": 1790122540.6158998,
+        "deadline": 1790122780.6158998,
         "used_tokens": 0,
         "usage_unknown": 0,
         "reserved_tokens": 0,
         "worker": null,
         "result": {
-          "gates": [
-            {
-              "gate": "architecture",
-              "status": "FAIL",
-              "reason": "18 unapproved structural/declaration differences",
-              "snapshot_id": "9bb9aa4b019c1b209ab9b7070348104f400340c6ee55e794fca921effcfe94a5",
-              "evidence": {
-                "sha256": "adf622ebec343b4e86f54c032fba93e4e3d1d354c2d251ae640e21b38c845d71",
-                "path": "objects/adf622ebec343b4e86f54c032fba93e4e3d1d354c2d251ae640e21b38c845d71.json"
-              },
-              "scope": "Exact normalized HAMR/declaration conformance; not semantic requirement fidelity"
-            }
-          ],
-          "task_status": "FAILED",
-          "project_status": "NOT_ASSESSED",
           "engineering_accepted": false,
           "formally_verified_units": 0,
+          "gates": [
+            {
+              "evidence": {
+                "path": "objects/ee5511a5ff254e08345b47dd4cece1e03ef5d0d25096a1086cd39369ec2e5913.json",
+                "sha256": "ee5511a5ff254e08345b47dd4cece1e03ef5d0d25096a1086cd39369ec2e5913"
+              },
+              "gate": "architecture",
+              "reason": "2 unapproved structural/declaration differences",
+              "scope": "Exact normalized HAMR/declaration conformance; not semantic requirement fidelity",
+              "snapshot_id": "09872d45b518500b5125bc1e149e089a281fc0d80e353f938e7a66f613bd9684",
+              "status": "FAIL"
+            }
+          ],
           "model_calls": 0,
-          "scope": "Selected checks only; no application or live-demo completion claim"
+          "project_status": "NOT_ASSESSED",
+          "scope": "Selected checks only; no application or live-demo completion claim",
+          "task_status": "FAILED"
         },
         "version": 4,
-        "remaining_seconds": 228.13052129745483,
+        "remaining_seconds": 228.3464367389679,
         "remaining_tokens": 1000000,
         "source_changed": [],
-        "evidence_current_for_source": true
+        "evidence_current_for_source": true,
+        "policy_current": true
       },
       "events": [
         {
           "id": 45,
-          "run_id": "72d1a0a68eaf42da872392676b2d1ba4",
-          "timestamp": 1790109875.0852897,
+          "run_id": "d19d9044a7e24478aa8d46c1cbab223f",
+          "timestamp": 1790122540.6159542,
           "kind": "created",
           "payload": {
             "config": {
-              "architecture_policy": "37130c72310920ec1253fbe7e4215476b46b9cb8f192f0fdd08accb88dbe9613",
+              "architecture_policy": "137f1f524e8ea84878a591855744065aa9afb867edcfda46aa38986097ab305e",
               "assistance": "automatic",
               "budget": {
                 "aggregate_model_tokens": 1000000,
@@ -1533,6 +1598,8 @@
                 "wall_seconds": 240
               },
               "creation_authorized": false,
+              "dataset_assignment": null,
+              "dataset_task": null,
               "development_validation": null,
               "final_evaluation": null,
               "input_files": [
@@ -1563,8 +1630,9 @@
               "model_file": "prod-cons/ProdCons.sysml",
               "naming_policy": "preserve-existing",
               "paid_runs_authorized": false,
-              "project": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/structure-tests/7a2820518fe4473ea54ee062fe255d47/project",
+              "project": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/structure-tests/1e82efa299b040ebb03cf289a518915d/project",
               "rename_authorized": false,
+              "repair_allowed_files": [],
               "required_gates": [
                 "architecture"
               ],
@@ -1574,9 +1642,10 @@
               "schema_version": 1,
               "sireum": "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/sireum",
               "sireum_sha256": "6333d4e737064b6db470bcb85863a997675182470eb5d4d763bd806487c8d952",
-              "task_operation": "verify-only"
+              "task_operation": "verify-only",
+              "unit_registry": null
             },
-            "config_sha256": "67de469fad70bad21be5614421dfeea41f927b9e1c682c379d7c64e90a3109ff",
+            "config_sha256": "8b4eae5379050ccd937ced463e92fc01100292f107f96b63222be9717b48652f",
             "precedence": [
               "defaults",
               "profile",
@@ -1587,8 +1656,8 @@
         },
         {
           "id": 46,
-          "run_id": "72d1a0a68eaf42da872392676b2d1ba4",
-          "timestamp": 1790109875.0866225,
+          "run_id": "d19d9044a7e24478aa8d46c1cbab223f",
+          "timestamp": 1790122540.6171734,
           "kind": "state",
           "payload": {
             "from": "CREATED",
@@ -1597,18 +1666,18 @@
         },
         {
           "id": 47,
-          "run_id": "72d1a0a68eaf42da872392676b2d1ba4",
-          "timestamp": 1790109875.0954947,
+          "run_id": "d19d9044a7e24478aa8d46c1cbab223f",
+          "timestamp": 1790122540.6258771,
           "kind": "snapshot",
           "payload": {
-            "path": "objects/57fe7a99a87fd6af4bc4991d93e759faf41399284e5f61b2b60d4e42b83481f9.json",
-            "sha256": "57fe7a99a87fd6af4bc4991d93e759faf41399284e5f61b2b60d4e42b83481f9"
+            "path": "objects/1cddb5da342c500267c1c69338fb6ae6abc538ef160ad8912bc6855afeb4fc0f.json",
+            "sha256": "1cddb5da342c500267c1c69338fb6ae6abc538ef160ad8912bc6855afeb4fc0f"
           }
         },
         {
           "id": 48,
-          "run_id": "72d1a0a68eaf42da872392676b2d1ba4",
-          "timestamp": 1790109875.0963893,
+          "run_id": "d19d9044a7e24478aa8d46c1cbab223f",
+          "timestamp": 1790122540.6266642,
           "kind": "state",
           "payload": {
             "from": "INSPECTING",
@@ -1617,8 +1686,8 @@
         },
         {
           "id": 49,
-          "run_id": "72d1a0a68eaf42da872392676b2d1ba4",
-          "timestamp": 1790109875.1083605,
+          "run_id": "d19d9044a7e24478aa8d46c1cbab223f",
+          "timestamp": 1790122540.641915,
           "kind": "state",
           "payload": {
             "from": "READY",
@@ -1627,28 +1696,29 @@
         },
         {
           "id": 50,
-          "run_id": "72d1a0a68eaf42da872392676b2d1ba4",
-          "timestamp": 1790109886.948714,
+          "run_id": "d19d9044a7e24478aa8d46c1cbab223f",
+          "timestamp": 1790122552.2594826,
           "kind": "gate",
           "payload": {
             "evidence": {
-              "path": "objects/adf622ebec343b4e86f54c032fba93e4e3d1d354c2d251ae640e21b38c845d71.json",
-              "sha256": "adf622ebec343b4e86f54c032fba93e4e3d1d354c2d251ae640e21b38c845d71"
+              "path": "objects/ee5511a5ff254e08345b47dd4cece1e03ef5d0d25096a1086cd39369ec2e5913.json",
+              "sha256": "ee5511a5ff254e08345b47dd4cece1e03ef5d0d25096a1086cd39369ec2e5913"
             },
             "gate": "architecture",
-            "reason": "18 unapproved structural/declaration differences",
+            "reason": "2 unapproved structural/declaration differences",
             "scope": "Exact normalized HAMR/declaration conformance; not semantic requirement fidelity",
-            "snapshot_id": "9bb9aa4b019c1b209ab9b7070348104f400340c6ee55e794fca921effcfe94a5",
+            "snapshot_id": "09872d45b518500b5125bc1e149e089a281fc0d80e353f938e7a66f613bd9684",
             "status": "FAIL"
           }
         },
         {
           "id": 51,
-          "run_id": "72d1a0a68eaf42da872392676b2d1ba4",
-          "timestamp": 1790109886.9539225,
+          "run_id": "d19d9044a7e24478aa8d46c1cbab223f",
+          "timestamp": 1790122552.2684164,
           "kind": "state",
           "payload": {
             "from": "CHECKING",
+            "result_committed": true,
             "to": "FAILED"
           }
         }
@@ -1658,19 +1728,19 @@
   "objects_directory": "reports/build/structural-evidence",
   "policies": [
     {
-      "baseline_id": "3f4b329098d9dcfd0e1ea74c661e2146f56dcdd8117fd1e25fec4d46ec8eb17b",
+      "baseline_id": "bdb33fd57effb28607daf3a7292a83c479f9bd2590c0098071b6e56f115e48e3",
       "changes": [],
       "expected": {
-        "path": "objects/ecc631327051db3560d34937c078256371ac47e39e5cff0973ea30c682f47438.json",
-        "sha256": "ecc631327051db3560d34937c078256371ac47e39e5cff0973ea30c682f47438"
+        "path": "objects/153d580930ba06113af620c37b8507ecf4409b1e6e2ddca4ff5a58cf8b2dd1e8.json",
+        "sha256": "153d580930ba06113af620c37b8507ecf4409b1e6e2ddca4ff5a58cf8b2dd1e8"
       },
       "mode": "equivalence",
-      "normalization": "hamr-position-free-time-ps-v1",
+      "normalization": "hamr-position-free-time-ps-v2",
       "status": "DRAFT_REQUIRES_APPROVAL",
-      "id": "30737120e1e73fb9909dccbe1426001d386b94d10f683f1f3c93f16488a4bf5b"
+      "id": "0ec6a3533ad5ead0c2f8a05f91be42acae934025956c9b0252d790c2d642104d"
     },
     {
-      "baseline_id": "3f4b329098d9dcfd0e1ea74c661e2146f56dcdd8117fd1e25fec4d46ec8eb17b",
+      "baseline_id": "bdb33fd57effb28607daf3a7292a83c479f9bd2590c0098071b6e56f115e48e3",
       "changes": [
         {
           "after": "producer",
@@ -1730,164 +1800,6 @@
             "ids",
             0,
             "value"
-          ],
-          "rationale": "Test-only exact consistent producer instance rename"
-        },
-        {
-          "after": 2202,
-          "before": 2190,
-          "path": [
-            "declarations",
-            "ProdCons",
-            "packageElements",
-            3,
-            "bodyItems",
-            4,
-            "gumboNode",
-            "integration",
-            "value",
-            "specs",
-            0,
-            "exp",
-            "left",
-            "opPosOpt",
-            "value",
-            "offset"
-          ],
-          "rationale": "Test-only exact consistent producer instance rename"
-        },
-        {
-          "after": 2202,
-          "before": 2190,
-          "path": [
-            "declarations",
-            "ProdCons",
-            "packageElements",
-            3,
-            "bodyItems",
-            4,
-            "gumboNode",
-            "integration",
-            "value",
-            "specs",
-            0,
-            "exp",
-            "opPosOpt",
-            "value",
-            "offset"
-          ],
-          "rationale": "Test-only exact consistent producer instance rename"
-        },
-        {
-          "after": 2232,
-          "before": 2220,
-          "path": [
-            "declarations",
-            "ProdCons",
-            "packageElements",
-            3,
-            "bodyItems",
-            4,
-            "gumboNode",
-            "integration",
-            "value",
-            "specs",
-            0,
-            "exp",
-            "right",
-            "opPosOpt",
-            "value",
-            "offset"
-          ],
-          "rationale": "Test-only exact consistent producer instance rename"
-        },
-        {
-          "after": 3812,
-          "before": 3800,
-          "path": [
-            "declarations",
-            "ProdCons",
-            "packageElements",
-            5,
-            "bodyItems",
-            4,
-            "gumboNode",
-            "initializes",
-            "value",
-            "guarantees",
-            0,
-            "exp",
-            "opPosOpt",
-            "value",
-            "offset"
-          ],
-          "rationale": "Test-only exact consistent producer instance rename"
-        },
-        {
-          "after": 3673,
-          "before": 3661,
-          "path": [
-            "declarations",
-            "ProdCons",
-            "packageElements",
-            5,
-            "bodyItems",
-            4,
-            "gumboNode",
-            "integration",
-            "value",
-            "specs",
-            0,
-            "exp",
-            "left",
-            "opPosOpt",
-            "value",
-            "offset"
-          ],
-          "rationale": "Test-only exact consistent producer instance rename"
-        },
-        {
-          "after": 3673,
-          "before": 3661,
-          "path": [
-            "declarations",
-            "ProdCons",
-            "packageElements",
-            5,
-            "bodyItems",
-            4,
-            "gumboNode",
-            "integration",
-            "value",
-            "specs",
-            0,
-            "exp",
-            "opPosOpt",
-            "value",
-            "offset"
-          ],
-          "rationale": "Test-only exact consistent producer instance rename"
-        },
-        {
-          "after": 3702,
-          "before": 3690,
-          "path": [
-            "declarations",
-            "ProdCons",
-            "packageElements",
-            5,
-            "bodyItems",
-            4,
-            "gumboNode",
-            "integration",
-            "value",
-            "specs",
-            0,
-            "exp",
-            "right",
-            "opPosOpt",
-            "value",
-            "offset"
           ],
           "rationale": "Test-only exact consistent producer instance rename"
         },
@@ -2150,86 +2062,6 @@
           "rationale": "Test-only exact consistent producer instance rename"
         },
         {
-          "after": 2202,
-          "before": 2190,
-          "path": [
-            "models",
-            "ProdCons_System_Instance",
-            "components",
-            0,
-            "subComponents",
-            0,
-            "subComponents",
-            0,
-            "annexes",
-            0,
-            "clause",
-            "integration",
-            "value",
-            "specs",
-            0,
-            "exp",
-            "left",
-            "opPosOpt",
-            "value",
-            "offset"
-          ],
-          "rationale": "Test-only exact consistent producer instance rename"
-        },
-        {
-          "after": 2202,
-          "before": 2190,
-          "path": [
-            "models",
-            "ProdCons_System_Instance",
-            "components",
-            0,
-            "subComponents",
-            0,
-            "subComponents",
-            0,
-            "annexes",
-            0,
-            "clause",
-            "integration",
-            "value",
-            "specs",
-            0,
-            "exp",
-            "opPosOpt",
-            "value",
-            "offset"
-          ],
-          "rationale": "Test-only exact consistent producer instance rename"
-        },
-        {
-          "after": 2232,
-          "before": 2220,
-          "path": [
-            "models",
-            "ProdCons_System_Instance",
-            "components",
-            0,
-            "subComponents",
-            0,
-            "subComponents",
-            0,
-            "annexes",
-            0,
-            "clause",
-            "integration",
-            "value",
-            "specs",
-            0,
-            "exp",
-            "right",
-            "opPosOpt",
-            "value",
-            "offset"
-          ],
-          "rationale": "Test-only exact consistent producer instance rename"
-        },
-        {
           "after": "producer",
           "before": "prod",
           "path": [
@@ -2266,263 +2098,46 @@
             1
           ],
           "rationale": "Test-only exact consistent producer instance rename"
-        },
-        {
-          "after": 3812,
-          "before": 3800,
-          "path": [
-            "models",
-            "ProdCons_System_Instance",
-            "components",
-            0,
-            "subComponents",
-            1,
-            "subComponents",
-            0,
-            "annexes",
-            0,
-            "clause",
-            "initializes",
-            "value",
-            "guarantees",
-            0,
-            "exp",
-            "opPosOpt",
-            "value",
-            "offset"
-          ],
-          "rationale": "Test-only exact consistent producer instance rename"
-        },
-        {
-          "after": 3673,
-          "before": 3661,
-          "path": [
-            "models",
-            "ProdCons_System_Instance",
-            "components",
-            0,
-            "subComponents",
-            1,
-            "subComponents",
-            0,
-            "annexes",
-            0,
-            "clause",
-            "integration",
-            "value",
-            "specs",
-            0,
-            "exp",
-            "left",
-            "opPosOpt",
-            "value",
-            "offset"
-          ],
-          "rationale": "Test-only exact consistent producer instance rename"
-        },
-        {
-          "after": 3673,
-          "before": 3661,
-          "path": [
-            "models",
-            "ProdCons_System_Instance",
-            "components",
-            0,
-            "subComponents",
-            1,
-            "subComponents",
-            0,
-            "annexes",
-            0,
-            "clause",
-            "integration",
-            "value",
-            "specs",
-            0,
-            "exp",
-            "opPosOpt",
-            "value",
-            "offset"
-          ],
-          "rationale": "Test-only exact consistent producer instance rename"
-        },
-        {
-          "after": 3702,
-          "before": 3690,
-          "path": [
-            "models",
-            "ProdCons_System_Instance",
-            "components",
-            0,
-            "subComponents",
-            1,
-            "subComponents",
-            0,
-            "annexes",
-            0,
-            "clause",
-            "integration",
-            "value",
-            "specs",
-            0,
-            "exp",
-            "right",
-            "opPosOpt",
-            "value",
-            "offset"
-          ],
-          "rationale": "Test-only exact consistent producer instance rename"
         }
       ],
       "expected": {
-        "path": "objects/7d335e1e180cdda925746712420953b540e1566bb80d3ef2267535616cfb4a66.json",
-        "sha256": "7d335e1e180cdda925746712420953b540e1566bb80d3ef2267535616cfb4a66"
+        "path": "objects/691a85be7ad84bccae98e2d2f34e37a8c24ebfedd1cba08dc19147db063278a9.json",
+        "sha256": "691a85be7ad84bccae98e2d2f34e37a8c24ebfedd1cba08dc19147db063278a9"
       },
       "mode": "approved-change",
-      "normalization": "hamr-position-free-time-ps-v1",
+      "normalization": "hamr-position-free-time-ps-v2",
       "status": "DRAFT_REQUIRES_APPROVAL",
-      "id": "37130c72310920ec1253fbe7e4215476b46b9cb8f192f0fdd08accb88dbe9613"
+      "id": "137f1f524e8ea84878a591855744065aa9afb867edcfda46aa38986097ab305e"
     }
   ],
   "snapshots": [
     {
-      "config_hash": "8871ef5d223460ec970f51a7f68a4b043b8ffaeaba9ab5ffedbb922e9b0e365d",
+      "config_hash": "8b4eae5379050ccd937ced463e92fc01100292f107f96b63222be9717b48652f",
       "elements": {
         "ProdCons_System_Instance": {
           "kind": "component",
           "owner": null,
-          "sha256": "eaee31a4471215190724b7254bb4cfb1d00bf7a347fda10d983fc6c7f604f925"
+          "sha256": "34311b8d1ba813bbf96cf8dd3d78cfb043321c1265693df3b1e922424f9923b7"
         },
         "ProdCons_System_Instance::cons": {
           "kind": "component",
           "owner": "ProdCons_System_Instance",
-          "sha256": "36c6a8bcd1567739f15f2539a5c3346a762ef81685bfd1dc6ce913805337c7c4"
+          "sha256": "b175b1e2e7164798a552114251765231f869df9590132bfe1ddda4f9e8f57ccf"
         },
         "ProdCons_System_Instance::cons::cons": {
           "kind": "component",
           "owner": "ProdCons_System_Instance::cons",
-          "sha256": "57d205b9fce3cbe902d92f3dd45cfb8f8cb351711d8854477677bda83cfa9d50"
+          "sha256": "c8c45445bde7cd95b5ae5d993141443591f41aeb768b334ddc7aabcf2322dd28"
         },
         "ProdCons_System_Instance::cons::cons#Payload_Range": {
           "kind": "GclAssume",
           "owner": "ProdCons_System_Instance::cons::cons",
-          "sha256": "361a2c68abb9b0c2d9c8ea8bafbe981f5428c03f6d69162a2a30b0475c784c53"
+          "sha256": "6675769803682b9ec93e0aebc90c624f8ac41cd52011914a57655c27edf7440d"
         },
         "ProdCons_System_Instance::cons::cons#initSum": {
           "kind": "GclGuarantee",
           "owner": "ProdCons_System_Instance::cons::cons",
-          "sha256": "aacd1dc06fe548be50f92bce1983c31b41f551fae79d5e4315b8f0b5ce7851c3"
-        },
-        "ProdCons_System_Instance::cons::cons::input": {
-          "kind": "port",
-          "owner": "ProdCons_System_Instance::cons::cons",
-          "sha256": "3ea7c7ee73fb0468a97d29c64d5c133b82175eb7e689a57f553db121bb251a74"
-        },
-        "ProdCons_System_Instance::cons::cons_input": {
-          "kind": "connection",
-          "owner": "ProdCons_System_Instance::cons",
-          "sha256": "6e78826efabf1280282f7822eb726cab45b1112a9ad8bdde5d9d41c164d52ec0"
-        },
-        "ProdCons_System_Instance::cons::input": {
-          "kind": "port",
-          "owner": "ProdCons_System_Instance::cons",
-          "sha256": "43016ded298d805dd764eda5c6370913d84e106cb17f1d6e4ece2b90496b870c"
-        },
-        "ProdCons_System_Instance::pc": {
-          "kind": "connection",
-          "owner": "ProdCons_System_Instance",
-          "sha256": "996f21a5d0ff2077b62629eabc980987b6ecf0df8f55a6d7c03693a564aa43f7"
-        },
-        "ProdCons_System_Instance::proc": {
-          "kind": "component",
-          "owner": "ProdCons_System_Instance",
-          "sha256": "85adb0c41d4f5048d5cdbe6ba90b3fcbb2a032c7504b3cafcd35800b534fcc01"
-        },
-        "ProdCons_System_Instance::prod": {
-          "kind": "component",
-          "owner": "ProdCons_System_Instance",
-          "sha256": "08ab1246b0d24094b8156e1c9ba9eb8b679200e72a2505ba1d1d7c4442399b1a"
-        },
-        "ProdCons_System_Instance::prod::output": {
-          "kind": "port",
-          "owner": "ProdCons_System_Instance::prod",
-          "sha256": "f3a147bf31bc27453d1f182bbbc77705de1dad2c4a92b965f1b51d7327ff1d57"
-        },
-        "ProdCons_System_Instance::prod::prod": {
-          "kind": "component",
-          "owner": "ProdCons_System_Instance::prod",
-          "sha256": "0767787cfa28ad8ced2c595b822c40c5ed059ad529228b7ab424d3912669b11d"
-        },
-        "ProdCons_System_Instance::prod::prod#Payload_Range": {
-          "kind": "GclGuarantee",
-          "owner": "ProdCons_System_Instance::prod::prod",
-          "sha256": "c788804eaee82e34c250474c86a65847f9cd35be7e9b806f36ca7563449a47ad"
-        },
-        "ProdCons_System_Instance::prod::prod::output": {
-          "kind": "port",
-          "owner": "ProdCons_System_Instance::prod::prod",
-          "sha256": "37c556d8fd5fad0c352bc9ad7dec87d370151bcd1a701c3b22bf21a055b2ddd7"
-        },
-        "ProdCons_System_Instance::prod::prod_output": {
-          "kind": "connection",
-          "owner": "ProdCons_System_Instance::prod",
-          "sha256": "113a281c5c60ce62ba877030f146f7833adb109587dd6303591dd2f4bdd4c108"
-        }
-      },
-      "input_manifest_sha256": "88fe6709c1c366b898527144c6865ce3c03049194c8bea1bf736094382405af5",
-      "normalization": "hamr-position-free-time-ps-v1",
-      "normalized": {
-        "path": "objects/ecc631327051db3560d34937c078256371ac47e39e5cff0973ea30c682f47438.json",
-        "sha256": "ecc631327051db3560d34937c078256371ac47e39e5cff0973ea30c682f47438"
-      },
-      "raw": {
-        "path": "objects/7015f34feb716c65101c7d706287fb27a0840c537ec73258d36953018ae9d1c6.json",
-        "sha256": "7015f34feb716c65101c7d706287fb27a0840c537ec73258d36953018ae9d1c6"
-      },
-      "run_id": "0d445b0e003d428286422ecc2d052647",
-      "status": "CAPTURED_NOT_APPROVED",
-      "tool_identity": {
-        "adapter_sha256": "1b9fb647b9c07eccebd53289fbbf5b682178d8aedc7660368a875be7a8e57efc",
-        "candidate_mount": "read_only",
-        "home": "empty_tmpfs",
-        "jar_sha256": "cac598547221ef4cda977af304bfd697207e984cd86616d12587c2cf86754d04",
-        "launcher_sha256": "6333d4e737064b6db470bcb85863a997675182470eb5d4d763bd806487c8d952",
-        "network": "unshared",
-        "profile": "sireum-architecture-v1",
-        "runtime_files": {
-          "bin/linux/java/bin/java": "81a3a861765b7f88ea29ea88eb038ef6f38b710ebce074bcdaa3c47928dfe7cd"
-        },
-        "sandbox_sha256": "77360cb751ccedc5971391444ac86a8a33c15b04d6b4a6fe45f5d25496e62c4c"
-      },
-      "id": "3f4b329098d9dcfd0e1ea74c661e2146f56dcdd8117fd1e25fec4d46ec8eb17b"
-    },
-    {
-      "config_hash": "654874fe18e07617c02165b473025a93208249c19e6391a79107f0efbd3443b3",
-      "elements": {
-        "ProdCons_System_Instance": {
-          "kind": "component",
-          "owner": null,
-          "sha256": "c80b5704ebf8458d21b410feab75f8f14ac7f0cb9ee01dca25c4f16c56ccd51f"
-        },
-        "ProdCons_System_Instance::cons": {
-          "kind": "component",
-          "owner": "ProdCons_System_Instance",
-          "sha256": "0360c4b3cc0cbb4cf117a5179329d27f05d4cceb10b3cc0a6b11de08de0f252a"
-        },
-        "ProdCons_System_Instance::cons::cons": {
-          "kind": "component",
-          "owner": "ProdCons_System_Instance::cons",
-          "sha256": "251b81d028f6370172250880faf228807c971b9b050959c2cf8f95370be58240"
-        },
-        "ProdCons_System_Instance::cons::cons#Payload_Range": {
-          "kind": "GclAssume",
-          "owner": "ProdCons_System_Instance::cons::cons",
-          "sha256": "b2121904f23c0c5eb3d270f0e9ddd67bcc8550ab84fd1410e1975227f0b4ae44"
-        },
-        "ProdCons_System_Instance::cons::cons#initSum": {
-          "kind": "GclGuarantee",
-          "owner": "ProdCons_System_Instance::cons::cons",
-          "sha256": "7defa8f9071e2e46eff08fb7502da3e543a2c047a5405cde5dfbf6ae001a2a1a"
+          "sha256": "8ab8d85b0f0bc8c61ec836e0d7ed1964a5b8af848ca4da9eb3d28913a8e2daaf"
         },
         "ProdCons_System_Instance::cons::cons::input": {
           "kind": "port",
@@ -2552,7 +2167,7 @@
         "ProdCons_System_Instance::producer": {
           "kind": "component",
           "owner": "ProdCons_System_Instance",
-          "sha256": "522ebf802455c51a4747a22860879c86dd9d29eb062672ea3c94b39351c94f51"
+          "sha256": "5bc228b0338878e3e8f7e92a0020be768cba6a29db4453b04124c13440edd7a2"
         },
         "ProdCons_System_Instance::producer::output": {
           "kind": "port",
@@ -2562,12 +2177,12 @@
         "ProdCons_System_Instance::producer::prod": {
           "kind": "component",
           "owner": "ProdCons_System_Instance::producer",
-          "sha256": "0824b471af58e73152388f7d92b62e7fb92c0183acb90386f9582d98a3187b83"
+          "sha256": "0bcca86ba98c31b24b0ce38a902784d5901d14a37bd4bef3dbbe621426086c76"
         },
         "ProdCons_System_Instance::producer::prod#Payload_Range": {
           "kind": "GclGuarantee",
           "owner": "ProdCons_System_Instance::producer::prod",
-          "sha256": "df0388271ed5ff6b9fdd802ca3b07bdf6b7ee306d23cec0cb5d9317d8e4ebe9c"
+          "sha256": "e5bab5af6861814fdd0f43a23b6501ecc2ffb8a65ea9a590d06ef21daf23d03a"
         },
         "ProdCons_System_Instance::producer::prod::output": {
           "kind": "port",
@@ -2580,461 +2195,17 @@
           "sha256": "18e78a4b005f6fe61816e83361f097e80ed866634b8c09f4eba0aa0ba1b7d2d6"
         }
       },
-      "input_manifest_sha256": "fa850612845de1d5e7913003acc8ba199c34206f01f52e4c58de444745b1bd21",
-      "normalization": "hamr-position-free-time-ps-v1",
+      "input_manifest_sha256": "1cddb5da342c500267c1c69338fb6ae6abc538ef160ad8912bc6855afeb4fc0f",
+      "normalization": "hamr-position-free-time-ps-v2",
       "normalized": {
-        "path": "objects/7d335e1e180cdda925746712420953b540e1566bb80d3ef2267535616cfb4a66.json",
-        "sha256": "7d335e1e180cdda925746712420953b540e1566bb80d3ef2267535616cfb4a66"
-      },
-      "raw": {
-        "path": "objects/4dde135ffabdff3677c94236aa748be63e3ea47f7f4b8c8e228ef8565c3250c4.json",
-        "sha256": "4dde135ffabdff3677c94236aa748be63e3ea47f7f4b8c8e228ef8565c3250c4"
-      },
-      "run_id": "2ce3cdabc74c451697364cf3d99ff52d",
-      "status": "CAPTURED_NOT_APPROVED",
-      "tool_identity": {
-        "adapter_sha256": "1b9fb647b9c07eccebd53289fbbf5b682178d8aedc7660368a875be7a8e57efc",
-        "candidate_mount": "read_only",
-        "home": "empty_tmpfs",
-        "jar_sha256": "cac598547221ef4cda977af304bfd697207e984cd86616d12587c2cf86754d04",
-        "launcher_sha256": "6333d4e737064b6db470bcb85863a997675182470eb5d4d763bd806487c8d952",
-        "network": "unshared",
-        "profile": "sireum-architecture-v1",
-        "runtime_files": {
-          "bin/linux/java/bin/java": "81a3a861765b7f88ea29ea88eb038ef6f38b710ebce074bcdaa3c47928dfe7cd"
-        },
-        "sandbox_sha256": "77360cb751ccedc5971391444ac86a8a33c15b04d6b4a6fe45f5d25496e62c4c"
-      },
-      "id": "635e25e76f97e171952518a5bbe6e53fc0ad0795f633cf06a9c9b85742457d1b"
-    },
-    {
-      "config_hash": "654874fe18e07617c02165b473025a93208249c19e6391a79107f0efbd3443b3",
-      "elements": {
-        "ProdCons_System_Instance": {
-          "kind": "component",
-          "owner": null,
-          "sha256": "32fd19483c85015d5db91684243a44446e597e34c1289ecca42b8ab1af87a9c3"
-        },
-        "ProdCons_System_Instance::cons": {
-          "kind": "component",
-          "owner": "ProdCons_System_Instance",
-          "sha256": "cbfc99d8e8d3f20ebf60e853876696c5a3429c636348f6e000b01e87d1afde36"
-        },
-        "ProdCons_System_Instance::cons::cons": {
-          "kind": "component",
-          "owner": "ProdCons_System_Instance::cons",
-          "sha256": "477e1183ceef99b3b3d4893f07be8c174efaeb2be3635ba9e17ddd4a50ee0abf"
-        },
-        "ProdCons_System_Instance::cons::cons#Payload_Range": {
-          "kind": "GclAssume",
-          "owner": "ProdCons_System_Instance::cons::cons",
-          "sha256": "2c23930caf900082c46e682051c7b14a96af3dfb3f33e54d9f1e9ac6d0b81931"
-        },
-        "ProdCons_System_Instance::cons::cons#initSum": {
-          "kind": "GclGuarantee",
-          "owner": "ProdCons_System_Instance::cons::cons",
-          "sha256": "83c86492a17c5471a70f3e7ffb56e39a641996eff1ffc270040586d20511017e"
-        },
-        "ProdCons_System_Instance::cons::cons::input": {
-          "kind": "port",
-          "owner": "ProdCons_System_Instance::cons::cons",
-          "sha256": "3ea7c7ee73fb0468a97d29c64d5c133b82175eb7e689a57f553db121bb251a74"
-        },
-        "ProdCons_System_Instance::cons::cons_input": {
-          "kind": "connection",
-          "owner": "ProdCons_System_Instance::cons",
-          "sha256": "6e78826efabf1280282f7822eb726cab45b1112a9ad8bdde5d9d41c164d52ec0"
-        },
-        "ProdCons_System_Instance::cons::input": {
-          "kind": "port",
-          "owner": "ProdCons_System_Instance::cons",
-          "sha256": "43016ded298d805dd764eda5c6370913d84e106cb17f1d6e4ece2b90496b870c"
-        },
-        "ProdCons_System_Instance::pc": {
-          "kind": "connection",
-          "owner": "ProdCons_System_Instance",
-          "sha256": "996f21a5d0ff2077b62629eabc980987b6ecf0df8f55a6d7c03693a564aa43f7"
-        },
-        "ProdCons_System_Instance::proc": {
-          "kind": "component",
-          "owner": "ProdCons_System_Instance",
-          "sha256": "85adb0c41d4f5048d5cdbe6ba90b3fcbb2a032c7504b3cafcd35800b534fcc01"
-        },
-        "ProdCons_System_Instance::prod": {
-          "kind": "component",
-          "owner": "ProdCons_System_Instance",
-          "sha256": "af964680bd58c3bda9885663e08fe9efdf4048ee3bbf1d2ac0c032a12ef18f0d"
-        },
-        "ProdCons_System_Instance::prod::output": {
-          "kind": "port",
-          "owner": "ProdCons_System_Instance::prod",
-          "sha256": "f3a147bf31bc27453d1f182bbbc77705de1dad2c4a92b965f1b51d7327ff1d57"
-        },
-        "ProdCons_System_Instance::prod::prod": {
-          "kind": "component",
-          "owner": "ProdCons_System_Instance::prod",
-          "sha256": "a6eed00a4ed89fda765c7bea3fba255e914a3bb3ae0f1cc202eeea0df2d9e2c4"
-        },
-        "ProdCons_System_Instance::prod::prod#Payload_Range": {
-          "kind": "GclGuarantee",
-          "owner": "ProdCons_System_Instance::prod::prod",
-          "sha256": "094b631779df3d980843db449dcd4be50562fbc52f321a551ee581372b022ee5"
-        },
-        "ProdCons_System_Instance::prod::prod::output": {
-          "kind": "port",
-          "owner": "ProdCons_System_Instance::prod::prod",
-          "sha256": "37c556d8fd5fad0c352bc9ad7dec87d370151bcd1a701c3b22bf21a055b2ddd7"
-        },
-        "ProdCons_System_Instance::prod::prod_output": {
-          "kind": "connection",
-          "owner": "ProdCons_System_Instance::prod",
-          "sha256": "113a281c5c60ce62ba877030f146f7833adb109587dd6303591dd2f4bdd4c108"
-        }
-      },
-      "input_manifest_sha256": "a71d2202aec3aca9b8ae3bb81ba8c1c881be283ac7aba92203569d0f6cf9b4af",
-      "normalization": "hamr-position-free-time-ps-v1",
-      "normalized": {
-        "path": "objects/d11389ba16850c029f2247c76e1198d68aeac73c4d95e2260911e9de55856942.json",
-        "sha256": "d11389ba16850c029f2247c76e1198d68aeac73c4d95e2260911e9de55856942"
-      },
-      "raw": {
-        "path": "objects/d1b06b1314454afc73348094160b55204e2cf77ff25eb81608fb7f8bd409f349.json",
-        "sha256": "d1b06b1314454afc73348094160b55204e2cf77ff25eb81608fb7f8bd409f349"
-      },
-      "run_id": "5d1a88d08e3f4f9b9eb5ad16373c64d2",
-      "status": "CAPTURED_NOT_APPROVED",
-      "tool_identity": {
-        "adapter_sha256": "1b9fb647b9c07eccebd53289fbbf5b682178d8aedc7660368a875be7a8e57efc",
-        "candidate_mount": "read_only",
-        "home": "empty_tmpfs",
-        "jar_sha256": "cac598547221ef4cda977af304bfd697207e984cd86616d12587c2cf86754d04",
-        "launcher_sha256": "6333d4e737064b6db470bcb85863a997675182470eb5d4d763bd806487c8d952",
-        "network": "unshared",
-        "profile": "sireum-architecture-v1",
-        "runtime_files": {
-          "bin/linux/java/bin/java": "81a3a861765b7f88ea29ea88eb038ef6f38b710ebce074bcdaa3c47928dfe7cd"
-        },
-        "sandbox_sha256": "77360cb751ccedc5971391444ac86a8a33c15b04d6b4a6fe45f5d25496e62c4c"
-      },
-      "id": "7ce414d1abb2d5231bc53de44e22fddddd8b66a8554f1e924d453fe16d328e10"
-    },
-    {
-      "config_hash": "654874fe18e07617c02165b473025a93208249c19e6391a79107f0efbd3443b3",
-      "elements": {
-        "ProdCons_System_Instance": {
-          "kind": "component",
-          "owner": null,
-          "sha256": "eaee31a4471215190724b7254bb4cfb1d00bf7a347fda10d983fc6c7f604f925"
-        },
-        "ProdCons_System_Instance::cons": {
-          "kind": "component",
-          "owner": "ProdCons_System_Instance",
-          "sha256": "36c6a8bcd1567739f15f2539a5c3346a762ef81685bfd1dc6ce913805337c7c4"
-        },
-        "ProdCons_System_Instance::cons::cons": {
-          "kind": "component",
-          "owner": "ProdCons_System_Instance::cons",
-          "sha256": "57d205b9fce3cbe902d92f3dd45cfb8f8cb351711d8854477677bda83cfa9d50"
-        },
-        "ProdCons_System_Instance::cons::cons#Payload_Range": {
-          "kind": "GclAssume",
-          "owner": "ProdCons_System_Instance::cons::cons",
-          "sha256": "361a2c68abb9b0c2d9c8ea8bafbe981f5428c03f6d69162a2a30b0475c784c53"
-        },
-        "ProdCons_System_Instance::cons::cons#initSum": {
-          "kind": "GclGuarantee",
-          "owner": "ProdCons_System_Instance::cons::cons",
-          "sha256": "aacd1dc06fe548be50f92bce1983c31b41f551fae79d5e4315b8f0b5ce7851c3"
-        },
-        "ProdCons_System_Instance::cons::cons::input": {
-          "kind": "port",
-          "owner": "ProdCons_System_Instance::cons::cons",
-          "sha256": "3ea7c7ee73fb0468a97d29c64d5c133b82175eb7e689a57f553db121bb251a74"
-        },
-        "ProdCons_System_Instance::cons::cons_input": {
-          "kind": "connection",
-          "owner": "ProdCons_System_Instance::cons",
-          "sha256": "6e78826efabf1280282f7822eb726cab45b1112a9ad8bdde5d9d41c164d52ec0"
-        },
-        "ProdCons_System_Instance::cons::input": {
-          "kind": "port",
-          "owner": "ProdCons_System_Instance::cons",
-          "sha256": "43016ded298d805dd764eda5c6370913d84e106cb17f1d6e4ece2b90496b870c"
-        },
-        "ProdCons_System_Instance::pc": {
-          "kind": "connection",
-          "owner": "ProdCons_System_Instance",
-          "sha256": "996f21a5d0ff2077b62629eabc980987b6ecf0df8f55a6d7c03693a564aa43f7"
-        },
-        "ProdCons_System_Instance::proc": {
-          "kind": "component",
-          "owner": "ProdCons_System_Instance",
-          "sha256": "85adb0c41d4f5048d5cdbe6ba90b3fcbb2a032c7504b3cafcd35800b534fcc01"
-        },
-        "ProdCons_System_Instance::prod": {
-          "kind": "component",
-          "owner": "ProdCons_System_Instance",
-          "sha256": "08ab1246b0d24094b8156e1c9ba9eb8b679200e72a2505ba1d1d7c4442399b1a"
-        },
-        "ProdCons_System_Instance::prod::output": {
-          "kind": "port",
-          "owner": "ProdCons_System_Instance::prod",
-          "sha256": "f3a147bf31bc27453d1f182bbbc77705de1dad2c4a92b965f1b51d7327ff1d57"
-        },
-        "ProdCons_System_Instance::prod::prod": {
-          "kind": "component",
-          "owner": "ProdCons_System_Instance::prod",
-          "sha256": "0767787cfa28ad8ced2c595b822c40c5ed059ad529228b7ab424d3912669b11d"
-        },
-        "ProdCons_System_Instance::prod::prod#Payload_Range": {
-          "kind": "GclGuarantee",
-          "owner": "ProdCons_System_Instance::prod::prod",
-          "sha256": "c788804eaee82e34c250474c86a65847f9cd35be7e9b806f36ca7563449a47ad"
-        },
-        "ProdCons_System_Instance::prod::prod::output": {
-          "kind": "port",
-          "owner": "ProdCons_System_Instance::prod::prod",
-          "sha256": "37c556d8fd5fad0c352bc9ad7dec87d370151bcd1a701c3b22bf21a055b2ddd7"
-        },
-        "ProdCons_System_Instance::prod::prod_output": {
-          "kind": "connection",
-          "owner": "ProdCons_System_Instance::prod",
-          "sha256": "113a281c5c60ce62ba877030f146f7833adb109587dd6303591dd2f4bdd4c108"
-        }
-      },
-      "input_manifest_sha256": "88fe6709c1c366b898527144c6865ce3c03049194c8bea1bf736094382405af5",
-      "normalization": "hamr-position-free-time-ps-v1",
-      "normalized": {
-        "path": "objects/ecc631327051db3560d34937c078256371ac47e39e5cff0973ea30c682f47438.json",
-        "sha256": "ecc631327051db3560d34937c078256371ac47e39e5cff0973ea30c682f47438"
-      },
-      "raw": {
-        "path": "objects/7015f34feb716c65101c7d706287fb27a0840c537ec73258d36953018ae9d1c6.json",
-        "sha256": "7015f34feb716c65101c7d706287fb27a0840c537ec73258d36953018ae9d1c6"
-      },
-      "run_id": "6f7b5a7da5d64751874f9d30051d8eca",
-      "status": "CAPTURED_NOT_APPROVED",
-      "tool_identity": {
-        "adapter_sha256": "1b9fb647b9c07eccebd53289fbbf5b682178d8aedc7660368a875be7a8e57efc",
-        "candidate_mount": "read_only",
-        "home": "empty_tmpfs",
-        "jar_sha256": "cac598547221ef4cda977af304bfd697207e984cd86616d12587c2cf86754d04",
-        "launcher_sha256": "6333d4e737064b6db470bcb85863a997675182470eb5d4d763bd806487c8d952",
-        "network": "unshared",
-        "profile": "sireum-architecture-v1",
-        "runtime_files": {
-          "bin/linux/java/bin/java": "81a3a861765b7f88ea29ea88eb038ef6f38b710ebce074bcdaa3c47928dfe7cd"
-        },
-        "sandbox_sha256": "77360cb751ccedc5971391444ac86a8a33c15b04d6b4a6fe45f5d25496e62c4c"
-      },
-      "id": "8a70bd56516daa718cc6bee039ef255be9cf6e9618001e826387010eac7027a2"
-    },
-    {
-      "config_hash": "67de469fad70bad21be5614421dfeea41f927b9e1c682c379d7c64e90a3109ff",
-      "elements": {
-        "ProdCons_System_Instance": {
-          "kind": "component",
-          "owner": null,
-          "sha256": "c80b5704ebf8458d21b410feab75f8f14ac7f0cb9ee01dca25c4f16c56ccd51f"
-        },
-        "ProdCons_System_Instance::cons": {
-          "kind": "component",
-          "owner": "ProdCons_System_Instance",
-          "sha256": "0360c4b3cc0cbb4cf117a5179329d27f05d4cceb10b3cc0a6b11de08de0f252a"
-        },
-        "ProdCons_System_Instance::cons::cons": {
-          "kind": "component",
-          "owner": "ProdCons_System_Instance::cons",
-          "sha256": "251b81d028f6370172250880faf228807c971b9b050959c2cf8f95370be58240"
-        },
-        "ProdCons_System_Instance::cons::cons#Payload_Range": {
-          "kind": "GclAssume",
-          "owner": "ProdCons_System_Instance::cons::cons",
-          "sha256": "b2121904f23c0c5eb3d270f0e9ddd67bcc8550ab84fd1410e1975227f0b4ae44"
-        },
-        "ProdCons_System_Instance::cons::cons#initSum": {
-          "kind": "GclGuarantee",
-          "owner": "ProdCons_System_Instance::cons::cons",
-          "sha256": "7defa8f9071e2e46eff08fb7502da3e543a2c047a5405cde5dfbf6ae001a2a1a"
-        },
-        "ProdCons_System_Instance::cons::cons::input": {
-          "kind": "port",
-          "owner": "ProdCons_System_Instance::cons::cons",
-          "sha256": "3ea7c7ee73fb0468a97d29c64d5c133b82175eb7e689a57f553db121bb251a74"
-        },
-        "ProdCons_System_Instance::cons::cons_input": {
-          "kind": "connection",
-          "owner": "ProdCons_System_Instance::cons",
-          "sha256": "6e78826efabf1280282f7822eb726cab45b1112a9ad8bdde5d9d41c164d52ec0"
-        },
-        "ProdCons_System_Instance::cons::input": {
-          "kind": "port",
-          "owner": "ProdCons_System_Instance::cons",
-          "sha256": "43016ded298d805dd764eda5c6370913d84e106cb17f1d6e4ece2b90496b870c"
-        },
-        "ProdCons_System_Instance::pc": {
-          "kind": "connection",
-          "owner": "ProdCons_System_Instance",
-          "sha256": "b0b2af72a51c5744e28c10580c1d3728a0e8b1be5bc083f8a8b83eeb98a0ac63"
-        },
-        "ProdCons_System_Instance::proc": {
-          "kind": "component",
-          "owner": "ProdCons_System_Instance",
-          "sha256": "85adb0c41d4f5048d5cdbe6ba90b3fcbb2a032c7504b3cafcd35800b534fcc01"
-        },
-        "ProdCons_System_Instance::producer": {
-          "kind": "component",
-          "owner": "ProdCons_System_Instance",
-          "sha256": "522ebf802455c51a4747a22860879c86dd9d29eb062672ea3c94b39351c94f51"
-        },
-        "ProdCons_System_Instance::producer::output": {
-          "kind": "port",
-          "owner": "ProdCons_System_Instance::producer",
-          "sha256": "4a7a82e70f2556eb43e907e027010cef06e20609df073fd415605c27e244e371"
-        },
-        "ProdCons_System_Instance::producer::prod": {
-          "kind": "component",
-          "owner": "ProdCons_System_Instance::producer",
-          "sha256": "0824b471af58e73152388f7d92b62e7fb92c0183acb90386f9582d98a3187b83"
-        },
-        "ProdCons_System_Instance::producer::prod#Payload_Range": {
-          "kind": "GclGuarantee",
-          "owner": "ProdCons_System_Instance::producer::prod",
-          "sha256": "df0388271ed5ff6b9fdd802ca3b07bdf6b7ee306d23cec0cb5d9317d8e4ebe9c"
-        },
-        "ProdCons_System_Instance::producer::prod::output": {
-          "kind": "port",
-          "owner": "ProdCons_System_Instance::producer::prod",
-          "sha256": "38fe711634540efaac865875de6fe3df47f405bb07ee8eb0da6cc5381fa7a68d"
-        },
-        "ProdCons_System_Instance::producer::prod_output": {
-          "kind": "connection",
-          "owner": "ProdCons_System_Instance::producer",
-          "sha256": "18e78a4b005f6fe61816e83361f097e80ed866634b8c09f4eba0aa0ba1b7d2d6"
-        }
-      },
-      "input_manifest_sha256": "fa850612845de1d5e7913003acc8ba199c34206f01f52e4c58de444745b1bd21",
-      "normalization": "hamr-position-free-time-ps-v1",
-      "normalized": {
-        "path": "objects/7d335e1e180cdda925746712420953b540e1566bb80d3ef2267535616cfb4a66.json",
-        "sha256": "7d335e1e180cdda925746712420953b540e1566bb80d3ef2267535616cfb4a66"
-      },
-      "raw": {
-        "path": "objects/4dde135ffabdff3677c94236aa748be63e3ea47f7f4b8c8e228ef8565c3250c4.json",
-        "sha256": "4dde135ffabdff3677c94236aa748be63e3ea47f7f4b8c8e228ef8565c3250c4"
-      },
-      "run_id": "bd1bf0b9305440539d93f479bdd35004",
-      "status": "CAPTURED_NOT_APPROVED",
-      "tool_identity": {
-        "adapter_sha256": "1b9fb647b9c07eccebd53289fbbf5b682178d8aedc7660368a875be7a8e57efc",
-        "candidate_mount": "read_only",
-        "home": "empty_tmpfs",
-        "jar_sha256": "cac598547221ef4cda977af304bfd697207e984cd86616d12587c2cf86754d04",
-        "launcher_sha256": "6333d4e737064b6db470bcb85863a997675182470eb5d4d763bd806487c8d952",
-        "network": "unshared",
-        "profile": "sireum-architecture-v1",
-        "runtime_files": {
-          "bin/linux/java/bin/java": "81a3a861765b7f88ea29ea88eb038ef6f38b710ebce074bcdaa3c47928dfe7cd"
-        },
-        "sandbox_sha256": "77360cb751ccedc5971391444ac86a8a33c15b04d6b4a6fe45f5d25496e62c4c"
-      },
-      "id": "8e2b20f9679fba23d154b460a8a06563d5ac9c6a8909b6303a1373115954cf5c"
-    },
-    {
-      "config_hash": "67de469fad70bad21be5614421dfeea41f927b9e1c682c379d7c64e90a3109ff",
-      "elements": {
-        "ProdCons_System_Instance": {
-          "kind": "component",
-          "owner": null,
-          "sha256": "af2410b05441c9f56ef7b58ef48ef7503caa57530afeb9169b6839161189a5b1"
-        },
-        "ProdCons_System_Instance::cons": {
-          "kind": "component",
-          "owner": "ProdCons_System_Instance",
-          "sha256": "f48abcc14d4d3b29fbfd501861fe61e55b7ed220f71fdf30f85cfc46c46e0dea"
-        },
-        "ProdCons_System_Instance::cons::cons": {
-          "kind": "component",
-          "owner": "ProdCons_System_Instance::cons",
-          "sha256": "0605f6f0412bc30fcf81cd65972150dce6e4cc6e05407aefb5cc5128b92ebbfc"
-        },
-        "ProdCons_System_Instance::cons::cons#Payload_Range": {
-          "kind": "GclAssume",
-          "owner": "ProdCons_System_Instance::cons::cons",
-          "sha256": "fd80abd89fb29c935925b302e5b4cd1c38c143a144cefcf5958909d151886d69"
-        },
-        "ProdCons_System_Instance::cons::cons#initSum": {
-          "kind": "GclGuarantee",
-          "owner": "ProdCons_System_Instance::cons::cons",
-          "sha256": "e810c9a51f25690fea3875bd5248af9d026bed13442fb7bc5f63935ba108948d"
-        },
-        "ProdCons_System_Instance::cons::cons::input": {
-          "kind": "port",
-          "owner": "ProdCons_System_Instance::cons::cons",
-          "sha256": "3ea7c7ee73fb0468a97d29c64d5c133b82175eb7e689a57f553db121bb251a74"
-        },
-        "ProdCons_System_Instance::cons::cons_input": {
-          "kind": "connection",
-          "owner": "ProdCons_System_Instance::cons",
-          "sha256": "6e78826efabf1280282f7822eb726cab45b1112a9ad8bdde5d9d41c164d52ec0"
-        },
-        "ProdCons_System_Instance::cons::input": {
-          "kind": "port",
-          "owner": "ProdCons_System_Instance::cons",
-          "sha256": "43016ded298d805dd764eda5c6370913d84e106cb17f1d6e4ece2b90496b870c"
-        },
-        "ProdCons_System_Instance::pc": {
-          "kind": "connection",
-          "owner": "ProdCons_System_Instance",
-          "sha256": "b0b2af72a51c5744e28c10580c1d3728a0e8b1be5bc083f8a8b83eeb98a0ac63"
-        },
-        "ProdCons_System_Instance::proc": {
-          "kind": "component",
-          "owner": "ProdCons_System_Instance",
-          "sha256": "85adb0c41d4f5048d5cdbe6ba90b3fcbb2a032c7504b3cafcd35800b534fcc01"
-        },
-        "ProdCons_System_Instance::producer": {
-          "kind": "component",
-          "owner": "ProdCons_System_Instance",
-          "sha256": "d46051d13da02885a6ee21770c4e05ba6923ad1f426739021c76253313e4e485"
-        },
-        "ProdCons_System_Instance::producer::output": {
-          "kind": "port",
-          "owner": "ProdCons_System_Instance::producer",
-          "sha256": "4a7a82e70f2556eb43e907e027010cef06e20609df073fd415605c27e244e371"
-        },
-        "ProdCons_System_Instance::producer::prod": {
-          "kind": "component",
-          "owner": "ProdCons_System_Instance::producer",
-          "sha256": "33b87eab79e461793457df03cf280076731c8ad5f41e434157a04809c4814410"
-        },
-        "ProdCons_System_Instance::producer::prod#Payload_Range": {
-          "kind": "GclGuarantee",
-          "owner": "ProdCons_System_Instance::producer::prod",
-          "sha256": "09293650eab01526a956ad3b939e499d7393896c64f4c2e17c6c00a3180adfdd"
-        },
-        "ProdCons_System_Instance::producer::prod::output": {
-          "kind": "port",
-          "owner": "ProdCons_System_Instance::producer::prod",
-          "sha256": "38fe711634540efaac865875de6fe3df47f405bb07ee8eb0da6cc5381fa7a68d"
-        },
-        "ProdCons_System_Instance::producer::prod_output": {
-          "kind": "connection",
-          "owner": "ProdCons_System_Instance::producer",
-          "sha256": "18e78a4b005f6fe61816e83361f097e80ed866634b8c09f4eba0aa0ba1b7d2d6"
-        }
-      },
-      "input_manifest_sha256": "57fe7a99a87fd6af4bc4991d93e759faf41399284e5f61b2b60d4e42b83481f9",
-      "normalization": "hamr-position-free-time-ps-v1",
-      "normalized": {
-        "path": "objects/2bd29c6b290f36ed62dbc68b8df9688250ed154afe8676118ab31b0872e6fa69.json",
-        "sha256": "2bd29c6b290f36ed62dbc68b8df9688250ed154afe8676118ab31b0872e6fa69"
+        "path": "objects/2a0420dc5bcb239d013cb67779558497907b31062564585e9279581432ad964a.json",
+        "sha256": "2a0420dc5bcb239d013cb67779558497907b31062564585e9279581432ad964a"
       },
       "raw": {
         "path": "objects/def20e6507231effc9b01b3601bed6bcf6912ae7bab6448abc2ba15ee3f91c8a.json",
         "sha256": "def20e6507231effc9b01b3601bed6bcf6912ae7bab6448abc2ba15ee3f91c8a"
       },
-      "run_id": "72d1a0a68eaf42da872392676b2d1ba4",
+      "run_id": "d19d9044a7e24478aa8d46c1cbab223f",
       "status": "CAPTURED_NOT_APPROVED",
       "tool_identity": {
         "adapter_sha256": "1b9fb647b9c07eccebd53289fbbf5b682178d8aedc7660368a875be7a8e57efc",
@@ -3049,35 +2220,368 @@
         },
         "sandbox_sha256": "77360cb751ccedc5971391444ac86a8a33c15b04d6b4a6fe45f5d25496e62c4c"
       },
-      "id": "9bb9aa4b019c1b209ab9b7070348104f400340c6ee55e794fca921effcfe94a5"
+      "id": "09872d45b518500b5125bc1e149e089a281fc0d80e353f938e7a66f613bd9684"
     },
     {
-      "config_hash": "654874fe18e07617c02165b473025a93208249c19e6391a79107f0efbd3443b3",
+      "config_hash": "369fae94f758c3aabe4c2d2114864a5373a44f8b7a75af588328a42f33e0e870",
       "elements": {
         "ProdCons_System_Instance": {
           "kind": "component",
           "owner": null,
-          "sha256": "1933f113776434b13ac3c945141a2f351c1e5c6fd39ddcea6df6b7bceecb58ad"
+          "sha256": "adac2ab54ad978a6a985aa4fa09a361c6b1e25a80a335de6556a8bcb9e3cfd39"
         },
         "ProdCons_System_Instance::cons": {
           "kind": "component",
           "owner": "ProdCons_System_Instance",
-          "sha256": "3e034644cd38602384900631e94db7c7e5b141a641d629fcbd6f7764aeb5b4f6"
+          "sha256": "b175b1e2e7164798a552114251765231f869df9590132bfe1ddda4f9e8f57ccf"
         },
         "ProdCons_System_Instance::cons::cons": {
           "kind": "component",
           "owner": "ProdCons_System_Instance::cons",
-          "sha256": "dfef2a717d36c7ac7f71e5b55766717fa5f60a42911372423f59c8d608cce80f"
+          "sha256": "c8c45445bde7cd95b5ae5d993141443591f41aeb768b334ddc7aabcf2322dd28"
         },
         "ProdCons_System_Instance::cons::cons#Payload_Range": {
           "kind": "GclAssume",
           "owner": "ProdCons_System_Instance::cons::cons",
-          "sha256": "2fa1033a0fae9c927ebd1f465545fa3952d566b88b7663ebfb1b32a095c89707"
+          "sha256": "6675769803682b9ec93e0aebc90c624f8ac41cd52011914a57655c27edf7440d"
         },
         "ProdCons_System_Instance::cons::cons#initSum": {
           "kind": "GclGuarantee",
           "owner": "ProdCons_System_Instance::cons::cons",
-          "sha256": "8cb8dc159cbea6f245516fbb2ac927e6a636950fd1ab5dd9697644202915a6b8"
+          "sha256": "8ab8d85b0f0bc8c61ec836e0d7ed1964a5b8af848ca4da9eb3d28913a8e2daaf"
+        },
+        "ProdCons_System_Instance::cons::cons::input": {
+          "kind": "port",
+          "owner": "ProdCons_System_Instance::cons::cons",
+          "sha256": "3ea7c7ee73fb0468a97d29c64d5c133b82175eb7e689a57f553db121bb251a74"
+        },
+        "ProdCons_System_Instance::cons::cons_input": {
+          "kind": "connection",
+          "owner": "ProdCons_System_Instance::cons",
+          "sha256": "6e78826efabf1280282f7822eb726cab45b1112a9ad8bdde5d9d41c164d52ec0"
+        },
+        "ProdCons_System_Instance::cons::input": {
+          "kind": "port",
+          "owner": "ProdCons_System_Instance::cons",
+          "sha256": "43016ded298d805dd764eda5c6370913d84e106cb17f1d6e4ece2b90496b870c"
+        },
+        "ProdCons_System_Instance::pc": {
+          "kind": "connection",
+          "owner": "ProdCons_System_Instance",
+          "sha256": "b0b2af72a51c5744e28c10580c1d3728a0e8b1be5bc083f8a8b83eeb98a0ac63"
+        },
+        "ProdCons_System_Instance::proc": {
+          "kind": "component",
+          "owner": "ProdCons_System_Instance",
+          "sha256": "85adb0c41d4f5048d5cdbe6ba90b3fcbb2a032c7504b3cafcd35800b534fcc01"
+        },
+        "ProdCons_System_Instance::producer": {
+          "kind": "component",
+          "owner": "ProdCons_System_Instance",
+          "sha256": "f962614b383547c0f0896d5a5f4b429a5feb165f06a2080813f76f23aa192836"
+        },
+        "ProdCons_System_Instance::producer::output": {
+          "kind": "port",
+          "owner": "ProdCons_System_Instance::producer",
+          "sha256": "4a7a82e70f2556eb43e907e027010cef06e20609df073fd415605c27e244e371"
+        },
+        "ProdCons_System_Instance::producer::prod": {
+          "kind": "component",
+          "owner": "ProdCons_System_Instance::producer",
+          "sha256": "560ff9c9c81de5cee72f6ef286fa2820cad86c200cd9f7da1ebc88eff69e3ae6"
+        },
+        "ProdCons_System_Instance::producer::prod#Payload_Range": {
+          "kind": "GclGuarantee",
+          "owner": "ProdCons_System_Instance::producer::prod",
+          "sha256": "391fdcf094d3afe1ce75ccb41925171ce42036b91dcf83afb1128d0a673e5e5b"
+        },
+        "ProdCons_System_Instance::producer::prod::output": {
+          "kind": "port",
+          "owner": "ProdCons_System_Instance::producer::prod",
+          "sha256": "38fe711634540efaac865875de6fe3df47f405bb07ee8eb0da6cc5381fa7a68d"
+        },
+        "ProdCons_System_Instance::producer::prod_output": {
+          "kind": "connection",
+          "owner": "ProdCons_System_Instance::producer",
+          "sha256": "18e78a4b005f6fe61816e83361f097e80ed866634b8c09f4eba0aa0ba1b7d2d6"
+        }
+      },
+      "input_manifest_sha256": "bb93d858bcce4ad1b41e3caa02404c83d88decd265446966b114c89dba5a093e",
+      "normalization": "hamr-position-free-time-ps-v2",
+      "normalized": {
+        "path": "objects/691a85be7ad84bccae98e2d2f34e37a8c24ebfedd1cba08dc19147db063278a9.json",
+        "sha256": "691a85be7ad84bccae98e2d2f34e37a8c24ebfedd1cba08dc19147db063278a9"
+      },
+      "raw": {
+        "path": "objects/4dde135ffabdff3677c94236aa748be63e3ea47f7f4b8c8e228ef8565c3250c4.json",
+        "sha256": "4dde135ffabdff3677c94236aa748be63e3ea47f7f4b8c8e228ef8565c3250c4"
+      },
+      "run_id": "0ee5dad6139d4f03bbcd09c2dbe0c0e0",
+      "status": "CAPTURED_NOT_APPROVED",
+      "tool_identity": {
+        "adapter_sha256": "1b9fb647b9c07eccebd53289fbbf5b682178d8aedc7660368a875be7a8e57efc",
+        "candidate_mount": "read_only",
+        "home": "empty_tmpfs",
+        "jar_sha256": "cac598547221ef4cda977af304bfd697207e984cd86616d12587c2cf86754d04",
+        "launcher_sha256": "6333d4e737064b6db470bcb85863a997675182470eb5d4d763bd806487c8d952",
+        "network": "unshared",
+        "profile": "sireum-architecture-v1",
+        "runtime_files": {
+          "bin/linux/java/bin/java": "81a3a861765b7f88ea29ea88eb038ef6f38b710ebce074bcdaa3c47928dfe7cd"
+        },
+        "sandbox_sha256": "77360cb751ccedc5971391444ac86a8a33c15b04d6b4a6fe45f5d25496e62c4c"
+      },
+      "id": "0c3fc291b663158430c3dc42da5f95d8263bc12e8a50de49d72f8862eb7bb086"
+    },
+    {
+      "config_hash": "8b4eae5379050ccd937ced463e92fc01100292f107f96b63222be9717b48652f",
+      "elements": {
+        "ProdCons_System_Instance": {
+          "kind": "component",
+          "owner": null,
+          "sha256": "adac2ab54ad978a6a985aa4fa09a361c6b1e25a80a335de6556a8bcb9e3cfd39"
+        },
+        "ProdCons_System_Instance::cons": {
+          "kind": "component",
+          "owner": "ProdCons_System_Instance",
+          "sha256": "b175b1e2e7164798a552114251765231f869df9590132bfe1ddda4f9e8f57ccf"
+        },
+        "ProdCons_System_Instance::cons::cons": {
+          "kind": "component",
+          "owner": "ProdCons_System_Instance::cons",
+          "sha256": "c8c45445bde7cd95b5ae5d993141443591f41aeb768b334ddc7aabcf2322dd28"
+        },
+        "ProdCons_System_Instance::cons::cons#Payload_Range": {
+          "kind": "GclAssume",
+          "owner": "ProdCons_System_Instance::cons::cons",
+          "sha256": "6675769803682b9ec93e0aebc90c624f8ac41cd52011914a57655c27edf7440d"
+        },
+        "ProdCons_System_Instance::cons::cons#initSum": {
+          "kind": "GclGuarantee",
+          "owner": "ProdCons_System_Instance::cons::cons",
+          "sha256": "8ab8d85b0f0bc8c61ec836e0d7ed1964a5b8af848ca4da9eb3d28913a8e2daaf"
+        },
+        "ProdCons_System_Instance::cons::cons::input": {
+          "kind": "port",
+          "owner": "ProdCons_System_Instance::cons::cons",
+          "sha256": "3ea7c7ee73fb0468a97d29c64d5c133b82175eb7e689a57f553db121bb251a74"
+        },
+        "ProdCons_System_Instance::cons::cons_input": {
+          "kind": "connection",
+          "owner": "ProdCons_System_Instance::cons",
+          "sha256": "6e78826efabf1280282f7822eb726cab45b1112a9ad8bdde5d9d41c164d52ec0"
+        },
+        "ProdCons_System_Instance::cons::input": {
+          "kind": "port",
+          "owner": "ProdCons_System_Instance::cons",
+          "sha256": "43016ded298d805dd764eda5c6370913d84e106cb17f1d6e4ece2b90496b870c"
+        },
+        "ProdCons_System_Instance::pc": {
+          "kind": "connection",
+          "owner": "ProdCons_System_Instance",
+          "sha256": "b0b2af72a51c5744e28c10580c1d3728a0e8b1be5bc083f8a8b83eeb98a0ac63"
+        },
+        "ProdCons_System_Instance::proc": {
+          "kind": "component",
+          "owner": "ProdCons_System_Instance",
+          "sha256": "85adb0c41d4f5048d5cdbe6ba90b3fcbb2a032c7504b3cafcd35800b534fcc01"
+        },
+        "ProdCons_System_Instance::producer": {
+          "kind": "component",
+          "owner": "ProdCons_System_Instance",
+          "sha256": "f962614b383547c0f0896d5a5f4b429a5feb165f06a2080813f76f23aa192836"
+        },
+        "ProdCons_System_Instance::producer::output": {
+          "kind": "port",
+          "owner": "ProdCons_System_Instance::producer",
+          "sha256": "4a7a82e70f2556eb43e907e027010cef06e20609df073fd415605c27e244e371"
+        },
+        "ProdCons_System_Instance::producer::prod": {
+          "kind": "component",
+          "owner": "ProdCons_System_Instance::producer",
+          "sha256": "560ff9c9c81de5cee72f6ef286fa2820cad86c200cd9f7da1ebc88eff69e3ae6"
+        },
+        "ProdCons_System_Instance::producer::prod#Payload_Range": {
+          "kind": "GclGuarantee",
+          "owner": "ProdCons_System_Instance::producer::prod",
+          "sha256": "391fdcf094d3afe1ce75ccb41925171ce42036b91dcf83afb1128d0a673e5e5b"
+        },
+        "ProdCons_System_Instance::producer::prod::output": {
+          "kind": "port",
+          "owner": "ProdCons_System_Instance::producer::prod",
+          "sha256": "38fe711634540efaac865875de6fe3df47f405bb07ee8eb0da6cc5381fa7a68d"
+        },
+        "ProdCons_System_Instance::producer::prod_output": {
+          "kind": "connection",
+          "owner": "ProdCons_System_Instance::producer",
+          "sha256": "18e78a4b005f6fe61816e83361f097e80ed866634b8c09f4eba0aa0ba1b7d2d6"
+        }
+      },
+      "input_manifest_sha256": "bb93d858bcce4ad1b41e3caa02404c83d88decd265446966b114c89dba5a093e",
+      "normalization": "hamr-position-free-time-ps-v2",
+      "normalized": {
+        "path": "objects/691a85be7ad84bccae98e2d2f34e37a8c24ebfedd1cba08dc19147db063278a9.json",
+        "sha256": "691a85be7ad84bccae98e2d2f34e37a8c24ebfedd1cba08dc19147db063278a9"
+      },
+      "raw": {
+        "path": "objects/4dde135ffabdff3677c94236aa748be63e3ea47f7f4b8c8e228ef8565c3250c4.json",
+        "sha256": "4dde135ffabdff3677c94236aa748be63e3ea47f7f4b8c8e228ef8565c3250c4"
+      },
+      "run_id": "33a11d902d4046a5be31e623285c14da",
+      "status": "CAPTURED_NOT_APPROVED",
+      "tool_identity": {
+        "adapter_sha256": "1b9fb647b9c07eccebd53289fbbf5b682178d8aedc7660368a875be7a8e57efc",
+        "candidate_mount": "read_only",
+        "home": "empty_tmpfs",
+        "jar_sha256": "cac598547221ef4cda977af304bfd697207e984cd86616d12587c2cf86754d04",
+        "launcher_sha256": "6333d4e737064b6db470bcb85863a997675182470eb5d4d763bd806487c8d952",
+        "network": "unshared",
+        "profile": "sireum-architecture-v1",
+        "runtime_files": {
+          "bin/linux/java/bin/java": "81a3a861765b7f88ea29ea88eb038ef6f38b710ebce074bcdaa3c47928dfe7cd"
+        },
+        "sandbox_sha256": "77360cb751ccedc5971391444ac86a8a33c15b04d6b4a6fe45f5d25496e62c4c"
+      },
+      "id": "21c0232a3fb00cdfc011c828f983b8024c89d5571299e5a7b07d70bc6a8678ba"
+    },
+    {
+      "config_hash": "369fae94f758c3aabe4c2d2114864a5373a44f8b7a75af588328a42f33e0e870",
+      "elements": {
+        "ProdCons_System_Instance": {
+          "kind": "component",
+          "owner": null,
+          "sha256": "e5d2754e84e032d8652f14508120621ec1c5c0eb2e89825a651d3e180b2fa2ee"
+        },
+        "ProdCons_System_Instance::cons": {
+          "kind": "component",
+          "owner": "ProdCons_System_Instance",
+          "sha256": "b175b1e2e7164798a552114251765231f869df9590132bfe1ddda4f9e8f57ccf"
+        },
+        "ProdCons_System_Instance::cons::cons": {
+          "kind": "component",
+          "owner": "ProdCons_System_Instance::cons",
+          "sha256": "c8c45445bde7cd95b5ae5d993141443591f41aeb768b334ddc7aabcf2322dd28"
+        },
+        "ProdCons_System_Instance::cons::cons#Payload_Range": {
+          "kind": "GclAssume",
+          "owner": "ProdCons_System_Instance::cons::cons",
+          "sha256": "6675769803682b9ec93e0aebc90c624f8ac41cd52011914a57655c27edf7440d"
+        },
+        "ProdCons_System_Instance::cons::cons#initSum": {
+          "kind": "GclGuarantee",
+          "owner": "ProdCons_System_Instance::cons::cons",
+          "sha256": "8ab8d85b0f0bc8c61ec836e0d7ed1964a5b8af848ca4da9eb3d28913a8e2daaf"
+        },
+        "ProdCons_System_Instance::cons::cons::input": {
+          "kind": "port",
+          "owner": "ProdCons_System_Instance::cons::cons",
+          "sha256": "3ea7c7ee73fb0468a97d29c64d5c133b82175eb7e689a57f553db121bb251a74"
+        },
+        "ProdCons_System_Instance::cons::cons_input": {
+          "kind": "connection",
+          "owner": "ProdCons_System_Instance::cons",
+          "sha256": "6e78826efabf1280282f7822eb726cab45b1112a9ad8bdde5d9d41c164d52ec0"
+        },
+        "ProdCons_System_Instance::cons::input": {
+          "kind": "port",
+          "owner": "ProdCons_System_Instance::cons",
+          "sha256": "43016ded298d805dd764eda5c6370913d84e106cb17f1d6e4ece2b90496b870c"
+        },
+        "ProdCons_System_Instance::pc": {
+          "kind": "connection",
+          "owner": "ProdCons_System_Instance",
+          "sha256": "996f21a5d0ff2077b62629eabc980987b6ecf0df8f55a6d7c03693a564aa43f7"
+        },
+        "ProdCons_System_Instance::proc": {
+          "kind": "component",
+          "owner": "ProdCons_System_Instance",
+          "sha256": "85adb0c41d4f5048d5cdbe6ba90b3fcbb2a032c7504b3cafcd35800b534fcc01"
+        },
+        "ProdCons_System_Instance::prod": {
+          "kind": "component",
+          "owner": "ProdCons_System_Instance",
+          "sha256": "eb5a3f633c91a5a37ec657fb83e89804ab778ecac7fde1532efd29ac292a932c"
+        },
+        "ProdCons_System_Instance::prod::output": {
+          "kind": "port",
+          "owner": "ProdCons_System_Instance::prod",
+          "sha256": "f3a147bf31bc27453d1f182bbbc77705de1dad2c4a92b965f1b51d7327ff1d57"
+        },
+        "ProdCons_System_Instance::prod::prod": {
+          "kind": "component",
+          "owner": "ProdCons_System_Instance::prod",
+          "sha256": "5a7e21b400faeb5f0c9b349c4ea15b6e85b313873eb643eb40c5c7c4db21b98d"
+        },
+        "ProdCons_System_Instance::prod::prod#Payload_Range": {
+          "kind": "GclGuarantee",
+          "owner": "ProdCons_System_Instance::prod::prod",
+          "sha256": "391fdcf094d3afe1ce75ccb41925171ce42036b91dcf83afb1128d0a673e5e5b"
+        },
+        "ProdCons_System_Instance::prod::prod::output": {
+          "kind": "port",
+          "owner": "ProdCons_System_Instance::prod::prod",
+          "sha256": "37c556d8fd5fad0c352bc9ad7dec87d370151bcd1a701c3b22bf21a055b2ddd7"
+        },
+        "ProdCons_System_Instance::prod::prod_output": {
+          "kind": "connection",
+          "owner": "ProdCons_System_Instance::prod",
+          "sha256": "113a281c5c60ce62ba877030f146f7833adb109587dd6303591dd2f4bdd4c108"
+        }
+      },
+      "input_manifest_sha256": "57bf003810e6fb3c1507228b549379be1a5bf144eb67bfa1d1328e16c607b288",
+      "normalization": "hamr-position-free-time-ps-v2",
+      "normalized": {
+        "path": "objects/153d580930ba06113af620c37b8507ecf4409b1e6e2ddca4ff5a58cf8b2dd1e8.json",
+        "sha256": "153d580930ba06113af620c37b8507ecf4409b1e6e2ddca4ff5a58cf8b2dd1e8"
+      },
+      "raw": {
+        "path": "objects/7015f34feb716c65101c7d706287fb27a0840c537ec73258d36953018ae9d1c6.json",
+        "sha256": "7015f34feb716c65101c7d706287fb27a0840c537ec73258d36953018ae9d1c6"
+      },
+      "run_id": "8a8ed6e8e0864944aadf8fcafe290742",
+      "status": "CAPTURED_NOT_APPROVED",
+      "tool_identity": {
+        "adapter_sha256": "1b9fb647b9c07eccebd53289fbbf5b682178d8aedc7660368a875be7a8e57efc",
+        "candidate_mount": "read_only",
+        "home": "empty_tmpfs",
+        "jar_sha256": "cac598547221ef4cda977af304bfd697207e984cd86616d12587c2cf86754d04",
+        "launcher_sha256": "6333d4e737064b6db470bcb85863a997675182470eb5d4d763bd806487c8d952",
+        "network": "unshared",
+        "profile": "sireum-architecture-v1",
+        "runtime_files": {
+          "bin/linux/java/bin/java": "81a3a861765b7f88ea29ea88eb038ef6f38b710ebce074bcdaa3c47928dfe7cd"
+        },
+        "sandbox_sha256": "77360cb751ccedc5971391444ac86a8a33c15b04d6b4a6fe45f5d25496e62c4c"
+      },
+      "id": "52a0b07eae53a8adf37e681509ca93fe96783b9372d2bff4a2459765b766a093"
+    },
+    {
+      "config_hash": "369fae94f758c3aabe4c2d2114864a5373a44f8b7a75af588328a42f33e0e870",
+      "elements": {
+        "ProdCons_System_Instance": {
+          "kind": "component",
+          "owner": null,
+          "sha256": "6efb99ae12befa2e9a8323818e540c7e8f3d9a01844e51280721e6e58c896a84"
+        },
+        "ProdCons_System_Instance::cons": {
+          "kind": "component",
+          "owner": "ProdCons_System_Instance",
+          "sha256": "69f416821ed3da21201e6fe2790c57515d25609e97c7e3f2ffe1d99dec2b2483"
+        },
+        "ProdCons_System_Instance::cons::cons": {
+          "kind": "component",
+          "owner": "ProdCons_System_Instance::cons",
+          "sha256": "c8c45445bde7cd95b5ae5d993141443591f41aeb768b334ddc7aabcf2322dd28"
+        },
+        "ProdCons_System_Instance::cons::cons#Payload_Range": {
+          "kind": "GclAssume",
+          "owner": "ProdCons_System_Instance::cons::cons",
+          "sha256": "6675769803682b9ec93e0aebc90c624f8ac41cd52011914a57655c27edf7440d"
+        },
+        "ProdCons_System_Instance::cons::cons#initSum": {
+          "kind": "GclGuarantee",
+          "owner": "ProdCons_System_Instance::cons::cons",
+          "sha256": "8ab8d85b0f0bc8c61ec836e0d7ed1964a5b8af848ca4da9eb3d28913a8e2daaf"
         },
         "ProdCons_System_Instance::cons::cons::input": {
           "kind": "port",
@@ -3102,7 +2606,7 @@
         "ProdCons_System_Instance::prod": {
           "kind": "component",
           "owner": "ProdCons_System_Instance",
-          "sha256": "198b384ffe9de320e3b3e6fcb30ef80fec2bbb2c46c835ae3377980c657833c3"
+          "sha256": "9e7e3167092b35205053b6af76cd835abd1776cdd7127eda2d599a551054da38"
         },
         "ProdCons_System_Instance::prod::output": {
           "kind": "port",
@@ -3112,12 +2616,12 @@
         "ProdCons_System_Instance::prod::prod": {
           "kind": "component",
           "owner": "ProdCons_System_Instance::prod",
-          "sha256": "c930e3e73260fb1a65c40a8c3e8215e6b1ee37e92e87e812e92741ce47c4c843"
+          "sha256": "5a7e21b400faeb5f0c9b349c4ea15b6e85b313873eb643eb40c5c7c4db21b98d"
         },
         "ProdCons_System_Instance::prod::prod#Payload_Range": {
           "kind": "GclGuarantee",
           "owner": "ProdCons_System_Instance::prod::prod",
-          "sha256": "3dfe6238b09e831c9c95ad8413d26ee9573aa819ebe2ecf641ab8bdbe5b41b24"
+          "sha256": "391fdcf094d3afe1ce75ccb41925171ce42036b91dcf83afb1128d0a673e5e5b"
         },
         "ProdCons_System_Instance::prod::prod::output": {
           "kind": "port",
@@ -3130,17 +2634,17 @@
           "sha256": "113a281c5c60ce62ba877030f146f7833adb109587dd6303591dd2f4bdd4c108"
         }
       },
-      "input_manifest_sha256": "8d01ebba7a0731a3e69e4bab9cc197d8f9567005d7906aa0324784fa89198a69",
-      "normalization": "hamr-position-free-time-ps-v1",
+      "input_manifest_sha256": "c5ade2514c02f80fb3613b9a61543fec12aa27d592ddf8c57cc0fa45e254fbe5",
+      "normalization": "hamr-position-free-time-ps-v2",
       "normalized": {
-        "path": "objects/e0e7722974e943fefa89166e8b8f425c3506c39262a26fcc1a4203d7dafe9dbf.json",
-        "sha256": "e0e7722974e943fefa89166e8b8f425c3506c39262a26fcc1a4203d7dafe9dbf"
+        "path": "objects/5f9b0b4e6741dd55e49778b4c05d6352747d6277067e9afc2ffb7e8878d56fbc.json",
+        "sha256": "5f9b0b4e6741dd55e49778b4c05d6352747d6277067e9afc2ffb7e8878d56fbc"
       },
       "raw": {
         "path": "objects/252f5aadd8fac6cfae5ad3ffeac24de811ad52f7b03901936487dc8d22490492.json",
         "sha256": "252f5aadd8fac6cfae5ad3ffeac24de811ad52f7b03901936487dc8d22490492"
       },
-      "run_id": "274aa009aac24416957b85498d327596",
+      "run_id": "0e7ba373706b49ca8da6f2a79ecfd775",
       "status": "CAPTURED_NOT_APPROVED",
       "tool_identity": {
         "adapter_sha256": "1b9fb647b9c07eccebd53289fbbf5b682178d8aedc7660368a875be7a8e57efc",
@@ -3155,7 +2659,229 @@
         },
         "sandbox_sha256": "77360cb751ccedc5971391444ac86a8a33c15b04d6b4a6fe45f5d25496e62c4c"
       },
-      "id": "c3ac2c04c48312e4957ebd58542c4bc85ea306d2269c40c2666de89448bf0c32"
+      "id": "9b19740bfe9f9ae684e1ee234f99e16b1bcc49c4f947af9a28509f23757e3a37"
+    },
+    {
+      "config_hash": "f8d141a18d8e7831b6e486cea504b1de8ab8a669450e31e03707aa3d09fc4e19",
+      "elements": {
+        "ProdCons_System_Instance": {
+          "kind": "component",
+          "owner": null,
+          "sha256": "e5d2754e84e032d8652f14508120621ec1c5c0eb2e89825a651d3e180b2fa2ee"
+        },
+        "ProdCons_System_Instance::cons": {
+          "kind": "component",
+          "owner": "ProdCons_System_Instance",
+          "sha256": "b175b1e2e7164798a552114251765231f869df9590132bfe1ddda4f9e8f57ccf"
+        },
+        "ProdCons_System_Instance::cons::cons": {
+          "kind": "component",
+          "owner": "ProdCons_System_Instance::cons",
+          "sha256": "c8c45445bde7cd95b5ae5d993141443591f41aeb768b334ddc7aabcf2322dd28"
+        },
+        "ProdCons_System_Instance::cons::cons#Payload_Range": {
+          "kind": "GclAssume",
+          "owner": "ProdCons_System_Instance::cons::cons",
+          "sha256": "6675769803682b9ec93e0aebc90c624f8ac41cd52011914a57655c27edf7440d"
+        },
+        "ProdCons_System_Instance::cons::cons#initSum": {
+          "kind": "GclGuarantee",
+          "owner": "ProdCons_System_Instance::cons::cons",
+          "sha256": "8ab8d85b0f0bc8c61ec836e0d7ed1964a5b8af848ca4da9eb3d28913a8e2daaf"
+        },
+        "ProdCons_System_Instance::cons::cons::input": {
+          "kind": "port",
+          "owner": "ProdCons_System_Instance::cons::cons",
+          "sha256": "3ea7c7ee73fb0468a97d29c64d5c133b82175eb7e689a57f553db121bb251a74"
+        },
+        "ProdCons_System_Instance::cons::cons_input": {
+          "kind": "connection",
+          "owner": "ProdCons_System_Instance::cons",
+          "sha256": "6e78826efabf1280282f7822eb726cab45b1112a9ad8bdde5d9d41c164d52ec0"
+        },
+        "ProdCons_System_Instance::cons::input": {
+          "kind": "port",
+          "owner": "ProdCons_System_Instance::cons",
+          "sha256": "43016ded298d805dd764eda5c6370913d84e106cb17f1d6e4ece2b90496b870c"
+        },
+        "ProdCons_System_Instance::pc": {
+          "kind": "connection",
+          "owner": "ProdCons_System_Instance",
+          "sha256": "996f21a5d0ff2077b62629eabc980987b6ecf0df8f55a6d7c03693a564aa43f7"
+        },
+        "ProdCons_System_Instance::proc": {
+          "kind": "component",
+          "owner": "ProdCons_System_Instance",
+          "sha256": "85adb0c41d4f5048d5cdbe6ba90b3fcbb2a032c7504b3cafcd35800b534fcc01"
+        },
+        "ProdCons_System_Instance::prod": {
+          "kind": "component",
+          "owner": "ProdCons_System_Instance",
+          "sha256": "eb5a3f633c91a5a37ec657fb83e89804ab778ecac7fde1532efd29ac292a932c"
+        },
+        "ProdCons_System_Instance::prod::output": {
+          "kind": "port",
+          "owner": "ProdCons_System_Instance::prod",
+          "sha256": "f3a147bf31bc27453d1f182bbbc77705de1dad2c4a92b965f1b51d7327ff1d57"
+        },
+        "ProdCons_System_Instance::prod::prod": {
+          "kind": "component",
+          "owner": "ProdCons_System_Instance::prod",
+          "sha256": "5a7e21b400faeb5f0c9b349c4ea15b6e85b313873eb643eb40c5c7c4db21b98d"
+        },
+        "ProdCons_System_Instance::prod::prod#Payload_Range": {
+          "kind": "GclGuarantee",
+          "owner": "ProdCons_System_Instance::prod::prod",
+          "sha256": "391fdcf094d3afe1ce75ccb41925171ce42036b91dcf83afb1128d0a673e5e5b"
+        },
+        "ProdCons_System_Instance::prod::prod::output": {
+          "kind": "port",
+          "owner": "ProdCons_System_Instance::prod::prod",
+          "sha256": "37c556d8fd5fad0c352bc9ad7dec87d370151bcd1a701c3b22bf21a055b2ddd7"
+        },
+        "ProdCons_System_Instance::prod::prod_output": {
+          "kind": "connection",
+          "owner": "ProdCons_System_Instance::prod",
+          "sha256": "113a281c5c60ce62ba877030f146f7833adb109587dd6303591dd2f4bdd4c108"
+        }
+      },
+      "input_manifest_sha256": "57bf003810e6fb3c1507228b549379be1a5bf144eb67bfa1d1328e16c607b288",
+      "normalization": "hamr-position-free-time-ps-v2",
+      "normalized": {
+        "path": "objects/153d580930ba06113af620c37b8507ecf4409b1e6e2ddca4ff5a58cf8b2dd1e8.json",
+        "sha256": "153d580930ba06113af620c37b8507ecf4409b1e6e2ddca4ff5a58cf8b2dd1e8"
+      },
+      "raw": {
+        "path": "objects/7015f34feb716c65101c7d706287fb27a0840c537ec73258d36953018ae9d1c6.json",
+        "sha256": "7015f34feb716c65101c7d706287fb27a0840c537ec73258d36953018ae9d1c6"
+      },
+      "run_id": "83731aa1735b4b02b990fe99fb526bc6",
+      "status": "CAPTURED_NOT_APPROVED",
+      "tool_identity": {
+        "adapter_sha256": "1b9fb647b9c07eccebd53289fbbf5b682178d8aedc7660368a875be7a8e57efc",
+        "candidate_mount": "read_only",
+        "home": "empty_tmpfs",
+        "jar_sha256": "cac598547221ef4cda977af304bfd697207e984cd86616d12587c2cf86754d04",
+        "launcher_sha256": "6333d4e737064b6db470bcb85863a997675182470eb5d4d763bd806487c8d952",
+        "network": "unshared",
+        "profile": "sireum-architecture-v1",
+        "runtime_files": {
+          "bin/linux/java/bin/java": "81a3a861765b7f88ea29ea88eb038ef6f38b710ebce074bcdaa3c47928dfe7cd"
+        },
+        "sandbox_sha256": "77360cb751ccedc5971391444ac86a8a33c15b04d6b4a6fe45f5d25496e62c4c"
+      },
+      "id": "bdb33fd57effb28607daf3a7292a83c479f9bd2590c0098071b6e56f115e48e3"
+    },
+    {
+      "config_hash": "369fae94f758c3aabe4c2d2114864a5373a44f8b7a75af588328a42f33e0e870",
+      "elements": {
+        "ProdCons_System_Instance": {
+          "kind": "component",
+          "owner": null,
+          "sha256": "454f6e20623fd02658e17dd14000f04c1e9bd59f4def35ab23591656b04f7f9d"
+        },
+        "ProdCons_System_Instance::cons": {
+          "kind": "component",
+          "owner": "ProdCons_System_Instance",
+          "sha256": "b175b1e2e7164798a552114251765231f869df9590132bfe1ddda4f9e8f57ccf"
+        },
+        "ProdCons_System_Instance::cons::cons": {
+          "kind": "component",
+          "owner": "ProdCons_System_Instance::cons",
+          "sha256": "c8c45445bde7cd95b5ae5d993141443591f41aeb768b334ddc7aabcf2322dd28"
+        },
+        "ProdCons_System_Instance::cons::cons#Payload_Range": {
+          "kind": "GclAssume",
+          "owner": "ProdCons_System_Instance::cons::cons",
+          "sha256": "6675769803682b9ec93e0aebc90c624f8ac41cd52011914a57655c27edf7440d"
+        },
+        "ProdCons_System_Instance::cons::cons#initSum": {
+          "kind": "GclGuarantee",
+          "owner": "ProdCons_System_Instance::cons::cons",
+          "sha256": "8ab8d85b0f0bc8c61ec836e0d7ed1964a5b8af848ca4da9eb3d28913a8e2daaf"
+        },
+        "ProdCons_System_Instance::cons::cons::input": {
+          "kind": "port",
+          "owner": "ProdCons_System_Instance::cons::cons",
+          "sha256": "3ea7c7ee73fb0468a97d29c64d5c133b82175eb7e689a57f553db121bb251a74"
+        },
+        "ProdCons_System_Instance::cons::cons_input": {
+          "kind": "connection",
+          "owner": "ProdCons_System_Instance::cons",
+          "sha256": "6e78826efabf1280282f7822eb726cab45b1112a9ad8bdde5d9d41c164d52ec0"
+        },
+        "ProdCons_System_Instance::cons::input": {
+          "kind": "port",
+          "owner": "ProdCons_System_Instance::cons",
+          "sha256": "43016ded298d805dd764eda5c6370913d84e106cb17f1d6e4ece2b90496b870c"
+        },
+        "ProdCons_System_Instance::pc": {
+          "kind": "connection",
+          "owner": "ProdCons_System_Instance",
+          "sha256": "996f21a5d0ff2077b62629eabc980987b6ecf0df8f55a6d7c03693a564aa43f7"
+        },
+        "ProdCons_System_Instance::proc": {
+          "kind": "component",
+          "owner": "ProdCons_System_Instance",
+          "sha256": "85adb0c41d4f5048d5cdbe6ba90b3fcbb2a032c7504b3cafcd35800b534fcc01"
+        },
+        "ProdCons_System_Instance::prod": {
+          "kind": "component",
+          "owner": "ProdCons_System_Instance",
+          "sha256": "e9b9850be5102d646b376411d9441af73375e6342847bf397141f48f996cc791"
+        },
+        "ProdCons_System_Instance::prod::output": {
+          "kind": "port",
+          "owner": "ProdCons_System_Instance::prod",
+          "sha256": "f3a147bf31bc27453d1f182bbbc77705de1dad2c4a92b965f1b51d7327ff1d57"
+        },
+        "ProdCons_System_Instance::prod::prod": {
+          "kind": "component",
+          "owner": "ProdCons_System_Instance::prod",
+          "sha256": "16607d0cb31fcfc627d4719f6fabb13e5115b4d642e653ef25f188bb27403fc5"
+        },
+        "ProdCons_System_Instance::prod::prod#Payload_Range": {
+          "kind": "GclGuarantee",
+          "owner": "ProdCons_System_Instance::prod::prod",
+          "sha256": "e5bab5af6861814fdd0f43a23b6501ecc2ffb8a65ea9a590d06ef21daf23d03a"
+        },
+        "ProdCons_System_Instance::prod::prod::output": {
+          "kind": "port",
+          "owner": "ProdCons_System_Instance::prod::prod",
+          "sha256": "37c556d8fd5fad0c352bc9ad7dec87d370151bcd1a701c3b22bf21a055b2ddd7"
+        },
+        "ProdCons_System_Instance::prod::prod_output": {
+          "kind": "connection",
+          "owner": "ProdCons_System_Instance::prod",
+          "sha256": "113a281c5c60ce62ba877030f146f7833adb109587dd6303591dd2f4bdd4c108"
+        }
+      },
+      "input_manifest_sha256": "176d51bbfc70605feabc5d6fff9bb6756a1940279a389d3c48eb93e56d1c2ed5",
+      "normalization": "hamr-position-free-time-ps-v2",
+      "normalized": {
+        "path": "objects/1267afa2c6c8aaf143a52cb5ed6f0788a5a8afdc4827f47a60734e5c449cd2c6.json",
+        "sha256": "1267afa2c6c8aaf143a52cb5ed6f0788a5a8afdc4827f47a60734e5c449cd2c6"
+      },
+      "raw": {
+        "path": "objects/d1b06b1314454afc73348094160b55204e2cf77ff25eb81608fb7f8bd409f349.json",
+        "sha256": "d1b06b1314454afc73348094160b55204e2cf77ff25eb81608fb7f8bd409f349"
+      },
+      "run_id": "3fd82262bf0c46eea15f083243e4c765",
+      "status": "CAPTURED_NOT_APPROVED",
+      "tool_identity": {
+        "adapter_sha256": "1b9fb647b9c07eccebd53289fbbf5b682178d8aedc7660368a875be7a8e57efc",
+        "candidate_mount": "read_only",
+        "home": "empty_tmpfs",
+        "jar_sha256": "cac598547221ef4cda977af304bfd697207e984cd86616d12587c2cf86754d04",
+        "launcher_sha256": "6333d4e737064b6db470bcb85863a997675182470eb5d4d763bd806487c8d952",
+        "network": "unshared",
+        "profile": "sireum-architecture-v1",
+        "runtime_files": {
+          "bin/linux/java/bin/java": "81a3a861765b7f88ea29ea88eb038ef6f38b710ebce074bcdaa3c47928dfe7cd"
+        },
+        "sandbox_sha256": "77360cb751ccedc5971391444ac86a8a33c15b04d6b4a6fe45f5d25496e62c4c"
+      },
+      "id": "f8eaa815bfd15eb55b1e2fde9ca6c3a1b17832a2d9b3a14dfe9f9c74f4f551cf"
     }
   ]
 }

@@ -1,0 +1,303 @@
+{
+  "plan_id": "2849a2cebf7258e1bf081dba484e97177979ec9cff7fb352f75b6c4dc8c77977",
+  "manifest_id": "2419185bb589101141c3548193bf101049fb3bc279b5d9bdc315c6f858ac5dad",
+  "batch_index": 7,
+  "batch_count": 12,
+  "model_call_id": "d6bcec47a767de8d67698f282431f7826b1dbafcdaef061dbd4ed8150d5be3ca",
+  "candidate_id": "ce107613a9bd6fca36c8edced63abe0b62ceec1887c768cf0b89f792f823904f",
+  "status": "DRAFT_PENDING_DEVELOPMENT_VALIDATION",
+  "scope": "Actual model proposal; no rule-transfer validation or publication claim",
+  "id": "51d58763e7fb48aafd9dfb3ff572aa57b655b1fd56744af6cf10ac8beface1e2",
+  "candidate": {
+    "record": {
+      "$schema": "",
+      "schema_version": "2.0",
+      "record_type": "rule",
+      "id": "hold-command-under-explicit-guard",
+      "revision": "1",
+      "state": "DRAFT",
+      "basis": "model_inferred",
+      "assessment_timing": "before_action",
+      "source_references": [
+        "d7ef18732a5def5da9422e3e47db924dd4ae4c9b806fcc86f11c932b377db935",
+        "8539757b211ec65ebcf5df73b8125fe82011a6066fd3bcba864328af992b4bf1"
+      ],
+      "source_artifact_hashes": [
+        "43664d0fe5904aed949d4c12e824c905d7bc1b4e89efa0409038c1b6f52ff605",
+        "b4949561cb04d46f718a16e2cc1486c0bd5a26c15778e3567c464466c24731df"
+      ],
+      "source_episode": "d6bcec47a767de8d67698f282431f7826b1dbafcdaef061dbd4ed8150d5be3ca",
+      "available_context_manifest": "2419185bb589101141c3548193bf101049fb3bc279b5d9bdc315c6f858ac5dad",
+      "model_configuration": "7e31988cc8d9b89ae79c126a58e57c1f5babd2bc70e3e301ffe8cee77e0969d1",
+      "prompt_version": "1",
+      "trigger": "A controlled-output requirement says to hold, retain, or leave the command unchanged under an explicit mode and numerical guard.",
+      "principle": "Represent guarded command retention as equality to the owning component's previous emitted command, preserving the stated guard, initialization, and all complementary output obligations.",
+      "semantic_choice": "Interpret 'hold alarm control' as history-dependent output equality, rather than a constant command or an unconstrained output. Preserve each inclusive and exclusive comparison. Rationale may explain retention but cannot supply additional behavioral requirements.",
+      "structural_placement": "Place the retention contract and private command history in the thread that owns the controlled output: Manage_Alarm_i in the supplied example. Keep process and system ports and forwarding connections intact.",
+      "repair_gate": "Proposed gate: permit a repair only after checking guard fidelity, history initialization and update, complementary cases, and preservation of existing interfaces and obligations. If a defect requires changed thresholds, assumptions, timing, or public interfaces, stop this scoped repair and identify the unresolved requirement. These checks have not been implemented or executed.",
+      "prerequisites": [
+        "The target contains an explicit guarded retention requirement and an identifiable output-owning component.",
+        "The previous emitted command and initialization semantics can be established without changing public interfaces.",
+        "Types, units, arithmetic bounds, mode meanings, and environmental assumptions are available and consistent with the parent specification.",
+        "The complete surrounding case set is available to assess coverage and conflicting simultaneous guarantees."
+      ],
+      "exclusions": [
+        "Requirements that explicitly set a fixed output.",
+        "Debouncing, averaging, or delayed transitions without an explicit retention requirement.",
+        "Inferring timeout behavior from descriptive labels.",
+        "Deriving new thresholds or behavior solely from rationale.",
+        "Assuming that a periodic dispatch interval establishes end-to-end latency."
+      ],
+      "parameters": [
+        {
+          "name": "u, p, u0",
+          "role": "Controlled command, private previous-command state, and specified initial command.",
+          "constraints": "Same existing command type; p must denote the previous emitted command at compute entry."
+        },
+        {
+          "name": "G",
+          "role": "Explicit mode-qualified retention guard.",
+          "constraints": "Preserve source conjunctions, disjunctions, units, and boundary inclusivity."
+        },
+        {
+          "name": "x, L, U, h",
+          "role": "Measured value, lower and upper bounds, and hysteresis width where applicable.",
+          "constraints": "Compatible source units and safe arithmetic; the supplied alarm uses h = 1 [s32] in degree-field expressions. Do not infer a physical unit conversion or impose an unstated range restriction."
+        }
+      ],
+      "dependencies": [
+        "Existing component ownership and connection topology.",
+        "Existing initialization and non-retention contracts.",
+        "Documented parent/subsystem assumptions and applicable latency and tolerance requirements."
+      ],
+      "target_compatibility": [
+        "reviewed-learning-plan"
+      ],
+      "preserved_obligations": [
+        "Architecture: preserve every existing source interface, port type, direction, connection, dispatch period, and scheduling domain.",
+        "Implementation: initialize command history consistently with the specified initial output; compute using the entry history; update history to the command actually emitted on every compute step, including mode changes.",
+        "Proof: establish the history invariant, initialization, guarded retention, and compatibility with every other applicable case; check arithmetic definedness and coverage under documented assumptions.",
+        "Testing: propose sequence tests with both previous command values under the same guard, boundary tests at L, L+h, U-h, and U plus adjacent representable values, and initialization and mode-transition tests.",
+        "Repair: fix state lifecycle or guard translation locally without weakening guarantees, strengthening environmental assumptions to hide failures, or changing numerical boundaries.",
+        "For the supplied alarm, retain initial Off, INIT Off, NORMAL outside-range Onn, NORMAL reset-band Off, and FAILED Onn.",
+        "Deployment: preserve existing scheduling and separately assess applicable composed latency and tolerance obligations; retention correctness alone does not establish them."
+      ],
+      "counterexample": {
+        "scenario": "In NORMAL mode with L=95, U=100, and x=95 in the supplied numeric representation, compare one history whose previous emitted alarm command is Onn with another whose previous command is Off.",
+        "expected_difference": "The lower hysteresis guard holds in both histories. The first must emit Onn and the second Off. A stateless implementation that always emits Off inside the alarm range violates the first case. At x=96, the reset-band obligation instead requires Off regardless of history.",
+        "source_or_test_reference": null
+      },
+      "validation_gate_ids": [],
+      "evidence_references": [],
+      "confidence_forecast_reference": "a14a6a08fab86e4ed03476b8260ff10bd9bcc0a8a569a04d84798848170e602c",
+      "approval_reference": null,
+      "notes": "Observed: Manage_Alarm_i declares lastCmd, initializes alarm_control to Off, and equates alarm_control to lastCmd in two guarded hysteresis cases. The supplied passage does not specify lastCmd initialization or updates. The context supplies a separate unchanged-command requirement and distinguishes requirements from rationale. Proposed: the history lifecycle, proof, testing, deployment checks, and repair obligations above complete an abstract reusable interpretation; they are not observed implementation facts. No validation implementation or held-out component is supplied. Source references and hashes await trusted-controller assignment.",
+      "source_english_patterns": [
+        "If mode NORMAL and current temperature is inside the lower hysteresis band then hold alarm control.",
+        "If mode NORMAL and current temperature is inside the upper hysteresis band then hold alarm control.",
+        "The value of the Heat Control shall not be changed."
+      ],
+      "positive_paraphrases": [
+        "Under the stated condition, retain the previously emitted command.",
+        "While this guard holds, leave the output command unchanged."
+      ],
+      "misleading_near_matches": [
+        "When temperature is inside the reset band, set alarm control to Off.",
+        "Keep the temperature inside the range.",
+        "Delay changing the output until a timeout expires."
+      ],
+      "supported_operations": [
+        "complete-system",
+        "repair-system",
+        "verify-only"
+      ],
+      "stack_layers": [
+        "language",
+        "architecture",
+        "gumbo",
+        "implementation",
+        "proof",
+        "testing",
+        "deployment",
+        "repair"
+      ],
+      "semantic_roles": {
+        "actor": "Thread owning the controlled command.",
+        "condition": "Explicit mode and interval predicate evaluated on the current compute inputs.",
+        "effect": "Output equals the previous emitted command.",
+        "modality": "Mandatory conditional guarantee.",
+        "quantification": "Every compute step satisfying the guard, for every admissible prior command.",
+        "temporal_scope": "One compute step relative to the preceding emission, with initialization establishing the first history value.",
+        "state_dependency": "Private persistent command history; current inputs alone cannot determine retention output.",
+        "units_and_boundaries": "Preserve source numeric types, units, and strict versus non-strict comparisons; check threshold arithmetic."
+      },
+      "formal_output_pattern": "Abstract transition contract, not executable GUMBO: initialize emitted u := u0 and history p := u0. At compute step k, p_k is the command most recently emitted before that step. Require G(inputs_k) => u_k = p_k, conjoined with all existing complementary guarantees; commit p_(k+1) = u_k. Alarm specialization: G = mode=NORMAL AND ((L<=x AND x<L+h) OR (U-h<x AND x<=U)); h=1 in the source degree-field representation. Corresponding abstract GUMBO case: assume G; guarantee alarm_control == lastCmd. History initialization and update require an explicit semantic binding beyond that case.",
+      "formal_pattern_status": "ABSTRACT_NOT_VALIDATED",
+      "allowed_edit_scope": [
+        "Owning thread's private command history and its lifecycle.",
+        "Guarded retention contract and corresponding implementation.",
+        "Associated proof obligations, proposed tests, and trace documentation."
+      ],
+      "required_baseline": [
+        "Existing source interfaces, topology, scheduling, and contracts.",
+        "Output initialization and complete mode-dependent behavior.",
+        "Applicable environmental assumptions, units, ranges, and timing obligations."
+      ],
+      "diagnostic_signature": null,
+      "related_rule_ids": []
+    },
+    "status": "DRAFT_PENDING_VALIDATION",
+    "id": "ce107613a9bd6fca36c8edced63abe0b62ceec1887c768cf0b89f792f823904f"
+  },
+  "model_result": {
+    "usage": {
+      "input_tokens": 21106,
+      "output_tokens": 1997,
+      "cached_input_tokens": 0
+    },
+    "usage_complete": true,
+    "status": "RESPONSE_RECEIVED",
+    "response": {
+      "rule": {
+        "$schema": "",
+        "schema_version": "2.0",
+        "record_type": "rule",
+        "id": "hold-command-under-explicit-guard",
+        "revision": "1",
+        "state": "DRAFT",
+        "basis": "model_inferred",
+        "assessment_timing": "before_action",
+        "source_references": [],
+        "source_artifact_hashes": [],
+        "source_episode": null,
+        "available_context_manifest": null,
+        "model_configuration": null,
+        "prompt_version": "1",
+        "trigger": "A controlled-output requirement says to hold, retain, or leave the command unchanged under an explicit mode and numerical guard.",
+        "principle": "Represent guarded command retention as equality to the owning component's previous emitted command, preserving the stated guard, initialization, and all complementary output obligations.",
+        "semantic_choice": "Interpret 'hold alarm control' as history-dependent output equality, rather than a constant command or an unconstrained output. Preserve each inclusive and exclusive comparison. Rationale may explain retention but cannot supply additional behavioral requirements.",
+        "structural_placement": "Place the retention contract and private command history in the thread that owns the controlled output: Manage_Alarm_i in the supplied example. Keep process and system ports and forwarding connections intact.",
+        "repair_gate": "Proposed gate: permit a repair only after checking guard fidelity, history initialization and update, complementary cases, and preservation of existing interfaces and obligations. If a defect requires changed thresholds, assumptions, timing, or public interfaces, stop this scoped repair and identify the unresolved requirement. These checks have not been implemented or executed.",
+        "prerequisites": [
+          "The target contains an explicit guarded retention requirement and an identifiable output-owning component.",
+          "The previous emitted command and initialization semantics can be established without changing public interfaces.",
+          "Types, units, arithmetic bounds, mode meanings, and environmental assumptions are available and consistent with the parent specification.",
+          "The complete surrounding case set is available to assess coverage and conflicting simultaneous guarantees."
+        ],
+        "exclusions": [
+          "Requirements that explicitly set a fixed output.",
+          "Debouncing, averaging, or delayed transitions without an explicit retention requirement.",
+          "Inferring timeout behavior from descriptive labels.",
+          "Deriving new thresholds or behavior solely from rationale.",
+          "Assuming that a periodic dispatch interval establishes end-to-end latency."
+        ],
+        "parameters": [
+          {
+            "name": "u, p, u0",
+            "role": "Controlled command, private previous-command state, and specified initial command.",
+            "constraints": "Same existing command type; p must denote the previous emitted command at compute entry."
+          },
+          {
+            "name": "G",
+            "role": "Explicit mode-qualified retention guard.",
+            "constraints": "Preserve source conjunctions, disjunctions, units, and boundary inclusivity."
+          },
+          {
+            "name": "x, L, U, h",
+            "role": "Measured value, lower and upper bounds, and hysteresis width where applicable.",
+            "constraints": "Compatible source units and safe arithmetic; the supplied alarm uses h = 1 [s32] in degree-field expressions. Do not infer a physical unit conversion or impose an unstated range restriction."
+          }
+        ],
+        "dependencies": [
+          "Existing component ownership and connection topology.",
+          "Existing initialization and non-retention contracts.",
+          "Documented parent/subsystem assumptions and applicable latency and tolerance requirements."
+        ],
+        "target_compatibility": [
+          "reviewed-learning-plan"
+        ],
+        "preserved_obligations": [
+          "Architecture: preserve every existing source interface, port type, direction, connection, dispatch period, and scheduling domain.",
+          "Implementation: initialize command history consistently with the specified initial output; compute using the entry history; update history to the command actually emitted on every compute step, including mode changes.",
+          "Proof: establish the history invariant, initialization, guarded retention, and compatibility with every other applicable case; check arithmetic definedness and coverage under documented assumptions.",
+          "Testing: propose sequence tests with both previous command values under the same guard, boundary tests at L, L+h, U-h, and U plus adjacent representable values, and initialization and mode-transition tests.",
+          "Repair: fix state lifecycle or guard translation locally without weakening guarantees, strengthening environmental assumptions to hide failures, or changing numerical boundaries.",
+          "For the supplied alarm, retain initial Off, INIT Off, NORMAL outside-range Onn, NORMAL reset-band Off, and FAILED Onn.",
+          "Deployment: preserve existing scheduling and separately assess applicable composed latency and tolerance obligations; retention correctness alone does not establish them."
+        ],
+        "counterexample": {
+          "scenario": "In NORMAL mode with L=95, U=100, and x=95 in the supplied numeric representation, compare one history whose previous emitted alarm command is Onn with another whose previous command is Off.",
+          "expected_difference": "The lower hysteresis guard holds in both histories. The first must emit Onn and the second Off. A stateless implementation that always emits Off inside the alarm range violates the first case. At x=96, the reset-band obligation instead requires Off regardless of history.",
+          "source_or_test_reference": null
+        },
+        "validation_gate_ids": [],
+        "evidence_references": [],
+        "confidence_forecast_reference": null,
+        "approval_reference": null,
+        "notes": "Observed: Manage_Alarm_i declares lastCmd, initializes alarm_control to Off, and equates alarm_control to lastCmd in two guarded hysteresis cases. The supplied passage does not specify lastCmd initialization or updates. The context supplies a separate unchanged-command requirement and distinguishes requirements from rationale. Proposed: the history lifecycle, proof, testing, deployment checks, and repair obligations above complete an abstract reusable interpretation; they are not observed implementation facts. No validation implementation or held-out component is supplied. Source references and hashes await trusted-controller assignment.",
+        "source_english_patterns": [
+          "If mode NORMAL and current temperature is inside the lower hysteresis band then hold alarm control.",
+          "If mode NORMAL and current temperature is inside the upper hysteresis band then hold alarm control.",
+          "The value of the Heat Control shall not be changed."
+        ],
+        "positive_paraphrases": [
+          "Under the stated condition, retain the previously emitted command.",
+          "While this guard holds, leave the output command unchanged."
+        ],
+        "misleading_near_matches": [
+          "When temperature is inside the reset band, set alarm control to Off.",
+          "Keep the temperature inside the range.",
+          "Delay changing the output until a timeout expires."
+        ],
+        "supported_operations": [
+          "complete-system",
+          "repair-system",
+          "verify-only"
+        ],
+        "stack_layers": [
+          "language",
+          "architecture",
+          "gumbo",
+          "implementation",
+          "proof",
+          "testing",
+          "deployment",
+          "repair"
+        ],
+        "semantic_roles": {
+          "actor": "Thread owning the controlled command.",
+          "condition": "Explicit mode and interval predicate evaluated on the current compute inputs.",
+          "effect": "Output equals the previous emitted command.",
+          "modality": "Mandatory conditional guarantee.",
+          "quantification": "Every compute step satisfying the guard, for every admissible prior command.",
+          "temporal_scope": "One compute step relative to the preceding emission, with initialization establishing the first history value.",
+          "state_dependency": "Private persistent command history; current inputs alone cannot determine retention output.",
+          "units_and_boundaries": "Preserve source numeric types, units, and strict versus non-strict comparisons; check threshold arithmetic."
+        },
+        "formal_output_pattern": "Abstract transition contract, not executable GUMBO: initialize emitted u := u0 and history p := u0. At compute step k, p_k is the command most recently emitted before that step. Require G(inputs_k) => u_k = p_k, conjoined with all existing complementary guarantees; commit p_(k+1) = u_k. Alarm specialization: G = mode=NORMAL AND ((L<=x AND x<L+h) OR (U-h<x AND x<=U)); h=1 in the source degree-field representation. Corresponding abstract GUMBO case: assume G; guarantee alarm_control == lastCmd. History initialization and update require an explicit semantic binding beyond that case.",
+        "formal_pattern_status": "ABSTRACT_NOT_VALIDATED",
+        "allowed_edit_scope": [
+          "Owning thread's private command history and its lifecycle.",
+          "Guarded retention contract and corresponding implementation.",
+          "Associated proof obligations, proposed tests, and trace documentation."
+        ],
+        "required_baseline": [
+          "Existing source interfaces, topology, scheduling, and contracts.",
+          "Output initialization and complete mode-dependent behavior.",
+          "Applicable environmental assumptions, units, ranges, and timing obligations."
+        ],
+        "diagnostic_signature": null,
+        "related_rule_ids": []
+      },
+      "confidence": {
+        "score": 0.82,
+        "rationale": "Before seeing development results, my model-belief confidence is 0.82 that this scoped rule preserves the stated obligations under its prerequisites. The guarded equality is directly supported by the supplied contracts, but the history lifecycle is inferred and the held-out component and validation implementation are unavailable. This is a subjective forecast, not an empirical probability or validation claim."
+      }
+    },
+    "warnings": [
+      "Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."
+    ],
+    "reason": null,
+    "scope": "Metered response only; no truth, validation or acceptance claim"
+  }
+}
