@@ -23,7 +23,7 @@ def normalize(value):
         return value
     # Only location metadata is excluded; contracts, initialization, classifiers,
     # resolved ownership, property values and unknown fields remain significant.
-    result = {k: normalize(v) for k, v in value.items() if k not in {'pos', 'posOpt', 'uriFrag'}}
+    result = {k: normalize(v) for k, v in value.items() if k not in {'pos', 'posOpt', 'opPosOpt', 'uriFrag'}}
     if result.get('type') == 'UnitProp':
         unit = result.get('unit', {}).get('value')
         if unit in TIME_UNITS:
@@ -169,7 +169,7 @@ class Architecture:
                     'input_manifest_sha256': record['input_manifest_sha256'],
                     'tool_identity': record['tool_identity'], 'raw': self.store.object(value),
                     'normalized': self.store.object(normalize(value)), 'elements': element_index(models),
-                    'status': 'CAPTURED_NOT_APPROVED', 'normalization': 'hamr-position-free-time-ps-v1'})
+                    'status': 'CAPTURED_NOT_APPROVED', 'normalization': 'hamr-position-free-time-ps-v2'})
                 record['snapshot_id'] = snapshot['id']
                 status, reason = 'PASS', 'Instantiated AIR and resolved declarations captured; no conformance claim'
         return {'gate': 'architecture_capture', 'status': status, 'reason': reason,

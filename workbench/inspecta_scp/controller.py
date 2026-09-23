@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 from pathlib import Path
 import signal
 import subprocess
@@ -318,6 +319,8 @@ class Controller:
             reason = "Worker sandbox could not start; no unsandboxed fallback"
         elif record["exit_code"] != 0:
             status, reason = "FAIL", "Checker process rejected the model"
+        elif re.search(r'^\s*-\s*\[\d+,\s*\d+\]\s+(?:TypeChecker|Instantiation) Error:', out_text+'\n'+err_text, re.M):
+            status, reason = "FAIL", "Type checker reported errors despite a zero process exit status"
         elif "Well-formed!" in out_text:
             status, reason = "PASS", "Type checker completed"
             if "MISSING_AADL_TYPE" in out_text or "Instantiation Warning" in out_text:
@@ -342,7 +345,7 @@ class Controller:
             self.store.change(run_id, {"READY"}, "BLOCKED", {"reason": str(exc)})
             return self.status(run_id)
         if config["resolved_operation"] != "verify-only":
-            reason = "Generation/learning worker and approval isolation are not yet implemented; no paid call launched"
+            reason = "Use the reviewed learning/development services for bounded model work; frozen User application is not yet connected to this run operation"
             if config["budget"]["enforcement"] == "strict":
                 reason += "; installed Codex CLI has no validated hard-token ceiling"
             self.store.change(run_id, {"READY"}, "BLOCKED", {"reason": reason})

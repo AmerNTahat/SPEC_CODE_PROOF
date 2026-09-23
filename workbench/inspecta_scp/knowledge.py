@@ -137,7 +137,9 @@ class Knowledge:
         return self.store.record("forecast", {"record": record,
                 "provenance_status": "IMPORTED_FORECAST_PENDING_MODEL_EVENT_CORROBORATION"})
 
-    def retrieve(self, query, operation, profile, release_id=None):
+    def retrieve(self, query, operation, profile, release_id=None, distance_threshold=0.1):
+        if type(distance_threshold) not in (int, float) or not 0 <= distance_threshold <= 0.3:
+            raise PolicyError("Retrieval cosine distance threshold must be between 0 and 0.3")
         if release_id:
             records = self.release(release_id)["rules"]
         else:
@@ -148,7 +150,9 @@ class Knowledge:
             if operation not in record["supported_operations"] or profile not in record["target_compatibility"]:
                 continue
             comparison = compare_text(query, record["trigger"] + " " + record["principle"])
-            matches.append({"candidate_id": entry["id"], "rule_id": record["id"],
+            if comparison['cosine_distance'] is None or comparison['cosine_distance'] > distance_threshold:
+                continue
+            matches.append({"distance_threshold": distance_threshold, "cosine_distance": comparison["cosine_distance"], "candidate_id": entry["id"], "rule_id": record["id"],
                             "lexical_score": comparison["cosine_similarity"],
                             "exclusions": record["exclusions"], "prerequisites": record["prerequisites"],
                             "status": "RELEASE_RULE" if release_id else "UNAPPROVED_CANDIDATE"})

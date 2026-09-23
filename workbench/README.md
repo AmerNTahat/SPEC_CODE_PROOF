@@ -1,8 +1,7 @@
 # INSPECTA/SCP Workbench — implementation in progress
 
 Implementation in progress. This is executable application code, separate from
-handoff support utilities. It does not yet implement a complete Workbench or live
-learning demonstration. `onboard` lists actual capabilities and missing stages.
+handoff support utilities. It now supports actual bounded Astra extraction, held-out generation and diagnostic repair, but does not yet complete the release/User acceptance cycle. See [the learning workflow](LEARNING_WORKFLOW.md). `onboard` lists actual capabilities and missing stages.
 
 Run from the repository root:
 

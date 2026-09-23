@@ -9,7 +9,7 @@ from .config import PolicyError, digest
 
 
 class Approvals:
-    ACTIONS = {"publish_release", "increase_budget", "promote_patch", "approve_dataset", "approve_architecture", "approve_requirements", "approve_registry"}
+    ACTIONS = {"approve_unit_definition", "approve_development_task", "approve_learning_plan", "publish_release", "increase_budget", "promote_patch", "approve_dataset", "approve_architecture", "approve_requirements", "approve_registry"}
 
     def __init__(self, store):
         self.store = store

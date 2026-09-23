@@ -32,7 +32,13 @@ def main():
         profile.write_text(json.dumps({'project': str(project), 'input_files': ['Model.sysml'],
             'model_file': 'Model.sysml', 'task_operation': 'verify-only', 'repair_allowed_files': ['Model.sysml'],
             'dataset_task': 'incomplete-saved-selection'}))
-        server, token = make_server(Application(root / 'state', [profile], [books]))
+        learning_profile = root / 'learning.json'
+        learning_profile.write_text(json.dumps({'project':str(project),'input_files':['Model.sysml'],
+                                               'model_file':'Model.sysml','task_operation':'verify-only'}))
+        (project/'Components.sysml').write_text('package Monitor {}\npackage Regulator {}\n')
+        split_profile=root/'components.json'
+        split_profile.write_text(json.dumps({'project':str(project),'input_files':['Components.sysml'],'model_file':'Components.sysml'}))
+        server, token = make_server(Application(root / 'state', [profile, learning_profile, split_profile], [books]))
         controller = Controller(root / 'state')
         try:
             sources = Sources(controller.store)
@@ -129,7 +135,7 @@ def main():
             command('WebDriver:Navigate', {'url': 'http://' + host + '/#token=' + token})
             until('document.body.textContent.includes("No runs yet")')
             assert js('return location.hash') == ''
-            click('New workflow')
+            click('Apply & check a project')
             until('document.body.textContent.includes("The saved task has no dataset assignment")')
             assert js('return Array.from(document.querySelectorAll("button")).find(b => b.textContent === "Next").disabled')
             assert not js('return !!document.querySelector(\'input[type="password"]\')')
@@ -175,10 +181,10 @@ def main():
             command('WebDriver:Refresh')
             until('document.body.textContent.includes("READY")')
             evidence['checks'].append('Session reconnect and durable run after reload')
-            click('Requirements & structure')
+            click('Engineering policies')
             until('document.body.textContent.includes("No architecture captures yet")')
             evidence['checks'].append('Engineering UI reads actual backend records without inventing captures')
-            click('Dataset assignments')
+            click('Data assignments')
             until('document.querySelector(\'textarea[aria-label="Task inventory JSON"]\')')
             fill('Task name','browser-task')
             fill('Reviewed family','browser-family')
@@ -193,14 +199,14 @@ def main():
             status, body = request_http('GET', '/api/datasets', auth)
             assert status == 200 and json.loads(body)['datasets'][0]['proposal']['tasks'][0]['role'] == 'learning'
             evidence['checks'].append('Guided dataset UI registers a saved project, preserves manual membership and requests exact review without moving sources')
-            click('Dataset assignments')
+            click('Data assignments')
             until('document.querySelector(\'textarea[aria-label="Task inventory JSON"]\')')
             js('const input = document.querySelector("textarea"); Object.getOwnPropertyDescriptor(HTMLTextAreaElement.prototype,"value").set.call(input,"[]"); input.dispatchEvent(new Event("input",{bubbles:true}));')
             click('Save assignment proposal')
             until('document.body.textContent.includes("Task registry is empty")')
             assert not js('return !!document.querySelector(\'input[type="password"]\')')
             evidence['checks'].append('Configuration errors show their cause without a misleading session-token prompt')
-            click('Repair revisions')
+            click('Repair memory')
             until('document.querySelector(\'textarea[aria-label="Exact patch request JSON"]\')')
             patch = {'run_id': recorded['id'], 'issue': 'browser-test', 'patch': {'Model.sysml': {
                 'expected_sha256': hashlib.sha256(b'package Synthetic {}').hexdigest(), 'text': 'package Proposed {}'}}}
@@ -214,7 +220,7 @@ def main():
             until('document.body.textContent.includes("BLOCKED — provisional validation")')
             assert (project / 'Model.sysml').read_text() == 'package Synthetic {}'
             evidence['checks'].append('UI stages exact provisional patch, shows diff, blocks missing tool and preserves source')
-            click('Knowledge library')
+            click('Rulebooks')
             click('Import books')
             until('document.body.textContent.includes("MR-BROWSER")')
             js('document.querySelector("section.card details").open = true;')
@@ -224,7 +230,7 @@ def main():
             assert js('return window.inspectaInjected === undefined')
             evidence['checks'].append('Real source navigation; imported HTML displayed as text without executing')
             js('sessionStorage.setItem("inspecta-token", "invalid-test-token");')
-            click('Dataset assignments')
+            click('Data assignments')
             until('document.querySelector(\'input[type="password"]\')')
             js('document.querySelector(".error details").open = true;')
             fill('Session token', token)
@@ -235,7 +241,7 @@ def main():
             if isinstance(picture, dict):
                 picture = picture['value']
             (output / 'workbench-browser.png').write_bytes(base64.b64decode(picture))
-            click('New workflow')
+            click('Apply & check a project')
             until('document.body.textContent.includes("The saved task has no dataset assignment")')
             click('Use project without dataset')
             for _ in range(3):
@@ -246,6 +252,81 @@ def main():
             fixed_picture = command('WebDriver:TakeScreenshot', {'id': None, 'full': True})
             if isinstance(fixed_picture, dict):fixed_picture = fixed_picture['value']
             (output / 'workbench-workflow-fixed.png').write_bytes(base64.b64decode(fixed_picture))
+            click('Home')
+            until('document.body.textContent.includes("The self-evolution cycle")')
+            click('Set up learning')
+            until('document.body.textContent.includes("Set up Learning Mode")')
+            js('const select = Array.from(document.querySelectorAll("label")).find(l => l.textContent.startsWith("Example / project profile")).querySelector("select"); select.value="learning"; select.dispatchEvent(new Event("change",{bubbles:true}));')
+            click('Inspect learning materials')
+            until('document.body.textContent.includes("Inspection complete")')
+            status, body = request_http('GET','/api/learning',auth)
+            learning_record=json.loads(body)
+            assert status==200 and len(learning_record['sessions'])==1
+            assert learning_record['sessions'][0]['model_calls']==0
+            assert learning_record['stages'][1]['available']
+            assert (books/'rules.md').read_text()=='# MR-BROWSER\n<script>window.inspectaInjected=true</script>\n'
+            evidence['checks'].append('Learning home and setup inspect actual materials, preserve books, and disclose unfinished model stages')
+            def input_value(label, value):
+                js('const el=Array.from(document.querySelectorAll("label")).find(l=>l.textContent.startsWith('+json.dumps(label)+')).querySelector("input,select,textarea"); const setter=Object.getOwnPropertyDescriptor(el.tagName==="SELECT"?HTMLSelectElement.prototype:el.tagName==="TEXTAREA"?HTMLTextAreaElement.prototype:HTMLInputElement.prototype,"value").set; setter.call(el,'+json.dumps(str(value))+'); el.dispatchEvent(new Event(el.tagName==="SELECT"?"change":"input",{bubbles:true}));')
+            input_value('Local context repository or folder',str(books))
+            click('Inspect context folder')
+            until('document.body.textContent.includes("documents found")')
+            js('document.querySelector(".file-list input[type=checkbox]").click()')
+            click('Import selected context')
+            until('document.body.textContent.includes("rules.md · learning context")')
+            input_value('Example project','components')
+            click('Inspect example files')
+            until('document.body.textContent.includes("Components.sysml · 2 lines")')
+            source_key=js('return Array.from(document.querySelectorAll("label")).find(l=>l.textContent.startsWith("Source file")).querySelector("select").options[1].value')
+            input_value('Source file',source_key)
+            input_value('Component label','Monitor')
+            input_value('Last line',1)
+            click('Add selected component')
+            input_value('Component label','Regulator')
+            input_value('Use in','validation')
+            input_value('First line',2)
+            input_value('Last line',2)
+            click('Add selected component')
+            input_value('Cosine distance threshold',0.1)
+            click('Review this learning split')
+            until('document.body.textContent.includes("Train on Monitor. Validate on Regulator.")')
+            input_value('Reviewer name','Browser synthetic reviewer')
+            click('Approve displayed split')
+            until('document.body.textContent.includes("Review selected split · APPROVED")')
+            status,body=request_http('GET','/api/learning',auth)
+            records=json.loads(body)
+            assert len(records['plans'])==1 and records['plans'][0]['retrieval']['epsilon']==0.1
+            assert records['plans'][0]['training'][0]['end']==1 and records['plans'][0]['validation'][0]['start']==2
+            assert not js('return window.inspectaInjected===true')
+            evidence['checks'].append('Context repository selection, disjoint component ranges, cosine-distance epsilon and exact split approval through Firefox')
+            from inspecta_scp.unit_definitions import UnitDefinitions,FIELDS,ARRAYS
+            definition={**{k:'Synthetic browser '+k for k in FIELDS},**{k:['Synthetic browser '+k] for k in ARRAYS},'granularity':'sysml_gumbo_obligation'}
+            fixture_controller=Controller(root/'state')
+            try:
+                proposal=fixture_controller.store.record('unit_definition_proposal',{'plan_id':records['plans'][0]['id'],'model_call_id':'synthetic-not-live','definition':definition})
+                UnitDefinitions(fixture_controller.store).revise(proposal['id'],definition)
+            finally:fixture_controller.close()
+            click('Home');click('Set up learning')
+            until('Array.from(document.querySelectorAll("label")).some(l=>l.textContent.startsWith("Saved unit definitions"))')
+            unit_key=js('return Array.from(document.querySelectorAll("label")).find(l=>l.textContent.startsWith("Saved unit definitions")).querySelector("select").options[1].value')
+            input_value('Saved unit definitions',unit_key)
+            until('document.body.textContent.includes("What one unit means")')
+            input_value('What one unit means','Edited synthetic unit meaning')
+            assert js('return Array.from(document.querySelectorAll("button")).find(b=>b.textContent==="Approve displayed unit definition").disabled')
+            click('Save edited definition for review')
+            until('document.body.textContent.includes("Review status: PENDING")')
+            input_value('Unit-definition reviewer','Synthetic browser reviewer')
+            click('Approve displayed unit definition')
+            until('document.body.textContent.includes("Review status: APPROVED")')
+            status,body=request_http('GET','/api/learning',auth)
+            definitions=json.loads(body)['unit_definitions']
+            assert any(x['human_modified'] and x['definition']['definition']=='Edited synthetic unit meaning' for x in definitions)
+            assert all(x['verified_count']==0 for x in definitions)
+            evidence['checks'].append('Unit-definition editing creates a new revision; unsaved edits cannot be approved and approval creates no verified units')
+
+            learning_picture=command('WebDriver:TakeScreenshot', {'id':None,'full':True})
+            if isinstance(learning_picture,dict):learning_picture=learning_picture['value']
+            (output/'workbench-learning.png').write_bytes(base64.b64decode(learning_picture))
             evidence['status'] = 'PASS'
             command('WebDriver:DeleteSession')
         finally:

@@ -41,6 +41,16 @@ class KnowledgeTests(unittest.TestCase):
                      target_compatibility=['synthetic-test-profile'])
         return value
 
+    def test_retrieval_threshold_bounds_and_filtering(self):
+        self.k.propose(self.candidate())
+        self.assertEqual(self.k.retrieve('zzzznooverlap', 'repair-system', 'synthetic-test-profile'), [])
+        rule=self.candidate()
+        exact=rule['trigger']+' '+rule['principle']
+        self.assertEqual(len(self.k.retrieve(exact, 'repair-system', 'synthetic-test-profile', distance_threshold=0.1)),1)
+        for value in [-0.1,0.31,float('nan'),True,'0.1']:
+            with self.assertRaises(PolicyError):
+                self.k.retrieve('state', 'repair-system', 'synthetic-test-profile', distance_threshold=value)
+
     def test_import_preserves_original_and_deduplicates(self):
         before = self.path.read_bytes()
         first = self.k.import_books(self.books)
@@ -128,7 +138,8 @@ class KnowledgeTests(unittest.TestCase):
     def test_retrieval_filters_before_ranking(self):
         self.k.propose(self.candidate())
         self.assertEqual(self.k.retrieve('state', 'repair-system', 'wrong-profile'), [])
-        self.assertEqual(len(self.k.retrieve('state', 'repair-system', 'synthetic-test-profile')), 1)
+        rule=self.candidate()
+        self.assertEqual(len(self.k.retrieve(rule['trigger']+' '+rule['principle'], 'repair-system', 'synthetic-test-profile')), 1)
 
     def test_forecast_preserves_question_without_empirical_claim(self):
         forecast = json.loads((Path(__file__).parent / 'fixtures/synthetic-confidence.json').read_text())

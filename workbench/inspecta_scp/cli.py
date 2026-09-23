@@ -28,6 +28,20 @@ def parser():
     sub = p.add_subparsers(dest="command", required=True)
     sub.add_parser("onboard", help="Show implemented capabilities and remaining gates")
     sub.add_parser("doctor", help="Inspect selected local tools without installing or invoking models")
+    q = sub.add_parser('learning', help='Inspect learning materials and follow rulebook development')
+    actions = q.add_subparsers(dest='learning_action', required=True)
+    actions.add_parser('catalog')
+    a = actions.add_parser('extract'); a.add_argument('--plan',required=True); a.add_argument('--campaign',required=True); a.add_argument('--batch-index',type=int,default=0)
+    a = actions.add_parser('prepare-validation'); a.add_argument('--config',type=Path,required=True); a.add_argument('--input',type=Path,required=True)
+    a = actions.add_parser('suggest-units'); a.add_argument('--plan',required=True); a.add_argument('--campaign',required=True)
+    a = actions.add_parser('revise-units'); a.add_argument('--proposal',required=True); a.add_argument('--input',type=Path,required=True)
+    a = actions.add_parser('refine'); a.add_argument('--candidate',required=True); a.add_argument('--development-result',required=True); a.add_argument('--campaign',required=True)
+    a = actions.add_parser('validate'); a.add_argument('--task',required=True); a.add_argument('--campaign',required=True); a.add_argument('--previous-result')
+    a = actions.add_parser('propose-split'); a.add_argument('--input',type=Path,required=True)
+    a = actions.add_parser('context-folder'); a.add_argument('--directory',type=Path,required=True)
+    a = actions.add_parser('context-select'); a.add_argument('--root',required=True); a.add_argument('--files',nargs='+',required=True)
+    a = actions.add_parser('inspect'); a.add_argument('--config', type=Path, required=True)
+    a.add_argument('--library', type=Path, required=True)
     q = sub.add_parser('trace', help='Inspect recorded requirements, units, source snapshots and executed evidence')
     q.add_argument('run_id')
     details = q.add_mutually_exclusive_group()
@@ -79,6 +93,7 @@ def parser():
     a.add_argument("--operation", required=True)
     a.add_argument("--profile", required=True)
     a.add_argument("--release")
+    a.add_argument("--distance-threshold", type=float, default=0.1)
     a = actions.add_parser("review")
     a.add_argument("candidate_id")
     a.add_argument("--supporting-run", required=True)
@@ -179,7 +194,7 @@ def dispatch(args):
         serve(args.state_dir, profiles, roots, args.port)
         return {"status": "STOPPED"}
     if args.command == "onboard":
-        return {"status": "IMPLEMENTATION_IN_PROGRESS", "paid_execution": "DEFERRED_BY_USER",
+        return {"status": "IMPLEMENTATION_IN_PROGRESS", "paid_execution": "AUTHORIZATION_REQUIRED_PER_CAMPAIGN",
                 "implemented": ["config resolution", "allowlisted snapshots", "durable runs/events",
                                 "pause/stop requests", "resume without resetting budgets", "typecheck adapter",
                                 "lexical diagnostics", "reviewed lineage-grouped dataset assignments and source invalidation", "legacy rulebook import",
@@ -189,9 +204,9 @@ def dispatch(args):
                                 "source-backed requirement ledgers and mapped coverage", "bounded provisional repairs",
                                 "reviewed unit registries and metrics/plots", "independent local DSSE verification",
                                 "isolated HAMR Slang/JVM generation and Logika connection integration checks",
-                                "run-specific source, requirement, unit and evidence drill-down"],
-                "remaining": ["generation/learning isolation", "independent rule transfer validation and publication readiness", "accepted source promotion",
-                              "complete proof/build/independent-test adapters", "cross-task learning execution", "production attestation trust setup", "live demonstrations"],
+                                "run-specific source, requirement, unit and evidence drill-down", "reviewed component learning splits, PDF/context selection and bounded Astra extraction", "English-to-model held-out development generation and diagnostic repair", "editable approved verification-unit definitions and separate structural metrics"],
+                "remaining": ["generation adapter for frozen User releases", "independent rule transfer validation and publication readiness", "accepted source promotion",
+                              "complete proof/build/independent-test adapters", "causal cross-task transfer validation", "production attestation trust setup", "completed passing live release/User demonstration"],
                 "start": "./inspecta-scp --json doctor; ./inspecta-scp --json check --offline --config workbench/profiles/producer-consumer.check.json",
                 "limits": "Nested worker isolation may be unavailable in this Codex sandbox. Failure blocks; it never runs without isolation."}
     if args.command == "doctor":
@@ -228,6 +243,28 @@ def dispatch(args):
             return resolve(profile, overrides, base)
     controller = Controller(args.state_dir)
     try:
+        if args.command == 'learning':
+            from .learning import Learning
+            service = Learning(controller)
+            if args.learning_action == 'catalog':return service.catalog()
+            if args.learning_action == 'refine':return service.refine(args.candidate,args.development_result,args.campaign)
+            if args.learning_action == 'extract':return service.extract(args.plan,args.campaign,args.batch_index)
+            if args.learning_action in {'suggest-units','revise-units'}:
+                from .unit_definitions import UnitDefinitions
+                units=UnitDefinitions(controller.store)
+                return units.suggest(args.plan,args.campaign) if args.learning_action=='suggest-units' else units.revise(args.proposal,read_json(args.input))
+            if args.learning_action in {'prepare-validation','validate'}:
+                from .development import Development
+                development=Development(controller)
+                return development.generate_and_check(args.task,args.campaign,args.previous_result) if args.learning_action=='validate' else development.prepare(read_json(args.config),base_dir=args.config.resolve().parent,**read_json(args.input))
+            if args.learning_action == 'propose-split':
+                from .learning_plan import LearningPlan
+                return LearningPlan(controller.store).propose(**read_json(args.input))
+            if args.learning_action in {'context-folder','context-select'}:
+                from .context_materials import ContextMaterials
+                materials=ContextMaterials(controller.store)
+                return materials.inventory(args.directory) if args.learning_action=='context-folder' else materials.select(args.root,args.files)
+            return service.inspect(read_json(args.config), args.library, base_dir=args.config.resolve().parent)
         if args.command == 'trace':
             from .traceability import Traceability
             service = Traceability(controller)
@@ -293,7 +330,7 @@ def dispatch(args):
             if args.rule_action in {"propose", "forecast"}:
                 return getattr(library, args.rule_action)(read_json(args.input))
             if args.rule_action == "retrieve":
-                return {"matches": library.retrieve(args.query, args.operation, args.profile, args.release)}
+                return {"matches": library.retrieve(args.query, args.operation, args.profile, args.release, args.distance_threshold)}
             if args.rule_action == "review":
                 return library.review(args.candidate_id, args.supporting_run, args.contrasting_run)
             if args.rule_action == "draft-release":

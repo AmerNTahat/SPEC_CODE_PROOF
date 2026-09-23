@@ -34,14 +34,65 @@ class Application:
                 rows = controller.store.db.execute("SELECT id FROM runs ORDER BY created DESC LIMIT 50").fetchall()
                 return {"runs": [controller.status(r[0]) for r in rows],
                         "profiles": [{"id": key, "config": json.loads(p.read_text())} for key, p in self.profiles.items()],
-                        "library_roots": self.library_roots, "paid_execution": "DEFERRED_BY_USER",
+                        "library_roots": self.library_roots, "paid_execution": "AUTHORIZATION_REQUIRED_PER_CAMPAIGN",
                         "defaults": {mode: defaults(mode) for mode in ("user", "learning")},
                         "approvals": [Approvals(controller.store).get(r["id"]) for r in controller.store.records("approval")],
                         "capabilities": {"rule_import": True, "source_viewer": True, "prepare_run": True,
-                                         "isolated_typecheck": True, "model_execution": False,
+                                         "isolated_typecheck": True, "model_execution": True,
                                          "live_demo": False, "independent_transfer_validation": False}}
             if method == "GET" and route == "/api/library":
                 return library.catalog()
+            if route.startswith('/api/learning'):
+                from .learning import Learning
+                service = Learning(controller)
+                if method == 'GET' and route == '/api/learning':return service.catalog()
+                if method == 'POST' and route in {'/api/learning/context-inventory','/api/learning/context-select','/api/learning/context-upload'}:
+                    from .context_materials import ContextMaterials
+                    materials=ContextMaterials(controller.store)
+                    if route.endswith('context-inventory'):return materials.inventory(body.get('directory'))
+                    if route.endswith('context-select'):return materials.select(body.get('root_id'),body.get('files'))
+                    return materials.upload(body.get('name'),body.get('base64'))
+                if method == 'POST' and route == '/api/learning/examples':
+                    from .config import resolve
+                    profile=self.profiles.get(body.get('profile_id'))
+                    if profile is None:raise PolicyError('Choose a registered example profile')
+                    config=resolve(json.loads(profile.read_text()),{'dataset_assignment':None,'dataset_task':None},profile.parent)['config']
+                    sources=Sources(controller.store);root=sources.register_root(config['project'],'learning')
+                    files=[]
+                    for name in config['input_files']:
+                        if name.startswith('aadl-lib/'):continue
+                        source=sources.register(root['id'],name);view=sources.view(source['id'])
+                        files.append({'source_id':source['id'],'path':name,'lines':view['end_line'],'text':view['text']})
+                    return {'files':files,'profile_id':body['profile_id'],'scope':'Human selection only; no model context exported'}
+                if method == 'POST' and route in {'/api/learning/unit-suggest','/api/learning/unit-revise'}:
+                    from .unit_definitions import UnitDefinitions
+                    units=UnitDefinitions(controller.store)
+                    return units.suggest(body.get('plan_id'),body.get('campaign_id')) if route.endswith('unit-suggest') else units.revise(body.get('proposal_id'),body.get('definition'))
+                if method == 'POST' and route == '/api/learning/development-prepare':
+                    from .development import Development
+                    profile=self.profiles.get(body.get('profile_id'))
+                    if profile is None:raise PolicyError('Choose a registered evaluation project')
+                    return Development(controller).prepare(json.loads(profile.read_text()),body.get('target_file'),body.get('shared_files',[]),body.get('requirements'),body.get('candidate_ids'),body.get('plan_id'),profile.parent,body.get('validation_plan_id'))
+                if method == 'GET' and route == '/api/learning/development-result':
+                    from .development import Development
+                    return Development(controller).inspect(query.get('result_id',[''])[0])
+                if method == 'POST' and route == '/api/learning/development-run':
+                    from .development import Development
+                    return Development(controller).generate_and_check(body.get('task_id'),body.get('campaign_id'),body.get('previous_result_id'))
+                if method == 'POST' and route == '/api/learning/refine':
+                    return service.refine(body.get('candidate_id'),body.get('development_result_id'),body.get('campaign_id'))
+                if method == 'POST' and route == '/api/learning/extract':
+                    return service.extract(body.get('plan_id'),body.get('campaign_id'),body.get('batch_index',0))
+                if method == 'POST' and route == '/api/learning/plan':
+                    from .learning_plan import LearningPlan
+                    return LearningPlan(controller.store).propose(body.get('context_ids',[]),body.get('training'),body.get('validation'),body.get('epsilon',0.1))
+                if method == 'POST' and route == '/api/learning/inspect':
+                    profile = self.profiles.get(body.get('profile_id'))
+                    library_directory = self.library_roots.get(body.get('library_root_id'))
+                    if profile is None or library_directory is None:
+                        raise PolicyError('Choose an inspected project and registered rulebook directory')
+                    return service.inspect(json.loads(profile.read_text()), library_directory,
+                                           body.get('budget'), body.get('assistance', 'automatic'), profile.parent)
             if route.startswith('/api/datasets'):
                 from .datasets import Datasets
                 service = Datasets(controller.store)
@@ -213,7 +264,7 @@ def make_server(application, port=0, token=None):
             try:
                 if method == "POST":
                     size = int(self.headers.get("Content-Length", "0"))
-                    if size < 0 or size > 1024 * 1024:
+                    if size < 0 or size > (24 if parsed.path == '/api/learning/context-upload' else 1) * 1024 * 1024:
                         return self.send(413, {"error": "Request size limit exceeded"})
                     if self.headers.get("Content-Type", "").split(";")[0] != "application/json":
                         return self.send(415, {"error": "JSON requests only"})
@@ -239,7 +290,7 @@ def make_server(application, port=0, token=None):
 def serve(state_dir, profiles, library_roots, port=8765):
     server, token = make_server(Application(state_dir, profiles, library_roots), port)
     print("Local Workbench: http://127.0.0.1:" + str(server.server_port) + "/#token=" + token, flush=True)
-    print("Paid execution deferred. Keep this local access URL private.", flush=True)
+    print("Paid execution needs bounded authorization and a validated worker. Keep this local access URL private.", flush=True)
     try:
         server.serve_forever()
     except KeyboardInterrupt:

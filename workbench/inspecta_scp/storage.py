@@ -70,6 +70,16 @@ class Store:
           CREATE TABLE IF NOT EXISTS decisions (
             request_id TEXT PRIMARY KEY, decision TEXT NOT NULL,
             reviewer TEXT NOT NULL, decided REAL NOT NULL);
+          CREATE TABLE IF NOT EXISTS campaigns (
+            id TEXT PRIMARY KEY, started REAL, used_tokens INTEGER NOT NULL DEFAULT 0,
+            reserved_tokens INTEGER NOT NULL DEFAULT 0, usage_unknown INTEGER NOT NULL DEFAULT 0);
+          CREATE TABLE IF NOT EXISTS campaign_usage (
+            call_id TEXT PRIMARY KEY, complete INTEGER NOT NULL, known_tokens INTEGER NOT NULL);
+          CREATE TABLE IF NOT EXISTS campaign_adjustments (
+            call_id TEXT PRIMARY KEY, debit INTEGER NOT NULL, consent TEXT NOT NULL);
+          CREATE TABLE IF NOT EXISTS campaign_calls (
+            id TEXT PRIMARY KEY, campaign_id TEXT NOT NULL, reserved INTEGER NOT NULL,
+            settled INTEGER NOT NULL DEFAULT 0);
         """)
 
     def close(self):
@@ -224,7 +234,9 @@ class Store:
             self.db.execute("ROLLBACK")
             raise
 
-    def settle(self, reservation, usage):
+    def settle(self, reservation, usage, complete=True):
+        if type(complete) is not bool:
+            raise PolicyError('Usage completeness must be boolean')
         if usage is not None:
             for key in ("input_tokens", "output_tokens", "cached_input_tokens"):
                 if type(usage.get(key)) is not int or usage[key] < 0:
@@ -238,9 +250,10 @@ class Store:
                 raise PolicyError("Unknown or already settled reservation")
             total = usage["input_tokens"] + usage["output_tokens"] if usage is not None else 0
             self.db.execute("UPDATE runs SET used_tokens=used_tokens+?,reserved_tokens=reserved_tokens-?,usage_unknown=MAX(usage_unknown,?) WHERE id=?",
-                            (total, row["tokens"], int(usage is None), row["run_id"]))
+                            (total, row["tokens"], int(usage is None or not complete), row["run_id"]))
             self.db.execute("UPDATE reservations SET settled=1 WHERE id=?", (reservation,))
             self.event(row["run_id"], "usage", {"reservation": reservation, "usage": usage,
+                       "usage_complete": complete and usage is not None,
                        "known_total": total if usage is not None else None,
                        "reservation_overshoot": max(0, total - row["tokens"]) if usage is not None else None})
             self.db.execute("COMMIT")

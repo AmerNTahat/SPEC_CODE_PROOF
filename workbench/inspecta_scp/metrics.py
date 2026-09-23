@@ -35,27 +35,53 @@ class Metrics:
     def __init__(self,controller):self.controller=controller;self.store=controller.store;self.approvals=Approvals(self.store)
 
     def propose(self,value):
-        if not isinstance(value,dict) or set(value)!={'benchmark_id','ledger_id','snapshot_id','units'}:
+        if not isinstance(value,dict) or set(value)-{'definition_id'}!={'benchmark_id','ledger_id','snapshot_id','units'}:
             raise PolicyError('Registry needs benchmark_id, ledger_id, snapshot_id and units')
         if not isinstance(value['benchmark_id'],str) or not value['benchmark_id'].strip() or not value['units']:
             raise PolicyError('Named benchmark and nonempty fixed unit inventory required')
+        if value.get('definition_id'):
+            from .unit_definitions import UnitDefinitions
+            UnitDefinitions(self.store).approved(value['definition_id'])
         ledger=Requirements(self.store).approved(value['ledger_id'])
         obligations={o['id'] for o in ledger['record']['obligations']}
         snapshot=self.store.read_record('architecture_snapshot',value['snapshot_id'])
-        ids=set();members=set()
+        ids=set();members=set();requirement_members=set()
         for unit in value['units']:
-            if set(unit)!={'id','obligation_ids','formal_element_ids','implementation_files','formal_gate_ids'}:
+            typed='unit_kind' in unit
+            if set(unit)-({'unit_kind','assumption_element_ids'} if typed else set())!={'id','obligation_ids','formal_element_ids','implementation_files','formal_gate_ids'}:
                 raise PolicyError('Each unit needs exact source, formal and implementation mappings')
+            structural=unit.get('unit_kind')=='structural-conformance'
+            if typed:
+                if not value.get('definition_id') or unit['unit_kind'] not in {'structural-conformance','behavioral-contract'}:
+                    raise PolicyError('Typed units require an approved definition and recognized kind')
+                if len(unit['obligation_ids'])!=1 or set(unit['obligation_ids']) & requirement_members:
+                    raise PolicyError('Count one atomic requirement once across all unit kinds')
+                requirement_members.update(unit['obligation_ids'])
+                if not isinstance(unit.get('assumption_element_ids'),list) or len(set(unit['assumption_element_ids']))!=len(unit['assumption_element_ids']):
+                    raise PolicyError('Declare unique assumption mappings, including an explicit empty list')
+                for assumption in unit['assumption_element_ids']:
+                    if snapshot['elements'].get(assumption,{}).get('kind')!='GclAssume':
+                        raise PolicyError('Assumption mapping must resolve to an actual assumption')
             if not isinstance(unit['id'],str) or not unit['id'].strip() or unit['id'] in ids:raise PolicyError('Duplicate/empty unit ID')
             ids.add(unit['id'])
             if not unit['obligation_ids'] or len(set(unit['obligation_ids']))!=len(unit['obligation_ids']) or not set(unit['obligation_ids'])<=obligations:
                 raise PolicyError('Unit obligations must resolve to the reviewed ledger')
             if not unit['formal_element_ids'] or len(set(unit['formal_element_ids']))!=len(unit['formal_element_ids']):raise PolicyError('Nonempty unique formal targets required')
             for element in unit['formal_element_ids']:
-                if element in members or snapshot['elements'].get(element,{}).get('kind')!='GclGuarantee':
+                kinds={'component','port','connection'} if structural else {'GclGuarantee'}
+                if element in members or snapshot['elements'].get(element,{}).get('kind') not in kinds:
                     raise PolicyError('Formal target missing, not a guarantee, or counted by multiple units')
                 members.add(element)
-            if unit['formal_gate_ids']!=['configured_formal_verification']:raise PolicyError('Unit requires the trusted formal-verification gate')
+            expected=['architecture_capture'] if structural else ['configured_formal_verification']
+            if unit['formal_gate_ids']!=expected:raise PolicyError('Unit requires its trusted typed verification gate')
+            if typed:
+                obligation=next(o for o in ledger['record']['obligations'] if o['id']==unit['obligation_ids'][0])
+                if not set(unit['formal_element_ids'])<=set(obligation['mapped_elements']):
+                    raise PolicyError('Unit targets must belong to its reviewed requirement mapping')
+                if structural and obligation['representation'] not in {'architecture','timing','deployment'}:
+                    raise PolicyError('Structural unit requires a structural requirement')
+                if not structural and obligation['representation']!='behavior_contract':
+                    raise PolicyError('Behavioral unit requires a behavioral requirement')
             if not unit['implementation_files'] or len(set(unit['implementation_files']))!=len(unit['implementation_files']):raise PolicyError('Implementation source mapping required')
             for path in unit['implementation_files']:relative_file(path)
         return self.store.record('unit_registry',{'record':value,'status':'DRAFT_REQUIRES_REVIEW'})
@@ -67,10 +93,30 @@ class Metrics:
     def approved(self,registry_id):
         registry=self.store.read_record('unit_registry',registry_id)
         Requirements(self.store).approved(registry['record']['ledger_id'])
+        if registry['record'].get('definition_id'):
+            from .unit_definitions import UnitDefinitions
+            UnitDefinitions(self.store).approved(registry['record']['definition_id'])
         subject={'registry_id':registry_id,'registry_digest':digest(registry)}
         request=self.approvals.request('approve_registry',subject)
         self.approvals.require(request['id'],'approve_registry',subject)
         return registry
+
+    def _structural_unit_conforms(self, run, gate, unit, registry):
+        """Compare exact resolved elements with the reviewed reference inventory."""
+        if gate.get('status')!='PASS' or not gate.get('snapshot_id') or not gate.get('evidence'):
+            return False
+        try:
+            actual=self.store.read_record('architecture_snapshot',gate['snapshot_id'])
+            reference=self.store.read_record('architecture_snapshot',registry['record']['snapshot_id'])
+            if actual.get('normalization')!=reference.get('normalization') or actual.get('tool_identity')!=reference.get('tool_identity'):return False
+            reference_run=self.controller.status(reference['run_id'])
+            if not reference_run.get('evidence_current_for_source') or not reference_run.get('policy_current'):return False
+            manifest=json.loads((self.store.root/'runs'/run['id']/'input-workspace-manifest.json').read_text())
+            if actual['run_id']!=run['id'] or actual['config_hash']!=run['config_hash'] or actual['input_manifest_sha256']!=digest(manifest):return False
+            evidence=self.store.load_object(gate['evidence'])
+            if evidence.get('snapshot_id')!=actual['id'] or evidence.get('run_id')!=run['id']:return False
+            return all(key in reference['elements'] and actual['elements'].get(key)==reference['elements'][key] for key in unit['formal_element_ids'])
+        except (PolicyError,OSError,ValueError,TypeError,KeyError):return False
 
     def _formal_unit_verified(self, run, gate, unit):
         """Reject labels and dangling references; bind every obligation to this run."""
@@ -102,7 +148,7 @@ class Metrics:
     def report(self,run_id):
         run=self.controller.status(run_id);events=self.store.events(run_id)
         registry_id=run['config'].get('unit_registry')
-        targets=None;units=[];verified=[];accepted=[]
+        targets=None;units=[];verified=[];accepted=[];structural_targets=[];conforming=[]
         registry=None;problems=[]
         if registry_id:
             try:registry=self.approved(registry_id)
@@ -111,13 +157,24 @@ class Metrics:
         gates={g['gate']:g for g in (run.get('result') or {}).get('gates',[])}
         current=run.get('evidence_current_for_source',False) and run.get('policy_current',False)
         if registry:
-            targets=[u['id'] for u in registry['record']['units']]
+            if any(u.get('unit_kind')=='behavioral-contract' for u in registry['record']['units']):
+                problems.append('Requirement-linked behavioral units require an assumption-discharge adapter; none is implemented')
+            targets=[u['id'] for u in registry['record']['units'] if u.get('unit_kind')!='structural-conformance'] or None
+            structural_targets=[u['id'] for u in registry['record']['units'] if u.get('unit_kind')=='structural-conformance']
             for unit in registry['record']['units']:
+                if unit.get('unit_kind')=='structural-conformance':
+                    conforms=current and self._structural_unit_conforms(run,gates.get('architecture_capture',{}),unit,registry)
+                    if conforms:conforming.append(unit['id'])
+                    units.append({**unit,'verified':False,'accepted':False,'current':current,'structural_conforms':conforms,
+                        'scope':'Exact reviewed resolved-element conformance; not behavioral proof or requirement-fidelity acceptance'})
+                    continue
                 checks=[]
                 for gate_id in unit['formal_gate_ids']:
                     gate=gates.get(gate_id,{})
                     checks.append(self._formal_unit_verified(run, gate, unit))
-                is_verified=current and bool(checks) and all(checks)
+                # A typed assume/guarantee definition additionally requires a
+                # trusted assumption-discharge adapter, currently unavailable.
+                is_verified=current and bool(checks) and all(checks) and 'unit_kind' not in unit
                 if is_verified:verified.append(unit['id'])
                 # Acceptance needs unit-specific independent validation as well;
                 # current adapters do not establish it, so no units are inferred accepted.
@@ -130,6 +187,10 @@ class Metrics:
         calculated=calculate(targets,verified,accepted,wall,total,None)
         return {**calculated,'run_id':run_id,'config_hash':run['config_hash'],'registry_id':registry_id,
             'measurement_kind':'recorded_application_run','unit_results':units,'verified_ids':verified,'accepted_ids':accepted,
+            'structural_registered_count':len(structural_targets) if registry else None,
+            'structural_conforming_count':len(conforming),'structural_conforming_ids':conforming,
+            'structural_coverage':len(conforming)/len(structural_targets) if structural_targets else None,
+            'requirement_registered_count':len(registry['record']['units']) if registry else None,
             'evidence_current':current,'end_to_end_success':False,'problems':problems,
             'repair_attempts':sum(r['run_id']==run_id for r in self.store.records('repair_candidate')),
             'scope':'Current trusted run evidence; no reconstructed historical 42-unit denominator or inferred billing',
@@ -161,7 +222,7 @@ class Metrics:
                 else:
                     ax.bar([0],[value]);ax.set_ylim(0,max(1,value*1.2))
                 ax.set_xticks([0],[run_id[:12]]);ax.set_ylabel(label)
-                fig.text(.02,.02,'RECORDED APPLICATION CHECKS — not a live demonstration',fontsize=8)
+                fig.text(.02,.02,'RECORDED CHECKS — no engineering acceptance inferred',fontsize=8)
                 fig.tight_layout(rect=[0,.06,1,1])
                 for extension in ('png','svg','pdf'):
                     filename=field+'.'+extension

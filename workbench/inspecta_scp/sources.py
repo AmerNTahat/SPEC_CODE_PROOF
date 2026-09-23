@@ -27,16 +27,21 @@ class Sources:
         # traversal or by weakening hidden/credential-file exclusions.
         rel = relative_file(relative)
         path = safe_child(Path(root["path"]), rel)
-        if not path.is_file() or path.stat().st_size > 4 * 1024 * 1024:
+        if not path.is_file() or path.stat().st_size > (32 if path.suffix.lower() == ".pdf" else 4) * 1024 * 1024:
             raise PolicyError("Missing, nonregular or oversized source")
-        if path.suffix.lower() not in {".md", ".txt", ".json", ".sysml", ".aadl", ".scala", ".rs"}:
+        if path.suffix.lower() not in {".pdf", ".md", ".txt", ".json", ".sysml", ".aadl", ".scala", ".rs"}:
             raise PolicyError("Unsupported source format; no fabricated viewer")
         data = path.read_bytes()
-        text = data.decode("utf-8")
+        extractor = None
+        if path.suffix.lower() == ".pdf":
+            from .pdf_context import extract_pdf
+            text, extractor = extract_pdf(path)
+        else:text = data.decode("utf-8")
         content = self.store.object({"text": text})
         return self.store.record("source", {"root_id": root_id, "relative": rel,
                                 "sha256": hashlib.sha256(data).hexdigest(), "bytes": len(data),
                                 "role": root["role"], "content": content,
+                                "text_sha256": hashlib.sha256(text.encode()).hexdigest(), "extractor": extractor,
                                 "generator_visible": root["role"] == "shared"})
 
     @staticmethod
@@ -63,7 +68,7 @@ class Sources:
         if audience == "generator" and state != "CURRENT":
             raise PolicyError("Generator source is stale or missing")
         text = self.store.load_object(source["content"])["text"]
-        if hashlib.sha256(text.encode()).hexdigest() != source["sha256"]:
+        if hashlib.sha256(text.encode()).hexdigest() != source.get("text_sha256",source["sha256"]):
             raise PolicyError("Source content identity changed")
         lines = text.splitlines(keepends=True)
         end = len(lines) if end is None else end
