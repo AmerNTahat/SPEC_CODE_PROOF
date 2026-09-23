@@ -1,5 +1,70 @@
 # Live demonstration: executed, validation incomplete
 
+## Data preparation and KSU-based evolution: executed checkpoint
+
+The implemented UI/CLI now has an explicit Data preparation stage before new rule
+learning. It supports existing English, exact excerpts of approved English documents,
+and Astra extraction when English is absent. Large models use resumable100-line
+obligation windows; successful batches are retained. Prepared English is bound to
+its data role, source revision and subsequent learning/validation task. Source claims
+and golden models are excluded from formalization context; the reviewed English is
+passed as selected. Model interpretations remain drafts pending review.
+
+KSU remains the engineering workflow. Miller/FAA supplies English presentation style
+and, where applicable, actual existing Isolette requirements. It does not override
+KSU workflow execution. The original FAA Monitor and Regulator sections were prepared
+unchanged, with exact source ranges and inherited source authorization. This is
+source reuse, not new semantic validation. Model-derived Isolette descriptions are
+supplements and cannot replace omitted FAA obligations.
+
+Executed preparation:
+
+- First full Monitor extraction:300-second timeout; no usable response or usage
+  totals. Charged the previously authorized1M estimated debit, separately from usage.
+- Monitor retry: five successful bounded batches,133 draft source-linked requirements,
+  101134 measured tokens and452.604 seconds across successful batches.
+- Regulator extraction:88 draft source-linked requirements,25836 measured tokens,
+  290.518 seconds. Retained as a model-derived supplement to existing FAA English.
+- Producer/Consumer extraction:32 draft source-linked requirements,15169 measured
+  tokens,106.160 seconds; source-derived reconstruction data, not independent English.
+- New actual rule-learning call: prepared FAA Monitor English + original Monitor +
+  all nine approved KSU guides;46158 measured tokens and116.847 seconds. Produced
+  draft **RA-001** on requirement allocation, assumption/guarantee composition, trace
+  preservation and requirement-preserving repair. It has not passed development gates.
+
+The maintained learned book now contains20 candidates. Existing books and prior
+results are preserved. This stage does not publish a release or establish accepted
+system cost improvement. New preparation interpretations and validation configurations
+must be reviewed before claiming a new formalization result.
+
+Validation of implementation:128 application tests and21 real Firefox checks passed.
+Browser checks use synthetic inputs, separately labeled from the real Astra calls.
+
+Current charged campaign usage:1182675 measured +4000000 estimated =5182675 tokens.
+The14M aggregate cap leaves8817325; the3M continuation sublimit leaves1811703.
+No new token or time authorization is implied. See `CAMPAIGN_STATUS.json` for the
+clock snapshot, and `data-preparation-evidence/` for saved call records.
+
+Prepared documents: `prepared-faa-english-monitor.md`, `prepared-faa-english-regulator.md`,
+`prepared-english-monitor-batched.md`, `prepared-english-regulator.md`, and
+`prepared-english-producer-consumer.md`. Learning receipt:
+`learning-from-prepared-english.json`. Operator instructions:
+`../../workbench/DATA_PREPARATION.md`.
+
+## Continuation authorization and scheduling clarification
+
+The user authorized up to 3M additional charged tokens within the unchanged 14M
+aggregate cap and 45 more minutes. See `CONTINUATION_3M_45_MINUTES.json`.
+The controller enforces the additional sublimit and preserves earlier consumption.
+
+A follow-up compatibility audit found that the selected KSU example's saved
+`microkit.schedule.xml` allocates 10+50+10+50=120, whereas the reused current
+generator defaults allocate 30+50+30+50=160. These are scheduling allocations,
+not AI tokens or measured execution times. The failure does not demonstrate
+that the system requirements are infeasible. See `KSU_SCHEDULE_COMPATIBILITY_FINDING.json`.
+No schedule was copied into generation/training, no original was modified, and no
+compatibility repair or schedulability proof is claimed.
+
 ## New graph assessment supersedes the architectural interpretation of exact diffs
 
 The user requested name-independent directed graph equivalence. Implemented and

@@ -1,0 +1,272 @@
+{
+  "assumptions": [
+    "Init, Normal and Failed abbreviate the source's Init_Monitor_Mode, Normal_Monitor_Mode and Failed_Monitor_Mode enumeration values.",
+    "Compute-case assumptions are treated as conditions on requirements, not as assumptions that the environment always satisfies.",
+    "The detailed Alarm cases outside the extraction window are used only to clarify the mode applicability of the general statement at lines 296\u2013297."
+  ],
+  "derived_from_reference": false,
+  "description": "The selected window describes the Monitor Mode process and its thread, which determine monitor mode from current temperature validity, operator interface failure and internal failure. These inputs are monitored quantities; the controlled quantity is monitor mode (Init, Normal or Failed). The process forwards its inputs to an internal thread and exposes that thread's mode output. The window also introduces the Alarm process and its purpose of activating alarm control when temperature is outside the alarm range. Process/thread decomposition, port types, scheduling domains and dispatch periods are source-defined implementation choices. These are draft derived requirements, not an independent specification.",
+  "english": "# Isolette Monitor \u2014 draft requirements derived from lines 201\u2013300\n\n## System description\nThe selected window describes the Monitor Mode process and its thread, which determine monitor mode from current temperature validity, operator interface failure and internal failure. These inputs are monitored quantities; the controlled quantity is monitor mode (Init, Normal or Failed). The process forwards its inputs to an internal thread and exposes that thread's mode output. The window also introduces the Alarm process and its purpose of activating alarm control when temperature is outside the alarm range. Process/thread decomposition, port types, scheduling domains and dispatch periods are source-defined implementation choices. These are draft derived requirements, not an independent specification.\n\n## Requirements\nL201-MON-201 [architecture]: The Monitor Mode process shall contain an instance named mmm of the Manage_Monitor_Mode_i thread.\nL201-MON-205 [interface]: The Monitor Mode process shall provide a current_tempWstatus input data port of type Isolette_Data_Model::TempWstatus_i for current temperature and its status.\nL201-MON-208 [interface]: The Monitor Mode process shall provide an interface_failure input data port of type Isolette_Data_Model::Failure_Flag_i for operator interface failure.\nL201-MON-211 [interface]: The Monitor Mode process shall provide an internal_failure input data port of type Isolette_Data_Model::Failure_Flag_i for internal failure.\nL201-MON-216 [interface]: The Monitor Mode process shall provide a monitor_mode output data port of type Isolette_Data_Model::Monitor_Mode.\nL201-MON-218 [architecture]: The Monitor Mode process shall connect its current_tempWstatus input to the mmm thread's current_tempWstatus input.\nL201-MON-220 [architecture]: The Monitor Mode process shall connect its interface_failure input to the mmm thread's interface_failure input.\nL201-MON-222 [architecture]: The Monitor Mode process shall connect its internal_failure input to the mmm thread's internal_failure input.\nL201-MON-224 [architecture]: The Monitor Mode process shall connect the mmm thread's monitor_mode output to its monitor_mode output.\nL201-MON-227 [architecture]: The Monitor Mode process shall be assigned CASE_Scheduling domain 8.\nL201-MON-231 [architecture]: Manage_Monitor_Mode_i shall be defined as a Thread.\nL201-MON-233 [timing]: The Monitor Mode thread shall use periodic dispatch.\nL201-MON-234 [timing]: The Monitor Mode thread shall have a dispatch period of 1000 milliseconds.\nL201-MON-235 [architecture]: The Monitor Mode thread shall be assigned CASE_Scheduling domain 8.\nL201-MON-237 [interface]: The Monitor Mode thread shall provide a current_tempWstatus input data port of type Isolette_Data_Model::TempWstatus_i.\nL201-MON-238 [interface]: The Monitor Mode thread shall provide an interface_failure input data port of type Isolette_Data_Model::Failure_Flag_i.\nL201-MON-239 [interface]: The Monitor Mode thread shall provide an internal_failure input data port of type Isolette_Data_Model::Failure_Flag_i.\nL201-MON-240 [interface]: The Monitor Mode thread shall provide a monitor_mode output data port of type Isolette_Data_Model::Monitor_Mode.\nL201-MON-244 [state]: The Monitor Mode thread shall declare a state variable named lastMonitorMode of type Isolette_Data_Model::Monitor_Mode.\nL201-MON-247 [state]: At initialization, the Monitor Mode thread shall set its monitor_mode output to Init_Monitor_Mode.\nL201-MON-253 [state]: During computation, when lastMonitorMode is Init, both failure flags are false and current temperature status is Valid, the Monitor Mode thread shall output Normal mode.\nL201-MON-259 [state]: During computation, when lastMonitorMode is Init and either failure flag is true or current temperature status is Invalid, the Monitor Mode thread shall output Init mode. The formal condition contains no timeout restriction.\nL201-MON-265 [state]: During computation, when lastMonitorMode is Normal, both failure flags are false and current temperature status is Valid, the Monitor Mode thread shall output Normal mode.\nL201-MON-271 [state]: During computation, when lastMonitorMode is Normal and either failure flag is true or current temperature status is Invalid, the Monitor Mode thread shall output Failed mode.\nL201-MON-277 [state]: During computation, when lastMonitorMode is Failed, the Monitor Mode thread shall output Failed mode, described by the source as remaining Failed until reboot.\nL201-MON-296 [functional]: The Manage Alarm function shall turn Alarm Control on when the current temperature falls below the lower alarm limit or rises above the upper alarm limit; the detailed behavior elsewhere in the selected source applies this rule in Normal monitor mode.\nL201-MON-299 [architecture]: Manage_Alarm_Process_i shall be defined as a Process.\n\n## Assumptions\nInit, Normal and Failed abbreviate the source's Init_Monitor_Mode, Normal_Monitor_Mode and Failed_Monitor_Mode enumeration values.\nCompute-case assumptions are treated as conditions on requirements, not as assumptions that the environment always satisfies.\nThe detailed Alarm cases outside the extraction window are used only to clarify the mode applicability of the general statement at lines 296\u2013297.\n\n## Unresolved questions\nlastMonitorMode has no specified initialization or update rule. Its name and case descriptions suggest previous mode, but its relationship to prior monitor_mode outputs is not defined.\nThe Init-stays-Init description says 'before timeout', but its formal condition contains no timer or timeout condition. No timeout duration or timeout transition is supplied.\nFailed mode is described as persisting until reboot, but reboot detection and its relationship to initialization are not specified.\nImported type definitions are absent, including temperature units, numeric ranges, complete status enumerations and data representation.\nBehavior for input statuses other than Valid or Invalid, if such values exist, is unspecified.\nThe 1000-millisecond period does not specify execution time, deadline, communication latency or an end-to-end response bound.\nScheduling domain 8 is assigned, but its scheduling semantics are not supplied.\nThe general Alarm description refers to room temperature, while the system input comment identifies air temperature from a sensor; the physical measurement location is unclear.\nThe comment describing monitor_mode calls it the mode of the regulator, whereas the port type and behavior identify monitor mode.",
+  "item": {
+    "end": 431,
+    "label": "Isolette Monitor",
+    "normalized_text_sha256": "7e0cd6ae2d818b5d5a018b74664cd665278d24f3eeb408849e834759400e41fa",
+    "source_id": "d7ef18732a5def5da9422e3e47db924dd4ae4c9b806fcc86f11c932b377db935",
+    "source_sha256": "43664d0fe5904aed949d4c12e824c905d7bc1b4e89efa0409038c1b6f52ff605",
+    "start": 1,
+    "text_sha256": "6d92da0875771dc87cc8f20c57864bd9ff3c06fa0d8ef1b962841149654ccba4"
+  },
+  "item_index": 0,
+  "line_window": [
+    201,
+    300
+  ],
+  "measurement": {
+    "elapsed_seconds": 92.96176067501074,
+    "estimated_debit_tokens": 0,
+    "measured_tokens": 20299
+  },
+  "method": "model_to_english",
+  "model_call_id": "6f7700b2d9c35585e36506b82c6c2a4342018df26b5a098fbf8d9cc919e4a979",
+  "plan_id": "6004a757c4beecf5c8c5b86780ccc3fa03d136f2fd15f65b3fc395348e3359d1",
+  "role": "training",
+  "scope": "Prepared development data, not independent final-transfer requirements or verified behavior",
+  "source_claims": [
+    {
+      "category": "architecture",
+      "evidence_quote": "part mmm: Manage_Monitor_Mode_i;",
+      "id": "L201-MON-201",
+      "source_end": 201,
+      "source_start": 201,
+      "statement": "The Monitor Mode process shall contain an instance named mmm of the Manage_Monitor_Mode_i thread."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "in port current_tempWstatus : DataPort { :>> type : Isolette_Data_Model::TempWstatus_i; }",
+      "id": "L201-MON-205",
+      "source_end": 205,
+      "source_start": 205,
+      "statement": "The Monitor Mode process shall provide a current_tempWstatus input data port of type Isolette_Data_Model::TempWstatus_i for current temperature and its status."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "in port interface_failure : DataPort { :>> type : Isolette_Data_Model::Failure_Flag_i; }",
+      "id": "L201-MON-208",
+      "source_end": 208,
+      "source_start": 208,
+      "statement": "The Monitor Mode process shall provide an interface_failure input data port of type Isolette_Data_Model::Failure_Flag_i for operator interface failure."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "in port internal_failure : DataPort { :>> type : Isolette_Data_Model::Failure_Flag_i; }",
+      "id": "L201-MON-211",
+      "source_end": 211,
+      "source_start": 211,
+      "statement": "The Monitor Mode process shall provide an internal_failure input data port of type Isolette_Data_Model::Failure_Flag_i for internal failure."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "out port monitor_mode : DataPort { :>> type : Isolette_Data_Model::Monitor_Mode; }",
+      "id": "L201-MON-216",
+      "source_end": 216,
+      "source_start": 216,
+      "statement": "The Monitor Mode process shall provide a monitor_mode output data port of type Isolette_Data_Model::Monitor_Mode."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect current_tempWstatus to mmm.current_tempWstatus;",
+      "id": "L201-MON-218",
+      "source_end": 219,
+      "source_start": 218,
+      "statement": "The Monitor Mode process shall connect its current_tempWstatus input to the mmm thread's current_tempWstatus input."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect interface_failure to mmm.interface_failure;",
+      "id": "L201-MON-220",
+      "source_end": 221,
+      "source_start": 220,
+      "statement": "The Monitor Mode process shall connect its interface_failure input to the mmm thread's interface_failure input."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect internal_failure to mmm.internal_failure;",
+      "id": "L201-MON-222",
+      "source_end": 223,
+      "source_start": 222,
+      "statement": "The Monitor Mode process shall connect its internal_failure input to the mmm thread's internal_failure input."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect mmm.monitor_mode to monitor_mode;",
+      "id": "L201-MON-224",
+      "source_end": 225,
+      "source_start": 224,
+      "statement": "The Monitor Mode process shall connect the mmm thread's monitor_mode output to its monitor_mode output."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "attribute Domain: CASE_Scheduling::Domain = 8;",
+      "id": "L201-MON-227",
+      "source_end": 227,
+      "source_start": 227,
+      "statement": "The Monitor Mode process shall be assigned CASE_Scheduling domain 8."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "part def Manage_Monitor_Mode_i :> Thread {",
+      "id": "L201-MON-231",
+      "source_end": 231,
+      "source_start": 231,
+      "statement": "Manage_Monitor_Mode_i shall be defined as a Thread."
+    },
+    {
+      "category": "timing",
+      "evidence_quote": "attribute :>> Dispatch_Protocol = Supported_Dispatch_Protocols::Periodic;",
+      "id": "L201-MON-233",
+      "source_end": 233,
+      "source_start": 233,
+      "statement": "The Monitor Mode thread shall use periodic dispatch."
+    },
+    {
+      "category": "timing",
+      "evidence_quote": "attribute :>> Period = 1000 [ms];",
+      "id": "L201-MON-234",
+      "source_end": 234,
+      "source_start": 234,
+      "statement": "The Monitor Mode thread shall have a dispatch period of 1000 milliseconds."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "attribute Domain: CASE_Scheduling::Domain = 8;",
+      "id": "L201-MON-235",
+      "source_end": 235,
+      "source_start": 235,
+      "statement": "The Monitor Mode thread shall be assigned CASE_Scheduling domain 8."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "in port current_tempWstatus : DataPort { :>> type : Isolette_Data_Model::TempWstatus_i; }",
+      "id": "L201-MON-237",
+      "source_end": 237,
+      "source_start": 237,
+      "statement": "The Monitor Mode thread shall provide a current_tempWstatus input data port of type Isolette_Data_Model::TempWstatus_i."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "in port interface_failure : DataPort { :>> type : Isolette_Data_Model::Failure_Flag_i; }",
+      "id": "L201-MON-238",
+      "source_end": 238,
+      "source_start": 238,
+      "statement": "The Monitor Mode thread shall provide an interface_failure input data port of type Isolette_Data_Model::Failure_Flag_i."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "in port internal_failure : DataPort { :>> type : Isolette_Data_Model::Failure_Flag_i; }",
+      "id": "L201-MON-239",
+      "source_end": 239,
+      "source_start": 239,
+      "statement": "The Monitor Mode thread shall provide an internal_failure input data port of type Isolette_Data_Model::Failure_Flag_i."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "out port monitor_mode : DataPort { :>> type : Isolette_Data_Model::Monitor_Mode; }",
+      "id": "L201-MON-240",
+      "source_end": 240,
+      "source_start": 240,
+      "statement": "The Monitor Mode thread shall provide a monitor_mode output data port of type Isolette_Data_Model::Monitor_Mode."
+    },
+    {
+      "category": "state",
+      "evidence_quote": "lastMonitorMode: Isolette_Data_Model::Monitor_Mode;",
+      "id": "L201-MON-244",
+      "source_end": 245,
+      "source_start": 244,
+      "statement": "The Monitor Mode thread shall declare a state variable named lastMonitorMode of type Isolette_Data_Model::Monitor_Mode."
+    },
+    {
+      "category": "state",
+      "evidence_quote": "monitor_mode == Isolette_Data_Model::Monitor_Mode.Init_Monitor_Mode;",
+      "id": "L201-MON-247",
+      "source_end": 249,
+      "source_start": 247,
+      "statement": "At initialization, the Monitor Mode thread shall set its monitor_mode output to Init_Monitor_Mode."
+    },
+    {
+      "category": "state",
+      "evidence_quote": "If mode is INIT and monitor status is healthy then next mode is NORMAL",
+      "id": "L201-MON-253",
+      "source_end": 257,
+      "source_start": 253,
+      "statement": "During computation, when lastMonitorMode is Init, both failure flags are false and current temperature status is Valid, the Monitor Mode thread shall output Normal mode."
+    },
+    {
+      "category": "state",
+      "evidence_quote": "If mode is INIT and monitor status is not healthy before timeout then mode stays INIT",
+      "id": "L201-MON-259",
+      "source_end": 263,
+      "source_start": 259,
+      "statement": "During computation, when lastMonitorMode is Init and either failure flag is true or current temperature status is Invalid, the Monitor Mode thread shall output Init mode. The formal condition contains no timeout restriction."
+    },
+    {
+      "category": "state",
+      "evidence_quote": "If mode is NORMAL and monitor status remains healthy then mode stays NORMAL",
+      "id": "L201-MON-265",
+      "source_end": 269,
+      "source_start": 265,
+      "statement": "During computation, when lastMonitorMode is Normal, both failure flags are false and current temperature status is Valid, the Monitor Mode thread shall output Normal mode."
+    },
+    {
+      "category": "state",
+      "evidence_quote": "If mode is NORMAL and monitor status is not healthy then mode is FAILED",
+      "id": "L201-MON-271",
+      "source_end": 275,
+      "source_start": 271,
+      "statement": "During computation, when lastMonitorMode is Normal and either failure flag is true or current temperature status is Invalid, the Monitor Mode thread shall output Failed mode."
+    },
+    {
+      "category": "state",
+      "evidence_quote": "If mode is FAILED then mode remains FAILED until reboot",
+      "id": "L201-MON-277",
+      "source_end": 279,
+      "source_start": 277,
+      "statement": "During computation, when lastMonitorMode is Failed, the Monitor Mode thread shall output Failed mode, described by the source as remaining Failed until reboot."
+    },
+    {
+      "category": "functional",
+      "evidence_quote": "Temperature of the Room falls below or rises above the Alarm Temperature Range.",
+      "id": "L201-MON-296",
+      "source_end": 297,
+      "source_start": 296,
+      "statement": "The Manage Alarm function shall turn Alarm Control on when the current temperature falls below the lower alarm limit or rises above the upper alarm limit; the detailed behavior elsewhere in the selected source applies this rule in Normal monitor mode."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "part def Manage_Alarm_Process_i :> Process {",
+      "id": "L201-MON-299",
+      "source_end": 299,
+      "source_start": 299,
+      "statement": "Manage_Alarm_Process_i shall be defined as a Process."
+    }
+  ],
+  "style": {
+    "context_id": "77bdcaefd9adf0515305978b7e9b668a5c4e1561b7ab8803c0744bcc698e7b8d",
+    "end_character": 47000,
+    "name": "Steve_Miller_FAA_docAR-08-32.pdf",
+    "source_sha256": "b4949561cb04d46f718a16e2cc1486c0bd5a26c15778e3567c464466c24731df",
+    "start_character": 35000,
+    "text": " environment in which it will\noperate. It should not attempt to completely describe the system. Rather, its intent is to provide\nthe reader with a high-level view of what the system does, how it interacts with its environment,\nand why the system is needed. At a minimum, it should include a short synopsis of the system;\none or more context descriptions; a brief description of each external entity in the context\ndiagrams; and a set of high-level system goals, objectives, and constraints. It may also include\nother relevant information, such as historical background, but this needs to be balanced against\nthe need to quickly orient a new reader. Examples of system overviews are provided in appendix\nA.1 for the Isolette Thermostat, appendix B.1 for the FCS, appendix C.1 for the FGS, and\nappendix D.1 for the AP.\n\n\n\n\n                                                  5\n\f Recommended Practice 2.1.1: Develop the system overview early in the requirements\n engineering process and use it as the introduction to the requirements specification. Keep the\n overview at a high level so it can be used to quickly orient new readers.\n\n2.1.2 Provide System Synopsis.\n\nThe overview itself should begin with a synopsis that provides a brief narrative description of the\nsystem. Ideally, the synopsis is short, clear, and describes what the system will do without\nimplying a particular system design. The synopsis should name the system to be developed,\ndescribe its purpose, and summarize the main capabilities provided by the system. An early\nversion of the synopsis for the Isolette Thermostat states:\n\n       The system being specified is the thermostat of an Isolette. An Isolette is an\n       incubator for an infant that provides controlled temperature, humidity, and\n       oxygen (if necessary). Isolettes are used extensively in Neonatal Intensive Care\n       Units for the care of premature infants.\n\n       The purpose of the Isolette Thermostat is to maintain the air temperature of an\n       Isolette within a desired range. It senses the current temperature of the Isolette\n       and turns the heat source on and off to warm the air as needed. The system\n       allows the nurse to set the Desired Temperature Range within a safe range for\n       infants.\n\nAs with all the system overviews, the synopsis will evolve throughout the requirements\ndefinition. Examples of complete system synopses are provided at the start of appendix A.1 for\nthe Isolette Thermostat, appendix B.1 for the FCS, appendix C.1 for the FGS, and appendix D.1\nfor the AP.\n\n Recommended Practice 2.1.2: Provide a short textual synopsis of the system as the first part\n of the system overview. The synopsis should name the system, describe its purpose, and\n summarize the system capabilities.\n\n2.1.3 Identify System Contexts.\n\nThe purpose of the system context is to describe, at a high level, the external entities with which\nthe system interacts and the nature of those interactions. Note that there may be more than one\ncontext in which the system will be used during its entire life cycle. For example, there will\nalmost certainly be an operational context, which describes the entities with which the system\ninteracts during normal operation, but there may also be a testing context used during system\ndevelopment in which the system interacts with test equipment through different interfaces, or\nthere may be a maintenance context that is used to diagnose and repair the system in the field.\nEach relevant context for the system should be identified and described. Since different\nindividuals will be interested in different contexts, it is usually better to describe each context\nseparately than to try to combine them into a single context.\n\n\n\n\n                                                6\n\f Recommended Practice 2.1.3: Consider the entire life cycle of the system and identify each\n distinct context in which it will be used.\n\n2.1.4 Use Context Diagrams.\n\nFor each context, the external entities with which the system interacts and the nature of those\ninteractions should be identified. A convenient way to do this is through the use of a context\ndiagram that graphically depicts each external entity and its interaction with the system. An\nexample context diagram for the Isolette Thermostat is shown in figure A-1. A similar context\ndiagram for the FCS is shown in figure B-1 for the FGS in figure C-1, and for the AP in figure\nD-1. Note that the system itself is shown in the context diagram as a black box with no internal\nstructure. It may also be helpful to identify the higher-level systems in which the system is\nembedded (for example, the Thermostat context includes the larger system content of the\nIsolette).\n\n Recommended Practice 2.1.4: Use context diagrams in the system overview to provide a\n high-level, graphical depiction of the system, the external entities it interacts with, and those\n interactions.\n\n2.1.5 Describe External Entities.\n\nA brief description of each external entity and its interactions with the system should also be\nprovided. Since this is part of the system overview, these descriptions should be kept short and\nsimple (more detailed information on the entities and their interactions will be provided in later\nsections of the applicable specification). Examples of the descriptions of external entities and\ntheir interactions with the system are provided in appendix A.1.1 for the Isolette Thermostat,\nappendix B.1.1 for the FCS, appendix C.1.1 for the FGS, and appendix D.1.1 for the AP.\n\n Recommended Practice 2.1.5: For each context diagram, provide a brief description of each\n external entity and its interactions with the system.\n\n2.1.6 Capture Preliminary System Goals.\n\nGoals are informal statements of the system stakeholders\u2019 needs. They are not requirements\nsince they are not verifiable and do not provide enough information to build the system [14].\nHowever, they provide important guidance on why the system is being built and what is\nimportant to the stakeholders. During the early phases of the project, they may be all that is\navailable. Goals frequently conflict with each other. For example, one goal may be to produce a\nsystem with a sophisticated operator interface, while another goal is to produce the system at\nminimal cost. One of the objectives of the requirements engineering process is to refine the\ngoals into verifiable requirements that resolve these conflicts as effectively as possible.\n\nA preliminary set of system goals should be captured early in the requirements engineering\nprocess so they can be used to guide the specification of requirements. A natural place to present\nthe system goals is in the system overview. However, in a large project, the system goals may be\nnumerous enough to justify placing them in their own section or in another document entirely.\n\n\n                                                7\n\f    Recommended Practice 2.1.6: Capture a preliminary set of system goals early in the\n    requirements engineering process so they can be used to guide the development of the\n    requirements.\n\n2.1.7 Maintain System Goal Information.\n\nGoals frequently help to explain why a particular requirement exists or is stated in a particular\nway and may be cited in the rationale (see section 2.11) for the requirement. The operational\nconcepts (see section 2.3) also trace back to the system goals.\n\nManagement of the system goals will vary with the size, complexity, and maturity of the system\nbeing developed. On small projects, the goals may be well understood. It may be possible to list\nthe system goals on a single page and their management may consist of nothing more than an\noccasional review and update. This is the case for the Isolette Thermostat example, which\ninitially has only two simple goals:\n\n\u2022        G1\u2014The infant should be kept at a safe and comfortable temperature.\n\u2022        G2\u2014The cost of manufacturing the thermostat should be as low as possible.\n\nHowever, on a project of any size, and particularly for new large systems, the goals will\nprobably evolve throughout project development. New needs will be identified, priorities will\nshift, managers will change, understanding of the project will grow, all resulting in a changing\nset of project goals. Management of the goals on such a project may be a significant task in its\nown right. To do this, information should be collected that facilitates tracing the goal back to its\nsource and continuously assessing the importance of that goal relative to other goals.\n\nPotential sources of system goals are numerous and include the customers, users, regulatory\nbodies, and previous developments. Goals may be provided directly by these organizations or\nmay be discovered through interviews or review of documents provided by the stakeholders.\nDepending on the size and volatility of a project, information that may be desirable to collect\nabout each goal may include:\n\n\u2022        Origin\u2014Where did the goal come from (customer, individual, document \u2026)?\n\u2022        Origin Date\u2014When was the goal was first identified?\n\u2022        Author\u2014Who first documented the goal?\n\u2022        Priority\u2014What is the importance of the goal relative to other goals?\n\u2022        Stakeholders\u2014Which customers or users are most concerned about this goal?\n\u2022        Stability\u2014How likely is this goal to change?\n\u2022        Schedule Date\u2014What is the date this goal is scheduled to be implemented?\n\nFor items such as priority and stability, each organization would probably want to provide their\nown allowed values and definitions. If the system goals are expected to change frequently, they\nshould be kept under configuration control to provide a history of their evolution.\n\n\n\n\n                                                 8\n\f Recommended Practice 2.1.7: Depending on the size and volatility of a project, collect and\n maintain the information about each system goal necessary to continuously assess its\n importance relative to the other goals.\n\n2.2 IDENTIFY THE SYSTEM BOUNDARY.\n\nRefer to table 2 for a description of main- and sublevel recommended practices for identifying\nthe system boundary.\n\n                             Table 2. Identify the System Boundary\n\n                          Main- and Sublevel Recommended Practices\n2.2 Identify the System Boundary:\n\n    Develop a clear definition of the boundary between the system and its environment. This\n    provides a solid understanding of what lies within the system to be built and what lies\n    within a larger environment. This is done by identifying a set of variables in the\n    environment the system will monitor and control.\n    2.2.1 Define the system boundary early in the requirements engineering process by\n           identifying a preliminary set of monitored and controlled variables.\n    2.2.2 Choose environmental variables that exist in the environment independently of the\n           system to be developed.\n    2.2.3 Choose controlled variables that are under the direct control of the system being\n           specified.\n    2.2.4 Choose monitored variables that are being directly sensed by the system being\n           specified.\n    2.2.5 Ensure the monitored and controlled variables are as abstract as possible and do not\n           include implementation details.\n    2.2.6 Avoid incorporating details of the operator interface in the monitored and controlled\n           variables. Instead, define monitored or controlled variables that describe the\n           information to be conveyed independent of its presentation format.\n    2.2.7 Completely define all physical interfaces to the system, including definitions for all\n           discrete inputs, all messages, all fields in a message, and all protocols followed.\n\nOne of the most important activities in requirements engineering is to clearly define the\nboundary between the system and its environment. This provides a sound understanding of what\nlies within the system to be built and what lies within a larger environment. Every system is\nembedded"
+  },
+  "unresolved": [
+    "lastMonitorMode has no specified initialization or update rule. Its name and case descriptions suggest previous mode, but its relationship to prior monitor_mode outputs is not defined.",
+    "The Init-stays-Init description says 'before timeout', but its formal condition contains no timer or timeout condition. No timeout duration or timeout transition is supplied.",
+    "Failed mode is described as persisting until reboot, but reboot detection and its relationship to initialization are not specified.",
+    "Imported type definitions are absent, including temperature units, numeric ranges, complete status enumerations and data representation.",
+    "Behavior for input statuses other than Valid or Invalid, if such values exist, is unspecified.",
+    "The 1000-millisecond period does not specify execution time, deadline, communication latency or an end-to-end response bound.",
+    "Scheduling domain 8 is assigned, but its scheduling semantics are not supplied.",
+    "The general Alarm description refers to room temperature, while the system input comment identifies air temperature from a sensor; the physical measurement location is unclear.",
+    "The comment describing monitor_mode calls it the mode of the regulator, whereas the port type and behavior identify monitor mode."
+  ],
+  "id": "b5744dfcacc0560a8003cc5f3e4c20b5e74c7291781fe0edc0c75d5c2c59a6f0"
+}

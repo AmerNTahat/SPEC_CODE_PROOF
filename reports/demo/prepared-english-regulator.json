@@ -1,0 +1,747 @@
+{
+  "proposal_id": "c037979ddc632c0368c0b3b0e1947f4ddf9df0656c8c8311b7f7f2f4b87fb614",
+  "plan_id": "6004a757c4beecf5c8c5b86780ccc3fa03d136f2fd15f65b3fc395348e3359d1",
+  "role": "validation",
+  "item": {
+    "end": 436,
+    "label": "Regulator \u2014 isolated port-direction compatibility reference",
+    "normalized_text_sha256": "9fd7e573a9f8e09d686befa9210d516a93f309cbf9a1c66aca81620afdbe3295",
+    "source_id": "e4ab3bdf21c821e43654d1d5060a17d67b55670948611e9157c74031cd8de58a",
+    "source_sha256": "dd7de904aed4a1e57638f0f947f527d384129d130acbe7376199a111754e7bdb",
+    "start": 1,
+    "text_sha256": "55a8a241b7696635fc1779c67b1d13e637c11122ec79b64483228efa2b5a313a"
+  },
+  "english": "# Regulate Temperature \u2014 draft derived description and requirements\n\n## System description\nThe selected material defines Regulate_Temperature_i, a system intended to regulate air temperature. Its boundary includes four processes: regulator interface management, heat source management, regulator mode management, and internal failure detection. Each process contains a corresponding thread. The external operator interface supplies lower and upper desired temperatures with validity status and receives regulator status and a temperature value for display. An external temperature sensor supplies current temperature with validity status. The system supplies an on/off command to an external heat source. These input values are the monitored quantities at the modeled boundary; regulator status, displayed temperature, and the heat command are the controlled outputs. The material does not establish a physical temperature-maintenance performance guarantee. Internally, the interface manager supplies desired temperatures and an interface failure flag; the failure detector supplies an internal failure flag; and the mode manager supplies Init, Normal, or Failed mode. The heat manager determines specified heater commands from mode and temperature comparisons. All four threads are periodic with a 1000 ms period. Process/thread decomposition, typed data ports, connections, scheduling domains, and periods are source-defined implementation choices, distinct from the functional behavior expressed in comments and contracts. The requirements below are draft extractions from the selected source, not an independently established specification or a validation result.\n\n## Requirements\nREG-A01 [architecture]: The Regulate_Temperature_i system shall contain an mri component of type Manage_Regulator_Interface_Process.\nREG-A02 [architecture]: The Regulate_Temperature_i system shall contain an mhs component of type Manage_Heat_Source_Process_i.\nREG-A03 [architecture]: The Regulate_Temperature_i system shall contain an mrm component of type Manage_Regulator_Mode_Process_i.\nREG-A04 [architecture]: The Regulate_Temperature_i system shall contain a drf component of type Detect_Regulator_Failure_Process_i.\nREG-I01 [interface]: The system shall receive the operator interface's lower desired temperature with status through the input DataPort lower_desired_tempWstatus of type Isolette_Data_Model::TempWstatus_i.\nREG-I02 [interface]: The system shall receive the operator interface's upper desired temperature with status through the input DataPort upper_desired_tempWstatus of type Isolette_Data_Model::TempWstatus_i.\nREG-I03 [interface]: The system shall receive the temperature sensor's current temperature with status through the input DataPort current_tempWstatus of type Isolette_Data_Model::TempWstatus_i.\nREG-I04 [interface]: The system shall provide regulator function status to the operator interface through the output DataPort regulator_status of type Isolette_Data_Model::Status.\nREG-I05 [interface]: The system shall provide a current-temperature value for operator display through the output DataPort displayed_temp of type Isolette_Data_Model::Temp_i.\nREG-I06 [interface]: The system shall provide the heater actuation command through the output DataPort heat_control of type Isolette_Data_Model::On_Off.\nREG-C01 [architecture]: The system shall connect upper_desired_tempWstatus to the interface management process's upper_desired_tempWstatus input.\nREG-C02 [architecture]: The system shall connect lower_desired_tempWstatus to the interface management process's lower_desired_tempWstatus input.\nREG-C03 [architecture]: The system shall connect current_tempWstatus to the interface management process's current_tempWstatus input.\nREG-C04 [architecture]: The system shall connect current_tempWstatus to the heat source management process's current_tempWstatus input.\nREG-C05 [architecture]: The system shall connect current_tempWstatus to the mode management process's current_tempWstatus input.\nREG-C06 [architecture]: The system shall connect the interface management process's displayed_temp output to the system's displayed_temp output.\nREG-C07 [architecture]: The system shall connect the interface management process's regulator_status output to the system's regulator_status output.\nREG-C08 [architecture]: The system shall connect the heat source management process's heat_control output to the system's heat_control output.\nREG-C09 [architecture]: The system shall connect the interface management process's upper_desired_temp output to the heat source management process's upper_desired_temp input.\nREG-C10 [architecture]: The system shall connect the interface management process's lower_desired_temp output to the heat source management process's lower_desired_temp input.\nREG-C11 [architecture]: The system shall connect the mode management process's regulator_mode output to the interface management process's regulator_mode input.\nREG-C12 [architecture]: The system shall connect the mode management process's regulator_mode output to the heat source management process's regulator_mode input.\nREG-C13 [architecture]: The system shall connect the interface management process's interface_failure output to the mode management process's interface_failure input.\nREG-C14 [architecture]: The system shall connect the failure detection process's internal_failure output to the mode management process's internal_failure input.\nMRI-A01 [architecture]: The Manage_Regulator_Interface_Process process shall contain an mri thread of type Manage_Regulator_Interface_i.\nMRI-I01 [interface]: The interface management process shall expose input DataPorts lower_desired_tempWstatus, upper_desired_tempWstatus, and current_tempWstatus of type Isolette_Data_Model::TempWstatus_i.\nMRI-I02 [interface]: The interface management process shall expose an input DataPort regulator_mode of type Isolette_Data_Model::Regulator_Mode.\nMRI-I03 [interface]: The interface management process shall expose output DataPorts lower_desired_temp, upper_desired_temp, and displayed_temp of type Isolette_Data_Model::Temp_i.\nMRI-I04 [interface]: The interface management process shall expose an output DataPort regulator_status of type Isolette_Data_Model::Status.\nMRI-I05 [interface]: The interface management process shall expose an output DataPort interface_failure of type Isolette_Data_Model::Failure_Flag_i to report improper inputs for mode determination.\nMRI-I06 [interface]: The interface management thread shall expose the same nine named DataPorts, with the same directions and types, as its containing process: four inputs for the three temperatures with status and regulator mode, and five outputs for the desired temperatures, displayed temperature, regulator status, and interface failure.\nMRI-C01 [architecture]: For each of lower_desired_tempWstatus, upper_desired_tempWstatus, current_tempWstatus, and regulator_mode, the interface management process shall connect its input port to the identically named input port of its contained mri thread.\nMRI-C02 [architecture]: For each of lower_desired_temp, upper_desired_temp, displayed_temp, regulator_status, and interface_failure, the interface management process shall connect its contained mri thread's output port to the identically named process output port.\nMRI-A02 [architecture]: The interface management process shall have CASE_Scheduling domain 3.\nMRI-A03 [architecture]: The interface management thread shall have CASE_Scheduling domain 3.\nMRI-T01 [timing]: The interface management thread shall use periodic dispatch with a period of 1000 milliseconds.\nMRI-S01 [state]: At initialization, the interface management thread shall set regulator_status to Init_Status.\nMRI-F01 [functional]: During computation, when regulator_mode is Init_Regulator_Mode, the interface management thread shall set regulator_status to Init_Status.\nMRI-F02 [functional]: During computation, when regulator_mode is Normal_Regulator_Mode, the interface management thread shall set regulator_status to On_Status.\nMRI-F03 [functional]: During computation, when regulator_mode is Failed_Regulator_Mode, the interface management thread shall set regulator_status to Failed_Status.\nMRI-F04 [functional]: During computation, if either desired-temperature input has status Invalid, the interface management thread shall set interface_failure.flag to true.\nMRI-F05 [functional]: During computation, if both desired-temperature inputs have status Valid, the interface management thread shall set interface_failure.flag to false.\nMRI-F06 [functional]: During computation, when interface_failure.flag is false, the interface management thread shall set the degrees field of lower_desired_temp equal to the degrees field of lower_desired_tempWstatus.\nMRI-F07 [functional]: During computation, when interface_failure.flag is false, the interface management thread shall set the degrees field of upper_desired_temp equal to the degrees field of upper_desired_tempWstatus.\nMRM-A01 [architecture]: The Manage_Regulator_Mode_Process_i process shall contain an mrm thread of type Manage_Regulator_Mode_i.\nMRM-I01 [interface]: The mode management process shall expose an input DataPort current_tempWstatus of type Isolette_Data_Model::TempWstatus_i.\nMRM-I02 [interface]: The mode management process shall expose input DataPorts interface_failure and internal_failure of type Isolette_Data_Model::Failure_Flag_i.\nMRM-I03 [interface]: The mode management process shall expose an output DataPort regulator_mode of type Isolette_Data_Model::Regulator_Mode.\nMRM-I04 [interface]: The mode management thread shall expose the same four named DataPorts, with the same directions and types, as its containing process: current_tempWstatus, interface_failure, and internal_failure as inputs, and regulator_mode as output.\nMRM-C01 [architecture]: For each of current_tempWstatus, interface_failure, and internal_failure, the mode management process shall connect its input port to the identically named input port of its contained mrm thread.\nMRM-C02 [architecture]: The mode management process shall connect its contained mrm thread's regulator_mode output to the process's regulator_mode output.\nMRM-A02 [architecture]: The mode management process shall have CASE_Scheduling domain 4.\nMRM-A03 [architecture]: The mode management thread shall have CASE_Scheduling domain 4.\nMRM-T01 [timing]: The mode management thread shall use periodic dispatch with a period of 1000 milliseconds.\nMRM-S01 [state]: The mode management thread shall include a state variable lastRegulatorMode of type Isolette_Data_Model::Regulator_Mode.\nMRM-S02 [state]: At initialization, the mode management thread shall set regulator_mode to Init_Regulator_Mode.\nMRM-S03 [state]: During computation, when lastRegulatorMode is Init_Regulator_Mode, both failure flags are false, and current_tempWstatus.status is Valid, the mode management thread shall set regulator_mode to Normal_Regulator_Mode.\nMRM-S04 [state]: During computation, when lastRegulatorMode is Init_Regulator_Mode and at least one of interface_failure.flag being true, internal_failure.flag being true, or current_tempWstatus.status being Invalid holds, the mode management thread shall set regulator_mode to Failed_Regulator_Mode.\nMRM-S05 [state]: During computation, when lastRegulatorMode is Normal_Regulator_Mode, both failure flags are false, and current_tempWstatus.status is Valid, the mode management thread shall set regulator_mode to Normal_Regulator_Mode.\nMRM-S06 [state]: During computation, when lastRegulatorMode is Normal_Regulator_Mode and at least one of interface_failure.flag being true, internal_failure.flag being true, or current_tempWstatus.status being Invalid holds, the mode management thread shall set regulator_mode to Failed_Regulator_Mode.\nMRM-S07 [state]: During computation, when lastRegulatorMode is Failed_Regulator_Mode, the mode management thread shall set regulator_mode to Failed_Regulator_Mode.\nMRM-S08 [state]: Once the regulator enters Failed mode, it shall remain in Failed mode until reboot, as stated by the source's descriptive requirement.\nMHS-A01 [architecture]: The Manage_Heat_Source_Process_i process shall contain an mhs thread of type Manage_Heat_Source_i.\nMHS-I01 [interface]: The heat source management process shall expose an input DataPort current_tempWstatus of type Isolette_Data_Model::TempWstatus_i.\nMHS-I02 [interface]: The heat source management process shall expose input DataPorts lower_desired_temp and upper_desired_temp of type Isolette_Data_Model::Temp_i for the desired range bounds.\nMHS-I03 [interface]: The heat source management process shall expose an input DataPort regulator_mode of type Isolette_Data_Model::Regulator_Mode.\nMHS-I04 [interface]: The heat source management process shall expose an output DataPort heat_control of type Isolette_Data_Model::On_Off.\nMHS-I05 [interface]: The heat source management thread shall expose the same five named DataPorts, with the same directions and types, as its containing process: current_tempWstatus, lower_desired_temp, upper_desired_temp, and regulator_mode as inputs, and heat_control as output.\nMHS-C01 [architecture]: For each of current_tempWstatus, lower_desired_temp, upper_desired_temp, and regulator_mode, the heat source management process shall connect its input port to the identically named input port of its contained mhs thread.\nMHS-C02 [architecture]: The heat source management process shall connect its contained mhs thread's heat_control output to the process's heat_control output.\nMHS-A02 [architecture]: The heat source management process shall have CASE_Scheduling domain 5.\nMHS-A03 [architecture]: The heat source management thread shall have CASE_Scheduling domain 5.\nMHS-T01 [timing]: The heat source management thread shall use periodic dispatch with a period of 1000 milliseconds.\nMHS-S01 [state]: At initialization, the heat source management thread shall set heat_control to Off.\nMHS-F01 [functional]: During computation, when regulator_mode is Init_Regulator_Mode, the heat source management thread shall set heat_control to Off.\nMHS-F02 [functional]: During computation, when regulator_mode is Normal_Regulator_Mode and the current-temperature degrees value is strictly less than the lower desired-temperature degrees value, the heat source management thread shall command heater on using heat_control value Onn.\nMHS-F03 [functional]: During computation, when regulator_mode is Normal_Regulator_Mode and the current-temperature degrees value is strictly greater than the upper desired-temperature degrees value, the heat source management thread shall set heat_control to Off.\nMHS-F04 [functional]: During computation, when regulator_mode is Failed_Regulator_Mode, the heat source management thread shall set heat_control to Off.\nDRF-F01 [functional]: The regulator failure detection function shall identify internal failures in the Regulate Temperature function.\nDRF-S01 [state]: The regulator failure detection function shall define a single Boolean-valued Regulator Internal Failure variable.\nDRF-F02 [functional]: If an internal failure is detected, the regulator failure detection function shall set Regulator Internal Failure to true.\nDRF-A01 [architecture]: The Detect_Regulator_Failure_Process_i process shall contain a drf thread of type Detect_Regulator_Failure_i.\nDRF-I01 [interface]: The regulator failure detection process shall expose an output DataPort internal_failure of type Isolette_Data_Model::Failure_Flag_i.\nDRF-I02 [interface]: The regulator failure detection thread shall expose an output DataPort internal_failure of type Isolette_Data_Model::Failure_Flag_i.\nDRF-C01 [architecture]: The regulator failure detection process shall connect its contained drf thread's internal_failure output to the process's internal_failure output.\nDRF-A02 [architecture]: The regulator failure detection process shall have CASE_Scheduling domain 6.\nDRF-A03 [architecture]: The regulator failure detection thread shall have CASE_Scheduling domain 6.\nDRF-T01 [timing]: The regulator failure detection thread shall use periodic dispatch with a period of 1000 milliseconds.\n\n## Assumptions\nNo additional environmental assumptions are introduced. Contract case assumptions are translated as conditions on required behavior, not as promises that the environment always satisfies them.\nThe selected GUMBO contract text and descriptive comments are treated as sources of draft obligations; their presence does not establish implementation or validation.\nThe source's Onn enumeration value is described as heater on because its accompanying case description explicitly says On; the source spelling is preserved.\nRepeated port and connection requirements use universal wording for the explicitly listed ports; no additional ports or connections are inferred.\n\n## Unresolved questions\nLines 5\u20138 import external models whose definitions are absent. Temperature scale, numeric representation, resolution, admissible ranges, complete status and mode enumerations, failure-flag structure, and detailed DataPort semantics cannot be established.\nThe source calls the overall element a process in comments but declares it as a System at line 20. Components described as threads at lines 22\u201329 are declared process instances containing threads. The extracted architecture follows the declarations.\nThe source does not state temperature units beyond the field name degrees. Celsius, Fahrenheit, absolute limits, and safe desired ranges must not be inferred.\nLines 275\u2013310 declare lastRegulatorMode and use it in transition conditions, but do not initialize it or specify how it is updated from regulator_mode. The intended previous-mode relationship is suggested by the case descriptions but is not fully defined.\nLine 308 states that Failed mode persists until reboot, but no reboot input, reboot conditions, reset procedure, or explicit relationship between reboot and initialization is supplied.\nLines 169\u2013215 declare displayed_temp but provide no computation rule for it. Copying current temperature, rounding, status handling, and display behavior in each mode are unspecified.\nLines 200\u2013214 define interface failure for Invalid desired-temperature statuses and for two Valid statuses. Behavior for any other status values, if the imported type permits them, is unspecified.\nLines 210\u2013214 do not constrain desired-temperature outputs when interface_failure.flag is true. Retention, replacement values, and output suppression are not specified.\nNo rule checks that the lower desired temperature is less than or equal to the upper desired temperature. Inverted bounds could make the heater-on and heater-off conditions simultaneously true; no conflict resolution or input restriction is given.\nLines 384\u2013392 do not define the Normal-mode heater command when current temperature equals either bound or lies between the bounds. No hold-last-command or hysteresis behavior is supplied.\nThe Normal-mode heat-control conditions do not test current_tempWstatus.status. No direct heat-manager rule for Invalid current temperature is supplied; failure-dependent behavior relies on the received regulator mode, with propagation timing unspecified.\nInitialization is specified only for regulator_status, regulator_mode, and heat_control. Initial displayed temperature, desired-temperature outputs, interface failure, internal failure, and lastRegulatorMode are unspecified.\nLines 408\u2013410 give failure detection intent but no complete failure set, detection method, detection coverage, or detection deadline. The memory check failure is an example, not a specified mandatory test procedure.\nThe intended correspondence between the descriptive Boolean Regulator Internal Failure and internal_failure.flag is suggested by naming and use, but is not explicitly defined in the detector. The detector has no behavioral contract, no rule requiring false when no failure is detected, and no clearing or latching rule.\nThe 1000 ms periods do not specify execution-time bounds, deadlines, startup phase, jitter, thread ordering, synchronization, communication latency, or end-to-end reaction time. Scheduling domain numbers alone do not establish execution order.\nPort connections identify endpoints but do not establish transport protocols, buffering, sampling, freshness, physical interfaces, sensor accuracy, heater response, or operator-interface presentation.\nThe material supplies no quantitative air-temperature regulation performance, environmental operating conditions, or explicit safety goal. Such facts cannot be imported from the style-guide example.\nApplied-rule comments and AR-08-32 trace labels occur in the source, but no rulebook, generated validation output, or referenced requirement bodies are supplied. Completeness, port compatibility, and conformance to those external references remain unverified.",
+  "english_sha256": "372eb92ce95279b2fbf25e0ed7a5da8a00fe2a446c1532d34828441a1fba7d0e",
+  "human_modified": false,
+  "derived_from_reference": true,
+  "source_claims": [
+    {
+      "category": "architecture",
+      "evidence_quote": "part mri : Manage_Regulator_Interface_Process;",
+      "id": "REG-A01",
+      "source_end": 23,
+      "source_start": 20,
+      "statement": "The Regulate_Temperature_i system shall contain an mri component of type Manage_Regulator_Interface_Process."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "part mhs : Manage_Heat_Source_Process_i;",
+      "id": "REG-A02",
+      "source_end": 26,
+      "source_start": 24,
+      "statement": "The Regulate_Temperature_i system shall contain an mhs component of type Manage_Heat_Source_Process_i."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "part mrm : Manage_Regulator_Mode_Process_i;",
+      "id": "REG-A03",
+      "source_end": 29,
+      "source_start": 27,
+      "statement": "The Regulate_Temperature_i system shall contain an mrm component of type Manage_Regulator_Mode_Process_i."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "part drf : Detect_Regulator_Failure_Process_i;",
+      "id": "REG-A04",
+      "source_end": 31,
+      "source_start": 31,
+      "statement": "The Regulate_Temperature_i system shall contain a drf component of type Detect_Regulator_Failure_Process_i."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "port lower_desired_tempWstatus : DataPort { in :>> type : Isolette_Data_Model::TempWstatus_i; }",
+      "id": "REG-I01",
+      "source_end": 35,
+      "source_start": 33,
+      "statement": "The system shall receive the operator interface's lower desired temperature with status through the input DataPort lower_desired_tempWstatus of type Isolette_Data_Model::TempWstatus_i."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "port upper_desired_tempWstatus : DataPort { in :>> type : Isolette_Data_Model::TempWstatus_i; }",
+      "id": "REG-I02",
+      "source_end": 36,
+      "source_start": 33,
+      "statement": "The system shall receive the operator interface's upper desired temperature with status through the input DataPort upper_desired_tempWstatus of type Isolette_Data_Model::TempWstatus_i."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "port current_tempWstatus : DataPort { in :>> type : Isolette_Data_Model::TempWstatus_i; }",
+      "id": "REG-I03",
+      "source_end": 38,
+      "source_start": 37,
+      "statement": "The system shall receive the temperature sensor's current temperature with status through the input DataPort current_tempWstatus of type Isolette_Data_Model::TempWstatus_i."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "port regulator_status : DataPort { out :>> type : Isolette_Data_Model::Status; }",
+      "id": "REG-I04",
+      "source_end": 42,
+      "source_start": 40,
+      "statement": "The system shall provide regulator function status to the operator interface through the output DataPort regulator_status of type Isolette_Data_Model::Status."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "port displayed_temp : DataPort { out :>> type : Isolette_Data_Model::Temp_i; }",
+      "id": "REG-I05",
+      "source_end": 44,
+      "source_start": 43,
+      "statement": "The system shall provide a current-temperature value for operator display through the output DataPort displayed_temp of type Isolette_Data_Model::Temp_i."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "port heat_control : DataPort { out :>> type : Isolette_Data_Model::On_Off; }",
+      "id": "REG-I06",
+      "source_end": 46,
+      "source_start": 45,
+      "statement": "The system shall provide the heater actuation command through the output DataPort heat_control of type Isolette_Data_Model::On_Off."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect upper_desired_tempWstatus to mri.upper_desired_tempWstatus;",
+      "id": "REG-C01",
+      "source_end": 52,
+      "source_start": 51,
+      "statement": "The system shall connect upper_desired_tempWstatus to the interface management process's upper_desired_tempWstatus input."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect lower_desired_tempWstatus to mri.lower_desired_tempWstatus;",
+      "id": "REG-C02",
+      "source_end": 54,
+      "source_start": 53,
+      "statement": "The system shall connect lower_desired_tempWstatus to the interface management process's lower_desired_tempWstatus input."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect current_tempWstatus to mri.current_tempWstatus;",
+      "id": "REG-C03",
+      "source_end": 59,
+      "source_start": 58,
+      "statement": "The system shall connect current_tempWstatus to the interface management process's current_tempWstatus input."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect current_tempWstatus to mhs.current_tempWstatus;",
+      "id": "REG-C04",
+      "source_end": 62,
+      "source_start": 61,
+      "statement": "The system shall connect current_tempWstatus to the heat source management process's current_tempWstatus input."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect current_tempWstatus to mrm.current_tempWstatus;",
+      "id": "REG-C05",
+      "source_end": 65,
+      "source_start": 64,
+      "statement": "The system shall connect current_tempWstatus to the mode management process's current_tempWstatus input."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect mri.displayed_temp to displayed_temp;",
+      "id": "REG-C06",
+      "source_end": 70,
+      "source_start": 69,
+      "statement": "The system shall connect the interface management process's displayed_temp output to the system's displayed_temp output."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect mri.regulator_status to regulator_status;",
+      "id": "REG-C07",
+      "source_end": 73,
+      "source_start": 72,
+      "statement": "The system shall connect the interface management process's regulator_status output to the system's regulator_status output."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect mhs.heat_control to heat_control;",
+      "id": "REG-C08",
+      "source_end": 76,
+      "source_start": 75,
+      "statement": "The system shall connect the heat source management process's heat_control output to the system's heat_control output."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect mri.upper_desired_temp to mhs.upper_desired_temp;",
+      "id": "REG-C09",
+      "source_end": 81,
+      "source_start": 79,
+      "statement": "The system shall connect the interface management process's upper_desired_temp output to the heat source management process's upper_desired_temp input."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect mri.lower_desired_temp to mhs.lower_desired_temp;",
+      "id": "REG-C10",
+      "source_end": 83,
+      "source_start": 82,
+      "statement": "The system shall connect the interface management process's lower_desired_temp output to the heat source management process's lower_desired_temp input."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect mrm.regulator_mode to mri.regulator_mode;",
+      "id": "REG-C11",
+      "source_end": 88,
+      "source_start": 87,
+      "statement": "The system shall connect the mode management process's regulator_mode output to the interface management process's regulator_mode input."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect mrm.regulator_mode to mhs.regulator_mode;",
+      "id": "REG-C12",
+      "source_end": 91,
+      "source_start": 90,
+      "statement": "The system shall connect the mode management process's regulator_mode output to the heat source management process's regulator_mode input."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect mri.interface_failure to mrm.interface_failure;",
+      "id": "REG-C13",
+      "source_end": 95,
+      "source_start": 94,
+      "statement": "The system shall connect the interface management process's interface_failure output to the mode management process's interface_failure input."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect drf.internal_failure to mrm.internal_failure;",
+      "id": "REG-C14",
+      "source_end": 98,
+      "source_start": 97,
+      "statement": "The system shall connect the failure detection process's internal_failure output to the mode management process's internal_failure input."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "part mri: Manage_Regulator_Interface_i;",
+      "id": "MRI-A01",
+      "source_end": 113,
+      "source_start": 111,
+      "statement": "The Manage_Regulator_Interface_Process process shall contain an mri thread of type Manage_Regulator_Interface_i."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "port current_tempWstatus : DataPort { in :>> type : Isolette_Data_Model::TempWstatus_i; }",
+      "id": "MRI-I01",
+      "source_end": 121,
+      "source_start": 115,
+      "statement": "The interface management process shall expose input DataPorts lower_desired_tempWstatus, upper_desired_tempWstatus, and current_tempWstatus of type Isolette_Data_Model::TempWstatus_i."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "port regulator_mode : DataPort { in :>> type : Isolette_Data_Model::Regulator_Mode; }",
+      "id": "MRI-I02",
+      "source_end": 124,
+      "source_start": 123,
+      "statement": "The interface management process shall expose an input DataPort regulator_mode of type Isolette_Data_Model::Regulator_Mode."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "port displayed_temp : DataPort { out :>> type : Isolette_Data_Model::Temp_i; }",
+      "id": "MRI-I03",
+      "source_end": 133,
+      "source_start": 127,
+      "statement": "The interface management process shall expose output DataPorts lower_desired_temp, upper_desired_temp, and displayed_temp of type Isolette_Data_Model::Temp_i."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "port regulator_status : DataPort { out :>> type : Isolette_Data_Model::Status; }",
+      "id": "MRI-I04",
+      "source_end": 136,
+      "source_start": 135,
+      "statement": "The interface management process shall expose an output DataPort regulator_status of type Isolette_Data_Model::Status."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "port interface_failure : DataPort { out :>> type : Isolette_Data_Model::Failure_Flag_i; }",
+      "id": "MRI-I05",
+      "source_end": 139,
+      "source_start": 138,
+      "statement": "The interface management process shall expose an output DataPort interface_failure of type Isolette_Data_Model::Failure_Flag_i to report improper inputs for mode determination."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "port interface_failure : DataPort { out :>> type : Isolette_Data_Model::Failure_Flag_i; }",
+      "id": "MRI-I06",
+      "source_end": 178,
+      "source_start": 169,
+      "statement": "The interface management thread shall expose the same nine named DataPorts, with the same directions and types, as its containing process: four inputs for the three temperatures with status and regulator mode, and five outputs for the desired temperatures, displayed temperature, regulator status, and interface failure."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect regulator_mode to mri.regulator_mode;",
+      "id": "MRI-C01",
+      "source_end": 148,
+      "source_start": 141,
+      "statement": "For each of lower_desired_tempWstatus, upper_desired_tempWstatus, current_tempWstatus, and regulator_mode, the interface management process shall connect its input port to the identically named input port of its contained mri thread."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect mri.interface_failure to interface_failure;",
+      "id": "MRI-C02",
+      "source_end": 158,
+      "source_start": 149,
+      "statement": "For each of lower_desired_temp, upper_desired_temp, displayed_temp, regulator_status, and interface_failure, the interface management process shall connect its contained mri thread's output port to the identically named process output port."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "attribute Domain: CASE_Scheduling::Domain = 3;",
+      "id": "MRI-A02",
+      "source_end": 160,
+      "source_start": 160,
+      "statement": "The interface management process shall have CASE_Scheduling domain 3."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "attribute Domain: CASE_Scheduling::Domain = 3;",
+      "id": "MRI-A03",
+      "source_end": 167,
+      "source_start": 167,
+      "statement": "The interface management thread shall have CASE_Scheduling domain 3."
+    },
+    {
+      "category": "timing",
+      "evidence_quote": "attribute :>> Dispatch_Protocol = Supported_Dispatch_Protocols::Periodic;\n        attribute :>> Period = 1000 [ms];",
+      "id": "MRI-T01",
+      "source_end": 166,
+      "source_start": 165,
+      "statement": "The interface management thread shall use periodic dispatch with a period of 1000 milliseconds."
+    },
+    {
+      "category": "state",
+      "evidence_quote": "regulator_status == Isolette_Data_Model::Status.Init_Status;",
+      "id": "MRI-S01",
+      "source_end": 184,
+      "source_start": 182,
+      "statement": "At initialization, the interface management thread shall set regulator_status to Init_Status."
+    },
+    {
+      "category": "functional",
+      "evidence_quote": "If mode INIT then regulator status is Init | AR-08-32 A.5.1.1",
+      "id": "MRI-F01",
+      "source_end": 190,
+      "source_start": 188,
+      "statement": "During computation, when regulator_mode is Init_Regulator_Mode, the interface management thread shall set regulator_status to Init_Status."
+    },
+    {
+      "category": "functional",
+      "evidence_quote": "If mode NORMAL then regulator status is On | AR-08-32 A.5.1.1",
+      "id": "MRI-F02",
+      "source_end": 194,
+      "source_start": 192,
+      "statement": "During computation, when regulator_mode is Normal_Regulator_Mode, the interface management thread shall set regulator_status to On_Status."
+    },
+    {
+      "category": "functional",
+      "evidence_quote": "If mode FAILED then regulator status is Failed | AR-08-32 A.5.1.1",
+      "id": "MRI-F03",
+      "source_end": 198,
+      "source_start": 196,
+      "statement": "During computation, when regulator_mode is Failed_Regulator_Mode, the interface management thread shall set regulator_status to Failed_Status."
+    },
+    {
+      "category": "functional",
+      "evidence_quote": "If any desired temperature status is Invalid then interface failure is True | AR-08-32 A.5.1.1",
+      "id": "MRI-F04",
+      "source_end": 203,
+      "source_start": 200,
+      "statement": "During computation, if either desired-temperature input has status Invalid, the interface management thread shall set interface_failure.flag to true."
+    },
+    {
+      "category": "functional",
+      "evidence_quote": "If both desired temperature statuses are Valid then interface failure is False | AR-08-32 A.5.1.1",
+      "id": "MRI-F05",
+      "source_end": 208,
+      "source_start": 205,
+      "statement": "During computation, if both desired-temperature inputs have status Valid, the interface management thread shall set interface_failure.flag to false."
+    },
+    {
+      "category": "functional",
+      "evidence_quote": "lower_desired_temp.degrees == lower_desired_tempWstatus.degrees",
+      "id": "MRI-F06",
+      "source_end": 214,
+      "source_start": 210,
+      "statement": "During computation, when interface_failure.flag is false, the interface management thread shall set the degrees field of lower_desired_temp equal to the degrees field of lower_desired_tempWstatus."
+    },
+    {
+      "category": "functional",
+      "evidence_quote": "upper_desired_temp.degrees == upper_desired_tempWstatus.degrees",
+      "id": "MRI-F07",
+      "source_end": 214,
+      "source_start": 210,
+      "statement": "During computation, when interface_failure.flag is false, the interface management thread shall set the degrees field of upper_desired_temp equal to the degrees field of upper_desired_tempWstatus."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "part mrm: Manage_Regulator_Mode_i;",
+      "id": "MRM-A01",
+      "source_end": 232,
+      "source_start": 230,
+      "statement": "The Manage_Regulator_Mode_Process_i process shall contain an mrm thread of type Manage_Regulator_Mode_i."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "port current_tempWstatus : DataPort { in :>> type : Isolette_Data_Model::TempWstatus_i; }",
+      "id": "MRM-I01",
+      "source_end": 236,
+      "source_start": 234,
+      "statement": "The mode management process shall expose an input DataPort current_tempWstatus of type Isolette_Data_Model::TempWstatus_i."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "port internal_failure : DataPort { in :>> type : Isolette_Data_Model::Failure_Flag_i; }",
+      "id": "MRM-I02",
+      "source_end": 242,
+      "source_start": 238,
+      "statement": "The mode management process shall expose input DataPorts interface_failure and internal_failure of type Isolette_Data_Model::Failure_Flag_i."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "port regulator_mode : DataPort { out :>> type : Isolette_Data_Model::Regulator_Mode; }",
+      "id": "MRM-I03",
+      "source_end": 247,
+      "source_start": 245,
+      "statement": "The mode management process shall expose an output DataPort regulator_mode of type Isolette_Data_Model::Regulator_Mode."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "port regulator_mode : DataPort { out :>> type : Isolette_Data_Model::Regulator_Mode; }",
+      "id": "MRM-I04",
+      "source_end": 271,
+      "source_start": 268,
+      "statement": "The mode management thread shall expose the same four named DataPorts, with the same directions and types, as its containing process: current_tempWstatus, interface_failure, and internal_failure as inputs, and regulator_mode as output."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect internal_failure to mrm.internal_failure;",
+      "id": "MRM-C01",
+      "source_end": 254,
+      "source_start": 249,
+      "statement": "For each of current_tempWstatus, interface_failure, and internal_failure, the mode management process shall connect its input port to the identically named input port of its contained mrm thread."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect mrm.regulator_mode to regulator_mode;",
+      "id": "MRM-C02",
+      "source_end": 256,
+      "source_start": 255,
+      "statement": "The mode management process shall connect its contained mrm thread's regulator_mode output to the process's regulator_mode output."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "attribute Domain: CASE_Scheduling::Domain = 4;",
+      "id": "MRM-A02",
+      "source_end": 258,
+      "source_start": 258,
+      "statement": "The mode management process shall have CASE_Scheduling domain 4."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "attribute Domain: CASE_Scheduling::Domain = 4;",
+      "id": "MRM-A03",
+      "source_end": 266,
+      "source_start": 266,
+      "statement": "The mode management thread shall have CASE_Scheduling domain 4."
+    },
+    {
+      "category": "timing",
+      "evidence_quote": "attribute :>> Dispatch_Protocol = Supported_Dispatch_Protocols::Periodic;\n        attribute :>> Period = 1000 [ms];",
+      "id": "MRM-T01",
+      "source_end": 265,
+      "source_start": 264,
+      "statement": "The mode management thread shall use periodic dispatch with a period of 1000 milliseconds."
+    },
+    {
+      "category": "state",
+      "evidence_quote": "lastRegulatorMode: Isolette_Data_Model::Regulator_Mode;",
+      "id": "MRM-S01",
+      "source_end": 276,
+      "source_start": 275,
+      "statement": "The mode management thread shall include a state variable lastRegulatorMode of type Isolette_Data_Model::Regulator_Mode."
+    },
+    {
+      "category": "state",
+      "evidence_quote": "regulator_mode == Isolette_Data_Model::Regulator_Mode.Init_Regulator_Mode;",
+      "id": "MRM-S02",
+      "source_end": 280,
+      "source_start": 278,
+      "statement": "At initialization, the mode management thread shall set regulator_mode to Init_Regulator_Mode."
+    },
+    {
+      "category": "state",
+      "evidence_quote": "If mode is INIT and regulator status is healthy then next mode is NORMAL | AR-08-32 A.5.1.2",
+      "id": "MRM-S03",
+      "source_end": 288,
+      "source_start": 284,
+      "statement": "During computation, when lastRegulatorMode is Init_Regulator_Mode, both failure flags are false, and current_tempWstatus.status is Valid, the mode management thread shall set regulator_mode to Normal_Regulator_Mode."
+    },
+    {
+      "category": "state",
+      "evidence_quote": "If mode is INIT and regulator status is not healthy then next mode is FAILED | AR-08-32 A.5.1.2",
+      "id": "MRM-S04",
+      "source_end": 294,
+      "source_start": 290,
+      "statement": "During computation, when lastRegulatorMode is Init_Regulator_Mode and at least one of interface_failure.flag being true, internal_failure.flag being true, or current_tempWstatus.status being Invalid holds, the mode management thread shall set regulator_mode to Failed_Regulator_Mode."
+    },
+    {
+      "category": "state",
+      "evidence_quote": "If mode is NORMAL and regulator status remains healthy then mode stays NORMAL | AR-08-32 A.5.1.2",
+      "id": "MRM-S05",
+      "source_end": 300,
+      "source_start": 296,
+      "statement": "During computation, when lastRegulatorMode is Normal_Regulator_Mode, both failure flags are false, and current_tempWstatus.status is Valid, the mode management thread shall set regulator_mode to Normal_Regulator_Mode."
+    },
+    {
+      "category": "state",
+      "evidence_quote": "If mode is NORMAL and regulator status is not healthy then mode is FAILED | AR-08-32 A.5.1.2",
+      "id": "MRM-S06",
+      "source_end": 306,
+      "source_start": 302,
+      "statement": "During computation, when lastRegulatorMode is Normal_Regulator_Mode and at least one of interface_failure.flag being true, internal_failure.flag being true, or current_tempWstatus.status being Invalid holds, the mode management thread shall set regulator_mode to Failed_Regulator_Mode."
+    },
+    {
+      "category": "state",
+      "evidence_quote": "assume lastRegulatorMode == Isolette_Data_Model::Regulator_Mode.Failed_Regulator_Mode;",
+      "id": "MRM-S07",
+      "source_end": 310,
+      "source_start": 308,
+      "statement": "During computation, when lastRegulatorMode is Failed_Regulator_Mode, the mode management thread shall set regulator_mode to Failed_Regulator_Mode."
+    },
+    {
+      "category": "state",
+      "evidence_quote": "If mode is FAILED then mode remains FAILED until reboot | AR-08-32 A.5.1.2",
+      "id": "MRM-S08",
+      "source_end": 308,
+      "source_start": 308,
+      "statement": "Once the regulator enters Failed mode, it shall remain in Failed mode until reboot, as stated by the source's descriptive requirement."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "part mhs: Manage_Heat_Source_i;",
+      "id": "MHS-A01",
+      "source_end": 327,
+      "source_start": 325,
+      "statement": "The Manage_Heat_Source_Process_i process shall contain an mhs thread of type Manage_Heat_Source_i."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "port current_tempWstatus : DataPort { in :>> type : Isolette_Data_Model::TempWstatus_i; }",
+      "id": "MHS-I01",
+      "source_end": 331,
+      "source_start": 329,
+      "statement": "The heat source management process shall expose an input DataPort current_tempWstatus of type Isolette_Data_Model::TempWstatus_i."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "port lower_desired_temp : DataPort { in :>> type : Isolette_Data_Model::Temp_i; }",
+      "id": "MHS-I02",
+      "source_end": 335,
+      "source_start": 333,
+      "statement": "The heat source management process shall expose input DataPorts lower_desired_temp and upper_desired_temp of type Isolette_Data_Model::Temp_i for the desired range bounds."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "port regulator_mode : DataPort { in :>> type : Isolette_Data_Model::Regulator_Mode; }",
+      "id": "MHS-I03",
+      "source_end": 339,
+      "source_start": 338,
+      "statement": "The heat source management process shall expose an input DataPort regulator_mode of type Isolette_Data_Model::Regulator_Mode."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "port heat_control : DataPort { out :>> type : Isolette_Data_Model::On_Off; }",
+      "id": "MHS-I04",
+      "source_end": 344,
+      "source_start": 342,
+      "statement": "The heat source management process shall expose an output DataPort heat_control of type Isolette_Data_Model::On_Off."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "port heat_control : DataPort { out :>> type : Isolette_Data_Model::On_Off; }",
+      "id": "MHS-I05",
+      "source_end": 370,
+      "source_start": 366,
+      "statement": "The heat source management thread shall expose the same five named DataPorts, with the same directions and types, as its containing process: current_tempWstatus, lower_desired_temp, upper_desired_temp, and regulator_mode as inputs, and heat_control as output."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect regulator_mode to mhs.regulator_mode;",
+      "id": "MHS-C01",
+      "source_end": 353,
+      "source_start": 346,
+      "statement": "For each of current_tempWstatus, lower_desired_temp, upper_desired_temp, and regulator_mode, the heat source management process shall connect its input port to the identically named input port of its contained mhs thread."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect mhs.heat_control to heat_control;",
+      "id": "MHS-C02",
+      "source_end": 355,
+      "source_start": 354,
+      "statement": "The heat source management process shall connect its contained mhs thread's heat_control output to the process's heat_control output."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "attribute Domain: CASE_Scheduling::Domain = 5;",
+      "id": "MHS-A02",
+      "source_end": 357,
+      "source_start": 357,
+      "statement": "The heat source management process shall have CASE_Scheduling domain 5."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "attribute Domain: CASE_Scheduling::Domain = 5;",
+      "id": "MHS-A03",
+      "source_end": 364,
+      "source_start": 364,
+      "statement": "The heat source management thread shall have CASE_Scheduling domain 5."
+    },
+    {
+      "category": "timing",
+      "evidence_quote": "attribute :>> Dispatch_Protocol = Supported_Dispatch_Protocols::Periodic;\n        attribute :>> Period = 1000 [ms];",
+      "id": "MHS-T01",
+      "source_end": 363,
+      "source_start": 362,
+      "statement": "The heat source management thread shall use periodic dispatch with a period of 1000 milliseconds."
+    },
+    {
+      "category": "state",
+      "evidence_quote": "heat_control == Isolette_Data_Model::On_Off.Off;",
+      "id": "MHS-S01",
+      "source_end": 376,
+      "source_start": 374,
+      "statement": "At initialization, the heat source management thread shall set heat_control to Off."
+    },
+    {
+      "category": "functional",
+      "evidence_quote": "If mode INIT then heat control is Off | AR-08-32 A.5.1.3",
+      "id": "MHS-F01",
+      "source_end": 382,
+      "source_start": 380,
+      "statement": "During computation, when regulator_mode is Init_Regulator_Mode, the heat source management thread shall set heat_control to Off."
+    },
+    {
+      "category": "functional",
+      "evidence_quote": "guarantee heat_control == Isolette_Data_Model::On_Off.Onn;",
+      "id": "MHS-F02",
+      "source_end": 387,
+      "source_start": 384,
+      "statement": "During computation, when regulator_mode is Normal_Regulator_Mode and the current-temperature degrees value is strictly less than the lower desired-temperature degrees value, the heat source management thread shall command heater on using heat_control value Onn."
+    },
+    {
+      "category": "functional",
+      "evidence_quote": "current_tempWstatus.degrees > upper_desired_temp.degrees;",
+      "id": "MHS-F03",
+      "source_end": 392,
+      "source_start": 389,
+      "statement": "During computation, when regulator_mode is Normal_Regulator_Mode and the current-temperature degrees value is strictly greater than the upper desired-temperature degrees value, the heat source management thread shall set heat_control to Off."
+    },
+    {
+      "category": "functional",
+      "evidence_quote": "If mode FAILED then heat control is Off | AR-08-32 A.5.1.3",
+      "id": "MHS-F04",
+      "source_end": 396,
+      "source_start": 394,
+      "statement": "During computation, when regulator_mode is Failed_Regulator_Mode, the heat source management thread shall set heat_control to Off."
+    },
+    {
+      "category": "functional",
+      "evidence_quote": "The Detect Regulator Failure Function identifies internal failures, (e.g., a memory check failure)",
+      "id": "DRF-F01",
+      "source_end": 410,
+      "source_start": 408,
+      "statement": "The regulator failure detection function shall identify internal failures in the Regulate Temperature function."
+    },
+    {
+      "category": "state",
+      "evidence_quote": "It defines a single Boolean-valued internal variable,",
+      "id": "DRF-S01",
+      "source_end": 410,
+      "source_start": 409,
+      "statement": "The regulator failure detection function shall define a single Boolean-valued Regulator Internal Failure variable."
+    },
+    {
+      "category": "functional",
+      "evidence_quote": "Regulator Internal Failure, which is set to True if an internal failure is detected.",
+      "id": "DRF-F02",
+      "source_end": 410,
+      "source_start": 409,
+      "statement": "If an internal failure is detected, the regulator failure detection function shall set Regulator Internal Failure to true."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "part drf: Detect_Regulator_Failure_i;",
+      "id": "DRF-A01",
+      "source_end": 416,
+      "source_start": 414,
+      "statement": "The Detect_Regulator_Failure_Process_i process shall contain a drf thread of type Detect_Regulator_Failure_i."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "port internal_failure : DataPort { out :>> type : Isolette_Data_Model::Failure_Flag_i; }",
+      "id": "DRF-I01",
+      "source_end": 418,
+      "source_start": 418,
+      "statement": "The regulator failure detection process shall expose an output DataPort internal_failure of type Isolette_Data_Model::Failure_Flag_i."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "port internal_failure : DataPort { out :>> type : Isolette_Data_Model::Failure_Flag_i; }",
+      "id": "DRF-I02",
+      "source_end": 432,
+      "source_start": 432,
+      "statement": "The regulator failure detection thread shall expose an output DataPort internal_failure of type Isolette_Data_Model::Failure_Flag_i."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect drf.internal_failure to internal_failure;",
+      "id": "DRF-C01",
+      "source_end": 421,
+      "source_start": 420,
+      "statement": "The regulator failure detection process shall connect its contained drf thread's internal_failure output to the process's internal_failure output."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "attribute Domain: CASE_Scheduling::Domain = 6;",
+      "id": "DRF-A02",
+      "source_end": 423,
+      "source_start": 423,
+      "statement": "The regulator failure detection process shall have CASE_Scheduling domain 6."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "attribute Domain: CASE_Scheduling::Domain = 6;",
+      "id": "DRF-A03",
+      "source_end": 430,
+      "source_start": 430,
+      "statement": "The regulator failure detection thread shall have CASE_Scheduling domain 6."
+    },
+    {
+      "category": "timing",
+      "evidence_quote": "attribute :>> Dispatch_Protocol = Supported_Dispatch_Protocols::Periodic;\n        attribute :>> Period = 1000 [ms];",
+      "id": "DRF-T01",
+      "source_end": 429,
+      "source_start": 428,
+      "statement": "The regulator failure detection thread shall use periodic dispatch with a period of 1000 milliseconds."
+    }
+  ],
+  "measurement": {
+    "elapsed_seconds": 290.51799171001767,
+    "estimated_debit_tokens": 0,
+    "measured_tokens": 25836
+  },
+  "status": "DRAFT_REQUIRES_REVIEW",
+  "scope": "Prepared development data, not independent final-transfer requirements or verified behavior",
+  "id": "4481c6609cbbb7bf2038603f98f53f5f04c2c3644a61a6a5eb69abd702d58a25",
+  "approval": {
+    "action": "approve_prepared_requirements",
+    "subject": {
+      "effect": "Approve prepared English for this selected data role; not verification or rule release",
+      "english": "# Regulate Temperature \u2014 draft derived description and requirements\n\n## System description\nThe selected material defines Regulate_Temperature_i, a system intended to regulate air temperature. Its boundary includes four processes: regulator interface management, heat source management, regulator mode management, and internal failure detection. Each process contains a corresponding thread. The external operator interface supplies lower and upper desired temperatures with validity status and receives regulator status and a temperature value for display. An external temperature sensor supplies current temperature with validity status. The system supplies an on/off command to an external heat source. These input values are the monitored quantities at the modeled boundary; regulator status, displayed temperature, and the heat command are the controlled outputs. The material does not establish a physical temperature-maintenance performance guarantee. Internally, the interface manager supplies desired temperatures and an interface failure flag; the failure detector supplies an internal failure flag; and the mode manager supplies Init, Normal, or Failed mode. The heat manager determines specified heater commands from mode and temperature comparisons. All four threads are periodic with a 1000 ms period. Process/thread decomposition, typed data ports, connections, scheduling domains, and periods are source-defined implementation choices, distinct from the functional behavior expressed in comments and contracts. The requirements below are draft extractions from the selected source, not an independently established specification or a validation result.\n\n## Requirements\nREG-A01 [architecture]: The Regulate_Temperature_i system shall contain an mri component of type Manage_Regulator_Interface_Process.\nREG-A02 [architecture]: The Regulate_Temperature_i system shall contain an mhs component of type Manage_Heat_Source_Process_i.\nREG-A03 [architecture]: The Regulate_Temperature_i system shall contain an mrm component of type Manage_Regulator_Mode_Process_i.\nREG-A04 [architecture]: The Regulate_Temperature_i system shall contain a drf component of type Detect_Regulator_Failure_Process_i.\nREG-I01 [interface]: The system shall receive the operator interface's lower desired temperature with status through the input DataPort lower_desired_tempWstatus of type Isolette_Data_Model::TempWstatus_i.\nREG-I02 [interface]: The system shall receive the operator interface's upper desired temperature with status through the input DataPort upper_desired_tempWstatus of type Isolette_Data_Model::TempWstatus_i.\nREG-I03 [interface]: The system shall receive the temperature sensor's current temperature with status through the input DataPort current_tempWstatus of type Isolette_Data_Model::TempWstatus_i.\nREG-I04 [interface]: The system shall provide regulator function status to the operator interface through the output DataPort regulator_status of type Isolette_Data_Model::Status.\nREG-I05 [interface]: The system shall provide a current-temperature value for operator display through the output DataPort displayed_temp of type Isolette_Data_Model::Temp_i.\nREG-I06 [interface]: The system shall provide the heater actuation command through the output DataPort heat_control of type Isolette_Data_Model::On_Off.\nREG-C01 [architecture]: The system shall connect upper_desired_tempWstatus to the interface management process's upper_desired_tempWstatus input.\nREG-C02 [architecture]: The system shall connect lower_desired_tempWstatus to the interface management process's lower_desired_tempWstatus input.\nREG-C03 [architecture]: The system shall connect current_tempWstatus to the interface management process's current_tempWstatus input.\nREG-C04 [architecture]: The system shall connect current_tempWstatus to the heat source management process's current_tempWstatus input.\nREG-C05 [architecture]: The system shall connect current_tempWstatus to the mode management process's current_tempWstatus input.\nREG-C06 [architecture]: The system shall connect the interface management process's displayed_temp output to the system's displayed_temp output.\nREG-C07 [architecture]: The system shall connect the interface management process's regulator_status output to the system's regulator_status output.\nREG-C08 [architecture]: The system shall connect the heat source management process's heat_control output to the system's heat_control output.\nREG-C09 [architecture]: The system shall connect the interface management process's upper_desired_temp output to the heat source management process's upper_desired_temp input.\nREG-C10 [architecture]: The system shall connect the interface management process's lower_desired_temp output to the heat source management process's lower_desired_temp input.\nREG-C11 [architecture]: The system shall connect the mode management process's regulator_mode output to the interface management process's regulator_mode input.\nREG-C12 [architecture]: The system shall connect the mode management process's regulator_mode output to the heat source management process's regulator_mode input.\nREG-C13 [architecture]: The system shall connect the interface management process's interface_failure output to the mode management process's interface_failure input.\nREG-C14 [architecture]: The system shall connect the failure detection process's internal_failure output to the mode management process's internal_failure input.\nMRI-A01 [architecture]: The Manage_Regulator_Interface_Process process shall contain an mri thread of type Manage_Regulator_Interface_i.\nMRI-I01 [interface]: The interface management process shall expose input DataPorts lower_desired_tempWstatus, upper_desired_tempWstatus, and current_tempWstatus of type Isolette_Data_Model::TempWstatus_i.\nMRI-I02 [interface]: The interface management process shall expose an input DataPort regulator_mode of type Isolette_Data_Model::Regulator_Mode.\nMRI-I03 [interface]: The interface management process shall expose output DataPorts lower_desired_temp, upper_desired_temp, and displayed_temp of type Isolette_Data_Model::Temp_i.\nMRI-I04 [interface]: The interface management process shall expose an output DataPort regulator_status of type Isolette_Data_Model::Status.\nMRI-I05 [interface]: The interface management process shall expose an output DataPort interface_failure of type Isolette_Data_Model::Failure_Flag_i to report improper inputs for mode determination.\nMRI-I06 [interface]: The interface management thread shall expose the same nine named DataPorts, with the same directions and types, as its containing process: four inputs for the three temperatures with status and regulator mode, and five outputs for the desired temperatures, displayed temperature, regulator status, and interface failure.\nMRI-C01 [architecture]: For each of lower_desired_tempWstatus, upper_desired_tempWstatus, current_tempWstatus, and regulator_mode, the interface management process shall connect its input port to the identically named input port of its contained mri thread.\nMRI-C02 [architecture]: For each of lower_desired_temp, upper_desired_temp, displayed_temp, regulator_status, and interface_failure, the interface management process shall connect its contained mri thread's output port to the identically named process output port.\nMRI-A02 [architecture]: The interface management process shall have CASE_Scheduling domain 3.\nMRI-A03 [architecture]: The interface management thread shall have CASE_Scheduling domain 3.\nMRI-T01 [timing]: The interface management thread shall use periodic dispatch with a period of 1000 milliseconds.\nMRI-S01 [state]: At initialization, the interface management thread shall set regulator_status to Init_Status.\nMRI-F01 [functional]: During computation, when regulator_mode is Init_Regulator_Mode, the interface management thread shall set regulator_status to Init_Status.\nMRI-F02 [functional]: During computation, when regulator_mode is Normal_Regulator_Mode, the interface management thread shall set regulator_status to On_Status.\nMRI-F03 [functional]: During computation, when regulator_mode is Failed_Regulator_Mode, the interface management thread shall set regulator_status to Failed_Status.\nMRI-F04 [functional]: During computation, if either desired-temperature input has status Invalid, the interface management thread shall set interface_failure.flag to true.\nMRI-F05 [functional]: During computation, if both desired-temperature inputs have status Valid, the interface management thread shall set interface_failure.flag to false.\nMRI-F06 [functional]: During computation, when interface_failure.flag is false, the interface management thread shall set the degrees field of lower_desired_temp equal to the degrees field of lower_desired_tempWstatus.\nMRI-F07 [functional]: During computation, when interface_failure.flag is false, the interface management thread shall set the degrees field of upper_desired_temp equal to the degrees field of upper_desired_tempWstatus.\nMRM-A01 [architecture]: The Manage_Regulator_Mode_Process_i process shall contain an mrm thread of type Manage_Regulator_Mode_i.\nMRM-I01 [interface]: The mode management process shall expose an input DataPort current_tempWstatus of type Isolette_Data_Model::TempWstatus_i.\nMRM-I02 [interface]: The mode management process shall expose input DataPorts interface_failure and internal_failure of type Isolette_Data_Model::Failure_Flag_i.\nMRM-I03 [interface]: The mode management process shall expose an output DataPort regulator_mode of type Isolette_Data_Model::Regulator_Mode.\nMRM-I04 [interface]: The mode management thread shall expose the same four named DataPorts, with the same directions and types, as its containing process: current_tempWstatus, interface_failure, and internal_failure as inputs, and regulator_mode as output.\nMRM-C01 [architecture]: For each of current_tempWstatus, interface_failure, and internal_failure, the mode management process shall connect its input port to the identically named input port of its contained mrm thread.\nMRM-C02 [architecture]: The mode management process shall connect its contained mrm thread's regulator_mode output to the process's regulator_mode output.\nMRM-A02 [architecture]: The mode management process shall have CASE_Scheduling domain 4.\nMRM-A03 [architecture]: The mode management thread shall have CASE_Scheduling domain 4.\nMRM-T01 [timing]: The mode management thread shall use periodic dispatch with a period of 1000 milliseconds.\nMRM-S01 [state]: The mode management thread shall include a state variable lastRegulatorMode of type Isolette_Data_Model::Regulator_Mode.\nMRM-S02 [state]: At initialization, the mode management thread shall set regulator_mode to Init_Regulator_Mode.\nMRM-S03 [state]: During computation, when lastRegulatorMode is Init_Regulator_Mode, both failure flags are false, and current_tempWstatus.status is Valid, the mode management thread shall set regulator_mode to Normal_Regulator_Mode.\nMRM-S04 [state]: During computation, when lastRegulatorMode is Init_Regulator_Mode and at least one of interface_failure.flag being true, internal_failure.flag being true, or current_tempWstatus.status being Invalid holds, the mode management thread shall set regulator_mode to Failed_Regulator_Mode.\nMRM-S05 [state]: During computation, when lastRegulatorMode is Normal_Regulator_Mode, both failure flags are false, and current_tempWstatus.status is Valid, the mode management thread shall set regulator_mode to Normal_Regulator_Mode.\nMRM-S06 [state]: During computation, when lastRegulatorMode is Normal_Regulator_Mode and at least one of interface_failure.flag being true, internal_failure.flag being true, or current_tempWstatus.status being Invalid holds, the mode management thread shall set regulator_mode to Failed_Regulator_Mode.\nMRM-S07 [state]: During computation, when lastRegulatorMode is Failed_Regulator_Mode, the mode management thread shall set regulator_mode to Failed_Regulator_Mode.\nMRM-S08 [state]: Once the regulator enters Failed mode, it shall remain in Failed mode until reboot, as stated by the source's descriptive requirement.\nMHS-A01 [architecture]: The Manage_Heat_Source_Process_i process shall contain an mhs thread of type Manage_Heat_Source_i.\nMHS-I01 [interface]: The heat source management process shall expose an input DataPort current_tempWstatus of type Isolette_Data_Model::TempWstatus_i.\nMHS-I02 [interface]: The heat source management process shall expose input DataPorts lower_desired_temp and upper_desired_temp of type Isolette_Data_Model::Temp_i for the desired range bounds.\nMHS-I03 [interface]: The heat source management process shall expose an input DataPort regulator_mode of type Isolette_Data_Model::Regulator_Mode.\nMHS-I04 [interface]: The heat source management process shall expose an output DataPort heat_control of type Isolette_Data_Model::On_Off.\nMHS-I05 [interface]: The heat source management thread shall expose the same five named DataPorts, with the same directions and types, as its containing process: current_tempWstatus, lower_desired_temp, upper_desired_temp, and regulator_mode as inputs, and heat_control as output.\nMHS-C01 [architecture]: For each of current_tempWstatus, lower_desired_temp, upper_desired_temp, and regulator_mode, the heat source management process shall connect its input port to the identically named input port of its contained mhs thread.\nMHS-C02 [architecture]: The heat source management process shall connect its contained mhs thread's heat_control output to the process's heat_control output.\nMHS-A02 [architecture]: The heat source management process shall have CASE_Scheduling domain 5.\nMHS-A03 [architecture]: The heat source management thread shall have CASE_Scheduling domain 5.\nMHS-T01 [timing]: The heat source management thread shall use periodic dispatch with a period of 1000 milliseconds.\nMHS-S01 [state]: At initialization, the heat source management thread shall set heat_control to Off.\nMHS-F01 [functional]: During computation, when regulator_mode is Init_Regulator_Mode, the heat source management thread shall set heat_control to Off.\nMHS-F02 [functional]: During computation, when regulator_mode is Normal_Regulator_Mode and the current-temperature degrees value is strictly less than the lower desired-temperature degrees value, the heat source management thread shall command heater on using heat_control value Onn.\nMHS-F03 [functional]: During computation, when regulator_mode is Normal_Regulator_Mode and the current-temperature degrees value is strictly greater than the upper desired-temperature degrees value, the heat source management thread shall set heat_control to Off.\nMHS-F04 [functional]: During computation, when regulator_mode is Failed_Regulator_Mode, the heat source management thread shall set heat_control to Off.\nDRF-F01 [functional]: The regulator failure detection function shall identify internal failures in the Regulate Temperature function.\nDRF-S01 [state]: The regulator failure detection function shall define a single Boolean-valued Regulator Internal Failure variable.\nDRF-F02 [functional]: If an internal failure is detected, the regulator failure detection function shall set Regulator Internal Failure to true.\nDRF-A01 [architecture]: The Detect_Regulator_Failure_Process_i process shall contain a drf thread of type Detect_Regulator_Failure_i.\nDRF-I01 [interface]: The regulator failure detection process shall expose an output DataPort internal_failure of type Isolette_Data_Model::Failure_Flag_i.\nDRF-I02 [interface]: The regulator failure detection thread shall expose an output DataPort internal_failure of type Isolette_Data_Model::Failure_Flag_i.\nDRF-C01 [architecture]: The regulator failure detection process shall connect its contained drf thread's internal_failure output to the process's internal_failure output.\nDRF-A02 [architecture]: The regulator failure detection process shall have CASE_Scheduling domain 6.\nDRF-A03 [architecture]: The regulator failure detection thread shall have CASE_Scheduling domain 6.\nDRF-T01 [timing]: The regulator failure detection thread shall use periodic dispatch with a period of 1000 milliseconds.\n\n## Assumptions\nNo additional environmental assumptions are introduced. Contract case assumptions are translated as conditions on required behavior, not as promises that the environment always satisfies them.\nThe selected GUMBO contract text and descriptive comments are treated as sources of draft obligations; their presence does not establish implementation or validation.\nThe source's Onn enumeration value is described as heater on because its accompanying case description explicitly says On; the source spelling is preserved.\nRepeated port and connection requirements use universal wording for the explicitly listed ports; no additional ports or connections are inferred.\n\n## Unresolved questions\nLines 5\u20138 import external models whose definitions are absent. Temperature scale, numeric representation, resolution, admissible ranges, complete status and mode enumerations, failure-flag structure, and detailed DataPort semantics cannot be established.\nThe source calls the overall element a process in comments but declares it as a System at line 20. Components described as threads at lines 22\u201329 are declared process instances containing threads. The extracted architecture follows the declarations.\nThe source does not state temperature units beyond the field name degrees. Celsius, Fahrenheit, absolute limits, and safe desired ranges must not be inferred.\nLines 275\u2013310 declare lastRegulatorMode and use it in transition conditions, but do not initialize it or specify how it is updated from regulator_mode. The intended previous-mode relationship is suggested by the case descriptions but is not fully defined.\nLine 308 states that Failed mode persists until reboot, but no reboot input, reboot conditions, reset procedure, or explicit relationship between reboot and initialization is supplied.\nLines 169\u2013215 declare displayed_temp but provide no computation rule for it. Copying current temperature, rounding, status handling, and display behavior in each mode are unspecified.\nLines 200\u2013214 define interface failure for Invalid desired-temperature statuses and for two Valid statuses. Behavior for any other status values, if the imported type permits them, is unspecified.\nLines 210\u2013214 do not constrain desired-temperature outputs when interface_failure.flag is true. Retention, replacement values, and output suppression are not specified.\nNo rule checks that the lower desired temperature is less than or equal to the upper desired temperature. Inverted bounds could make the heater-on and heater-off conditions simultaneously true; no conflict resolution or input restriction is given.\nLines 384\u2013392 do not define the Normal-mode heater command when current temperature equals either bound or lies between the bounds. No hold-last-command or hysteresis behavior is supplied.\nThe Normal-mode heat-control conditions do not test current_tempWstatus.status. No direct heat-manager rule for Invalid current temperature is supplied; failure-dependent behavior relies on the received regulator mode, with propagation timing unspecified.\nInitialization is specified only for regulator_status, regulator_mode, and heat_control. Initial displayed temperature, desired-temperature outputs, interface failure, internal failure, and lastRegulatorMode are unspecified.\nLines 408\u2013410 give failure detection intent but no complete failure set, detection method, detection coverage, or detection deadline. The memory check failure is an example, not a specified mandatory test procedure.\nThe intended correspondence between the descriptive Boolean Regulator Internal Failure and internal_failure.flag is suggested by naming and use, but is not explicitly defined in the detector. The detector has no behavioral contract, no rule requiring false when no failure is detected, and no clearing or latching rule.\nThe 1000 ms periods do not specify execution-time bounds, deadlines, startup phase, jitter, thread ordering, synchronization, communication latency, or end-to-end reaction time. Scheduling domain numbers alone do not establish execution order.\nPort connections identify endpoints but do not establish transport protocols, buffering, sampling, freshness, physical interfaces, sensor accuracy, heater response, or operator-interface presentation.\nThe material supplies no quantitative air-temperature regulation performance, environmental operating conditions, or explicit safety goal. Such facts cannot be imported from the style-guide example.\nApplied-rule comments and AR-08-32 trace labels occur in the source, but no rulebook, generated validation output, or referenced requirement bodies are supplied. Completeness, port compatibility, and conformance to those external references remain unverified.",
+      "preparation_digest": "aeb212afafdf7d5137da68bca7374ab692efe12a38f82d8245224a677a9f02aa",
+      "preparation_id": "4481c6609cbbb7bf2038603f98f53f5f04c2c3644a61a6a5eb69abd702d58a25"
+    },
+    "subject_digest": "6dc6e22a420c09257895fcb789ac775dffff0c4e3ff7dcf1705e00bf6f37f6fe",
+    "id": "901c087d1d1c2b371d66a447c9478b6fd30373e174c0f50a2ed5e7087e423540",
+    "status": "PENDING",
+    "reviewer": null,
+    "decided_at": null
+  },
+  "directory": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/app/prepared-data/4481c6609cbbb7bf2038603f98f53f5f04c2c3644a61a6a5eb69abd702d58a25"
+}

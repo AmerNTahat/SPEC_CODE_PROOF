@@ -1,0 +1,48 @@
+{
+  "call_id": "f33e05b511d243a1bdc9637e2d4588d8",
+  "campaign_id": "3f16ff4ef866d414cedb448a3ade2dfc4c5b5807162e6aea7522abc218fb49d8",
+  "campaign_usage_unknown": false,
+  "campaign_used_tokens": 994378,
+  "codex_sha256": "0753dfe1d8b87a52436deb13eb1c549661ef4c84fee2c5aa688385eebeccb761",
+  "events": [
+    {
+      "thread_id": "01a0cbf8-8496-75f2-9551-c1d367f51313",
+      "type": "thread.started"
+    },
+    {
+      "item": {
+        "id": "item_0",
+        "message": "Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`.",
+        "type": "error"
+      },
+      "type": "item.completed"
+    },
+    {
+      "type": "turn.started"
+    }
+  ],
+  "exit_code": -9,
+  "isolation": "allowlisted mounts; selected inputs via stdin; no evaluator mount; tool network disabled; credential path denied to tools",
+  "model": "gpt-6-astra",
+  "prompt_sha256": "d87cbe7c1e37931a6cb22de3098007500599857c81aa8a4d5545cb219e8beebd",
+  "result": {
+    "reason": "PolicyError: Model call deadline reached",
+    "response": null,
+    "scope": "Metered response only; no truth, validation or acceptance claim",
+    "status": "BLOCKED",
+    "usage": {
+      "cached_input_tokens": 0,
+      "input_tokens": 0,
+      "output_tokens": 0
+    },
+    "usage_complete": false,
+    "warnings": [
+      "Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."
+    ]
+  },
+  "sandbox_sha256": "77360cb751ccedc5971391444ac86a8a33c15b04d6b4a6fe45f5d25496e62c4c",
+  "schema_sha256": "394f42f6f280096f282231164f93fa5e777cc4dd1cb83da55677741586868a2f",
+  "stderr_bytes": 0,
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "id": "2fb457247c357d74b66f23cccc49a87ab632efeb23352f05f0f2dd8d95c35d83"
+}

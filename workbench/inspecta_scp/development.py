@@ -65,12 +65,18 @@ class Development:
         profile=dict(self.controller.status(task['baseline_run_id'])['config'])
         profile.pop('resolved_operation',None)
         return self.prepare(profile,task['target_file'],task['shared_files'],task['requirements'],
-            candidate_ids,task['plan_id'],validation_plan_id=task['validation_plan_id'],predecessor_task_id=task['id'])
+            candidate_ids,task['plan_id'],validation_plan_id=task['validation_plan_id'],predecessor_task_id=task['id'],prepared_requirements_id=task.get('prepared_requirements_id'))
 
-    def prepare(self,profile,target_file,shared_files,requirements,candidate_ids,plan_id,base_dir=None,validation_plan_id=None,predecessor_task_id=None):
+    def prepare(self,profile,target_file,shared_files,requirements,candidate_ids,plan_id,base_dir=None,validation_plan_id=None,predecessor_task_id=None,prepared_requirements_id=None):
         plan=LearningPlan(self.store).fresh(validation_plan_id or plan_id)
         LearningPlan(self.store).training_context(validation_plan_id or plan_id)
         LearningPlan(self.store).training_context(plan_id) # Require exact current split approval.
+        prepared=None
+        if prepared_requirements_id:
+            from .data_preparation import DataPreparation
+            prepared=DataPreparation(self.controller).approved(prepared_requirements_id,validation_plan_id or plan_id,'validation')
+            if requirements is not None and requirements!=prepared['english']:raise PolicyError('Prepared English changed; review a new revision before validation')
+            requirements=prepared['english']
         if not isinstance(requirements,str) or not requirements.strip() or len(requirements.encode())>128000:
             raise PolicyError('Provide 1–128000 bytes of English requirements')
         if not isinstance(shared_files,list) or len(shared_files)!=len(set(shared_files)):
@@ -86,6 +92,7 @@ class Development:
         # selected rules cannot form an executable development bundle.
         Knowledge(self.store).draft_release(candidate_ids)
         root=Path(config['project']);golden=sha_file(safe_child(root,target_file))
+        if prepared and prepared['item']['source_sha256']!=golden:raise PolicyError('Prepared English does not describe the selected golden target')
         if golden not in {p['source_sha256'] for p in plan['validation']}:
             raise PolicyError('Golden target must belong to the held-out validation selection')
         heldout={p['source_sha256'] for p in plan['validation']}
@@ -112,6 +119,7 @@ class Development:
         task=self.store.record('development_task',{'plan_id':plan_id,'validation_plan_id':validation_plan_id or plan_id,'baseline_run_id':baseline['id'],
             'config_hash':baseline['config_hash'],'target_file':target_file,'golden_sha256':golden,'predecessor_task_id':predecessor_task_id,
             'shared_files':shared_files,'requirements':requirements,'candidate_ids':candidate_ids,
+            'prepared_requirements_id':prepared_requirements_id,
             'operation':'isolated_reconstruction_for_development','naming_policy':'preserve_existing_reference_names',
             'required_gates':list(dict.fromkeys(config['required_gates']+['architecture_capture'])),
             'reference_policy':'golden excluded from model context; controller-only comparison',
@@ -129,6 +137,10 @@ class Development:
         self.approvals.require(approvals[0]['id'],'approve_development_task',approvals[0]['subject'])
         LearningPlan(self.store).fresh(task['plan_id'])
         LearningPlan(self.store).fresh(task.get('validation_plan_id',task['plan_id']))
+        if task.get('prepared_requirements_id'):
+            from .data_preparation import DataPreparation
+            prepared=DataPreparation(self.controller).approved(task['prepared_requirements_id'],task.get('validation_plan_id',task['plan_id']),'validation')
+            if prepared['english']!=task['requirements']:raise PolicyError('Prepared validation English identity changed')
         baseline=self.controller.status(task['baseline_run_id'])
         if baseline.get('source_changed'):raise PolicyError('Baseline changed after review')
         folder=safe_child(self.store.root,'runs/'+baseline['id']+'/candidate')

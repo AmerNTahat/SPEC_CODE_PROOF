@@ -1,0 +1,348 @@
+{
+  "assumptions": [],
+  "derived_from_reference": false,
+  "description": "The Monitor Temperature system receives sensed temperature and operator-selected alarm limits with validity status, and produces alarm control and monitor status. Within the selected window, the Manage Monitor Interface process and thread receive temperature and mode information, report monitor status and interface failure, and forward alarm limits when no interface failure exists. Process/thread structure, port connections, scheduling domain and periodic dispatch are source-defined implementation choices. The requirements below cover only obligations beginning within lines 101\u2013200; they are draft derivations, not an independent specification.",
+  "english": "# Isolette Monitor \u2014 draft derived requirements, lines 101\u2013200\n\n## System description\nThe Monitor Temperature system receives sensed temperature and operator-selected alarm limits with validity status, and produces alarm control and monitor status. Within the selected window, the Manage Monitor Interface process and thread receive temperature and mode information, report monitor status and interface failure, and forward alarm limits when no interface failure exists. Process/thread structure, port connections, scheduling domain and periodic dispatch are source-defined implementation choices. The requirements below cover only obligations beginning within lines 101\u2013200; they are draft derivations, not an independent specification.\n\n## Requirements\nL101-MMI-001 [interface]: The Manage Monitor Interface process shall provide an upper_alarm_tempWstatus input data port of type Isolette_Data_Model::TempWstatus_i.\nL101-MMI-002 [interface]: The Manage Monitor Interface process shall provide a current_tempWstatus input data port of type Isolette_Data_Model::TempWstatus_i.\nL101-MMI-003 [interface]: The Manage Monitor Interface process shall provide a monitor_mode input data port of type Isolette_Data_Model::Monitor_Mode.\nL101-MMI-004 [interface]: The Manage Monitor Interface process shall provide a lower_alarm_temp output data port of type Isolette_Data_Model::Temp_i.\nL101-MMI-005 [interface]: The Manage Monitor Interface process shall provide an upper_alarm_temp output data port of type Isolette_Data_Model::Temp_i.\nL101-MMI-006 [interface]: The Manage Monitor Interface process shall provide a monitor_status output data port of type Isolette_Data_Model::Status.\nL101-MMI-007 [interface]: The Manage Monitor Interface process shall provide an interface_failure output data port of type Isolette_Data_Model::Failure_Flag_i.\nL101-MMI-008 [architecture]: The Manage Monitor Interface process shall connect its lower_alarm_tempWstatus input to the mmi thread's lower_alarm_tempWstatus input through port connection mmi_latw.\nL101-MMI-009 [architecture]: The Manage Monitor Interface process shall connect its upper_alarm_tempWstatus input to the mmi thread's upper_alarm_tempWstatus input through port connection mmi_uatw.\nL101-MMI-010 [architecture]: The Manage Monitor Interface process shall connect its current_tempWstatus input to the mmi thread's current_tempWstatus input through port connection mmi_ctw.\nL101-MMI-011 [architecture]: The Manage Monitor Interface process shall connect its monitor_mode input to the mmi thread's monitor_mode input through port connection mmi_mode.\nL101-MMI-012 [architecture]: The Manage Monitor Interface process shall connect the mmi thread's lower_alarm_temp output to its lower_alarm_temp output through port connection mmi_lat.\nL101-MMI-013 [architecture]: The Manage Monitor Interface process shall connect the mmi thread's upper_alarm_temp output to its upper_alarm_temp output through port connection mmi_uat.\nL101-MMI-014 [architecture]: The Manage Monitor Interface process shall connect the mmi thread's monitor_status output to its monitor_status output through port connection mmi_status.\nL101-MMI-015 [architecture]: The Manage Monitor Interface process shall connect the mmi thread's interface_failure output to its interface_failure output through port connection mmi_if.\nL101-MMI-016 [architecture]: The Manage Monitor Interface process shall have CASE_Scheduling domain 7.\nL101-MMI-017 [architecture]: Manage_Monitor_Interface_i shall be defined as a Thread component.\nL101-MMI-018 [timing]: The Manage Monitor Interface thread shall use periodic dispatch.\nL101-MMI-019 [timing]: The Manage Monitor Interface thread shall have a dispatch period of 1000 milliseconds.\nL101-MMI-020 [architecture]: The Manage Monitor Interface thread shall have CASE_Scheduling domain 7.\nL101-MMI-021 [interface]: The Manage Monitor Interface thread shall provide a lower_alarm_tempWstatus input data port of type Isolette_Data_Model::TempWstatus_i.\nL101-MMI-022 [interface]: The Manage Monitor Interface thread shall provide an upper_alarm_tempWstatus input data port of type Isolette_Data_Model::TempWstatus_i.\nL101-MMI-023 [interface]: The Manage Monitor Interface thread shall provide a current_tempWstatus input data port of type Isolette_Data_Model::TempWstatus_i.\nL101-MMI-024 [interface]: The Manage Monitor Interface thread shall provide a monitor_mode input data port of type Isolette_Data_Model::Monitor_Mode.\nL101-MMI-025 [interface]: The Manage Monitor Interface thread shall provide a lower_alarm_temp output data port of type Isolette_Data_Model::Temp_i.\nL101-MMI-026 [interface]: The Manage Monitor Interface thread shall provide an upper_alarm_temp output data port of type Isolette_Data_Model::Temp_i.\nL101-MMI-027 [interface]: The Manage Monitor Interface thread shall provide a monitor_status output data port of type Isolette_Data_Model::Status.\nL101-MMI-028 [interface]: The Manage Monitor Interface thread shall provide an interface_failure output data port of type Isolette_Data_Model::Failure_Flag_i.\nL101-MMI-029 [state]: At initialization, the Manage Monitor Interface thread shall set monitor_status to Init_Status.\nL101-MMI-030 [functional]: During computation, when monitor_mode is Init_Monitor_Mode, the Manage Monitor Interface thread shall set monitor_status to Init_Status.\nL101-MMI-031 [functional]: During computation, when monitor_mode is Normal_Monitor_Mode, the Manage Monitor Interface thread shall set monitor_status to On_Status.\nL101-MMI-032 [functional]: During computation, when monitor_mode is Failed_Monitor_Mode, the Manage Monitor Interface thread shall set monitor_status to Failed_Status.\nL101-MMI-033 [functional]: During computation, when either the lower or upper alarm temperature input has Invalid status, the Manage Monitor Interface thread shall set the interface_failure flag to true.\nL101-MMI-034 [functional]: During computation, when both alarm temperature inputs have Valid status, the Manage Monitor Interface thread shall set the interface_failure flag to false.\nL101-MMI-035 [functional]: During computation, when the interface_failure flag is false, the Manage Monitor Interface thread shall set the lower_alarm_temp degrees value equal to the lower_alarm_tempWstatus degrees value.\nL101-MMI-036 [functional]: During computation, when the interface_failure flag is false, the Manage Monitor Interface thread shall set the upper_alarm_temp degrees value equal to the upper_alarm_tempWstatus degrees value.\nL101-MMM-001 [architecture]: Manage_Monitor_Mode_Process_i shall be defined as a Process component.\n\n## Assumptions\n\n\n## Unresolved questions\nThe imported data type definitions are absent. Temperature scale, units, numeric range, precision and complete status domains are unspecified.\nInitial values for the alarm temperature outputs and interface_failure flag are unspecified.\nAlarm temperature output behavior when interface_failure is true is unspecified; retaining previous values is not required by the source.\nNo alarm-limit ordering or allowable-range checks are specified; the stated interface-failure conditions use validity status only.\nThe thread receives current_tempWstatus, but no behavior using that input is specified for this component.\nThe source specifies no execution-time bound, deadline, dispatch phase, communication latency or sampling semantics. The 1000-millisecond period does not establish an end-to-end response bound.\nThe operational meaning of CASE_Scheduling domain 7 is not supplied.\nBehavior for any mode or validity-status values beyond those explicitly covered is unspecified; the imported enumerations are needed to determine completeness.\nThe source lists applied rule identifiers and handbook trace references, but their contents and validation results are not supplied.",
+  "item": {
+    "end": 431,
+    "label": "Isolette Monitor",
+    "normalized_text_sha256": "7e0cd6ae2d818b5d5a018b74664cd665278d24f3eeb408849e834759400e41fa",
+    "source_id": "d7ef18732a5def5da9422e3e47db924dd4ae4c9b806fcc86f11c932b377db935",
+    "source_sha256": "43664d0fe5904aed949d4c12e824c905d7bc1b4e89efa0409038c1b6f52ff605",
+    "start": 1,
+    "text_sha256": "6d92da0875771dc87cc8f20c57864bd9ff3c06fa0d8ef1b962841149654ccba4"
+  },
+  "item_index": 0,
+  "line_window": [
+    101,
+    200
+  ],
+  "measurement": {
+    "elapsed_seconds": 121.2635132370051,
+    "estimated_debit_tokens": 0,
+    "measured_tokens": 21233
+  },
+  "method": "model_to_english",
+  "model_call_id": "7d63f1da6d1f05a346cbe35ff3afd6962562fdb895f3f24a4aeecae36e484775",
+  "plan_id": "6004a757c4beecf5c8c5b86780ccc3fa03d136f2fd15f65b3fc395348e3359d1",
+  "role": "training",
+  "scope": "Prepared development data, not independent final-transfer requirements or verified behavior",
+  "source_claims": [
+    {
+      "category": "interface",
+      "evidence_quote": "in port upper_alarm_tempWstatus : DataPort { :>> type : Isolette_Data_Model::TempWstatus_i; }",
+      "id": "L101-MMI-001",
+      "source_end": 101,
+      "source_start": 101,
+      "statement": "The Manage Monitor Interface process shall provide an upper_alarm_tempWstatus input data port of type Isolette_Data_Model::TempWstatus_i."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "in port current_tempWstatus : DataPort { :>> type : Isolette_Data_Model::TempWstatus_i; }",
+      "id": "L101-MMI-002",
+      "source_end": 102,
+      "source_start": 102,
+      "statement": "The Manage Monitor Interface process shall provide a current_tempWstatus input data port of type Isolette_Data_Model::TempWstatus_i."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "in port monitor_mode : DataPort { :>> type : Isolette_Data_Model::Monitor_Mode; }",
+      "id": "L101-MMI-003",
+      "source_end": 103,
+      "source_start": 103,
+      "statement": "The Manage Monitor Interface process shall provide a monitor_mode input data port of type Isolette_Data_Model::Monitor_Mode."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "out port lower_alarm_temp : DataPort { :>> type : Isolette_Data_Model::Temp_i; }",
+      "id": "L101-MMI-004",
+      "source_end": 106,
+      "source_start": 106,
+      "statement": "The Manage Monitor Interface process shall provide a lower_alarm_temp output data port of type Isolette_Data_Model::Temp_i."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "out port upper_alarm_temp : DataPort { :>> type : Isolette_Data_Model::Temp_i; }",
+      "id": "L101-MMI-005",
+      "source_end": 107,
+      "source_start": 107,
+      "statement": "The Manage Monitor Interface process shall provide an upper_alarm_temp output data port of type Isolette_Data_Model::Temp_i."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "out port monitor_status : DataPort { :>> type : Isolette_Data_Model::Status; }",
+      "id": "L101-MMI-006",
+      "source_end": 108,
+      "source_start": 108,
+      "statement": "The Manage Monitor Interface process shall provide a monitor_status output data port of type Isolette_Data_Model::Status."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "out port interface_failure : DataPort { :>> type : Isolette_Data_Model::Failure_Flag_i; }",
+      "id": "L101-MMI-007",
+      "source_end": 109,
+      "source_start": 109,
+      "statement": "The Manage Monitor Interface process shall provide an interface_failure output data port of type Isolette_Data_Model::Failure_Flag_i."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect lower_alarm_tempWstatus to mmi.lower_alarm_tempWstatus;",
+      "id": "L101-MMI-008",
+      "source_end": 112,
+      "source_start": 111,
+      "statement": "The Manage Monitor Interface process shall connect its lower_alarm_tempWstatus input to the mmi thread's lower_alarm_tempWstatus input through port connection mmi_latw."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect upper_alarm_tempWstatus to mmi.upper_alarm_tempWstatus;",
+      "id": "L101-MMI-009",
+      "source_end": 114,
+      "source_start": 113,
+      "statement": "The Manage Monitor Interface process shall connect its upper_alarm_tempWstatus input to the mmi thread's upper_alarm_tempWstatus input through port connection mmi_uatw."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect current_tempWstatus to mmi.current_tempWstatus;",
+      "id": "L101-MMI-010",
+      "source_end": 116,
+      "source_start": 115,
+      "statement": "The Manage Monitor Interface process shall connect its current_tempWstatus input to the mmi thread's current_tempWstatus input through port connection mmi_ctw."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect monitor_mode to mmi.monitor_mode;",
+      "id": "L101-MMI-011",
+      "source_end": 118,
+      "source_start": 117,
+      "statement": "The Manage Monitor Interface process shall connect its monitor_mode input to the mmi thread's monitor_mode input through port connection mmi_mode."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect mmi.lower_alarm_temp to lower_alarm_temp;",
+      "id": "L101-MMI-012",
+      "source_end": 120,
+      "source_start": 119,
+      "statement": "The Manage Monitor Interface process shall connect the mmi thread's lower_alarm_temp output to its lower_alarm_temp output through port connection mmi_lat."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect mmi.upper_alarm_temp to upper_alarm_temp;",
+      "id": "L101-MMI-013",
+      "source_end": 122,
+      "source_start": 121,
+      "statement": "The Manage Monitor Interface process shall connect the mmi thread's upper_alarm_temp output to its upper_alarm_temp output through port connection mmi_uat."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect mmi.monitor_status to monitor_status;",
+      "id": "L101-MMI-014",
+      "source_end": 124,
+      "source_start": 123,
+      "statement": "The Manage Monitor Interface process shall connect the mmi thread's monitor_status output to its monitor_status output through port connection mmi_status."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect mmi.interface_failure to interface_failure;",
+      "id": "L101-MMI-015",
+      "source_end": 126,
+      "source_start": 125,
+      "statement": "The Manage Monitor Interface process shall connect the mmi thread's interface_failure output to its interface_failure output through port connection mmi_if."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "attribute Domain: CASE_Scheduling::Domain = 7;",
+      "id": "L101-MMI-016",
+      "source_end": 128,
+      "source_start": 128,
+      "statement": "The Manage Monitor Interface process shall have CASE_Scheduling domain 7."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "part def Manage_Monitor_Interface_i :> Thread {",
+      "id": "L101-MMI-017",
+      "source_end": 131,
+      "source_start": 131,
+      "statement": "Manage_Monitor_Interface_i shall be defined as a Thread component."
+    },
+    {
+      "category": "timing",
+      "evidence_quote": "attribute :>> Dispatch_Protocol = Supported_Dispatch_Protocols::Periodic;",
+      "id": "L101-MMI-018",
+      "source_end": 133,
+      "source_start": 133,
+      "statement": "The Manage Monitor Interface thread shall use periodic dispatch."
+    },
+    {
+      "category": "timing",
+      "evidence_quote": "attribute :>> Period = 1000 [ms];",
+      "id": "L101-MMI-019",
+      "source_end": 134,
+      "source_start": 134,
+      "statement": "The Manage Monitor Interface thread shall have a dispatch period of 1000 milliseconds."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "attribute Domain: CASE_Scheduling::Domain = 7;",
+      "id": "L101-MMI-020",
+      "source_end": 135,
+      "source_start": 135,
+      "statement": "The Manage Monitor Interface thread shall have CASE_Scheduling domain 7."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "in port lower_alarm_tempWstatus : DataPort { :>> type : Isolette_Data_Model::TempWstatus_i; }",
+      "id": "L101-MMI-021",
+      "source_end": 137,
+      "source_start": 137,
+      "statement": "The Manage Monitor Interface thread shall provide a lower_alarm_tempWstatus input data port of type Isolette_Data_Model::TempWstatus_i."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "in port upper_alarm_tempWstatus : DataPort { :>> type : Isolette_Data_Model::TempWstatus_i; }",
+      "id": "L101-MMI-022",
+      "source_end": 138,
+      "source_start": 138,
+      "statement": "The Manage Monitor Interface thread shall provide an upper_alarm_tempWstatus input data port of type Isolette_Data_Model::TempWstatus_i."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "in port current_tempWstatus : DataPort { :>> type : Isolette_Data_Model::TempWstatus_i; }",
+      "id": "L101-MMI-023",
+      "source_end": 139,
+      "source_start": 139,
+      "statement": "The Manage Monitor Interface thread shall provide a current_tempWstatus input data port of type Isolette_Data_Model::TempWstatus_i."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "in port monitor_mode : DataPort { :>> type : Isolette_Data_Model::Monitor_Mode; }",
+      "id": "L101-MMI-024",
+      "source_end": 140,
+      "source_start": 140,
+      "statement": "The Manage Monitor Interface thread shall provide a monitor_mode input data port of type Isolette_Data_Model::Monitor_Mode."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "out port lower_alarm_temp : DataPort { :>> type : Isolette_Data_Model::Temp_i; }",
+      "id": "L101-MMI-025",
+      "source_end": 142,
+      "source_start": 142,
+      "statement": "The Manage Monitor Interface thread shall provide a lower_alarm_temp output data port of type Isolette_Data_Model::Temp_i."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "out port upper_alarm_temp : DataPort { :>> type : Isolette_Data_Model::Temp_i; }",
+      "id": "L101-MMI-026",
+      "source_end": 143,
+      "source_start": 143,
+      "statement": "The Manage Monitor Interface thread shall provide an upper_alarm_temp output data port of type Isolette_Data_Model::Temp_i."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "out port monitor_status : DataPort { :>> type : Isolette_Data_Model::Status; }",
+      "id": "L101-MMI-027",
+      "source_end": 144,
+      "source_start": 144,
+      "statement": "The Manage Monitor Interface thread shall provide a monitor_status output data port of type Isolette_Data_Model::Status."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "out port interface_failure : DataPort { :>> type : Isolette_Data_Model::Failure_Flag_i; }",
+      "id": "L101-MMI-028",
+      "source_end": 145,
+      "source_start": 145,
+      "statement": "The Manage Monitor Interface thread shall provide an interface_failure output data port of type Isolette_Data_Model::Failure_Flag_i."
+    },
+    {
+      "category": "state",
+      "evidence_quote": "monitor_status == Isolette_Data_Model::Status.Init_Status;",
+      "id": "L101-MMI-029",
+      "source_end": 151,
+      "source_start": 149,
+      "statement": "At initialization, the Manage Monitor Interface thread shall set monitor_status to Init_Status."
+    },
+    {
+      "category": "functional",
+      "evidence_quote": "If mode INIT then monitor status is Init | AR-08-32 A.5.2.1",
+      "id": "L101-MMI-030",
+      "source_end": 157,
+      "source_start": 155,
+      "statement": "During computation, when monitor_mode is Init_Monitor_Mode, the Manage Monitor Interface thread shall set monitor_status to Init_Status."
+    },
+    {
+      "category": "functional",
+      "evidence_quote": "If mode NORMAL then monitor status is On | AR-08-32 A.5.2.1",
+      "id": "L101-MMI-031",
+      "source_end": 161,
+      "source_start": 159,
+      "statement": "During computation, when monitor_mode is Normal_Monitor_Mode, the Manage Monitor Interface thread shall set monitor_status to On_Status."
+    },
+    {
+      "category": "functional",
+      "evidence_quote": "If mode FAILED then monitor status is Failed | AR-08-32 A.5.2.1",
+      "id": "L101-MMI-032",
+      "source_end": 165,
+      "source_start": 163,
+      "statement": "During computation, when monitor_mode is Failed_Monitor_Mode, the Manage Monitor Interface thread shall set monitor_status to Failed_Status."
+    },
+    {
+      "category": "functional",
+      "evidence_quote": "If any alarm temperature status is Invalid then interface failure is True | AR-08-32 A.5.2.1",
+      "id": "L101-MMI-033",
+      "source_end": 170,
+      "source_start": 167,
+      "statement": "During computation, when either the lower or upper alarm temperature input has Invalid status, the Manage Monitor Interface thread shall set the interface_failure flag to true."
+    },
+    {
+      "category": "functional",
+      "evidence_quote": "If both alarm temperature statuses are Valid then interface failure is False | AR-08-32 A.5.2.1",
+      "id": "L101-MMI-034",
+      "source_end": 175,
+      "source_start": 172,
+      "statement": "During computation, when both alarm temperature inputs have Valid status, the Manage Monitor Interface thread shall set the interface_failure flag to false."
+    },
+    {
+      "category": "functional",
+      "evidence_quote": "lower_alarm_temp.degrees == lower_alarm_tempWstatus.degrees",
+      "id": "L101-MMI-035",
+      "source_end": 181,
+      "source_start": 177,
+      "statement": "During computation, when the interface_failure flag is false, the Manage Monitor Interface thread shall set the lower_alarm_temp degrees value equal to the lower_alarm_tempWstatus degrees value."
+    },
+    {
+      "category": "functional",
+      "evidence_quote": "upper_alarm_temp.degrees == upper_alarm_tempWstatus.degrees",
+      "id": "L101-MMI-036",
+      "source_end": 181,
+      "source_start": 177,
+      "statement": "During computation, when the interface_failure flag is false, the Manage Monitor Interface thread shall set the upper_alarm_temp degrees value equal to the upper_alarm_tempWstatus degrees value."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "part def Manage_Monitor_Mode_Process_i :> Process {",
+      "id": "L101-MMM-001",
+      "source_end": 199,
+      "source_start": 199,
+      "statement": "Manage_Monitor_Mode_Process_i shall be defined as a Process component."
+    }
+  ],
+  "style": {
+    "context_id": "77bdcaefd9adf0515305978b7e9b668a5c4e1561b7ab8803c0744bcc698e7b8d",
+    "end_character": 47000,
+    "name": "Steve_Miller_FAA_docAR-08-32.pdf",
+    "source_sha256": "b4949561cb04d46f718a16e2cc1486c0bd5a26c15778e3567c464466c24731df",
+    "start_character": 35000,
+    "text": " environment in which it will\noperate. It should not attempt to completely describe the system. Rather, its intent is to provide\nthe reader with a high-level view of what the system does, how it interacts with its environment,\nand why the system is needed. At a minimum, it should include a short synopsis of the system;\none or more context descriptions; a brief description of each external entity in the context\ndiagrams; and a set of high-level system goals, objectives, and constraints. It may also include\nother relevant information, such as historical background, but this needs to be balanced against\nthe need to quickly orient a new reader. Examples of system overviews are provided in appendix\nA.1 for the Isolette Thermostat, appendix B.1 for the FCS, appendix C.1 for the FGS, and\nappendix D.1 for the AP.\n\n\n\n\n                                                  5\n\f Recommended Practice 2.1.1: Develop the system overview early in the requirements\n engineering process and use it as the introduction to the requirements specification. Keep the\n overview at a high level so it can be used to quickly orient new readers.\n\n2.1.2 Provide System Synopsis.\n\nThe overview itself should begin with a synopsis that provides a brief narrative description of the\nsystem. Ideally, the synopsis is short, clear, and describes what the system will do without\nimplying a particular system design. The synopsis should name the system to be developed,\ndescribe its purpose, and summarize the main capabilities provided by the system. An early\nversion of the synopsis for the Isolette Thermostat states:\n\n       The system being specified is the thermostat of an Isolette. An Isolette is an\n       incubator for an infant that provides controlled temperature, humidity, and\n       oxygen (if necessary). Isolettes are used extensively in Neonatal Intensive Care\n       Units for the care of premature infants.\n\n       The purpose of the Isolette Thermostat is to maintain the air temperature of an\n       Isolette within a desired range. It senses the current temperature of the Isolette\n       and turns the heat source on and off to warm the air as needed. The system\n       allows the nurse to set the Desired Temperature Range within a safe range for\n       infants.\n\nAs with all the system overviews, the synopsis will evolve throughout the requirements\ndefinition. Examples of complete system synopses are provided at the start of appendix A.1 for\nthe Isolette Thermostat, appendix B.1 for the FCS, appendix C.1 for the FGS, and appendix D.1\nfor the AP.\n\n Recommended Practice 2.1.2: Provide a short textual synopsis of the system as the first part\n of the system overview. The synopsis should name the system, describe its purpose, and\n summarize the system capabilities.\n\n2.1.3 Identify System Contexts.\n\nThe purpose of the system context is to describe, at a high level, the external entities with which\nthe system interacts and the nature of those interactions. Note that there may be more than one\ncontext in which the system will be used during its entire life cycle. For example, there will\nalmost certainly be an operational context, which describes the entities with which the system\ninteracts during normal operation, but there may also be a testing context used during system\ndevelopment in which the system interacts with test equipment through different interfaces, or\nthere may be a maintenance context that is used to diagnose and repair the system in the field.\nEach relevant context for the system should be identified and described. Since different\nindividuals will be interested in different contexts, it is usually better to describe each context\nseparately than to try to combine them into a single context.\n\n\n\n\n                                                6\n\f Recommended Practice 2.1.3: Consider the entire life cycle of the system and identify each\n distinct context in which it will be used.\n\n2.1.4 Use Context Diagrams.\n\nFor each context, the external entities with which the system interacts and the nature of those\ninteractions should be identified. A convenient way to do this is through the use of a context\ndiagram that graphically depicts each external entity and its interaction with the system. An\nexample context diagram for the Isolette Thermostat is shown in figure A-1. A similar context\ndiagram for the FCS is shown in figure B-1 for the FGS in figure C-1, and for the AP in figure\nD-1. Note that the system itself is shown in the context diagram as a black box with no internal\nstructure. It may also be helpful to identify the higher-level systems in which the system is\nembedded (for example, the Thermostat context includes the larger system content of the\nIsolette).\n\n Recommended Practice 2.1.4: Use context diagrams in the system overview to provide a\n high-level, graphical depiction of the system, the external entities it interacts with, and those\n interactions.\n\n2.1.5 Describe External Entities.\n\nA brief description of each external entity and its interactions with the system should also be\nprovided. Since this is part of the system overview, these descriptions should be kept short and\nsimple (more detailed information on the entities and their interactions will be provided in later\nsections of the applicable specification). Examples of the descriptions of external entities and\ntheir interactions with the system are provided in appendix A.1.1 for the Isolette Thermostat,\nappendix B.1.1 for the FCS, appendix C.1.1 for the FGS, and appendix D.1.1 for the AP.\n\n Recommended Practice 2.1.5: For each context diagram, provide a brief description of each\n external entity and its interactions with the system.\n\n2.1.6 Capture Preliminary System Goals.\n\nGoals are informal statements of the system stakeholders\u2019 needs. They are not requirements\nsince they are not verifiable and do not provide enough information to build the system [14].\nHowever, they provide important guidance on why the system is being built and what is\nimportant to the stakeholders. During the early phases of the project, they may be all that is\navailable. Goals frequently conflict with each other. For example, one goal may be to produce a\nsystem with a sophisticated operator interface, while another goal is to produce the system at\nminimal cost. One of the objectives of the requirements engineering process is to refine the\ngoals into verifiable requirements that resolve these conflicts as effectively as possible.\n\nA preliminary set of system goals should be captured early in the requirements engineering\nprocess so they can be used to guide the specification of requirements. A natural place to present\nthe system goals is in the system overview. However, in a large project, the system goals may be\nnumerous enough to justify placing them in their own section or in another document entirely.\n\n\n                                                7\n\f    Recommended Practice 2.1.6: Capture a preliminary set of system goals early in the\n    requirements engineering process so they can be used to guide the development of the\n    requirements.\n\n2.1.7 Maintain System Goal Information.\n\nGoals frequently help to explain why a particular requirement exists or is stated in a particular\nway and may be cited in the rationale (see section 2.11) for the requirement. The operational\nconcepts (see section 2.3) also trace back to the system goals.\n\nManagement of the system goals will vary with the size, complexity, and maturity of the system\nbeing developed. On small projects, the goals may be well understood. It may be possible to list\nthe system goals on a single page and their management may consist of nothing more than an\noccasional review and update. This is the case for the Isolette Thermostat example, which\ninitially has only two simple goals:\n\n\u2022        G1\u2014The infant should be kept at a safe and comfortable temperature.\n\u2022        G2\u2014The cost of manufacturing the thermostat should be as low as possible.\n\nHowever, on a project of any size, and particularly for new large systems, the goals will\nprobably evolve throughout project development. New needs will be identified, priorities will\nshift, managers will change, understanding of the project will grow, all resulting in a changing\nset of project goals. Management of the goals on such a project may be a significant task in its\nown right. To do this, information should be collected that facilitates tracing the goal back to its\nsource and continuously assessing the importance of that goal relative to other goals.\n\nPotential sources of system goals are numerous and include the customers, users, regulatory\nbodies, and previous developments. Goals may be provided directly by these organizations or\nmay be discovered through interviews or review of documents provided by the stakeholders.\nDepending on the size and volatility of a project, information that may be desirable to collect\nabout each goal may include:\n\n\u2022        Origin\u2014Where did the goal come from (customer, individual, document \u2026)?\n\u2022        Origin Date\u2014When was the goal was first identified?\n\u2022        Author\u2014Who first documented the goal?\n\u2022        Priority\u2014What is the importance of the goal relative to other goals?\n\u2022        Stakeholders\u2014Which customers or users are most concerned about this goal?\n\u2022        Stability\u2014How likely is this goal to change?\n\u2022        Schedule Date\u2014What is the date this goal is scheduled to be implemented?\n\nFor items such as priority and stability, each organization would probably want to provide their\nown allowed values and definitions. If the system goals are expected to change frequently, they\nshould be kept under configuration control to provide a history of their evolution.\n\n\n\n\n                                                 8\n\f Recommended Practice 2.1.7: Depending on the size and volatility of a project, collect and\n maintain the information about each system goal necessary to continuously assess its\n importance relative to the other goals.\n\n2.2 IDENTIFY THE SYSTEM BOUNDARY.\n\nRefer to table 2 for a description of main- and sublevel recommended practices for identifying\nthe system boundary.\n\n                             Table 2. Identify the System Boundary\n\n                          Main- and Sublevel Recommended Practices\n2.2 Identify the System Boundary:\n\n    Develop a clear definition of the boundary between the system and its environment. This\n    provides a solid understanding of what lies within the system to be built and what lies\n    within a larger environment. This is done by identifying a set of variables in the\n    environment the system will monitor and control.\n    2.2.1 Define the system boundary early in the requirements engineering process by\n           identifying a preliminary set of monitored and controlled variables.\n    2.2.2 Choose environmental variables that exist in the environment independently of the\n           system to be developed.\n    2.2.3 Choose controlled variables that are under the direct control of the system being\n           specified.\n    2.2.4 Choose monitored variables that are being directly sensed by the system being\n           specified.\n    2.2.5 Ensure the monitored and controlled variables are as abstract as possible and do not\n           include implementation details.\n    2.2.6 Avoid incorporating details of the operator interface in the monitored and controlled\n           variables. Instead, define monitored or controlled variables that describe the\n           information to be conveyed independent of its presentation format.\n    2.2.7 Completely define all physical interfaces to the system, including definitions for all\n           discrete inputs, all messages, all fields in a message, and all protocols followed.\n\nOne of the most important activities in requirements engineering is to clearly define the\nboundary between the system and its environment. This provides a sound understanding of what\nlies within the system to be built and what lies within a larger environment. Every system is\nembedded"
+  },
+  "unresolved": [
+    "The imported data type definitions are absent. Temperature scale, units, numeric range, precision and complete status domains are unspecified.",
+    "Initial values for the alarm temperature outputs and interface_failure flag are unspecified.",
+    "Alarm temperature output behavior when interface_failure is true is unspecified; retaining previous values is not required by the source.",
+    "No alarm-limit ordering or allowable-range checks are specified; the stated interface-failure conditions use validity status only.",
+    "The thread receives current_tempWstatus, but no behavior using that input is specified for this component.",
+    "The source specifies no execution-time bound, deadline, dispatch phase, communication latency or sampling semantics. The 1000-millisecond period does not establish an end-to-end response bound.",
+    "The operational meaning of CASE_Scheduling domain 7 is not supplied.",
+    "Behavior for any mode or validity-status values beyond those explicitly covered is unspecified; the imported enumerations are needed to determine completeness.",
+    "The source lists applied rule identifiers and handbook trace references, but their contents and validation results are not supplied."
+  ],
+  "id": "9c027677db6f4f7f59ef1923242a4014c302990052665e7f0897bc46669f040d"
+}

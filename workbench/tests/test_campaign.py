@@ -6,6 +6,20 @@ from inspecta_scp.storage import Store
 
 
 class CampaignTests(unittest.TestCase):
+    def test_continuation_allowance_preserves_aggregate_and_charges_usage(self):
+        with tempfile.TemporaryDirectory() as path:
+            store=Store(path);campaign=Campaign(store)
+            grant=campaign.authorize(1000,60,'TEST ONLY')
+            store.record('campaign_continuation_allowance',{'campaign_id':grant['id'],
+                'baseline_charged_tokens':0,'additional_charged_tokens':100})
+            call=campaign.reserve(grant['id'],80)
+            state=campaign.settle(call,{'input_tokens':60,'cached_input_tokens':0,'output_tokens':20},True)
+            self.assertEqual(state['token_ceiling'],1000)
+            self.assertEqual(state['remaining_tokens'],920)
+            self.assertEqual(state['continuation_remaining_tokens'],20)
+            with self.assertRaises(PolicyError):campaign.reserve(grant['id'],21)
+            store.close()
+
     def test_token_extension_preserves_deadline_debits_and_rejects_replay(self):
         with tempfile.TemporaryDirectory() as path:
             store=Store(path);campaign=Campaign(store)

@@ -1,0 +1,306 @@
+{
+  "derived_from_reference": true,
+  "english": "# KSU Producer/Consumer \u2014 Draft Derived Description and Requirements\n\n## System description\nThe selected material defines the ProdCons_System architecture, comprising a producer process, a consumer process, and a shared processor. Its supported descriptive purpose is to integrate these components and connect the producer's Message output to the consumer's Message input. No broader stakeholder purpose is stated. Each process contains one declared thread. Both threads dispatch periodically and use Rust. The system boundary encloses both processes, their threads, their message connections, and the processor; no external entities or system-level external interfaces are declared. At the component boundary, the producer controls its outgoing Message and the consumer monitors its incoming Message. Each Message contains Integer_32 fields named payload and control_num; no physical meaning or units are specified for either field. The producer guarantees a payload between 0 and 90 inclusive. The consumer assumes incoming payloads between 0 and 100 inclusive and has an Integer_32 state variable, payload_sum, initialized to zero. Subsequent computation is unspecified for both threads. Architecture, deployment, language, scheduling, and generation settings below are source-defined implementation choices, not independently established stakeholder needs. These are draft derived requirements for data preparation, not an independent specification or validation result.\n\n## Requirements\nPC-001 [architecture]: The HAMR generation configuration shall select the Microkit platform.\nPC-002 [architecture]: The HAMR generation configuration shall specify ../../hamr as the output directory.\nPC-003 [architecture]: ProdCons_System shall contain a producer process instance named prod of type Prod_Process.\nPC-004 [architecture]: ProdCons_System shall contain a consumer process instance named cons of type Cons_Process.\nPC-005 [architecture]: ProdCons_System shall contain a processor instance named proc of type Main_Processor.\nPC-006 [interface]: ProdCons_System shall connect the producer process output port to the consumer process input port through the port connection named pc.\nPC-007 [architecture]: The producer process shall be deployed on processor proc through the actual processor binding named prod_to_proc.\nPC-008 [architecture]: The consumer process shall be deployed on processor proc through the actual processor binding named cons_to_proc.\nPC-009 [interface]: Prod_Process shall expose an outgoing event-data port named output carrying Message data.\nPC-010 [architecture]: Prod_Process shall use scheduling domain Domain_Prod.\nPC-011 [architecture]: Prod_Process shall contain a thread instance named prod of type Prod.\nPC-012 [interface]: Prod_Process shall connect its contained producer thread's output port to its process output port through the port connection named prod_output.\nPC-013 [interface]: The Prod thread shall expose an outgoing event-data port named output carrying Message data.\nPC-014 [timing]: The Prod thread shall use periodic dispatch with a period of 60 milliseconds.\nPC-015 [architecture]: The Prod thread shall be implemented in Rust.\nPC-016 [functional]: For each Message supplied at the Prod thread's output port, the thread shall ensure that payload is between 0 and 90 inclusive.\nPC-017 [interface]: Cons_Process shall expose an incoming event-data port named input carrying Message data.\nPC-018 [architecture]: Cons_Process shall use scheduling domain Domain_Cons.\nPC-019 [architecture]: Cons_Process shall contain a thread instance named cons of type Cons.\nPC-020 [interface]: Cons_Process shall connect its process input port to its contained consumer thread's input port through the port connection named cons_input.\nPC-021 [interface]: The Cons thread shall expose an incoming event-data port named input carrying Message data.\nPC-022 [timing]: The Cons thread shall use periodic dispatch with a period of 40 milliseconds.\nPC-023 [architecture]: The Cons thread shall be implemented in Rust.\nPC-024 [state]: The Cons thread shall maintain a state variable named payload_sum of type Base_Types::Integer_32.\nPC-025 [architecture]: The consumer's initialization helper Init_Payload_Sum shall return the Integer_32 value zero.\nPC-026 [state]: Upon initialization, the Cons thread shall set payload_sum to the value returned by Init_Payload_Sum, namely zero.\nPC-027 [interface]: Message shall contain a field named payload of type Base_Types::Integer_32.\nPC-028 [interface]: Message shall contain a field named control_num of type Base_Types::Integer_32.\nPC-029 [timing]: Main_Processor shall have a frame period of 120 milliseconds.\nPC-030 [timing]: Main_Processor shall have a clock period of 2 milliseconds.\nPC-031 [architecture]: The scheduling domain identifier Domain_Prod shall have the value 2.\nPC-032 [architecture]: The scheduling domain identifier Domain_Cons shall have the value 3.\n\n## Assumptions\nSource-defined consumer integration assumption, lines 119\u2013121: each incoming Message payload is between 0 and 100 inclusive. Exact quotation: \"(0 [i32] <= input.payload) & (input.payload <= 100 [i32]) ;\". This is an assumption on the consumer's input, not a requirement that the consumer validate, reject, or modify input.\nNo additional environmental assumptions are introduced.\n\n## Unresolved questions\nNo broader stakeholder goals, operational context, external entities, physical monitored or controlled quantities, or safety goals are supplied.\nProducer computation is marked \"// TBD\" at lines 71\u201372. Message generation conditions, payload selection, control_num values, and whether any message is emitted on a dispatch are unspecified.\nConsumer computation is marked \"// TBD\" at lines 128\u2013129. State updates, input processing, and any relationship between payload_sum and received payloads are unspecified. Accumulation is only uncertain intent suggested by the state variable name.\nThe meanings and units of payload, control_num, and payload_sum are unspecified. No control_num constraints beyond its declared type are supplied.\nEvent-data queue capacity, ordering, overflow handling, delivery guarantees, latency, and behavior when input is absent are unspecified.\nThe precise evaluation semantics of the integration contracts when no event is present are not supplied. The producer payload requirement does not establish an obligation to emit an event.\nThe consumer assumes an inclusive upper payload bound of 100, while the producer guarantees 90. These bounds are preserved separately; no behavior for an assumption violation is supplied.\nDispatch phases, first-dispatch timing, scheduling order, domain time allocations, execution-time bounds, and deadlines are unspecified. Periods do not independently establish these values.\nThe relationship between the processor frame period, clock period, and thread dispatch scheduling is not further defined in the selected material.\nOnly consumer payload_sum initialization is defined. Producer initialization, message-field initialization, restart behavior, operating modes, and subsequent state-dependent behavior are unspecified.\nThe imported HAMR and Base_Types definitions and applicable language semantics are not supplied. Detailed integer arithmetic, overflow, serialization, and port semantics cannot be derived from this excerpt.\nLine 1 supplies a HAMR generation annotation; its output directory resolution base and whether it is a mandatory project configuration are not independently established.\nNo rulebook, generated validation output, or independent evidence of implementation correctness is supplied.",
+  "item": {
+    "end": 160,
+    "label": "KSU Producer/Consumer",
+    "normalized_text_sha256": "8c004ec39added90367ff6f29c7830a5d371fc508059ff043e4c2be412e92544",
+    "source_id": "35cbeca4677a02a0dd37a58a9a3d0fa85ccc3bd63049a5862f7e3a2fbb8718b0",
+    "source_sha256": "3a644a6a465df26167cd8a5be4c4604120ee203309134b6b951620907be3ffcf",
+    "start": 1,
+    "text_sha256": "48292c974cd88b152951dc3f982bd3a8bb7e19b420fd7356f95aecc50f81ae40"
+  },
+  "item_index": 1,
+  "measurement": {
+    "elapsed_seconds": 106.16029162800987,
+    "estimated_debit_tokens": 0,
+    "measured_tokens": 15169
+  },
+  "method": "model_to_english",
+  "model_call_id": "69b43adcde0cbab8947359ee4566de643116feba62294b5a4b5c884a35a24fc9",
+  "plan_id": "6004a757c4beecf5c8c5b86780ccc3fa03d136f2fd15f65b3fc395348e3359d1",
+  "role": "validation",
+  "scope": "Prepared development data, not independent final-transfer requirements or verified behavior",
+  "source_claims": [
+    {
+      "category": "architecture",
+      "evidence_quote": "--platform Microkit",
+      "id": "PC-001",
+      "source_end": 1,
+      "source_start": 1,
+      "statement": "The HAMR generation configuration shall select the Microkit platform."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "--output-dir ../../hamr",
+      "id": "PC-002",
+      "source_end": 1,
+      "source_start": 1,
+      "statement": "The HAMR generation configuration shall specify ../../hamr as the output directory."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "part prod: Prod_Process;",
+      "id": "PC-003",
+      "source_end": 18,
+      "source_start": 18,
+      "statement": "ProdCons_System shall contain a producer process instance named prod of type Prod_Process."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "part cons: Cons_Process;",
+      "id": "PC-004",
+      "source_end": 19,
+      "source_start": 19,
+      "statement": "ProdCons_System shall contain a consumer process instance named cons of type Cons_Process."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "part proc : Main_Processor;",
+      "id": "PC-005",
+      "source_end": 20,
+      "source_start": 20,
+      "statement": "ProdCons_System shall contain a processor instance named proc of type Main_Processor."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "connection pc : PortConnection connect prod.output to cons.input;",
+      "id": "PC-006",
+      "source_end": 23,
+      "source_start": 23,
+      "statement": "ProdCons_System shall connect the producer process output port to the consumer process input port through the port connection named pc."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "allocation prod_to_proc: Deployment_Properties::Actual_Processor_Binding \n      allocate prod to proc;",
+      "id": "PC-007",
+      "source_end": 27,
+      "source_start": 26,
+      "statement": "The producer process shall be deployed on processor proc through the actual processor binding named prod_to_proc."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "allocation cons_to_proc: Deployment_Properties::Actual_Processor_Binding \n      allocate cons to proc;",
+      "id": "PC-008",
+      "source_end": 29,
+      "source_start": 28,
+      "statement": "The consumer process shall be deployed on processor proc through the actual processor binding named cons_to_proc."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "port output : EventDataPort {out :>> type : Message; }",
+      "id": "PC-009",
+      "source_end": 42,
+      "source_start": 42,
+      "statement": "Prod_Process shall expose an outgoing event-data port named output carrying Message data."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "attribute :>> Domain = Domain_Prod;",
+      "id": "PC-010",
+      "source_end": 45,
+      "source_start": 45,
+      "statement": "Prod_Process shall use scheduling domain Domain_Prod."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "part prod: Prod;",
+      "id": "PC-011",
+      "source_end": 48,
+      "source_start": 48,
+      "statement": "Prod_Process shall contain a thread instance named prod of type Prod."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "connection prod_output : PortConnection connect prod.output to output;",
+      "id": "PC-012",
+      "source_end": 49,
+      "source_start": 49,
+      "statement": "Prod_Process shall connect its contained producer thread's output port to its process output port through the port connection named prod_output."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "port output : EventDataPort { out :>> type : Message; }",
+      "id": "PC-013",
+      "source_end": 56,
+      "source_start": 56,
+      "statement": "The Prod thread shall expose an outgoing event-data port named output carrying Message data."
+    },
+    {
+      "category": "timing",
+      "evidence_quote": "attribute :>> Period = 60 [ms];  \n    attribute :>> Dispatch_Protocol = Supported_Dispatch_Protocols::Periodic;",
+      "id": "PC-014",
+      "source_end": 60,
+      "source_start": 59,
+      "statement": "The Prod thread shall use periodic dispatch with a period of 60 milliseconds."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "attribute :>> Implementation_Language = Implementation_Languages::Rust;",
+      "id": "PC-015",
+      "source_end": 61,
+      "source_start": 61,
+      "statement": "The Prod thread shall be implemented in Rust."
+    },
+    {
+      "category": "functional",
+      "evidence_quote": "(0 [i32] <= output.payload) & (output.payload <= 90 [i32]) ;",
+      "id": "PC-016",
+      "source_end": 69,
+      "source_start": 67,
+      "statement": "For each Message supplied at the Prod thread's output port, the thread shall ensure that payload is between 0 and 90 inclusive."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "port input : EventDataPort { in :>> type : Message; }",
+      "id": "PC-017",
+      "source_end": 88,
+      "source_start": 88,
+      "statement": "Cons_Process shall expose an incoming event-data port named input carrying Message data."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "attribute :>> Domain = Domain_Cons;",
+      "id": "PC-018",
+      "source_end": 91,
+      "source_start": 91,
+      "statement": "Cons_Process shall use scheduling domain Domain_Cons."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "part cons: Cons;",
+      "id": "PC-019",
+      "source_end": 94,
+      "source_start": 94,
+      "statement": "Cons_Process shall contain a thread instance named cons of type Cons."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "connection cons_input : PortConnection connect input to cons.input;",
+      "id": "PC-020",
+      "source_end": 95,
+      "source_start": 95,
+      "statement": "Cons_Process shall connect its process input port to its contained consumer thread's input port through the port connection named cons_input."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "port input : EventDataPort { in :>> type : Message; }",
+      "id": "PC-021",
+      "source_end": 102,
+      "source_start": 102,
+      "statement": "The Cons thread shall expose an incoming event-data port named input carrying Message data."
+    },
+    {
+      "category": "timing",
+      "evidence_quote": "attribute :>> Period = 40 [ms];  \n    attribute :>> Dispatch_Protocol = Supported_Dispatch_Protocols::Periodic;",
+      "id": "PC-022",
+      "source_end": 106,
+      "source_start": 105,
+      "statement": "The Cons thread shall use periodic dispatch with a period of 40 milliseconds."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "attribute :>> Implementation_Language = Implementation_Languages::Rust;",
+      "id": "PC-023",
+      "source_end": 107,
+      "source_start": 107,
+      "statement": "The Cons thread shall be implemented in Rust."
+    },
+    {
+      "category": "state",
+      "evidence_quote": "payload_sum: Base_Types::Integer_32;",
+      "id": "PC-024",
+      "source_end": 112,
+      "source_start": 111,
+      "statement": "The Cons thread shall maintain a state variable named payload_sum of type Base_Types::Integer_32."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "def Init_Payload_Sum(): Base_Types::Integer_32 := 0 [i32];",
+      "id": "PC-025",
+      "source_end": 116,
+      "source_start": 115,
+      "statement": "The consumer's initialization helper Init_Payload_Sum shall return the Integer_32 value zero."
+    },
+    {
+      "category": "state",
+      "evidence_quote": "initSum: payload_sum == Init_Payload_Sum();",
+      "id": "PC-026",
+      "source_end": 126,
+      "source_start": 116,
+      "statement": "Upon initialization, the Cons thread shall set payload_sum to the value returned by Init_Payload_Sum, namely zero."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "part payload : Base_Types::Integer_32;",
+      "id": "PC-027",
+      "source_end": 141,
+      "source_start": 140,
+      "statement": "Message shall contain a field named payload of type Base_Types::Integer_32."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "part control_num : Base_Types::Integer_32;",
+      "id": "PC-028",
+      "source_end": 143,
+      "source_start": 140,
+      "statement": "Message shall contain a field named control_num of type Base_Types::Integer_32."
+    },
+    {
+      "category": "timing",
+      "evidence_quote": "attribute :>> Frame_Period = 120 [ms];",
+      "id": "PC-029",
+      "source_end": 151,
+      "source_start": 150,
+      "statement": "Main_Processor shall have a frame period of 120 milliseconds."
+    },
+    {
+      "category": "timing",
+      "evidence_quote": "attribute :>> Clock_Period = 2 [ms];",
+      "id": "PC-030",
+      "source_end": 152,
+      "source_start": 150,
+      "statement": "Main_Processor shall have a clock period of 2 milliseconds."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "attribute Domain_Prod: CASE_Scheduling::Domain = 2;",
+      "id": "PC-031",
+      "source_end": 158,
+      "source_start": 158,
+      "statement": "The scheduling domain identifier Domain_Prod shall have the value 2."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "attribute Domain_Cons: CASE_Scheduling::Domain = 3;",
+      "id": "PC-032",
+      "source_end": 159,
+      "source_start": 159,
+      "statement": "The scheduling domain identifier Domain_Cons shall have the value 3."
+    }
+  ],
+  "style": {
+    "context_id": "77bdcaefd9adf0515305978b7e9b668a5c4e1561b7ab8803c0744bcc698e7b8d",
+    "end_character": 47000,
+    "name": "Steve_Miller_FAA_docAR-08-32.pdf",
+    "source_sha256": "b4949561cb04d46f718a16e2cc1486c0bd5a26c15778e3567c464466c24731df",
+    "start_character": 35000,
+    "text": " environment in which it will\noperate. It should not attempt to completely describe the system. Rather, its intent is to provide\nthe reader with a high-level view of what the system does, how it interacts with its environment,\nand why the system is needed. At a minimum, it should include a short synopsis of the system;\none or more context descriptions; a brief description of each external entity in the context\ndiagrams; and a set of high-level system goals, objectives, and constraints. It may also include\nother relevant information, such as historical background, but this needs to be balanced against\nthe need to quickly orient a new reader. Examples of system overviews are provided in appendix\nA.1 for the Isolette Thermostat, appendix B.1 for the FCS, appendix C.1 for the FGS, and\nappendix D.1 for the AP.\n\n\n\n\n                                                  5\n\f Recommended Practice 2.1.1: Develop the system overview early in the requirements\n engineering process and use it as the introduction to the requirements specification. Keep the\n overview at a high level so it can be used to quickly orient new readers.\n\n2.1.2 Provide System Synopsis.\n\nThe overview itself should begin with a synopsis that provides a brief narrative description of the\nsystem. Ideally, the synopsis is short, clear, and describes what the system will do without\nimplying a particular system design. The synopsis should name the system to be developed,\ndescribe its purpose, and summarize the main capabilities provided by the system. An early\nversion of the synopsis for the Isolette Thermostat states:\n\n       The system being specified is the thermostat of an Isolette. An Isolette is an\n       incubator for an infant that provides controlled temperature, humidity, and\n       oxygen (if necessary). Isolettes are used extensively in Neonatal Intensive Care\n       Units for the care of premature infants.\n\n       The purpose of the Isolette Thermostat is to maintain the air temperature of an\n       Isolette within a desired range. It senses the current temperature of the Isolette\n       and turns the heat source on and off to warm the air as needed. The system\n       allows the nurse to set the Desired Temperature Range within a safe range for\n       infants.\n\nAs with all the system overviews, the synopsis will evolve throughout the requirements\ndefinition. Examples of complete system synopses are provided at the start of appendix A.1 for\nthe Isolette Thermostat, appendix B.1 for the FCS, appendix C.1 for the FGS, and appendix D.1\nfor the AP.\n\n Recommended Practice 2.1.2: Provide a short textual synopsis of the system as the first part\n of the system overview. The synopsis should name the system, describe its purpose, and\n summarize the system capabilities.\n\n2.1.3 Identify System Contexts.\n\nThe purpose of the system context is to describe, at a high level, the external entities with which\nthe system interacts and the nature of those interactions. Note that there may be more than one\ncontext in which the system will be used during its entire life cycle. For example, there will\nalmost certainly be an operational context, which describes the entities with which the system\ninteracts during normal operation, but there may also be a testing context used during system\ndevelopment in which the system interacts with test equipment through different interfaces, or\nthere may be a maintenance context that is used to diagnose and repair the system in the field.\nEach relevant context for the system should be identified and described. Since different\nindividuals will be interested in different contexts, it is usually better to describe each context\nseparately than to try to combine them into a single context.\n\n\n\n\n                                                6\n\f Recommended Practice 2.1.3: Consider the entire life cycle of the system and identify each\n distinct context in which it will be used.\n\n2.1.4 Use Context Diagrams.\n\nFor each context, the external entities with which the system interacts and the nature of those\ninteractions should be identified. A convenient way to do this is through the use of a context\ndiagram that graphically depicts each external entity and its interaction with the system. An\nexample context diagram for the Isolette Thermostat is shown in figure A-1. A similar context\ndiagram for the FCS is shown in figure B-1 for the FGS in figure C-1, and for the AP in figure\nD-1. Note that the system itself is shown in the context diagram as a black box with no internal\nstructure. It may also be helpful to identify the higher-level systems in which the system is\nembedded (for example, the Thermostat context includes the larger system content of the\nIsolette).\n\n Recommended Practice 2.1.4: Use context diagrams in the system overview to provide a\n high-level, graphical depiction of the system, the external entities it interacts with, and those\n interactions.\n\n2.1.5 Describe External Entities.\n\nA brief description of each external entity and its interactions with the system should also be\nprovided. Since this is part of the system overview, these descriptions should be kept short and\nsimple (more detailed information on the entities and their interactions will be provided in later\nsections of the applicable specification). Examples of the descriptions of external entities and\ntheir interactions with the system are provided in appendix A.1.1 for the Isolette Thermostat,\nappendix B.1.1 for the FCS, appendix C.1.1 for the FGS, and appendix D.1.1 for the AP.\n\n Recommended Practice 2.1.5: For each context diagram, provide a brief description of each\n external entity and its interactions with the system.\n\n2.1.6 Capture Preliminary System Goals.\n\nGoals are informal statements of the system stakeholders\u2019 needs. They are not requirements\nsince they are not verifiable and do not provide enough information to build the system [14].\nHowever, they provide important guidance on why the system is being built and what is\nimportant to the stakeholders. During the early phases of the project, they may be all that is\navailable. Goals frequently conflict with each other. For example, one goal may be to produce a\nsystem with a sophisticated operator interface, while another goal is to produce the system at\nminimal cost. One of the objectives of the requirements engineering process is to refine the\ngoals into verifiable requirements that resolve these conflicts as effectively as possible.\n\nA preliminary set of system goals should be captured early in the requirements engineering\nprocess so they can be used to guide the specification of requirements. A natural place to present\nthe system goals is in the system overview. However, in a large project, the system goals may be\nnumerous enough to justify placing them in their own section or in another document entirely.\n\n\n                                                7\n\f    Recommended Practice 2.1.6: Capture a preliminary set of system goals early in the\n    requirements engineering process so they can be used to guide the development of the\n    requirements.\n\n2.1.7 Maintain System Goal Information.\n\nGoals frequently help to explain why a particular requirement exists or is stated in a particular\nway and may be cited in the rationale (see section 2.11) for the requirement. The operational\nconcepts (see section 2.3) also trace back to the system goals.\n\nManagement of the system goals will vary with the size, complexity, and maturity of the system\nbeing developed. On small projects, the goals may be well understood. It may be possible to list\nthe system goals on a single page and their management may consist of nothing more than an\noccasional review and update. This is the case for the Isolette Thermostat example, which\ninitially has only two simple goals:\n\n\u2022        G1\u2014The infant should be kept at a safe and comfortable temperature.\n\u2022        G2\u2014The cost of manufacturing the thermostat should be as low as possible.\n\nHowever, on a project of any size, and particularly for new large systems, the goals will\nprobably evolve throughout project development. New needs will be identified, priorities will\nshift, managers will change, understanding of the project will grow, all resulting in a changing\nset of project goals. Management of the goals on such a project may be a significant task in its\nown right. To do this, information should be collected that facilitates tracing the goal back to its\nsource and continuously assessing the importance of that goal relative to other goals.\n\nPotential sources of system goals are numerous and include the customers, users, regulatory\nbodies, and previous developments. Goals may be provided directly by these organizations or\nmay be discovered through interviews or review of documents provided by the stakeholders.\nDepending on the size and volatility of a project, information that may be desirable to collect\nabout each goal may include:\n\n\u2022        Origin\u2014Where did the goal come from (customer, individual, document \u2026)?\n\u2022        Origin Date\u2014When was the goal was first identified?\n\u2022        Author\u2014Who first documented the goal?\n\u2022        Priority\u2014What is the importance of the goal relative to other goals?\n\u2022        Stakeholders\u2014Which customers or users are most concerned about this goal?\n\u2022        Stability\u2014How likely is this goal to change?\n\u2022        Schedule Date\u2014What is the date this goal is scheduled to be implemented?\n\nFor items such as priority and stability, each organization would probably want to provide their\nown allowed values and definitions. If the system goals are expected to change frequently, they\nshould be kept under configuration control to provide a history of their evolution.\n\n\n\n\n                                                 8\n\f Recommended Practice 2.1.7: Depending on the size and volatility of a project, collect and\n maintain the information about each system goal necessary to continuously assess its\n importance relative to the other goals.\n\n2.2 IDENTIFY THE SYSTEM BOUNDARY.\n\nRefer to table 2 for a description of main- and sublevel recommended practices for identifying\nthe system boundary.\n\n                             Table 2. Identify the System Boundary\n\n                          Main- and Sublevel Recommended Practices\n2.2 Identify the System Boundary:\n\n    Develop a clear definition of the boundary between the system and its environment. This\n    provides a solid understanding of what lies within the system to be built and what lies\n    within a larger environment. This is done by identifying a set of variables in the\n    environment the system will monitor and control.\n    2.2.1 Define the system boundary early in the requirements engineering process by\n           identifying a preliminary set of monitored and controlled variables.\n    2.2.2 Choose environmental variables that exist in the environment independently of the\n           system to be developed.\n    2.2.3 Choose controlled variables that are under the direct control of the system being\n           specified.\n    2.2.4 Choose monitored variables that are being directly sensed by the system being\n           specified.\n    2.2.5 Ensure the monitored and controlled variables are as abstract as possible and do not\n           include implementation details.\n    2.2.6 Avoid incorporating details of the operator interface in the monitored and controlled\n           variables. Instead, define monitored or controlled variables that describe the\n           information to be conveyed independent of its presentation format.\n    2.2.7 Completely define all physical interfaces to the system, including definitions for all\n           discrete inputs, all messages, all fields in a message, and all protocols followed.\n\nOne of the most important activities in requirements engineering is to clearly define the\nboundary between the system and its environment. This provides a sound understanding of what\nlies within the system to be built and what lies within a larger environment. Every system is\nembedded"
+  },
+  "unresolved": [
+    "No broader stakeholder goals, operational context, external entities, physical monitored or controlled quantities, or safety goals are supplied.",
+    "Producer computation is marked \"// TBD\" at lines 71\u201372. Message generation conditions, payload selection, control_num values, and whether any message is emitted on a dispatch are unspecified.",
+    "Consumer computation is marked \"// TBD\" at lines 128\u2013129. State updates, input processing, and any relationship between payload_sum and received payloads are unspecified. Accumulation is only uncertain intent suggested by the state variable name.",
+    "The meanings and units of payload, control_num, and payload_sum are unspecified. No control_num constraints beyond its declared type are supplied.",
+    "Event-data queue capacity, ordering, overflow handling, delivery guarantees, latency, and behavior when input is absent are unspecified.",
+    "The precise evaluation semantics of the integration contracts when no event is present are not supplied. The producer payload requirement does not establish an obligation to emit an event.",
+    "The consumer assumes an inclusive upper payload bound of 100, while the producer guarantees 90. These bounds are preserved separately; no behavior for an assumption violation is supplied.",
+    "Dispatch phases, first-dispatch timing, scheduling order, domain time allocations, execution-time bounds, and deadlines are unspecified. Periods do not independently establish these values.",
+    "The relationship between the processor frame period, clock period, and thread dispatch scheduling is not further defined in the selected material.",
+    "Only consumer payload_sum initialization is defined. Producer initialization, message-field initialization, restart behavior, operating modes, and subsequent state-dependent behavior are unspecified.",
+    "The imported HAMR and Base_Types definitions and applicable language semantics are not supplied. Detailed integer arithmetic, overflow, serialization, and port semantics cannot be derived from this excerpt.",
+    "Line 1 supplies a HAMR generation annotation; its output directory resolution base and whether it is a mandatory project configuration are not independently established.",
+    "No rulebook, generated validation output, or independent evidence of implementation correctness is supplied."
+  ],
+  "id": "7c69418b88dadc6e099a3a82279ddee8e3d2794f93b2a0efe9e0b353f383f281"
+}

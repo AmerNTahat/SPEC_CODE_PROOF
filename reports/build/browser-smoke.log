@@ -1,9 +1,9 @@
 ----------------------------------------
-Exception occurred during processing of request from ('127.0.0.1', 47200)
+Exception occurred during processing of request from ('127.0.0.1', 33326)
 Traceback (most recent call last):
-  File "/home/amertahat/SPEC_CODE_PROOF/workbench/inspecta_scp/api.py", line 292, in handle_request
+  File "/home/amertahat/SPEC_CODE_PROOF/workbench/inspecta_scp/api.py", line 298, in handle_request
     self.send(200, result)
-  File "/home/amertahat/SPEC_CODE_PROOF/workbench/inspecta_scp/api.py", line 262, in send
+  File "/home/amertahat/SPEC_CODE_PROOF/workbench/inspecta_scp/api.py", line 268, in send
     self.wfile.write(payload)
   File "/home/amertahat/.pyenv/versions/3.11.11/lib/python3.11/socketserver.py", line 834, in write
     self._sock.sendall(b)
@@ -22,11 +22,11 @@ Traceback (most recent call last):
     self.handle_one_request()
   File "/home/amertahat/.pyenv/versions/3.11.11/lib/python3.11/http/server.py", line 424, in handle_one_request
     method()
-  File "/home/amertahat/SPEC_CODE_PROOF/workbench/inspecta_scp/api.py", line 300, in do_POST
+  File "/home/amertahat/SPEC_CODE_PROOF/workbench/inspecta_scp/api.py", line 306, in do_POST
     self.handle_request("POST")
-  File "/home/amertahat/SPEC_CODE_PROOF/workbench/inspecta_scp/api.py", line 294, in handle_request
+  File "/home/amertahat/SPEC_CODE_PROOF/workbench/inspecta_scp/api.py", line 300, in handle_request
     self.send(400, {"error": str(exc)})
-  File "/home/amertahat/SPEC_CODE_PROOF/workbench/inspecta_scp/api.py", line 261, in send
+  File "/home/amertahat/SPEC_CODE_PROOF/workbench/inspecta_scp/api.py", line 267, in send
     self.end_headers()
   File "/home/amertahat/.pyenv/versions/3.11.11/lib/python3.11/http/server.py", line 538, in end_headers
     self.flush_headers()
@@ -53,6 +53,8 @@ BrokenPipeError: [Errno 32] Broken pipe
     "Actual authentication rejection offers reconnection and a valid token restores access",
     "Learning home and setup inspect actual materials, preserve books, and disclose unfinished model stages",
     "Context repository selection, disjoint component ranges, cosine-distance epsilon and exact split approval through Firefox",
+    "Data preparation saves existing English with source/role provenance; exact review unlocks learning; unsaved edits cannot be approved; zero model calls",
+    "Existing approved English passage is reused with exact range and inherited source authorization, separate from semantic validation; source markup remains inert",
     "Approved split restored after navigation; campaign pause/resume disables/enables extraction without any model call",
     "System-level extraction focus is selectable; readable book export preserves draft status without model calls",
     "Workflow generalization/specialization is selectable and blocked without exact context, provenance and prior-rule selections; no model call",

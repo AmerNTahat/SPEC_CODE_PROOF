@@ -1,0 +1,294 @@
+{
+  "assumptions": [
+    "Onn is rendered as On because the source case descriptions explicitly identify it as the On alarm command.",
+    "One temperature-value unit denotes an increment of one in the degrees field; no physical temperature scale is assumed.",
+    "Compute-case assumptions are treated as conditions for their corresponding obligations, not as environmental assumptions."
+  ],
+  "derived_from_reference": false,
+  "description": "The Manage Alarm component receives current temperature with validity status, lower and upper alarm temperatures, and monitor mode. It controls an on/off alarm command. Its modeled behavior disables the alarm in Init mode, enables it in Failed mode, and uses temperature thresholds and hysteresis in Normal mode. The selected window defines the alarm process internals and alarm thread; the sensor, operator interface, mode manager, and physical alarm are outside this component boundary. Process/thread structure, scheduling domains, ports, and connections are source-defined implementation choices. These are draft derived requirements from lines 301\u2013400, not an independent specification.",
+  "english": "# Isolette Monitor \u2014 Manage Alarm Draft Derived Requirements\n\n## System description\nThe Manage Alarm component receives current temperature with validity status, lower and upper alarm temperatures, and monitor mode. It controls an on/off alarm command. Its modeled behavior disables the alarm in Init mode, enables it in Failed mode, and uses temperature thresholds and hysteresis in Normal mode. The selected window defines the alarm process internals and alarm thread; the sensor, operator interface, mode manager, and physical alarm are outside this component boundary. Process/thread structure, scheduling domains, ports, and connections are source-defined implementation choices. These are draft derived requirements from lines 301\u2013400, not an independent specification.\n\n## Requirements\nL301-MA-001 [architecture]: The Manage Alarm process shall contain a component named ma of type Manage_Alarm_i.\nL301-MA-002 [interface]: The Manage Alarm process shall receive current temperature with status through the current_tempWstatus input data port of type Isolette_Data_Model::TempWstatus_i.\nL301-MA-003 [interface]: The Manage Alarm process shall receive the lower bound of the operator-specified alarm temperature range through the lower_alarm_temp input data port of type Isolette_Data_Model::Temp_i.\nL301-MA-004 [interface]: The Manage Alarm process shall receive the upper bound of the operator-specified alarm temperature range through the upper_alarm_temp input data port of type Isolette_Data_Model::Temp_i.\nL301-MA-005 [interface]: The Manage Alarm process shall receive monitor mode through the monitor_mode input data port of type Isolette_Data_Model::Monitor_Mode.\nL301-MA-006 [interface]: The Manage Alarm process shall provide the alarm on/off actuation command through the alarm_control output data port of type Isolette_Data_Model::On_Off.\nL301-MA-007 [architecture]: The Manage Alarm process shall connect its current_tempWstatus input to ma.current_tempWstatus through port connection ma_ctw.\nL301-MA-008 [architecture]: The Manage Alarm process shall connect its lower_alarm_temp input to ma.lower_alarm_temp through port connection ma_lat.\nL301-MA-009 [architecture]: The Manage Alarm process shall connect its upper_alarm_temp input to ma.upper_alarm_temp through port connection ma_uat.\nL301-MA-010 [architecture]: The Manage Alarm process shall connect its monitor_mode input to ma.monitor_mode through port connection ma_mode.\nL301-MA-011 [architecture]: The Manage Alarm process shall connect ma.alarm_control to its alarm_control output through port connection ma_ac.\nL301-MA-012 [architecture]: The Manage Alarm process shall have CASE_Scheduling domain 9.\nL301-MA-013 [architecture]: Manage_Alarm_i shall be a Thread component.\nL301-MA-014 [timing]: The Manage Alarm thread shall use periodic dispatch.\nL301-MA-015 [timing]: The Manage Alarm thread shall have a dispatch period of 1000 milliseconds.\nL301-MA-016 [architecture]: The Manage Alarm thread shall have CASE_Scheduling domain 9.\nL301-MA-017 [interface]: The Manage Alarm thread shall receive current temperature with status through the current_tempWstatus input data port of type Isolette_Data_Model::TempWstatus_i.\nL301-MA-018 [interface]: The Manage Alarm thread shall receive the lower alarm temperature through the lower_alarm_temp input data port of type Isolette_Data_Model::Temp_i.\nL301-MA-019 [interface]: The Manage Alarm thread shall receive the upper alarm temperature through the upper_alarm_temp input data port of type Isolette_Data_Model::Temp_i.\nL301-MA-020 [interface]: The Manage Alarm thread shall receive monitor mode through the monitor_mode input data port of type Isolette_Data_Model::Monitor_Mode.\nL301-MA-021 [interface]: The Manage Alarm thread shall provide the alarm command through the alarm_control output data port of type Isolette_Data_Model::On_Off.\nL301-MA-022 [state]: The Manage Alarm thread shall define a state variable named lastCmd of type Isolette_Data_Model::On_Off.\nL301-MA-023 [state]: At initialization, the Manage Alarm thread shall set alarm_control to Off.\nL301-MA-024 [functional]: During computation, when monitor mode is Init, the Manage Alarm thread shall set alarm_control to Off.\nL301-MA-025 [functional]: During computation, when monitor mode is Normal and the current temperature is strictly below the lower alarm temperature, the Manage Alarm thread shall set alarm_control to On, represented by Onn.\nL301-MA-026 [functional]: During computation, when monitor mode is Normal and the current temperature is strictly above the upper alarm temperature, the Manage Alarm thread shall set alarm_control to On, represented by Onn.\nL301-MA-027 [state]: During computation, when monitor mode is Normal and the current temperature is at least the lower alarm temperature but strictly less than the lower alarm temperature plus one temperature-value unit, the Manage Alarm thread shall set alarm_control equal to lastCmd.\nL301-MA-028 [state]: During computation, when monitor mode is Normal and the current temperature is strictly greater than the upper alarm temperature minus one temperature-value unit but no greater than the upper alarm temperature, the Manage Alarm thread shall set alarm_control equal to lastCmd.\nL301-MA-029 [functional]: During computation, when monitor mode is Normal and the current temperature is at least the lower alarm temperature plus one temperature-value unit and no greater than the upper alarm temperature minus one temperature-value unit, the Manage Alarm thread shall set alarm_control to Off.\nL301-MA-030 [functional]: During computation, when monitor mode is Failed, the Manage Alarm thread shall set alarm_control to On, represented by Onn.\n\n## Assumptions\nOnn is rendered as On because the source case descriptions explicitly identify it as the On alarm command.\nOne temperature-value unit denotes an increment of one in the degrees field; no physical temperature scale is assumed.\nCompute-case assumptions are treated as conditions for their corresponding obligations, not as environmental assumptions.\n\n## Unresolved questions\nThe imported data types are not defined in the selected material; temperature scale, encoding, representable ranges, and complete interface field definitions are unavailable. The s32 annotation on the hysteresis increment does not specify a physical temperature unit.\nlastCmd is declared but neither initialized nor updated in the supplied source. The case descriptions imply holding the previous alarm command, but the relationship between lastCmd and previous alarm_control is unspecified.\nNo constraint establishes alarm-bound ordering or minimum separation. Behavior for overlapping hysteresis bands or an empty reset band is not separately specified, and no precedence among simultaneously applicable cases is stated.\nThe alarm compute conditions do not test current-temperature validity. No separate handling of invalid or stale temperature data is defined for this component.\nThe 1000-millisecond period does not define execution time, deadline, input sampling semantics, communication latency, or end-to-end alarm response time.\nThe meaning and scheduling effect of CASE_Scheduling domain 9 are not supplied.\nPhysical alarm behavior and physical interface protocols are outside the supplied component definition.",
+  "item": {
+    "end": 431,
+    "label": "Isolette Monitor",
+    "normalized_text_sha256": "7e0cd6ae2d818b5d5a018b74664cd665278d24f3eeb408849e834759400e41fa",
+    "source_id": "d7ef18732a5def5da9422e3e47db924dd4ae4c9b806fcc86f11c932b377db935",
+    "source_sha256": "43664d0fe5904aed949d4c12e824c905d7bc1b4e89efa0409038c1b6f52ff605",
+    "start": 1,
+    "text_sha256": "6d92da0875771dc87cc8f20c57864bd9ff3c06fa0d8ef1b962841149654ccba4"
+  },
+  "item_index": 0,
+  "line_window": [
+    301,
+    400
+  ],
+  "measurement": {
+    "elapsed_seconds": 101.08868778400938,
+    "estimated_debit_tokens": 0,
+    "measured_tokens": 20615
+  },
+  "method": "model_to_english",
+  "model_call_id": "23af1bdb8f1052ee54561cf43da30c1d590cd200960ebb2a2e4cec198c543937",
+  "plan_id": "6004a757c4beecf5c8c5b86780ccc3fa03d136f2fd15f65b3fc395348e3359d1",
+  "role": "training",
+  "scope": "Prepared development data, not independent final-transfer requirements or verified behavior",
+  "source_claims": [
+    {
+      "category": "architecture",
+      "evidence_quote": "part ma: Manage_Alarm_i;",
+      "id": "L301-MA-001",
+      "source_end": 301,
+      "source_start": 301,
+      "statement": "The Manage Alarm process shall contain a component named ma of type Manage_Alarm_i."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "in port current_tempWstatus : DataPort { :>> type : Isolette_Data_Model::TempWstatus_i; }",
+      "id": "L301-MA-002",
+      "source_end": 305,
+      "source_start": 305,
+      "statement": "The Manage Alarm process shall receive current temperature with status through the current_tempWstatus input data port of type Isolette_Data_Model::TempWstatus_i."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "in port lower_alarm_temp : DataPort { :>> type : Isolette_Data_Model::Temp_i; }",
+      "id": "L301-MA-003",
+      "source_end": 308,
+      "source_start": 307,
+      "statement": "The Manage Alarm process shall receive the lower bound of the operator-specified alarm temperature range through the lower_alarm_temp input data port of type Isolette_Data_Model::Temp_i."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "in port upper_alarm_temp : DataPort { :>> type : Isolette_Data_Model::Temp_i; }",
+      "id": "L301-MA-004",
+      "source_end": 309,
+      "source_start": 309,
+      "statement": "The Manage Alarm process shall receive the upper bound of the operator-specified alarm temperature range through the upper_alarm_temp input data port of type Isolette_Data_Model::Temp_i."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "in port monitor_mode : DataPort { :>> type : Isolette_Data_Model::Monitor_Mode; }",
+      "id": "L301-MA-005",
+      "source_end": 312,
+      "source_start": 312,
+      "statement": "The Manage Alarm process shall receive monitor mode through the monitor_mode input data port of type Isolette_Data_Model::Monitor_Mode."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "out port alarm_control : DataPort { :>> type : Isolette_Data_Model::On_Off; }",
+      "id": "L301-MA-006",
+      "source_end": 317,
+      "source_start": 316,
+      "statement": "The Manage Alarm process shall provide the alarm on/off actuation command through the alarm_control output data port of type Isolette_Data_Model::On_Off."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect current_tempWstatus to ma.current_tempWstatus;",
+      "id": "L301-MA-007",
+      "source_end": 320,
+      "source_start": 319,
+      "statement": "The Manage Alarm process shall connect its current_tempWstatus input to ma.current_tempWstatus through port connection ma_ctw."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect lower_alarm_temp to ma.lower_alarm_temp;",
+      "id": "L301-MA-008",
+      "source_end": 322,
+      "source_start": 321,
+      "statement": "The Manage Alarm process shall connect its lower_alarm_temp input to ma.lower_alarm_temp through port connection ma_lat."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect upper_alarm_temp to ma.upper_alarm_temp;",
+      "id": "L301-MA-009",
+      "source_end": 324,
+      "source_start": 323,
+      "statement": "The Manage Alarm process shall connect its upper_alarm_temp input to ma.upper_alarm_temp through port connection ma_uat."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect monitor_mode to ma.monitor_mode;",
+      "id": "L301-MA-010",
+      "source_end": 326,
+      "source_start": 325,
+      "statement": "The Manage Alarm process shall connect its monitor_mode input to ma.monitor_mode through port connection ma_mode."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect ma.alarm_control to alarm_control;",
+      "id": "L301-MA-011",
+      "source_end": 328,
+      "source_start": 327,
+      "statement": "The Manage Alarm process shall connect ma.alarm_control to its alarm_control output through port connection ma_ac."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "attribute Domain: CASE_Scheduling::Domain = 9;",
+      "id": "L301-MA-012",
+      "source_end": 330,
+      "source_start": 330,
+      "statement": "The Manage Alarm process shall have CASE_Scheduling domain 9."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "part def Manage_Alarm_i :> Thread {",
+      "id": "L301-MA-013",
+      "source_end": 334,
+      "source_start": 334,
+      "statement": "Manage_Alarm_i shall be a Thread component."
+    },
+    {
+      "category": "timing",
+      "evidence_quote": "attribute :>> Dispatch_Protocol = Supported_Dispatch_Protocols::Periodic;",
+      "id": "L301-MA-014",
+      "source_end": 336,
+      "source_start": 336,
+      "statement": "The Manage Alarm thread shall use periodic dispatch."
+    },
+    {
+      "category": "timing",
+      "evidence_quote": "attribute :>> Period = 1000 [ms];",
+      "id": "L301-MA-015",
+      "source_end": 337,
+      "source_start": 337,
+      "statement": "The Manage Alarm thread shall have a dispatch period of 1000 milliseconds."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "attribute Domain: CASE_Scheduling::Domain = 9;",
+      "id": "L301-MA-016",
+      "source_end": 338,
+      "source_start": 338,
+      "statement": "The Manage Alarm thread shall have CASE_Scheduling domain 9."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "in port current_tempWstatus : DataPort { :>> type : Isolette_Data_Model::TempWstatus_i; }",
+      "id": "L301-MA-017",
+      "source_end": 340,
+      "source_start": 340,
+      "statement": "The Manage Alarm thread shall receive current temperature with status through the current_tempWstatus input data port of type Isolette_Data_Model::TempWstatus_i."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "in port lower_alarm_temp : DataPort { :>> type : Isolette_Data_Model::Temp_i; }",
+      "id": "L301-MA-018",
+      "source_end": 341,
+      "source_start": 341,
+      "statement": "The Manage Alarm thread shall receive the lower alarm temperature through the lower_alarm_temp input data port of type Isolette_Data_Model::Temp_i."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "in port upper_alarm_temp : DataPort { :>> type : Isolette_Data_Model::Temp_i; }",
+      "id": "L301-MA-019",
+      "source_end": 342,
+      "source_start": 342,
+      "statement": "The Manage Alarm thread shall receive the upper alarm temperature through the upper_alarm_temp input data port of type Isolette_Data_Model::Temp_i."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "in port monitor_mode : DataPort { :>> type : Isolette_Data_Model::Monitor_Mode; }",
+      "id": "L301-MA-020",
+      "source_end": 343,
+      "source_start": 343,
+      "statement": "The Manage Alarm thread shall receive monitor mode through the monitor_mode input data port of type Isolette_Data_Model::Monitor_Mode."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "out port alarm_control : DataPort { :>> type : Isolette_Data_Model::On_Off; }",
+      "id": "L301-MA-021",
+      "source_end": 344,
+      "source_start": 344,
+      "statement": "The Manage Alarm thread shall provide the alarm command through the alarm_control output data port of type Isolette_Data_Model::On_Off."
+    },
+    {
+      "category": "state",
+      "evidence_quote": "lastCmd: Isolette_Data_Model::On_Off;",
+      "id": "L301-MA-022",
+      "source_end": 349,
+      "source_start": 348,
+      "statement": "The Manage Alarm thread shall define a state variable named lastCmd of type Isolette_Data_Model::On_Off."
+    },
+    {
+      "category": "state",
+      "evidence_quote": "alarm_control == Isolette_Data_Model::On_Off.Off;",
+      "id": "L301-MA-023",
+      "source_end": 353,
+      "source_start": 351,
+      "statement": "At initialization, the Manage Alarm thread shall set alarm_control to Off."
+    },
+    {
+      "category": "functional",
+      "evidence_quote": "If mode INIT then alarm control is Off",
+      "id": "L301-MA-024",
+      "source_end": 359,
+      "source_start": 357,
+      "statement": "During computation, when monitor mode is Init, the Manage Alarm thread shall set alarm_control to Off."
+    },
+    {
+      "category": "functional",
+      "evidence_quote": "If mode NORMAL and current temperature is below alarm range then alarm control is On",
+      "id": "L301-MA-025",
+      "source_end": 364,
+      "source_start": 361,
+      "statement": "During computation, when monitor mode is Normal and the current temperature is strictly below the lower alarm temperature, the Manage Alarm thread shall set alarm_control to On, represented by Onn."
+    },
+    {
+      "category": "functional",
+      "evidence_quote": "If mode NORMAL and current temperature is above alarm range then alarm control is On",
+      "id": "L301-MA-026",
+      "source_end": 369,
+      "source_start": 366,
+      "statement": "During computation, when monitor mode is Normal and the current temperature is strictly above the upper alarm temperature, the Manage Alarm thread shall set alarm_control to On, represented by Onn."
+    },
+    {
+      "category": "state",
+      "evidence_quote": "If mode NORMAL and current temperature is inside the lower hysteresis band then hold alarm control",
+      "id": "L301-MA-027",
+      "source_end": 375,
+      "source_start": 371,
+      "statement": "During computation, when monitor mode is Normal and the current temperature is at least the lower alarm temperature but strictly less than the lower alarm temperature plus one temperature-value unit, the Manage Alarm thread shall set alarm_control equal to lastCmd."
+    },
+    {
+      "category": "state",
+      "evidence_quote": "If mode NORMAL and current temperature is inside the upper hysteresis band then hold alarm control",
+      "id": "L301-MA-028",
+      "source_end": 381,
+      "source_start": 377,
+      "statement": "During computation, when monitor mode is Normal and the current temperature is strictly greater than the upper alarm temperature minus one temperature-value unit but no greater than the upper alarm temperature, the Manage Alarm thread shall set alarm_control equal to lastCmd."
+    },
+    {
+      "category": "functional",
+      "evidence_quote": "If mode NORMAL and current temperature is inside the reset band then alarm control is Off",
+      "id": "L301-MA-029",
+      "source_end": 387,
+      "source_start": 383,
+      "statement": "During computation, when monitor mode is Normal and the current temperature is at least the lower alarm temperature plus one temperature-value unit and no greater than the upper alarm temperature minus one temperature-value unit, the Manage Alarm thread shall set alarm_control to Off."
+    },
+    {
+      "category": "functional",
+      "evidence_quote": "If mode FAILED then alarm control is On",
+      "id": "L301-MA-030",
+      "source_end": 391,
+      "source_start": 389,
+      "statement": "During computation, when monitor mode is Failed, the Manage Alarm thread shall set alarm_control to On, represented by Onn."
+    }
+  ],
+  "style": {
+    "context_id": "77bdcaefd9adf0515305978b7e9b668a5c4e1561b7ab8803c0744bcc698e7b8d",
+    "end_character": 47000,
+    "name": "Steve_Miller_FAA_docAR-08-32.pdf",
+    "source_sha256": "b4949561cb04d46f718a16e2cc1486c0bd5a26c15778e3567c464466c24731df",
+    "start_character": 35000,
+    "text": " environment in which it will\noperate. It should not attempt to completely describe the system. Rather, its intent is to provide\nthe reader with a high-level view of what the system does, how it interacts with its environment,\nand why the system is needed. At a minimum, it should include a short synopsis of the system;\none or more context descriptions; a brief description of each external entity in the context\ndiagrams; and a set of high-level system goals, objectives, and constraints. It may also include\nother relevant information, such as historical background, but this needs to be balanced against\nthe need to quickly orient a new reader. Examples of system overviews are provided in appendix\nA.1 for the Isolette Thermostat, appendix B.1 for the FCS, appendix C.1 for the FGS, and\nappendix D.1 for the AP.\n\n\n\n\n                                                  5\n\f Recommended Practice 2.1.1: Develop the system overview early in the requirements\n engineering process and use it as the introduction to the requirements specification. Keep the\n overview at a high level so it can be used to quickly orient new readers.\n\n2.1.2 Provide System Synopsis.\n\nThe overview itself should begin with a synopsis that provides a brief narrative description of the\nsystem. Ideally, the synopsis is short, clear, and describes what the system will do without\nimplying a particular system design. The synopsis should name the system to be developed,\ndescribe its purpose, and summarize the main capabilities provided by the system. An early\nversion of the synopsis for the Isolette Thermostat states:\n\n       The system being specified is the thermostat of an Isolette. An Isolette is an\n       incubator for an infant that provides controlled temperature, humidity, and\n       oxygen (if necessary). Isolettes are used extensively in Neonatal Intensive Care\n       Units for the care of premature infants.\n\n       The purpose of the Isolette Thermostat is to maintain the air temperature of an\n       Isolette within a desired range. It senses the current temperature of the Isolette\n       and turns the heat source on and off to warm the air as needed. The system\n       allows the nurse to set the Desired Temperature Range within a safe range for\n       infants.\n\nAs with all the system overviews, the synopsis will evolve throughout the requirements\ndefinition. Examples of complete system synopses are provided at the start of appendix A.1 for\nthe Isolette Thermostat, appendix B.1 for the FCS, appendix C.1 for the FGS, and appendix D.1\nfor the AP.\n\n Recommended Practice 2.1.2: Provide a short textual synopsis of the system as the first part\n of the system overview. The synopsis should name the system, describe its purpose, and\n summarize the system capabilities.\n\n2.1.3 Identify System Contexts.\n\nThe purpose of the system context is to describe, at a high level, the external entities with which\nthe system interacts and the nature of those interactions. Note that there may be more than one\ncontext in which the system will be used during its entire life cycle. For example, there will\nalmost certainly be an operational context, which describes the entities with which the system\ninteracts during normal operation, but there may also be a testing context used during system\ndevelopment in which the system interacts with test equipment through different interfaces, or\nthere may be a maintenance context that is used to diagnose and repair the system in the field.\nEach relevant context for the system should be identified and described. Since different\nindividuals will be interested in different contexts, it is usually better to describe each context\nseparately than to try to combine them into a single context.\n\n\n\n\n                                                6\n\f Recommended Practice 2.1.3: Consider the entire life cycle of the system and identify each\n distinct context in which it will be used.\n\n2.1.4 Use Context Diagrams.\n\nFor each context, the external entities with which the system interacts and the nature of those\ninteractions should be identified. A convenient way to do this is through the use of a context\ndiagram that graphically depicts each external entity and its interaction with the system. An\nexample context diagram for the Isolette Thermostat is shown in figure A-1. A similar context\ndiagram for the FCS is shown in figure B-1 for the FGS in figure C-1, and for the AP in figure\nD-1. Note that the system itself is shown in the context diagram as a black box with no internal\nstructure. It may also be helpful to identify the higher-level systems in which the system is\nembedded (for example, the Thermostat context includes the larger system content of the\nIsolette).\n\n Recommended Practice 2.1.4: Use context diagrams in the system overview to provide a\n high-level, graphical depiction of the system, the external entities it interacts with, and those\n interactions.\n\n2.1.5 Describe External Entities.\n\nA brief description of each external entity and its interactions with the system should also be\nprovided. Since this is part of the system overview, these descriptions should be kept short and\nsimple (more detailed information on the entities and their interactions will be provided in later\nsections of the applicable specification). Examples of the descriptions of external entities and\ntheir interactions with the system are provided in appendix A.1.1 for the Isolette Thermostat,\nappendix B.1.1 for the FCS, appendix C.1.1 for the FGS, and appendix D.1.1 for the AP.\n\n Recommended Practice 2.1.5: For each context diagram, provide a brief description of each\n external entity and its interactions with the system.\n\n2.1.6 Capture Preliminary System Goals.\n\nGoals are informal statements of the system stakeholders\u2019 needs. They are not requirements\nsince they are not verifiable and do not provide enough information to build the system [14].\nHowever, they provide important guidance on why the system is being built and what is\nimportant to the stakeholders. During the early phases of the project, they may be all that is\navailable. Goals frequently conflict with each other. For example, one goal may be to produce a\nsystem with a sophisticated operator interface, while another goal is to produce the system at\nminimal cost. One of the objectives of the requirements engineering process is to refine the\ngoals into verifiable requirements that resolve these conflicts as effectively as possible.\n\nA preliminary set of system goals should be captured early in the requirements engineering\nprocess so they can be used to guide the specification of requirements. A natural place to present\nthe system goals is in the system overview. However, in a large project, the system goals may be\nnumerous enough to justify placing them in their own section or in another document entirely.\n\n\n                                                7\n\f    Recommended Practice 2.1.6: Capture a preliminary set of system goals early in the\n    requirements engineering process so they can be used to guide the development of the\n    requirements.\n\n2.1.7 Maintain System Goal Information.\n\nGoals frequently help to explain why a particular requirement exists or is stated in a particular\nway and may be cited in the rationale (see section 2.11) for the requirement. The operational\nconcepts (see section 2.3) also trace back to the system goals.\n\nManagement of the system goals will vary with the size, complexity, and maturity of the system\nbeing developed. On small projects, the goals may be well understood. It may be possible to list\nthe system goals on a single page and their management may consist of nothing more than an\noccasional review and update. This is the case for the Isolette Thermostat example, which\ninitially has only two simple goals:\n\n\u2022        G1\u2014The infant should be kept at a safe and comfortable temperature.\n\u2022        G2\u2014The cost of manufacturing the thermostat should be as low as possible.\n\nHowever, on a project of any size, and particularly for new large systems, the goals will\nprobably evolve throughout project development. New needs will be identified, priorities will\nshift, managers will change, understanding of the project will grow, all resulting in a changing\nset of project goals. Management of the goals on such a project may be a significant task in its\nown right. To do this, information should be collected that facilitates tracing the goal back to its\nsource and continuously assessing the importance of that goal relative to other goals.\n\nPotential sources of system goals are numerous and include the customers, users, regulatory\nbodies, and previous developments. Goals may be provided directly by these organizations or\nmay be discovered through interviews or review of documents provided by the stakeholders.\nDepending on the size and volatility of a project, information that may be desirable to collect\nabout each goal may include:\n\n\u2022        Origin\u2014Where did the goal come from (customer, individual, document \u2026)?\n\u2022        Origin Date\u2014When was the goal was first identified?\n\u2022        Author\u2014Who first documented the goal?\n\u2022        Priority\u2014What is the importance of the goal relative to other goals?\n\u2022        Stakeholders\u2014Which customers or users are most concerned about this goal?\n\u2022        Stability\u2014How likely is this goal to change?\n\u2022        Schedule Date\u2014What is the date this goal is scheduled to be implemented?\n\nFor items such as priority and stability, each organization would probably want to provide their\nown allowed values and definitions. If the system goals are expected to change frequently, they\nshould be kept under configuration control to provide a history of their evolution.\n\n\n\n\n                                                 8\n\f Recommended Practice 2.1.7: Depending on the size and volatility of a project, collect and\n maintain the information about each system goal necessary to continuously assess its\n importance relative to the other goals.\n\n2.2 IDENTIFY THE SYSTEM BOUNDARY.\n\nRefer to table 2 for a description of main- and sublevel recommended practices for identifying\nthe system boundary.\n\n                             Table 2. Identify the System Boundary\n\n                          Main- and Sublevel Recommended Practices\n2.2 Identify the System Boundary:\n\n    Develop a clear definition of the boundary between the system and its environment. This\n    provides a solid understanding of what lies within the system to be built and what lies\n    within a larger environment. This is done by identifying a set of variables in the\n    environment the system will monitor and control.\n    2.2.1 Define the system boundary early in the requirements engineering process by\n           identifying a preliminary set of monitored and controlled variables.\n    2.2.2 Choose environmental variables that exist in the environment independently of the\n           system to be developed.\n    2.2.3 Choose controlled variables that are under the direct control of the system being\n           specified.\n    2.2.4 Choose monitored variables that are being directly sensed by the system being\n           specified.\n    2.2.5 Ensure the monitored and controlled variables are as abstract as possible and do not\n           include implementation details.\n    2.2.6 Avoid incorporating details of the operator interface in the monitored and controlled\n           variables. Instead, define monitored or controlled variables that describe the\n           information to be conveyed independent of its presentation format.\n    2.2.7 Completely define all physical interfaces to the system, including definitions for all\n           discrete inputs, all messages, all fields in a message, and all protocols followed.\n\nOne of the most important activities in requirements engineering is to clearly define the\nboundary between the system and its environment. This provides a sound understanding of what\nlies within the system to be built and what lies within a larger environment. Every system is\nembedded"
+  },
+  "unresolved": [
+    "The imported data types are not defined in the selected material; temperature scale, encoding, representable ranges, and complete interface field definitions are unavailable. The s32 annotation on the hysteresis increment does not specify a physical temperature unit.",
+    "lastCmd is declared but neither initialized nor updated in the supplied source. The case descriptions imply holding the previous alarm command, but the relationship between lastCmd and previous alarm_control is unspecified.",
+    "No constraint establishes alarm-bound ordering or minimum separation. Behavior for overlapping hysteresis bands or an empty reset band is not separately specified, and no precedence among simultaneously applicable cases is stated.",
+    "The alarm compute conditions do not test current-temperature validity. No separate handling of invalid or stale temperature data is defined for this component.",
+    "The 1000-millisecond period does not define execution time, deadline, input sampling semantics, communication latency, or end-to-end alarm response time.",
+    "The meaning and scheduling effect of CASE_Scheduling domain 9 are not supplied.",
+    "Physical alarm behavior and physical interface protocols are outside the supplied component definition."
+  ],
+  "id": "e98becd2522906f5c6849ef52071d32d4c16ad4026359f20e36182afc464b732"
+}

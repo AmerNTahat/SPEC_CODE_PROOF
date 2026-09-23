@@ -1,0 +1,224 @@
+{
+  "call_id": "71b5dec01f0e4b67855b7f634c80ca82",
+  "campaign_id": "3f16ff4ef866d414cedb448a3ade2dfc4c5b5807162e6aea7522abc218fb49d8",
+  "campaign_usage_unknown": false,
+  "campaign_used_tokens": 1182675,
+  "codex_sha256": "0753dfe1d8b87a52436deb13eb1c549661ef4c84fee2c5aa688385eebeccb761",
+  "events": [
+    {
+      "thread_id": "01a0cc0d-9591-71a3-a963-75b2639fef25",
+      "type": "thread.started"
+    },
+    {
+      "item": {
+        "id": "item_0",
+        "message": "Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`.",
+        "type": "error"
+      },
+      "type": "item.completed"
+    },
+    {
+      "type": "turn.started"
+    },
+    {
+      "item": {
+        "id": "item_1",
+        "text": "{\n  \"rule\": {\n    \"$schema\": \"\",\n    \"schema_version\": \"2.0\",\n    \"record_type\": \"rule\",\n    \"id\": \"RA-001\",\n    \"revision\": \"1\",\n    \"state\": \"DRAFT\",\n    \"basis\": \"model_inferred\",\n    \"assessment_timing\": \"before_action\",\n    \"source_references\": [],\n    \"source_artifact_hashes\": [],\n    \"source_episode\": null,\n    \"available_context_manifest\": null,\n    \"model_configuration\": null,\n    \"prompt_version\": \"requirements-allocation-1\",\n    \"trigger\": \"Prepared English assigns system outputs to connected subfunctions and includes conditional, stateful, initialization, failure, or latency requirements that must survive allocation to HAMR components.\",\n    \"principle\": \"Allocate each English obligation to the thread that controls its effect, trace its inputs through every preserved interface, and discharge every consumer assumption through producer guarantees or explicit environmental obligations. Maintain a trace from English through architecture, GUMBO, implementation, proof, tests, and timing analysis; record missing representations as open obligations rather than treating the observed model as a complete specification.\",\n    \"semantic_choice\": \"Interpret 'if' as a guarded obligation, not permission to exclude other required operating conditions. Distinguish compute-case guards from environmental assumptions. Preserve inclusive and exclusive comparisons, disjunction scope, units, initialization, historical state, and strict latency bounds. 'Shall not be changed' requires equality to the previous command; 'UNSPECIFIED' relaxes the value only in its stated condition and does not authorize consumers to use it.\",\n    \"structural_placement\": \"REQ-MT-1 is realized by Manage_Alarm_i through its process wrapper to Monitor_Temperature_i.alarm_control; REQ-MT-2 is realized by Manage_Monitor_Interface_i through its wrapper to monitor_status. Allocate REQ-MMI-1..7 to Manage_Monitor_Interface_i, mode transitions and timeout to Manage_Monitor_Mode_i, REQ-MA-1..5 to Manage_Alarm_i, and platform-specific internal-failure detection to Detect_Monitor_Failure_i. Put behavior contracts on these leaf threads; retain process forwarding connections and system connections as traceable transport obligations. Attach end-to-end latency and assumption-discharge obligations to the composed paths, not solely to individual thread contracts.\",\n    \"repair_gate\": \"Before accepting an application or repair, compare every trace row with prepared English and the preserved interface baseline. Classify discrepancies as requirements ambiguity, missing model behavior, representation mismatch, implementation error, composition/timing gap, or tool/environment failure. Repair the responsible artifact and rerun affected KSU checks; never remove a requirement, strengthen an assumption without justification, widen a deadline, or hide behavior behind trusted code merely to obtain a favorable result. Unresolved gaps block a preservation claim. Generalization and specialization of this draft or its repair strategy belong to Learning Mode and require subsequent validation.\",\n    \"prerequisites\": [\n      \"Prepared English and stable requirement identifiers are available as the requirements baseline; existing models are comparison artifacts.\",\n      \"A trace ledger records requirement text, guard, effect, owner, port path, state/time dependencies, assumption provider, formal clause, implementation entry point, proof/test obligation, and unresolved gap.\",\n      \"Existing port names, directions, kinds, types, process wrappers, and connection endpoints are inventoried and preserved.\",\n      \"Concrete data definitions, physical-unit scaling, representable values, arithmetic limits, valid alarm ranges, and range ordering are established before choosing numeric encodings or assumptions.\",\n      \"Previous-state initialization/update semantics, initialization elapsed time, power-cycle/reset meaning, and input sampling/output publication semantics are established before claiming stateful refinement.\",\n      \"A schedule and communication semantics are available to justify input freshness, startup behavior, feedback delays, and end-to-end deadlines; equal periods or domain numbers alone do not establish these properties.\",\n      \"Platform-specific failure detection and environmental input initialization obligations are specified or retained explicitly as unresolved.\",\n      \"For subsequent engineering checks, compatible Sireum and AADL/HAMR libraries, complete sourcepaths, Rust/cargo, cargo-verus, generated test infrastructure, and required targets are available. Microkit system builds additionally require the SDK and board configuration.\",\n      \"Prefer the documented Sireum CLI workflow unless a separately validated MCP wrapper is available; no tool availability or successful execution is inferred here.\"\n    ],\n    \"exclusions\": [\n      \"Inferring environmental assumptions from conditions that the software is required to detect or handle.\",\n      \"Treating missing contracts, generated defaults, or omitted cases as permission to weaken prepared English.\",\n      \"Changing existing source interfaces to evade an unresolved representation or ownership issue.\",\n      \"Claiming system deadlines from component functional proofs alone.\",\n      \"Inventing platform-specific failure-detection behavior or resolving ambiguous transition priorities without a requirements decision.\"\n    ],\n    \"parameters\": [\n      {\n        \"name\": \"requirement\",\n        \"role\": \"Allocation and traceability unit\",\n        \"constraints\": \"Retain the English identifier and all behavioral, temporal, state, and boundary clauses; derived clauses retain a parent link.\"\n      },\n      {\n        \"name\": \"owner_and_path\",\n        \"role\": \"Effect authority and transport\",\n        \"constraints\": \"Choose the existing output-producing thread and enumerate forwarding and consumer connections; cross-component obligations retain a composition owner.\"\n      },\n      {\n        \"name\": \"assumption_provider\",\n        \"role\": \"Assumption discharge\",\n        \"constraints\": \"Identify a producer guarantee or explicit environmental obligation with compatible sampling and startup semantics; otherwise mark the assumption open.\"\n      },\n      {\n        \"name\": \"representation\",\n        \"role\": \"Physical-to-formal mapping\",\n        \"constraints\": \"Preserve 0.5 degree Fahrenheit hysteresis, alarm-range bounds, strict deadlines, and exact comparison endpoints; no silent rounding or scaling.\"\n      }\n    ],\n    \"dependencies\": [],\n    \"target_compatibility\": [\n      \"reviewed-learning-plan\"\n    ],\n    \"preserved_obligations\": [\n      \"Architecture: preserve all supplied interfaces, including current-temperature fan-out, range forwarding from interface manager to alarm manager, mode fan-out, failure inputs to mode manager, and system output forwarding.\",\n      \"Interface manager: retain mode-to-status mapping, any-Invalid failure detection, both-Valid failure clearing, conditional range copying, and the requirement that failed-interface ranges are unspecified and must not be used. Preserve the power-up failure rationale while separating environmental invalid-status initialization from the thread's output-only initialize entry point.\",\n      \"Mode manager: retain initial INIT, health defined by both failure flags being false and current-temperature status being Valid, healthy transition to NORMAL, failure transition from NORMAL, initialization timeout greater than 1.0 second, and FAILED persistence until power cycling. Resolve ambiguous timeout/health priority and transition identifiers without deleting the timeout obligation.\",\n      \"Alarm manager: retain INIT Off, NORMAL outside-range On, 0.5 degree Fahrenheit hysteresis holding the previous command, inclusive reset-band Off, and FAILED On. Preserve the NORMAL qualifier across both hysteresis alternatives and record that linguistic scope explicitly.\",\n      \"Timing: retain monitor-status response latency strictly below 0.5 second and alarm response latency strictly below 5 seconds. Assess the English negligible-time transition abstraction against sampled execution.\",\n      \"Implementation: use HAMR-generated APIs and read-compute-write semantics; initialize every output DataPort and needed local state without reading inputs in initialize; explicitly maintain previous-command and previous-mode state across compute dispatches.\",\n      \"Proof: perform HAMR type checking after model edits and before generation; use Logika for modeled integration obligations and Verus for Rust entry-point refinement. Establish assumption satisfiability, compatible simultaneous cases, history invariants, producer-to-consumer implication, and arithmetic correctness. Identify remaining trusted or unmodeled obligations.\",\n      \"Testing: provide requirement-derived manual assertions independently of generated contracts, manual GUMBOX checks, and PropTest exploration using serialized tests. Cover startup, valid/invalid combinations, all modes, exact hysteresis endpoints, numeric extremes, state sequences, timeout boundaries, and composed invalid-range/failure propagation. Use state-aware harnesses for GUMBO state variables; rejected preconditions are not passing behavior tests.\",\n      \"Generation and repair: edit models and developer-owned application/test regions, regenerate managed contracts and infrastructure, and preserve generated marker regions. Resolve sourcepath, launcher, or library-version failures as environment issues rather than weakening project semantics.\",\n      \"Deployment: use generated build/integration workflows and analyze the actual cyclic schedule and communication delays. Component tests using simulated ports do not establish deployed timing.\",\n      \"Traceability: retain separate statuses for observed formal clauses, proposed repairs, unresolved English/model gaps, and future evidence. No successful check or approval is supplied.\"\n    ],\n    \"counterexample\": {\n      \"scenario\": \"In NORMAL mode, let the lower alarm threshold be 96 degrees Fahrenheit, upper threshold 100 degrees Fahrenheit, previous command On, and current temperature 96.5 degrees Fahrenheit. Compare the prepared 0.5-degree hysteresis with an unscaled reading of the observed '+ 1 [s32]' model.\",\n      \"expected_difference\": \"English REQ-MA-4 requires Off at 96.5, while the observed one-unit lower hysteresis would hold On if one model unit means one degree. Contract-based tests derived solely from that model could miss the discrepancy. This rule requires preserving the half-degree boundary and establishing an exact encoding; if the existing type cannot represent it, the representation obligation remains open rather than rounding the input or changing the interface.\",\n      \"source_or_test_reference\": null\n    },\n    \"validation_gate_ids\": [],\n    \"evidence_references\": [],\n    \"confidence_forecast_reference\": null,\n    \"approval_reference\": null,\n    \"notes\": \"Observed facts: the supplied model has four periodic threads with 1000 ms periods and domains 7 through 10; process wrappers forward ports; GUMBO clauses exist for interface, mode, and alarm management. The failure detector has no supplied behavior contract. lastMonitorMode and lastCmd are declared, but their initialization and update relations are not specified by the shown guarantees. The mode model omits elapsed-time state and an INIT timeout-to-FAILED case despite English requiring a 1.0-second timeout. The alarm model uses 1 [s32] where English uses 0.5 degrees; concrete data definitions are absent, so scaling is unresolved. Only some output initial values are constrained. Proposed obligations: complete these representations and trace paths without weakening English. The 1000 ms interface period does not establish the required sub-0.5-second status response and presents an apparent timing conflict requiring schedule analysis or repair. Range validity flags do not establish numeric range ordering or freshness. The interface-to-mode-to-interface feedback and separate alarm path require a startup and sampling argument so a NORMAL alarm computation cannot improperly consume unspecified ranges. English REQ-MMI-6 says 'Desired Temperature Range' in an alarm-range context; the model copies alarm inputs, so terminology correspondence must be resolved explicitly. No implementation, validation results, revision request, or approval is supplied. Source references and hashes are reserved for controller assignment.\",\n    \"source_english_patterns\": [\n      \"The [system function] shall set the value of [controlled variable].\",\n      \"If [condition], [owned output] shall be set to [value].\",\n      \"If [condition], the value of [output] shall not be changed.\",\n      \"If [failure condition], [internal variable] is UNSPECIFIED.\",\n      \"Latency: < [bound].\",\n      \"Duration (INMODE) > [initialization timeout].\"\n    ],\n    \"positive_paraphrases\": [\n      \"Allocate alarm actuation to the alarm thread and status reporting to the interface thread, preserving their system output paths.\",\n      \"A receiving component may rely on a property only when a connected producer or explicit environment obligation establishes it at the relevant sample.\",\n      \"Carry each English condition, boundary, history dependency, and deadline through the contract and its engineering checks.\"\n    ],\n    \"misleading_near_matches\": [\n      \"Assume both alarm inputs are valid, although the interface manager must detect invalid inputs.\",\n      \"The ports connect, therefore all consumer assumptions and latency requirements are satisfied.\",\n      \"A generated GUMBOX check passes, therefore the original English requirement is complete.\",\n      \"Unspecified alarm ranges may be used while failure propagation is pending.\",\n      \"Replace half-degree hysteresis with one integer unit because the observed model does so.\"\n    ],\n    \"supported_operations\": [\n      \"create-system\",\n      \"extend-system\",\n      \"complete-system\",\n      \"continue-project\",\n      \"repair-system\",\n      \"verify-only\"\n    ],\n    \"stack_layers\": [\n      \"language\",\n      \"architecture\",\n      \"gumbo\",\n      \"implementation\",\n      \"proof\",\n      \"testing\",\n      \"deployment\",\n      \"repair\"\n    ],\n    \"semantic_roles\": {\n      \"actor\": \"The existing leaf thread that controls the required output; the enclosing system owns composition and end-to-end obligations.\",\n      \"condition\": \"The exact English guard over sampled inputs, prior state, failure status, and elapsed time; environmental assumptions are recorded separately.\",\n      \"effect\": \"An output assignment, unchanged command, state transition, failure indication, or constrained use of an unspecified value.\",\n      \"modality\": \"Mandatory behavior for 'shall'; conditional freedom only where English explicitly states UNSPECIFIED.\",\n      \"quantification\": \"Every applicable dispatch and reachable execution under justified environmental assumptions; all simultaneously active obligations must hold.\",\n      \"temporal_scope\": \"Power-up initialization, each compute transition, persistence until power cycling, initialization timeout, and strict end-to-end response bounds.\",\n      \"state_dependency\": \"Previous alarm command, previous monitor mode, elapsed INIT time, and sampled producer values with explicit initialization/update relations.\",\n      \"units_and_boundaries\": \"Degrees Fahrenheit; lower range [96,101], upper range [97,102]; 0.5-degree hysteresis; timeout >1.0 second; status latency <0.5 second; alarm latency <5 seconds. Preserve strict versus inclusive endpoints.\"\n    },\n    \"formal_output_pattern\": \"ABSTRACT allocation schema, not executable GUMBO:\\nTrace(r) = <EnglishID, owner C, guard g, effect q, interfacePath, state/time map, implementation, proof, tests, gaps>.\\nFor each owned requirement r: Env_C(I_k) AND Inv_C(S_k) AND g_r(I_k,S_k,t_k) => q_r(O_k,S_{k+1}); represent g_r => q_r as a compute-case obligation, not a global input restriction.\\nInitialize_C => all output DataPorts initialized AND required initial state/output relations; initialize reads no input ports.\\nFor each connection P.out -> C.in: Guarantee_P AND Transport(path,schedule,startup) => Assumption_C at the consumer sample. An unresolved implication remains an open system obligation.\\nHistory relations: lastCmd at dispatch k equals the preceding published command; lastMonitorMode equals the preceding mode; establish initialization and updates explicitly.\\nAlarm in NORMAL: (T<L OR T>U) => cmd=On; ((L<=T AND T<L+0.5degF) OR (U-0.5degF<T AND T<=U)) => cmd=oldCmd; (L+0.5degF<=T AND T<=U-0.5degF) => cmd=Off.\\nFailure-range obligation: interface_failure => rangeValue unconstrained by the copying requirement AND consumers do not rely on that range; discharge using actual sampling and mode propagation.\\nTimed obligations remain separate from dispatch-local predicates: required status response delay <0.5s; required alarm response delay <5s; encode the English INIT-duration >1.0s timeout transition after resolving transition priority.\\nComposition refinement obligation: environment assumptions AND component contracts AND connection/schedule semantics => prepared system requirements. Every encoding must preserve physical meaning and all source interfaces.\",\n    \"formal_pattern_status\": \"ABSTRACT_NOT_VALIDATED\",\n    \"allowed_edit_scope\": [\n      \"Requirement allocation ledger and explicit gap records.\",\n      \"Behavior contracts and internal state representations on the supplied component owners, preserving existing interfaces.\",\n      \"Developer-owned Rust application logic and tests outside generated marker regions.\",\n      \"Schedule/configuration artifacts where needed for traced timing obligations, subject to platform constraints.\",\n      \"HAMR regeneration of generated contracts and infrastructure after model checks.\"\n    ],\n    \"required_baseline\": [\n      \"Prepared Monitor Temperature English, including tables, rationale, latency clauses, and transition description.\",\n      \"Supplied Monitor.sysml component interfaces, forwarding connections, behavior clauses, periods, and domains.\",\n      \"Supplied KSU HAMR modeling, generation, implementation, verification, testing, and deployment workflow context.\",\n      \"Explicit inventory of unresolved representations and absent platform-specific behavior.\"\n    ],\n    \"diagnostic_signature\": null,\n    \"related_rule_ids\": []\n  },\n  \"confidence\": {\n    \"score\": 0.8,\n    \"rationale\": \"Before seeing any development result, my model-belief confidence is 0.8 that this scoped rule will preserve the stated obligations on a held-out component under its prerequisites. Explicit ownership, assumption discharge, independent English traceability, and gap retention support that judgment. Unseen component semantics, numeric encodings, timing composition, and tool limitations remain uncertainties. This is a subjective forecast, not an empirical probability or validation result.\"\n  }\n}",
+        "type": "agent_message"
+      },
+      "type": "item.completed"
+    },
+    {
+      "type": "turn.completed",
+      "usage": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 0,
+        "input_tokens": 42548,
+        "output_tokens": 3610,
+        "reasoning_output_tokens": 0
+      }
+    }
+  ],
+  "exit_code": 0,
+  "isolation": "allowlisted mounts; selected inputs via stdin; no evaluator mount; tool network disabled; credential path denied to tools",
+  "model": "gpt-6-astra",
+  "prompt_sha256": "8152277c3a84103a3d8685de468056617f6405fd969418c47c3c02783deaba65",
+  "result": {
+    "reason": null,
+    "response": {
+      "confidence": {
+        "rationale": "Before seeing any development result, my model-belief confidence is 0.8 that this scoped rule will preserve the stated obligations on a held-out component under its prerequisites. Explicit ownership, assumption discharge, independent English traceability, and gap retention support that judgment. Unseen component semantics, numeric encodings, timing composition, and tool limitations remain uncertainties. This is a subjective forecast, not an empirical probability or validation result.",
+        "score": 0.8
+      },
+      "rule": {
+        "$schema": "",
+        "allowed_edit_scope": [
+          "Requirement allocation ledger and explicit gap records.",
+          "Behavior contracts and internal state representations on the supplied component owners, preserving existing interfaces.",
+          "Developer-owned Rust application logic and tests outside generated marker regions.",
+          "Schedule/configuration artifacts where needed for traced timing obligations, subject to platform constraints.",
+          "HAMR regeneration of generated contracts and infrastructure after model checks."
+        ],
+        "approval_reference": null,
+        "assessment_timing": "before_action",
+        "available_context_manifest": null,
+        "basis": "model_inferred",
+        "confidence_forecast_reference": null,
+        "counterexample": {
+          "expected_difference": "English REQ-MA-4 requires Off at 96.5, while the observed one-unit lower hysteresis would hold On if one model unit means one degree. Contract-based tests derived solely from that model could miss the discrepancy. This rule requires preserving the half-degree boundary and establishing an exact encoding; if the existing type cannot represent it, the representation obligation remains open rather than rounding the input or changing the interface.",
+          "scenario": "In NORMAL mode, let the lower alarm threshold be 96 degrees Fahrenheit, upper threshold 100 degrees Fahrenheit, previous command On, and current temperature 96.5 degrees Fahrenheit. Compare the prepared 0.5-degree hysteresis with an unscaled reading of the observed '+ 1 [s32]' model.",
+          "source_or_test_reference": null
+        },
+        "dependencies": [],
+        "diagnostic_signature": null,
+        "evidence_references": [],
+        "exclusions": [
+          "Inferring environmental assumptions from conditions that the software is required to detect or handle.",
+          "Treating missing contracts, generated defaults, or omitted cases as permission to weaken prepared English.",
+          "Changing existing source interfaces to evade an unresolved representation or ownership issue.",
+          "Claiming system deadlines from component functional proofs alone.",
+          "Inventing platform-specific failure-detection behavior or resolving ambiguous transition priorities without a requirements decision."
+        ],
+        "formal_output_pattern": "ABSTRACT allocation schema, not executable GUMBO:\nTrace(r) = <EnglishID, owner C, guard g, effect q, interfacePath, state/time map, implementation, proof, tests, gaps>.\nFor each owned requirement r: Env_C(I_k) AND Inv_C(S_k) AND g_r(I_k,S_k,t_k) => q_r(O_k,S_{k+1}); represent g_r => q_r as a compute-case obligation, not a global input restriction.\nInitialize_C => all output DataPorts initialized AND required initial state/output relations; initialize reads no input ports.\nFor each connection P.out -> C.in: Guarantee_P AND Transport(path,schedule,startup) => Assumption_C at the consumer sample. An unresolved implication remains an open system obligation.\nHistory relations: lastCmd at dispatch k equals the preceding published command; lastMonitorMode equals the preceding mode; establish initialization and updates explicitly.\nAlarm in NORMAL: (T<L OR T>U) => cmd=On; ((L<=T AND T<L+0.5degF) OR (U-0.5degF<T AND T<=U)) => cmd=oldCmd; (L+0.5degF<=T AND T<=U-0.5degF) => cmd=Off.\nFailure-range obligation: interface_failure => rangeValue unconstrained by the copying requirement AND consumers do not rely on that range; discharge using actual sampling and mode propagation.\nTimed obligations remain separate from dispatch-local predicates: required status response delay <0.5s; required alarm response delay <5s; encode the English INIT-duration >1.0s timeout transition after resolving transition priority.\nComposition refinement obligation: environment assumptions AND component contracts AND connection/schedule semantics => prepared system requirements. Every encoding must preserve physical meaning and all source interfaces.",
+        "formal_pattern_status": "ABSTRACT_NOT_VALIDATED",
+        "id": "RA-001",
+        "misleading_near_matches": [
+          "Assume both alarm inputs are valid, although the interface manager must detect invalid inputs.",
+          "The ports connect, therefore all consumer assumptions and latency requirements are satisfied.",
+          "A generated GUMBOX check passes, therefore the original English requirement is complete.",
+          "Unspecified alarm ranges may be used while failure propagation is pending.",
+          "Replace half-degree hysteresis with one integer unit because the observed model does so."
+        ],
+        "model_configuration": null,
+        "notes": "Observed facts: the supplied model has four periodic threads with 1000 ms periods and domains 7 through 10; process wrappers forward ports; GUMBO clauses exist for interface, mode, and alarm management. The failure detector has no supplied behavior contract. lastMonitorMode and lastCmd are declared, but their initialization and update relations are not specified by the shown guarantees. The mode model omits elapsed-time state and an INIT timeout-to-FAILED case despite English requiring a 1.0-second timeout. The alarm model uses 1 [s32] where English uses 0.5 degrees; concrete data definitions are absent, so scaling is unresolved. Only some output initial values are constrained. Proposed obligations: complete these representations and trace paths without weakening English. The 1000 ms interface period does not establish the required sub-0.5-second status response and presents an apparent timing conflict requiring schedule analysis or repair. Range validity flags do not establish numeric range ordering or freshness. The interface-to-mode-to-interface feedback and separate alarm path require a startup and sampling argument so a NORMAL alarm computation cannot improperly consume unspecified ranges. English REQ-MMI-6 says 'Desired Temperature Range' in an alarm-range context; the model copies alarm inputs, so terminology correspondence must be resolved explicitly. No implementation, validation results, revision request, or approval is supplied. Source references and hashes are reserved for controller assignment.",
+        "parameters": [
+          {
+            "constraints": "Retain the English identifier and all behavioral, temporal, state, and boundary clauses; derived clauses retain a parent link.",
+            "name": "requirement",
+            "role": "Allocation and traceability unit"
+          },
+          {
+            "constraints": "Choose the existing output-producing thread and enumerate forwarding and consumer connections; cross-component obligations retain a composition owner.",
+            "name": "owner_and_path",
+            "role": "Effect authority and transport"
+          },
+          {
+            "constraints": "Identify a producer guarantee or explicit environmental obligation with compatible sampling and startup semantics; otherwise mark the assumption open.",
+            "name": "assumption_provider",
+            "role": "Assumption discharge"
+          },
+          {
+            "constraints": "Preserve 0.5 degree Fahrenheit hysteresis, alarm-range bounds, strict deadlines, and exact comparison endpoints; no silent rounding or scaling.",
+            "name": "representation",
+            "role": "Physical-to-formal mapping"
+          }
+        ],
+        "positive_paraphrases": [
+          "Allocate alarm actuation to the alarm thread and status reporting to the interface thread, preserving their system output paths.",
+          "A receiving component may rely on a property only when a connected producer or explicit environment obligation establishes it at the relevant sample.",
+          "Carry each English condition, boundary, history dependency, and deadline through the contract and its engineering checks."
+        ],
+        "prerequisites": [
+          "Prepared English and stable requirement identifiers are available as the requirements baseline; existing models are comparison artifacts.",
+          "A trace ledger records requirement text, guard, effect, owner, port path, state/time dependencies, assumption provider, formal clause, implementation entry point, proof/test obligation, and unresolved gap.",
+          "Existing port names, directions, kinds, types, process wrappers, and connection endpoints are inventoried and preserved.",
+          "Concrete data definitions, physical-unit scaling, representable values, arithmetic limits, valid alarm ranges, and range ordering are established before choosing numeric encodings or assumptions.",
+          "Previous-state initialization/update semantics, initialization elapsed time, power-cycle/reset meaning, and input sampling/output publication semantics are established before claiming stateful refinement.",
+          "A schedule and communication semantics are available to justify input freshness, startup behavior, feedback delays, and end-to-end deadlines; equal periods or domain numbers alone do not establish these properties.",
+          "Platform-specific failure detection and environmental input initialization obligations are specified or retained explicitly as unresolved.",
+          "For subsequent engineering checks, compatible Sireum and AADL/HAMR libraries, complete sourcepaths, Rust/cargo, cargo-verus, generated test infrastructure, and required targets are available. Microkit system builds additionally require the SDK and board configuration.",
+          "Prefer the documented Sireum CLI workflow unless a separately validated MCP wrapper is available; no tool availability or successful execution is inferred here."
+        ],
+        "preserved_obligations": [
+          "Architecture: preserve all supplied interfaces, including current-temperature fan-out, range forwarding from interface manager to alarm manager, mode fan-out, failure inputs to mode manager, and system output forwarding.",
+          "Interface manager: retain mode-to-status mapping, any-Invalid failure detection, both-Valid failure clearing, conditional range copying, and the requirement that failed-interface ranges are unspecified and must not be used. Preserve the power-up failure rationale while separating environmental invalid-status initialization from the thread's output-only initialize entry point.",
+          "Mode manager: retain initial INIT, health defined by both failure flags being false and current-temperature status being Valid, healthy transition to NORMAL, failure transition from NORMAL, initialization timeout greater than 1.0 second, and FAILED persistence until power cycling. Resolve ambiguous timeout/health priority and transition identifiers without deleting the timeout obligation.",
+          "Alarm manager: retain INIT Off, NORMAL outside-range On, 0.5 degree Fahrenheit hysteresis holding the previous command, inclusive reset-band Off, and FAILED On. Preserve the NORMAL qualifier across both hysteresis alternatives and record that linguistic scope explicitly.",
+          "Timing: retain monitor-status response latency strictly below 0.5 second and alarm response latency strictly below 5 seconds. Assess the English negligible-time transition abstraction against sampled execution.",
+          "Implementation: use HAMR-generated APIs and read-compute-write semantics; initialize every output DataPort and needed local state without reading inputs in initialize; explicitly maintain previous-command and previous-mode state across compute dispatches.",
+          "Proof: perform HAMR type checking after model edits and before generation; use Logika for modeled integration obligations and Verus for Rust entry-point refinement. Establish assumption satisfiability, compatible simultaneous cases, history invariants, producer-to-consumer implication, and arithmetic correctness. Identify remaining trusted or unmodeled obligations.",
+          "Testing: provide requirement-derived manual assertions independently of generated contracts, manual GUMBOX checks, and PropTest exploration using serialized tests. Cover startup, valid/invalid combinations, all modes, exact hysteresis endpoints, numeric extremes, state sequences, timeout boundaries, and composed invalid-range/failure propagation. Use state-aware harnesses for GUMBO state variables; rejected preconditions are not passing behavior tests.",
+          "Generation and repair: edit models and developer-owned application/test regions, regenerate managed contracts and infrastructure, and preserve generated marker regions. Resolve sourcepath, launcher, or library-version failures as environment issues rather than weakening project semantics.",
+          "Deployment: use generated build/integration workflows and analyze the actual cyclic schedule and communication delays. Component tests using simulated ports do not establish deployed timing.",
+          "Traceability: retain separate statuses for observed formal clauses, proposed repairs, unresolved English/model gaps, and future evidence. No successful check or approval is supplied."
+        ],
+        "principle": "Allocate each English obligation to the thread that controls its effect, trace its inputs through every preserved interface, and discharge every consumer assumption through producer guarantees or explicit environmental obligations. Maintain a trace from English through architecture, GUMBO, implementation, proof, tests, and timing analysis; record missing representations as open obligations rather than treating the observed model as a complete specification.",
+        "prompt_version": "requirements-allocation-1",
+        "record_type": "rule",
+        "related_rule_ids": [],
+        "repair_gate": "Before accepting an application or repair, compare every trace row with prepared English and the preserved interface baseline. Classify discrepancies as requirements ambiguity, missing model behavior, representation mismatch, implementation error, composition/timing gap, or tool/environment failure. Repair the responsible artifact and rerun affected KSU checks; never remove a requirement, strengthen an assumption without justification, widen a deadline, or hide behavior behind trusted code merely to obtain a favorable result. Unresolved gaps block a preservation claim. Generalization and specialization of this draft or its repair strategy belong to Learning Mode and require subsequent validation.",
+        "required_baseline": [
+          "Prepared Monitor Temperature English, including tables, rationale, latency clauses, and transition description.",
+          "Supplied Monitor.sysml component interfaces, forwarding connections, behavior clauses, periods, and domains.",
+          "Supplied KSU HAMR modeling, generation, implementation, verification, testing, and deployment workflow context.",
+          "Explicit inventory of unresolved representations and absent platform-specific behavior."
+        ],
+        "revision": "1",
+        "schema_version": "2.0",
+        "semantic_choice": "Interpret 'if' as a guarded obligation, not permission to exclude other required operating conditions. Distinguish compute-case guards from environmental assumptions. Preserve inclusive and exclusive comparisons, disjunction scope, units, initialization, historical state, and strict latency bounds. 'Shall not be changed' requires equality to the previous command; 'UNSPECIFIED' relaxes the value only in its stated condition and does not authorize consumers to use it.",
+        "semantic_roles": {
+          "actor": "The existing leaf thread that controls the required output; the enclosing system owns composition and end-to-end obligations.",
+          "condition": "The exact English guard over sampled inputs, prior state, failure status, and elapsed time; environmental assumptions are recorded separately.",
+          "effect": "An output assignment, unchanged command, state transition, failure indication, or constrained use of an unspecified value.",
+          "modality": "Mandatory behavior for 'shall'; conditional freedom only where English explicitly states UNSPECIFIED.",
+          "quantification": "Every applicable dispatch and reachable execution under justified environmental assumptions; all simultaneously active obligations must hold.",
+          "state_dependency": "Previous alarm command, previous monitor mode, elapsed INIT time, and sampled producer values with explicit initialization/update relations.",
+          "temporal_scope": "Power-up initialization, each compute transition, persistence until power cycling, initialization timeout, and strict end-to-end response bounds.",
+          "units_and_boundaries": "Degrees Fahrenheit; lower range [96,101], upper range [97,102]; 0.5-degree hysteresis; timeout >1.0 second; status latency <0.5 second; alarm latency <5 seconds. Preserve strict versus inclusive endpoints."
+        },
+        "source_artifact_hashes": [],
+        "source_english_patterns": [
+          "The [system function] shall set the value of [controlled variable].",
+          "If [condition], [owned output] shall be set to [value].",
+          "If [condition], the value of [output] shall not be changed.",
+          "If [failure condition], [internal variable] is UNSPECIFIED.",
+          "Latency: < [bound].",
+          "Duration (INMODE) > [initialization timeout]."
+        ],
+        "source_episode": null,
+        "source_references": [],
+        "stack_layers": [
+          "language",
+          "architecture",
+          "gumbo",
+          "implementation",
+          "proof",
+          "testing",
+          "deployment",
+          "repair"
+        ],
+        "state": "DRAFT",
+        "structural_placement": "REQ-MT-1 is realized by Manage_Alarm_i through its process wrapper to Monitor_Temperature_i.alarm_control; REQ-MT-2 is realized by Manage_Monitor_Interface_i through its wrapper to monitor_status. Allocate REQ-MMI-1..7 to Manage_Monitor_Interface_i, mode transitions and timeout to Manage_Monitor_Mode_i, REQ-MA-1..5 to Manage_Alarm_i, and platform-specific internal-failure detection to Detect_Monitor_Failure_i. Put behavior contracts on these leaf threads; retain process forwarding connections and system connections as traceable transport obligations. Attach end-to-end latency and assumption-discharge obligations to the composed paths, not solely to individual thread contracts.",
+        "supported_operations": [
+          "create-system",
+          "extend-system",
+          "complete-system",
+          "continue-project",
+          "repair-system",
+          "verify-only"
+        ],
+        "target_compatibility": [
+          "reviewed-learning-plan"
+        ],
+        "trigger": "Prepared English assigns system outputs to connected subfunctions and includes conditional, stateful, initialization, failure, or latency requirements that must survive allocation to HAMR components.",
+        "validation_gate_ids": []
+      }
+    },
+    "scope": "Metered response only; no truth, validation or acceptance claim",
+    "status": "RESPONSE_RECEIVED",
+    "usage": {
+      "cached_input_tokens": 0,
+      "input_tokens": 42548,
+      "output_tokens": 3610
+    },
+    "usage_complete": true,
+    "warnings": [
+      "Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."
+    ]
+  },
+  "sandbox_sha256": "77360cb751ccedc5971391444ac86a8a33c15b04d6b4a6fe45f5d25496e62c4c",
+  "schema_sha256": "a22876b40f821e7186d92dee11854fb4faa8adb5cdae89e46f6e7bf23990f645",
+  "stderr_bytes": 0,
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "id": "d2529a2ffbb7a2ae60f9399546083beefbe30ce17f33cb95ca789e6f5352588c"
+}

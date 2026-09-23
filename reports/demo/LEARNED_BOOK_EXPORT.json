@@ -1,15 +1,15 @@
 {
-  "snapshot_id": "ea9c678ececcd5975b31c9342f181117b9a22c81989db32174e9914a48cbf926",
-  "directory": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/app/learned-rulebooks/ea9c678ececcd5975b31c9342f181117b9a22c81989db32174e9914a48cbf926",
-  "candidate_count": 19,
+  "snapshot_id": "8bc16bbad9e5bda03a49d9a1feda07e11424c68a4cc4372fb2b749e32897b0e2",
+  "directory": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/app/learned-rulebooks/8bc16bbad9e5bda03a49d9a1feda07e11424c68a4cc4372fb2b749e32897b0e2",
+  "candidate_count": 20,
   "state": "DRAFT_NOT_PUBLISHED",
   "files": [
     "rulebook.json",
     "RULEBOOK.md"
   ],
   "content_hashes": {
-    "rulebook.json": "2840c615e08d4656c4dd71fcff0227955cf8cdb39af3fa3de1c14809160adea0",
-    "RULEBOOK.md": "56e322f7a9bb4b7912789583249c0fc6803f3333f007ed6f7a95b063eca6c588"
+    "rulebook.json": "513fe8ed492f4ff9e60a9070572171990b12abdc50d11d4c11a40da18bce7ab1",
+    "RULEBOOK.md": "ef835c2ff2b05cf247d652394753ec5082de53d8bea177e931253eaae11656fb"
   },
-  "id": "152a1b318288c4eb4173dce78486b92440ecf3e0581e72917385cae2ddf8e287"
+  "id": "9492203a898427236bda4c065288550ea89971323d280e6c48e247cf512af43b"
 }

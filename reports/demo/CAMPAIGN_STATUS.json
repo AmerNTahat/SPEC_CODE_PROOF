@@ -1,10 +1,10 @@
 {
   "id": "3f16ff4ef866d414cedb448a3ade2dfc4c5b5807162e6aea7522abc218fb49d8",
   "started": 1790117782.972513,
-  "used_tokens": 994378,
+  "used_tokens": 1182675,
   "reserved_tokens": 0,
   "usage_unknown": 0,
-  "estimated_debit_tokens": 3000000,
+  "estimated_debit_tokens": 4000000,
   "control_state": "ACTIVE",
   "failure_policy": {
     "campaign_id": "3f16ff4ef866d414cedb448a3ade2dfc4c5b5807162e6aea7522abc218fb49d8",
@@ -25,8 +25,17 @@
     "wall_seconds": 3600,
     "id": "3f16ff4ef866d414cedb448a3ade2dfc4c5b5807162e6aea7522abc218fb49d8"
   },
-  "deadline": 1790127682.972513,
+  "deadline": 1790130382.972513,
+  "continuation_remaining_tokens": 1811703,
   "time_extensions": [
+    {
+      "campaign_id": "3f16ff4ef866d414cedb448a3ade2dfc4c5b5807162e6aea7522abc218fb49d8",
+      "consent": "User: I Autherize 3M token; retain 14M cap and 45 minutes more time extension. Authorizes at most 3M additional charged tokens for this continuation, within the unchanged14M aggregate ceiling, and2700 additional seconds. Preserve all measured usage and estimated debits.",
+      "previous_deadline": 1790127682.972513,
+      "seconds": 2700,
+      "token_ceiling_unchanged": 14000000,
+      "id": "0a10340a803821884bc758b62449760b6ea5dc33afcdafd8d7f134bc86889735"
+    },
     {
       "campaign_id": "3f16ff4ef866d414cedb448a3ade2dfc4c5b5807162e6aea7522abc218fb49d8",
       "consent": "User explicitly replied: Extend by 60 minutes; keep 13M ceiling. Preserve original measured usage, 3M estimated debits, and all prior failed calls.",
@@ -55,8 +64,8 @@
     }
   ],
   "token_ceiling": 14000000,
-  "authorized_wall_seconds": 9900,
-  "remaining_seconds": 402.6275839805603,
-  "remaining_tokens": 10005622,
+  "authorized_wall_seconds": 12600,
+  "remaining_seconds": 215.46101832389832,
+  "remaining_tokens": 8817325,
   "scope": "Best-effort aggregate accounting; termination may leave uncertain in-flight usage"
 }

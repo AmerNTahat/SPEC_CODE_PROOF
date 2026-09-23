@@ -1,0 +1,257 @@
+{
+  "assumptions": [],
+  "derived_from_reference": false,
+  "description": "The Monitor Temperature system receives current air temperature with status and operator-specified lower and upper alarm temperatures with status. It provides an on/off alarm command to an alarm component and monitor status to the operator interface. Its modeled boundary contains monitor-interface management, alarm management, monitor-mode management, and internal-failure detection processes. Internal connections distribute temperature inputs, alarm limits, monitor mode, and failure indications. The selected window specifies structure and interfaces; detailed behavior is defined outside this window. Process decomposition, typed data ports, and connections are source-defined implementation choices, not independently established stakeholder needs.",
+  "english": "# Isolette Monitor \u2014 Draft Derived Requirements, Lines 1\u2013100\n\n## System description\nThe Monitor Temperature system receives current air temperature with status and operator-specified lower and upper alarm temperatures with status. It provides an on/off alarm command to an alarm component and monitor status to the operator interface. Its modeled boundary contains monitor-interface management, alarm management, monitor-mode management, and internal-failure detection processes. Internal connections distribute temperature inputs, alarm limits, monitor mode, and failure indications. The selected window specifies structure and interfaces; detailed behavior is defined outside this window. Process decomposition, typed data ports, and connections are source-defined implementation choices, not independently established stakeholder needs.\n\n## Requirements\nL1-MON-001 [architecture]: The Monitor Temperature component shall be modeled as a System named Monitor_Temperature_i.\nL1-MON-002 [architecture]: The Monitor Temperature system shall contain a monitor-interface management part named mmi of type Manage_Monitor_Interface_Process_i.\nL1-MON-003 [architecture]: The Monitor Temperature system shall contain an alarm management part named ma of type Manage_Alarm_Process_i.\nL1-MON-004 [architecture]: The Monitor Temperature system shall contain a monitor-mode management part named mmm of type Manage_Monitor_Mode_Process_i.\nL1-MON-005 [architecture]: The Monitor Temperature system shall contain a monitor-failure detection part named dmf of type Detect_Monitor_Failure_Process_i.\nL1-MON-006 [interface]: The Monitor Temperature system shall provide an input data port named current_tempWstatus, of type Isolette_Data_Model::TempWstatus_i, for current air temperature and its status from the air temperature sensor.\nL1-MON-007 [interface]: The Monitor Temperature system shall provide an input data port named lower_alarm_tempWstatus, of type Isolette_Data_Model::TempWstatus_i, for the operator-specified lower alarm temperature and its status.\nL1-MON-008 [interface]: The Monitor Temperature system shall provide an input data port named upper_alarm_tempWstatus, of type Isolette_Data_Model::TempWstatus_i, for the operator-specified upper alarm temperature and its status.\nL1-MON-009 [interface]: The Monitor Temperature system shall provide an output data port named alarm_control, of type Isolette_Data_Model::On_Off, for the on/off command to the alarm component.\nL1-MON-010 [interface]: The Monitor Temperature system shall provide an output data port named monitor_status, of type Isolette_Data_Model::Status, indicating Init, On/operating, or Failed status.\nL1-MON-011 [architecture]: The Monitor Temperature system shall connect its upper_alarm_tempWstatus input to the monitor-interface management process's upper_alarm_tempWstatus input through connection muat.\nL1-MON-012 [architecture]: The Monitor Temperature system shall connect its lower_alarm_tempWstatus input to the monitor-interface management process's lower_alarm_tempWstatus input through connection mlat.\nL1-MON-013 [architecture]: The Monitor Temperature system shall connect its current_tempWstatus input to the monitor-interface management process's current_tempWstatus input through connection mcti.\nL1-MON-014 [architecture]: The Monitor Temperature system shall connect its current_tempWstatus input to the alarm management process's current_tempWstatus input through connection mcta.\nL1-MON-015 [architecture]: The Monitor Temperature system shall connect its current_tempWstatus input to the monitor-mode management process's current_tempWstatus input through connection mctm.\nL1-MON-016 [architecture]: The Monitor Temperature system shall connect the alarm management process's alarm_control output to its external alarm_control output through connection malrm.\nL1-MON-017 [architecture]: The Monitor Temperature system shall connect the monitor-interface management process's monitor_status output to its external monitor_status output for the operator interface through connection mms.\nL1-MON-018 [architecture]: The Monitor Temperature system shall connect the monitor-interface management process's upper_alarm_temp output to the alarm management process's upper_alarm_temp input through connection maul to convey the validated upper alarm temperature.\nL1-MON-019 [architecture]: The Monitor Temperature system shall connect the monitor-interface management process's lower_alarm_temp output to the alarm management process's lower_alarm_temp input through connection mall to convey the validated lower alarm temperature.\nL1-MON-020 [architecture]: The Monitor Temperature system shall connect the monitor-mode management process's monitor_mode output to the monitor-interface management process's monitor_mode input through connection mmmi.\nL1-MON-021 [architecture]: The Monitor Temperature system shall connect the monitor-mode management process's monitor_mode output to the alarm management process's monitor_mode input through connection mmma.\nL1-MON-022 [architecture]: The Monitor Temperature system shall connect the monitor-interface management process's interface_failure output to the monitor-mode management process's interface_failure input through connection intff.\nL1-MON-023 [architecture]: The Monitor Temperature system shall connect the monitor-failure detection process's internal_failure output to the monitor-mode management process's internal_failure input through connection mif.\nL1-MON-024 [architecture]: The Manage_Monitor_Interface_Process_i component shall be modeled as a Process.\nL1-MON-025 [architecture]: The monitor-interface management process shall contain a thread part named mmi of type Manage_Monitor_Interface_i.\nL1-MON-026 [interface]: The monitor-interface management process shall provide an input data port named lower_alarm_tempWstatus, of type Isolette_Data_Model::TempWstatus_i, for the lower alarm temperature and its status.\n\n## Assumptions\n\n\n## Unresolved questions\nThe imported data-model definitions are not supplied; temperature units, numerical representation, permitted ranges, and complete data-field definitions remain unspecified.\nComments call the system and its immediate parts threads, while declarations define a System containing Processes. The derived structure follows the declarations.\nLine 78 calls the interface-failure signal a regulator interface failure, but its connection originates in monitor-interface management. The terminology is inconsistent.\nConnection transport semantics, input freshness, synchronization, and end-to-end delivery bounds are not specified.\nInitialization, state-dependent behavior, and thread periods occur outside lines 1\u2013100 and are not extracted in this window.\nThe phrase 'validated alarm range' does not establish numerical limit ordering or allowable range width; the later interface rules describe status checks and copying.",
+  "item": {
+    "end": 431,
+    "label": "Isolette Monitor",
+    "normalized_text_sha256": "7e0cd6ae2d818b5d5a018b74664cd665278d24f3eeb408849e834759400e41fa",
+    "source_id": "d7ef18732a5def5da9422e3e47db924dd4ae4c9b806fcc86f11c932b377db935",
+    "source_sha256": "43664d0fe5904aed949d4c12e824c905d7bc1b4e89efa0409038c1b6f52ff605",
+    "start": 1,
+    "text_sha256": "6d92da0875771dc87cc8f20c57864bd9ff3c06fa0d8ef1b962841149654ccba4"
+  },
+  "item_index": 0,
+  "line_window": [
+    1,
+    100
+  ],
+  "measurement": {
+    "elapsed_seconds": 89.39326616600738,
+    "estimated_debit_tokens": 0,
+    "measured_tokens": 20189
+  },
+  "method": "model_to_english",
+  "model_call_id": "3df78407cf16d81af5ffd54897dc1f54482b0bdcd4df2656a3184d928eec1e09",
+  "plan_id": "6004a757c4beecf5c8c5b86780ccc3fa03d136f2fd15f65b3fc395348e3359d1",
+  "role": "training",
+  "scope": "Prepared development data, not independent final-transfer requirements or verified behavior",
+  "source_claims": [
+    {
+      "category": "architecture",
+      "evidence_quote": "part def Monitor_Temperature_i :> System",
+      "id": "L1-MON-001",
+      "source_end": 12,
+      "source_start": 12,
+      "statement": "The Monitor Temperature component shall be modeled as a System named Monitor_Temperature_i."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "part mmi : Manage_Monitor_Interface_Process_i;",
+      "id": "L1-MON-002",
+      "source_end": 15,
+      "source_start": 15,
+      "statement": "The Monitor Temperature system shall contain a monitor-interface management part named mmi of type Manage_Monitor_Interface_Process_i."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "part ma : Manage_Alarm_Process_i;",
+      "id": "L1-MON-003",
+      "source_end": 18,
+      "source_start": 18,
+      "statement": "The Monitor Temperature system shall contain an alarm management part named ma of type Manage_Alarm_Process_i."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "part mmm : Manage_Monitor_Mode_Process_i;",
+      "id": "L1-MON-004",
+      "source_end": 20,
+      "source_start": 20,
+      "statement": "The Monitor Temperature system shall contain a monitor-mode management part named mmm of type Manage_Monitor_Mode_Process_i."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "part dmf: Detect_Monitor_Failure_Process_i;",
+      "id": "L1-MON-005",
+      "source_end": 22,
+      "source_start": 22,
+      "statement": "The Monitor Temperature system shall contain a monitor-failure detection part named dmf of type Detect_Monitor_Failure_Process_i."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "in port current_tempWstatus : DataPort { :>> type : Isolette_Data_Model::TempWstatus_i; }",
+      "id": "L1-MON-006",
+      "source_end": 26,
+      "source_start": 25,
+      "statement": "The Monitor Temperature system shall provide an input data port named current_tempWstatus, of type Isolette_Data_Model::TempWstatus_i, for current air temperature and its status from the air temperature sensor."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "in port lower_alarm_tempWstatus : DataPort { :>> type : Isolette_Data_Model::TempWstatus_i; }",
+      "id": "L1-MON-007",
+      "source_end": 28,
+      "source_start": 27,
+      "statement": "The Monitor Temperature system shall provide an input data port named lower_alarm_tempWstatus, of type Isolette_Data_Model::TempWstatus_i, for the operator-specified lower alarm temperature and its status."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "in port upper_alarm_tempWstatus : DataPort { :>> type : Isolette_Data_Model::TempWstatus_i; }",
+      "id": "L1-MON-008",
+      "source_end": 29,
+      "source_start": 29,
+      "statement": "The Monitor Temperature system shall provide an input data port named upper_alarm_tempWstatus, of type Isolette_Data_Model::TempWstatus_i, for the operator-specified upper alarm temperature and its status."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "out port alarm_control : DataPort { :>> type : Isolette_Data_Model::On_Off; }",
+      "id": "L1-MON-009",
+      "source_end": 33,
+      "source_start": 32,
+      "statement": "The Monitor Temperature system shall provide an output data port named alarm_control, of type Isolette_Data_Model::On_Off, for the on/off command to the alarm component."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "enumerated type describing status/mode of monitor (Init, On/operating, or Failed)",
+      "id": "L1-MON-010",
+      "source_end": 35,
+      "source_start": 34,
+      "statement": "The Monitor Temperature system shall provide an output data port named monitor_status, of type Isolette_Data_Model::Status, indicating Init, On/operating, or Failed status."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect upper_alarm_tempWstatus to mmi.upper_alarm_tempWstatus;",
+      "id": "L1-MON-011",
+      "source_end": 40,
+      "source_start": 39,
+      "statement": "The Monitor Temperature system shall connect its upper_alarm_tempWstatus input to the monitor-interface management process's upper_alarm_tempWstatus input through connection muat."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect lower_alarm_tempWstatus to mmi.lower_alarm_tempWstatus;",
+      "id": "L1-MON-012",
+      "source_end": 42,
+      "source_start": 41,
+      "statement": "The Monitor Temperature system shall connect its lower_alarm_tempWstatus input to the monitor-interface management process's lower_alarm_tempWstatus input through connection mlat."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect current_tempWstatus to mmi.current_tempWstatus;",
+      "id": "L1-MON-013",
+      "source_end": 47,
+      "source_start": 46,
+      "statement": "The Monitor Temperature system shall connect its current_tempWstatus input to the monitor-interface management process's current_tempWstatus input through connection mcti."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect current_tempWstatus to ma.current_tempWstatus;",
+      "id": "L1-MON-014",
+      "source_end": 50,
+      "source_start": 49,
+      "statement": "The Monitor Temperature system shall connect its current_tempWstatus input to the alarm management process's current_tempWstatus input through connection mcta."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect current_tempWstatus to mmm.current_tempWstatus;",
+      "id": "L1-MON-015",
+      "source_end": 53,
+      "source_start": 52,
+      "statement": "The Monitor Temperature system shall connect its current_tempWstatus input to the monitor-mode management process's current_tempWstatus input through connection mctm."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect ma.alarm_control to alarm_control;",
+      "id": "L1-MON-016",
+      "source_end": 58,
+      "source_start": 57,
+      "statement": "The Monitor Temperature system shall connect the alarm management process's alarm_control output to its external alarm_control output through connection malrm."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect mmi.monitor_status to monitor_status;",
+      "id": "L1-MON-017",
+      "source_end": 61,
+      "source_start": 59,
+      "statement": "The Monitor Temperature system shall connect the monitor-interface management process's monitor_status output to its external monitor_status output for the operator interface through connection mms."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect mmi.upper_alarm_temp to ma.upper_alarm_temp;",
+      "id": "L1-MON-018",
+      "source_end": 66,
+      "source_start": 64,
+      "statement": "The Monitor Temperature system shall connect the monitor-interface management process's upper_alarm_temp output to the alarm management process's upper_alarm_temp input through connection maul to convey the validated upper alarm temperature."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect mmi.lower_alarm_temp to ma.lower_alarm_temp;",
+      "id": "L1-MON-019",
+      "source_end": 68,
+      "source_start": 67,
+      "statement": "The Monitor Temperature system shall connect the monitor-interface management process's lower_alarm_temp output to the alarm management process's lower_alarm_temp input through connection mall to convey the validated lower alarm temperature."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect mmm.monitor_mode to mmi.monitor_mode;",
+      "id": "L1-MON-020",
+      "source_end": 73,
+      "source_start": 72,
+      "statement": "The Monitor Temperature system shall connect the monitor-mode management process's monitor_mode output to the monitor-interface management process's monitor_mode input through connection mmmi."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect mmm.monitor_mode to ma.monitor_mode;",
+      "id": "L1-MON-021",
+      "source_end": 76,
+      "source_start": 75,
+      "statement": "The Monitor Temperature system shall connect the monitor-mode management process's monitor_mode output to the alarm management process's monitor_mode input through connection mmma."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect mmi.interface_failure to mmm.interface_failure;",
+      "id": "L1-MON-022",
+      "source_end": 80,
+      "source_start": 79,
+      "statement": "The Monitor Temperature system shall connect the monitor-interface management process's interface_failure output to the monitor-mode management process's interface_failure input through connection intff."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "connect dmf.internal_failure to mmm.internal_failure;",
+      "id": "L1-MON-023",
+      "source_end": 83,
+      "source_start": 82,
+      "statement": "The Monitor Temperature system shall connect the monitor-failure detection process's internal_failure output to the monitor-mode management process's internal_failure input through connection mif."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "part def Manage_Monitor_Interface_Process_i :> Process",
+      "id": "L1-MON-024",
+      "source_end": 95,
+      "source_start": 95,
+      "statement": "The Manage_Monitor_Interface_Process_i component shall be modeled as a Process."
+    },
+    {
+      "category": "architecture",
+      "evidence_quote": "part mmi : Manage_Monitor_Interface_i;",
+      "id": "L1-MON-025",
+      "source_end": 97,
+      "source_start": 97,
+      "statement": "The monitor-interface management process shall contain a thread part named mmi of type Manage_Monitor_Interface_i."
+    },
+    {
+      "category": "interface",
+      "evidence_quote": "in port lower_alarm_tempWstatus : DataPort { :>> type : Isolette_Data_Model::TempWstatus_i; }",
+      "id": "L1-MON-026",
+      "source_end": 100,
+      "source_start": 100,
+      "statement": "The monitor-interface management process shall provide an input data port named lower_alarm_tempWstatus, of type Isolette_Data_Model::TempWstatus_i, for the lower alarm temperature and its status."
+    }
+  ],
+  "style": {
+    "context_id": "77bdcaefd9adf0515305978b7e9b668a5c4e1561b7ab8803c0744bcc698e7b8d",
+    "end_character": 47000,
+    "name": "Steve_Miller_FAA_docAR-08-32.pdf",
+    "source_sha256": "b4949561cb04d46f718a16e2cc1486c0bd5a26c15778e3567c464466c24731df",
+    "start_character": 35000,
+    "text": " environment in which it will\noperate. It should not attempt to completely describe the system. Rather, its intent is to provide\nthe reader with a high-level view of what the system does, how it interacts with its environment,\nand why the system is needed. At a minimum, it should include a short synopsis of the system;\none or more context descriptions; a brief description of each external entity in the context\ndiagrams; and a set of high-level system goals, objectives, and constraints. It may also include\nother relevant information, such as historical background, but this needs to be balanced against\nthe need to quickly orient a new reader. Examples of system overviews are provided in appendix\nA.1 for the Isolette Thermostat, appendix B.1 for the FCS, appendix C.1 for the FGS, and\nappendix D.1 for the AP.\n\n\n\n\n                                                  5\n\f Recommended Practice 2.1.1: Develop the system overview early in the requirements\n engineering process and use it as the introduction to the requirements specification. Keep the\n overview at a high level so it can be used to quickly orient new readers.\n\n2.1.2 Provide System Synopsis.\n\nThe overview itself should begin with a synopsis that provides a brief narrative description of the\nsystem. Ideally, the synopsis is short, clear, and describes what the system will do without\nimplying a particular system design. The synopsis should name the system to be developed,\ndescribe its purpose, and summarize the main capabilities provided by the system. An early\nversion of the synopsis for the Isolette Thermostat states:\n\n       The system being specified is the thermostat of an Isolette. An Isolette is an\n       incubator for an infant that provides controlled temperature, humidity, and\n       oxygen (if necessary). Isolettes are used extensively in Neonatal Intensive Care\n       Units for the care of premature infants.\n\n       The purpose of the Isolette Thermostat is to maintain the air temperature of an\n       Isolette within a desired range. It senses the current temperature of the Isolette\n       and turns the heat source on and off to warm the air as needed. The system\n       allows the nurse to set the Desired Temperature Range within a safe range for\n       infants.\n\nAs with all the system overviews, the synopsis will evolve throughout the requirements\ndefinition. Examples of complete system synopses are provided at the start of appendix A.1 for\nthe Isolette Thermostat, appendix B.1 for the FCS, appendix C.1 for the FGS, and appendix D.1\nfor the AP.\n\n Recommended Practice 2.1.2: Provide a short textual synopsis of the system as the first part\n of the system overview. The synopsis should name the system, describe its purpose, and\n summarize the system capabilities.\n\n2.1.3 Identify System Contexts.\n\nThe purpose of the system context is to describe, at a high level, the external entities with which\nthe system interacts and the nature of those interactions. Note that there may be more than one\ncontext in which the system will be used during its entire life cycle. For example, there will\nalmost certainly be an operational context, which describes the entities with which the system\ninteracts during normal operation, but there may also be a testing context used during system\ndevelopment in which the system interacts with test equipment through different interfaces, or\nthere may be a maintenance context that is used to diagnose and repair the system in the field.\nEach relevant context for the system should be identified and described. Since different\nindividuals will be interested in different contexts, it is usually better to describe each context\nseparately than to try to combine them into a single context.\n\n\n\n\n                                                6\n\f Recommended Practice 2.1.3: Consider the entire life cycle of the system and identify each\n distinct context in which it will be used.\n\n2.1.4 Use Context Diagrams.\n\nFor each context, the external entities with which the system interacts and the nature of those\ninteractions should be identified. A convenient way to do this is through the use of a context\ndiagram that graphically depicts each external entity and its interaction with the system. An\nexample context diagram for the Isolette Thermostat is shown in figure A-1. A similar context\ndiagram for the FCS is shown in figure B-1 for the FGS in figure C-1, and for the AP in figure\nD-1. Note that the system itself is shown in the context diagram as a black box with no internal\nstructure. It may also be helpful to identify the higher-level systems in which the system is\nembedded (for example, the Thermostat context includes the larger system content of the\nIsolette).\n\n Recommended Practice 2.1.4: Use context diagrams in the system overview to provide a\n high-level, graphical depiction of the system, the external entities it interacts with, and those\n interactions.\n\n2.1.5 Describe External Entities.\n\nA brief description of each external entity and its interactions with the system should also be\nprovided. Since this is part of the system overview, these descriptions should be kept short and\nsimple (more detailed information on the entities and their interactions will be provided in later\nsections of the applicable specification). Examples of the descriptions of external entities and\ntheir interactions with the system are provided in appendix A.1.1 for the Isolette Thermostat,\nappendix B.1.1 for the FCS, appendix C.1.1 for the FGS, and appendix D.1.1 for the AP.\n\n Recommended Practice 2.1.5: For each context diagram, provide a brief description of each\n external entity and its interactions with the system.\n\n2.1.6 Capture Preliminary System Goals.\n\nGoals are informal statements of the system stakeholders\u2019 needs. They are not requirements\nsince they are not verifiable and do not provide enough information to build the system [14].\nHowever, they provide important guidance on why the system is being built and what is\nimportant to the stakeholders. During the early phases of the project, they may be all that is\navailable. Goals frequently conflict with each other. For example, one goal may be to produce a\nsystem with a sophisticated operator interface, while another goal is to produce the system at\nminimal cost. One of the objectives of the requirements engineering process is to refine the\ngoals into verifiable requirements that resolve these conflicts as effectively as possible.\n\nA preliminary set of system goals should be captured early in the requirements engineering\nprocess so they can be used to guide the specification of requirements. A natural place to present\nthe system goals is in the system overview. However, in a large project, the system goals may be\nnumerous enough to justify placing them in their own section or in another document entirely.\n\n\n                                                7\n\f    Recommended Practice 2.1.6: Capture a preliminary set of system goals early in the\n    requirements engineering process so they can be used to guide the development of the\n    requirements.\n\n2.1.7 Maintain System Goal Information.\n\nGoals frequently help to explain why a particular requirement exists or is stated in a particular\nway and may be cited in the rationale (see section 2.11) for the requirement. The operational\nconcepts (see section 2.3) also trace back to the system goals.\n\nManagement of the system goals will vary with the size, complexity, and maturity of the system\nbeing developed. On small projects, the goals may be well understood. It may be possible to list\nthe system goals on a single page and their management may consist of nothing more than an\noccasional review and update. This is the case for the Isolette Thermostat example, which\ninitially has only two simple goals:\n\n\u2022        G1\u2014The infant should be kept at a safe and comfortable temperature.\n\u2022        G2\u2014The cost of manufacturing the thermostat should be as low as possible.\n\nHowever, on a project of any size, and particularly for new large systems, the goals will\nprobably evolve throughout project development. New needs will be identified, priorities will\nshift, managers will change, understanding of the project will grow, all resulting in a changing\nset of project goals. Management of the goals on such a project may be a significant task in its\nown right. To do this, information should be collected that facilitates tracing the goal back to its\nsource and continuously assessing the importance of that goal relative to other goals.\n\nPotential sources of system goals are numerous and include the customers, users, regulatory\nbodies, and previous developments. Goals may be provided directly by these organizations or\nmay be discovered through interviews or review of documents provided by the stakeholders.\nDepending on the size and volatility of a project, information that may be desirable to collect\nabout each goal may include:\n\n\u2022        Origin\u2014Where did the goal come from (customer, individual, document \u2026)?\n\u2022        Origin Date\u2014When was the goal was first identified?\n\u2022        Author\u2014Who first documented the goal?\n\u2022        Priority\u2014What is the importance of the goal relative to other goals?\n\u2022        Stakeholders\u2014Which customers or users are most concerned about this goal?\n\u2022        Stability\u2014How likely is this goal to change?\n\u2022        Schedule Date\u2014What is the date this goal is scheduled to be implemented?\n\nFor items such as priority and stability, each organization would probably want to provide their\nown allowed values and definitions. If the system goals are expected to change frequently, they\nshould be kept under configuration control to provide a history of their evolution.\n\n\n\n\n                                                 8\n\f Recommended Practice 2.1.7: Depending on the size and volatility of a project, collect and\n maintain the information about each system goal necessary to continuously assess its\n importance relative to the other goals.\n\n2.2 IDENTIFY THE SYSTEM BOUNDARY.\n\nRefer to table 2 for a description of main- and sublevel recommended practices for identifying\nthe system boundary.\n\n                             Table 2. Identify the System Boundary\n\n                          Main- and Sublevel Recommended Practices\n2.2 Identify the System Boundary:\n\n    Develop a clear definition of the boundary between the system and its environment. This\n    provides a solid understanding of what lies within the system to be built and what lies\n    within a larger environment. This is done by identifying a set of variables in the\n    environment the system will monitor and control.\n    2.2.1 Define the system boundary early in the requirements engineering process by\n           identifying a preliminary set of monitored and controlled variables.\n    2.2.2 Choose environmental variables that exist in the environment independently of the\n           system to be developed.\n    2.2.3 Choose controlled variables that are under the direct control of the system being\n           specified.\n    2.2.4 Choose monitored variables that are being directly sensed by the system being\n           specified.\n    2.2.5 Ensure the monitored and controlled variables are as abstract as possible and do not\n           include implementation details.\n    2.2.6 Avoid incorporating details of the operator interface in the monitored and controlled\n           variables. Instead, define monitored or controlled variables that describe the\n           information to be conveyed independent of its presentation format.\n    2.2.7 Completely define all physical interfaces to the system, including definitions for all\n           discrete inputs, all messages, all fields in a message, and all protocols followed.\n\nOne of the most important activities in requirements engineering is to clearly define the\nboundary between the system and its environment. This provides a sound understanding of what\nlies within the system to be built and what lies within a larger environment. Every system is\nembedded"
+  },
+  "unresolved": [
+    "The imported data-model definitions are not supplied; temperature units, numerical representation, permitted ranges, and complete data-field definitions remain unspecified.",
+    "Comments call the system and its immediate parts threads, while declarations define a System containing Processes. The derived structure follows the declarations.",
+    "Line 78 calls the interface-failure signal a regulator interface failure, but its connection originates in monitor-interface management. The terminology is inconsistent.",
+    "Connection transport semantics, input freshness, synchronization, and end-to-end delivery bounds are not specified.",
+    "Initialization, state-dependent behavior, and thread periods occur outside lines 1\u2013100 and are not extracted in this window.",
+    "The phrase 'validated alarm range' does not establish numerical limit ordering or allowable range width; the later interface rules describe status checks and copying."
+  ],
+  "id": "b0d156038eec49330c086a23f8e5e38f4962ebe4308353e97abb7d68b255d896"
+}

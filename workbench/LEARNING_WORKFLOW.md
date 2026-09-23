@@ -67,3 +67,12 @@ architecture graphs ignoring names**. Saved graph assessments are also selectabl
 See [GRAPH_EQUIVALENCE.md](GRAPH_EQUIVALENCE.md) for the precise scope, known gaps and
 why cosine assistance cannot establish behavior correctness. Historical exact
 syntax differences remain available, clearly labeled separately.
+
+Data preparation now precedes new rule extraction. In **Learning → Data preparation**,
+select the already approved materials, choose existing English or extract missing
+English, then review the source-linked document. The Miller guidebook controls
+presentation only; KSU remains the engineering workflow. Validation selects the
+reviewed English from this stage and supplies it with the selected rules to
+formalization. See [DATA_PREPARATION.md](DATA_PREPARATION.md). Existing learned books
+and demonstration records remain historical, not silently relabeled as outputs of
+this new stage.

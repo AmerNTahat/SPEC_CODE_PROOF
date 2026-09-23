@@ -46,7 +46,10 @@ class Campaign:
         wall_seconds=authorization['wall_seconds']+sum(x['seconds'] for x in extensions)
         result=dict(row);result['estimated_debit_tokens']=estimated;deadline=row['started']+wall_seconds if row['started'] is not None else None
         policies=[p for p in self.store.records('campaign_failure_policy') if p['campaign_id']==campaign_id]
+        continuations=[p for p in self.store.records('campaign_continuation_allowance') if p['campaign_id']==campaign_id]
+        continuation_remaining=min((max(0,p['baseline_charged_tokens']+p['additional_charged_tokens']-row['used_tokens']-estimated-row['reserved_tokens']) for p in continuations),default=None)
         return {**result,'control_state':self.control_state(campaign_id),'failure_policy':policies[-1] if policies else None,'authorization':authorization,'deadline':deadline,
+            'continuation_remaining_tokens':continuation_remaining,
             'time_extensions':extensions,'token_extensions':token_extensions,'token_ceiling':ceiling,'authorized_wall_seconds':wall_seconds,
             'remaining_seconds':max(0,deadline-time.time()) if deadline else wall_seconds,
             'remaining_tokens':None if row['usage_unknown'] else max(0,ceiling-row['used_tokens']-estimated-row['reserved_tokens']),
@@ -90,6 +93,8 @@ class Campaign:
         try:
             state=self.status(campaign_id)
             estimate_headroom=state['failure_policy']['debit_per_failure'] if state.get('failure_policy') else 0
+            if state['continuation_remaining_tokens'] is not None and tokens+estimate_headroom>state['continuation_remaining_tokens']:
+                raise PolicyError('Authorized continuation token allowance exhausted; aggregate cap is unchanged')
             if state['control_state']!='ACTIVE' or state['remaining_tokens'] is None or tokens + estimate_headroom > state['remaining_tokens'] or state['remaining_seconds']<=0:
                 raise PolicyError('Campaign allowance exhausted or uncertain; explicit extension/reconciliation required')
             if state['reserved_tokens']:raise PolicyError('Only one paid call may be in flight')

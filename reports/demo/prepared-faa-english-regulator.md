@@ -1,0 +1,269 @@
+A.5.1 REGULATE TEMPERATURE FUNCTION.
+
+The Regulate Temperature Function compares the Current Temperature from the Temperature
+Sensor with the Desired Temperature Range provided by the Operator Interface and turns the
+Heat Source on or off to keep the Current Temperature within the Desired Temperature Range.
+It also provides the Display Temperature and the Regulator Status back to the Operator Interface.
+
+The high-level requirements for the Regulate Temperature Function are as follows:
+
+•      REQ-RT-1: The Regulate Temperature Function shall set the value of the Heat Control.
+       Rationale: The primary function of the Regulate Temperature Function is to turn the
+       Heat Control on and off to maintain the Current Temperature in the Isolette within the
+       Desired Temperature Range, as required by SR-1.
+
+
+
+
+                                            A-14
+•      REQ-RT-2: The Regulate Temperature Function shall set the value of the Regulator
+       Status.
+       Rationale: The status of the Regulate Temperature Function is provided to the Operator
+       Interface so it can use the status of the Regulate Temperature and Monitor Temperature
+       Functions to report the overall status of the Thermostat, as required by SR-1.
+
+•      REQ-RT-3: The Regulate Temperature Function shall set the value of the Display
+       Temperature.
+       Rationale: The Current Temperature of the Isolette is displayed on the Operator Interface
+       to provide the operators with an additional means to confirm that the Isolette is
+       maintaining the temperature correctly. This value is provided by the Regulate
+       Temperature Function to the Operator Interface as the Display Temperature.
+
+The Regulate Temperature Function is allocated into subfunctions in figure A-3.
+
+                Regulate
+              Temperature
+                                                           Current
+                                                         Temperature
+
+
+                                                           Manag        Heat
+                                                            Heat
+                                                                       Control
+                                                           Source
+                                      Desired
+                                      Range
+                   Regulator                              Regulator
+                    Status                                 Mod
+
+
+                 Desired       Manag            Mod       Manag        Regulator    Detect
+               Temperature     Regulator                  Regulator     Internal   Regulator
+                 Range         Interface    Regulator      Mod           Failure    Failure
+                                            Interface
+                                             Failure       Current
+                    Display     Current
+                                                         Temperature
+                  Temperature Temperature                  (Status)
+
+
+
+                   Figure A-3. Regulate Temperature Dependency Diagram
+
+The internal variables for the Regulate Temperature Function are shown in table A-7.
+
+
+
+
+                                                  A-15
+                     Table A-7. The Regulate Temperature Internal Variables
+
+          Name                  Type           Range      Units             Physical Interpretation
+Desired Range                                                      Desired range of Isolette temperature
+    Lower Desired Temp       Integer        [96..101]     °F       Lower value of desired range
+    Upper Desired Temp       Integer        [97..102]     °F       Upper value of desired range
+Regulator Interface          Boolean        False, True            Indicates an operator interface
+Failure
+Regulator Internal Failure   Boolean        False, True            Indicates an internal failure
+Regulator Mode               Enumerated     Init                   Initializing following power-up
+                                            NORMAL                 Normal mode of operation
+                                            FAILED                 Internal failure detected
+
+A.5.1.1 Manage Regulator Interface Function.
+
+The Manage Regulator Interface Function defines the interaction with the Operator Interface
+external entity. These include obtaining the Desired Range, reporting back the status of the
+Regulate Temperature Function, and reporting back the Display Temperature. The constants are
+shown in table A-8.
+
+                    Table A-8. Manage Regulator Interface Function Constants
+
+      Name           Type    Value     Units                      Physical Interpretation
+ Max Operator        Real     0.5       Sec     The time an operator will tolerate between an operator
+ Response Time                                  request or a change in the Thermostat state and the
+                                                visible response
+ Rationale: A trade study has shown that this lag should be no more than 0.5 second.
+
+The requirements for the Regulator Status controlled variable are as follows:
+
+•        REQ-MRI-1: If the Regulator Mode is INIT, the Regulator Status shall be set to Init.
+
+•        REQ-MRI-2: If the Regulator Mode is NORMAL, the Regulator Status shall be set to
+         On.
+
+•        REQ-MRI-3: If the Regulator Mode is FAILED, the Regulator Status shall be set to
+         Failed.
+
+         Latency: < Max Operator Response Time
+         Tolerance: N/A
+
+
+
+
+                                                A-16
+The requirements for the Display Temperature controlled variable are as follows:
+
+•      REQ-MRI-4: If the Regulator Mode is NORMAL, the Display Temperature shall be set
+       to the value of the Current Temperature rounded to the nearest integer.
+       Rationale: Displaying the rounded value of the Current Temperature provides the the
+       most accurate display of the Current Temperature possible using an integer display.
+       When combined with the accuracy of the Temperature Sensor (EA-TS-2), the Display
+       Temperature should be within 0.6°F of the actual value.
+
+•      REQ-MRI-5: If the Regulator Mode is not NORMAL, the value of the Display
+       Temperature is UNSPECIFIED.
+       Rationale: In modes other than NORMAL, the value of Display Temperature is not
+       meaningful and should not be used.
+       Latency: < Max Operator Response Time
+       Tolerance: ±0.6°F
+
+The requirements for the Regulator Interface Failure internal variable are as follows:
+
+•      REQ-MRI-6: If the Status attribute of the Lower Desired Temperature or the Upper
+       Desired Temperature is Invalid, the Regulator Interface Failure shall be set to True.
+
+•      REQ-MRI-7: If the Status attribute of the Lower Desired Temperature and the Upper
+       Desired Temperature is Valid, the Regulator Interface Failure shall be set to False.
+       Rationale: The Regulator Interface Failure internal variable indicates if any errors have
+       occurred in sensing the Operator Interface monitored variables needed by the Regulate
+       Temperature Function. Note that its initial value on power-up will always be True since
+       the Status of the Lower Desired Temperature and the Upper Desired Temperature are
+       initially Invalid.
+
+The requirements for the Desired Range internal variable are as follows:
+
+•      REQ-MRI-8: If the Regulator Interface Failure is False, the Desired Range shall be set to
+       the Desired Temperature Range.
+
+•      REQ-MRI-9: If the Regulator Interface Failure is True, the Desired Range is
+       UNSPECIFIED.
+       Rationale: The Desired Range is only meaningful when there is not a Regulator Interface
+       Failure. If there is, its value should not be used, and it can be set to any value.
+
+
+
+
+                                            A-17
+A.5.1.2 Manage Regulator Mode Function.
+
+The Manage Regulator Mode Function determines the mode of the Regulate Temperature
+Function. The constants and definitions are shown in tables A-9 and A-10, respectively.
+
+                    Table A-9. The Manage Regulator Mode Function Constants
+
+         Name      Type Value Units                       Physical Interpretation
+    Regulator      Real      1.0     Sec The time allowed for initialization of the Regulate
+    Init Timeout                           Temperature Function before declaring failure
+    Rationale: A trade study has shown that users become impatient if the Thermostat requires
+    more than one second to initialize.
+
+                 Table A-10. The Manage Regulator Mode Function Definitions
+
+
+      Name              Type                             Definition
+ Regulator Status      Boolean NOT (Regulator Interface Failure OR Regulator Internal Failure)
+                               AND Current Temperature.Status = Valid
+
+The requirements for the Regulator Mode internal variable are as follows:
+
+•       The modes and transitions of the Manage Regulator Mode Function are specified in the
+        state transition diagram shown in figure A-4. Each transition is a separate requirement
+        and is assigned a unique identifier (e.g., Req MRM 1). All transitions are assumed to
+        occur in negligible time.
+
+
+                                                        Req MRM 1
+
+
+                                                          INIT
+
+
+                                        Req MRM 4       Req MRM 2
+                                                                    Regulator
+                                                                    Status = True
+              Duration (INMODE) >
+                                                       NORMAL
+              Regulator Init Timeout
+
+                                                        Req MRM 3
+                                                                    Regulator
+                                                                    Status = False
+
+                                                        FAILED
+
+              MRM = Manage Regulator Mode
+
+                    Figure A-4. Regulate Temperature Mode Transition Diagram
+
+
+                                            A-18
+       Rationale: (Req MRM 3 and Req MRM 4) Once the regulator has failed, the only way
+       for it to re-enter normal operation is for it to be powered off and on. This ensures that the
+       operators are made aware of any transient failures that the regulator may be experiencing.
+
+A.5.1.3 Manage Heat Source Function.
+
+The Manage Heat Source Function turns the Heat Source on and off to maintain the Current
+Temperature of the Isolette within the Desired Temperature Range. The constants are shown in
+table A-11.
+
+                   Table A-11. The Manage Heat Source Function Constants
+
+      Name          Type     Value      Units                 Physical Interpretation
+Allowed Heat        Real      6.0        Sec     The maximum time by which the Heat Source
+Source Latency                                   must be turned on or off to ensure acceptable
+                                                 operation of the Isolette system
+Rationale: Since a closed Isolette will warm or cool at a maximum rate of 1°F per minute
+(EA-IS1 and EA-IS2), turning the Heat Source on or off within 6 seconds ensures that the
+Current Temperature will not have changed by more than 0.1°F, the required accuracy and
+resolution of the Temperature Sensor (EA-TS2).
+
+The requirements for the Heat Control controlled variable are as follows:
+
+•      REQ-MHS-1: If the Regulator Mode is INIT, the Heat Control shall be set to Off.
+       Rationale: A regulator that is initializing cannot regulate the Current Temperature of the
+       Isolette and the Heat Control should be turned off.
+
+•      REQ-MHS-2: If the Regulator Mode is NORMAL and the Current Temperature is less
+       than the Lower Desired Temperature, the Heat Control shall be set to On.
+
+•      REQ-MHS-3: If the Regulator Mode is NORMAL and the Current Temperature is
+       greater than the Upper Desired Temperature, the Heat Control shall be set to Off.
+
+•      REQ-MHS-4: If the Regulator Mode is NORMAL and the Current Temperature is
+       greater than or equal to the Lower Desired Temperature and less than or equal to the
+       Upper Desired Temperature, the value of the Heat Control shall not be changed.
+       Rationale: When the Isolette is warming towards the Upper Desired Temperature, the
+       Heat Source should be left on until the Upper Desired Temperature is reached. In a
+       similar fashion, if the Isolette is cooling towards the Lower Desired Temperature, the
+       Heat Source should be left off until the Lower Desired Temperature is reached.
+
+
+
+
+                                             A-19
+•      REQ-MHS-5: If the Regulator Mode is FAILED, the Heat Control shall be set to Off.
+       Rationale: In failed mode, the regulator cannot regulate the Current Temperature of the
+       Isolette and the Heat Control should be turned off.
+       Latency: < Allowed Heat Source Latency
+       Tolerance: N/A
+
+A.5.1.4 Detect Regulator Failure Function.
+
+The Detect Regulator Failure Function identifies internal failures, (e.g., a memory check failure)
+in the Regulate Temperature Function. It defines a single Boolean-valued internal variable,
+Regulator Internal Failure, which is set to True if an internal failure is detected.
+
+The requirements for Regulator Internal Failure variable are implementation-specific and cannot
+be specified until an implementation platform is chosen.
+

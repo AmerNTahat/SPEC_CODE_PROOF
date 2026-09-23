@@ -46,6 +46,12 @@ class Application:
                 from .learning import Learning
                 service = Learning(controller)
                 if method == 'GET' and route == '/api/learning':return service.catalog()
+                if method == 'POST' and route in {'/api/learning/prepare-data','/api/learning/revise-prepared-data'}:
+                    from .data_preparation import DataPreparation
+                    preparation=DataPreparation(controller)
+                    if route.endswith('revise-prepared-data'):return preparation.revise(body.get('proposal_id'),body.get('english'))
+                    if body.get('english_context_id'):return preparation.prepare_from_context(body.get('plan_id'),body.get('role'),body.get('item_index'),body.get('english_context_id'),body.get('english_start'),body.get('english_end'))
+                    return preparation.prepare(body.get('plan_id'),body.get('role'),body.get('item_index'),body.get('campaign_id'),body.get('style_context_id'),body.get('existing_english'))
                 if method == 'POST' and route in {'/api/learning/context-inventory','/api/learning/context-select','/api/learning/context-upload'}:
                     from .context_materials import ContextMaterials
                     materials=ContextMaterials(controller.store)
@@ -82,7 +88,7 @@ class Application:
                     from .development import Development
                     profile=self.profiles.get(body.get('profile_id'))
                     if profile is None:raise PolicyError('Choose a registered evaluation project')
-                    return Development(controller).prepare(json.loads(profile.read_text()),body.get('target_file'),body.get('shared_files',[]),body.get('requirements'),body.get('candidate_ids'),body.get('plan_id'),profile.parent,body.get('validation_plan_id'),body.get('predecessor_task_id'))
+                    return Development(controller).prepare(json.loads(profile.read_text()),body.get('target_file'),body.get('shared_files',[]),body.get('requirements'),body.get('candidate_ids'),body.get('plan_id'),profile.parent,body.get('validation_plan_id'),body.get('predecessor_task_id'),body.get('prepared_requirements_id'))
                 if method == 'GET' and route == '/api/learning/development-result':
                     from .development import Development
                     return Development(controller).inspect(query.get('result_id',[''])[0])

@@ -299,6 +299,34 @@ def main():
             assert records['plans'][0]['training'][0]['end']==1 and records['plans'][0]['validation'][0]['start']==2
             assert not js('return window.inspectaInjected===true')
             evidence['checks'].append('Context repository selection, disjoint component ranges, cosine-distance epsilon and exact split approval through Firefox')
+            input_value('Materials for preparation',records['plans'][0]['id'])
+            input_value('English availability','existing')
+            input_value('Existing system description and requirements','Synthetic training description. REQ-1: Preserve the Monitor package.')
+            click('Prepare English for review')
+            until('document.querySelector("#learning-preparation").textContent.includes("Source trace, preparation usage and provenance")')
+            input_value('Prepared data reviewer','Synthetic preparation reviewer')
+            click('Approve prepared English')
+            until('document.body.textContent.includes("Reviewed training English is ready.")')
+            status,prepared_body=request_http('GET','/api/learning',auth)
+            prepared_records=json.loads(prepared_body)['prepared_requirements']
+            assert len(prepared_records)==1 and prepared_records[0]['role']=='training'
+            assert prepared_records[0]['approval']['status']=='APPROVED'
+            input_value('Review and edit prepared English','Unsaved modified description.')
+            assert js('return Array.from(document.querySelectorAll("button")).find(b=>b.textContent==="Approve prepared English").disabled')
+            input_value('Review and edit prepared English',prepared_records[0]['english'])
+            evidence['checks'].append('Data preparation saves existing English with source/role provenance; exact review unlocks learning; unsaved edits cannot be approved; zero model calls')
+            input_value('System or component to describe','validation:0')
+            input_value('English availability','source')
+            input_value('Existing English source',records['context_documents'][0]['id'])
+            input_value('English passage last line',2)
+            click('Prepare English for review')
+            until('document.querySelector("#learning-preparation h3")?.textContent.includes("Regulator")')
+            status,prepared_body=request_http('GET','/api/learning',auth)
+            source_prepared=[r for r in json.loads(prepared_body)['prepared_requirements'] if r['role']=='validation'][0]
+            assert source_prepared['approval']['status']=='APPROVED' and source_prepared['english_source']['start']==1
+            assert 'source reuse only' in source_prepared['approval']['reviewer']
+            assert not js('return window.inspectaInjected===true')
+            evidence['checks'].append('Existing approved English passage is reused with exact range and inherited source authorization, separate from semantic validation; source markup remains inert')
             from inspecta_scp.unit_definitions import UnitDefinitions,FIELDS,ARRAYS
             definition={**{k:'Synthetic browser '+k for k in FIELDS},**{k:['Synthetic browser '+k] for k in ARRAYS},'granularity':'sysml_gumbo_obligation'}
             fixture_controller=Controller(root/'state')

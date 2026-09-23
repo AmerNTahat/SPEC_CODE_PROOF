@@ -54,7 +54,7 @@ New learned candidates are maintained separately from original rulebooks:
 - Actual extraction evidence: `reports/demo/learning-batch-*.json`; refinement:
   `reports/demo/actual-failure-rule-refinement-2.json`.
 
-There are now 19 draft candidates: the original 13, four focused extractions on
+There were 19 draft candidates before explicit data preparation: the original 13, four focused extractions on
 whole-system architecture, requirement allocation, engineering workflow and
 implementation/proof/testing, plus the two KSU failure-learning candidates. The
 focused calls are saved as `reports/demo/focused-*.json`. Coverage is not established
@@ -65,3 +65,11 @@ real checks → failure-backed rule revision → repeat development checks → r
 publication. A published User release must remain frozen. Full implementation
 proof, independent system tests, acceptance attestation, and the fresh frozen User
 cycle remain incomplete; the selected real tool stages do not replace them.
+
+Data preparation now precedes new learning. Existing FAA English is retained as
+primary for Isolette; model-derived descriptions are supplements. The prepared
+Monitor English/model pair and the nine KSU guides produced draft RA-001, bringing
+the book to20 candidates. It requires source-to-role allocation, assumption/guarantee
+composition, explicit gaps, and affected KSU rechecks after repairs. It is not yet
+a validated rule or an accepted-system cost improvement. See DATA_PREPARATION.md
+and reports/demo/learning-from-prepared-english.json (repository relative).

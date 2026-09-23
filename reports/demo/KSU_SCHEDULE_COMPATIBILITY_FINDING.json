@@ -1,0 +1,29 @@
+{
+  "status": "COMPATIBILITY_MISMATCH_OBSERVED_NOT_REPAIRED",
+  "supersedes_interpretation_of": "KSU_TIMING_DIAGNOSIS.json",
+  "saved_example_schedule": {
+    "path": "HAMR-agent-configuration-experiments/hamr-claude-training/examples/HAMR-SysMLv2-Rust-seL4-P-EDP-Prod-Cons-Example/hamr/microkit/microkit.schedule.xml",
+    "sha256": "8c4fdedc3ab5bc54020e3bf0cad7ef3b8bb1ee14addf7486566f76f49a25bf73",
+    "slot_lengths": [
+      10,
+      50,
+      10,
+      50
+    ],
+    "total": 120
+  },
+  "current_generator_defaults": {
+    "slot_lengths": [
+      30,
+      50,
+      30,
+      50
+    ],
+    "total": 160
+  },
+  "unit_evidence": "AadlSymbols.scala getFramePeriod and getComputeExecutionTime convert to milliseconds. Scheduler compares these values to the default allocations.",
+  "meaning": "Scheduling allocation, not AI tokens or measured worst-case execution time. Existing schedule and current generator defaults differ. The failure does not establish requirements infeasibility.",
+  "causal_limits": "Saved XML alone does not establish why defaults differ or prove safe execution. The current generator capacity check occurs before schedule emission; simply copying XML has not been demonstrated to fix generation.",
+  "reference_boundary": "Human compatibility audit only; saved example schedule remains evaluator material, not added to training or generator context.",
+  "next_step": "Inspect example tool/version and schedule-generation policy; establish supported compatibility resolution without weakening timing or modifying reused tools."
+}

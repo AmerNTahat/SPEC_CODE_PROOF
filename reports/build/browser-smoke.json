@@ -16,6 +16,8 @@
     "Actual authentication rejection offers reconnection and a valid token restores access",
     "Learning home and setup inspect actual materials, preserve books, and disclose unfinished model stages",
     "Context repository selection, disjoint component ranges, cosine-distance epsilon and exact split approval through Firefox",
+    "Data preparation saves existing English with source/role provenance; exact review unlocks learning; unsaved edits cannot be approved; zero model calls",
+    "Existing approved English passage is reused with exact range and inherited source authorization, separate from semantic validation; source markup remains inert",
     "Approved split restored after navigation; campaign pause/resume disables/enables extraction without any model call",
     "System-level extraction focus is selectable; readable book export preserves draft status without model calls",
     "Workflow generalization/specialization is selectable and blocked without exact context, provenance and prior-rule selections; no model call",
@@ -23,7 +25,7 @@
     "Unit-definition editing creates a new revision; unsaved edits cannot be approved and approval creates no verified units"
   ],
   "browser": {
-    "sessionId": "847343ba-0f64-485c-b7ab-3904fd38ce65",
+    "sessionId": "ba9422e0-d4c2-4520-8958-6137ae6c833e",
     "capabilities": {
       "acceptInsecureCerts": false,
       "browserName": "firefox",
@@ -34,8 +36,8 @@
       "moz:buildID": "20250227124745",
       "moz:headless": true,
       "moz:platformVersion": "5.15.0-139-generic",
-      "moz:processID": 152818,
-      "moz:profile": "/tmp/inspecta-browser-r21ksswi/firefox",
+      "moz:processID": 160133,
+      "moz:profile": "/tmp/inspecta-browser-h9202xvi/firefox",
       "moz:shutdownTimeout": 60000,
       "pageLoadStrategy": "normal",
       "timeouts": {

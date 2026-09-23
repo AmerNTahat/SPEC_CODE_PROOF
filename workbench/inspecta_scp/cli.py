@@ -31,6 +31,12 @@ def parser():
     q = sub.add_parser('learning', help='Inspect learning materials and follow rulebook development')
     actions = q.add_subparsers(dest='learning_action', required=True)
     actions.add_parser('catalog')
+    a=actions.add_parser('prepare-data',help='Prepare Miller-style English before learning or validation')
+    a.add_argument('--plan',required=True);a.add_argument('--role',choices=['training','validation'],required=True)
+    a.add_argument('--item-index',type=int,required=True);a.add_argument('--campaign');a.add_argument('--style-context')
+    a.add_argument('--existing-english',type=Path)
+    a.add_argument('--english-context');a.add_argument('--english-start',type=int);a.add_argument('--english-end',type=int)
+    a=actions.add_parser('revise-prepared-data');a.add_argument('--proposal',required=True);a.add_argument('--english',type=Path,required=True)
     a = actions.add_parser('extract'); a.add_argument('--plan',required=True); a.add_argument('--campaign',required=True); a.add_argument('--batch-index',type=int,default=0); a.add_argument('--focus',default='full_stack')
     a = actions.add_parser('extract-remaining'); a.add_argument('--plan',required=True); a.add_argument('--campaign',required=True); a.add_argument('--focus',default='full_stack')
     a = actions.add_parser('campaign-control'); a.add_argument('--campaign',required=True); a.add_argument('--action',choices=['pause','resume'],required=True)
@@ -258,6 +264,12 @@ def dispatch(args):
             from .learning import Learning
             service = Learning(controller)
             if args.learning_action == 'catalog':return service.catalog()
+            if args.learning_action in {'prepare-data','revise-prepared-data'}:
+                from .data_preparation import DataPreparation
+                preparation=DataPreparation(controller)
+                if args.learning_action=='revise-prepared-data':return preparation.revise(args.proposal,args.english.read_text())
+                if args.english_context:return preparation.prepare_from_context(args.plan,args.role,args.item_index,args.english_context,args.english_start,args.english_end)
+                return preparation.prepare(args.plan,args.role,args.item_index,args.campaign,args.style_context,args.existing_english.read_text() if args.existing_english else None)
             if args.learning_action == 'export-books':return service.knowledge.export_learned_books()
             if args.learning_action == 'learn-workflow-failure':return service.learn_workflow_failure(args.plan,args.campaign,args.context_ids,args.run,args.result,args.strategy,args.prior_candidate)
             if args.learning_action == 'compare-graphs':

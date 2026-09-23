@@ -590,3 +590,51 @@ reports/demo/isolette-graph-assessment.json — 48c5645f3667534fe1ecbb9f58958f1e
 Budget:
 14M ceiling; 994378 measured plus 3000000 estimated debit; all prior usage retained. No automatic clock or token extension.
 
+## M07 — in_progress
+
+Achieved:
+Recorded 3M continuation sublimit inside unchanged14M cap and added2700seconds. Reconciled 160 default allocation versus saved KSU schedule120; this is a compatibility mismatch, not evidence of inherent requirements infeasibility.
+
+In progress:
+Inspecting supported scheduling compatibility; no changed requirements or copied reference schedule.
+
+Remaining:
+Supported generation repair, timing validation, Rust proof/tests and complete frozen-release demonstration.
+
+Blockers:
+Saved example pacing slots10 differ from current generator default30; actual cause/version and supported repair remain under investigation.
+
+Evidence:
+reports/demo/CONTINUATION_3M_45_MINUTES.json — f80e5a4d4c66c16ebe89b13c2c4dfacf8eeea52fdb24ca894fdd14f449b1f09c
+reports/demo/KSU_SCHEDULE_COMPATIBILITY_FINDING.json — 18dd57e394f633bfeef0c95a1fde0802aae9d5cf54f0e366decfe9914df329bb
+reports/build/continuation-budget-tests.log — 9431c1aa316e435811d865a24cfbb10c032d82e4dd69a70f245ffab3b80737c5
+
+Budget:
+No new paid calls.994378 measured plus3M estimated already charged.Continuation allows3M additional within14M aggregate, plus45minutes.
+
+## M03 — in_progress
+
+Achieved:
+Explicit Data preparation implemented in UI/CLI: reuse existing English or extract missing descriptions/requirements; bind roles, source traces and exact English revisions. Original FAA English retained. Three real model-derived drafts completed (Monitor after bounded retry). Prepared FAA Monitor English plus Monitor and nine KSU guides produced draft RA-001;20 candidates maintained.
+
+In progress:
+Final receipt and local checkpoint; prepared model interpretations remain drafts.
+
+Remaining:
+Review model-derived English and new validation scope; validate RA-001; resolve engineering failures; frozen User/release demonstration and accepted-system cost comparison.
+
+Blockers:
+M07 engineering acceptance remains incomplete. New draft interpretations and meta-rules are not proof or publication. KSU remains workflow; guidebook style does not override it.
+
+Evidence:
+reports/demo/learning-from-prepared-english.json — e8ce90f440c841ee194bc897f802b728727fb7ce434ca1b975befd747bb2f22b
+reports/demo/prepared-faa-english-monitor.json — 4620c07f7cc69d85fee9994fa7864ccf6c81aa39ce2828328244b8dcd859fdf1
+reports/demo/prepared-faa-english-regulator.json — aa72ebd021925a6c3a6581da97ca107592d24920d66f00bbf88640c9aeabf0bf
+reports/demo/prepared-english-producer-consumer.json — 5ccebfe707f9a32e939983e7739d2e5c38e6426c839b461f74339d4cebe3d1ee
+reports/demo/prepared-english-monitor-batched.json — babec44e7fc800aab596a037796d059be4c07bb1c9db4c31ceaa84831624ab69
+reports/build/application-tests.log — 5a95d0b54ea582210770226749d299e2893499a5ed5585c0756d2648d16b9399
+reports/build/browser-smoke.json — 13938933035c603cb1150f11149b72caad809f28b5b3f135591d3a22e9350cd6
+
+Budget:
+1182675 measured plus4M estimated debits;8817325 aggregate remaining,1811703 continuation remaining. First preparation timeout charged1M estimate; no reset or new authorization. Build-session token metering unavailable.
+

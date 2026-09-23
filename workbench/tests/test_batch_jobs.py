@@ -6,6 +6,7 @@ from inspecta_scp.controller import Controller
 from inspecta_scp.learning import Learning
 from inspecta_scp.campaign import Campaign
 from inspecta_scp.learning_plan import LearningPlan
+from inspecta_scp.data_preparation import DataPreparation
 
 class BatchJobTests(unittest.TestCase):
     def test_resume_skips_completed_batches_and_pause_blocks_new_work(self):
@@ -17,7 +18,7 @@ class BatchJobTests(unittest.TestCase):
                 context={'context':[{'text':'a'*60000}],'examples':[]}
                 def extracted(plan,campaign,index,focus="full_stack"):
                     return s.record('learning_extraction',{'plan_id':plan,'batch_index':index,'focus':focus,'status':'DRAFT_PENDING_DEVELOPMENT_VALIDATION'})
-                with patch.object(LearningPlan,'training_context',return_value=context),patch.object(service,'extract',side_effect=extracted) as extract:
+                with patch.object(DataPreparation,'training_materials',return_value=[]),patch.object(LearningPlan,'training_context',return_value=context),patch.object(service,'extract',side_effect=extracted) as extract:
                     Campaign(s).control(grant['id'],'pause')
                     self.assertEqual(service.extract_remaining('p',grant['id'])['status'],'BLOCKED')
                     extract.assert_not_called()
