@@ -1,0 +1,138 @@
+{
+  "plan": {
+    "context_ids": [
+      "77bdcaefd9adf0515305978b7e9b668a5c4e1561b7ab8803c0744bcc698e7b8d",
+      "c0e05af0776ad2fa3a1e62810211695d366f9f319d2da57851408a5ee20cb86d",
+      "21c8b6f71731ceed8d8353d52f873564c5d1dcb78795d5cf8cd0376156ac458b",
+      "24404f79aa651c0b677cfa6b820290260b039e99ed7419f0391171e6ca33071b",
+      "da15e63a14bbc503d7b0e0abc83af37d125ee51417957de402bf1df76e2fd1d5",
+      "593cabbf8c18a04defaf0fa363d6306658476383a76831c861cb15983e01f5aa",
+      "b9e600f0e2442989fccfc2ec7862a86ba4457c925086a2bac66d6e6e19ee7a62",
+      "ca30124883278e482d8bfa32893c128c4203a73e000061490a6a6ad6579273a6",
+      "8614f00042e884de31cdeb3f41848aca319f526e0f5bdd2b22b17075e910f795",
+      "dbccca5f422472bc3ab032122129fd710ba3c6a169b5273f99e54192ee644844"
+    ],
+    "training": [
+      {
+        "source_id": "d7ef18732a5def5da9422e3e47db924dd4ae4c9b806fcc86f11c932b377db935",
+        "start": 1,
+        "end": 431,
+        "label": "Isolette Monitor",
+        "source_sha256": "43664d0fe5904aed949d4c12e824c905d7bc1b4e89efa0409038c1b6f52ff605",
+        "text_sha256": "6d92da0875771dc87cc8f20c57864bd9ff3c06fa0d8ef1b962841149654ccba4",
+        "normalized_text_sha256": "7e0cd6ae2d818b5d5a018b74664cd665278d24f3eeb408849e834759400e41fa"
+      }
+    ],
+    "validation": [
+      {
+        "source_id": "e4ab3bdf21c821e43654d1d5060a17d67b55670948611e9157c74031cd8de58a",
+        "start": 1,
+        "end": 436,
+        "label": "Regulator \u2014 isolated port-direction compatibility reference",
+        "source_sha256": "dd7de904aed4a1e57638f0f947f527d384129d130acbe7376199a111754e7bdb",
+        "text_sha256": "55a8a241b7696635fc1779c67b1d13e637c11122ec79b64483228efa2b5a313a",
+        "normalized_text_sha256": "9fd7e573a9f8e09d686befa9210d516a93f309cbf9a1c66aca81620afdbe3295"
+      },
+      {
+        "source_id": "35cbeca4677a02a0dd37a58a9a3d0fa85ccc3bd63049a5862f7e3a2fbb8718b0",
+        "start": 1,
+        "end": 160,
+        "label": "KSU Producer/Consumer",
+        "source_sha256": "3a644a6a465df26167cd8a5be4c4604120ee203309134b6b951620907be3ffcf",
+        "text_sha256": "48292c974cd88b152951dc3f982bd3a8bb7e19b420fd7356f95aecc50f81ae40",
+        "normalized_text_sha256": "8c004ec39added90367ff6f29c7830a5d371fc508059ff043e4c2be412e92544"
+      }
+    ],
+    "retrieval": {
+      "metric": "lexical_token_count_cosine_distance",
+      "epsilon": 0.1,
+      "maximum": 0.3,
+      "comparison": "distance <= epsilon"
+    },
+    "validation_protocol": "within_system_component_holdout",
+    "final_transfer_claim": false,
+    "scope": "Human-declared component split; no inferred semantic independence or final transfer claim",
+    "id": "6004a757c4beecf5c8c5b86780ccc3fa03d136f2fd15f65b3fc395348e3359d1",
+    "approval": {
+      "action": "approve_learning_plan",
+      "subject": {
+        "context_documents": [
+          "Steve_Miller_FAA_docAR-08-32.pdf",
+          "CODEX.md",
+          "doc/hamr-overview.md",
+          "doc/folder-structure.md",
+          "doc/technical-approach.md",
+          "doc/sysmlv2-aadl-concepts.md",
+          "doc/mcp-tools.md",
+          "doc/modeling-tips.md",
+          "doc/component-implementation-guide.md",
+          "doc/testing-guide.md"
+        ],
+        "epsilon": 0.1,
+        "plan_digest": "496d4e692853573075dcc24455880e37229fbd6e7ee7cf1847a2a69f0c1256d8",
+        "plan_id": "6004a757c4beecf5c8c5b86780ccc3fa03d136f2fd15f65b3fc395348e3359d1",
+        "training_components": [
+          "Isolette Monitor"
+        ],
+        "validation_components": [
+          "Regulator \u2014 isolated port-direction compatibility reference",
+          "KSU Producer/Consumer"
+        ]
+      },
+      "subject_digest": "98ddceb32cfc38ecb555cb4617bb82b56457b2701169fd2eba8aea6301133cdb",
+      "id": "ab0d948922d0d6e6c6ef2da57d316c9f538441879958bb3f2ff0027a7b68b8bf",
+      "status": "APPROVED",
+      "reviewer": "User explicitly replied: Approve this KSU context revision. Nine named KSU workflow documents plus FAA; Monitor training; isolated Regulator and Producer/Consumer held out; examples/logs/linked files excluded.",
+      "decided_at": 1790126325.6334927
+    }
+  },
+  "workflow_root": "/home/amertahat/SPEC_CODE_PROOF/HAMR-agent-configuration-experiments/hamr-claude-training",
+  "files": [
+    {
+      "path": "CODEX.md",
+      "sha256": "28fa110ebb235fac130e28f5528f856f60715e6723e3f419dab3ffb14f4ae59a"
+    },
+    {
+      "path": "doc/hamr-overview.md",
+      "sha256": "1fb7749a2f953b51a22cf06046e268226bc175cfac2afe03a0789670bdbac101"
+    },
+    {
+      "path": "doc/folder-structure.md",
+      "sha256": "6c7f71ac8e5d307c175a84777f116f087dd6c0337461dec1a828b8041688b814"
+    },
+    {
+      "path": "doc/technical-approach.md",
+      "sha256": "acfe64fe442ea41200e0bb9fd84ac94bc154694b4530e506bafc8bdac6734e4d"
+    },
+    {
+      "path": "doc/sysmlv2-aadl-concepts.md",
+      "sha256": "a50ed2317d56ffd2f0820ac4d8aa73422c94fc4d5ef2a0a67f2e5221299688f2"
+    },
+    {
+      "path": "doc/mcp-tools.md",
+      "sha256": "fc7e0edcb15bd461362b7ad9516ac33a6a17d865e33b207af7e488ae4eb789af"
+    },
+    {
+      "path": "doc/modeling-tips.md",
+      "sha256": "1fc97b21849f9e241c2d66a216166be83ec1180bb85dd066984f6a201e383fa0"
+    },
+    {
+      "path": "doc/component-implementation-guide.md",
+      "sha256": "1fad571f248ab53a590da6ed3a7c9ef58ac06312bc7ad396e8b91bb143c5ea8d"
+    },
+    {
+      "path": "doc/testing-guide.md",
+      "sha256": "18244e35afe8416ec04098e75f0471a1b803dee1f9ffde0b06f67c813452842e"
+    }
+  ],
+  "provenance": "Existing local KSU-derived checkout fa19fa25cadcb656bcb608f85b2b49687ae41cbd; some documentation is locally modified. Exact bytes are hash-pinned; not represented as pristine upstream.",
+  "excluded": [
+    "examples/",
+    "evaluation-project/",
+    "interaction-logs/",
+    "logs-baseline/",
+    "held-out golden model contents"
+  ],
+  "link_policy": "Links in documents are not followed or loaded automatically; model tools disabled",
+  "scope": "KSU workflow context plus FAA; original Monitor training; isolated Regulator and Producer/Consumer development validation, no final-transfer claim"
+}

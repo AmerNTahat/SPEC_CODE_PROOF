@@ -8,7 +8,7 @@ from .config import PolicyError
 from .storage import sha_file
 
 
-def classify(operation, record, artifacts):
+def classify(operation, record, artifacts, platform='JVM'):
     stdout, stderr = record['stdout'], record['stderr']
     if record['interrupted']:
         return 'UNKNOWN', 'Tool interrupted: ' + record['interrupted']
@@ -19,6 +19,10 @@ def classify(operation, record, artifacts):
     if 'Instantiation Warning' in stdout or 'MISSING_AADL_TYPE' in stdout:
         return 'UNKNOWN', 'Unresolved instantiated-model warnings'
     if operation == 'hamr_codegen':
+        if platform=='Microkit':
+            if not any(name.endswith('.rs') for name in artifacts) or not any(name.endswith('Cargo.toml') for name in artifacts):
+                return 'UNKNOWN','Generator returned without expected Rust/Microkit artifacts'
+            return 'PASS','HAMR emitted Rust/Microkit artifacts; compilation, Verus and runtime tests are separate'
         if not any(name.endswith('.scala') for name in artifacts):
             return 'UNKNOWN', 'Generator returned without the expected Slang source artifacts'
         return 'PASS', 'HAMR emitted Slang/JVM artifacts; compilation and implementation verification are separate'
@@ -67,6 +71,6 @@ class Engineering:
                       integration_results=integration_results,
                       checked_claims=re.findall(r'^Checking (.+)$', record['stdout'], re.MULTILINE),
                       scope='Generation or connection integration only; no implementation proof, compilation, independent tests or acceptance')
-        status, reason = classify(operation, record, artifacts)
+        status, reason = classify(operation, record, artifacts,config.get('hamr_platform','JVM'))
         return {'gate': operation, 'status': status, 'reason': reason,
                 'evidence': self.store.object(record)}, interrupted

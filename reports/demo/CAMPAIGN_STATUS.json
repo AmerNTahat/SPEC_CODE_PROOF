@@ -1,7 +1,7 @@
 {
   "id": "3f16ff4ef866d414cedb448a3ade2dfc4c5b5807162e6aea7522abc218fb49d8",
   "started": 1790117782.972513,
-  "used_tokens": 811482,
+  "used_tokens": 994378,
   "reserved_tokens": 0,
   "usage_unknown": 0,
   "estimated_debit_tokens": 3000000,
@@ -25,7 +25,7 @@
     "wall_seconds": 3600,
     "id": "3f16ff4ef866d414cedb448a3ade2dfc4c5b5807162e6aea7522abc218fb49d8"
   },
-  "deadline": 1790124982.972513,
+  "deadline": 1790127682.972513,
   "time_extensions": [
     {
       "campaign_id": "3f16ff4ef866d414cedb448a3ade2dfc4c5b5807162e6aea7522abc218fb49d8",
@@ -34,11 +34,29 @@
       "seconds": 3600,
       "token_ceiling_unchanged": 13000000,
       "id": "7cb160b53120ee3dd2db9f78a34f2f81c921989028257570b409304094fd2179"
+    },
+    {
+      "campaign_id": "3f16ff4ef866d414cedb448a3ade2dfc4c5b5807162e6aea7522abc218fb49d8",
+      "consent": "User explicitly replied: Authorize 45 minutes; retain 14M ceiling, if you need more token ask me. Add 2700 seconds to the existing campaign deadline; preserve original start, all usage and estimates, token ceiling, and repair limits.",
+      "previous_deadline": 1790124982.972513,
+      "seconds": 2700,
+      "token_ceiling_unchanged": 14000000,
+      "id": "7f6a7751d941a39c0eea31a774e02d868764d0399e31300d1c4c7334b321ca9f"
     }
   ],
-  "authorized_wall_seconds": 7200,
-  "remaining_seconds": 841.0210809707642,
-  "remaining_tokens": 9188518,
-  "scope": "Best-effort aggregate accounting; termination may leave uncertain in-flight usage",
-  "snapshot_at": "2026-09-23T00:42:21.951441+00:00"
+  "token_extensions": [
+    {
+      "campaign_id": "3f16ff4ef866d414cedb448a3ade2dfc4c5b5807162e6aea7522abc218fb49d8",
+      "consent": "User explicitly said: Also I allow to use one more million token. Increase aggregate allowance from 13M to 14M, retaining all measured usage and estimates. This is not a wall-clock or repair-count extension.",
+      "deadline_unchanged": 1790124982.972513,
+      "previous_ceiling": 13000000,
+      "tokens": 1000000,
+      "id": "e533cdaad5a98f1ec4cbe18778e9bf4cc7dd03f99f96033197331e41ded098fa"
+    }
+  ],
+  "token_ceiling": 14000000,
+  "authorized_wall_seconds": 9900,
+  "remaining_seconds": 402.6275839805603,
+  "remaining_tokens": 10005622,
+  "scope": "Best-effort aggregate accounting; termination may leave uncertain in-flight usage"
 }

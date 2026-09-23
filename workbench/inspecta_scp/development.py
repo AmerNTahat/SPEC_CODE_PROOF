@@ -28,6 +28,36 @@ def bounded_inventory(items, byte_limit=48000):
 class Development:
     def __init__(self,controller):self.controller=controller;self.store=controller.store;self.approvals=Approvals(self.store)
 
+    def compare_graph(self,result_id):
+        """New evaluator-only assessment; preserve previous comparison/results."""
+        from .graph_equivalence import compare_architectures
+        result=self.store.read_record('development_result',result_id)
+        values=[];snapshots=[]
+        for key in ['reference_run_id','generated_run_id']:
+            if not result.get(key):raise PolicyError('Two actual architecture captures required')
+            run=self.controller.status(result[key])
+            if not run.get('evidence_current_for_source') or not run.get('policy_current'):
+                raise PolicyError('Architecture evidence is stale')
+            gate=next((g for g in (run.get('result') or {}).get('gates',[]) if g['gate']=='architecture_capture' and g['status']=='PASS'),None)
+            if not gate or not gate.get('snapshot_id'):raise PolicyError('Successful architecture captures required')
+            snapshot=self.store.read_record('architecture_snapshot',gate['snapshot_id'])
+            if snapshot['run_id']!=run['id'] or snapshot['config_hash']!=run['config_hash']:
+                raise PolicyError('Architecture snapshot is not bound to this run')
+            snapshots.append(snapshot);values.append(self.store.load_object(snapshot['normalized']))
+        if snapshots[0]['tool_identity']!=snapshots[1]['tool_identity'] or snapshots[0]['normalization']!=snapshots[1]['normalization']:
+            raise PolicyError('Architecture tools or normalization differ')
+        graph=compare_architectures(*values)
+        from .contract_similarity import compare_contract_features
+        old=self.store.read_record('development_golden_comparison',result['comparison_id'])
+        return self.store.record('development_graph_assessment',{'result_id':result_id,
+            'checker_sha256':sha_file(Path(__file__).with_name('graph_equivalence.py')),
+            'similarity_checker_sha256':sha_file(Path(__file__).with_name('contract_similarity.py')),
+            'snapshot_ids':[s['id'] for s in snapshots],'graph':graph,
+            'similarity_assistance':compare_contract_features(*values,graph),
+            'historical_source_text_cosine':old['lexical'],
+            'behavioral_equivalence':'NOT_ESTABLISHED','whole_system_acceptance':False,
+            'previous_result_unchanged':True,'model_calls':0})
+
     def revise_rules(self,result_id,candidate_ids):
         previous=self.store.read_record('development_result',result_id)
         if previous['status']!='NOT_VALIDATED':raise PolicyError('Select a failed development result')
@@ -211,22 +241,25 @@ class Development:
         def capture(run):
             gates=(run.get('result') or {}).get('gates',[])
             return next((g for g in gates if g['gate']=='architecture_capture' and g.get('snapshot_id') and g['status']=='PASS'),None)
-        left=capture(reference);right=capture(checked);delta=None
+        left=capture(reference);right=capture(checked);delta=None;graph={'status':'UNKNOWN','reason':'Two successful captures required'}
         if left and right:
             snapshots=[self.store.read_record('architecture_snapshot',g['snapshot_id']) for g in [left,right]]
             delta=differences(*(self.store.load_object(x['normalized']) for x in snapshots))
+            from .graph_equivalence import compare_architectures
+            graph=compare_architectures(*(self.store.load_object(x['normalized']) for x in snapshots))
         comparison=self.store.record('development_golden_comparison',{'task_id':task_id,'golden_sha256':task['golden_sha256'],
             'generated_sha256':sha_file(safe_child(destination,task['target_file'])),
             'lexical':compare_text(golden.read_text(),generated),'architecture_differences':delta,
-            'architecture_status':'UNKNOWN' if delta is None else 'FAIL' if delta else 'PASS',
+            'architecture_status':graph['status'],'directed_graph':graph,
+            'syntax_difference_scope':'Legacy exact declaration/AST diagnostics, not graph equivalence or defect count',
             'reference_run_id':reference['id'],'generated_run_id':checked['id'],
-            'scope':'Exact normalized architecture comparison; lexical scores never establish engineering acceptance'})
-        passed=checked['state']=='CHECKED' and delta==[]
+            'scope':'Directed attributed graph equivalence under one name-independent mapping; contracts, payloads and implementation remain separate'})
+        passed=checked['state']=='CHECKED' and graph['status']=='PASS'
         return self.store.record('development_result',{'task_id':task_id,'plan_id':task['plan_id'],
             'context_id':context_ref['id'],'model_call_id':call['id'],'candidate_ids':task['candidate_ids'],
             'previous_result_id':previous_result_id,
             'generated_run_id':checked['id'],'reference_run_id':reference['id'],'comparison_id':comparison['id'],
-            'status':'DECLARED_GATES_CHECKED' if passed else 'NOT_VALIDATED','whole_system_acceptance':False,
+            'status':'STRUCTURE_CHECKED_BEHAVIOR_UNASSESSED' if passed else 'NOT_VALIDATED','whole_system_acceptance':False,
             'source_files_modified':0,'generation_annotations':response['rule_applications'],'limitations':response['limitations'],
             'scope':'Development evidence only; publication still requires supporting/contrasting validation and review'})
 

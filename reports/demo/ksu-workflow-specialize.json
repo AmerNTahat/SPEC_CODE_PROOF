@@ -1,0 +1,424 @@
+{
+  "plan_id": "6004a757c4beecf5c8c5b86780ccc3fa03d136f2fd15f65b3fc395348e3359d1",
+  "manifest_id": "ab25aae290f1bd3eb10a30ad68057a544ee3060ef5bda65acd714d2c34f86a48",
+  "focus": "engineering_workflow",
+  "context_selection": [
+    "c0e05af0776ad2fa3a1e62810211695d366f9f319d2da57851408a5ee20cb86d",
+    "21c8b6f71731ceed8d8353d52f873564c5d1dcb78795d5cf8cd0376156ac458b",
+    "24404f79aa651c0b677cfa6b820290260b039e99ed7419f0391171e6ca33071b",
+    "da15e63a14bbc503d7b0e0abc83af37d125ee51417957de402bf1df76e2fd1d5",
+    "593cabbf8c18a04defaf0fa363d6306658476383a76831c861cb15983e01f5aa",
+    "b9e600f0e2442989fccfc2ec7862a86ba4457c925086a2bac66d6e6e19ee7a62",
+    "ca30124883278e482d8bfa32893c128c4203a73e000061490a6a6ad6579273a6",
+    "8614f00042e884de31cdeb3f41848aca319f526e0f5bdd2b22b17075e910f795",
+    "dbccca5f422472bc3ab032122129fd710ba3c6a169b5273f99e54192ee644844"
+  ],
+  "workflow_feedback": {
+    "run_id": "fef957f9e29e4747be55b4d360c2197d",
+    "generated_result_id": "4fe9c1472b5c297f80c5cf90468367f486c17a688217f1dc8e68a87a716887a9",
+    "strategy": "specialize",
+    "platform": "Microkit",
+    "failures": [
+      {
+        "gate": "hamr_codegen",
+        "status": "FAIL",
+        "reason": "HAMR tool returned a nonzero status; inspect recorded diagnostics",
+        "stdout": "",
+        "stderr": "\nErrors:\n- Frame period 120 is too small for the used budget 160\n",
+        "evidence": {
+          "path": "objects/01355fce0d3024bebbc62dd7ccb1e87688545e61d3ab4d9038e0ebaf729cd404.json",
+          "sha256": "01355fce0d3024bebbc62dd7ccb1e87688545e61d3ab4d9038e0ebaf729cd404"
+        }
+      }
+    ],
+    "instruction": "Derive a specialize workflow rule and safe repair strategy. Preserve requirements; do not invent execution-time bounds or increase a required frame period to silence a failure. Distinguish detecting/preventing wasted work from engineering acceptance.",
+    "golden_feedback_exported": false,
+    "causal_rule_benefit_established": false
+  },
+  "revision_of": "086a42eb7066daf9cfec2874f84e4a132f8644896b809ce811a7c554f97c08fd",
+  "development_feedback_id": "4fe9c1472b5c297f80c5cf90468367f486c17a688217f1dc8e68a87a716887a9",
+  "batch_index": 0,
+  "batch_count": 1,
+  "model_call_id": "4aaac6a8c8dc40720b129f8c75be06fed590c0c31331b39cf0ed70707054d95c",
+  "candidate_id": "d4db340b631cfe8203df30477602494ff3924cd2446a94e8f9e57e9d891da353",
+  "status": "DRAFT_PENDING_DEVELOPMENT_VALIDATION",
+  "scope": "Actual model proposal; no rule-transfer validation or publication claim",
+  "id": "be51f021ccfe8ca8f4a78380ee4c471f46903a5a97d8cbcf3c37f9c6402878e2",
+  "candidate": {
+    "record": {
+      "$schema": "",
+      "schema_version": "2.0",
+      "record_type": "rule",
+      "id": "HAMR-WORKFLOW-BUDGET-PRESERVATION-001",
+      "revision": "2",
+      "state": "DRAFT",
+      "basis": "model_inferred",
+      "assessment_timing": "after_feedback",
+      "source_references": [
+        "d7ef18732a5def5da9422e3e47db924dd4ae4c9b806fcc86f11c932b377db935",
+        "a33deee90ace3f3d5f0820134c9d390218f8c14afe532bc7e0a1517d771be0a6",
+        "bba000a374026151f89b3acecd5f8f150961837b43796d219e2dc67d3d9c3e03",
+        "c177ed187b8b41c52472e24e0c6873f05772ce9aa6900ac2eb489eb8a9de48b1",
+        "e763b2240289c591ae5daf0a235f56ed7fb077e51aa65680364fcc345fa0b3e9",
+        "11b3c44e17127dfdc60cbc5e5325a27389fab29099cc4992db33e68f3f0c566a",
+        "191226e608d63465d3770305ba5291814f6d5376a3432c3d622c8baed081bd82",
+        "2db9ad3103c434cffd3fd60f647f5d869f959694b554004393bc0f143ab4e8c9",
+        "5beb80134b4043b31fb6598b9446bcf6e72f353d6f0a243d1c85f900aa797c46",
+        "7ce175e06f24534d6521864c98ce5474379ecbffd01a9c3616f42fa289c699d4"
+      ],
+      "source_artifact_hashes": [
+        "43664d0fe5904aed949d4c12e824c905d7bc1b4e89efa0409038c1b6f52ff605",
+        "28fa110ebb235fac130e28f5528f856f60715e6723e3f419dab3ffb14f4ae59a",
+        "1fb7749a2f953b51a22cf06046e268226bc175cfac2afe03a0789670bdbac101",
+        "6c7f71ac8e5d307c175a84777f116f087dd6c0337461dec1a828b8041688b814",
+        "acfe64fe442ea41200e0bb9fd84ac94bc154694b4530e506bafc8bdac6734e4d",
+        "a50ed2317d56ffd2f0820ac4d8aa73422c94fc4d5ef2a0a67f2e5221299688f2",
+        "fc7e0edcb15bd461362b7ad9516ac33a6a17d865e33b207af7e488ae4eb789af",
+        "1fc97b21849f9e241c2d66a216166be83ec1180bb85dd066984f6a201e383fa0",
+        "1fad571f248ab53a590da6ed3a7c9ef58ac06312bc7ad396e8b91bb143c5ea8d",
+        "18244e35afe8416ec04098e75f0471a1b803dee1f9ffde0b06f67c813452842e"
+      ],
+      "source_episode": "4aaac6a8c8dc40720b129f8c75be06fed590c0c31331b39cf0ed70707054d95c",
+      "available_context_manifest": "ab25aae290f1bd3eb10a30ad68057a544ee3060ef5bda65acd714d2c34f86a48",
+      "model_configuration": "7e31988cc8d9b89ae79c126a58e57c1f5babd2bc70e3e301ffe8cee77e0969d1",
+      "prompt_version": "2",
+      "trigger": "Develop or repair a HAMR SysML system targeting Rust on Microkit, particularly after code generation reports that frame capacity is smaller than the used budget.",
+      "principle": "Carry one preserved obligation baseline through modeling, type checking, capacity screening, generation, implementation, proof, testing, integration and repair. A failed gate blocks acceptance of dependent artifacts. Classify and repair the owning artifact or environment without relaxing requirements. Capacity screening can prevent wasted generation work; it does not establish engineering acceptance.",
+      "semantic_choice": "Translate each conditional requirement into an implication over dispatch-frozen inputs and explicitly identified pre-state. Preserve any/all, conjunction/disjunction, exact comparison boundaries, initial behavior, hysteresis memory and failure latching. An output-dependent condition such as 'if no interface failure then copy alarm range' remains a guarantee implication, not an input precondition. Interpret the recorded frame-budget diagnostic as a capacity failure, not authorization to increase required timing or reduce unsupported budgets.",
+      "structural_placement": "The model owner maintains the flat System, single-Thread Process wrappers, typed interfaces, connections, dispatch attributes, GUMBO contracts and requirement traces. Each Thread owns its outputs and local state. HAMR owns generated bridges, APIs, GUMBOX functions, build infrastructure and managed marker regions. Developers own application bodies and tests outside managed regions. The schedule owner maintains justified allocations in the editable schedule. Proof and test owners assess matching model, generated-code and implementation revisions.",
+      "repair_gate": "Input: exact failing diagnostic, selected System, tool/library versions, source paths, generation configuration, schedule and model revisions, obligation baseline R, and artifact diff. Output: classified cause, supported repair and affected-gate rerun records, or an explicit blocker. For 'Frame period 120 is too small for the used budget 160', first locate the authoritative frame setting and determine its units and whether it is required; reconcile the tool's used-budget accounting with allocations and any included overhead. In the reported comparison the shortfall is 40, but its physical units and contributing terms are not supplied. Do not assume the budget is solely application execution time. Correct demonstrated accounting/configuration errors or justify real demand reductions using established timing support. Preserve required frame, periods, domains, interfaces, components and behavior. Do not fabricate execution bounds, lower allocations without support, weaken contracts, suppress cases, or patch generated infrastructure to obtain success. If no supported repair exists, retain the capacity failure and report unresolved feasibility. Restart at the earliest affected gate and repeat every invalidated downstream gate.",
+      "prerequisites": [
+        "A selected System, complete project and compatible HAMR/AADL library source paths, resolved data types and explicit Microkit/Rust generation configuration.",
+        "An authoritative obligation baseline distinguishing required frame/period values from adjustable configuration; schedule allocations, accounting terms and units must be available before claiming capacity feasibility.",
+        "Resolved temperature representation, units, admissible values and arithmetic semantics; Monitor imports its data definitions without supplying them.",
+        "Established initialization and update semantics for lastCmd and lastMonitorMode; their declarations alone do not establish previous-dispatch behavior.",
+        "Compatible Sireum installation and the documented CLI operations; an MCP wrapper requires separately established availability.",
+        "cargo and cargo-verus for their respective stages, required generated Rust targets including aarch64-unknown-none where requested, and MICROKIT_SDK/MICROKIT_BOARD for top-level builds.",
+        "Resolution or explicit tracking of incomplete semantics: Detect_Monitor_Failure_i has no GUMBO behavior, and a mode-case description mentions timeout without an encoded timer or timeout guard.",
+        "Actual stage artifacts and diagnostics are required to evaluate the proposed gates; no validation implementation is supplied here."
+      ],
+      "exclusions": [
+        "Do not infer diagnostic time units, budget composition, execution-time bounds or that Monitor caused the recorded failure.",
+        "Do not infer causality or benefit of the prior rule from this failure record.",
+        "Do not treat capacity feasibility, type checking, generation, component proof or tests as interchangeable evidence of whole-system acceptance.",
+        "Do not use unsupported Option/Some/None syntax in EventDataPort compute contracts.",
+        "Do not apply Microkit-specific structure or build requirements to other targets without separate support."
+      ],
+      "parameters": [
+        {
+          "name": "R",
+          "role": "Preserved obligation baseline",
+          "constraints": "Retain interfaces, components, connections, initialization, behavior, state, timing, trace identifiers and unresolved specification gaps across every repair."
+        },
+        {
+          "name": "F",
+          "role": "Configured frame capacity",
+          "constraints": "Locate authoritative configuration and units; preserve any required value. The recorded diagnostic reports 120 without physical units."
+        },
+        {
+          "name": "B",
+          "role": "Tool-accounted used scheduling budget",
+          "constraints": "Reconcile actual accounting with justified allocations; do not assume composition or invent smaller bounds. The recorded diagnostic reports 160."
+        }
+      ],
+      "dependencies": [],
+      "target_compatibility": [
+        "reviewed-learning-plan"
+      ],
+      "preserved_obligations": [
+        "G1 \u2014 Modeling. Input: requirements, source model, data definitions and R. Output: clause-to-owner trace, typed architecture, exact behavioral guards, state interpretation, timing baseline and unresolved gaps. Gate: preserve all source interfaces, names, directions, types, connections, periods and domains; each Microkit Process contains one Thread. Preserve the supplied flat topology. Do not invent timeout or failure-detector behavior.",
+        "G2 \u2014 Type checking. Input: edited model and complete compatible source paths. Output: HAMR type-check diagnostics. Gate: resolve errors before generation and repeat after every model edit. Use the documented hamr sysml tipe operation. Missing core types require sourcepath investigation; unsupported constructs within bundled AADL libraries require version alignment rather than arbitrary model changes.",
+        "G3 \u2014 Capacity screening. Input: authoritative frame/period constraints, configuration, schedule and justified budget accounting. Output: reconciled B and F or an explicit missing-information blocker. Gate: establish consistent units and B <= F while preserving R. The recorded B=160, F=120 comparison fails this necessary condition. Early screening remains provisional until checked against generator accounting and never establishes schedulability.",
+        "G4 \u2014 Generation. Input: type-checked model, selected System, configuration and capacity review. Output: Microkit infrastructure, Rust skeletons, generated contracts/APIs/test infrastructure and diagnostics. Gate: use the documented hamr sysml codegen operation; nonzero status blocks treating partial output as accepted. Diagnostic generation may use an isolated temporary output directory while accounting is investigated. Review regeneration diffs and ownership markers before adopting artifacts.",
+        "G5 \u2014 Implementation. Input: generated signatures/contracts and R. Output: Rust application bodies inside verus! blocks and developer-owned regions. Gate: initialize every output DataPort without input reads, initialize local state, compute using frozen inputs and generated get_/put_ APIs, and preserve read-compute-write semantics. Establish and maintain prior-dispatch meanings for lastCmd and lastMonitorMode; compute with old state before committing next state.",
+        "G6 \u2014 Proof. Input: model contracts, generated Verus contracts, implementation and declared assumptions. Output: Logika and Verus diagnostics with obligation scope and trusted boundaries. Gate: check relevant model integration constraints and assumption satisfiability, then implementation conformance through the documented verification facilities. Input integration assumptions constrain get_ results; output integration guarantees constrain put_ callers. Model checks do not replace Rust proof. Do not hide core control logic behind external_body to silence failures; identify every genuinely trusted helper.",
+        "G7 \u2014 Testing. Input: generated infrastructure, requirement-derived expectations, implementation and explicit state setup. Output: serial manual assertions, GUMBOX cases, state-aware cases, PropTest results and retained counterexamples. Gate: enforce serial isolation for all tests. Exercise initialization, valid/invalid statuses, every mode, exact alarm/hysteresis/reset boundaries and neighboring representable values, both previous commands, multi-dispatch state evolution and relevant type extremes. Use testComputeCBwGSV for contract state. Keep rejected preconditions distinct from passing behavior; inspect valid-case coverage and rejection rates. Use generated strategies through editable tests rather than patching generated harnesses.",
+        "G8 \u2014 Integration. Input: consistent artifact revisions, generated build files, proof/test records, connections and justified schedule. Output: build diagnostics and a scoped obligation-coverage report. Gate: independently resolve timing, scheduling order and integration obligations. Preserve connection-driven composition. Unsupported failure-detection and timeout behavior remains incomplete; successful component checks or generation cannot discharge it.",
+        "G9 \u2014 Repair. Input: failed gate, reproducible diagnostics and R. Output: an ownership-correct repair, retained regression case and affected-gate rerun records, or unresolved blocker. Gate: preserve every obligation, distinguish environment errors from semantic defects, and repeat all checks invalidated by the repair. A capacity-only repair leaves proof, testing, timing and integration acceptance outstanding."
+      ],
+      "counterexample": {
+        "scenario": "The generator reports 'Frame period 120 is too small for the used budget 160', and the task requires frame 120. A proposed repair changes the frame to 160, or reduces declared budgets to total 120 without timing support.",
+        "expected_difference": "Reject both repairs even if they remove the diagnostic. Preserve required frame 120 and require a demonstrated accounting correction or justified actual-demand reduction; otherwise retain unresolved feasibility. Conversely, correcting a proven configuration transcription error to an already required value is eligible for review and reruns. Passing B <= F still leaves every other applicable gate outstanding.",
+        "source_or_test_reference": null
+      },
+      "validation_gate_ids": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8",
+        "G9"
+      ],
+      "evidence_references": [],
+      "confidence_forecast_reference": "41b257cec6af4cfe25e9ceb72cd5a7f2530b50f9360223bb6bbd12c92dda3a64",
+      "approval_reference": null,
+      "notes": "Observed facts: the supplied development feedback records a nonzero hamr_codegen result with empty stdout and stderr stating 'Frame period 120 is too small for the used budget 160'. It supplies no physical units, budget decomposition, repaired run, validation implementation or causal benefit evidence. The Monitor passage supplies contracts and architecture, not a demonstrated implementation. Proposed obligations: G1\u2013G9 and the capacity-repair discipline are inferred workflow requirements. Revision 2 specializes the prior rule by making diagnostic accounting, required-versus-adjustable configuration, partial-output quarantine and rerun scope explicit while retaining its behavioral, proof, testing and integration obligations. Gate IDs identify proposed gates, not executed validators. Source references and hashes are left for the trusted controller. No validation, test success or approval is asserted.",
+      "source_english_patterns": [
+        "If mode NORMAL and current temperature is below alarm range then alarm control is On",
+        "If mode NORMAL and current temperature is inside the lower hysteresis band then hold alarm control",
+        "If mode is FAILED then mode remains FAILED until reboot",
+        "If no interface failure then copy alarm range",
+        "Frame period 120 is too small for the used budget 160"
+      ],
+      "positive_paraphrases": [
+        "Retain the previous command while temperature lies in either hysteresis band.",
+        "Carry the same requirements through model checks, generation, implementation, proof and tests.",
+        "Resolve frame-capacity failure using supported accounting or demand changes while preserving required timing."
+      ],
+      "misleading_near_matches": [
+        "Turn the alarm off whenever temperature is inside the alarm range.",
+        "Declaring lastCmd automatically records the last command.",
+        "Mentioning timeout in a case description supplies timeout behavior.",
+        "Increase the frame or shrink declared budgets until generation succeeds.",
+        "Successful generation establishes system correctness."
+      ],
+      "supported_operations": [
+        "continue-project",
+        "complete-system",
+        "extend-system",
+        "repair-system",
+        "verify-only",
+        "create-system"
+      ],
+      "stack_layers": [
+        "language",
+        "architecture",
+        "gumbo",
+        "implementation",
+        "proof",
+        "testing",
+        "deployment",
+        "repair"
+      ],
+      "semantic_roles": {
+        "actor": "Leaf Thread owns outputs and state; model, generator, application, schedule, proof and test owners maintain their corresponding artifacts.",
+        "condition": "Mode, validity, numeric comparisons and pre-state enable behavioral implications; reconciled frame and budget accounting determine capacity feasibility.",
+        "effect": "Produce the required output and justified next state, or retain an explicit failed or unresolved workflow gate.",
+        "modality": "Mandatory preservation obligations proposed for this DRAFT rule; source facts and inferred completeness requirements remain distinct.",
+        "quantification": "Every enabled case on every admitted dispatch, every output DataPort during initialization, and every affected artifact through all invalidated gates.",
+        "temporal_scope": "Initialize once without input reads; compute on a frozen snapshot per dispatch. Hysteresis uses prior command and FAILED remains latched until reboot. Timeout semantics remain unresolved.",
+        "state_dependency": "Establish initial and next-state relations for lastCmd and lastMonitorMode; declarations and output-only initialization guarantees do not establish those relations.",
+        "units_and_boundaries": "Preserve the supplied 1000 [ms] periods and domains 7\u201310. Preserve strict outside-range comparisons, inclusive outer hysteresis boundaries and inclusive reset boundaries. Resolve the meaning and safe arithmetic of 1 [s32] against temperature types. Budget/frame physical units are unspecified and require reconciliation."
+      },
+      "formal_output_pattern": "ABSTRACT, not executable syntax. Let x_k be dispatch-frozen inputs, s_k pre-state, o_k outputs and s_(k+1) next state. Init(s_0,o_0) AND forall k: A(x_k,s_k) => AND_i(C_i(x_k,s_k,o_k) => E_i(x_k,s_k,o_k,s_(k+1))). Case guards are not blanket environmental assumptions. Alarm specialization: initially o=Off; INIT => o=Off; FAILED => o=Onn; NORMAL AND (T<L OR T>U) => o=Onn; NORMAL AND ((L<=T AND T<L+1) OR (U-1<T AND T<=U)) => o=lastCmd_pre; NORMAL AND L+1<=T AND T<=U-1 => o=Off. Proposed memory completion, subject to establishing intended semantics: lastCmd_0=Off and lastCmd_(k+1)=o_k. Mode specialization: initially mode=Init; let healthy = !interface_failure.flag AND !internal_failure.flag AND current_tempWstatus.status=Valid. Init_pre AND healthy => mode=Normal; Init_pre AND (interface_failure.flag OR internal_failure.flag OR status=Invalid) => mode=Init; Normal_pre AND healthy => mode=Normal; Normal_pre AND (interface_failure.flag OR internal_failure.flag OR status=Invalid) => mode=Failed; Failed_pre => mode=Failed. Proposed mode memory completion: lastMonitorMode_0=Init and lastMonitorMode_(k+1)=mode_k. Interface specialization: Init/Normal/Failed mode => Init/On/Failed status respectively; either alarm status Invalid => interface_failure.flag; both Valid => !interface_failure.flag; !interface_failure.flag => both output alarm degrees equal corresponding input degrees. Preserve all simultaneously enabled implications; check overlap, coverage, admissible ranges and arithmetic rather than silently introducing branch priority or stronger assumptions. Capacity screening: compatible_units(B,F) AND justified_accounting(B) AND B<=F. Acceptance obligation: every applicable G1\u2013G9 discharged against the same preserved R and consistent revisions; capacity feasibility alone does not imply acceptance.",
+      "formal_pattern_status": "ABSTRACT_NOT_VALIDATED",
+      "allowed_edit_scope": [
+        "Project model behavior and configuration consistent with R and every source interface.",
+        "Developer-owned Rust application and test regions outside HAMR-managed markers.",
+        "Editable schedule allocations supported by timing justification and preserved required constraints.",
+        "Environment, sourcepath and version configuration when diagnostics establish that ownership.",
+        "Generated artifacts through regeneration or explicitly designated preserved-content regions only."
+      ],
+      "required_baseline": [
+        "All source components, interfaces, names, types, directions, connections, dispatch protocols, periods and domains.",
+        "Requirement-to-contract trace, exact guards and boundaries, initialization and state semantics.",
+        "Selected System, model/configuration revisions, tool/library versions and ownership markers.",
+        "Required frame/period constraints, justified budgets, units, accounting sources and recorded failures.",
+        "Proof scope, assumptions, trusted helpers, test coverage and unresolved semantic gaps."
+      ],
+      "diagnostic_signature": null,
+      "related_rule_ids": []
+    },
+    "status": "DRAFT_PENDING_VALIDATION",
+    "id": "d4db340b631cfe8203df30477602494ff3924cd2446a94e8f9e57e9d891da353"
+  },
+  "model_result": {
+    "usage": {
+      "input_tokens": 43511,
+      "output_tokens": 3780,
+      "cached_input_tokens": 0
+    },
+    "usage_complete": true,
+    "status": "RESPONSE_RECEIVED",
+    "response": {
+      "rule": {
+        "$schema": "",
+        "schema_version": "2.0",
+        "record_type": "rule",
+        "id": "HAMR-WORKFLOW-BUDGET-PRESERVATION-001",
+        "revision": "2",
+        "state": "DRAFT",
+        "basis": "model_inferred",
+        "assessment_timing": "after_feedback",
+        "source_references": [],
+        "source_artifact_hashes": [],
+        "source_episode": null,
+        "available_context_manifest": null,
+        "model_configuration": null,
+        "prompt_version": "2",
+        "trigger": "Develop or repair a HAMR SysML system targeting Rust on Microkit, particularly after code generation reports that frame capacity is smaller than the used budget.",
+        "principle": "Carry one preserved obligation baseline through modeling, type checking, capacity screening, generation, implementation, proof, testing, integration and repair. A failed gate blocks acceptance of dependent artifacts. Classify and repair the owning artifact or environment without relaxing requirements. Capacity screening can prevent wasted generation work; it does not establish engineering acceptance.",
+        "semantic_choice": "Translate each conditional requirement into an implication over dispatch-frozen inputs and explicitly identified pre-state. Preserve any/all, conjunction/disjunction, exact comparison boundaries, initial behavior, hysteresis memory and failure latching. An output-dependent condition such as 'if no interface failure then copy alarm range' remains a guarantee implication, not an input precondition. Interpret the recorded frame-budget diagnostic as a capacity failure, not authorization to increase required timing or reduce unsupported budgets.",
+        "structural_placement": "The model owner maintains the flat System, single-Thread Process wrappers, typed interfaces, connections, dispatch attributes, GUMBO contracts and requirement traces. Each Thread owns its outputs and local state. HAMR owns generated bridges, APIs, GUMBOX functions, build infrastructure and managed marker regions. Developers own application bodies and tests outside managed regions. The schedule owner maintains justified allocations in the editable schedule. Proof and test owners assess matching model, generated-code and implementation revisions.",
+        "repair_gate": "Input: exact failing diagnostic, selected System, tool/library versions, source paths, generation configuration, schedule and model revisions, obligation baseline R, and artifact diff. Output: classified cause, supported repair and affected-gate rerun records, or an explicit blocker. For 'Frame period 120 is too small for the used budget 160', first locate the authoritative frame setting and determine its units and whether it is required; reconcile the tool's used-budget accounting with allocations and any included overhead. In the reported comparison the shortfall is 40, but its physical units and contributing terms are not supplied. Do not assume the budget is solely application execution time. Correct demonstrated accounting/configuration errors or justify real demand reductions using established timing support. Preserve required frame, periods, domains, interfaces, components and behavior. Do not fabricate execution bounds, lower allocations without support, weaken contracts, suppress cases, or patch generated infrastructure to obtain success. If no supported repair exists, retain the capacity failure and report unresolved feasibility. Restart at the earliest affected gate and repeat every invalidated downstream gate.",
+        "prerequisites": [
+          "A selected System, complete project and compatible HAMR/AADL library source paths, resolved data types and explicit Microkit/Rust generation configuration.",
+          "An authoritative obligation baseline distinguishing required frame/period values from adjustable configuration; schedule allocations, accounting terms and units must be available before claiming capacity feasibility.",
+          "Resolved temperature representation, units, admissible values and arithmetic semantics; Monitor imports its data definitions without supplying them.",
+          "Established initialization and update semantics for lastCmd and lastMonitorMode; their declarations alone do not establish previous-dispatch behavior.",
+          "Compatible Sireum installation and the documented CLI operations; an MCP wrapper requires separately established availability.",
+          "cargo and cargo-verus for their respective stages, required generated Rust targets including aarch64-unknown-none where requested, and MICROKIT_SDK/MICROKIT_BOARD for top-level builds.",
+          "Resolution or explicit tracking of incomplete semantics: Detect_Monitor_Failure_i has no GUMBO behavior, and a mode-case description mentions timeout without an encoded timer or timeout guard.",
+          "Actual stage artifacts and diagnostics are required to evaluate the proposed gates; no validation implementation is supplied here."
+        ],
+        "exclusions": [
+          "Do not infer diagnostic time units, budget composition, execution-time bounds or that Monitor caused the recorded failure.",
+          "Do not infer causality or benefit of the prior rule from this failure record.",
+          "Do not treat capacity feasibility, type checking, generation, component proof or tests as interchangeable evidence of whole-system acceptance.",
+          "Do not use unsupported Option/Some/None syntax in EventDataPort compute contracts.",
+          "Do not apply Microkit-specific structure or build requirements to other targets without separate support."
+        ],
+        "parameters": [
+          {
+            "name": "R",
+            "role": "Preserved obligation baseline",
+            "constraints": "Retain interfaces, components, connections, initialization, behavior, state, timing, trace identifiers and unresolved specification gaps across every repair."
+          },
+          {
+            "name": "F",
+            "role": "Configured frame capacity",
+            "constraints": "Locate authoritative configuration and units; preserve any required value. The recorded diagnostic reports 120 without physical units."
+          },
+          {
+            "name": "B",
+            "role": "Tool-accounted used scheduling budget",
+            "constraints": "Reconcile actual accounting with justified allocations; do not assume composition or invent smaller bounds. The recorded diagnostic reports 160."
+          }
+        ],
+        "dependencies": [],
+        "target_compatibility": [
+          "reviewed-learning-plan"
+        ],
+        "preserved_obligations": [
+          "G1 \u2014 Modeling. Input: requirements, source model, data definitions and R. Output: clause-to-owner trace, typed architecture, exact behavioral guards, state interpretation, timing baseline and unresolved gaps. Gate: preserve all source interfaces, names, directions, types, connections, periods and domains; each Microkit Process contains one Thread. Preserve the supplied flat topology. Do not invent timeout or failure-detector behavior.",
+          "G2 \u2014 Type checking. Input: edited model and complete compatible source paths. Output: HAMR type-check diagnostics. Gate: resolve errors before generation and repeat after every model edit. Use the documented hamr sysml tipe operation. Missing core types require sourcepath investigation; unsupported constructs within bundled AADL libraries require version alignment rather than arbitrary model changes.",
+          "G3 \u2014 Capacity screening. Input: authoritative frame/period constraints, configuration, schedule and justified budget accounting. Output: reconciled B and F or an explicit missing-information blocker. Gate: establish consistent units and B <= F while preserving R. The recorded B=160, F=120 comparison fails this necessary condition. Early screening remains provisional until checked against generator accounting and never establishes schedulability.",
+          "G4 \u2014 Generation. Input: type-checked model, selected System, configuration and capacity review. Output: Microkit infrastructure, Rust skeletons, generated contracts/APIs/test infrastructure and diagnostics. Gate: use the documented hamr sysml codegen operation; nonzero status blocks treating partial output as accepted. Diagnostic generation may use an isolated temporary output directory while accounting is investigated. Review regeneration diffs and ownership markers before adopting artifacts.",
+          "G5 \u2014 Implementation. Input: generated signatures/contracts and R. Output: Rust application bodies inside verus! blocks and developer-owned regions. Gate: initialize every output DataPort without input reads, initialize local state, compute using frozen inputs and generated get_/put_ APIs, and preserve read-compute-write semantics. Establish and maintain prior-dispatch meanings for lastCmd and lastMonitorMode; compute with old state before committing next state.",
+          "G6 \u2014 Proof. Input: model contracts, generated Verus contracts, implementation and declared assumptions. Output: Logika and Verus diagnostics with obligation scope and trusted boundaries. Gate: check relevant model integration constraints and assumption satisfiability, then implementation conformance through the documented verification facilities. Input integration assumptions constrain get_ results; output integration guarantees constrain put_ callers. Model checks do not replace Rust proof. Do not hide core control logic behind external_body to silence failures; identify every genuinely trusted helper.",
+          "G7 \u2014 Testing. Input: generated infrastructure, requirement-derived expectations, implementation and explicit state setup. Output: serial manual assertions, GUMBOX cases, state-aware cases, PropTest results and retained counterexamples. Gate: enforce serial isolation for all tests. Exercise initialization, valid/invalid statuses, every mode, exact alarm/hysteresis/reset boundaries and neighboring representable values, both previous commands, multi-dispatch state evolution and relevant type extremes. Use testComputeCBwGSV for contract state. Keep rejected preconditions distinct from passing behavior; inspect valid-case coverage and rejection rates. Use generated strategies through editable tests rather than patching generated harnesses.",
+          "G8 \u2014 Integration. Input: consistent artifact revisions, generated build files, proof/test records, connections and justified schedule. Output: build diagnostics and a scoped obligation-coverage report. Gate: independently resolve timing, scheduling order and integration obligations. Preserve connection-driven composition. Unsupported failure-detection and timeout behavior remains incomplete; successful component checks or generation cannot discharge it.",
+          "G9 \u2014 Repair. Input: failed gate, reproducible diagnostics and R. Output: an ownership-correct repair, retained regression case and affected-gate rerun records, or unresolved blocker. Gate: preserve every obligation, distinguish environment errors from semantic defects, and repeat all checks invalidated by the repair. A capacity-only repair leaves proof, testing, timing and integration acceptance outstanding."
+        ],
+        "counterexample": {
+          "scenario": "The generator reports 'Frame period 120 is too small for the used budget 160', and the task requires frame 120. A proposed repair changes the frame to 160, or reduces declared budgets to total 120 without timing support.",
+          "expected_difference": "Reject both repairs even if they remove the diagnostic. Preserve required frame 120 and require a demonstrated accounting correction or justified actual-demand reduction; otherwise retain unresolved feasibility. Conversely, correcting a proven configuration transcription error to an already required value is eligible for review and reruns. Passing B <= F still leaves every other applicable gate outstanding.",
+          "source_or_test_reference": null
+        },
+        "validation_gate_ids": [
+          "G1",
+          "G2",
+          "G3",
+          "G4",
+          "G5",
+          "G6",
+          "G7",
+          "G8",
+          "G9"
+        ],
+        "evidence_references": [],
+        "confidence_forecast_reference": null,
+        "approval_reference": null,
+        "notes": "Observed facts: the supplied development feedback records a nonzero hamr_codegen result with empty stdout and stderr stating 'Frame period 120 is too small for the used budget 160'. It supplies no physical units, budget decomposition, repaired run, validation implementation or causal benefit evidence. The Monitor passage supplies contracts and architecture, not a demonstrated implementation. Proposed obligations: G1\u2013G9 and the capacity-repair discipline are inferred workflow requirements. Revision 2 specializes the prior rule by making diagnostic accounting, required-versus-adjustable configuration, partial-output quarantine and rerun scope explicit while retaining its behavioral, proof, testing and integration obligations. Gate IDs identify proposed gates, not executed validators. Source references and hashes are left for the trusted controller. No validation, test success or approval is asserted.",
+        "source_english_patterns": [
+          "If mode NORMAL and current temperature is below alarm range then alarm control is On",
+          "If mode NORMAL and current temperature is inside the lower hysteresis band then hold alarm control",
+          "If mode is FAILED then mode remains FAILED until reboot",
+          "If no interface failure then copy alarm range",
+          "Frame period 120 is too small for the used budget 160"
+        ],
+        "positive_paraphrases": [
+          "Retain the previous command while temperature lies in either hysteresis band.",
+          "Carry the same requirements through model checks, generation, implementation, proof and tests.",
+          "Resolve frame-capacity failure using supported accounting or demand changes while preserving required timing."
+        ],
+        "misleading_near_matches": [
+          "Turn the alarm off whenever temperature is inside the alarm range.",
+          "Declaring lastCmd automatically records the last command.",
+          "Mentioning timeout in a case description supplies timeout behavior.",
+          "Increase the frame or shrink declared budgets until generation succeeds.",
+          "Successful generation establishes system correctness."
+        ],
+        "supported_operations": [
+          "continue-project",
+          "complete-system",
+          "extend-system",
+          "repair-system",
+          "verify-only",
+          "create-system"
+        ],
+        "stack_layers": [
+          "language",
+          "architecture",
+          "gumbo",
+          "implementation",
+          "proof",
+          "testing",
+          "deployment",
+          "repair"
+        ],
+        "semantic_roles": {
+          "actor": "Leaf Thread owns outputs and state; model, generator, application, schedule, proof and test owners maintain their corresponding artifacts.",
+          "condition": "Mode, validity, numeric comparisons and pre-state enable behavioral implications; reconciled frame and budget accounting determine capacity feasibility.",
+          "effect": "Produce the required output and justified next state, or retain an explicit failed or unresolved workflow gate.",
+          "modality": "Mandatory preservation obligations proposed for this DRAFT rule; source facts and inferred completeness requirements remain distinct.",
+          "quantification": "Every enabled case on every admitted dispatch, every output DataPort during initialization, and every affected artifact through all invalidated gates.",
+          "temporal_scope": "Initialize once without input reads; compute on a frozen snapshot per dispatch. Hysteresis uses prior command and FAILED remains latched until reboot. Timeout semantics remain unresolved.",
+          "state_dependency": "Establish initial and next-state relations for lastCmd and lastMonitorMode; declarations and output-only initialization guarantees do not establish those relations.",
+          "units_and_boundaries": "Preserve the supplied 1000 [ms] periods and domains 7\u201310. Preserve strict outside-range comparisons, inclusive outer hysteresis boundaries and inclusive reset boundaries. Resolve the meaning and safe arithmetic of 1 [s32] against temperature types. Budget/frame physical units are unspecified and require reconciliation."
+        },
+        "formal_output_pattern": "ABSTRACT, not executable syntax. Let x_k be dispatch-frozen inputs, s_k pre-state, o_k outputs and s_(k+1) next state. Init(s_0,o_0) AND forall k: A(x_k,s_k) => AND_i(C_i(x_k,s_k,o_k) => E_i(x_k,s_k,o_k,s_(k+1))). Case guards are not blanket environmental assumptions. Alarm specialization: initially o=Off; INIT => o=Off; FAILED => o=Onn; NORMAL AND (T<L OR T>U) => o=Onn; NORMAL AND ((L<=T AND T<L+1) OR (U-1<T AND T<=U)) => o=lastCmd_pre; NORMAL AND L+1<=T AND T<=U-1 => o=Off. Proposed memory completion, subject to establishing intended semantics: lastCmd_0=Off and lastCmd_(k+1)=o_k. Mode specialization: initially mode=Init; let healthy = !interface_failure.flag AND !internal_failure.flag AND current_tempWstatus.status=Valid. Init_pre AND healthy => mode=Normal; Init_pre AND (interface_failure.flag OR internal_failure.flag OR status=Invalid) => mode=Init; Normal_pre AND healthy => mode=Normal; Normal_pre AND (interface_failure.flag OR internal_failure.flag OR status=Invalid) => mode=Failed; Failed_pre => mode=Failed. Proposed mode memory completion: lastMonitorMode_0=Init and lastMonitorMode_(k+1)=mode_k. Interface specialization: Init/Normal/Failed mode => Init/On/Failed status respectively; either alarm status Invalid => interface_failure.flag; both Valid => !interface_failure.flag; !interface_failure.flag => both output alarm degrees equal corresponding input degrees. Preserve all simultaneously enabled implications; check overlap, coverage, admissible ranges and arithmetic rather than silently introducing branch priority or stronger assumptions. Capacity screening: compatible_units(B,F) AND justified_accounting(B) AND B<=F. Acceptance obligation: every applicable G1\u2013G9 discharged against the same preserved R and consistent revisions; capacity feasibility alone does not imply acceptance.",
+        "formal_pattern_status": "ABSTRACT_NOT_VALIDATED",
+        "allowed_edit_scope": [
+          "Project model behavior and configuration consistent with R and every source interface.",
+          "Developer-owned Rust application and test regions outside HAMR-managed markers.",
+          "Editable schedule allocations supported by timing justification and preserved required constraints.",
+          "Environment, sourcepath and version configuration when diagnostics establish that ownership.",
+          "Generated artifacts through regeneration or explicitly designated preserved-content regions only."
+        ],
+        "required_baseline": [
+          "All source components, interfaces, names, types, directions, connections, dispatch protocols, periods and domains.",
+          "Requirement-to-contract trace, exact guards and boundaries, initialization and state semantics.",
+          "Selected System, model/configuration revisions, tool/library versions and ownership markers.",
+          "Required frame/period constraints, justified budgets, units, accounting sources and recorded failures.",
+          "Proof scope, assumptions, trusted helpers, test coverage and unresolved semantic gaps."
+        ],
+        "diagnostic_signature": null,
+        "related_rule_ids": []
+      },
+      "confidence": {
+        "score": null,
+        "rationale": "For the exact post-feedback question about preserving obligations on the next declared development task, I cannot assign a task-specific model-belief score because no next task is declared. The revision explicitly retains the prior obligations and addresses the recorded capacity diagnostic, but no validation implementation or repaired-run feedback is supplied. This is neither an empirical probability nor an unseen final-transfer forecast."
+      }
+    },
+    "warnings": [
+      "Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."
+    ],
+    "reason": null,
+    "scope": "Metered response only; no truth, validation or acceptance claim"
+  },
+  "learned_book": {
+    "snapshot_id": "ea9c678ececcd5975b31c9342f181117b9a22c81989db32174e9914a48cbf926",
+    "directory": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/app/learned-rulebooks/ea9c678ececcd5975b31c9342f181117b9a22c81989db32174e9914a48cbf926",
+    "candidate_count": 19,
+    "state": "DRAFT_NOT_PUBLISHED",
+    "files": [
+      "rulebook.json",
+      "RULEBOOK.md"
+    ],
+    "content_hashes": {
+      "rulebook.json": "2840c615e08d4656c4dd71fcff0227955cf8cdb39af3fa3de1c14809160adea0",
+      "RULEBOOK.md": "56e322f7a9bb4b7912789583249c0fc6803f3333f007ed6f7a95b063eca6c588"
+    },
+    "id": "152a1b318288c4eb4173dce78486b92440ecf3e0581e72917385cae2ddf8e287"
+  },
+  "experiment_measurement": {
+    "elapsed_seconds": 121.09114523101016,
+    "measured_tokens": 47291,
+    "estimated_debit_tokens": 0,
+    "scope": "Workflow-learning call only; not accepted-system cost"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "status": "BLOCKED_REQUIRES_TIMING_EVIDENCE",
+  "attempt_run_id": "fef957f9e29e4747be55b4d360c2197d",
+  "requirements_task_id": "6bad011c3f40d97e05b3a0813d7e859291286e7a728879e310301f201f7a2bb9",
+  "requirement": "Main_Processor Frame_Period 120 ms; Clock_Period 2 ms; preserve both periodic Rust threads",
+  "tool_source": {
+    "path": "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/hamr/codegen/shared/src/main/scala/org/sireum/hamr/codegen/microkit/plugins/c/components/CComponentPlugin_DomainScheduler.scala",
+    "sha256": "a25be570c271d8a0c0b74b7f735b8074121cbacc324abc12edbe52db57ff8272",
+    "relevant_lines": [
+      29,
+      30,
+      158,
+      512,
+      519,
+      531
+    ]
+  },
+  "observed_diagnostic": "Frame period 120 is too small for the used budget 160",
+  "source_accounting": {
+    "thread_count": 2,
+    "default_thread_budget": 50,
+    "pacer_per_slot": 30,
+    "slots": 2,
+    "total": 160,
+    "scope": "Generator accounting constants; not measured execution-time bounds"
+  },
+  "learned_candidate_ids": [
+    "086a42eb7066daf9cfec2874f84e4a132f8644896b809ce811a7c554f97c08fd",
+    "d4db340b631cfe8203df30477602494ff3924cd2446a94e8f9e57e9d891da353"
+  ],
+  "preserved": {
+    "original_models_edited": false,
+    "required_frame_increased": false,
+    "execution_bounds_invented": false
+  },
+  "next_engineering_step": "Establish justified per-thread execution budgets and reconcile the schedule under the preserved 120 ms frame; if infeasible, present a requirements change for review. Rerun parser, Microkit generator, build, proof and independent tests after an approved supported repair.",
+  "whole_system_acceptance": false,
+  "cost_improvement_established": false
+}

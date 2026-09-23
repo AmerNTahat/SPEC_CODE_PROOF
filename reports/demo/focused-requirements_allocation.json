@@ -1,0 +1,383 @@
+{
+  "plan_id": "2849a2cebf7258e1bf081dba484e97177979ec9cff7fb352f75b6c4dc8c77977",
+  "manifest_id": "ac23597560ab51561cc29f6e365245909cf99797d6980b4b1827763aa2c85c13",
+  "focus": "requirements_allocation",
+  "revision_of": null,
+  "development_feedback_id": null,
+  "batch_index": 0,
+  "batch_count": 12,
+  "model_call_id": "bc23c44977d1773de7eec040769486e267c13232d108e36ffc822f1bb6398c7c",
+  "candidate_id": "aef1109ba392d5ec716654a3776df0fc73716b26722be3d6574247fe33b6cb55",
+  "status": "DRAFT_PENDING_DEVELOPMENT_VALIDATION",
+  "scope": "Actual model proposal; no rule-transfer validation or publication claim",
+  "id": "7c041eb119f572bf58e0d17abfc58669cf0355ca1e4ff8d808c5dbfbaac44ee0",
+  "candidate": {
+    "record": {
+      "$schema": "",
+      "schema_version": "2.0",
+      "record_type": "rule",
+      "id": "REQ-ALLOC-001",
+      "revision": "1",
+      "state": "DRAFT",
+      "basis": "model_inferred",
+      "assessment_timing": "before_action",
+      "source_references": [
+        "d7ef18732a5def5da9422e3e47db924dd4ae4c9b806fcc86f11c932b377db935",
+        "8539757b211ec65ebcf5df73b8125fe82011a6066fd3bcba864328af992b4bf1"
+      ],
+      "source_artifact_hashes": [
+        "43664d0fe5904aed949d4c12e824c905d7bc1b4e89efa0409038c1b6f52ff605",
+        "b4949561cb04d46f718a16e2cc1486c0bd5a26c15778e3567c464466c24731df"
+      ],
+      "source_episode": "bc23c44977d1773de7eec040769486e267c13232d108e36ffc822f1bb6398c7c",
+      "available_context_manifest": "ac23597560ab51561cc29f6e365245909cf99797d6980b4b1827763aa2c85c13",
+      "model_configuration": "7e31988cc8d9b89ae79c126a58e57c1f5babd2bc70e3e301ffe8cee77e0969d1",
+      "prompt_version": "requirements_allocation-v1",
+      "trigger": "An English system requirement assigns a controlled value or transition under conditions that span existing component inputs, outputs, or persistent state.",
+      "principle": "Allocate each required effect to the component that owns its output or state, preserve its complete English condition and temporal meaning, and trace every cross-component assumption to a connected producer guarantee or an explicit environmental assumption. Compose these local obligations into the parent requirement without changing existing interfaces.",
+      "semantic_choice": "Interpret 'if' as implication, not equivalence; preserve 'any' as disjunction and 'both' as conjunction. Distinguish an input case guard from an environmental restriction: a case that assumes Valid does not authorize excluding Invalid behavior elsewhere. Treat output-dependent conditions as implications within guarantees. Interpret 'hold', 'next', 'initially', 'before timeout', and 'until reboot' using explicit state and time semantics rather than as interchangeable current-value predicates.",
+      "structural_placement": "Place behavioral contracts at the thread owning the controlled output, retain process and system ports and forwarding connections, and record allocation and composition links at their boundaries. In the supplied Monitor, Manage_Monitor_Interface_i owns monitor_status, interface_failure, and copied alarm limits; Manage_Monitor_Mode_i owns monitor_mode; Manage_Alarm_i owns alarm_control; Detect_Monitor_Failure_i owns internal_failure. Trace through the process wrappers as well as the system connections.",
+      "repair_gate": "Before accepting any proposed repair, compare the original English obligations, contracts, interfaces, and trace links with the proposed result. Resolve missing ownership, ungrounded assumptions, state initialization/update gaps, temporal omissions, and incompatible guarantees at their responsible component. Preserve invalid-input, failed-mode, hysteresis, and initialization obligations. Do not delete cases, strengthen environmental assumptions, narrow guards, or alter interfaces merely to make a proof or test pass. Unresolved semantics remain explicit blockers to claiming preservation.",
+      "prerequisites": [
+        "The parent requirements, component boundaries, output ownership, port directions, types, and complete connection paths are available for the scoped allocation.",
+        "Referenced data-model definitions establish enum values, numeric ranges, precision, units, arithmetic behavior, and status meanings; the excerpt alone does not establish these definitions.",
+        "Each environmental assumption has a stated scope and rationale, and each internal consumer assumption has an identified producer obligation or remains explicitly unresolved.",
+        "Dispatch, input sampling, communication delay, initialization, reboot, and persistent-state semantics are defined before making temporal composition claims.",
+        "Any timeout threshold and clock semantics needed by the allocated requirement are supplied; a 1000 ms period alone does not define a timeout.",
+        "Implementation, proof, and testing environments must support the selected contract and state semantics before the proposed verification obligations can be discharged.",
+        "Allocation is limited to supplied component roles; missing internal failure detection mechanisms cannot be invented from the output-only detector interface."
+      ],
+      "exclusions": [
+        "Inferring global input validity from a conditional compute-case assumption.",
+        "Inferring an end-to-end latency bound from equal component periods.",
+        "Treating declared previous-state variables as evidence that initialization and updates are implemented.",
+        "Treating a source comment, requirement identifier, or applied-rule label as proof of satisfaction.",
+        "Adding ports, changing port types or directions, or rewiring existing connections under this rule."
+      ],
+      "parameters": [
+        {
+          "name": "R",
+          "role": "Parent English requirement and stable trace identity",
+          "constraints": "Retain the original condition, effect, modality, quantification, temporal qualifiers, and source locator."
+        },
+        {
+          "name": "C",
+          "role": "Component owning the required output or transition",
+          "constraints": "Must be an existing owner with access to the necessary inputs or explicitly defined local state."
+        },
+        {
+          "name": "A",
+          "role": "Environmental and incoming-interface assumptions",
+          "constraints": "Separate applicability guards from admissibility restrictions; identify provenance and discharge obligations."
+        },
+        {
+          "name": "G",
+          "role": "Local guarantees and state relations",
+          "constraints": "Preserve boundary comparisons, initialization, exceptional behavior, and temporal meaning."
+        },
+        {
+          "name": "W",
+          "role": "Existing connection and sampling relations",
+          "constraints": "Preserve source interfaces; account explicitly for delays and sample alignment."
+        },
+        {
+          "name": "T",
+          "role": "Trace relation across artifacts",
+          "constraints": "Link parent clauses, owner contracts, producer-consumer boundaries, implementation responsibilities, proof obligations, and test objectives."
+        }
+      ],
+      "dependencies": [],
+      "target_compatibility": [
+        "reviewed-learning-plan"
+      ],
+      "preserved_obligations": [
+        "Architecture: preserve every existing system, process, and thread interface and connection; retain accountable ownership for each allocated effect.",
+        "Language and contracts: retain every parent condition and consequence, including invalid statuses, mode distinctions, initialization, strict versus inclusive thresholds, and temporal qualifiers.",
+        "Implementation: implement each owner's guarantees and explicitly initialize and update any previous-mode or previous-command state; obtain failure-detection semantics before implementing the detector's obligation.",
+        "Proof: establish local implementation refinement, reachable-state invariants, guard coverage over the required domain, and consistency of overlapping cases. Show that producer guarantees and connection semantics establish consumer assumptions without unsupported circular reasoning.",
+        "Composition: show that environmental assumptions, wiring, local guarantees, and state/time relations imply the parent requirement; account for any specified end-to-end latency and tolerance without inventing bounds.",
+        "Testing: derive trace-linked objectives from the English clauses, including invalid/valid status combinations, mode transitions, reboot, both prior alarm commands in hysteresis bands, exact threshold boundaries, and delayed producer-consumer observations.",
+        "Repair: retain the original obligations and regression objectives while correcting their implementation or allocation; surface unresolved contradictions and missing semantics."
+      ],
+      "counterexample": {
+        "scenario": "An allocator translates 'If no interface failure then copy alarm range' into a global assumption that interface_failure is false, then omits the Invalid-status case. An upper alarm temperature arrives with Invalid status.",
+        "expected_difference": "The supplied REQ_MMI_4 requires Manage_Monitor_Interface_i to assert interface_failure. REQ_MMI_6 only conditionally requires copying when that output flag is false. Correct allocation keeps failure detection with the interface manager and carries its flag through the existing connection to the mode manager; it does not assume invalid inputs away or infer mandatory copying on failure.",
+        "source_or_test_reference": "Supplied Monitor passage: REQ_MMI_4, REQ_MMI_5, REQ_MMI_6, and connection intff."
+      },
+      "validation_gate_ids": [
+        "PROPOSED-ALLOCATION-TRACE-COVERAGE",
+        "PROPOSED-INTERFACE-PRESERVATION",
+        "PROPOSED-ASSUMPTION-DISCHARGE",
+        "PROPOSED-STATE-TIME-COMPOSITION",
+        "PROPOSED-IMPLEMENTATION-REFINEMENT",
+        "PROPOSED-REQUIREMENT-DERIVED-TESTS",
+        "PROPOSED-REPAIR-OBLIGATION-PRESERVATION"
+      ],
+      "evidence_references": [],
+      "confidence_forecast_reference": "e62d97b79f196d831a42b95bd640f1803abce73d5dd8ebd16da7bce4c77c9614",
+      "approval_reference": null,
+      "notes": "Observed facts: the supplied Monitor defines output-owning threads, forwarding process ports, system connections, and requirement-labelled GUMBO cases. It declares lastMonitorMode and lastCmd but shows no explicit initialization or update of those state variables. The INIT-stays-INIT case description mentions 'before timeout' without an accompanying clock predicate. The detector has an output and an English responsibility but no supplied contract or implementation. The handbook excerpt supplies general requirements guidance and a table of contents identifying allocation and assumption topics, not the full allocation sections. Proposed obligations: the trace, composition, implementation, proof, testing, and repair requirements in this record are inferred obligations, not reported achievements. Gate IDs are proposed review objectives only. No validation implementation, development diagnostics, prior rule revision request, or held-out component is supplied. Source references and hashes are left for the trusted controller.",
+      "source_english_patterns": [
+        "If mode INIT then monitor status is Init.",
+        "If any alarm temperature status is Invalid then interface failure is True.",
+        "If no interface failure then copy alarm range.",
+        "If mode NORMAL and current temperature is inside the lower hysteresis band then hold alarm control.",
+        "If mode is FAILED then mode remains FAILED until reboot."
+      ],
+      "positive_paraphrases": [
+        "Whenever either alarm-limit status is invalid, the interface manager must raise its failure flag.",
+        "When the interface manager reports no interface failure, its output limits must equal the corresponding incoming degree values.",
+        "During the specified hysteresis condition, the alarm manager must retain the previous command."
+      ],
+      "misleading_near_matches": [
+        "Assume alarm-limit statuses are always valid.",
+        "No interface failure is possible because the copying case assumes it away.",
+        "Every connected thread has a 1000 ms period, so the whole chain responds within 1000 ms.",
+        "A variable named lastCmd automatically contains the previous output.",
+        "A comment saying 'before timeout' implements the timeout condition."
+      ],
+      "supported_operations": [
+        "create-system",
+        "continue-project",
+        "complete-system",
+        "extend-system",
+        "repair-system",
+        "verify-only"
+      ],
+      "stack_layers": [
+        "language",
+        "architecture",
+        "gumbo",
+        "implementation",
+        "proof",
+        "testing",
+        "repair"
+      ],
+      "semantic_roles": {
+        "actor": "Existing component owning the controlled output or persistent transition state.",
+        "condition": "Explicit predicates over sampled inputs and defined pre-state; output-dependent predicates stay within the guaranteed relation.",
+        "effect": "Assigned output, retained output, or state transition allocated to its owner.",
+        "modality": "Required behavior under the stated condition, with environmental restrictions recorded separately.",
+        "quantification": "Every applicable observation or transition; preserve any/both and all simultaneously applicable obligations.",
+        "temporal_scope": "Separate initialization, per-dispatch behavior, prior-state dependence, bounded timing, and behavior until reboot.",
+        "state_dependency": "Previous mode and command require explicit initial values, update relations, and correspondence with implementation state.",
+        "units_and_boundaries": "Preserve numeric types, units, strict and inclusive comparisons, and the supplied one-unit hysteresis expressions; establish physical interpretation and arithmetic safety from the data model."
+      },
+      "formal_output_pattern": "ABSTRACT schema, not executable syntax: For each parent clause R_r = (P_r => Q_r), record T(r) = {owner C, input paths W, A_C, local clauses G_C, implementation responsibility, proof obligations, test objectives}. Local behavior: Init_C establishes required initial outputs and state; for each reachable step k, A_C(k) and P_r(I_C(k), S_C(k)) imply Q_r(O_C(k), S_C(k+1)); output-dependent conditions are expressed inside Q_r. Explicitly define S_C(k+1) = U_C(S_C(k), I_C(k), O_C(k)). For each producer p and consumer c, prove G_p together with W_pc and justified timing/state premises entails A_c at the sample actually consumed. Establish these premises without circular assumptions. Then prove A_environment and W and all component guarantees and state/time relations entail R_parent. Example: G_MMI includes ((lower.status = Invalid or upper.status = Invalid) => interface_failure.flag) and ((not interface_failure.flag) => (lower_out.degrees = lower_in.degrees and upper_out.degrees = upper_in.degrees)); trace the failure output through the existing wrappers and intff to MMM.",
+      "formal_pattern_status": "ABSTRACT_NOT_VALIDATED",
+      "allowed_edit_scope": [
+        "Requirement allocation and trace records.",
+        "Contracts attached to existing output-owning threads.",
+        "Local implementation and state handling consistent with existing interfaces and resolved requirements.",
+        "Corresponding proof obligations and requirement-derived test specifications."
+      ],
+      "required_baseline": [
+        "Original English clauses and existing requirement identifiers.",
+        "Existing component hierarchy, ports, types, connections, periods, and scheduling attributes.",
+        "Existing contracts and explicit inventory of semantic gaps.",
+        "Available implementation, proof, and testing artifacts when applying the rule."
+      ],
+      "diagnostic_signature": null,
+      "related_rule_ids": []
+    },
+    "status": "DRAFT_PENDING_VALIDATION",
+    "id": "aef1109ba392d5ec716654a3776df0fc73716b26722be3d6574247fe33b6cb55"
+  },
+  "model_result": {
+    "usage": {
+      "input_tokens": 20068,
+      "output_tokens": 2900,
+      "cached_input_tokens": 0
+    },
+    "usage_complete": true,
+    "status": "RESPONSE_RECEIVED",
+    "response": {
+      "rule": {
+        "$schema": "",
+        "schema_version": "2.0",
+        "record_type": "rule",
+        "id": "REQ-ALLOC-001",
+        "revision": "1",
+        "state": "DRAFT",
+        "basis": "model_inferred",
+        "assessment_timing": "before_action",
+        "source_references": [],
+        "source_artifact_hashes": [],
+        "source_episode": null,
+        "available_context_manifest": null,
+        "model_configuration": null,
+        "prompt_version": "requirements_allocation-v1",
+        "trigger": "An English system requirement assigns a controlled value or transition under conditions that span existing component inputs, outputs, or persistent state.",
+        "principle": "Allocate each required effect to the component that owns its output or state, preserve its complete English condition and temporal meaning, and trace every cross-component assumption to a connected producer guarantee or an explicit environmental assumption. Compose these local obligations into the parent requirement without changing existing interfaces.",
+        "semantic_choice": "Interpret 'if' as implication, not equivalence; preserve 'any' as disjunction and 'both' as conjunction. Distinguish an input case guard from an environmental restriction: a case that assumes Valid does not authorize excluding Invalid behavior elsewhere. Treat output-dependent conditions as implications within guarantees. Interpret 'hold', 'next', 'initially', 'before timeout', and 'until reboot' using explicit state and time semantics rather than as interchangeable current-value predicates.",
+        "structural_placement": "Place behavioral contracts at the thread owning the controlled output, retain process and system ports and forwarding connections, and record allocation and composition links at their boundaries. In the supplied Monitor, Manage_Monitor_Interface_i owns monitor_status, interface_failure, and copied alarm limits; Manage_Monitor_Mode_i owns monitor_mode; Manage_Alarm_i owns alarm_control; Detect_Monitor_Failure_i owns internal_failure. Trace through the process wrappers as well as the system connections.",
+        "repair_gate": "Before accepting any proposed repair, compare the original English obligations, contracts, interfaces, and trace links with the proposed result. Resolve missing ownership, ungrounded assumptions, state initialization/update gaps, temporal omissions, and incompatible guarantees at their responsible component. Preserve invalid-input, failed-mode, hysteresis, and initialization obligations. Do not delete cases, strengthen environmental assumptions, narrow guards, or alter interfaces merely to make a proof or test pass. Unresolved semantics remain explicit blockers to claiming preservation.",
+        "prerequisites": [
+          "The parent requirements, component boundaries, output ownership, port directions, types, and complete connection paths are available for the scoped allocation.",
+          "Referenced data-model definitions establish enum values, numeric ranges, precision, units, arithmetic behavior, and status meanings; the excerpt alone does not establish these definitions.",
+          "Each environmental assumption has a stated scope and rationale, and each internal consumer assumption has an identified producer obligation or remains explicitly unresolved.",
+          "Dispatch, input sampling, communication delay, initialization, reboot, and persistent-state semantics are defined before making temporal composition claims.",
+          "Any timeout threshold and clock semantics needed by the allocated requirement are supplied; a 1000 ms period alone does not define a timeout.",
+          "Implementation, proof, and testing environments must support the selected contract and state semantics before the proposed verification obligations can be discharged.",
+          "Allocation is limited to supplied component roles; missing internal failure detection mechanisms cannot be invented from the output-only detector interface."
+        ],
+        "exclusions": [
+          "Inferring global input validity from a conditional compute-case assumption.",
+          "Inferring an end-to-end latency bound from equal component periods.",
+          "Treating declared previous-state variables as evidence that initialization and updates are implemented.",
+          "Treating a source comment, requirement identifier, or applied-rule label as proof of satisfaction.",
+          "Adding ports, changing port types or directions, or rewiring existing connections under this rule."
+        ],
+        "parameters": [
+          {
+            "name": "R",
+            "role": "Parent English requirement and stable trace identity",
+            "constraints": "Retain the original condition, effect, modality, quantification, temporal qualifiers, and source locator."
+          },
+          {
+            "name": "C",
+            "role": "Component owning the required output or transition",
+            "constraints": "Must be an existing owner with access to the necessary inputs or explicitly defined local state."
+          },
+          {
+            "name": "A",
+            "role": "Environmental and incoming-interface assumptions",
+            "constraints": "Separate applicability guards from admissibility restrictions; identify provenance and discharge obligations."
+          },
+          {
+            "name": "G",
+            "role": "Local guarantees and state relations",
+            "constraints": "Preserve boundary comparisons, initialization, exceptional behavior, and temporal meaning."
+          },
+          {
+            "name": "W",
+            "role": "Existing connection and sampling relations",
+            "constraints": "Preserve source interfaces; account explicitly for delays and sample alignment."
+          },
+          {
+            "name": "T",
+            "role": "Trace relation across artifacts",
+            "constraints": "Link parent clauses, owner contracts, producer-consumer boundaries, implementation responsibilities, proof obligations, and test objectives."
+          }
+        ],
+        "dependencies": [],
+        "target_compatibility": [
+          "reviewed-learning-plan"
+        ],
+        "preserved_obligations": [
+          "Architecture: preserve every existing system, process, and thread interface and connection; retain accountable ownership for each allocated effect.",
+          "Language and contracts: retain every parent condition and consequence, including invalid statuses, mode distinctions, initialization, strict versus inclusive thresholds, and temporal qualifiers.",
+          "Implementation: implement each owner's guarantees and explicitly initialize and update any previous-mode or previous-command state; obtain failure-detection semantics before implementing the detector's obligation.",
+          "Proof: establish local implementation refinement, reachable-state invariants, guard coverage over the required domain, and consistency of overlapping cases. Show that producer guarantees and connection semantics establish consumer assumptions without unsupported circular reasoning.",
+          "Composition: show that environmental assumptions, wiring, local guarantees, and state/time relations imply the parent requirement; account for any specified end-to-end latency and tolerance without inventing bounds.",
+          "Testing: derive trace-linked objectives from the English clauses, including invalid/valid status combinations, mode transitions, reboot, both prior alarm commands in hysteresis bands, exact threshold boundaries, and delayed producer-consumer observations.",
+          "Repair: retain the original obligations and regression objectives while correcting their implementation or allocation; surface unresolved contradictions and missing semantics."
+        ],
+        "counterexample": {
+          "scenario": "An allocator translates 'If no interface failure then copy alarm range' into a global assumption that interface_failure is false, then omits the Invalid-status case. An upper alarm temperature arrives with Invalid status.",
+          "expected_difference": "The supplied REQ_MMI_4 requires Manage_Monitor_Interface_i to assert interface_failure. REQ_MMI_6 only conditionally requires copying when that output flag is false. Correct allocation keeps failure detection with the interface manager and carries its flag through the existing connection to the mode manager; it does not assume invalid inputs away or infer mandatory copying on failure.",
+          "source_or_test_reference": "Supplied Monitor passage: REQ_MMI_4, REQ_MMI_5, REQ_MMI_6, and connection intff."
+        },
+        "validation_gate_ids": [
+          "PROPOSED-ALLOCATION-TRACE-COVERAGE",
+          "PROPOSED-INTERFACE-PRESERVATION",
+          "PROPOSED-ASSUMPTION-DISCHARGE",
+          "PROPOSED-STATE-TIME-COMPOSITION",
+          "PROPOSED-IMPLEMENTATION-REFINEMENT",
+          "PROPOSED-REQUIREMENT-DERIVED-TESTS",
+          "PROPOSED-REPAIR-OBLIGATION-PRESERVATION"
+        ],
+        "evidence_references": [],
+        "confidence_forecast_reference": null,
+        "approval_reference": null,
+        "notes": "Observed facts: the supplied Monitor defines output-owning threads, forwarding process ports, system connections, and requirement-labelled GUMBO cases. It declares lastMonitorMode and lastCmd but shows no explicit initialization or update of those state variables. The INIT-stays-INIT case description mentions 'before timeout' without an accompanying clock predicate. The detector has an output and an English responsibility but no supplied contract or implementation. The handbook excerpt supplies general requirements guidance and a table of contents identifying allocation and assumption topics, not the full allocation sections. Proposed obligations: the trace, composition, implementation, proof, testing, and repair requirements in this record are inferred obligations, not reported achievements. Gate IDs are proposed review objectives only. No validation implementation, development diagnostics, prior rule revision request, or held-out component is supplied. Source references and hashes are left for the trusted controller.",
+        "source_english_patterns": [
+          "If mode INIT then monitor status is Init.",
+          "If any alarm temperature status is Invalid then interface failure is True.",
+          "If no interface failure then copy alarm range.",
+          "If mode NORMAL and current temperature is inside the lower hysteresis band then hold alarm control.",
+          "If mode is FAILED then mode remains FAILED until reboot."
+        ],
+        "positive_paraphrases": [
+          "Whenever either alarm-limit status is invalid, the interface manager must raise its failure flag.",
+          "When the interface manager reports no interface failure, its output limits must equal the corresponding incoming degree values.",
+          "During the specified hysteresis condition, the alarm manager must retain the previous command."
+        ],
+        "misleading_near_matches": [
+          "Assume alarm-limit statuses are always valid.",
+          "No interface failure is possible because the copying case assumes it away.",
+          "Every connected thread has a 1000 ms period, so the whole chain responds within 1000 ms.",
+          "A variable named lastCmd automatically contains the previous output.",
+          "A comment saying 'before timeout' implements the timeout condition."
+        ],
+        "supported_operations": [
+          "create-system",
+          "continue-project",
+          "complete-system",
+          "extend-system",
+          "repair-system",
+          "verify-only"
+        ],
+        "stack_layers": [
+          "language",
+          "architecture",
+          "gumbo",
+          "implementation",
+          "proof",
+          "testing",
+          "repair"
+        ],
+        "semantic_roles": {
+          "actor": "Existing component owning the controlled output or persistent transition state.",
+          "condition": "Explicit predicates over sampled inputs and defined pre-state; output-dependent predicates stay within the guaranteed relation.",
+          "effect": "Assigned output, retained output, or state transition allocated to its owner.",
+          "modality": "Required behavior under the stated condition, with environmental restrictions recorded separately.",
+          "quantification": "Every applicable observation or transition; preserve any/both and all simultaneously applicable obligations.",
+          "temporal_scope": "Separate initialization, per-dispatch behavior, prior-state dependence, bounded timing, and behavior until reboot.",
+          "state_dependency": "Previous mode and command require explicit initial values, update relations, and correspondence with implementation state.",
+          "units_and_boundaries": "Preserve numeric types, units, strict and inclusive comparisons, and the supplied one-unit hysteresis expressions; establish physical interpretation and arithmetic safety from the data model."
+        },
+        "formal_output_pattern": "ABSTRACT schema, not executable syntax: For each parent clause R_r = (P_r => Q_r), record T(r) = {owner C, input paths W, A_C, local clauses G_C, implementation responsibility, proof obligations, test objectives}. Local behavior: Init_C establishes required initial outputs and state; for each reachable step k, A_C(k) and P_r(I_C(k), S_C(k)) imply Q_r(O_C(k), S_C(k+1)); output-dependent conditions are expressed inside Q_r. Explicitly define S_C(k+1) = U_C(S_C(k), I_C(k), O_C(k)). For each producer p and consumer c, prove G_p together with W_pc and justified timing/state premises entails A_c at the sample actually consumed. Establish these premises without circular assumptions. Then prove A_environment and W and all component guarantees and state/time relations entail R_parent. Example: G_MMI includes ((lower.status = Invalid or upper.status = Invalid) => interface_failure.flag) and ((not interface_failure.flag) => (lower_out.degrees = lower_in.degrees and upper_out.degrees = upper_in.degrees)); trace the failure output through the existing wrappers and intff to MMM.",
+        "formal_pattern_status": "ABSTRACT_NOT_VALIDATED",
+        "allowed_edit_scope": [
+          "Requirement allocation and trace records.",
+          "Contracts attached to existing output-owning threads.",
+          "Local implementation and state handling consistent with existing interfaces and resolved requirements.",
+          "Corresponding proof obligations and requirement-derived test specifications."
+        ],
+        "required_baseline": [
+          "Original English clauses and existing requirement identifiers.",
+          "Existing component hierarchy, ports, types, connections, periods, and scheduling attributes.",
+          "Existing contracts and explicit inventory of semantic gaps.",
+          "Available implementation, proof, and testing artifacts when applying the rule."
+        ],
+        "diagnostic_signature": null,
+        "related_rule_ids": []
+      },
+      "confidence": {
+        "score": 0.78,
+        "rationale": "Before seeing any development result, my model-belief confidence is 0.78 that this scoped rule will preserve the stated obligations on a held-out component under its prerequisites. The supplied ownership and connection structure supports the allocation pattern, but unresolved state and timing semantics and the absence of a held-out component or validation implementation limit confidence. This is a subjective forecast, not an empirical probability."
+      }
+    },
+    "warnings": [
+      "Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."
+    ],
+    "reason": null,
+    "scope": "Metered response only; no truth, validation or acceptance claim"
+  },
+  "learned_book": {
+    "snapshot_id": "6644511d2078da8ac79c4de883992041c92b8fcf81de5c533d2d9a8da10969c4",
+    "directory": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/app/learned-rulebooks/6644511d2078da8ac79c4de883992041c92b8fcf81de5c533d2d9a8da10969c4",
+    "candidate_count": 15,
+    "state": "DRAFT_NOT_PUBLISHED",
+    "files": [
+      "rulebook.json",
+      "RULEBOOK.md"
+    ],
+    "content_hashes": {
+      "rulebook.json": "65811e09b690a33ed2082650bc446fedb38d72174744d1fb4245633e05c9ace0",
+      "RULEBOOK.md": "6874427fac61c8327ee84f562567665457721ff6d68652600876e44bcb3e53cb"
+    },
+    "id": "d29d9932097e4605737865b90365425047509760a2e3861d1ee9a424b5e012c0"
+  }
+}

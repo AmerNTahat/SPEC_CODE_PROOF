@@ -1,0 +1,335 @@
+{
+  "plan_id": "2849a2cebf7258e1bf081dba484e97177979ec9cff7fb352f75b6c4dc8c77977",
+  "manifest_id": "d462a6f2b1993ca2de5ffa2fd13a8a9ffea8a913c6441dfa6beca5b0a54b4259",
+  "focus": "implementation_proof_testing",
+  "revision_of": null,
+  "development_feedback_id": null,
+  "batch_index": 0,
+  "batch_count": 12,
+  "model_call_id": "8e8a082d3d1751b5e5177368e4282189f23974e3b9af7522e95aef3df8d7ff25",
+  "candidate_id": "1d82ed661fc7f12784476dcb1be44198024d8a6feca36d079d2271ccceac39dd",
+  "status": "DRAFT_PENDING_DEVELOPMENT_VALIDATION",
+  "scope": "Actual model proposal; no rule-transfer validation or publication claim",
+  "id": "77aad5745658d394c96366c17276cc72793c2baaa922179a9f01ac2109975b66",
+  "candidate": {
+    "record": {
+      "$schema": "",
+      "schema_version": "2.0",
+      "record_type": "rule",
+      "id": "alarm-hysteresis-refinement",
+      "revision": "1",
+      "state": "DRAFT",
+      "basis": "model_inferred",
+      "assessment_timing": "before_action",
+      "source_references": [
+        "d7ef18732a5def5da9422e3e47db924dd4ae4c9b806fcc86f11c932b377db935",
+        "8539757b211ec65ebcf5df73b8125fe82011a6066fd3bcba864328af992b4bf1"
+      ],
+      "source_artifact_hashes": [
+        "43664d0fe5904aed949d4c12e824c905d7bc1b4e89efa0409038c1b6f52ff605",
+        "b4949561cb04d46f718a16e2cc1486c0bd5a26c15778e3567c464466c24731df"
+      ],
+      "source_episode": "8e8a082d3d1751b5e5177368e4282189f23974e3b9af7522e95aef3df8d7ff25",
+      "available_context_manifest": "d462a6f2b1993ca2de5ffa2fd13a8a9ffea8a913c6441dfa6beca5b0a54b4259",
+      "model_configuration": "7e31988cc8d9b89ae79c126a58e57c1f5babd2bc70e3e301ffe8cee77e0969d1",
+      "prompt_version": "1",
+      "trigger": "A periodic controller specification assigns an alarm command by mode, strict outside-range comparisons, inclusive reset boundaries, and hysteresis conditions requiring the previous command to be held.",
+      "principle": "Carry every mode and boundary condition into an explicit state transition relation, then require implementation refinement, state-history proofs, and tests that distinguish holding the previous command from recomputing a stateless threshold result.",
+      "semantic_choice": "Interpret 'below' and 'above' strictly; interpret 'hold' as equality to the previously emitted command. Preserve all applicable guarantees together rather than imposing undocumented case priority. Mode conditions qualify temperature conditions. Do not add a temperature-validity guard absent from the alarm contract.",
+      "structural_placement": "Manage_Alarm_i owns alarm_control and its command history. Its GUMBO annex holds the behavioral contract; its implementation must realize the transition and state update. Manage_Alarm_Process_i and Monitor_Temperature_i retain their existing forwarding connections. Interface and mode managers retain their separate ownership.",
+      "repair_gate": "Any proposed repair must preserve initialization, all seven compute cases, exact boundaries, mode behavior, command history, and existing interfaces. Diagnose boundary, state-update, arithmetic, or integration failures against the unchanged relation. Do not remove cases, strengthen input assumptions without justification, add validity guards, or alter test expectations merely to obtain success. Implementation, proof, testing, and repair execution are unsupported by the supplied artifacts.",
+      "prerequisites": [
+        "Establish the actual temperature representation, units, precision, comparison semantics, and representability of lower + 1 and upper - 1; imported type definitions are not supplied.",
+        "Establish the admissible relationship between lower and upper limits. Ordered limits are a sufficient proposed domain condition, not a demonstrated source invariant; inconsistent overlapping obligations must remain visible.",
+        "Resolve lastCmd as the previous emitted alarm command, initialize it consistently with Off, and define when it updates. The supplied annex declares lastCmd but does not specify its initialization or update.",
+        "Establish dispatch input sampling and output publication semantics before claiming refinement across connected components.",
+        "For future checks, provide an implementation, applicable GUMBO/compiler/proof tools, and a test harness with controllable modes, temperatures, limits, and dispatch history. None is supplied here."
+      ],
+      "exclusions": [
+        "Inferring monitor-mode timeout behavior, failure detection algorithms, or interface validation behavior from the alarm rule.",
+        "Claiming end-to-end latency, physical alarm actuation, deployment correctness, certification, or successful validation from a 1000 ms thread period.",
+        "Silently resolving contradictory cases through execution order.",
+        "Assuming fractional test temperatures are representable."
+      ],
+      "parameters": [
+        {
+          "name": "m",
+          "role": "Sampled monitor mode",
+          "constraints": "Preserve Init_Monitor_Mode, Normal_Monitor_Mode, and Failed_Monitor_Mode."
+        },
+        {
+          "name": "x, L, U",
+          "role": "Current temperature and lower/upper alarm limits",
+          "constraints": "Use the existing degrees fields and established source numeric semantics."
+        },
+        {
+          "name": "delta",
+          "role": "Hysteresis offset",
+          "constraints": "Exactly the supplied 1 [s32]; do not reinterpret as elapsed time or an independently tunable value."
+        },
+        {
+          "name": "p, y",
+          "role": "Previous emitted command and current command",
+          "constraints": "Preserve source enum values Off and Onn; update p only after computing y from the old p."
+        }
+      ],
+      "dependencies": [],
+      "target_compatibility": [
+        "reviewed-learning-plan"
+      ],
+      "preserved_obligations": [
+        "Initialization: alarm_control is Off.",
+        "INIT: alarm_control is Off regardless of temperature.",
+        "NORMAL: x < L or x > U implies Onn.",
+        "NORMAL: L <= x < L + delta implies holding the previous command.",
+        "NORMAL: U - delta < x <= U implies holding the previous command.",
+        "NORMAL: L + delta <= x <= U - delta implies Off.",
+        "FAILED: alarm_control is Onn regardless of temperature.",
+        "Implementation proposal: compute from one dispatch snapshot and the old command history, emit the result, then retain that result as history for the next dispatch; preserve all port names, directions, types, connections, scheduling attributes, and requirement identifiers.",
+        "Proof proposal: establish initialization and inductively prove that stored history equals the previous emitted command; prove every applicable source implication, case coverage over the justified input domain, agreement of overlapping cases, and arithmetic safety.",
+        "Testing proposal: exercise initialization, every mode, both histories at each hysteresis boundary, both reset boundaries, representable values immediately outside the range, and consecutive dispatches that expose stale or prematurely updated history.",
+        "Testing proposal: use independent expected transitions and distinguish mutations of strict versus inclusive comparisons, hold versus forced Off/Onn, missing state updates, and undocumented validity gating."
+      ],
+      "counterexample": {
+        "scenario": "With representable limits L=100 and U=104, initialize Off. In NORMAL, dispatch x=99, then x=100, then x=101. Separately, start from initialization and dispatch NORMAL with x=100.",
+        "expected_difference": "The first trace must emit Onn, Onn, Off; the separate trace must emit Off at x=100. Identical current inputs at x=L therefore produce different results depending on history. A stateless outside-range implementation incorrectly turns Off on the second dispatch of the first trace; an inclusive outside-range implementation incorrectly turns Onn in the separate trace.",
+        "source_or_test_reference": null
+      },
+      "validation_gate_ids": [],
+      "evidence_references": [],
+      "confidence_forecast_reference": "578dc8655d9566533976405563994cfb8774626ab1283a54426fd634e34850c8",
+      "approval_reference": null,
+      "notes": "Observed: the supplied Monitor model includes alarm ports, forwarding connections, a periodic 1000 ms thread, initial output Off, lastCmd declaration, and seven conditional compute guarantees. It supplies no command-history initialization/update, executable implementation, proof, test harness, development diagnostics, or validation results. The handbook excerpt supplies general requirements-engineering context; its table of contents is not evidence that detailed practices were applied. All implementation, proof, testing, and repair obligations here are proposals inferred from the alarm contract. Deployment and physical timing stages lack supporting material. No prior rule or recorded revision request was supplied. Source references and hashes are left for the trusted controller.",
+      "source_english_patterns": [
+        "If mode NORMAL and current temperature is below alarm range then alarm control is On",
+        "If mode NORMAL and current temperature is inside the lower hysteresis band then hold alarm control",
+        "If mode NORMAL and current temperature is inside the upper hysteresis band then hold alarm control",
+        "If mode NORMAL and current temperature is inside the reset band then alarm control is Off"
+      ],
+      "positive_paraphrases": [
+        "During normal operation, retain the previous alarm command within either specified hysteresis band.",
+        "Turn the alarm on strictly outside the limits and turn it off within the inclusive inner reset interval."
+      ],
+      "misleading_near_matches": [
+        "Turn the alarm off whenever temperature is within the outer limits.",
+        "Turn the alarm on at or beyond either outer limit.",
+        "Apply normal-mode temperature rules only when the sensor status is Valid.",
+        "Hold the alarm for one second."
+      ],
+      "supported_operations": [
+        "complete-system",
+        "extend-system",
+        "repair-system",
+        "verify-only"
+      ],
+      "stack_layers": [
+        "language",
+        "architecture",
+        "gumbo",
+        "implementation",
+        "proof",
+        "testing",
+        "repair"
+      ],
+      "semantic_roles": {
+        "actor": "Manage_Alarm_i, sole owner of alarm_control and its command history.",
+        "condition": "Monitor mode and temperature membership in the specified outside, hysteresis, or reset regions.",
+        "effect": "Emit Off, Onn, or the previous command as required.",
+        "modality": "Mandatory conditional guarantees; proposed refinement obligations preserve them.",
+        "quantification": "Every dispatch and every applicable case over the justified input domain.",
+        "temporal_scope": "Initialization followed by dispatch-indexed transitions; no inferred physical response deadline.",
+        "state_dependency": "Hysteresis uses the previous emitted command, including commands emitted in other modes.",
+        "units_and_boundaries": "Use source degrees and 1 [s32]; outside comparisons are strict, outer hysteresis endpoints inclusive, and reset endpoints inclusive. Physical unit mapping remains unresolved."
+      },
+      "formal_output_pattern": "ABSTRACT relation, not executable GUMBO: initialize y_init = Off and proposed p_0 = Off. At dispatch k, require the conjunction: (m_k=INIT => y_k=Off); (m_k=NORMAL && (x_k<L_k || x_k>U_k) => y_k=Onn); (m_k=NORMAL && L_k<=x_k && x_k<L_k+delta => y_k=p_k); (m_k=NORMAL && U_k-delta<x_k && x_k<=U_k => y_k=p_k); (m_k=NORMAL && L_k+delta<=x_k && x_k<=U_k-delta => y_k=Off); (m_k=FAILED => y_k=Onn). Proposed history refinement: p_(k+1)=y_k. Prove each implication simultaneously, coverage, overlap agreement, safe arithmetic, and the history invariant under justified prerequisites.",
+      "formal_pattern_status": "ABSTRACT_NOT_VALIDATED",
+      "allowed_edit_scope": [
+        "Alarm implementation internals and private command-history realization.",
+        "Alarm contract state initialization/update clarification that preserves existing guarantees and trace identifiers.",
+        "Associated proposed proof obligations and discriminating tests."
+      ],
+      "required_baseline": [
+        "Existing alarm initialization and all seven compute cases.",
+        "Existing source interfaces, connections, enum spellings, period, and domain assignments.",
+        "Explicit record of unresolved numeric, history, and dispatch semantics."
+      ],
+      "diagnostic_signature": null,
+      "related_rule_ids": []
+    },
+    "status": "DRAFT_PENDING_VALIDATION",
+    "id": "1d82ed661fc7f12784476dcb1be44198024d8a6feca36d079d2271ccceac39dd"
+  },
+  "model_result": {
+    "usage": {
+      "input_tokens": 20070,
+      "output_tokens": 2462,
+      "cached_input_tokens": 6528
+    },
+    "usage_complete": true,
+    "status": "RESPONSE_RECEIVED",
+    "response": {
+      "rule": {
+        "$schema": "",
+        "schema_version": "2.0",
+        "record_type": "rule",
+        "id": "alarm-hysteresis-refinement",
+        "revision": "1",
+        "state": "DRAFT",
+        "basis": "model_inferred",
+        "assessment_timing": "before_action",
+        "source_references": [],
+        "source_artifact_hashes": [],
+        "source_episode": null,
+        "available_context_manifest": null,
+        "model_configuration": null,
+        "prompt_version": "1",
+        "trigger": "A periodic controller specification assigns an alarm command by mode, strict outside-range comparisons, inclusive reset boundaries, and hysteresis conditions requiring the previous command to be held.",
+        "principle": "Carry every mode and boundary condition into an explicit state transition relation, then require implementation refinement, state-history proofs, and tests that distinguish holding the previous command from recomputing a stateless threshold result.",
+        "semantic_choice": "Interpret 'below' and 'above' strictly; interpret 'hold' as equality to the previously emitted command. Preserve all applicable guarantees together rather than imposing undocumented case priority. Mode conditions qualify temperature conditions. Do not add a temperature-validity guard absent from the alarm contract.",
+        "structural_placement": "Manage_Alarm_i owns alarm_control and its command history. Its GUMBO annex holds the behavioral contract; its implementation must realize the transition and state update. Manage_Alarm_Process_i and Monitor_Temperature_i retain their existing forwarding connections. Interface and mode managers retain their separate ownership.",
+        "repair_gate": "Any proposed repair must preserve initialization, all seven compute cases, exact boundaries, mode behavior, command history, and existing interfaces. Diagnose boundary, state-update, arithmetic, or integration failures against the unchanged relation. Do not remove cases, strengthen input assumptions without justification, add validity guards, or alter test expectations merely to obtain success. Implementation, proof, testing, and repair execution are unsupported by the supplied artifacts.",
+        "prerequisites": [
+          "Establish the actual temperature representation, units, precision, comparison semantics, and representability of lower + 1 and upper - 1; imported type definitions are not supplied.",
+          "Establish the admissible relationship between lower and upper limits. Ordered limits are a sufficient proposed domain condition, not a demonstrated source invariant; inconsistent overlapping obligations must remain visible.",
+          "Resolve lastCmd as the previous emitted alarm command, initialize it consistently with Off, and define when it updates. The supplied annex declares lastCmd but does not specify its initialization or update.",
+          "Establish dispatch input sampling and output publication semantics before claiming refinement across connected components.",
+          "For future checks, provide an implementation, applicable GUMBO/compiler/proof tools, and a test harness with controllable modes, temperatures, limits, and dispatch history. None is supplied here."
+        ],
+        "exclusions": [
+          "Inferring monitor-mode timeout behavior, failure detection algorithms, or interface validation behavior from the alarm rule.",
+          "Claiming end-to-end latency, physical alarm actuation, deployment correctness, certification, or successful validation from a 1000 ms thread period.",
+          "Silently resolving contradictory cases through execution order.",
+          "Assuming fractional test temperatures are representable."
+        ],
+        "parameters": [
+          {
+            "name": "m",
+            "role": "Sampled monitor mode",
+            "constraints": "Preserve Init_Monitor_Mode, Normal_Monitor_Mode, and Failed_Monitor_Mode."
+          },
+          {
+            "name": "x, L, U",
+            "role": "Current temperature and lower/upper alarm limits",
+            "constraints": "Use the existing degrees fields and established source numeric semantics."
+          },
+          {
+            "name": "delta",
+            "role": "Hysteresis offset",
+            "constraints": "Exactly the supplied 1 [s32]; do not reinterpret as elapsed time or an independently tunable value."
+          },
+          {
+            "name": "p, y",
+            "role": "Previous emitted command and current command",
+            "constraints": "Preserve source enum values Off and Onn; update p only after computing y from the old p."
+          }
+        ],
+        "dependencies": [],
+        "target_compatibility": [
+          "reviewed-learning-plan"
+        ],
+        "preserved_obligations": [
+          "Initialization: alarm_control is Off.",
+          "INIT: alarm_control is Off regardless of temperature.",
+          "NORMAL: x < L or x > U implies Onn.",
+          "NORMAL: L <= x < L + delta implies holding the previous command.",
+          "NORMAL: U - delta < x <= U implies holding the previous command.",
+          "NORMAL: L + delta <= x <= U - delta implies Off.",
+          "FAILED: alarm_control is Onn regardless of temperature.",
+          "Implementation proposal: compute from one dispatch snapshot and the old command history, emit the result, then retain that result as history for the next dispatch; preserve all port names, directions, types, connections, scheduling attributes, and requirement identifiers.",
+          "Proof proposal: establish initialization and inductively prove that stored history equals the previous emitted command; prove every applicable source implication, case coverage over the justified input domain, agreement of overlapping cases, and arithmetic safety.",
+          "Testing proposal: exercise initialization, every mode, both histories at each hysteresis boundary, both reset boundaries, representable values immediately outside the range, and consecutive dispatches that expose stale or prematurely updated history.",
+          "Testing proposal: use independent expected transitions and distinguish mutations of strict versus inclusive comparisons, hold versus forced Off/Onn, missing state updates, and undocumented validity gating."
+        ],
+        "counterexample": {
+          "scenario": "With representable limits L=100 and U=104, initialize Off. In NORMAL, dispatch x=99, then x=100, then x=101. Separately, start from initialization and dispatch NORMAL with x=100.",
+          "expected_difference": "The first trace must emit Onn, Onn, Off; the separate trace must emit Off at x=100. Identical current inputs at x=L therefore produce different results depending on history. A stateless outside-range implementation incorrectly turns Off on the second dispatch of the first trace; an inclusive outside-range implementation incorrectly turns Onn in the separate trace.",
+          "source_or_test_reference": null
+        },
+        "validation_gate_ids": [],
+        "evidence_references": [],
+        "confidence_forecast_reference": null,
+        "approval_reference": null,
+        "notes": "Observed: the supplied Monitor model includes alarm ports, forwarding connections, a periodic 1000 ms thread, initial output Off, lastCmd declaration, and seven conditional compute guarantees. It supplies no command-history initialization/update, executable implementation, proof, test harness, development diagnostics, or validation results. The handbook excerpt supplies general requirements-engineering context; its table of contents is not evidence that detailed practices were applied. All implementation, proof, testing, and repair obligations here are proposals inferred from the alarm contract. Deployment and physical timing stages lack supporting material. No prior rule or recorded revision request was supplied. Source references and hashes are left for the trusted controller.",
+        "source_english_patterns": [
+          "If mode NORMAL and current temperature is below alarm range then alarm control is On",
+          "If mode NORMAL and current temperature is inside the lower hysteresis band then hold alarm control",
+          "If mode NORMAL and current temperature is inside the upper hysteresis band then hold alarm control",
+          "If mode NORMAL and current temperature is inside the reset band then alarm control is Off"
+        ],
+        "positive_paraphrases": [
+          "During normal operation, retain the previous alarm command within either specified hysteresis band.",
+          "Turn the alarm on strictly outside the limits and turn it off within the inclusive inner reset interval."
+        ],
+        "misleading_near_matches": [
+          "Turn the alarm off whenever temperature is within the outer limits.",
+          "Turn the alarm on at or beyond either outer limit.",
+          "Apply normal-mode temperature rules only when the sensor status is Valid.",
+          "Hold the alarm for one second."
+        ],
+        "supported_operations": [
+          "complete-system",
+          "extend-system",
+          "repair-system",
+          "verify-only"
+        ],
+        "stack_layers": [
+          "language",
+          "architecture",
+          "gumbo",
+          "implementation",
+          "proof",
+          "testing",
+          "repair"
+        ],
+        "semantic_roles": {
+          "actor": "Manage_Alarm_i, sole owner of alarm_control and its command history.",
+          "condition": "Monitor mode and temperature membership in the specified outside, hysteresis, or reset regions.",
+          "effect": "Emit Off, Onn, or the previous command as required.",
+          "modality": "Mandatory conditional guarantees; proposed refinement obligations preserve them.",
+          "quantification": "Every dispatch and every applicable case over the justified input domain.",
+          "temporal_scope": "Initialization followed by dispatch-indexed transitions; no inferred physical response deadline.",
+          "state_dependency": "Hysteresis uses the previous emitted command, including commands emitted in other modes.",
+          "units_and_boundaries": "Use source degrees and 1 [s32]; outside comparisons are strict, outer hysteresis endpoints inclusive, and reset endpoints inclusive. Physical unit mapping remains unresolved."
+        },
+        "formal_output_pattern": "ABSTRACT relation, not executable GUMBO: initialize y_init = Off and proposed p_0 = Off. At dispatch k, require the conjunction: (m_k=INIT => y_k=Off); (m_k=NORMAL && (x_k<L_k || x_k>U_k) => y_k=Onn); (m_k=NORMAL && L_k<=x_k && x_k<L_k+delta => y_k=p_k); (m_k=NORMAL && U_k-delta<x_k && x_k<=U_k => y_k=p_k); (m_k=NORMAL && L_k+delta<=x_k && x_k<=U_k-delta => y_k=Off); (m_k=FAILED => y_k=Onn). Proposed history refinement: p_(k+1)=y_k. Prove each implication simultaneously, coverage, overlap agreement, safe arithmetic, and the history invariant under justified prerequisites.",
+        "formal_pattern_status": "ABSTRACT_NOT_VALIDATED",
+        "allowed_edit_scope": [
+          "Alarm implementation internals and private command-history realization.",
+          "Alarm contract state initialization/update clarification that preserves existing guarantees and trace identifiers.",
+          "Associated proposed proof obligations and discriminating tests."
+        ],
+        "required_baseline": [
+          "Existing alarm initialization and all seven compute cases.",
+          "Existing source interfaces, connections, enum spellings, period, and domain assignments.",
+          "Explicit record of unresolved numeric, history, and dispatch semantics."
+        ],
+        "diagnostic_signature": null,
+        "related_rule_ids": []
+      },
+      "confidence": {
+        "score": 0.78,
+        "rationale": "Before seeing any development result, my subjective confidence is 0.78 that this scoped rule will preserve the stated obligations on a held-out component satisfying its prerequisites. The explicit cases support the transition pattern, but missing type definitions, history semantics, implementation, and held-out details limit confidence. This is a model-belief forecast, not an empirical probability or validation claim."
+      }
+    },
+    "warnings": [
+      "Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."
+    ],
+    "reason": null,
+    "scope": "Metered response only; no truth, validation or acceptance claim"
+  },
+  "learned_book": {
+    "snapshot_id": "b728a1af2f4a5c417a6d452b9ee939abf9d54a6d959024bd49cf2ccc1390cb51",
+    "directory": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/app/learned-rulebooks/b728a1af2f4a5c417a6d452b9ee939abf9d54a6d959024bd49cf2ccc1390cb51",
+    "candidate_count": 17,
+    "state": "DRAFT_NOT_PUBLISHED",
+    "files": [
+      "rulebook.json",
+      "RULEBOOK.md"
+    ],
+    "content_hashes": {
+      "rulebook.json": "b94dc3c18f95d0b8e99162b9fc6356e3c2eba47098202b27d7feb52b8e631273",
+      "RULEBOOK.md": "5886d5f0e9b23fce97012520b05867b3c41fe3714a471e5bf929adafa6bcf42f"
+    },
+    "id": "eaa0d15de7b8e88d78eac50b744664b0b121d182b2f06cf80e388f3813f86d07"
+  }
+}

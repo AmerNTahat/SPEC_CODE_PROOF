@@ -1,0 +1,15 @@
+{
+  "snapshot_id": "ea9c678ececcd5975b31c9342f181117b9a22c81989db32174e9914a48cbf926",
+  "directory": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/app/learned-rulebooks/ea9c678ececcd5975b31c9342f181117b9a22c81989db32174e9914a48cbf926",
+  "candidate_count": 19,
+  "state": "DRAFT_NOT_PUBLISHED",
+  "files": [
+    "rulebook.json",
+    "RULEBOOK.md"
+  ],
+  "content_hashes": {
+    "rulebook.json": "2840c615e08d4656c4dd71fcff0227955cf8cdb39af3fa3de1c14809160adea0",
+    "RULEBOOK.md": "56e322f7a9bb4b7912789583249c0fc6803f3333f007ed6f7a95b063eca6c588"
+  },
+  "id": "152a1b318288c4eb4173dce78486b92440ecf3e0581e72917385cae2ddf8e287"
+}

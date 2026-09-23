@@ -15,15 +15,17 @@ class BatchJobTests(unittest.TestCase):
                 grant=Campaign(s).authorize(200000,60,'TEST ONLY')
                 s.record('learning_extraction',{'plan_id':'p','batch_index':0,'status':'DRAFT_PENDING_DEVELOPMENT_VALIDATION'})
                 context={'context':[{'text':'a'*60000}],'examples':[]}
-                def extracted(plan,campaign,index):
-                    return s.record('learning_extraction',{'plan_id':plan,'batch_index':index,'status':'DRAFT_PENDING_DEVELOPMENT_VALIDATION'})
+                def extracted(plan,campaign,index,focus="full_stack"):
+                    return s.record('learning_extraction',{'plan_id':plan,'batch_index':index,'focus':focus,'status':'DRAFT_PENDING_DEVELOPMENT_VALIDATION'})
                 with patch.object(LearningPlan,'training_context',return_value=context),patch.object(service,'extract',side_effect=extracted) as extract:
                     Campaign(s).control(grant['id'],'pause')
                     self.assertEqual(service.extract_remaining('p',grant['id'])['status'],'BLOCKED')
                     extract.assert_not_called()
                     Campaign(s).control(grant['id'],'resume')
                     self.assertEqual(service.extract_remaining('p',grant['id'])['status'],'CONTEXT_BATCHES_EXTRACTED')
-                    extract.assert_called_once_with('p',grant['id'],1)
+                    extract.assert_called_once_with('p',grant['id'],1,focus='full_stack')
                     service.extract_remaining('p',grant['id'])
                     self.assertEqual(extract.call_count,1)
+                    service.extract_remaining('p',grant['id'],focus='system_architecture')
+                    self.assertEqual(extract.call_count,3)
             finally:c.close()

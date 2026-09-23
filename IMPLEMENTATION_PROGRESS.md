@@ -518,3 +518,75 @@ reports/build/handoff-integrity-resume.json — 50b5ecc3e487d426e5633b94aaec7587
 Budget:
 109 application tests and 17 real Firefox checks passed without paid model calls. Campaign usage unchanged at 811482 measured + 3M estimated.
 
+## M04 — in_progress
+
+Achieved:
+Implemented bounded name-independent directed attributed multigraph comparison with a verified bijection. Reassessed real saved Producer/Consumer (structural PASS) and Isolette (structural FAIL). Added post-graph parsed-contract cosine as advisory only, readable versioned learned books, and KSU workflow stage map.
+
+In progress:
+System-level extraction focus and remaining semantic acceptance coverage.
+
+Remaining:
+Payload/type equivalence, requirement/contract semantics, full implementation proof/tests, validated release and frozen User demonstration.
+
+Blockers:
+Directed graph PASS is scoped structural evidence, not behavior proof. Twenty-minute extension requested for four focused extraction calls; no dependent paid call started.
+
+Evidence:
+reports/build/graph-capture-checks.json — 01cb867ac800234b345bfeea392bafe279873bb6ffd7625fd18e46a5dad76580
+reports/demo/producer-consumer-graph-assessment.json — 6c9edf13d0c3b66487857d4599a50fa8ddf547aa8a9aeb7ae7ba744efd107cbc
+reports/demo/isolette-graph-assessment.json — 056f8452ebbe52f4f614ba8f3a7a2d7a5ffd30f10cd4e2f15a1bd01679ef2bb3
+reports/demo/LEARNED_BOOK_EXPORT.json — e921a60d7d55236b0a38727295c684f0a198c549942d43d0e3ceecca09c0ba11
+workbench/KSU_WORKFLOWS.md — c52f3f3af2360615f76b4bcdc15a1b361d2218f62d04e1eb9445abc9b39c96e6
+workbench/GRAPH_EQUIVALENCE.md — e4bf48d33a407590f7350e6737cb54fadfbbad0b06f051f991ea23c5324d8e52
+
+Budget:
+No additional paid calls. 811482 measured + 3000000 estimated debits retained; user-authorized ceiling now 14M. Existing wall-clock allowance expired.
+
+## M03 — in_progress
+
+Achieved:
+Approved exact KSU context revision executed: nine KSU guides plus Monitor produced generalized workflow rule and specialization from actual Microkit failure; 19 immutable draft candidates maintained. UI and CLI expose provenance-checked workflow learning. Four full-system extraction focuses completed.
+
+In progress:
+Validation and durable evidence reconciliation for KSU workflow evolution.
+
+Remaining:
+Supporting/contrasting validation, successful requirement-preserving repair, frozen release/User demonstration and paired accepted-system cost study.
+
+Blockers:
+No approval pending for the context revision. Learned candidates remain drafts, not validated releases.
+
+Evidence:
+reports/demo/APPROVED_KSU_WORKFLOW_TRAINING.json — 814170aea4b29b740fda912cbac5984176015f2583e7f0590a54aacc3edff963
+reports/demo/ksu-workflow-generalize.json — 1744fcdca6cd9099151b4f3ee5a4d2c35cbedda6156979fcab0bfc7cbd7f8f6c
+reports/demo/ksu-workflow-specialize.json — 0fff012cfb4b92b1339827ec30811962cfae5d1631c3b81aa4bd6aa1001c79bf
+reports/demo/LEARNED_BOOK_EXPORT.json — ed3f024d67342c231c50902f9557db24313ea1f41859afbaf55287e751a83fff
+reports/build/browser-smoke.json — 60dd04417d2204ccd75527dc85f3e7e2e4fe19e33b9112c3322bac46397c0f12
+
+Budget:
+994378 measured plus 3000000 estimated debit; 10005622 tokens remain under 14M. KSU learning calls: 91248 tokens, 231.394 seconds. Build-session metering unavailable.
+
+## M07 — blocked
+
+Achieved:
+Real KSU-guided Microkit attempt executed: parser PASS, generation FAIL in 16.919 seconds with zero model tokens. Actual diagnostics drove two metered draft workflow revisions. Name-independent graph assessment passes Producer/Consumer and rejects Isolette structural mismatch.
+
+In progress:
+Saved actual timing diagnosis and updated current build receipt without claiming acceptance.
+
+Remaining:
+Justified schedule repair; Rust/Verus and independent runtime tests; Isolette structural fidelity; rule publication and fresh frozen User demonstration.
+
+Blockers:
+Current Microkit model lacks justified execution bounds; default accounting 160 exceeds required frame120. No supported requirement-preserving scheduling repair established. Producer/Consumer generation repair cap remains reached. Missing full behavioral/build/test acceptance blocks publication.
+
+Evidence:
+reports/demo/KSU_MICROKIT_ATTEMPT.json — 3ce3d45108a85a0557575f5528a0f54cf35266e12f02dac39a9600f108657f23
+reports/demo/KSU_TIMING_DIAGNOSIS.json — 9839d1dafeb33af6200bd662c4e4bec2ee4e6f9c4688be218b2a52c96b420ad0
+reports/demo/producer-consumer-graph-assessment.json — 86c0a8f512c3249c72ed9ca2472fd3542c98b0cde3c6ba0095694c1593ed8607
+reports/demo/isolette-graph-assessment.json — 48c5645f3667534fe1ecbb9f58958f1e9b67f95a604a069579e5cccb21a2a5c7
+
+Budget:
+14M ceiling; 994378 measured plus 3000000 estimated debit; all prior usage retained. No automatic clock or token extension.
+

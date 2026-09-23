@@ -1,0 +1,96 @@
+{
+  "scope": "Additional evaluator-only analysis of explicit enclosing system roots; not reference amendment or acceptance",
+  "snapshot_ids": [
+    "dfa73b96172919a347630e9ca2514c29bc3de435b5b490807e2512db11370f71",
+    "e40994e32bcb9336482ed188ceaf0e9c77fbb2a04540a79862e6ad23b95e326a"
+  ],
+  "checks": [
+    {
+      "selected_enclosing_system": "Isolette_Single_Sensor_Instance",
+      "graph": {
+        "version": "hamr-directed-structure-v2",
+        "left_vertices": 316,
+        "right_vertices": 274,
+        "left_edges": 905,
+        "right_edges": 781,
+        "names_compared": false,
+        "left_roles": {
+          "model:": 1,
+          "component:System": 7,
+          "port:DataPort": 139,
+          "connection:Port": 114,
+          "resolved-connection:Port": 32,
+          "component:Process": 11,
+          "component:Thread": 11,
+          "component:Processor": 1
+        },
+        "right_roles": {
+          "model:": 1,
+          "component:System": 6,
+          "port:DataPort": 120,
+          "connection:Port": 95,
+          "resolved-connection:Port": 32,
+          "component:Process": 8,
+          "component:Thread": 11,
+          "component:Processor": 1
+        },
+        "status": "FAIL",
+        "reason": "Different vertex or directed-edge counts",
+        "mapping": null,
+        "search_states": 0,
+        "scope": "Names/order ignored; containment, component categories, port directions, wiring and supported properties checked",
+        "not_established": [
+          "payload type equivalence",
+          "GUMBO/requirement semantics",
+          "implementation/proof/test acceptance"
+        ],
+        "whole_system_acceptance": false
+      }
+    },
+    {
+      "selected_enclosing_system": "Isolette_Environment_Normal_Operation_Normal_Operation_Instance",
+      "graph": {
+        "version": "hamr-directed-structure-v2",
+        "left_vertices": 338,
+        "right_vertices": 296,
+        "left_edges": 959,
+        "right_edges": 835,
+        "names_compared": false,
+        "left_roles": {
+          "model:": 1,
+          "component:System": 9,
+          "port:DataPort": 148,
+          "connection:Port": 121,
+          "resolved-connection:Port": 34,
+          "component:Process": 11,
+          "component:Thread": 11,
+          "component:Processor": 1,
+          "component:Abstract": 2
+        },
+        "right_roles": {
+          "model:": 1,
+          "component:System": 8,
+          "port:DataPort": 129,
+          "connection:Port": 102,
+          "resolved-connection:Port": 34,
+          "component:Process": 8,
+          "component:Thread": 11,
+          "component:Processor": 1,
+          "component:Abstract": 2
+        },
+        "status": "FAIL",
+        "reason": "Different vertex or directed-edge counts",
+        "mapping": null,
+        "search_states": 0,
+        "scope": "Names/order ignored; containment, component categories, port directions, wiring and supported properties checked",
+        "not_established": [
+          "payload type equivalence",
+          "GUMBO/requirement semantics",
+          "implementation/proof/test acceptance"
+        ],
+        "whole_system_acceptance": false
+      }
+    }
+  ],
+  "model_calls": 0
+}

@@ -1,0 +1,106 @@
+{
+  "result_id": "4fe9c1472b5c297f80c5cf90468367f486c17a688217f1dc8e68a87a716887a9",
+  "checker_sha256": "8bccbae637aea30f5f5212816db104e4e73925f3d7e19ac29361a2028ad13a3a",
+  "similarity_checker_sha256": "be0c0c8fbd81d116821cb244069f25fe5857c7c41f0bcd6f0c0773494ef7744f",
+  "snapshot_ids": [
+    "ee303fe6e98822be3cfb4813dd8235b15c6f04a08fead39bb0fa076658d6d11a",
+    "d0bae5e3ff3847644e977afe12f74a4b5a748790bb55d4f2061eb7bf8d0aa25a"
+  ],
+  "graph": {
+    "version": "hamr-directed-structure-v2",
+    "left_vertices": 15,
+    "right_vertices": 15,
+    "left_edges": 32,
+    "right_edges": 32,
+    "names_compared": false,
+    "left_roles": {
+      "model:": 1,
+      "component:System": 1,
+      "connection:Port": 3,
+      "resolved-connection:Port": 1,
+      "component:Process": 2,
+      "port:EventDataPort": 4,
+      "component:Thread": 2,
+      "component:Processor": 1
+    },
+    "right_roles": {
+      "model:": 1,
+      "component:System": 1,
+      "connection:Port": 3,
+      "resolved-connection:Port": 1,
+      "component:Process": 2,
+      "port:EventDataPort": 4,
+      "component:Thread": 2,
+      "component:Processor": 1
+    },
+    "status": "PASS",
+    "reason": "One bijection preserves every typed vertex and directed edge including multiplicity",
+    "mapping": {
+      "0/#model": "0/#model",
+      "0/ProdCons_System_Instance": "0/ProdCons_System_Instance",
+      "0/ProdCons_System_Instance#connection:0": "0/ProdCons_System_Instance#connection:0",
+      "0/ProdCons_System_Instance#resolved-connection:0": "0/ProdCons_System_Instance#resolved-connection:0",
+      "0/ProdCons_System_Instance::prod": "0/ProdCons_System_Instance::prod",
+      "0/ProdCons_System_Instance::prod::output": "0/ProdCons_System_Instance::prod::output",
+      "0/ProdCons_System_Instance::prod#connection:0": "0/ProdCons_System_Instance::prod#connection:0",
+      "0/ProdCons_System_Instance::prod::prod": "0/ProdCons_System_Instance::prod::prod",
+      "0/ProdCons_System_Instance::prod::prod::output": "0/ProdCons_System_Instance::prod::prod::output",
+      "0/ProdCons_System_Instance::cons": "0/ProdCons_System_Instance::cons",
+      "0/ProdCons_System_Instance::cons::input": "0/ProdCons_System_Instance::cons::input",
+      "0/ProdCons_System_Instance::cons#connection:0": "0/ProdCons_System_Instance::cons#connection:0",
+      "0/ProdCons_System_Instance::cons::cons": "0/ProdCons_System_Instance::cons::cons",
+      "0/ProdCons_System_Instance::cons::cons::input": "0/ProdCons_System_Instance::cons::cons::input",
+      "0/ProdCons_System_Instance::proc": "0/ProdCons_System_Instance::proc"
+    },
+    "search_states": 16,
+    "scope": "Names/order ignored; containment, component categories, port directions, wiring and supported properties checked",
+    "not_established": [
+      "payload type equivalence",
+      "GUMBO/requirement semantics",
+      "implementation/proof/test acceptance"
+    ],
+    "whole_system_acceptance": false
+  },
+  "similarity_assistance": {
+    "status": "ADVISORY",
+    "cosine_similarity": 0.9751535945072288,
+    "cosine_distance": 0.024846405492771173,
+    "representation": "Parsed assume/guarantee expression feature counts; not semantic embeddings",
+    "scope": "Advisory similarity after structural equivalence; never proves contract equivalence or authorizes acceptance",
+    "threshold_applied": false,
+    "limitations": [
+      "Unordered features can hide relational differences",
+      "Variable names remain significant in this advisory representation",
+      "Helper definitions, state semantics and assumption discharge require separate checks"
+    ],
+    "left_obligations": 3,
+    "right_obligations": 3
+  },
+  "historical_source_text_cosine": {
+    "acceptance": "NOT_ASSESSED",
+    "architecture_check": "NOT_RUN",
+    "artifact_kind": "LEXICAL_DIAGNOSTIC_NOT_ACCEPTANCE",
+    "cosine_distance": 0.7880016638717517,
+    "cosine_similarity": 0.21199833612824828,
+    "cosine_status": "DEFINED",
+    "left_tokens": 1430,
+    "left_utf8_sha256": "3a644a6a465df26167cd8a5be4c4604120ee203309134b6b951620907be3ffcf",
+    "limitations": [
+      "Count cosine discards order and role bindings; equal vectors may encode different behavior.",
+      "Token sequence diagnostics are not a parser, proof, or minimum-edit metric.",
+      "No source/contract ownership extraction, requirement check, or model call is performed."
+    ],
+    "line_deleted_plus_inserted": 189,
+    "right_tokens": 462,
+    "right_utf8_sha256": "c64d8495b2083bd4dc9de3e623f42b4b461278c922dc02f996e0260a385a1559",
+    "semantic_equivalence": "NOT_ESTABLISHED",
+    "sequence_deleted_plus_inserted": 1298,
+    "sequence_edit_fraction": 0.686046511627907,
+    "tokenizer_version": "lexical-preserve-v1"
+  },
+  "behavioral_equivalence": "NOT_ESTABLISHED",
+  "whole_system_acceptance": false,
+  "previous_result_unchanged": true,
+  "model_calls": 0,
+  "id": "304e93fa0959087e01c8b5951194f9224ea0eed67ef70e25808f50a419382a03"
+}

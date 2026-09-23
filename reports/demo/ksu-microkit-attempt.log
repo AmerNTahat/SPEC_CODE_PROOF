@@ -1,0 +1,2 @@
+FAILED
+[('parse_type', 'PASS', 'Type checker completed'), ('hamr_codegen', 'FAIL', 'HAMR tool returned a nonzero status; inspect recorded diagnostics')]

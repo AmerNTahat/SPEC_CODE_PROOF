@@ -71,6 +71,13 @@ class Application:
                 if method == 'POST' and route == '/api/learning/development-revise-rules':
                     from .development import Development
                     return Development(controller).revise_rules(body.get('result_id'),body.get('candidate_ids'))
+                if method == 'POST' and route == '/api/learning/development-graph':
+                    from .development import Development
+                    return Development(controller).compare_graph(body.get('result_id'))
+                if method == 'POST' and route == '/api/learning/export-books':
+                    return Knowledge(controller.store).export_learned_books()
+                if method == 'GET' and route == '/api/learning/book':
+                    return Knowledge(controller.store).read_learned_book(query.get('export_id',[''])[0])
                 if method == 'POST' and route == '/api/learning/development-prepare':
                     from .development import Development
                     profile=self.profiles.get(body.get('profile_id'))
@@ -84,13 +91,15 @@ class Application:
                     return Development(controller).generate_and_check(body.get('task_id'),body.get('campaign_id'),body.get('previous_result_id'))
                 if method == 'POST' and route == '/api/learning/refine':
                     return service.refine(body.get('candidate_id'),body.get('development_result_id'),body.get('campaign_id'))
+                if method == 'POST' and route == '/api/learning/workflow-failure':
+                    return service.learn_workflow_failure(body.get('plan_id'),body.get('campaign_id'),body.get('context_ids'),body.get('run_id'),body.get('generated_result_id'),body.get('strategy'),body.get('prior_candidate_id'))
                 if method == 'POST' and route == '/api/learning/extract-remaining':
-                    return service.extract_remaining(body.get('plan_id'),body.get('campaign_id'))
+                    return service.extract_remaining(body.get('plan_id'),body.get('campaign_id'),body.get('focus','full_stack'))
                 if method == 'POST' and route == '/api/learning/campaign-control':
                     from .campaign import Campaign
                     return Campaign(controller.store).control(body.get('campaign_id'),body.get('action'))
                 if method == 'POST' and route == '/api/learning/extract':
-                    return service.extract(body.get('plan_id'),body.get('campaign_id'),body.get('batch_index',0))
+                    return service.extract(body.get('plan_id'),body.get('campaign_id'),body.get('batch_index',0),focus=body.get('focus','full_stack'))
                 if method == 'POST' and route == '/api/learning/plan':
                     from .learning_plan import LearningPlan
                     return LearningPlan(controller.store).propose(body.get('context_ids',[]),body.get('training'),body.get('validation'),body.get('epsilon',0.1))

@@ -17,11 +17,13 @@
     "Learning home and setup inspect actual materials, preserve books, and disclose unfinished model stages",
     "Context repository selection, disjoint component ranges, cosine-distance epsilon and exact split approval through Firefox",
     "Approved split restored after navigation; campaign pause/resume disables/enables extraction without any model call",
+    "System-level extraction focus is selectable; readable book export preserves draft status without model calls",
+    "Workflow generalization/specialization is selectable and blocked without exact context, provenance and prior-rule selections; no model call",
     "Development evidence inspection renders actual backend snapshot text and unknown comparison without claiming validation",
     "Unit-definition editing creates a new revision; unsaved edits cannot be approved and approval creates no verified units"
   ],
   "browser": {
-    "sessionId": "a615bdf7-c61e-4d0c-8de5-c5b608eb2e8e",
+    "sessionId": "847343ba-0f64-485c-b7ab-3904fd38ce65",
     "capabilities": {
       "acceptInsecureCerts": false,
       "browserName": "firefox",
@@ -32,8 +34,8 @@
       "moz:buildID": "20250227124745",
       "moz:headless": true,
       "moz:platformVersion": "5.15.0-139-generic",
-      "moz:processID": 142681,
-      "moz:profile": "/tmp/inspecta-browser-xlicfmwn/firefox",
+      "moz:processID": 152818,
+      "moz:profile": "/tmp/inspecta-browser-r21ksswi/firefox",
       "moz:shutdownTimeout": 60000,
       "pageLoadStrategy": "normal",
       "timeouts": {

@@ -41,14 +41,31 @@ class Campaign:
         if row is None:raise PolicyError('Unknown campaign ledger')
         estimated=self.store.db.execute('SELECT COALESCE(SUM(a.debit),0) FROM campaign_adjustments a JOIN campaign_calls c ON a.call_id=c.id WHERE c.campaign_id=?',(campaign_id,)).fetchone()[0]
         extensions=[x for x in self.store.records('campaign_time_extension') if x['campaign_id']==campaign_id]
+        token_extensions=[x for x in self.store.records('campaign_token_extension') if x['campaign_id']==campaign_id]
+        ceiling=authorization['aggregate_tokens']+sum(x['tokens'] for x in token_extensions)
         wall_seconds=authorization['wall_seconds']+sum(x['seconds'] for x in extensions)
         result=dict(row);result['estimated_debit_tokens']=estimated;deadline=row['started']+wall_seconds if row['started'] is not None else None
         policies=[p for p in self.store.records('campaign_failure_policy') if p['campaign_id']==campaign_id]
         return {**result,'control_state':self.control_state(campaign_id),'failure_policy':policies[-1] if policies else None,'authorization':authorization,'deadline':deadline,
-            'time_extensions':extensions,'authorized_wall_seconds':wall_seconds,
+            'time_extensions':extensions,'token_extensions':token_extensions,'token_ceiling':ceiling,'authorized_wall_seconds':wall_seconds,
             'remaining_seconds':max(0,deadline-time.time()) if deadline else wall_seconds,
-            'remaining_tokens':None if row['usage_unknown'] else max(0,authorization['aggregate_tokens']-row['used_tokens']-estimated-row['reserved_tokens']),
+            'remaining_tokens':None if row['usage_unknown'] else max(0,ceiling-row['used_tokens']-estimated-row['reserved_tokens']),
             'scope':'Best-effort aggregate accounting; termination may leave uncertain in-flight usage'}
+
+    def extend_tokens(self,campaign_id,tokens,expected_ceiling,consent):
+        if type(tokens) is not int or tokens<=0 or not isinstance(consent,str) or not consent.strip():
+            raise PolicyError('Positive token extension and explicit authorization required')
+        self.store.db.execute('BEGIN IMMEDIATE')
+        try:
+            state=self.status(campaign_id)
+            if state['token_ceiling']!=expected_ceiling:raise PolicyError('Token extension must bind the exact previous ceiling')
+            if state['reserved_tokens']:raise PolicyError('Wait for the active call to settle')
+            extension=self.store.record('campaign_token_extension',{'campaign_id':campaign_id,'tokens':tokens,
+                'previous_ceiling':expected_ceiling,'consent':consent,'deadline_unchanged':state['deadline']})
+            self.store.event('campaign:'+campaign_id,'token_extension_authorized',extension)
+            self.store.db.execute('COMMIT')
+        except BaseException:self.store.db.execute('ROLLBACK');raise
+        return self.status(campaign_id)
 
     def extend_time(self,campaign_id,seconds,expected_deadline,consent):
         """Explicit additional time, retaining the original token ledger and start."""
@@ -61,7 +78,7 @@ class Campaign:
                 raise PolicyError('Extension must bind the exact existing campaign deadline')
             if state['reserved_tokens']:raise PolicyError('Stop the active call before extending time')
             extension=self.store.record('campaign_time_extension',{'campaign_id':campaign_id,'seconds':seconds,
-                'previous_deadline':expected_deadline,'consent':consent,'token_ceiling_unchanged':state['authorization']['aggregate_tokens']})
+                'previous_deadline':expected_deadline,'consent':consent,'token_ceiling_unchanged':state['token_ceiling']})
             self.store.event('campaign:'+campaign_id,'time_extension_authorized',extension)
             self.store.db.execute('COMMIT')
         except BaseException:self.store.db.execute('ROLLBACK');raise

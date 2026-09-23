@@ -46,7 +46,7 @@ def defaults(mode):
         "required_gates": ["parse_type", "requirements_coverage", "architecture",
                            "independent_requirements_tests", "configured_formal_verification",
                            "configured_build", "review"],
-        "sireum": None, "sireum_sha256": None,
+        "sireum": None, "sireum_sha256": None, "hamr_platform": "JVM",
         "learning_materials": None, "development_validation": None, "final_evaluation": None,
         "dataset_assignment": None, "dataset_task": None,
         "model": {"family": "gpt", "requested_profile": "astra", "resolved_model_id": None},
@@ -98,6 +98,7 @@ def resolve(profile=None, overrides=None, base_dir=None):
         raise PolicyError("Renaming requires explicit authorization")
     if not isinstance(config["model"], dict) or config["model"].get("family") != "gpt":
         raise PolicyError("GPT-only model policy")
+    if config['hamr_platform'] not in {'JVM','Microkit'}:raise PolicyError('Unsupported HAMR platform')
     budget = config["budget"]
     if not isinstance(budget, dict) or set(budget) != set(defaults(mode)["budget"]):
         raise PolicyError("Invalid budget fields")

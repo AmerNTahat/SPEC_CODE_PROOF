@@ -54,3 +54,16 @@ Read the latest actual Isolette result without spending tokens:
 ```
 
 This replays saved evidence, not a fresh engineering execution. Inspect the full gate output through **View runs and results**; the Learning page displays generated and golden source and comparison results. A refined-rule test stays pending until its exact task is approved. Reusing a failed result preserves the repair allowance.
+
+
+Readable learned books and KSU stage locations are documented in [KSU_WORKFLOWS.md](KSU_WORKFLOWS.md).
+In Learning, use **Export versioned learned rulebook**, expand its snapshot, then
+**Read learned book**. Exports are immutable draft snapshots, not User releases.
+Choose the extraction focus explicitly when seeking whole-system architecture or
+workflow rules; previous generic batches do not count as coverage of those focuses.
+
+From a development result, inspect its evidence and choose **Compare directed
+architecture graphs ignoring names**. Saved graph assessments are also selectable.
+See [GRAPH_EQUIVALENCE.md](GRAPH_EQUIVALENCE.md) for the precise scope, known gaps and
+why cosine assistance cannot establish behavior correctness. Historical exact
+syntax differences remain available, clearly labeled separately.

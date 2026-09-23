@@ -31,11 +31,18 @@ def parser():
     q = sub.add_parser('learning', help='Inspect learning materials and follow rulebook development')
     actions = q.add_subparsers(dest='learning_action', required=True)
     actions.add_parser('catalog')
-    a = actions.add_parser('extract'); a.add_argument('--plan',required=True); a.add_argument('--campaign',required=True); a.add_argument('--batch-index',type=int,default=0)
-    a = actions.add_parser('extract-remaining'); a.add_argument('--plan',required=True); a.add_argument('--campaign',required=True)
+    a = actions.add_parser('extract'); a.add_argument('--plan',required=True); a.add_argument('--campaign',required=True); a.add_argument('--batch-index',type=int,default=0); a.add_argument('--focus',default='full_stack')
+    a = actions.add_parser('extract-remaining'); a.add_argument('--plan',required=True); a.add_argument('--campaign',required=True); a.add_argument('--focus',default='full_stack')
     a = actions.add_parser('campaign-control'); a.add_argument('--campaign',required=True); a.add_argument('--action',choices=['pause','resume'],required=True)
     a = actions.add_parser('prepare-validation'); a.add_argument('--config',type=Path,required=True); a.add_argument('--input',type=Path,required=True)
     a = actions.add_parser('inspect-validation'); a.add_argument('--result',required=True)
+    a = actions.add_parser('compare-graphs'); a.add_argument('--result',required=True)
+    actions.add_parser('export-books')
+    a = actions.add_parser('learn-workflow-failure', help='Learn from actual failed generated-workspace gates using approved context')
+    a.add_argument('--plan',required=True); a.add_argument('--campaign',required=True)
+    a.add_argument('--context-ids',nargs='+',required=True); a.add_argument('--run',required=True)
+    a.add_argument('--result',required=True); a.add_argument('--strategy',choices=['generalize','specialize'],required=True)
+    a.add_argument('--prior-candidate')
     a = actions.add_parser('revise-validation'); a.add_argument('--result',required=True); a.add_argument('--candidates',nargs='+',required=True)
     a = actions.add_parser('suggest-units'); a.add_argument('--plan',required=True); a.add_argument('--campaign',required=True)
     a = actions.add_parser('revise-units'); a.add_argument('--proposal',required=True); a.add_argument('--input',type=Path,required=True)
@@ -251,9 +258,14 @@ def dispatch(args):
             from .learning import Learning
             service = Learning(controller)
             if args.learning_action == 'catalog':return service.catalog()
+            if args.learning_action == 'export-books':return service.knowledge.export_learned_books()
+            if args.learning_action == 'learn-workflow-failure':return service.learn_workflow_failure(args.plan,args.campaign,args.context_ids,args.run,args.result,args.strategy,args.prior_candidate)
+            if args.learning_action == 'compare-graphs':
+                from .development import Development
+                return Development(controller).compare_graph(args.result)
             if args.learning_action == 'refine':return service.refine(args.candidate,args.development_result,args.campaign)
-            if args.learning_action == 'extract':return service.extract(args.plan,args.campaign,args.batch_index)
-            if args.learning_action == 'extract-remaining':return service.extract_remaining(args.plan,args.campaign)
+            if args.learning_action == 'extract':return service.extract(args.plan,args.campaign,args.batch_index,focus=args.focus)
+            if args.learning_action == 'extract-remaining':return service.extract_remaining(args.plan,args.campaign,focus=args.focus)
             if args.learning_action == 'campaign-control':
                 from .campaign import Campaign
                 return Campaign(controller.store).control(args.campaign,args.action)

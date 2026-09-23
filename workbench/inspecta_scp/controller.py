@@ -238,7 +238,7 @@ class Controller:
                 raise PolicyError('Isolated tool output directory required')
             command.extend(['--bind', str(output), '/output', '/opt/sireum/bin/sireum', 'hamr', 'sysml'])
             if operation == 'hamr_codegen':
-                command.extend(['codegen', '--sourcepath', '/work', '--platform', 'JVM',
+                command.extend(['codegen', '--sourcepath', '/work', '--platform', config.get('hamr_platform','JVM'),
                                 '--output-dir', '/output', '--no-proyek-ive', '/work/' + config['model_file']])
             else:
                 command.extend(['logika', '--sourcepath', '/work', '--feedback', '/output/feedback',

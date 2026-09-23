@@ -1,5 +1,50 @@
 # Live demonstration: executed, validation incomplete
 
+## New graph assessment supersedes the architectural interpretation of exact diffs
+
+The user requested name-independent directed graph equivalence. Implemented and
+executed a new evaluator on the saved live HAMR captures; no extra model calls.
+
+- **Producer/Consumer graph: PASS**, 15 vertices and 32 directed edges on each side,
+  with a stored bijection preserving containment, port directions, wiring, bindings
+  and supported properties. Its historical 41 exact syntax/declaration differences
+  are **not** 41 architectural defects.
+- **Isolette graph: FAIL**, 1162 versus 935 vertices and 3164 versus 2534 directed
+  edges across the exported instance graphs. Names/order alone do not explain this.
+- After graph PASS, Producer/Consumer parsed assume/guarantee feature cosine is
+  approximately **0.9752** (three obligations per side). This is advisory, not semantic
+  embeddings or behavior proof. Isolette post-graph similarity was not run.
+
+See `producer-consumer-graph-assessment.json`, `isolette-graph-assessment.json`,
+`producer-consumer-directed-graphs.svg`, and `../../workbench/GRAPH_EQUIVALENCE.md`.
+The original results below remain unchanged as historical evidence. Structural
+projection success does not establish payload types, requirement fidelity, helper
+semantics, implementation, proofs, tests, or whole-system acceptance.
+
+The additional 1M-token allowance and 45-minute extension are recorded in
+`TOKEN_EXTENSION.json` and `TIME_EXTENSION_45_MINUTES.json`. Current cumulative
+usage: **994,378 measured tokens + 3,000,000 estimated debits = 3,994,378 charged**,
+leaving **10,005,622** within the 14M ceiling. No consumption was reset.
+
+All four focused extractions completed. The exact KSU context revision was approved
+and used in two further calls: generalized workflow learning and specialization
+from the actual Microkit timing failure. These two calls used **91,248 measured
+tokens**, **231.394 seconds** total, and no new estimated debit. The Microkit tool
+attempt itself took **16.919 seconds**, zero model tokens; parse PASS, generation FAIL
+(frame 120, used budget 160). See `KSU_MICROKIT_ATTEMPT.json`,
+`ksu-workflow-generalize.json` and `ksu-workflow-specialize.json`.
+
+There are **19 maintained draft candidates** in the versioned learned book; see
+`LEARNED_BOOK_EXPORT.json` and `.scp-workbench/app/learned-rulebooks/INDEX.md`
+(repository relative). UI controls expose workflow failure learning and the approved
+context selections. The latest approved split opens by default. These drafts are
+not published or validated transfer knowledge. No unsupported timing changes were
+applied; successful repair and cost reduction remain unestablished.
+See `../../workbench/KSU_WORKFLOWS.md` for source scope, stage mapping and limitations.
+
+## Earlier checkpoint (before graph comparison and the additional token grant)
+
+
 The user approved the isolated Isolette compatibility reference: 148 port-direction
 edits across seven copied files. Original Isolette files, original Monitor training,
 DASC artifacts, and existing rulebooks remain unchanged. The new development

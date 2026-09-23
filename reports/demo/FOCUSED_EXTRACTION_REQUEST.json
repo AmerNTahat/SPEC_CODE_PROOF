@@ -1,0 +1,40 @@
+{
+  "status": "EXECUTED",
+  "plan_id": "2849a2cebf7258e1bf081dba484e97177979ec9cff7fb352f75b6c4dc8c77977",
+  "focuses": [
+    "system_architecture",
+    "requirements_allocation",
+    "engineering_workflow",
+    "implementation_proof_testing"
+  ],
+  "maximum_calls": 4,
+  "requested_additional_seconds": 1200,
+  "existing_context": "Approved FAA guidebook and Monitor training; original Regulate held out",
+  "new_ksu_context_authorized": false,
+  "aggregate_token_ceiling": 14000000,
+  "prior_usage_retained": true,
+  "executed": true,
+  "results": [
+    {
+      "focus": "system_architecture",
+      "extraction_id": "5032e5c3a477604b4e2f9938d8b2eb14e1ab7f9e49b8a63c8e262868425e9149",
+      "status": "DRAFT_PENDING_DEVELOPMENT_VALIDATION"
+    },
+    {
+      "focus": "requirements_allocation",
+      "extraction_id": "7c041eb119f572bf58e0d17abfc58669cf0355ca1e4ff8d808c5dbfbaac44ee0",
+      "status": "DRAFT_PENDING_DEVELOPMENT_VALIDATION"
+    },
+    {
+      "focus": "engineering_workflow",
+      "extraction_id": "36204f61c1816cdc485a02c01e6b45b9c5fa66142d219e82bc3a034191c0ef94",
+      "status": "DRAFT_PENDING_DEVELOPMENT_VALIDATION"
+    },
+    {
+      "focus": "implementation_proof_testing",
+      "extraction_id": "77aad5745658d394c96366c17276cc72793c2baaa922179a9f01ac2109975b66",
+      "status": "DRAFT_PENDING_DEVELOPMENT_VALIDATION"
+    }
+  ],
+  "authorized_time_extension": "TIME_EXTENSION_45_MINUTES.json"
+}

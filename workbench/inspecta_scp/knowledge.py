@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import hashlib
 from pathlib import Path
 import re
 
@@ -32,6 +33,48 @@ class Knowledge:
         self.store = store
         self.sources = Sources(store)
         self.approvals = Approvals(store)
+
+    def export_learned_books(self):
+        """Readable immutable draft snapshots alongside the authoritative records."""
+        from .storage import safe_child
+        records=self.store.records('candidate_rule')
+        extractions=self.store.records('learning_extraction')
+        bundle={'format_version':'learned-rulebook-v2','state':'DRAFT_NOT_PUBLISHED','candidates':records,'extractions':extractions,
+                'reviews':self.store.records('rule_review'),
+                'scope':'Learned proposals and provenance; neither imported original books nor a verified release'}
+        identity=digest(bundle);root=safe_child(self.store.root,'learned-rulebooks');root.mkdir(exist_ok=True)
+        folder=safe_child(root,identity);folder.mkdir(exist_ok=True)
+        lines=['# Learned draft rulebook','', 'DRAFT — not a validated or published User release.',
+               '', 'Each candidate keeps its own immutable identity. Repeated rule names are not merged.', '']
+        for candidate in records:
+            r=candidate['record'];lines += ['## '+str(r['id'])+' · revision '+str(r['revision']),'',r['principle'],'',
+                'Candidate: `'+candidate['id']+'`','']
+            focuses=sorted({x.get('focus','full_stack') for x in extractions if x.get('candidate_id')==candidate['id']})
+            lines += ['Extraction focus: '+(', '.join(focuses) or 'not recorded'),'']
+            for field in ['trigger','semantic_roles','prerequisites','preserved_obligations','formal_output_pattern','counterexample','repair_gate','exclusions','source_references','notes']:
+                if field in r:lines += ['### '+field.replace('_',' ').capitalize(),'','```json',json.dumps(r[field],indent=2,ensure_ascii=False),'```','']
+        artifacts={'rulebook.json':json.dumps(bundle,indent=2,ensure_ascii=False)+'\n','RULEBOOK.md':'\n'.join(lines)}
+        for name,text in artifacts.items():
+            path=safe_child(folder,name)
+            if path.exists() and path.read_text()!=text:raise PolicyError('Learned book snapshot was modified')
+            if not path.exists():path.write_text(text)
+        receipt=self.store.record('learned_book_export',{'snapshot_id':identity,'directory':str(folder),
+            'candidate_count':len(records),'state':'DRAFT_NOT_PUBLISHED','files':list(artifacts),
+            'content_hashes':{k:hashlib.sha256(v.encode()).hexdigest() for k,v in artifacts.items()}})
+        index=safe_child(root,'INDEX.md')
+        if index.exists() and not index.read_text().startswith('# Workbench learned book index\n'):
+            raise PolicyError('Refusing to replace an unrecognized book index')
+        index.write_text('# Workbench learned book index\n\nCurrent draft: ['+identity+']('+identity+'/RULEBOOK.md)\n\n'+str(len(records))+' candidates. Original books are unchanged. No publication or verification is implied.\n')
+        return receipt
+
+    def read_learned_book(self,export_id):
+        from .storage import safe_child,sha_file
+        receipt=self.store.read_record('learned_book_export',export_id)
+        folder=safe_child(self.store.root,'learned-rulebooks/'+receipt['snapshot_id'])
+        path=safe_child(folder,'RULEBOOK.md')
+        if sha_file(path)!=receipt.get('content_hashes',{}).get('RULEBOOK.md'):
+            raise PolicyError('Book content changed or predates content-bound export; export again')
+        return {'export':receipt,'text':path.read_text()}
 
     def import_books(self, directory):
         root = self.sources.register_root(directory, "learning")

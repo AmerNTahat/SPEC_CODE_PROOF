@@ -1,0 +1,345 @@
+{
+  "plan_id": "2849a2cebf7258e1bf081dba484e97177979ec9cff7fb352f75b6c4dc8c77977",
+  "manifest_id": "399c7e23e35c8e92c53b84eef9f89b84e21d546f79a0b298f7f68cfc3465be28",
+  "focus": "system_architecture",
+  "revision_of": null,
+  "development_feedback_id": null,
+  "batch_index": 0,
+  "batch_count": 12,
+  "model_call_id": "2bb8d2733a3590628df96b5f381efb7445ff4d713987d46b8d90c233b37e7d6e",
+  "candidate_id": "55b56ac69e27eb30663c6ce4a48017fe04cb737082988af77fe052c9287db2af",
+  "status": "DRAFT_PENDING_DEVELOPMENT_VALIDATION",
+  "scope": "Actual model proposal; no rule-transfer validation or publication claim",
+  "id": "5032e5c3a477604b4e2f9938d8b2eb14e1ab7f9e49b8a63c8e262868425e9149",
+  "candidate": {
+    "record": {
+      "$schema": "",
+      "schema_version": "2.0",
+      "record_type": "rule",
+      "id": "whole-system-role-and-flow-preservation",
+      "revision": "1",
+      "state": "DRAFT",
+      "basis": "model_inferred",
+      "assessment_timing": "before_action",
+      "source_references": [
+        "d7ef18732a5def5da9422e3e47db924dd4ae4c9b806fcc86f11c932b377db935",
+        "8539757b211ec65ebcf5df73b8125fe82011a6066fd3bcba864328af992b4bf1"
+      ],
+      "source_artifact_hashes": [
+        "43664d0fe5904aed949d4c12e824c905d7bc1b4e89efa0409038c1b6f52ff605",
+        "b4949561cb04d46f718a16e2cc1486c0bd5a26c15778e3567c464466c24731df"
+      ],
+      "source_episode": "2bb8d2733a3590628df96b5f381efb7445ff4d713987d46b8d90c233b37e7d6e",
+      "available_context_manifest": "399c7e23e35c8e92c53b84eef9f89b84e21d546f79a0b298f7f68cfc3465be28",
+      "model_configuration": "7e31988cc8d9b89ae79c126a58e57c1f5babd2bc70e3e301ffe8cee77e0969d1",
+      "prompt_version": "1",
+      "trigger": "Apply when decomposing, completing, extending, or repairing a system whose requirements allocate interface handling, control, mode management, and internal-failure detection to distinct components connected through typed, directed ports.",
+      "principle": "Preserve the complete allocation from system boundary through component containment, directed data flow, behavioral ownership, and deployment configuration. Each required output must remain traceable to its owning thread through transparent process interfaces; local behavioral correctness alone does not establish system correctness.",
+      "semantic_choice": "Interpret 'contains' as containment, 'send X to Y' as a directed dependency, and 'controls', 'validates', 'reports', and 'detects' as distinct ownership responsibilities. Interpret conditional behavior at the owning thread. Resolve endpoints from declarations rather than misleading comments, and preserve both value and validity information wherever the declared interface carries them.",
+      "structural_placement": "Place external monitored and controlled ports and inter-process connections on the System; place each role's Thread inside its Process with matching typed port forwarding; attach behavioral contracts and state to the owning Thread; preserve scheduling attributes at their declared Process and Thread locations. Preserve existing deployment bindings wherever supplied, without inventing hardware allocation.",
+      "repair_gate": "A proposed repair must preserve the baseline interfaces, containment, required directed paths, behavioral guarantees, state ownership, and scheduling configuration. Investigate failures at the responsible layer and rerun affected structural, implementation, proof, integration, and deployment checks. Do not remove consumers, bypass validity handling, weaken guarantees, strengthen assumptions without requirements support, or alter deployment metadata merely to make a check pass. Missing semantics remain explicit unresolved obligations.",
+      "prerequisites": [
+        "A baseline inventory of system, process, and thread instances, port names, directions, types, connections, contracts, and scheduling attributes is available.",
+        "The target has a justified mapping to the supplied component roles; names or lexical similarity alone are insufficient.",
+        "Imported data types, enum values, units, numeric bounds, and port communication semantics can be resolved before implementation or verification.",
+        "Initialization and update semantics for persistent state are specified before claiming behavioral refinement.",
+        "The execution platform's dispatch, sampling, buffering, startup, and scheduling semantics are available before assessing temporal composition.",
+        "Any target deployment bindings and resource requirements are available before checking deployment compatibility.",
+        "Application-time parsing, implementation, proof, integration-testing, and deployment-checking capabilities are available for their respective obligations; none are supplied as validation implementations here."
+      ],
+      "exclusions": [
+        "Do not generalize the example's domain numbers or 1000 ms period into universal values for other systems.",
+        "Do not infer processor bindings, end-to-end latency, dispatch ordering, fault independence, or detection coverage from domain attributes alone.",
+        "Do not treat local alarm hysteresis as the whole-system rule.",
+        "Do not infer timeout behavior or persistent-state updates solely from case descriptions.",
+        "Do not introduce components from handbook examples whose implementations were not supplied."
+      ],
+      "parameters": [
+        {
+          "name": "role_mapping",
+          "role": "Maps required responsibilities to contained components.",
+          "constraints": "For the supplied Monitor: interface=mmi, control=ma, mode=mmm, failure detection=dmf; each Process contains its corresponding Thread."
+        },
+        {
+          "name": "boundary_signature",
+          "role": "Defines preserved external interfaces.",
+          "constraints": "Retain current_tempWstatus, lower_alarm_tempWstatus, upper_alarm_tempWstatus as TempWstatus_i inputs; alarm_control as On_Off output; monitor_status as Status output. Preserve all existing internal process and thread interfaces as well."
+        },
+        {
+          "name": "required_flow_graph",
+          "role": "Defines directed producers, consumers, and forwarding paths.",
+          "constraints": "Preserve exact source endpoints, fan-out, types, and output ownership; no implicit reversal, lower/upper substitution, validity stripping, or bypass."
+        },
+        {
+          "name": "execution_configuration",
+          "role": "Carries scheduling and deployment requirements.",
+          "constraints": "For the supplied Monitor, Threads are Periodic at 1000 ms; matching Process/Thread domains are mmi=7, mmm=8, ma=9, dmf=10. Preserve supplied bindings; physical bindings are absent from this passage."
+        }
+      ],
+      "dependencies": [],
+      "target_compatibility": [
+        "reviewed-learning-plan"
+      ],
+      "preserved_obligations": [
+        "Architecture: retain the four supplied roles, their System-to-Process-to-Thread containment, every declared interface, and all required connections.",
+        "Directed wiring: current_tempWstatus feeds mmi, ma, and mmm; lower/upper alarm inputs feed the corresponding mmi inputs; mmi lower/upper outputs feed the corresponding ma inputs; mmm.monitor_mode feeds mmi and ma; mmi.interface_failure and dmf.internal_failure feed their corresponding mmm inputs; ma.alarm_control and mmi.monitor_status feed the corresponding system outputs.",
+        "Process forwarding: every declared process input reaches its matching thread input, and each thread output reaches its matching process output without semantic transformation.",
+        "Behavioral ownership: mmi owns interface validity, conditional range copying, and mode-to-status reporting; mmm owns mode transitions; ma owns alarm commands; dmf owns internal-failure reporting.",
+        "GUMBO and implementation: preserve all supplied initialization and compute guarantees, their guards, boundary comparisons, enum values, and trace labels. Implement only justified state initialization and updates; do not silently fill specification gaps.",
+        "Proof: establish type-correct directed connectivity and transparent forwarding, then thread refinement and assume-guarantee compatibility under explicit communication and scheduling semantics. Preserve feedback paths and address startup and sample-age effects; a shared period does not prove simultaneous execution.",
+        "Testing: propose structural checks and integrated traces covering each boundary input path, current-temperature fan-out, distinct lower/upper routing, invalid range statuses, internal failure, mode distribution, status reporting, alarm output, startup, and persistent-state behavior. Include mutations that remove or misroute required connections.",
+        "Deployment: retain the observed dispatch periods and matching domain assignments; where a target supplies resource bindings, check instance resolution and execution compatibility without fabricating bindings absent from the source.",
+        "Repair: localize defects across architecture, contracts, state, implementation, and deployment; retain every original obligation while repairing and record unresolved requirements instead of claiming completion."
+      ],
+      "counterexample": {
+        "scenario": "All four processes retain their local contracts and the alarm controller implements its boundary behavior, but the connection from dmf.internal_failure to mmm.internal_failure is omitted. The mode manager consequently continues receiving a stale false flag.",
+        "expected_difference": "The whole-system rule rejects this decomposition because the required failure-propagation path is missing, even if local alarm tests succeed. With the connection present and explicit communication semantics, an internal failure received while the mode manager is NORMAL must drive its supplied FAILED transition, which must then reach the alarm and interface consumers.",
+        "source_or_test_reference": null
+      },
+      "validation_gate_ids": [],
+      "evidence_references": [],
+      "confidence_forecast_reference": "9127bc5b9cc73c7c46afd3976c381e70686bbf4e45938fcd93ae743934826b4c",
+      "approval_reference": null,
+      "notes": "Observed: the supplied Monitor declares four processes with corresponding threads, typed forwarding connections, directed inter-process wiring, periodic execution metadata, matching domains, and contracts on three threads. No processor binding, implementation, proof result, test result, or validation implementation is supplied. The failure detector has no behavioral contract. lastMonitorMode and lastCmd are declared without explicit initialization/update relations, and the mode case mentioning timeout does not encode a timeout predicate. Proposed obligations: the structural, refinement, integration, deployment, and repair checks in this rule are inferred requirements for applying the pattern, not observed results. Handbook context supports organizing requirements across system and software boundaries but supplies no additional training implementation. No prior rule or development diagnostics were supplied. Source references and hashes remain for trusted-controller assignment.",
+      "source_english_patterns": [
+        "send incoming current temperature ... to interface manager ... to alarm manager ... to mode manager",
+        "send validated alarm range from interface manager to alarm manager",
+        "send monitor mode from mode manager ... to interface manager ... to alarm manager",
+        "The Detect Monitor Failure Function identifies internal failures"
+      ],
+      "positive_paraphrases": [
+        "Decompose the monitor into interface, alarm, mode, and failure-detection responsibilities, preserving their typed communication paths and execution assignments.",
+        "Route each system input through the required process interfaces to all designated consumers and route each controlled output from its designated owner."
+      ],
+      "misleading_near_matches": [
+        "Implement correct alarm hysteresis while omitting the mode and failure-propagation architecture.",
+        "Connect ports with compatible types even when producer roles or lower/upper meanings differ.",
+        "Assign all threads a common period and assume their outputs are observed in the same cycle.",
+        "Treat the comment about regulator interface failure as authority to wire an unsupplied regulator component."
+      ],
+      "supported_operations": [
+        "complete-system",
+        "extend-system",
+        "repair-system",
+        "verify-only",
+        "create-system"
+      ],
+      "stack_layers": [
+        "language",
+        "architecture",
+        "gumbo",
+        "implementation",
+        "proof",
+        "testing",
+        "deployment",
+        "repair"
+      ],
+      "semantic_roles": {
+        "actor": "The containing monitor system and its interface, alarm, mode, and failure-detection owners.",
+        "condition": "A justified decomposition maps requirements to these roles through preserved typed interfaces.",
+        "effect": "Required data reaches every designated consumer and each controlled output remains produced by its designated owner through explicit containment and forwarding.",
+        "modality": "Proposed mandatory preservation obligations, inferred from the supplied architecture.",
+        "quantification": "Every source interface, required connection, fan-out branch, contained role, attached guarantee, and declared execution attribute.",
+        "temporal_scope": "Initialization and recurring dispatches, with cross-thread observation timing governed by explicit target semantics.",
+        "state_dependency": "Persistent mode and command state belong to their respective threads; their missing lifecycle semantics must be resolved without weakening source guarantees.",
+        "units_and_boundaries": "Preserve 1000 ms periods for this source, declared temperature representations and comparisons, port directions, containment boundaries, and domains 7 through 10; do not infer a temperature unit from the field name degrees."
+      },
+      "formal_output_pattern": "ABSTRACT: Let S be the System, P_r its Process for role r in {interface, control, mode, failure}, and T_r the corresponding Thread. Require contains(S,P_r) and contains(P_r,T_r). For every source port p, preserve name(p), direction(p), type(p), owner(p). For every process input p require forwarding(P_r.p -> T_r.p); for every process output q require forwarding(T_r.q -> P_r.q). Required system edges E = {S.current -> P_interface.current, S.current -> P_control.current, S.current -> P_mode.current, S.lowerWstatus -> P_interface.lowerWstatus, S.upperWstatus -> P_interface.upperWstatus, P_interface.lower -> P_control.lower, P_interface.upper -> P_control.upper, P_mode.mode -> P_interface.mode, P_mode.mode -> P_control.mode, P_interface.interfaceFailure -> P_mode.interfaceFailure, P_failure.internalFailure -> P_mode.internalFailure, P_control.alarm -> S.alarm, P_interface.status -> S.status}. Require every edge in E with source-declared types and direction, and preserve the baseline graph and containment under the role mapping. Require execution_attributes(T_r)=baseline(T_r), domain(P_r)=domain(T_r)=baseline_domain(r), and preservation of every supplied deployment binding. For each supplied thread contract C_r require Implementation(T_r) refines C_r under explicit state and execution semantics. Require composition of forwarding, E, C_r, and justified environmental assumptions to preserve allocated boundary obligations. Missing contracts, lifecycle relations, timing assumptions, or bindings remain unresolved; this pattern supplies no executable validator.",
+      "formal_pattern_status": "ABSTRACT_NOT_VALIDATED",
+      "allowed_edit_scope": [
+        "Architecture containment and connection repairs that restore the preserved role mapping and source interfaces.",
+        "Thread implementations and contracts only to realize existing obligations or explicitly justified missing semantics.",
+        "Proof and integration-test artifacts covering structural and behavioral composition.",
+        "Deployment configuration repairs that preserve declared scheduling requirements and supplied bindings."
+      ],
+      "required_baseline": [
+        "Complete source interface, containment, and directed-connection inventory.",
+        "Existing thread contracts, requirement labels, and unresolved semantic gaps.",
+        "Dispatch, period, domain attributes, and any separately supplied target bindings.",
+        "Explicit target data-type, state-lifecycle, communication, and execution semantics."
+      ],
+      "diagnostic_signature": null,
+      "related_rule_ids": []
+    },
+    "status": "DRAFT_PENDING_VALIDATION",
+    "id": "55b56ac69e27eb30663c6ce4a48017fe04cb737082988af77fe052c9287db2af"
+  },
+  "model_result": {
+    "usage": {
+      "input_tokens": 20090,
+      "output_tokens": 2938,
+      "cached_input_tokens": 0
+    },
+    "usage_complete": true,
+    "status": "RESPONSE_RECEIVED",
+    "response": {
+      "rule": {
+        "$schema": "",
+        "schema_version": "2.0",
+        "record_type": "rule",
+        "id": "whole-system-role-and-flow-preservation",
+        "revision": "1",
+        "state": "DRAFT",
+        "basis": "model_inferred",
+        "assessment_timing": "before_action",
+        "source_references": [],
+        "source_artifact_hashes": [],
+        "source_episode": null,
+        "available_context_manifest": null,
+        "model_configuration": null,
+        "prompt_version": "1",
+        "trigger": "Apply when decomposing, completing, extending, or repairing a system whose requirements allocate interface handling, control, mode management, and internal-failure detection to distinct components connected through typed, directed ports.",
+        "principle": "Preserve the complete allocation from system boundary through component containment, directed data flow, behavioral ownership, and deployment configuration. Each required output must remain traceable to its owning thread through transparent process interfaces; local behavioral correctness alone does not establish system correctness.",
+        "semantic_choice": "Interpret 'contains' as containment, 'send X to Y' as a directed dependency, and 'controls', 'validates', 'reports', and 'detects' as distinct ownership responsibilities. Interpret conditional behavior at the owning thread. Resolve endpoints from declarations rather than misleading comments, and preserve both value and validity information wherever the declared interface carries them.",
+        "structural_placement": "Place external monitored and controlled ports and inter-process connections on the System; place each role's Thread inside its Process with matching typed port forwarding; attach behavioral contracts and state to the owning Thread; preserve scheduling attributes at their declared Process and Thread locations. Preserve existing deployment bindings wherever supplied, without inventing hardware allocation.",
+        "repair_gate": "A proposed repair must preserve the baseline interfaces, containment, required directed paths, behavioral guarantees, state ownership, and scheduling configuration. Investigate failures at the responsible layer and rerun affected structural, implementation, proof, integration, and deployment checks. Do not remove consumers, bypass validity handling, weaken guarantees, strengthen assumptions without requirements support, or alter deployment metadata merely to make a check pass. Missing semantics remain explicit unresolved obligations.",
+        "prerequisites": [
+          "A baseline inventory of system, process, and thread instances, port names, directions, types, connections, contracts, and scheduling attributes is available.",
+          "The target has a justified mapping to the supplied component roles; names or lexical similarity alone are insufficient.",
+          "Imported data types, enum values, units, numeric bounds, and port communication semantics can be resolved before implementation or verification.",
+          "Initialization and update semantics for persistent state are specified before claiming behavioral refinement.",
+          "The execution platform's dispatch, sampling, buffering, startup, and scheduling semantics are available before assessing temporal composition.",
+          "Any target deployment bindings and resource requirements are available before checking deployment compatibility.",
+          "Application-time parsing, implementation, proof, integration-testing, and deployment-checking capabilities are available for their respective obligations; none are supplied as validation implementations here."
+        ],
+        "exclusions": [
+          "Do not generalize the example's domain numbers or 1000 ms period into universal values for other systems.",
+          "Do not infer processor bindings, end-to-end latency, dispatch ordering, fault independence, or detection coverage from domain attributes alone.",
+          "Do not treat local alarm hysteresis as the whole-system rule.",
+          "Do not infer timeout behavior or persistent-state updates solely from case descriptions.",
+          "Do not introduce components from handbook examples whose implementations were not supplied."
+        ],
+        "parameters": [
+          {
+            "name": "role_mapping",
+            "role": "Maps required responsibilities to contained components.",
+            "constraints": "For the supplied Monitor: interface=mmi, control=ma, mode=mmm, failure detection=dmf; each Process contains its corresponding Thread."
+          },
+          {
+            "name": "boundary_signature",
+            "role": "Defines preserved external interfaces.",
+            "constraints": "Retain current_tempWstatus, lower_alarm_tempWstatus, upper_alarm_tempWstatus as TempWstatus_i inputs; alarm_control as On_Off output; monitor_status as Status output. Preserve all existing internal process and thread interfaces as well."
+          },
+          {
+            "name": "required_flow_graph",
+            "role": "Defines directed producers, consumers, and forwarding paths.",
+            "constraints": "Preserve exact source endpoints, fan-out, types, and output ownership; no implicit reversal, lower/upper substitution, validity stripping, or bypass."
+          },
+          {
+            "name": "execution_configuration",
+            "role": "Carries scheduling and deployment requirements.",
+            "constraints": "For the supplied Monitor, Threads are Periodic at 1000 ms; matching Process/Thread domains are mmi=7, mmm=8, ma=9, dmf=10. Preserve supplied bindings; physical bindings are absent from this passage."
+          }
+        ],
+        "dependencies": [],
+        "target_compatibility": [
+          "reviewed-learning-plan"
+        ],
+        "preserved_obligations": [
+          "Architecture: retain the four supplied roles, their System-to-Process-to-Thread containment, every declared interface, and all required connections.",
+          "Directed wiring: current_tempWstatus feeds mmi, ma, and mmm; lower/upper alarm inputs feed the corresponding mmi inputs; mmi lower/upper outputs feed the corresponding ma inputs; mmm.monitor_mode feeds mmi and ma; mmi.interface_failure and dmf.internal_failure feed their corresponding mmm inputs; ma.alarm_control and mmi.monitor_status feed the corresponding system outputs.",
+          "Process forwarding: every declared process input reaches its matching thread input, and each thread output reaches its matching process output without semantic transformation.",
+          "Behavioral ownership: mmi owns interface validity, conditional range copying, and mode-to-status reporting; mmm owns mode transitions; ma owns alarm commands; dmf owns internal-failure reporting.",
+          "GUMBO and implementation: preserve all supplied initialization and compute guarantees, their guards, boundary comparisons, enum values, and trace labels. Implement only justified state initialization and updates; do not silently fill specification gaps.",
+          "Proof: establish type-correct directed connectivity and transparent forwarding, then thread refinement and assume-guarantee compatibility under explicit communication and scheduling semantics. Preserve feedback paths and address startup and sample-age effects; a shared period does not prove simultaneous execution.",
+          "Testing: propose structural checks and integrated traces covering each boundary input path, current-temperature fan-out, distinct lower/upper routing, invalid range statuses, internal failure, mode distribution, status reporting, alarm output, startup, and persistent-state behavior. Include mutations that remove or misroute required connections.",
+          "Deployment: retain the observed dispatch periods and matching domain assignments; where a target supplies resource bindings, check instance resolution and execution compatibility without fabricating bindings absent from the source.",
+          "Repair: localize defects across architecture, contracts, state, implementation, and deployment; retain every original obligation while repairing and record unresolved requirements instead of claiming completion."
+        ],
+        "counterexample": {
+          "scenario": "All four processes retain their local contracts and the alarm controller implements its boundary behavior, but the connection from dmf.internal_failure to mmm.internal_failure is omitted. The mode manager consequently continues receiving a stale false flag.",
+          "expected_difference": "The whole-system rule rejects this decomposition because the required failure-propagation path is missing, even if local alarm tests succeed. With the connection present and explicit communication semantics, an internal failure received while the mode manager is NORMAL must drive its supplied FAILED transition, which must then reach the alarm and interface consumers.",
+          "source_or_test_reference": null
+        },
+        "validation_gate_ids": [],
+        "evidence_references": [],
+        "confidence_forecast_reference": null,
+        "approval_reference": null,
+        "notes": "Observed: the supplied Monitor declares four processes with corresponding threads, typed forwarding connections, directed inter-process wiring, periodic execution metadata, matching domains, and contracts on three threads. No processor binding, implementation, proof result, test result, or validation implementation is supplied. The failure detector has no behavioral contract. lastMonitorMode and lastCmd are declared without explicit initialization/update relations, and the mode case mentioning timeout does not encode a timeout predicate. Proposed obligations: the structural, refinement, integration, deployment, and repair checks in this rule are inferred requirements for applying the pattern, not observed results. Handbook context supports organizing requirements across system and software boundaries but supplies no additional training implementation. No prior rule or development diagnostics were supplied. Source references and hashes remain for trusted-controller assignment.",
+        "source_english_patterns": [
+          "send incoming current temperature ... to interface manager ... to alarm manager ... to mode manager",
+          "send validated alarm range from interface manager to alarm manager",
+          "send monitor mode from mode manager ... to interface manager ... to alarm manager",
+          "The Detect Monitor Failure Function identifies internal failures"
+        ],
+        "positive_paraphrases": [
+          "Decompose the monitor into interface, alarm, mode, and failure-detection responsibilities, preserving their typed communication paths and execution assignments.",
+          "Route each system input through the required process interfaces to all designated consumers and route each controlled output from its designated owner."
+        ],
+        "misleading_near_matches": [
+          "Implement correct alarm hysteresis while omitting the mode and failure-propagation architecture.",
+          "Connect ports with compatible types even when producer roles or lower/upper meanings differ.",
+          "Assign all threads a common period and assume their outputs are observed in the same cycle.",
+          "Treat the comment about regulator interface failure as authority to wire an unsupplied regulator component."
+        ],
+        "supported_operations": [
+          "complete-system",
+          "extend-system",
+          "repair-system",
+          "verify-only",
+          "create-system"
+        ],
+        "stack_layers": [
+          "language",
+          "architecture",
+          "gumbo",
+          "implementation",
+          "proof",
+          "testing",
+          "deployment",
+          "repair"
+        ],
+        "semantic_roles": {
+          "actor": "The containing monitor system and its interface, alarm, mode, and failure-detection owners.",
+          "condition": "A justified decomposition maps requirements to these roles through preserved typed interfaces.",
+          "effect": "Required data reaches every designated consumer and each controlled output remains produced by its designated owner through explicit containment and forwarding.",
+          "modality": "Proposed mandatory preservation obligations, inferred from the supplied architecture.",
+          "quantification": "Every source interface, required connection, fan-out branch, contained role, attached guarantee, and declared execution attribute.",
+          "temporal_scope": "Initialization and recurring dispatches, with cross-thread observation timing governed by explicit target semantics.",
+          "state_dependency": "Persistent mode and command state belong to their respective threads; their missing lifecycle semantics must be resolved without weakening source guarantees.",
+          "units_and_boundaries": "Preserve 1000 ms periods for this source, declared temperature representations and comparisons, port directions, containment boundaries, and domains 7 through 10; do not infer a temperature unit from the field name degrees."
+        },
+        "formal_output_pattern": "ABSTRACT: Let S be the System, P_r its Process for role r in {interface, control, mode, failure}, and T_r the corresponding Thread. Require contains(S,P_r) and contains(P_r,T_r). For every source port p, preserve name(p), direction(p), type(p), owner(p). For every process input p require forwarding(P_r.p -> T_r.p); for every process output q require forwarding(T_r.q -> P_r.q). Required system edges E = {S.current -> P_interface.current, S.current -> P_control.current, S.current -> P_mode.current, S.lowerWstatus -> P_interface.lowerWstatus, S.upperWstatus -> P_interface.upperWstatus, P_interface.lower -> P_control.lower, P_interface.upper -> P_control.upper, P_mode.mode -> P_interface.mode, P_mode.mode -> P_control.mode, P_interface.interfaceFailure -> P_mode.interfaceFailure, P_failure.internalFailure -> P_mode.internalFailure, P_control.alarm -> S.alarm, P_interface.status -> S.status}. Require every edge in E with source-declared types and direction, and preserve the baseline graph and containment under the role mapping. Require execution_attributes(T_r)=baseline(T_r), domain(P_r)=domain(T_r)=baseline_domain(r), and preservation of every supplied deployment binding. For each supplied thread contract C_r require Implementation(T_r) refines C_r under explicit state and execution semantics. Require composition of forwarding, E, C_r, and justified environmental assumptions to preserve allocated boundary obligations. Missing contracts, lifecycle relations, timing assumptions, or bindings remain unresolved; this pattern supplies no executable validator.",
+        "formal_pattern_status": "ABSTRACT_NOT_VALIDATED",
+        "allowed_edit_scope": [
+          "Architecture containment and connection repairs that restore the preserved role mapping and source interfaces.",
+          "Thread implementations and contracts only to realize existing obligations or explicitly justified missing semantics.",
+          "Proof and integration-test artifacts covering structural and behavioral composition.",
+          "Deployment configuration repairs that preserve declared scheduling requirements and supplied bindings."
+        ],
+        "required_baseline": [
+          "Complete source interface, containment, and directed-connection inventory.",
+          "Existing thread contracts, requirement labels, and unresolved semantic gaps.",
+          "Dispatch, period, domain attributes, and any separately supplied target bindings.",
+          "Explicit target data-type, state-lifecycle, communication, and execution semantics."
+        ],
+        "diagnostic_signature": null,
+        "related_rule_ids": []
+      },
+      "confidence": {
+        "score": 0.77,
+        "rationale": "Before seeing any development result, my model-belief confidence is 0.77 that this scoped rule preserves the stated obligations on a held-out component under its prerequisites. The supplied architecture strongly supports the role, containment, interface, and directed-flow pattern; transfer is less certain because only one implementation-shaped example is provided and state, timing, detection, and physical-binding details are incomplete. This is a subjective forecast, not an empirical probability or validation claim."
+      }
+    },
+    "warnings": [
+      "Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."
+    ],
+    "reason": null,
+    "scope": "Metered response only; no truth, validation or acceptance claim"
+  },
+  "learned_book": {
+    "snapshot_id": "035f11efe160bbd7b29f83c5f3821f1d01ed688856751f9c912484bcdd96bc06",
+    "directory": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/app/learned-rulebooks/035f11efe160bbd7b29f83c5f3821f1d01ed688856751f9c912484bcdd96bc06",
+    "candidate_count": 14,
+    "state": "DRAFT_NOT_PUBLISHED",
+    "files": [
+      "rulebook.json",
+      "RULEBOOK.md"
+    ],
+    "content_hashes": {
+      "rulebook.json": "90877a0c12c8f12581f9f9abe6617a7beed9f9c2944d72a9af2256eb39f7065e",
+      "RULEBOOK.md": "5f4c2c3be8ccc239976635c6a30987cb398dd4f5466b68a3ff6e52bfa1c529fb"
+    },
+    "id": "3dd4e7da4408a96dbe0ec936b2cef5cff4cc87f3a18c98023add53b265531db1"
+  }
+}

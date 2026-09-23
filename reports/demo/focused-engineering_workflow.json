@@ -1,0 +1,355 @@
+{
+  "plan_id": "2849a2cebf7258e1bf081dba484e97177979ec9cff7fb352f75b6c4dc8c77977",
+  "manifest_id": "810e87c677683af0ac6acec441a169440bb1210b909b00a38501d5b2705b5796",
+  "focus": "engineering_workflow",
+  "revision_of": null,
+  "development_feedback_id": null,
+  "batch_index": 0,
+  "batch_count": 12,
+  "model_call_id": "159a46a3129594b064cb0559ebacd3f55337049384412a66f8bae700cef58f71",
+  "candidate_id": "8bd1983a76638c6fbc1e5e91ca1ac6ae09d5a1cfe8c30c4a92786a856e970d64",
+  "status": "DRAFT_PENDING_DEVELOPMENT_VALIDATION",
+  "scope": "Actual model proposal; no rule-transfer validation or publication claim",
+  "id": "36204f61c1816cdc485a02c01e6b45b9c5fa66142d219e82bc3a034191c0ef94",
+  "candidate": {
+    "record": {
+      "$schema": "",
+      "schema_version": "2.0",
+      "record_type": "rule",
+      "id": "monitor-alarm-contract-workflow",
+      "revision": "1",
+      "state": "DRAFT",
+      "basis": "model_inferred",
+      "assessment_timing": "before_action",
+      "source_references": [
+        "d7ef18732a5def5da9422e3e47db924dd4ae4c9b806fcc86f11c932b377db935",
+        "8539757b211ec65ebcf5df73b8125fe82011a6066fd3bcba864328af992b4bf1"
+      ],
+      "source_artifact_hashes": [
+        "43664d0fe5904aed949d4c12e824c905d7bc1b4e89efa0409038c1b6f52ff605",
+        "b4949561cb04d46f718a16e2cc1486c0bd5a26c15778e3567c464466c24731df"
+      ],
+      "source_episode": "159a46a3129594b064cb0559ebacd3f55337049384412a66f8bae700cef58f71",
+      "available_context_manifest": "810e87c677683af0ac6acec441a169440bb1210b909b00a38501d5b2705b5796",
+      "model_configuration": "7e31988cc8d9b89ae79c126a58e57c1f5babd2bc70e3e301ffe8cee77e0969d1",
+      "prompt_version": "1",
+      "trigger": "A periodic component has conditional output requirements combining operating modes, strict threshold comparisons, inclusive boundaries, initialization, and retention of the previous output, as in Manage_Alarm_i.",
+      "principle": "Carry a single traceable condition-and-effect specification through architecture, contracts, generation, implementation, proof, tests, and diagnostic-driven repair. Advance between stages only when their explicit obligations are addressed; preserve source interfaces and requirement strength throughout.",
+      "semantic_choice": "Interpret each 'if' as a guarded implication, without imposing case ordering. Interpret 'below' and 'above' strictly, the supplied hysteresis endpoints exactly, and 'hold' as equality to the preceding committed command. Initialization is a separate obligation. Simultaneously enabled cases must have compatible effects.",
+      "structural_placement": "Keep the behavioral GUMBO contract on Manage_Alarm_i, which owns alarm_control and its retained command state. Keep Manage_Alarm_Process_i as the existing port-forwarding wrapper and Monitor_Temperature_i as the existing connection owner. Manage_Monitor_Mode_i owns monitor_mode; Manage_Monitor_Interface_i owns the range outputs. Do not transfer their responsibilities into the alarm thread.",
+      "repair_gate": "Given a failed stage, its diagnostic, and the preserved baseline, classify the fault as interpretation, architecture/type, generation, implementation/state, proof, or test-oracle related. Produce a minimal scoped patch and an obligation-by-obligation comparison. Re-run the failed gate and affected downstream gates. Reject repairs that delete cases, relax inequalities, add unsupported validity guards or input assumptions, change interfaces, substitute current output for previous state, or suppress failing checks. Unresolved semantic or environment gaps keep the workflow blocked rather than counting as success.",
+      "prerequisites": [
+        "The target has the same conditional, mode-dependent, state-retaining semantics; mapping of target symbols to the abstract pattern is explicit.",
+        "Existing port names, directions, types, connections, thread/process ownership, scheduling domains, and dispatch properties are available as a preservation baseline.",
+        "Imported type definitions, enum spellings, numeric representation, degree units, precision, and arithmetic overflow behavior are available before executable generation or proof.",
+        "The relationship between initial alarm output, initial retained state, dispatch input snapshots, state commit, and reboot is explicitly resolved before stateful implementation.",
+        "Admissible threshold combinations are established from actual environmental requirements; no range-order or separation assumption may be invented to make verification pass.",
+        "A compatible modeling, generation, implementation, proof, and testing environment and its documented invocation procedures must be supplied before those stages execute. No such validation implementation is supplied here.",
+        "Cross-component scheduling and data freshness semantics are established before any integration or end-to-end timing claim."
+      ],
+      "exclusions": [
+        "Inferring an alarm input-validity guard from the presence of current_tempWstatus.status; the supplied alarm cases do not contain that guard.",
+        "Deriving a timeout duration or timeout transition from the mode-case prose; no timer predicate appears in the supplied mode contract.",
+        "Inferring internal failure detection implementation from Detect_Monitor_Failure_i, which has no supplied behavioral contract.",
+        "Claiming end-to-end latency, deployment readiness, certification, proof success, or test success from a 1000 ms thread period.",
+        "Applying this rule to an ordinary stateless threshold controller whose specification explicitly resets the output throughout the entire in-range interval."
+      ],
+      "parameters": [
+        {
+          "name": "owner",
+          "role": "Behavioral and retained-state owner",
+          "constraints": "The thread producing the controlled output; source instance is Manage_Alarm_i."
+        },
+        {
+          "name": "m, x, L, U",
+          "role": "Mode, sampled temperature, lower threshold, upper threshold",
+          "constraints": "Map to existing typed inputs; preserve all admissible source inputs and exact comparison semantics."
+        },
+        {
+          "name": "y, p",
+          "role": "Current command and previous committed command",
+          "constraints": "Map y to alarm_control and p to the intended lastCmd state; distinguish entry state from exit state."
+        },
+        {
+          "name": "d",
+          "role": "Hysteresis offset",
+          "constraints": "Source expression is 1 [s32]; establish its compatibility with degree representation without assuming a physical temperature scale."
+        }
+      ],
+      "dependencies": [],
+      "target_compatibility": [
+        "reviewed-learning-plan"
+      ],
+      "preserved_obligations": [
+        "Modeling stage \u2014 Inputs: supplied requirement text, source architecture, and imported types. Output: a trace table mapping initialization and REQ_MA_1 through REQ_MA_5, including their split cases, to owner, guard, effect, boundary, and temporal meaning. Gate G1: every supplied alarm obligation is represented, ambiguity is recorded, and existing interfaces and scheduling attributes are preserved.",
+        "Contract stage \u2014 Inputs: trace table, type definitions, and explicit state semantics. Output: thread-local initialization and compute contracts plus a recorded state lifecycle. Gate G2: type correctness, satisfiable admissible domain, case coverage, and compatible overlaps are established or unresolved gaps are reported. Retain the source's strict outside comparisons, inclusive threshold endpoints, closed reset interval, INIT Off, FAILED Onn, and hold behavior.",
+        "Generation stage \u2014 Inputs: the gated model, documented generator configuration, and interface baseline. Output: generated artifacts and a requirement-to-artifact mapping. Gate G3: generation diagnostics are resolved and generated ports, enum values including Onn, wrappers, connections, period, and domain match the baseline. No KSU command is inferred.",
+        "Implementation stage \u2014 Inputs: generated artifacts, contracts, and resolved retained-state semantics. Output: executable behavior for each case and retained-state initialization/update logic. Gate G4: all applicable guarantees are implemented, the command uses dispatch-entry state when holding, and the retained command is committed after computing the output. Treat linking initial retained state to initial Off output as an explicit derived obligation, not a fact already proved by the source.",
+        "Proof stage \u2014 Inputs: implementation, contracts, admissible-input assumptions, and state invariants. Output: proof obligations and their actual statuses. Gate G5: establish initialization, invariant preservation, implementation refinement of every guarded guarantee, arithmetic safety, and overlap consistency without strengthening assumptions to conceal failures. At the first compute dispatch, the state invariant must relate the retained command to the initial output; thereafter it must relate it to the previous committed output.",
+        "Testing stage \u2014 Inputs: traced requirements, an independently derived oracle, and executable artifacts. Output: specified boundary, mode, state-sequence, and integration tests with actual results when executed. Gate G6: exercise INIT, FAILED, NORMAL, representable values around L, L+d, U-d, and U, both prior command values in each hold band, initialization, and multi-dispatch state updates. Include overlapping or empty bands where admissible. Verify actual wrapper forwarding and mode/range delivery without treating tests as proof.",
+        "Repair stage \u2014 Inputs: a failed gate, actual diagnostic, and unchanged obligation baseline. Output: localized changes, a repair rationale, and affected verification results. Gate G7: the repair satisfies the failed obligation and preserves every other obligation; repeat affected downstream checks and retain unresolved results explicitly."
+      ],
+      "counterexample": {
+        "scenario": "In NORMAL mode with L=30, U=40, d=1, and preceding committed command Onn, the temperature becomes exactly 30. A stateless implementation that emits Off whenever L <= x <= U switches the alarm off.",
+        "expected_difference": "The supplied lower hysteresis case includes x=L and requires retaining Onn. This rule therefore requires a previous-state dependency and an endpoint sequence test; a genuinely stateless in-range-reset requirement would instead permit Off.",
+        "source_or_test_reference": "Supplied Monitor.sysml: REQ_MA_3_LOW_HYSTERESIS; proposed endpoint test, not executed."
+      },
+      "validation_gate_ids": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7"
+      ],
+      "evidence_references": [],
+      "confidence_forecast_reference": "8a7f12ff7144bad9cb93fe443c1f94a52777e8e7ca719921fffbd889fb3bcd9d",
+      "approval_reference": null,
+      "notes": "Observed: the supplied model declares periodic thread/process structure, forwarded ports, initialization guarantees, guarded alarm cases, and lastCmd state. It does not supply retained-state initialization/update code, generated implementation, proof results, tests, or validation machinery. The handbook excerpt describes iterative requirements refinement and recommended practices; it does not establish this specific executable workflow. Proposed: the stage artifacts, gates, state invariant, proof obligations, tests, and repair procedure above are model-inferred obligations. Gate identifiers name proposed checks, not existing validators. Source references and hashes are left for the trusted controller.",
+      "source_english_patterns": [
+        "If mode INIT then alarm control is Off",
+        "If mode NORMAL and current temperature is below alarm range then alarm control is On",
+        "If mode NORMAL and current temperature is inside the lower hysteresis band then hold alarm control",
+        "If mode NORMAL and current temperature is inside the reset band then alarm control is Off",
+        "If mode FAILED then alarm control is On"
+      ],
+      "positive_paraphrases": [
+        "At each dispatch, choose the required command from the operating mode and threshold region, retaining the previous command within a hysteresis band.",
+        "Preserve the last emitted command at an included threshold endpoint until a reset or activation condition applies."
+      ],
+      "misleading_near_matches": [
+        "Turn the alarm off everywhere inside the alarm range.",
+        "Use the first matching case, even when another matching case requires a different output.",
+        "Hold means leave the generated output unassigned.",
+        "Ignore an invalid temperature sample before evaluating the alarm contract.",
+        "A periodic dispatch declaration proves the externally required response time."
+      ],
+      "supported_operations": [
+        "complete-system",
+        "extend-system",
+        "repair-system",
+        "verify-only"
+      ],
+      "stack_layers": [
+        "language",
+        "architecture",
+        "gumbo",
+        "implementation",
+        "proof",
+        "testing",
+        "repair"
+      ],
+      "semantic_roles": {
+        "actor": "The alarm thread owns alarm_control and its retained command; upstream threads own mode and validated range outputs.",
+        "condition": "Current sampled mode and temperature comparisons against supplied thresholds; hold additionally depends on dispatch-entry retained state.",
+        "effect": "Assign Off, assign Onn, or retain the previous committed command.",
+        "modality": "Mandatory guarantees whenever their guards hold, with a separate initialization guarantee.",
+        "quantification": "Every admissible input/state combination at every compute dispatch; all simultaneously enabled guarantees apply.",
+        "temporal_scope": "Initialization followed by discrete dispatches; reboot/state reset behavior must be resolved separately.",
+        "state_dependency": "lastCmd denotes the preceding committed command under an explicitly established state invariant, not the command currently being computed.",
+        "units_and_boundaries": "Preserve x<L, x>U, L<=x<L+d, U-d<x<=U, and L+d<=x<=U-d. Resolve d=1 [s32] against actual degree types and arithmetic bounds; do not infer temperature units from ms scheduling units."
+      },
+      "formal_output_pattern": "Abstract relational pattern, not executable syntax: y_init=Off. For every admissible dispatch t: (m_t=INIT => y_t=Off) AND (m_t=FAILED => y_t=Onn) AND (m_t=NORMAL AND (x_t<L_t OR x_t>U_t) => y_t=Onn) AND (m_t=NORMAL AND ((L_t<=x_t AND x_t<L_t+d) OR (U_t-d<x_t AND x_t<=U_t)) => y_t=p_t) AND (m_t=NORMAL AND L_t+d<=x_t AND x_t<=U_t-d => y_t=Off). Proposed state realization obligation: p_first=y_init and p_(t+1)=y_t. These conjuncts impose no priority. Check coverage and compatible overlaps over the actual admissible domain before generating deterministic code.",
+      "formal_pattern_status": "ABSTRACT_NOT_VALIDATED",
+      "allowed_edit_scope": [
+        "Alarm requirement trace and thread-local contract refinements that preserve every supplied guarantee.",
+        "Internal retained-state realization and alarm implementation within existing interfaces.",
+        "Generation configuration, proof artifacts, tests, and repair records needed for this scoped workflow."
+      ],
+      "required_baseline": [
+        "Original source interfaces, connections, enum references, ownership, dispatch protocol, 1000 ms period, and scheduling domains.",
+        "Original alarm initialization and all seven compute cases, with exact guards and guarantees.",
+        "Explicit inventory of unresolved type, state, admissible-range, and tool-environment requirements.",
+        "Existing implementation and actual diagnostics if a later application performs repair."
+      ],
+      "diagnostic_signature": null,
+      "related_rule_ids": []
+    },
+    "status": "DRAFT_PENDING_VALIDATION",
+    "id": "8bd1983a76638c6fbc1e5e91ca1ac6ae09d5a1cfe8c30c4a92786a856e970d64"
+  },
+  "model_result": {
+    "usage": {
+      "input_tokens": 20097,
+      "output_tokens": 3023,
+      "cached_input_tokens": 0
+    },
+    "usage_complete": true,
+    "status": "RESPONSE_RECEIVED",
+    "response": {
+      "rule": {
+        "$schema": "",
+        "schema_version": "2.0",
+        "record_type": "rule",
+        "id": "monitor-alarm-contract-workflow",
+        "revision": "1",
+        "state": "DRAFT",
+        "basis": "model_inferred",
+        "assessment_timing": "before_action",
+        "source_references": [],
+        "source_artifact_hashes": [],
+        "source_episode": null,
+        "available_context_manifest": null,
+        "model_configuration": null,
+        "prompt_version": "1",
+        "trigger": "A periodic component has conditional output requirements combining operating modes, strict threshold comparisons, inclusive boundaries, initialization, and retention of the previous output, as in Manage_Alarm_i.",
+        "principle": "Carry a single traceable condition-and-effect specification through architecture, contracts, generation, implementation, proof, tests, and diagnostic-driven repair. Advance between stages only when their explicit obligations are addressed; preserve source interfaces and requirement strength throughout.",
+        "semantic_choice": "Interpret each 'if' as a guarded implication, without imposing case ordering. Interpret 'below' and 'above' strictly, the supplied hysteresis endpoints exactly, and 'hold' as equality to the preceding committed command. Initialization is a separate obligation. Simultaneously enabled cases must have compatible effects.",
+        "structural_placement": "Keep the behavioral GUMBO contract on Manage_Alarm_i, which owns alarm_control and its retained command state. Keep Manage_Alarm_Process_i as the existing port-forwarding wrapper and Monitor_Temperature_i as the existing connection owner. Manage_Monitor_Mode_i owns monitor_mode; Manage_Monitor_Interface_i owns the range outputs. Do not transfer their responsibilities into the alarm thread.",
+        "repair_gate": "Given a failed stage, its diagnostic, and the preserved baseline, classify the fault as interpretation, architecture/type, generation, implementation/state, proof, or test-oracle related. Produce a minimal scoped patch and an obligation-by-obligation comparison. Re-run the failed gate and affected downstream gates. Reject repairs that delete cases, relax inequalities, add unsupported validity guards or input assumptions, change interfaces, substitute current output for previous state, or suppress failing checks. Unresolved semantic or environment gaps keep the workflow blocked rather than counting as success.",
+        "prerequisites": [
+          "The target has the same conditional, mode-dependent, state-retaining semantics; mapping of target symbols to the abstract pattern is explicit.",
+          "Existing port names, directions, types, connections, thread/process ownership, scheduling domains, and dispatch properties are available as a preservation baseline.",
+          "Imported type definitions, enum spellings, numeric representation, degree units, precision, and arithmetic overflow behavior are available before executable generation or proof.",
+          "The relationship between initial alarm output, initial retained state, dispatch input snapshots, state commit, and reboot is explicitly resolved before stateful implementation.",
+          "Admissible threshold combinations are established from actual environmental requirements; no range-order or separation assumption may be invented to make verification pass.",
+          "A compatible modeling, generation, implementation, proof, and testing environment and its documented invocation procedures must be supplied before those stages execute. No such validation implementation is supplied here.",
+          "Cross-component scheduling and data freshness semantics are established before any integration or end-to-end timing claim."
+        ],
+        "exclusions": [
+          "Inferring an alarm input-validity guard from the presence of current_tempWstatus.status; the supplied alarm cases do not contain that guard.",
+          "Deriving a timeout duration or timeout transition from the mode-case prose; no timer predicate appears in the supplied mode contract.",
+          "Inferring internal failure detection implementation from Detect_Monitor_Failure_i, which has no supplied behavioral contract.",
+          "Claiming end-to-end latency, deployment readiness, certification, proof success, or test success from a 1000 ms thread period.",
+          "Applying this rule to an ordinary stateless threshold controller whose specification explicitly resets the output throughout the entire in-range interval."
+        ],
+        "parameters": [
+          {
+            "name": "owner",
+            "role": "Behavioral and retained-state owner",
+            "constraints": "The thread producing the controlled output; source instance is Manage_Alarm_i."
+          },
+          {
+            "name": "m, x, L, U",
+            "role": "Mode, sampled temperature, lower threshold, upper threshold",
+            "constraints": "Map to existing typed inputs; preserve all admissible source inputs and exact comparison semantics."
+          },
+          {
+            "name": "y, p",
+            "role": "Current command and previous committed command",
+            "constraints": "Map y to alarm_control and p to the intended lastCmd state; distinguish entry state from exit state."
+          },
+          {
+            "name": "d",
+            "role": "Hysteresis offset",
+            "constraints": "Source expression is 1 [s32]; establish its compatibility with degree representation without assuming a physical temperature scale."
+          }
+        ],
+        "dependencies": [],
+        "target_compatibility": [
+          "reviewed-learning-plan"
+        ],
+        "preserved_obligations": [
+          "Modeling stage \u2014 Inputs: supplied requirement text, source architecture, and imported types. Output: a trace table mapping initialization and REQ_MA_1 through REQ_MA_5, including their split cases, to owner, guard, effect, boundary, and temporal meaning. Gate G1: every supplied alarm obligation is represented, ambiguity is recorded, and existing interfaces and scheduling attributes are preserved.",
+          "Contract stage \u2014 Inputs: trace table, type definitions, and explicit state semantics. Output: thread-local initialization and compute contracts plus a recorded state lifecycle. Gate G2: type correctness, satisfiable admissible domain, case coverage, and compatible overlaps are established or unresolved gaps are reported. Retain the source's strict outside comparisons, inclusive threshold endpoints, closed reset interval, INIT Off, FAILED Onn, and hold behavior.",
+          "Generation stage \u2014 Inputs: the gated model, documented generator configuration, and interface baseline. Output: generated artifacts and a requirement-to-artifact mapping. Gate G3: generation diagnostics are resolved and generated ports, enum values including Onn, wrappers, connections, period, and domain match the baseline. No KSU command is inferred.",
+          "Implementation stage \u2014 Inputs: generated artifacts, contracts, and resolved retained-state semantics. Output: executable behavior for each case and retained-state initialization/update logic. Gate G4: all applicable guarantees are implemented, the command uses dispatch-entry state when holding, and the retained command is committed after computing the output. Treat linking initial retained state to initial Off output as an explicit derived obligation, not a fact already proved by the source.",
+          "Proof stage \u2014 Inputs: implementation, contracts, admissible-input assumptions, and state invariants. Output: proof obligations and their actual statuses. Gate G5: establish initialization, invariant preservation, implementation refinement of every guarded guarantee, arithmetic safety, and overlap consistency without strengthening assumptions to conceal failures. At the first compute dispatch, the state invariant must relate the retained command to the initial output; thereafter it must relate it to the previous committed output.",
+          "Testing stage \u2014 Inputs: traced requirements, an independently derived oracle, and executable artifacts. Output: specified boundary, mode, state-sequence, and integration tests with actual results when executed. Gate G6: exercise INIT, FAILED, NORMAL, representable values around L, L+d, U-d, and U, both prior command values in each hold band, initialization, and multi-dispatch state updates. Include overlapping or empty bands where admissible. Verify actual wrapper forwarding and mode/range delivery without treating tests as proof.",
+          "Repair stage \u2014 Inputs: a failed gate, actual diagnostic, and unchanged obligation baseline. Output: localized changes, a repair rationale, and affected verification results. Gate G7: the repair satisfies the failed obligation and preserves every other obligation; repeat affected downstream checks and retain unresolved results explicitly."
+        ],
+        "counterexample": {
+          "scenario": "In NORMAL mode with L=30, U=40, d=1, and preceding committed command Onn, the temperature becomes exactly 30. A stateless implementation that emits Off whenever L <= x <= U switches the alarm off.",
+          "expected_difference": "The supplied lower hysteresis case includes x=L and requires retaining Onn. This rule therefore requires a previous-state dependency and an endpoint sequence test; a genuinely stateless in-range-reset requirement would instead permit Off.",
+          "source_or_test_reference": "Supplied Monitor.sysml: REQ_MA_3_LOW_HYSTERESIS; proposed endpoint test, not executed."
+        },
+        "validation_gate_ids": [
+          "G1",
+          "G2",
+          "G3",
+          "G4",
+          "G5",
+          "G6",
+          "G7"
+        ],
+        "evidence_references": [],
+        "confidence_forecast_reference": null,
+        "approval_reference": null,
+        "notes": "Observed: the supplied model declares periodic thread/process structure, forwarded ports, initialization guarantees, guarded alarm cases, and lastCmd state. It does not supply retained-state initialization/update code, generated implementation, proof results, tests, or validation machinery. The handbook excerpt describes iterative requirements refinement and recommended practices; it does not establish this specific executable workflow. Proposed: the stage artifacts, gates, state invariant, proof obligations, tests, and repair procedure above are model-inferred obligations. Gate identifiers name proposed checks, not existing validators. Source references and hashes are left for the trusted controller.",
+        "source_english_patterns": [
+          "If mode INIT then alarm control is Off",
+          "If mode NORMAL and current temperature is below alarm range then alarm control is On",
+          "If mode NORMAL and current temperature is inside the lower hysteresis band then hold alarm control",
+          "If mode NORMAL and current temperature is inside the reset band then alarm control is Off",
+          "If mode FAILED then alarm control is On"
+        ],
+        "positive_paraphrases": [
+          "At each dispatch, choose the required command from the operating mode and threshold region, retaining the previous command within a hysteresis band.",
+          "Preserve the last emitted command at an included threshold endpoint until a reset or activation condition applies."
+        ],
+        "misleading_near_matches": [
+          "Turn the alarm off everywhere inside the alarm range.",
+          "Use the first matching case, even when another matching case requires a different output.",
+          "Hold means leave the generated output unassigned.",
+          "Ignore an invalid temperature sample before evaluating the alarm contract.",
+          "A periodic dispatch declaration proves the externally required response time."
+        ],
+        "supported_operations": [
+          "complete-system",
+          "extend-system",
+          "repair-system",
+          "verify-only"
+        ],
+        "stack_layers": [
+          "language",
+          "architecture",
+          "gumbo",
+          "implementation",
+          "proof",
+          "testing",
+          "repair"
+        ],
+        "semantic_roles": {
+          "actor": "The alarm thread owns alarm_control and its retained command; upstream threads own mode and validated range outputs.",
+          "condition": "Current sampled mode and temperature comparisons against supplied thresholds; hold additionally depends on dispatch-entry retained state.",
+          "effect": "Assign Off, assign Onn, or retain the previous committed command.",
+          "modality": "Mandatory guarantees whenever their guards hold, with a separate initialization guarantee.",
+          "quantification": "Every admissible input/state combination at every compute dispatch; all simultaneously enabled guarantees apply.",
+          "temporal_scope": "Initialization followed by discrete dispatches; reboot/state reset behavior must be resolved separately.",
+          "state_dependency": "lastCmd denotes the preceding committed command under an explicitly established state invariant, not the command currently being computed.",
+          "units_and_boundaries": "Preserve x<L, x>U, L<=x<L+d, U-d<x<=U, and L+d<=x<=U-d. Resolve d=1 [s32] against actual degree types and arithmetic bounds; do not infer temperature units from ms scheduling units."
+        },
+        "formal_output_pattern": "Abstract relational pattern, not executable syntax: y_init=Off. For every admissible dispatch t: (m_t=INIT => y_t=Off) AND (m_t=FAILED => y_t=Onn) AND (m_t=NORMAL AND (x_t<L_t OR x_t>U_t) => y_t=Onn) AND (m_t=NORMAL AND ((L_t<=x_t AND x_t<L_t+d) OR (U_t-d<x_t AND x_t<=U_t)) => y_t=p_t) AND (m_t=NORMAL AND L_t+d<=x_t AND x_t<=U_t-d => y_t=Off). Proposed state realization obligation: p_first=y_init and p_(t+1)=y_t. These conjuncts impose no priority. Check coverage and compatible overlaps over the actual admissible domain before generating deterministic code.",
+        "formal_pattern_status": "ABSTRACT_NOT_VALIDATED",
+        "allowed_edit_scope": [
+          "Alarm requirement trace and thread-local contract refinements that preserve every supplied guarantee.",
+          "Internal retained-state realization and alarm implementation within existing interfaces.",
+          "Generation configuration, proof artifacts, tests, and repair records needed for this scoped workflow."
+        ],
+        "required_baseline": [
+          "Original source interfaces, connections, enum references, ownership, dispatch protocol, 1000 ms period, and scheduling domains.",
+          "Original alarm initialization and all seven compute cases, with exact guards and guarantees.",
+          "Explicit inventory of unresolved type, state, admissible-range, and tool-environment requirements.",
+          "Existing implementation and actual diagnostics if a later application performs repair."
+        ],
+        "diagnostic_signature": null,
+        "related_rule_ids": []
+      },
+      "confidence": {
+        "score": 0.72,
+        "rationale": "Before seeing any development result, my model-belief confidence is 0.72 that this scoped rule will preserve the stated obligations on a held-out component under its prerequisites. Exact guard preservation, explicit ownership, state invariants, and repair gates support transfer. Missing executable validation, imported type details, and resolved state semantics limit confidence. This is a subjective forecast, not an empirical probability or a validation claim."
+      }
+    },
+    "warnings": [
+      "Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."
+    ],
+    "reason": null,
+    "scope": "Metered response only; no truth, validation or acceptance claim"
+  },
+  "learned_book": {
+    "snapshot_id": "fcc7f4874333859f4420df94cb940b39fd6d9bcf2431f729524df6ccc7a13155",
+    "directory": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/app/learned-rulebooks/fcc7f4874333859f4420df94cb940b39fd6d9bcf2431f729524df6ccc7a13155",
+    "candidate_count": 16,
+    "state": "DRAFT_NOT_PUBLISHED",
+    "files": [
+      "rulebook.json",
+      "RULEBOOK.md"
+    ],
+    "content_hashes": {
+      "rulebook.json": "5ab1da3e8cf9301fadae1dd8e502fcd600c26988e7309447a48788269cd1800c",
+      "RULEBOOK.md": "8304f0fe413db30ee4f881eb2932347c586d0bdc80c0327cd157ab412184d494"
+    },
+    "id": "313ef193e8b4f6864006d722dc4a297c318edcd975d8df3f9b1daf53cd404a0c"
+  }
+}

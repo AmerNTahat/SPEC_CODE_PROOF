@@ -1,0 +1,205 @@
+{
+  "status": "PASS",
+  "scope": "Offline checks on actual saved AIR plus explicit mutated evaluator fixtures; no new model/tool runs",
+  "model_calls": 0,
+  "checks": [
+    {
+      "case": "producer-consumer real saved comparison",
+      "status": "PASS",
+      "assessment_id": "304e93fa0959087e01c8b5951194f9224ea0eed67ef70e25808f50a419382a03"
+    },
+    {
+      "case": "Consistent component/port/endpoint/binding renaming",
+      "status": "PASS",
+      "result": {
+        "version": "hamr-directed-structure-v2",
+        "left_vertices": 15,
+        "right_vertices": 15,
+        "left_edges": 32,
+        "right_edges": 32,
+        "names_compared": false,
+        "left_roles": {
+          "model:": 1,
+          "component:System": 1,
+          "connection:Port": 3,
+          "resolved-connection:Port": 1,
+          "component:Process": 2,
+          "port:EventDataPort": 4,
+          "component:Thread": 2,
+          "component:Processor": 1
+        },
+        "right_roles": {
+          "model:": 1,
+          "component:System": 1,
+          "connection:Port": 3,
+          "resolved-connection:Port": 1,
+          "component:Process": 2,
+          "port:EventDataPort": 4,
+          "component:Thread": 2,
+          "component:Processor": 1
+        },
+        "status": "PASS",
+        "reason": "One bijection preserves every typed vertex and directed edge including multiplicity",
+        "mapping": {
+          "0/#model": "0/#model",
+          "0/ProdCons_System_Instance": "0/renamed_ProdCons_System_Instance",
+          "0/ProdCons_System_Instance#connection:0": "0/renamed_ProdCons_System_Instance#connection:0",
+          "0/ProdCons_System_Instance#resolved-connection:0": "0/renamed_ProdCons_System_Instance#resolved-connection:0",
+          "0/ProdCons_System_Instance::prod": "0/renamed_ProdCons_System_Instance::renamed_prod",
+          "0/ProdCons_System_Instance::prod::output": "0/renamed_ProdCons_System_Instance::renamed_prod::renamed_output",
+          "0/ProdCons_System_Instance::prod#connection:0": "0/renamed_ProdCons_System_Instance::renamed_prod#connection:0",
+          "0/ProdCons_System_Instance::prod::prod": "0/renamed_ProdCons_System_Instance::renamed_prod::renamed_prod",
+          "0/ProdCons_System_Instance::prod::prod::output": "0/renamed_ProdCons_System_Instance::renamed_prod::renamed_prod::renamed_output",
+          "0/ProdCons_System_Instance::cons": "0/renamed_ProdCons_System_Instance::renamed_cons",
+          "0/ProdCons_System_Instance::cons::input": "0/renamed_ProdCons_System_Instance::renamed_cons::renamed_input",
+          "0/ProdCons_System_Instance::cons#connection:0": "0/renamed_ProdCons_System_Instance::renamed_cons#connection:0",
+          "0/ProdCons_System_Instance::cons::cons": "0/renamed_ProdCons_System_Instance::renamed_cons::renamed_cons",
+          "0/ProdCons_System_Instance::cons::cons::input": "0/renamed_ProdCons_System_Instance::renamed_cons::renamed_cons::renamed_input",
+          "0/ProdCons_System_Instance::proc": "0/renamed_ProdCons_System_Instance::renamed_proc"
+        },
+        "search_states": 16,
+        "scope": "Names/order ignored; containment, component categories, port directions, wiring and supported properties checked",
+        "not_established": [
+          "payload type equivalence",
+          "GUMBO/requirement semantics",
+          "implementation/proof/test acceptance"
+        ],
+        "whole_system_acceptance": false
+      }
+    },
+    {
+      "case": "Reversed actual connection rejected",
+      "status": "PASS",
+      "result": {
+        "version": "hamr-directed-structure-v2",
+        "left_vertices": 15,
+        "right_vertices": 15,
+        "left_edges": 32,
+        "right_edges": 32,
+        "names_compared": false,
+        "left_roles": {
+          "model:": 1,
+          "component:System": 1,
+          "connection:Port": 3,
+          "resolved-connection:Port": 1,
+          "component:Process": 2,
+          "port:EventDataPort": 4,
+          "component:Thread": 2,
+          "component:Processor": 1
+        },
+        "right_roles": {
+          "model:": 1,
+          "component:System": 1,
+          "connection:Port": 3,
+          "resolved-connection:Port": 1,
+          "component:Process": 2,
+          "port:EventDataPort": 4,
+          "component:Thread": 2,
+          "component:Processor": 1
+        },
+        "status": "FAIL",
+        "reason": "Typed roles, properties or directed degrees differ",
+        "mapping": null,
+        "search_states": 0,
+        "scope": "Names/order ignored; containment, component categories, port directions, wiring and supported properties checked",
+        "not_established": [
+          "payload type equivalence",
+          "GUMBO/requirement semantics",
+          "implementation/proof/test acceptance"
+        ],
+        "whole_system_acceptance": false
+      }
+    },
+    {
+      "case": "Reversed resolved connection path rejected",
+      "status": "PASS",
+      "result": {
+        "version": "hamr-directed-structure-v2",
+        "left_vertices": 15,
+        "right_vertices": 15,
+        "left_edges": 32,
+        "right_edges": 32,
+        "names_compared": false,
+        "left_roles": {
+          "model:": 1,
+          "component:System": 1,
+          "connection:Port": 3,
+          "resolved-connection:Port": 1,
+          "component:Process": 2,
+          "port:EventDataPort": 4,
+          "component:Thread": 2,
+          "component:Processor": 1
+        },
+        "right_roles": {
+          "model:": 1,
+          "component:System": 1,
+          "connection:Port": 3,
+          "resolved-connection:Port": 1,
+          "component:Process": 2,
+          "port:EventDataPort": 4,
+          "component:Thread": 2,
+          "component:Processor": 1
+        },
+        "status": "FAIL",
+        "reason": "Typed roles, properties or directed degrees differ",
+        "mapping": null,
+        "search_states": 0,
+        "scope": "Names/order ignored; containment, component categories, port directions, wiring and supported properties checked",
+        "not_established": [
+          "payload type equivalence",
+          "GUMBO/requirement semantics",
+          "implementation/proof/test acceptance"
+        ],
+        "whole_system_acceptance": false
+      }
+    },
+    {
+      "case": "Incorrect processor binding rejected",
+      "status": "PASS",
+      "result": {
+        "version": "hamr-directed-structure-v2",
+        "left_vertices": 15,
+        "right_vertices": 15,
+        "left_edges": 32,
+        "right_edges": 32,
+        "names_compared": false,
+        "left_roles": {
+          "model:": 1,
+          "component:System": 1,
+          "connection:Port": 3,
+          "resolved-connection:Port": 1,
+          "component:Process": 2,
+          "port:EventDataPort": 4,
+          "component:Thread": 2,
+          "component:Processor": 1
+        },
+        "right_roles": {
+          "model:": 1,
+          "component:System": 1,
+          "connection:Port": 3,
+          "resolved-connection:Port": 1,
+          "component:Process": 2,
+          "port:EventDataPort": 4,
+          "component:Thread": 2,
+          "component:Processor": 1
+        },
+        "status": "FAIL",
+        "reason": "Typed roles, properties or directed degrees differ",
+        "mapping": null,
+        "search_states": 0,
+        "scope": "Names/order ignored; containment, component categories, port directions, wiring and supported properties checked",
+        "not_established": [
+          "payload type equivalence",
+          "GUMBO/requirement semantics",
+          "implementation/proof/test acceptance"
+        ],
+        "whole_system_acceptance": false
+      }
+    },
+    {
+      "case": "isolette real saved comparison",
+      "status": "FAIL",
+      "assessment_id": "61f8e86ac56fdbf57abddd79df5394b79b149bacc7e0b1940425b962f97e1c23"
+    }
+  ]
+}

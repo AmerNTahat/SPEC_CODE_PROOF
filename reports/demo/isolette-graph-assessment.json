@@ -1,0 +1,91 @@
+{
+  "result_id": "46099f1c2bc9e5ca7a4592b46d7333685886cad1e724f4fd456201994e23ab17",
+  "checker_sha256": "8bccbae637aea30f5f5212816db104e4e73925f3d7e19ac29361a2028ad13a3a",
+  "similarity_checker_sha256": "be0c0c8fbd81d116821cb244069f25fe5857c7c41f0bcd6f0c0773494ef7744f",
+  "snapshot_ids": [
+    "dfa73b96172919a347630e9ca2514c29bc3de435b5b490807e2512db11370f71",
+    "e40994e32bcb9336482ed188ceaf0e9c77fbb2a04540a79862e6ad23b95e326a"
+  ],
+  "graph": {
+    "version": "hamr-directed-structure-v2",
+    "left_vertices": 1162,
+    "right_vertices": 935,
+    "left_edges": 3164,
+    "right_edges": 2534,
+    "names_compared": false,
+    "left_roles": {
+      "model:": 10,
+      "component:System": 26,
+      "port:DataPort": 510,
+      "connection:Port": 398,
+      "resolved-connection:Port": 132,
+      "component:Process": 41,
+      "component:Thread": 41,
+      "component:Processor": 2,
+      "component:Abstract": 2
+    },
+    "right_roles": {
+      "model:": 9,
+      "component:System": 22,
+      "port:DataPort": 409,
+      "connection:Port": 308,
+      "resolved-connection:Port": 118,
+      "component:Process": 28,
+      "component:Thread": 37,
+      "component:Processor": 2,
+      "component:Abstract": 2
+    },
+    "status": "FAIL",
+    "reason": "Different vertex or directed-edge counts",
+    "mapping": null,
+    "search_states": 0,
+    "scope": "Names/order ignored; containment, component categories, port directions, wiring and supported properties checked",
+    "not_established": [
+      "payload type equivalence",
+      "GUMBO/requirement semantics",
+      "implementation/proof/test acceptance"
+    ],
+    "whole_system_acceptance": false
+  },
+  "similarity_assistance": {
+    "status": "NOT_RUN",
+    "cosine_similarity": null,
+    "cosine_distance": null,
+    "representation": "Parsed assume/guarantee expression feature counts; not semantic embeddings",
+    "scope": "Advisory similarity after structural equivalence; never proves contract equivalence or authorizes acceptance",
+    "threshold_applied": false,
+    "limitations": [
+      "Unordered features can hide relational differences",
+      "Variable names remain significant in this advisory representation",
+      "Helper definitions, state semantics and assumption discharge require separate checks"
+    ],
+    "reason": "Directed architecture graph did not pass"
+  },
+  "historical_source_text_cosine": {
+    "acceptance": "NOT_ASSESSED",
+    "architecture_check": "NOT_RUN",
+    "artifact_kind": "LEXICAL_DIAGNOSTIC_NOT_ACCEPTANCE",
+    "cosine_distance": 0.546301205546178,
+    "cosine_similarity": 0.453698794453822,
+    "cosine_status": "DEFINED",
+    "left_tokens": 3355,
+    "left_utf8_sha256": "dd7de904aed4a1e57638f0f947f527d384129d130acbe7376199a111754e7bdb",
+    "limitations": [
+      "Count cosine discards order and role bindings; equal vectors may encode different behavior.",
+      "Token sequence diagnostics are not a parser, proof, or minimum-edit metric.",
+      "No source/contract ownership extraction, requirement check, or model call is performed."
+    ],
+    "line_deleted_plus_inserted": 814,
+    "right_tokens": 1467,
+    "right_utf8_sha256": "20e6a52f36f22e73e574de742262a816f360b17d3207a3c03bc94cc26cc07299",
+    "semantic_equivalence": "NOT_ESTABLISHED",
+    "sequence_deleted_plus_inserted": 4216,
+    "sequence_edit_fraction": 0.8743260058067192,
+    "tokenizer_version": "lexical-preserve-v1"
+  },
+  "behavioral_equivalence": "NOT_ESTABLISHED",
+  "whole_system_acceptance": false,
+  "previous_result_unchanged": true,
+  "model_calls": 0,
+  "id": "61f8e86ac56fdbf57abddd79df5394b79b149bacc7e0b1940425b962f97e1c23"
+}

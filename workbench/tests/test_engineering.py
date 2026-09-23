@@ -26,5 +26,12 @@ class EngineeringTests(unittest.TestCase):
         record['exit_code']=1
         self.assertEqual(classify('hamr_codegen',record,{})[0],'FAIL')
 
+    def test_microkit_requires_rust_and_build_manifest(self):
+        record={'stdout':'','stderr':'','exit_code':0,'interrupted':None}
+        for artifacts in ({'Main.scala':{}},{'lib.rs':{}},{'Cargo.toml':{}}):
+            self.assertEqual(classify('hamr_codegen',record,artifacts,'Microkit')[0],'UNKNOWN')
+        status,scope=classify('hamr_codegen',record,{'lib.rs':{},'Cargo.toml':{}},'Microkit')
+        self.assertEqual(status,'PASS');self.assertIn('separate',scope)
+
 
 if __name__=='__main__': unittest.main()
