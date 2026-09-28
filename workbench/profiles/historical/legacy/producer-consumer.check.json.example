@@ -1,0 +1,31 @@
+{
+  "project": "/path/to/SPEC_CODE_PROOF/HAMR-agent-configuration-experiments/hamr-claude-training/examples/HAMR-SysMLv2-Rust-seL4-P-EDP-Prod-Cons-Example/sysmlv2",
+  "input_files": [
+    "aadl-lib/aadl.library/AADL.sysml",
+    "aadl-lib/aadl.library/AADL_Project.sysml",
+    "aadl-lib/aadl.library/Base_Types.sysml",
+    "aadl-lib/aadl.library/Communication_Properties.sysml",
+    "aadl-lib/aadl.library/Data_Model.sysml",
+    "aadl-lib/aadl.library/Deployment_Properties.sysml",
+    "aadl-lib/aadl.library/Memory_Properties.sysml",
+    "aadl-lib/aadl.library/Programming_Properties.sysml",
+    "aadl-lib/aadl.library/Thread_Properties.sysml",
+    "aadl-lib/aadl.library/Timing_Properties.sysml",
+    "aadl-lib/aadl.library/behavior_properties.sysml",
+    "aadl-lib/hamr.aadl.library/CASE_Scheduling.sysml",
+    "aadl-lib/hamr.aadl.library/HAMR.sysml",
+    "aadl-lib/hamr.aadl.library/HAMR_AADL.sysml",
+    "aadl-lib/hamr.aadl.library/HAMR_Time_Units.sysml",
+    "prod-cons/ProdCons.sysml"
+  ],
+  "model_file": "prod-cons/ProdCons.sysml",
+  "task_operation": "verify-only",
+  "sireum": "/path/to/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/sireum",
+  "sireum_sha256": "6333d4e737064b6db470bcb85863a997675182470eb5d4d763bd806487c8d952",
+  "required_gates": [
+    "parse_type"
+  ],
+  "budget": {
+    "wall_seconds": 180
+  }
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "source": "INSPECTA_SCP_CODEX_HANDOFF/scripts/local_compare.py",
+    "target": "workbench/inspecta_scp/vendor/local_compare.py",
+    "sha256": "9ab5657fdc594323d110b65bb44ef9203cfa837c2bc820868d56851fdcaf51d6",
+    "scope": "Reused unchanged support logic; not evidence of engineering acceptance."
+  },
+  {
+    "source": "INSPECTA_SCP_CODEX_HANDOFF/scripts/split_dataset.py",
+    "target": "workbench/inspecta_scp/vendor/split_dataset.py",
+    "sha256": "272205467ed65453d9f3564d188cd815410bc88023a819ff3233f62c6c09ac36",
+    "scope": "Reused unchanged support logic; not evidence of engineering acceptance."
+  }
+]

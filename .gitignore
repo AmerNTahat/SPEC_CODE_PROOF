@@ -20,3 +20,26 @@ codex_mcp_workflow/*
 # Keep markdown files
 !codex_mcp_workflow/*.md
 codex_mcp_workflow/isolette/sysml/sysml-aadl-libraries/
+
+# Selective Workbench checkpoint
+!/README.md
+!/inspecta-scp
+!/workbench/
+!/scripts/
+!/examples/
+!/rulebooks/
+!/docs/
+!/reports/
+/reports/*
+!/reports/checkpoint/
+.venv/
+node_modules/
+dist/
+__pycache__/
+*.py[cod]
+.env
+.env.*
+*.pem
+*.key
+/.scp-workbench/
+/workbench/default-toolchain.local.json

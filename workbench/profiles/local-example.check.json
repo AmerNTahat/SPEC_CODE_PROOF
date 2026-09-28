@@ -1,0 +1,16 @@
+{
+  "mode": "user",
+  "task_operation": "verify-only",
+  "project": "../../examples/starter",
+  "input_files": [
+    "Model.sysml",
+    "requirements.md"
+  ],
+  "model_file": "Model.sysml",
+  "sireum": null,
+  "sireum_sha256": null,
+  "required_gates": [
+    "parse_type"
+  ],
+  "paid_runs_authorized": false
+}

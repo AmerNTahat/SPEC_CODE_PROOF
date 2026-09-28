@@ -1,0 +1,93 @@
+{
+  "$schema": "../schemas/knowledge.schema.json",
+  "schema_version": "2.0",
+  "record_type": "rule",
+  "id": "ILLUSTRATIVE-STATE-RETENTION",
+  "revision": "draft-0",
+  "state": "DRAFT",
+  "basis": "model_inferred",
+  "assessment_timing": "retrospective",
+  "source_references": [],
+  "source_artifact_hashes": [],
+  "source_episode": null,
+  "available_context_manifest": null,
+  "model_configuration": null,
+  "prompt_version": "structured-verbalization-v1",
+  "trigger": "A reviewed requirement explicitly retains a previous output under a stated condition.",
+  "principle": "Represent the required dependence on prior state, preserving the source-defined ownership and conditions.",
+  "semantic_choice": "Use the supported state-dependent formalization; do not invent initial values or missing transition semantics.",
+  "structural_placement": "Attach the state/behavior/contract to the approved behavioral owner; protect interfaces.",
+  "repair_gate": "Check initialization, transitions, owner mapping, independent cases and invariant architecture.",
+  "prerequisites": [
+    "Reviewed state-retention requirement and owner mapping"
+  ],
+  "exclusions": [
+    "Stateless requirement with similar words"
+  ],
+  "parameters": [
+    {
+      "name": "behavior_owner",
+      "role": "Component responsible for the source requirement",
+      "constraints": "Resolve from reviewed target ledger, not names alone."
+    }
+  ],
+  "dependencies": [],
+  "target_compatibility": [],
+  "preserved_obligations": [],
+  "counterexample": {
+    "scenario": "A similar task requires output solely from the current input.",
+    "expected_difference": "Do not add unjustified memory.",
+    "source_or_test_reference": null
+  },
+  "validation_gate_ids": [
+    "requirements_coverage",
+    "architecture",
+    "independent_requirements_tests"
+  ],
+  "evidence_references": [],
+  "confidence_forecast_reference": null,
+  "approval_reference": null,
+  "notes": "Synthetic schema illustration, not an extracted/validated handbook rule or a source-specific requirement.",
+  "source_english_patterns": [
+    "shall remain unchanged while C holds"
+  ],
+  "positive_paraphrases": [
+    "retain the previously commanded value under C"
+  ],
+  "misleading_near_matches": [
+    "set a fixed output value under C"
+  ],
+  "supported_operations": [
+    "complete-system",
+    "repair-system",
+    "create-system"
+  ],
+  "stack_layers": [
+    "language",
+    "gumbo",
+    "implementation",
+    "proof",
+    "testing",
+    "repair"
+  ],
+  "semantic_roles": {
+    "actor": "approved behavioral owner",
+    "condition": "C",
+    "effect": "preserve previous output",
+    "modality": "required behavior",
+    "quantification": "for all permitted inputs when C applies",
+    "temporal_scope": "as stated by the reviewed requirement",
+    "state_dependency": "previous approved output",
+    "units_and_boundaries": "preserve source-defined comparisons and units"
+  },
+  "formal_output_pattern": "Abstract pattern: state-dependent relation at the approved owner. Concrete syntax must come from the pinned supported profile and be tool-tested.",
+  "formal_pattern_status": "ABSTRACT_NOT_VALIDATED",
+  "allowed_edit_scope": [
+    "authorized behavioral owner and related proof support"
+  ],
+  "required_baseline": [
+    "reviewed requirement and naming/ownership bindings"
+  ],
+  "diagnostic_signature": null,
+  "related_rule_ids": []
+}

@@ -1,0 +1,22 @@
+[
+  {
+    "source": "INSPECTA_SCP_CODEX_HANDOFF/schemas/knowledge.schema.json",
+    "target": "workbench/schemas/knowledge.schema.json",
+    "sha256": "1764b7be10d9043d99eba01dbf4f1f4efbb95f014035b63e8e6162e911f17722"
+  },
+  {
+    "source": "INSPECTA_SCP_CODEX_HANDOFF/schemas/confidence.schema.json",
+    "target": "workbench/schemas/confidence.schema.json",
+    "sha256": "2a7e4256db1280f3bd7be6e7062571cd413e4629560634586874302c93fce80d"
+  },
+  {
+    "source": "INSPECTA_SCP_CODEX_HANDOFF/schemas/instantiation.schema.json",
+    "target": "workbench/schemas/instantiation.schema.json",
+    "sha256": "0325d8aee93224349b4a822fcc318748f604b4346ceb6e5e06f97fb38ce5e37c"
+  },
+  {
+    "source": "INSPECTA_SCP_CODEX_HANDOFF/schemas/requirements.schema.json",
+    "target": "workbench/schemas/requirements.schema.json",
+    "sha256": "71197d8eaa4b1f8cbc15f13c5a78789ef7c2091837435936703af422e904cede"
+  }
+]

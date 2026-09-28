@@ -1,0 +1,41 @@
+{
+  "project": "/path/to/SPEC_CODE_PROOF/.scp-workbench/reference-review/f0ba38578c96419688bb42918cf0beb4/proposed-reference",
+  "input_files": [
+    "Devices.sysml",
+    "Isolette.sysml",
+    "Isolette_Data_Model.sysml",
+    "Isolette_Environment.sysml",
+    "Monitor.sysml",
+    "Operator_Interface.sysml",
+    "Regulate.sysml",
+    "Thermostat.sysml",
+    "sysml-aadl-libraries_1/aadl.library/AADL.sysml",
+    "sysml-aadl-libraries_1/aadl.library/AADL_Project.sysml",
+    "sysml-aadl-libraries_1/aadl.library/Base_Types.sysml",
+    "sysml-aadl-libraries_1/aadl.library/Communication_Properties.sysml",
+    "sysml-aadl-libraries_1/aadl.library/Data_Model.sysml",
+    "sysml-aadl-libraries_1/aadl.library/Deployment_Properties.sysml",
+    "sysml-aadl-libraries_1/aadl.library/Memory_Properties.sysml",
+    "sysml-aadl-libraries_1/aadl.library/Programming_Properties.sysml",
+    "sysml-aadl-libraries_1/aadl.library/Thread_Properties.sysml",
+    "sysml-aadl-libraries_1/aadl.library/Timing_Properties.sysml",
+    "sysml-aadl-libraries_1/aadl.library/behavior_properties.sysml",
+    "sysml-aadl-libraries_1/hamr.aadl.library/CASE_Scheduling.sysml",
+    "sysml-aadl-libraries_1/hamr.aadl.library/HAMR.sysml",
+    "sysml-aadl-libraries_1/hamr.aadl.library/HAMR_AADL.sysml",
+    "sysml-aadl-libraries_1/hamr.aadl.library/HAMR_Microkit.sysml",
+    "sysml-aadl-libraries_1/hamr.aadl.library/HAMR_Time_Units.sysml"
+  ],
+  "model_file": "Isolette.sysml",
+  "task_operation": "verify-only",
+  "sireum": "/path/to/SPEC_CODE_PROOF/.scp-workbench/tools/sireum-4.20260810.80aad0c2/Sireum/bin/sireum",
+  "sireum_sha256": "29054e657216ba190d51c2beb29a77125886bd48a7a525200cdbf6e4bf1ff6b4",
+  "required_gates": [
+    "parse_type",
+    "architecture_capture"
+  ],
+  "budget": {
+    "wall_seconds": 180
+  },
+  "integration_solver": "cvc5"
+}
