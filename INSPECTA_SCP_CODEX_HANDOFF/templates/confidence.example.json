@@ -1,0 +1,21 @@
+{
+  "$schema": "../schemas/confidence.schema.json",
+  "schema_version": "1.0",
+  "record_type": "model_confidence_forecast",
+  "forecast_id": "DRAFT-FORECAST",
+  "status": "UNASSESSED",
+  "rule_release_revision": null,
+  "exact_question": "Based on the learning material, examples, interactions, and context you have seen, how strongly do you believe this rulebook will successfully guide the specified workflow on a new task within the stated scope and budget? State a score, supporting evidence, and limitations, or insufficient evidence.",
+  "available_context_manifest": null,
+  "model_configuration": null,
+  "scope": "To be resolved from the approved target profile.",
+  "success_definition": "All mandatory project gates pass within the approved budget; no weakened requirements.",
+  "assessed_at": null,
+  "outcome_visible": null,
+  "score": null,
+  "rationale": null,
+  "limitations": [],
+  "supporting_references": [],
+  "prior_forecast_reference": null,
+  "interpretation": "model_reported_belief_not_empirical_probability"
+}

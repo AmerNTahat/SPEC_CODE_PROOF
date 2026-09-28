@@ -1,0 +1,4 @@
+# Optional Astra candidate-preference prompt — disabled initially
+Use only when an approved development experiment enables this hook. Given permitted candidate plans/rule bundles, available-at-decision-time evidence and remaining execution allowance, rank at most the configured small candidate set. Return a choice, tie or insufficient evidence with source-linked justification; propose a bounded pilot only if its expected information is worth its explicit budget.
+
+This is action prioritization, not semantic similarity or acceptance. Do not see future outcomes, use hidden targets, treat unexecuted alternatives as failures, or claim certainty from self-report. The controller enforces pilot/resource limits and all final checks remain required. No Jev, added model, fine-tuning or unapproved search expansion.

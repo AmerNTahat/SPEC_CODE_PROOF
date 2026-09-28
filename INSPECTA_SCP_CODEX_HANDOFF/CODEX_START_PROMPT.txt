@@ -1,0 +1,17 @@
+Implement the INSPECTA/SCP Workbench in this repository, not just another plan.
+
+Read START_HERE.md, WORKFLOW_CONTRACT.md, MILESTONES.md, the consolidated master goal and BOTH workflow_goals/goal_learn.txt and goal_user.txt. Read relevant focused goals and source files as you reach each milestone, not the whole archive on every model call.
+
+Preserve existing DASC artifacts, existing code and local changes. Creation from scratch is optional and only for explicitly selected tasks; completion/repair is not permission to rebuild a codebase. Install the two revised goals through a reviewed diff/hash-checked plan. Import existing combined and specialized rulebooks with provenance, confidence forecasts and evidence; do not discard them or treat a title as proof of verification.
+
+REUSE FIRST: use the existing selected Codex v_155 binary and suitable Sireum CLI. Read installation/REUSE_EXISTING_TOOLS.md and the build request selected_tools; honor CODEX_BIN/SIREUM_BIN/SIREUM_HOME. Do not reinstall Codex via npm/Homebrew or replace Sireum simply to make a fresh installation. Test the selected KSU profile; inspect existing dependencies first and install only missing authorized dependencies in an isolated/user-local scope, verify compatibility, and pin versions/digests. No Chinese/third-party models, no Jev, no fine-tuning. Use GPT/Astra after resolving the actual available identifier.
+
+Implement ONE deterministic controller shared by UI and CLI. Bind actual paths, operation, data split, budget and release selection to one resolved configuration. Support user-provided learning/development directories or a reviewed lineage-grouped automatic proposal. Protect final evaluation. Extract full-stack linguistic/spec/code/proof/testing/repair principles, role bindings, counterexamples, model confidence and safe repair reuse. Keep User releases frozen.
+
+At EVERY milestone completion or blocker, print: Milestone; Achieved; In progress; Remaining; Evidence; Budget; Blockers/approvals. Use scripts/report_milestone.py to save the same update. Track progress durably and resume from evidence, not fictitious completed tasks.
+
+Finish with actual application tests and the M07 bounded LIVE Isolette learning -> approval -> fresh User -> verification demonstration plus a selected additional KSU workflow. Obtain required paid-demo authorization and release approvals. Include continuation, separately declared creation/renaming checks, DASC metrics/plots, traceability, and independent attestation checks. Never substitute a mock demo for the requested live result. Produce reports/demo/DEMO_REPORT.md, real event logs/config hashes and .scp-workbench/BUILD_RESULT.json. If blocked, leave the affected milestone incomplete with exact next steps.
+
+Inspect local tool help before invoking commands. Do not weaken requirements/proofs/tests to make the demo pass, bypass sandboxes, expose model credentials to tests, alter evaluator references, reset/clean user work, or push changes without authorization. Distinguish support-utility tests from full integration tests.
+
+After the build, guide the user through `inspecta-scp onboard`, real learning/validation, frozen application, UI opening and demo replay using commands that actually work in this checkout.

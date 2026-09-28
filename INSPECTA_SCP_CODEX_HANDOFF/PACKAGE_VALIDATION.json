@@ -1,0 +1,70 @@
+{
+  "package_version": "2.1",
+  "prepared_date": "2026-09-22",
+  "status": "SUPPORT_CHECKS_PASSED",
+  "unit_tests": {
+    "passed": 100,
+    "failed": 0,
+    "scope": "Bundled support utilities; includes synthetic tool-reuse tests, not actual Codex/Sireum engineering runs."
+  },
+  "schema_checks": {
+    "schemas": 8,
+    "examples": 12,
+    "passed": true,
+    "scope": "Syntax/schema only; not engineering readiness"
+  },
+  "launcher_smoke": {
+    "status": "PASSED",
+    "plan_only_no_staging": true,
+    "fake_executable_dispatch": true,
+    "child_tool_paths_preserved": true,
+    "codex_expected_version_verified": "0.155.0 (synthetic fixture)",
+    "sireum_not_executed": true,
+    "no_selected_binary_changed": true,
+    "workbench_implemented": false,
+    "actual_codex_or_astra_called": false,
+    "installations_performed": false
+  },
+  "plot_demo": {
+    "records": 2,
+    "figures": 6,
+    "formats": [
+      "PNG",
+      "SVG"
+    ],
+    "report_formats": [
+      "HTML",
+      "JSON",
+      "CSV"
+    ],
+    "measurement_kind": "SYNTHETIC",
+    "status": "INHERITED_FROM_V2_0_NOT_RERUN_FOR_INSTALLATION_ONLY_UPDATE"
+  },
+  "directory_readme_coverage": true,
+  "active_markdown_links_checked": 258,
+  "active_broken_links": 0,
+  "installations_performed": false,
+  "workbench_implemented": false,
+  "live_learning_run_performed": false,
+  "sireum_hamr_logika_verus_runs_performed": false,
+  "real_42_unit_registry_reconstructed": false,
+  "live_ui_backend_tested": false,
+  "real_attestation_executed": false,
+  "milestone_status": "M00-M08 are implementation requirements for target Codex, not completed by packaging.",
+  "limitations": [
+    "Support demo records are invented; they are not DASC/Isolette/KSU results.",
+    "Launcher requires an installed/authenticated Codex; optional preparation is not a complete host installer.",
+    "No successful live demo or cost reduction is claimed. M07 must be executed after implementation.",
+    "Workstation privileges, credentials, supported model/capabilities and paid budget can block progress.",
+    "Distribution hash manifest is unsigned integrity information, not an engineering attestation."
+  ],
+  "support_log_sha256": "16af03f87e3c74c84b6654a15ceffcf8e96af9faa8138ab5e6157f76b5d65d0f",
+  "base_archive": "INSPECTA_SCP_Codex_Handoff_v2.0_2026-09-22.zip",
+  "base_archive_sha256": "80e43c923a4ba386626b5886831591133057b4454da98e82dee97745fc0fdc90",
+  "tool_selection_policy": "REUSE_EXISTING_FIRST; user-selected Codex v_155 expected actual 0.155.*",
+  "live_user_binary_checked": false,
+  "live_sireum_installation_checked": false,
+  "scope_note": "This update changes setup/discovery/pinning and documentation. Existing workflow goals, images, presentation, plots, and software-build/demo requirements are retained. No user-machine installation or live model call was performed.",
+  "package_file_count_excluding_manifest": 121,
+  "new_tests_scope": "37 new reuse tests plus 63 retained tests; fake executable end-to-end dispatcher additionally checked outside unittest."
+}

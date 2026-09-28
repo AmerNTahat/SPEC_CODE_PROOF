@@ -1,0 +1,367 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "2.0"
+    },
+    "kind": {
+      "const": "run_profile"
+    },
+    "readiness": {
+      "enum": [
+        "draft",
+        "ready"
+      ]
+    },
+    "mode": {
+      "enum": [
+        "learning",
+        "user"
+      ]
+    },
+    "assistance": {
+      "enum": [
+        "automatic",
+        "interactive"
+      ]
+    },
+    "project_config": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "learning_materials": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "development_validation": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "rule_release": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "toolchain_lock": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "model": {
+      "type": "object",
+      "properties": {
+        "family": {
+          "const": "gpt"
+        },
+        "requested_profile": {
+          "const": "astra"
+        },
+        "resolved_model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "codex_version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "family",
+        "requested_profile",
+        "resolved_model_id",
+        "codex_version"
+      ],
+      "additionalProperties": false
+    },
+    "budget": {
+      "type": "object",
+      "properties": {
+        "wall_seconds": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "aggregate_model_tokens": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "repairs_per_issue": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "repairs_per_run": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "concurrent_model_calls": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "final_validation_time_reserve": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 0.9
+        },
+        "enforcement": {
+          "enum": [
+            "strict",
+            "best_effort"
+          ]
+        },
+        "spend_limit_usd": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        }
+      },
+      "required": [
+        "wall_seconds",
+        "aggregate_model_tokens",
+        "repairs_per_issue",
+        "repairs_per_run",
+        "concurrent_model_calls",
+        "final_validation_time_reserve",
+        "enforcement",
+        "spend_limit_usd"
+      ],
+      "additionalProperties": false
+    },
+    "paid_runs_authorized": {
+      "type": "boolean"
+    },
+    "authorization_record": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "fresh_session": {
+      "type": "boolean"
+    },
+    "local_similarity": {
+      "const": "token_count_cosine"
+    },
+    "online_embedding_fallback": {
+      "const": false
+    },
+    "selection_policy": {
+      "enum": [
+        "fixed",
+        "gpt_when_ambiguous"
+      ]
+    },
+    "preference_experiment": {
+      "const": "off"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "task_operation": {
+      "enum": [
+        "auto",
+        "continue-project",
+        "complete-system",
+        "extend-system",
+        "repair-system",
+        "verify-only",
+        "create-system"
+      ]
+    },
+    "creation_authorized": {
+      "type": "boolean"
+    },
+    "architecture_policy": {
+      "enum": [
+        "approved-change",
+        "reconstruction-equivalence",
+        "new-design-conformance"
+      ]
+    },
+    "naming_policy": {
+      "enum": [
+        "preserve-existing",
+        "approved-internal-renaming"
+      ]
+    },
+    "final_evaluation": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "dataset_policy": {
+      "type": "object",
+      "properties": {
+        "strategy": {
+          "enum": [
+            "user_assigned",
+            "propose_grouped",
+            "approved_manifest"
+          ]
+        },
+        "assignment_manifest": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "approval_manifest": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "group_by": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "family_id",
+              "lineage_id",
+              "content_hashes"
+            ]
+          }
+        },
+        "seed": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "fractions": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "minItems": 3,
+          "maxItems": 3
+        },
+        "shared_context_manifest": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "move_source_files": {
+          "const": false
+        }
+      },
+      "required": [
+        "strategy",
+        "assignment_manifest",
+        "approval_manifest",
+        "group_by",
+        "seed",
+        "fractions",
+        "shared_context_manifest",
+        "move_source_files"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "$schema",
+    "schema_version",
+    "kind",
+    "readiness",
+    "mode",
+    "assistance",
+    "project_config",
+    "learning_materials",
+    "development_validation",
+    "rule_release",
+    "toolchain_lock",
+    "model",
+    "budget",
+    "paid_runs_authorized",
+    "authorization_record",
+    "fresh_session",
+    "local_similarity",
+    "online_embedding_fallback",
+    "selection_policy",
+    "preference_experiment",
+    "notes",
+    "task_operation",
+    "creation_authorized",
+    "architecture_policy",
+    "naming_policy",
+    "final_evaluation",
+    "dataset_policy"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "readiness": {
+            "const": "ready"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "model": {
+            "properties": {
+              "resolved_model_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "codex_version": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "toolchain_lock": {
+            "type": "string",
+            "minLength": 1
+          },
+          "project_config": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "task_operation": {
+            "const": "create-system"
+          }
+        },
+        "required": [
+          "task_operation"
+        ]
+      },
+      "then": {
+        "properties": {
+          "creation_authorized": {
+            "const": true
+          }
+        }
+      }
+    }
+  ]
+}

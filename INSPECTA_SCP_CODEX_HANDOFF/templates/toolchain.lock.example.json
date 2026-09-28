@@ -1,0 +1,63 @@
+{
+  "record_type": "toolchain_lock_template",
+  "status": "UNRESOLVED_NOT_VALIDATED",
+  "host": {
+    "os": null,
+    "architecture": null
+  },
+  "reference_image": {
+    "tag": "jasonbelt/microkit_provers:latest",
+    "digest": null,
+    "platform": null,
+    "build_info_hash": null
+  },
+  "current_validated_image": {
+    "digest": null,
+    "build_recipe_commit": null,
+    "platform": null
+  },
+  "tools": {
+    "sireum": {
+      "version": null,
+      "revision": null,
+      "executable_digest": null,
+      "path": null,
+      "home": null,
+      "source": null,
+      "selection_status": "NOT_DISCOVERED",
+      "jar_digest": null,
+      "automatic_upgrade": false,
+      "profile_smoke_evidence": []
+    },
+    "codex": {
+      "version": null,
+      "executable_digest": null,
+      "user_selected_label": "v_155",
+      "expected_version": "0.155.*",
+      "path": null,
+      "source": null,
+      "selection_status": "NOT_DISCOVERED",
+      "automatic_upgrade": false,
+      "cli_probe_evidence": []
+    },
+    "verus": {
+      "version": null
+    },
+    "rust": {
+      "version": null
+    },
+    "microkit": {
+      "version": null
+    }
+  },
+  "capabilities": {
+    "strict_token_enforcement": "UNKNOWN",
+    "sysml_parser": "NOT_RUN",
+    "logika": "NOT_RUN",
+    "host_gumbox_tests": "NOT_RUN",
+    "offline_engineering_examples": "NOT_RUN"
+  },
+  "smoke_test_evidence": [],
+  "notes": "Template only. Prefer existing tools; populate observed identity and smoke evidence. CLI help is not proof of toolchain compatibility. Fresh install is not required to populate current-validated profile.",
+  "selection_policy": "REUSE_EXISTING_FIRST"
+}

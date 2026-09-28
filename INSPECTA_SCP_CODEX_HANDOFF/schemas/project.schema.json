@@ -1,0 +1,157 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0"
+    },
+    "kind": {
+      "const": "project_manifest"
+    },
+    "readiness": {
+      "enum": [
+        "draft",
+        "ready"
+      ]
+    },
+    "project_id": {
+      "type": "string"
+    },
+    "task_family": {
+      "type": "string"
+    },
+    "data_role": {
+      "enum": [
+        "learning",
+        "development_validation",
+        "final_transfer",
+        "demo_regression"
+      ]
+    },
+    "source_repository": {
+      "type": "string"
+    },
+    "source_revision": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source_inventory": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source_root": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "model_roots": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "requirement_ledger": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "architecture_reference": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "comparison_policy": {
+      "enum": [
+        "equivalence",
+        "approved_change",
+        "conformance"
+      ]
+    },
+    "approved_change_manifest": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "toolchain_profile": {
+      "type": "string"
+    },
+    "toolchain_lock": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "required_gates": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "agent_editable_paths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "protected_paths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "independent_evidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "exposure_reviewed": {
+      "type": "boolean"
+    },
+    "source_approved": {
+      "type": "boolean"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "$schema",
+    "schema_version",
+    "kind",
+    "readiness",
+    "project_id",
+    "task_family",
+    "data_role",
+    "source_repository",
+    "source_revision",
+    "source_inventory",
+    "source_root",
+    "model_roots",
+    "requirement_ledger",
+    "architecture_reference",
+    "comparison_policy",
+    "approved_change_manifest",
+    "toolchain_profile",
+    "toolchain_lock",
+    "required_gates",
+    "agent_editable_paths",
+    "protected_paths",
+    "independent_evidence",
+    "exposure_reviewed",
+    "source_approved",
+    "notes"
+  ],
+  "additionalProperties": false
+}

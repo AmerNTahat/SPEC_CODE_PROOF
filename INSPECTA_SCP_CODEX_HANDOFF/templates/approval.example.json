@@ -1,0 +1,15 @@
+{
+  "$schema": "../schemas/approval.schema.json",
+  "schema_version": "1.0",
+  "record_type": "approval",
+  "id": "DRAFT-APPROVAL",
+  "status": "PENDING",
+  "action": "publish_release",
+  "requested_scope": "Resolve exact release revision and declared applicability before requesting approval.",
+  "subject_digest": null,
+  "approved_by": null,
+  "approved_at": null,
+  "expires_at": null,
+  "conditions": [],
+  "supersedes": null
+}

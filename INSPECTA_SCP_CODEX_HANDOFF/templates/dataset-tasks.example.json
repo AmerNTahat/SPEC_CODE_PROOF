@@ -1,0 +1,35 @@
+{
+  "format": "scp-task-registry-v2",
+  "status": "SYNTHETIC_ILLUSTRATION",
+  "tasks": [
+    {
+      "id": "support-a",
+      "family_id": "family-a",
+      "lineage_id": "lineage-a",
+      "role": "learning",
+      "content_hashes": []
+    },
+    {
+      "id": "support-a-renamed",
+      "family_id": "family-a",
+      "lineage_id": "lineage-a",
+      "role": "learning",
+      "content_hashes": []
+    },
+    {
+      "id": "development-b",
+      "family_id": "family-b",
+      "lineage_id": "lineage-b",
+      "role": "development",
+      "content_hashes": []
+    },
+    {
+      "id": "final-c",
+      "family_id": "family-c",
+      "lineage_id": "lineage-c",
+      "role": "final",
+      "content_hashes": []
+    }
+  ],
+  "notes": "Synthetic grouping metadata. Real source inventory, file hashes, task completeness and semantic lineage must be reviewed."
+}

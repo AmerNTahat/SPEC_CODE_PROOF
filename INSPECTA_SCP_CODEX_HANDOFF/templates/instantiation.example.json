@@ -1,0 +1,19 @@
+{
+  "$schema": "../schemas/instantiation.schema.json",
+  "schema_version": "1.0",
+  "record_type": "rule_instantiation",
+  "id": "DRAFT-BINDING",
+  "state": "DRAFT",
+  "rule_revision": "ILLUSTRATIVE-STATE-RETENTION@draft-0",
+  "target_task": null,
+  "target_requirement_ids": [],
+  "role_bindings": [],
+  "parameter_bindings": [],
+  "preserved_obligations": [],
+  "required_gate_ids": [
+    "requirements_coverage",
+    "architecture"
+  ],
+  "binding_check_evidence": [],
+  "notes": "Bind actual reviewed target roles; an abstract principle alone does not establish correct placement."
+}

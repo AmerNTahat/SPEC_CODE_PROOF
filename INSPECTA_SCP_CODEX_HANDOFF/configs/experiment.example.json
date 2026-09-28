@@ -1,0 +1,26 @@
+{
+  "record_type": "experiment_design_template",
+  "status": "DRAFT_NOT_AUTHORIZED",
+  "name": "source-rule-transfer",
+  "conditions": [
+    "K0_static_KSU",
+    "K1_scripted_static",
+    "S1_frozen_one_pass_rules",
+    "S2_frozen_development_refined_rules"
+  ],
+  "focused_ablation": [
+    "token_matched_source_summary",
+    "structured_verbalized_rules"
+  ],
+  "task_manifests": [],
+  "model_lock": null,
+  "toolchain_lock": null,
+  "knowledge_releases": [],
+  "source_exposure_audit": null,
+  "final_split_frozen": false,
+  "fresh_sessions": true,
+  "retain_all_attempts": true,
+  "paid_calls_authorized": false,
+  "repetitions": null,
+  "notes": "Choose repetitions and budgets before evaluation; all conditions share the adopted environment, acceptance policy and permitted target information."
+}

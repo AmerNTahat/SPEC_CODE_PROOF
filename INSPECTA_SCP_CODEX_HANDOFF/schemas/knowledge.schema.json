@@ -1,0 +1,391 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "2.0"
+    },
+    "record_type": {
+      "enum": [
+        "principle",
+        "rule",
+        "procedure"
+      ]
+    },
+    "id": {
+      "type": "string"
+    },
+    "revision": {
+      "type": "string"
+    },
+    "state": {
+      "enum": [
+        "DRAFT",
+        "TESTED",
+        "APPROVED",
+        "RETIRED"
+      ]
+    },
+    "basis": {
+      "enum": [
+        "source_stated",
+        "human_rationale",
+        "model_inferred",
+        "mixed"
+      ]
+    },
+    "assessment_timing": {
+      "enum": [
+        "before_action",
+        "after_feedback",
+        "retrospective"
+      ]
+    },
+    "source_references": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "source_artifact_hashes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "source_episode": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "available_context_manifest": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "model_configuration": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "prompt_version": {
+      "type": "string"
+    },
+    "trigger": {
+      "type": "string"
+    },
+    "principle": {
+      "type": "string"
+    },
+    "semantic_choice": {
+      "type": "string"
+    },
+    "structural_placement": {
+      "type": "string"
+    },
+    "repair_gate": {
+      "type": "string"
+    },
+    "prerequisites": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "exclusions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "parameters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "constraints": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "role",
+          "constraints"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "target_compatibility": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "preserved_obligations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "counterexample": {
+      "type": "object",
+      "properties": {
+        "scenario": {
+          "type": "string"
+        },
+        "expected_difference": {
+          "type": "string"
+        },
+        "source_or_test_reference": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "scenario",
+        "expected_difference",
+        "source_or_test_reference"
+      ],
+      "additionalProperties": false
+    },
+    "validation_gate_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence_references": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "confidence_forecast_reference": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "approval_reference": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "notes": {
+      "type": "string"
+    },
+    "source_english_patterns": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "positive_paraphrases": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "misleading_near_matches": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "supported_operations": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "auto",
+          "continue-project",
+          "complete-system",
+          "extend-system",
+          "repair-system",
+          "verify-only",
+          "create-system"
+        ]
+      }
+    },
+    "stack_layers": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "language",
+          "architecture",
+          "gumbo",
+          "implementation",
+          "proof",
+          "testing",
+          "deployment",
+          "repair"
+        ]
+      }
+    },
+    "semantic_roles": {
+      "type": "object",
+      "properties": {
+        "actor": {
+          "type": "string"
+        },
+        "condition": {
+          "type": "string"
+        },
+        "effect": {
+          "type": "string"
+        },
+        "modality": {
+          "type": "string"
+        },
+        "quantification": {
+          "type": "string"
+        },
+        "temporal_scope": {
+          "type": "string"
+        },
+        "state_dependency": {
+          "type": "string"
+        },
+        "units_and_boundaries": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "actor",
+        "condition",
+        "effect",
+        "modality",
+        "quantification",
+        "temporal_scope",
+        "state_dependency",
+        "units_and_boundaries"
+      ],
+      "additionalProperties": false
+    },
+    "formal_output_pattern": {
+      "type": "string"
+    },
+    "formal_pattern_status": {
+      "enum": [
+        "ABSTRACT_NOT_VALIDATED",
+        "TOOL_VALIDATED",
+        "UNSUPPORTED"
+      ]
+    },
+    "allowed_edit_scope": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "required_baseline": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "diagnostic_signature": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "related_rule_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "$schema",
+    "schema_version",
+    "record_type",
+    "id",
+    "revision",
+    "state",
+    "basis",
+    "assessment_timing",
+    "source_references",
+    "source_artifact_hashes",
+    "source_episode",
+    "available_context_manifest",
+    "model_configuration",
+    "prompt_version",
+    "trigger",
+    "principle",
+    "semantic_choice",
+    "structural_placement",
+    "repair_gate",
+    "prerequisites",
+    "exclusions",
+    "parameters",
+    "dependencies",
+    "target_compatibility",
+    "preserved_obligations",
+    "counterexample",
+    "validation_gate_ids",
+    "evidence_references",
+    "confidence_forecast_reference",
+    "approval_reference",
+    "notes",
+    "source_english_patterns",
+    "positive_paraphrases",
+    "misleading_near_matches",
+    "supported_operations",
+    "stack_layers",
+    "semantic_roles",
+    "formal_output_pattern",
+    "formal_pattern_status",
+    "allowed_edit_scope",
+    "required_baseline",
+    "diagnostic_signature",
+    "related_rule_ids"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "state": {
+            "const": "APPROVED"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "approval_reference": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_references": {
+            "minItems": 1
+          },
+          "evidence_references": {
+            "minItems": 1
+          }
+        }
+      }
+    }
+  ]
+}

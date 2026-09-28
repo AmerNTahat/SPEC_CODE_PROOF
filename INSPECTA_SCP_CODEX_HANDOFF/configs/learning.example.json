@@ -1,0 +1,56 @@
+{
+  "$schema": "../schemas/run-profile.schema.json",
+  "schema_version": "2.0",
+  "kind": "run_profile",
+  "readiness": "draft",
+  "mode": "learning",
+  "assistance": "automatic",
+  "project_config": null,
+  "learning_materials": null,
+  "development_validation": null,
+  "rule_release": null,
+  "toolchain_lock": null,
+  "model": {
+    "family": "gpt",
+    "requested_profile": "astra",
+    "resolved_model_id": null,
+    "codex_version": null
+  },
+  "budget": {
+    "wall_seconds": 3600,
+    "aggregate_model_tokens": 3000000,
+    "repairs_per_issue": 5,
+    "repairs_per_run": 20,
+    "concurrent_model_calls": 1,
+    "final_validation_time_reserve": 0.2,
+    "enforcement": "strict",
+    "spend_limit_usd": null
+  },
+  "paid_runs_authorized": false,
+  "authorization_record": null,
+  "fresh_session": true,
+  "local_similarity": "token_count_cosine",
+  "online_embedding_fallback": false,
+  "selection_policy": "gpt_when_ambiguous",
+  "preference_experiment": "off",
+  "notes": "DRAFT. Explicit UI/CLI overrides are resolved by the shared controller. No goal-text default overrides them. Manual collection assignments are preserved. Real paths, source permissions, model/tool identity, approvals and capability checks are still required.",
+  "task_operation": "auto",
+  "creation_authorized": false,
+  "architecture_policy": "approved-change",
+  "naming_policy": "preserve-existing",
+  "final_evaluation": null,
+  "dataset_policy": {
+    "strategy": "user_assigned",
+    "assignment_manifest": null,
+    "approval_manifest": null,
+    "group_by": [
+      "family_id",
+      "lineage_id",
+      "content_hashes"
+    ],
+    "seed": null,
+    "fractions": null,
+    "shared_context_manifest": null,
+    "move_source_files": false
+  }
+}

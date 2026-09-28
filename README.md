@@ -40,3 +40,7 @@ Large Learning/Rulebooks views currently rebuild extensive evidence and may be s
 Independent rule transfer/release and the complete frozen User demonstration remain incomplete. A passing component proof or scoped exclusion is not whole-system acceptance. No user credentials or paid-run authorization are included.
 
 Older workflow documents are retained for implementation history. For installation and checkpoint scope, this README and `docs/DEPENDENCIES.md` take precedence over historical machine paths or outdated readiness statements in those documents.
+
+## Development handoff
+
+Read [the current handoff status and continuation guide](docs/HANDOFF_STATUS.md) before using the [original handoff package](INSPECTA_SCP_CODEX_HANDOFF/START_HERE.md). The package is preserved unchanged for provenance; its original packaging results and proposed milestones do not describe current completion. Continue the existing application in the current session; do not launch another implementation session with `start.py start`.

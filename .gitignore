@@ -43,3 +43,7 @@ __pycache__/
 *.key
 /.scp-workbench/
 /workbench/default-toolchain.local.json
+
+# Original handoff baseline, including the reviewed empty environment template
+!/INSPECTA_SCP_CODEX_HANDOFF/
+!/INSPECTA_SCP_CODEX_HANDOFF/templates/.env.example

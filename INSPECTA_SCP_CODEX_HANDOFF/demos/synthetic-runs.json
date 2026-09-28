@@ -1,0 +1,212 @@
+[
+  {
+    "run_id": "synthetic-static",
+    "measurement_kind": "synthetic",
+    "benchmark_id": "SUPPORT-FIXTURE-THREE-UNITS",
+    "policy_id": "synthetic-policy-v1",
+    "model_profile": "NO_MODEL",
+    "toolchain_profile": "NO_HAMR",
+    "operation": "fixture_accounting",
+    "budget_policy": "synthetic-fixed",
+    "artifact_revision": "fixture-v1",
+    "target_unit_ids": [
+      "U1",
+      "U2",
+      "U3"
+    ],
+    "wall_seconds": 180,
+    "usage": {
+      "input_total": 55000,
+      "cached_input": 10000,
+      "output_total": 5000
+    },
+    "cost_usd": 1.2,
+    "unit_results": [
+      {
+        "unit_id": "U1",
+        "artifact_revision": "fixture-v1",
+        "evidence_current": true,
+        "formal_gates": [
+          {
+            "id": "synthetic-formal",
+            "status": "PASS",
+            "evidence_ref": "synthetic-fixture:synthetic-formal"
+          }
+        ],
+        "acceptance_gates": [
+          {
+            "id": "synthetic-requirements",
+            "status": "PASS",
+            "evidence_ref": "synthetic-fixture:synthetic-requirements"
+          },
+          {
+            "id": "synthetic-architecture",
+            "status": "PASS",
+            "evidence_ref": "synthetic-fixture:synthetic-architecture"
+          }
+        ]
+      },
+      {
+        "unit_id": "U2",
+        "artifact_revision": "fixture-v1",
+        "evidence_current": true,
+        "formal_gates": [
+          {
+            "id": "synthetic-formal",
+            "status": "FAIL",
+            "evidence_ref": "synthetic-fixture:fail"
+          }
+        ],
+        "acceptance_gates": [
+          {
+            "id": "synthetic-requirements",
+            "status": "PASS",
+            "evidence_ref": "synthetic-fixture:synthetic-requirements"
+          },
+          {
+            "id": "synthetic-architecture",
+            "status": "PASS",
+            "evidence_ref": "synthetic-fixture:synthetic-architecture"
+          }
+        ]
+      },
+      {
+        "unit_id": "U3",
+        "artifact_revision": "fixture-v1",
+        "evidence_current": true,
+        "formal_gates": [
+          {
+            "id": "synthetic-formal",
+            "status": "FAIL",
+            "evidence_ref": "synthetic-fixture:fail"
+          }
+        ],
+        "acceptance_gates": [
+          {
+            "id": "synthetic-requirements",
+            "status": "PASS",
+            "evidence_ref": "synthetic-fixture:synthetic-requirements"
+          },
+          {
+            "id": "synthetic-architecture",
+            "status": "PASS",
+            "evidence_ref": "synthetic-fixture:synthetic-architecture"
+          }
+        ]
+      }
+    ],
+    "project_gates": [
+      {
+        "id": "synthetic-build",
+        "status": "PASS",
+        "evidence_ref": "synthetic-fixture:synthetic-build"
+      }
+    ],
+    "notes": "Invented arithmetic fixture, not DASC/Isolette/KSU performance or a proof result."
+  },
+  {
+    "run_id": "synthetic-rules",
+    "measurement_kind": "synthetic",
+    "benchmark_id": "SUPPORT-FIXTURE-THREE-UNITS",
+    "policy_id": "synthetic-policy-v1",
+    "model_profile": "NO_MODEL",
+    "toolchain_profile": "NO_HAMR",
+    "operation": "fixture_accounting",
+    "budget_policy": "synthetic-fixed",
+    "artifact_revision": "fixture-v1",
+    "target_unit_ids": [
+      "U1",
+      "U2",
+      "U3"
+    ],
+    "wall_seconds": 150,
+    "usage": {
+      "input_total": 37000,
+      "cached_input": 10000,
+      "output_total": 5000
+    },
+    "cost_usd": 0.9,
+    "unit_results": [
+      {
+        "unit_id": "U1",
+        "artifact_revision": "fixture-v1",
+        "evidence_current": true,
+        "formal_gates": [
+          {
+            "id": "synthetic-formal",
+            "status": "PASS",
+            "evidence_ref": "synthetic-fixture:synthetic-formal"
+          }
+        ],
+        "acceptance_gates": [
+          {
+            "id": "synthetic-requirements",
+            "status": "PASS",
+            "evidence_ref": "synthetic-fixture:synthetic-requirements"
+          },
+          {
+            "id": "synthetic-architecture",
+            "status": "PASS",
+            "evidence_ref": "synthetic-fixture:synthetic-architecture"
+          }
+        ]
+      },
+      {
+        "unit_id": "U2",
+        "artifact_revision": "fixture-v1",
+        "evidence_current": true,
+        "formal_gates": [
+          {
+            "id": "synthetic-formal",
+            "status": "PASS",
+            "evidence_ref": "synthetic-fixture:synthetic-formal"
+          }
+        ],
+        "acceptance_gates": [
+          {
+            "id": "synthetic-requirements",
+            "status": "PASS",
+            "evidence_ref": "synthetic-fixture:synthetic-requirements"
+          },
+          {
+            "id": "synthetic-architecture",
+            "status": "PASS",
+            "evidence_ref": "synthetic-fixture:synthetic-architecture"
+          }
+        ]
+      },
+      {
+        "unit_id": "U3",
+        "artifact_revision": "fixture-v1",
+        "evidence_current": true,
+        "formal_gates": [
+          {
+            "id": "synthetic-formal",
+            "status": "PASS",
+            "evidence_ref": "synthetic-fixture:synthetic-formal"
+          }
+        ],
+        "acceptance_gates": [
+          {
+            "id": "synthetic-requirements",
+            "status": "PASS",
+            "evidence_ref": "synthetic-fixture:synthetic-requirements"
+          },
+          {
+            "id": "synthetic-architecture",
+            "status": "PASS",
+            "evidence_ref": "synthetic-fixture:synthetic-architecture"
+          }
+        ]
+      }
+    ],
+    "project_gates": [
+      {
+        "id": "synthetic-build",
+        "status": "PASS",
+        "evidence_ref": "synthetic-fixture:synthetic-build"
+      }
+    ],
+    "notes": "Invented arithmetic fixture, not DASC/Isolette/KSU performance or a proof result."
+  }
+]

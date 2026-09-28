@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0"
+    },
+    "record_type": {
+      "const": "approval"
+    },
+    "id": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "PENDING",
+        "APPROVED",
+        "REJECTED",
+        "REVOKED"
+      ]
+    },
+    "action": {
+      "enum": [
+        "publish_release",
+        "expand_scope",
+        "change_requirement",
+        "increase_budget",
+        "paid_run",
+        "sensitive_data_transfer",
+        "privileged_install"
+      ]
+    },
+    "requested_scope": {
+      "type": "string"
+    },
+    "subject_digest": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "approved_by": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "approved_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "expires_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "conditions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "supersedes": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "$schema",
+    "schema_version",
+    "record_type",
+    "id",
+    "status",
+    "action",
+    "requested_scope",
+    "subject_digest",
+    "approved_by",
+    "approved_at",
+    "expires_at",
+    "conditions",
+    "supersedes"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "APPROVED"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "subject_digest": {
+            "type": "string",
+            "minLength": 1
+          },
+          "approved_by": {
+            "type": "string",
+            "minLength": 1
+          },
+          "approved_at": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  ]
+}

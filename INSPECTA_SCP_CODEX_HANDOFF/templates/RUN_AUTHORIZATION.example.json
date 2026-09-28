@@ -1,0 +1,17 @@
+{
+  "record_type": "run_authorization_template",
+  "status": "PENDING",
+  "authorized_by": null,
+  "authorized_at": null,
+  "project_and_data_scope": null,
+  "model_profile": "astra",
+  "resolved_model_id": null,
+  "allow_paid_calls": false,
+  "allow_private_data_transfer": false,
+  "allow_privileged_install": false,
+  "allow_public_publish": false,
+  "budget_profile": null,
+  "token_enforcement": "strict",
+  "best_effort_acknowledged": false,
+  "notes": "Record actual user authorization; this file grants none. Do not ask again for already-recorded applicable authorization. Keep secrets out."
+}

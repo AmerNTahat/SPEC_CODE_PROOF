@@ -1,0 +1,197 @@
+{
+  "prepared_at": "2026-09-22",
+  "references": [
+    {
+      "id": "R01",
+      "title": "Loonwerks environment overview",
+      "url": "https://github.com/loonwerks/INSPECTA-models/blob/main/provers-env/readme.md",
+      "scope": "Shared installation recipes, profiles, platform guidance; checked during packaging."
+    },
+    {
+      "id": "R02",
+      "title": "Loonwerks container guide",
+      "url": "https://github.com/loonwerks/INSPECTA-models/blob/main/provers-env/docker/readme.md",
+      "scope": "Reference image, contents, missing solvers/caches, build/update path; checked during packaging."
+    },
+    {
+      "id": "R03",
+      "title": "Loonwerks version configuration",
+      "url": "https://github.com/loonwerks/INSPECTA-models/blob/main/provers-env/bin/versions.sh",
+      "scope": "Resolve and audit at installation; no assumed latest version."
+    },
+    {
+      "id": "R04",
+      "title": "Loonwerks native/VM guide",
+      "url": "https://github.com/loonwerks/INSPECTA-models/blob/main/provers-env/vagrant/readme.md",
+      "scope": "Platform-specific setup and appliances; recheck before choosing backend."
+    },
+    {
+      "id": "R05",
+      "title": "SCP source repository",
+      "url": "https://github.com/loonwerks/INSPECTA-Spec-Code-Proof-Copilot",
+      "scope": "Inspect the actual extension checkout and preserve source history."
+    },
+    {
+      "id": "R06",
+      "title": "KSU agent-training project",
+      "url": "https://github.com/santoslab/HAMR-agent-configuration-experiments",
+      "scope": "Locate current workflow/examples; preserve source and exposure provenance."
+    },
+    {
+      "id": "R07",
+      "title": "KSU testing guide",
+      "url": "https://github.com/santoslab/HAMR-agent-configuration-experiments/blob/main/hamr-claude-training/doc/testing-guide.md",
+      "scope": "Three test styles, oracle caveats, serial host testing; opening section checked during packaging."
+    },
+    {
+      "id": "R08",
+      "title": "KSU build and verification guide",
+      "url": "https://github.com/santoslab/HAMR-agent-configuration-experiments/blob/main/hamr-claude-training/doc/build-and-verification-commands.md",
+      "scope": "Inspect exact selected target commands and prerequisites at implementation."
+    },
+    {
+      "id": "R09",
+      "title": "KSU tool interface guide",
+      "url": "https://github.com/santoslab/HAMR-agent-configuration-experiments/blob/main/hamr-claude-training/doc/mcp-tools.md",
+      "scope": "Map documented semantics to actual supported Sireum CLI operations."
+    },
+    {
+      "id": "R10",
+      "title": "OpenAI Codex source README",
+      "url": "https://github.com/openai/codex/blob/main/README.md",
+      "scope": "Official current installation routes; checked during packaging."
+    },
+    {
+      "id": "R11",
+      "title": "OpenAI Codex CLI documentation",
+      "url": "https://developers.openai.com/codex/cli/",
+      "scope": "Current official entry point; may redirect to ChatGPT Learn. Recheck at install."
+    },
+    {
+      "id": "R12",
+      "title": "OpenAI Codex noninteractive documentation",
+      "url": "https://developers.openai.com/codex/noninteractive/",
+      "scope": "Structured events, schema output, sandbox/auth boundaries; checked during packaging."
+    },
+    {
+      "id": "R13",
+      "title": "Codex instructions",
+      "url": "https://developers.openai.com/codex/guides/agents-md/",
+      "scope": "Instruction scope/loading; use intentionally for controlled experiments."
+    },
+    {
+      "id": "R14",
+      "title": "Codex skills",
+      "url": "https://developers.openai.com/codex/skills/",
+      "scope": "Procedural instructions, scripts/references; recheck conventions at implementation."
+    },
+    {
+      "id": "R15",
+      "title": "Sireum official setup",
+      "url": "https://sireum.org/getting-started/",
+      "scope": "Resolve official CLI capabilities and distribution on target machine."
+    },
+    {
+      "id": "R16",
+      "title": "KSU HAMR tutorials",
+      "url": "https://github.com/santoslab/hamr-tutorials",
+      "scope": "Supplementary current examples/CI; inspect exact revision."
+    },
+    {
+      "id": "R17",
+      "title": "Requirements Engineering Management Handbook",
+      "url": "https://www.faa.gov/sites/faa.gov/files/aircraft/air_cert/design_approvals/air_software/AR-08-32.pdf",
+      "scope": "Lempia and Miller, DOT/FAA/AR-08/32, 2009; source material, not automatically a machine oracle."
+    },
+    {
+      "id": "R18",
+      "title": "Verbalizable Representations Form a Global Workspace in Language Models",
+      "url": "https://arxiv.org/abs/2607.15495v1",
+      "scope": "Gurnee et al.; arXiv metadata verified, July 16, 2026. Verbalization motivation, not a claimed implemented neural mechanism."
+    },
+    {
+      "id": "R19",
+      "title": "AI Research Preference Models",
+      "url": "https://arxiv.org/abs/2608.13940v2",
+      "scope": "Foster et al.; v2 August 25, 2026 metadata verified. Optional candidate ranking, not semantic embeddings."
+    },
+    {
+      "id": "R20",
+      "title": "in-toto Statement",
+      "url": "https://in-toto.io/Statement/v1",
+      "scope": "Attestation subject digests and predicate identity; confirm maintained implementation."
+    },
+    {
+      "id": "R21",
+      "title": "SLSA artifact verification guidance",
+      "url": "https://slsa.dev/spec/v1.2/verifying-artifacts",
+      "scope": "Signer and expected-configuration verification; no certification/level claim."
+    },
+    {
+      "id": "R22",
+      "title": "Docker build best practices",
+      "url": "https://docs.docker.com/build/building/best-practices/",
+      "scope": "Reproducible builds, image identity and digest pinning."
+    },
+    {
+      "id": "R23",
+      "title": "Docker security",
+      "url": "https://docs.docker.com/engine/security/",
+      "scope": "Daemon authority and container boundaries; do not give agents the socket."
+    },
+    {
+      "id": "R24",
+      "title": "Existing full-stack/process rule sources",
+      "url": "https://github.com/loonwerks/INSPECTA-Spec-Code-Proof-Copilot/tree/main/SCP-extention-artificats/isolette_io_extnded/rule-books",
+      "scope": "Inspect, review exact revision and pin in project-specific manifests; not automatically evaluator truth."
+    },
+    {
+      "id": "R25",
+      "title": "DASC plot definitions",
+      "url": "https://github.com/loonwerks/INSPECTA-Spec-Code-Proof-Copilot/blob/main/SCP_IEEE_Documentation/revision_round22_June_2026/figures/results_chart_pgfplots.tex",
+      "scope": "Inspect, review exact revision and pin in project-specific manifests; not automatically evaluator truth."
+    },
+    {
+      "id": "R26",
+      "title": "AADL Isolette example",
+      "url": "https://github.com/santoslab/isolette-artifacts",
+      "scope": "Inspect, review exact revision and pin in project-specific manifests; not automatically evaluator truth."
+    },
+    {
+      "id": "R27",
+      "title": "SysML Isolette",
+      "url": "https://github.com/santoslab/sysml-isolette",
+      "scope": "Inspect, review exact revision and pin in project-specific manifests; not automatically evaluator truth."
+    },
+    {
+      "id": "R28",
+      "title": "HAMR SysML AADL libraries",
+      "url": "https://github.com/santoslab/sysml-aadl-libraries",
+      "scope": "Inspect, review exact revision and pin in project-specific manifests; not automatically evaluator truth."
+    }
+  ],
+  "checked_file_blobs": [
+    {
+      "repository": "loonwerks/INSPECTA-models",
+      "path": "provers-env/readme.md",
+      "blob_sha": "e8d1ac6520f0305dd99f5f4616c11431cc15f889"
+    },
+    {
+      "repository": "loonwerks/INSPECTA-models",
+      "path": "provers-env/docker/readme.md",
+      "blob_sha": "623e37e3a9c00d34ee7c9c030f6b4617112c47ab"
+    },
+    {
+      "repository": "santoslab/HAMR-agent-configuration-experiments",
+      "path": "hamr-claude-training/doc/testing-guide.md",
+      "blob_sha": "d94a51e77243a093fca59404b58a5ba4e7e7cfda"
+    },
+    {
+      "repository": "openai/codex",
+      "path": "README.md",
+      "blob_sha": "06b02fced7db972084bf0188cb03f60375b51c1c"
+    }
+  ],
+  "note": "Blob SHAs identify inspected files, not complete repository commits or a validated toolchain. Registry digest, installed versions and target-model access remain unresolved until setup.",
+  "verification_note": "Inherited sources were inspected in earlier conversation; installer must re-fetch and pin. Codex CLI docs rechecked during v2 packaging. No current live engineering execution claimed."
+}

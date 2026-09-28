@@ -1,0 +1,24 @@
+{
+  "record_type": "live_demo_campaign",
+  "status": "DRAFT_NOT_AUTHORIZED",
+  "model_profile": "astra",
+  "resolved_model_id": null,
+  "toolchain_lock": null,
+  "source_manifest": null,
+  "campaign_budget": {
+    "wall_seconds": 7200,
+    "aggregate_model_tokens": 5000000,
+    "spend_limit_usd": null,
+    "enforcement": "strict"
+  },
+  "required_workflows": [
+    "isolette_learning",
+    "isolette_frozen_application",
+    "selected_additional_ksu_example",
+    "authorized_creation_and_rename_capability"
+  ],
+  "approval_record": null,
+  "publication_approval_required": true,
+  "fail_if_live_unavailable": true,
+  "notes": "Caps are proposals, not expected runtime or authorization. All trial costs share this envelope. If unsupported strict token caps block execution, obtain explicit best-effort consent, never silently downgrade."
+}

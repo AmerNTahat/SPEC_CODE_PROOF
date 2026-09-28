@@ -1,0 +1,21 @@
+{
+  "$schema": "../schemas/gate-result.schema.json",
+  "schema_version": "1.0",
+  "record_type": "gate_result",
+  "run_id": "UNRESOLVED",
+  "gate_id": "architecture",
+  "status": "NOT_RUN",
+  "artifact_digest": null,
+  "policy_digest": null,
+  "tool_identity": null,
+  "operation_id": null,
+  "command_argv": [],
+  "exit_code": null,
+  "observed_at": null,
+  "valid_cases": null,
+  "rejected_cases": null,
+  "failed_cases": null,
+  "evidence_references": [],
+  "approval_reference": null,
+  "notes": "No checker was run. A future PASS requires actual evidence and independent policy verification beyond schema validity."
+}

@@ -1,0 +1,12 @@
+{
+  "status": "partial",
+  "live_demo_status": "not_run",
+  "cli_executable": "workbench/.venv/bin/inspecta-scp",
+  "evidence": [],
+  "achieved": [],
+  "in_progress": [],
+  "remaining": [
+    "Implement and execute the Workbench/live demo"
+  ],
+  "notes": "Codex writes the real receipt to .scp-workbench/BUILD_RESULT.json with current relative paths and SHA-256 evidence digests. This example is not a ready receipt."
+}

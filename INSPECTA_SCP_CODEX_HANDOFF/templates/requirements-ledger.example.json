@@ -1,0 +1,11 @@
+{
+  "$schema": "../schemas/requirements.schema.json",
+  "schema_version": "1.0",
+  "record_type": "requirement_ledger",
+  "project_id": "UNRESOLVED",
+  "state": "DRAFT",
+  "source_manifest": null,
+  "obligations": [],
+  "approval_reference": null,
+  "notes": "Intentionally empty until authoritative requirements are located and reviewed. No completeness claim; mandatory source and obligation inventory must block live readiness."
+}
