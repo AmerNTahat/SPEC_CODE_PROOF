@@ -1,0 +1,584 @@
+{
+  "checked": "2026-11-07",
+  "scope": "Read-only audit of first SNG generation contexts, later K+ context, lesson records and selected common guides",
+  "initial_retained_entry_ids": [
+    "MR-CONN-001",
+    "MR-PORT-001",
+    "MR-PROC-001",
+    "MR-SCHED-001",
+    "MR-THREAD-001",
+    "MR-VERIFY-PROC-001",
+    "draft-directed-payload-feature-refinement",
+    "draft-effective-processor-binding-qualification",
+    "draft-signed32-gumbo-literal-encoding",
+    "draft-gumbo-embedded-grammar-repair",
+    "draft-property-enum-qualified-reference"
+  ],
+  "initial_retained_entry_count": 11,
+  "later_retained_entry_count": 66,
+  "later_sng_lesson_count": 11,
+  "lesson_sources": [
+    {
+      "path": "records/experiments eval/sng_paired_preparation_2026-11-06/evaluation/LEARNING_OBSERVATIONS_DRAFT.json",
+      "created_at": "2026-11-06T05:24:41.642223+00:00",
+      "lesson_count": 7
+    },
+    {
+      "path": "records/experiments eval/sng_paired_preparation_2026-11-06/evaluation/LEARNING_OBSERVATIONS_CONTINUATION.json",
+      "created_at": "2026-11-06T05:44:14.424088+00:00",
+      "lesson_count": 4
+    }
+  ],
+  "lesson_projection_checks": [
+    {
+      "id": "SNG-LESSON-CONT-01",
+      "source": "records/experiments eval/sng_paired_preparation_2026-11-06/evaluation/LEARNING_OBSERVATIONS_CONTINUATION.json",
+      "observation_matches_dispatched_principle": true
+    },
+    {
+      "id": "SNG-LESSON-CONT-02",
+      "source": "records/experiments eval/sng_paired_preparation_2026-11-06/evaluation/LEARNING_OBSERVATIONS_CONTINUATION.json",
+      "observation_matches_dispatched_principle": true
+    },
+    {
+      "id": "SNG-LESSON-CONT-03",
+      "source": "records/experiments eval/sng_paired_preparation_2026-11-06/evaluation/LEARNING_OBSERVATIONS_CONTINUATION.json",
+      "observation_matches_dispatched_principle": true
+    },
+    {
+      "id": "SNG-LESSON-CONT-04",
+      "source": "records/experiments eval/sng_paired_preparation_2026-11-06/evaluation/LEARNING_OBSERVATIONS_CONTINUATION.json",
+      "observation_matches_dispatched_principle": true
+    },
+    {
+      "id": "SNG-LESSON-DRAFT-01",
+      "source": "records/experiments eval/sng_paired_preparation_2026-11-06/evaluation/LEARNING_OBSERVATIONS_DRAFT.json",
+      "observation_matches_dispatched_principle": true
+    },
+    {
+      "id": "SNG-LESSON-DRAFT-02",
+      "source": "records/experiments eval/sng_paired_preparation_2026-11-06/evaluation/LEARNING_OBSERVATIONS_DRAFT.json",
+      "observation_matches_dispatched_principle": true
+    },
+    {
+      "id": "SNG-LESSON-DRAFT-03",
+      "source": "records/experiments eval/sng_paired_preparation_2026-11-06/evaluation/LEARNING_OBSERVATIONS_DRAFT.json",
+      "observation_matches_dispatched_principle": true
+    },
+    {
+      "id": "SNG-LESSON-DRAFT-04",
+      "source": "records/experiments eval/sng_paired_preparation_2026-11-06/evaluation/LEARNING_OBSERVATIONS_DRAFT.json",
+      "observation_matches_dispatched_principle": true
+    },
+    {
+      "id": "SNG-LESSON-DRAFT-05",
+      "source": "records/experiments eval/sng_paired_preparation_2026-11-06/evaluation/LEARNING_OBSERVATIONS_DRAFT.json",
+      "observation_matches_dispatched_principle": true
+    },
+    {
+      "id": "SNG-LESSON-DRAFT-06",
+      "source": "records/experiments eval/sng_paired_preparation_2026-11-06/evaluation/LEARNING_OBSERVATIONS_DRAFT.json",
+      "observation_matches_dispatched_principle": true
+    },
+    {
+      "id": "SNG-LESSON-DRAFT-07",
+      "source": "records/experiments eval/sng_paired_preparation_2026-11-06/evaluation/LEARNING_OBSERVATIONS_DRAFT.json",
+      "observation_matches_dispatched_principle": true
+    }
+  ],
+  "common_guide_checks": [
+    {
+      "path": "records/experiments eval/sng_paired_preparation_2026-11-06/context-proposal/common/ksu_guides/doc/modeling-tips.md",
+      "context_path": "ksu_guides/doc/modeling-tips.md",
+      "identical_across_first_arms": true,
+      "embedded_text_matches_frozen_file": true,
+      "sha256": "1fc97b21849f9e241c2d66a216166be83ec1180bb85dd066984f6a201e383fa0"
+    },
+    {
+      "path": "records/experiments eval/sng_paired_preparation_2026-11-06/context-proposal/common/ksu_guides/doc/component-implementation-guide.md",
+      "context_path": "ksu_guides/doc/component-implementation-guide.md",
+      "identical_across_first_arms": true,
+      "embedded_text_matches_frozen_file": true,
+      "sha256": "1fad571f248ab53a590da6ed3a7c9ef58ac06312bc7ad396e8b91bb143c5ea8d"
+    },
+    {
+      "path": "records/experiments eval/sng_paired_preparation_2026-11-06/context-proposal/common/ksu_guides/doc/testing-guide.md",
+      "context_path": "ksu_guides/doc/testing-guide.md",
+      "identical_across_first_arms": true,
+      "embedded_text_matches_frozen_file": true,
+      "sha256": "18244e35afe8416ec04098e75f0471a1b803dee1f9ffde0b06f67c813452842e"
+    }
+  ],
+  "source_sha256": {
+    "records/experiments eval/sng_paired_preparation_2026-11-06/outputs/sng-K/attempt-0/context.json": "47ea506836c046ee877f9bb9017fa1378efd5a3e0349e0eca436788c79b7a6c7",
+    "records/experiments eval/sng_paired_preparation_2026-11-06/outputs/sng-K+/attempt-0/context.json": "902d99154e012a5622bcfd08e941115e5d5c6c09f8636e00e8001df254d2ea27",
+    "records/experiments eval/sng_shared_supplement_2026-11-06/outputs/sng-K+/model-0/context.json": "b8d89f9112f427b5438506dd900239f8fcf2d09f2d049f210ccfe1715ecfdfa6",
+    "records/experiments eval/sng_paired_preparation_2026-11-06/context-proposal/README.md": "48995768c31364625c0964131ea7941b8797f96b1730844cbbb25417be1da714",
+    "records/experiments eval/sng_shared_supplement_2026-11-06/PROTOCOL.json": "f6ceafdca597cfeded2c8e1cb62a5e07e702fc1428078679f852c6eba2bc3c14",
+    "records/experiments eval/sng_shared_supplement_2026-11-06/knowledge_snapshot/MANIFEST.json": "70fb5064205e69875ab86c2af83165027df151039cd06bd0dc36963a58c623aa",
+    "records/experiments eval/sng_paired_preparation_2026-11-06/evaluation/LEARNING_OBSERVATIONS_DRAFT.json": "ef15cbf2a5146dda359dfc7603c6e1fc4ea60abc5bf02b155e05e3c850424956",
+    "records/experiments eval/sng_paired_preparation_2026-11-06/evaluation/LEARNING_OBSERVATIONS_CONTINUATION.json": "a1eb6f5153d7d07ab498a8422aa8563584642c56d58f5a9441d02b1a49f61410",
+    "records/experiments eval/sng_paired_preparation_2026-11-06/context-proposal/common/ksu_guides/doc/modeling-tips.md": "1fc97b21849f9e241c2d66a216166be83ec1180bb85dd066984f6a201e383fa0",
+    "records/experiments eval/sng_paired_preparation_2026-11-06/context-proposal/common/ksu_guides/doc/component-implementation-guide.md": "1fad571f248ab53a590da6ed3a7c9ef58ac06312bc7ad396e8b91bb143c5ea8d",
+    "records/experiments eval/sng_paired_preparation_2026-11-06/context-proposal/common/ksu_guides/doc/testing-guide.md": "18244e35afe8416ec04098e75f0471a1b803dee1f9ffde0b06f67c813452842e"
+  },
+  "source_audit_sha256": "61a7e801d2d0fde36787fb8da7795c17202ffbdd72c21fcbbff33db43798109b",
+  "extract_note": "Selected factual records from the existing input audit. Absolute local paths are replaced with anonymous record identifiers; records/ names identify retained originals, not files supplied in this package. Historical prose interpretations are omitted; the paper defines initially unseen relative to the first campaign.",
+  "lesson_records": [
+    {
+      "source_record": "records/experiments eval/sng_paired_preparation_2026-11-06/evaluation/LEARNING_OBSERVATIONS_DRAFT.json",
+      "source_sha256": "ef15cbf2a5146dda359dfc7603c6e1fc4ea60abc5bf02b155e05e3c850424956",
+      "created_at": "2026-11-06T05:24:41.642223+00:00",
+      "status": "DRAFT_UNQUALIFIED_EVALUATOR_ONLY",
+      "active_contexts_changed": null,
+      "lessons": [
+        {
+          "id": "SNG-LESSON-DRAFT-01",
+          "title": "Use the pinned model-language event predicates with exact case",
+          "kind": "ENGINEERING_PATTERN",
+          "status": "DRAFT_UNQUALIFIED_NOT_RELEASED",
+          "observation": "The first-recovery K+ candidate fails on noSend(output). An isolated reference-derived fixture using HasEvent, NoSend and MustSend(output,input) passes the four selected Microkit checks; changing one HasEvent to hasEvent produces an unresolved identifier, parse UNKNOWN and three downstream FAIL results.",
+          "draft_action_for_future_review": "When an event predicate is unresolved, distinguish the SysML/GUMBO surface from generated Slang or Rust APIs. Look up exact pinned-tool spellings and arities; preserve event-presence guards and test the narrowly changed candidate. Do not rewrite the event interface solely to avoid an unrecognized lowercase identifier.",
+          "evidence": [
+            {
+              "path": "experiments eval/sng_paired_preparation_2026-11-06/engineering-state/runs/6513852ca8914e978f5b4ed9518c3e29/parse_type.stderr",
+              "sha256": "70ac6b7c3c26f33a4b94b2de95ad268e905182a1fbe293d42cc2ba0a88ec092a"
+            },
+            {
+              "path": "experiments eval/sng_paired_preparation_2026-11-06/evaluation/EVENT_DATA_CAPABILITY_AUDIT.json",
+              "sha256": "b3ad114c57fb7412d795b4e356e6fb666e1769667d69b133f2d916de39358fec"
+            },
+            {
+              "path": "experiments eval/sng_paired_preparation_2026-11-06/evaluation/event-data-probe/COMPARISON.json",
+              "sha256": "e29a12505cb2d8b8b0121c9e4a71dcc68895cd16879229bf9771270a738f380b"
+            },
+            {
+              "path": "experiments eval/sng_paired_preparation_2026-11-06/evaluation/event-data-probe/positive/execution/SUMMARY.json",
+              "sha256": "bce2fd3fa5c78686d65ca617db25a98c919c8fd03bc66478c7e1f10f5ada3d7c"
+            },
+            {
+              "path": "experiments eval/sng_paired_preparation_2026-11-06/evaluation/event-data-probe/negative-case/execution/parse_type-evidence.json",
+              "sha256": "19d06709729f4004ad2b0ba8bc6478da837050e0d7756be82964b768bfcade1c"
+            },
+            {
+              "path": "experiments eval/sng_paired_preparation_2026-11-06/evaluation/event-data-probe/positive/workspace/sng/SNG_Software.sysml",
+              "sha256": "dc0f5d50e9959c4538f28ac7ad82c3b69c35a7fbb44f5910e0f451b41130fcef",
+              "lines": [
+                45,
+                58
+              ]
+            }
+          ],
+          "qualification_work_remaining": [
+            "Apply in a separately authorized future study; recheck the actual generated candidate.",
+            "Run requirement-mapped component and implementation proofs/tests; inspect definedness of payload access.",
+            "Have a reviewer curate scope, tool identity and exclusions before qualifying any retained rule."
+          ],
+          "limits": [
+            "The fixture is not a K/K+ success or behavioral proof.",
+            "The unchanged reference connection proof does not establish all six English leaves.",
+            "MaySend was inspected in the tool but was not exercised by this fixture."
+          ],
+          "approved_for_current_context": false,
+          "qualified_rule_id": null
+        },
+        {
+          "id": "SNG-LESSON-DRAFT-02",
+          "title": "Preserve numeric type and bounds in contracts",
+          "kind": "ENGINEERING_PATTERN",
+          "status": "DRAFT_UNQUALIFIED_NOT_RELEASED",
+          "observation": "K attempt5 declares a signed 32-bit payload, but its integration formula compares the payload with untyped 0 and 100. The pinned resolver reports incompatible S32 >= Z at line88.",
+          "draft_action_for_future_review": "Trace each literal to the declared operand type. Propose matching typed constants or a reviewed type-preserving expression, then execute the exact candidate checks. Preserve the English [0,100] bounds; do not widen the payload type or change requirements merely to type-check.",
+          "evidence": [
+            {
+              "path": "experiments eval/sng_paired_preparation_2026-11-06/engineering-state/runs/3103339316874d868a01e17c86ef8fc3/parse_type.stderr",
+              "sha256": "572e06db1f5822ee5e3e760bcb60bcd77b713b301b4e841d8b9c8d06e8051851"
+            },
+            {
+              "path": "experiments eval/sng_paired_preparation_2026-11-06/recovery-output/sng-K/attempt-5/workspace/sng/SNG_Data_Model.sysml",
+              "sha256": "b6d5cbf63361f4ddb9395c6ede0124d1620836166c954aaf92a277efe33e067e",
+              "lines": [
+                11,
+                14
+              ]
+            },
+            {
+              "path": "experiments eval/sng_paired_preparation_2026-11-06/recovery-output/sng-K/attempt-5/workspace/sng/SNG_Software.sysml",
+              "sha256": "af794e53d493e22dd3a0bfb53fcbc938b6c24072a3a9c565a826525e8707efb5",
+              "lines": [
+                78,
+                88
+              ]
+            }
+          ],
+          "qualification_work_remaining": [
+            "Execute positive and negative boundary cases for the actual signed payload type.",
+            "Check clamping at -1,0,100,101 and signed extrema without overflow or changed semantics.",
+            "Establish candidate-specific formal obligations separately from parser success."
+          ],
+          "limits": [
+            "The diagnostic proves the observed type mismatch, not that a proposed literal rewrite has passed.",
+            "K+ source contains typed literals but its model failed elsewhere; it is not validation of that proposed repair."
+          ],
+          "approved_for_current_context": false,
+          "qualified_rule_id": null
+        },
+        {
+          "id": "SNG-LESSON-DRAFT-03",
+          "title": "A missing golden contract is a coverage gap, not proof of a tool limitation",
+          "kind": "ENGINEERING_PATTERN",
+          "status": "DRAFT_UNQUALIFIED_NOT_RELEASED",
+          "observation": "The original SNG golden defers Gate/Filter compute contracts pending clarification of event-data option semantics. The pinned tool successfully processes a separate uppercase-predicate capability fixture. The historical TODO therefore does not justify labeling those English behaviors unsupported.",
+          "draft_action_for_future_review": "Record separate states for missing golden coverage, unknown capability, demonstrated unsupported capability and an observed candidate error. Require version-bound documentation or a minimal diagnostic for unsupported exclusions, and retain the English obligations until an explicitly approved scope decision.",
+          "evidence": [
+            {
+              "path": "experiments eval/sng_paired_preparation_2026-11-06/SOURCE_AUDIT.json",
+              "sha256": "cb22806f1eb4fc02e3982b008c04c4303969b1a22bc21977d2525f28a52139ef"
+            },
+            {
+              "path": "HAMR-agent-configuration-experiments/evaluation-project/sysmlv2/sng/SNG_Software.sysml",
+              "sha256": "e23a75273c7d5efb6a4940bc1c7cb12f8ce1ef7de4627a98231eff6399367fd1",
+              "lines": [
+                45,
+                81
+              ]
+            },
+            {
+              "path": "experiments eval/sng_paired_preparation_2026-11-06/evaluation/event-data-probe/COMPARISON.json",
+              "sha256": "e29a12505cb2d8b8b0121c9e4a71dcc68895cd16879229bf9771270a738f380b"
+            }
+          ],
+          "qualification_work_remaining": [
+            "Check each claimed capability limitation against the exact installed version.",
+            "Review affected English-to-formal mappings and any proposed scope exclusion."
+          ],
+          "limits": [
+            "The capability fixture does not prove full physical delivery, non-interference or all temporal properties.",
+            "No current requirement is excluded automatically by this draft."
+          ],
+          "approved_for_current_context": false,
+          "qualified_rule_id": null
+        },
+        {
+          "id": "SNG-LESSON-DRAFT-04",
+          "title": "A presence flag needs a transport correspondence argument",
+          "kind": "ENGINEERING_PATTERN",
+          "status": "DRAFT_UNQUALIFIED_NOT_RELEASED",
+          "observation": "K attempt5 replaces event-data messages with a DataPort MessageSlot containing present and msg. Its formulas express logical absence and clamping, but ordinary data sampling may overwrite or repeat values; a false flag is not by itself the absence of a physical event. No correspondence proof was established.",
+          "draft_action_for_future_review": "When adapting an event interface into a sampled representation, explicitly define the abstraction relation between transport occurrences and logical messages. Check absence, duplication, loss, order and eventual emission against the English. Treat required arrival/queue assumptions as reviewable premises, never hidden repairs.",
+          "evidence": [
+            {
+              "path": "experiments eval/sng_paired_preparation_2026-11-06/recovery-output/sng-K/attempt-5/workspace/sng/SNG_Data_Model.sysml",
+              "sha256": "b6d5cbf63361f4ddb9395c6ede0124d1620836166c954aaf92a277efe33e067e",
+              "lines": [
+                16,
+                22
+              ]
+            },
+            {
+              "path": "experiments eval/sng_paired_preparation_2026-11-06/recovery-output/sng-K/attempt-5/workspace/sng/SNG.sysml",
+              "sha256": "d7600bcf35b3e08cbfae3e32c231660360365a482d56a5c9dd15be3e57cf3b89",
+              "lines": [
+                29,
+                63
+              ]
+            },
+            {
+              "path": "experiments eval/sng_paired_preparation_2026-11-06/evaluation/review-phase1/ENGLISH_REVIEW.json",
+              "sha256": "0ffe8e628809aa604f0410a6d3968c5eb71278bb30490ecebfeefea1a00e3f6c"
+            },
+            {
+              "path": "HAMR-agent-configuration-experiments/evaluation-project/requirements/requirements.md",
+              "sha256": "5ed67608a2585eebc2eb81ca42b1797d55365a8b7df1308e5a800a4e9e21d27a",
+              "lines": [
+                35,
+                41
+              ]
+            }
+          ],
+          "qualification_work_remaining": [
+            "Define occurrence-sensitive observations at ingress and egress.",
+            "Prove or test the representation mapping with stated scheduling/arrival assumptions.",
+            "Keep single-dispatch value checks separate from end-to-end delivery obligations."
+          ],
+          "limits": [
+            "This is a source-review risk, not an executed counterexample.",
+            "K had no approved golden-decomposition supplement; deviation from that extra design alone is not a K behavioral failure."
+          ],
+          "approved_for_current_context": false,
+          "qualified_rule_id": null
+        },
+        {
+          "id": "SNG-LESSON-DRAFT-05",
+          "title": "Audit target exposure in every common guide",
+          "kind": "EXPERIMENT_CONTROL",
+          "status": "DRAFT_UNQUALIFIED_NOT_RELEASED",
+          "observation": "The approved common workflow documents contain SNG data/contract fragments, complete Gate/Filter implementation examples and test examples. Equal common bytes preserve that aspect of arm comparability, but the study cannot be described as transfer to a completely unseen target.",
+          "draft_action_for_future_review": "Freeze and hash all common context, audit target/example overlap, disclose exposure and distinguish documentation-assisted reuse from held-out unseen transfer. For a future clean-transfer study, prepare a separate approved target-free guide set before activation, identical across arms.",
+          "evidence": [
+            {
+              "path": "experiments eval/sng_paired_preparation_2026-11-06/SOURCE_AUDIT.json",
+              "sha256": "cb22806f1eb4fc02e3982b008c04c4303969b1a22bc21977d2525f28a52139ef"
+            },
+            {
+              "path": "HAMR-agent-configuration-experiments/hamr-claude-training/doc/modeling-tips.md",
+              "sha256": "1fc97b21849f9e241c2d66a216166be83ec1180bb85dd066984f6a201e383fa0",
+              "lines": [
+                54,
+                94
+              ]
+            },
+            {
+              "path": "HAMR-agent-configuration-experiments/hamr-claude-training/doc/component-implementation-guide.md",
+              "sha256": "1fad571f248ab53a590da6ed3a7c9ef58ac06312bc7ad396e8b91bb143c5ea8d",
+              "lines": [
+                189,
+                349
+              ]
+            },
+            {
+              "path": "HAMR-agent-configuration-experiments/hamr-claude-training/doc/testing-guide.md",
+              "sha256": "18244e35afe8416ec04098e75f0471a1b803dee1f9ffde0b06f67c813452842e",
+              "lines": [
+                90,
+                220
+              ]
+            }
+          ],
+          "qualification_work_remaining": [
+            "Independently review target overlap and freeze the future split.",
+            "Retain the present study as its original exposed-context condition; do not relabel it retrospectively."
+          ],
+          "limits": [
+            "No current guide or frozen context was edited.",
+            "Shared target exposure is not evidence that either generated candidate satisfied the English."
+          ],
+          "approved_for_current_context": false,
+          "qualified_rule_id": null
+        },
+        {
+          "id": "SNG-LESSON-DRAFT-06",
+          "title": "Keep tool execution, gate classification and repair control separate",
+          "kind": "WORKBENCH_CONTROL",
+          "status": "DRAFT_UNQUALIFIED_NOT_RELEASED",
+          "observation": "Both phase-one terminal attempts were labeled CHECK_NOT_RUN by the harness because parse_type was UNKNOWN, although all four adapters ran and returned one UNKNOWN and three FAIL. The isolated lowercase negative control likewise exits the type command with code0 while reporting an unresolved identifier and no validated success marker.",
+          "draft_action_for_future_review": "Persist per-gate invocation and diagnostic evidence independently of aggregate state. Require validated positive markers for PASS, retain explicit failures, and make repair-policy treatment of UNKNOWN a declared rule. A harness-state correction must not erase consumed time/tokens or repeat a completed generation.",
+          "evidence": [
+            {
+              "path": "experiments eval/sng_paired_preparation_2026-11-06/evaluation/review-phase1/ENGLISH_REVIEW.json",
+              "sha256": "0ffe8e628809aa604f0410a6d3968c5eb71278bb30490ecebfeefea1a00e3f6c"
+            },
+            {
+              "path": "experiments eval/sng_paired_preparation_2026-11-06/recovery-output/sng-K/attempt-5/Microkit_check_result.json",
+              "sha256": "daa0af83115c58dc224b5c1855bfdb6056cc71edeb029a2e02440f3848f835d3"
+            },
+            {
+              "path": "experiments eval/sng_paired_preparation_2026-11-06/recovery-output/sng-K+/attempt-3/Microkit_check_result.json",
+              "sha256": "895c36e0a8bf98ce9cdfce4de43b5aaaade1721d67cf7f982678a229873d0d9e"
+            },
+            {
+              "path": "experiments eval/sng_paired_preparation_2026-11-06/evaluation/event-data-probe/negative-case/execution/parse_type-evidence.json",
+              "sha256": "19d06709729f4004ad2b0ba8bc6478da837050e0d7756be82964b768bfcade1c"
+            }
+          ],
+          "qualification_work_remaining": [
+            "Add offline control tests covering mixed UNKNOWN/FAIL, exit0-with-errors, blocked-before-launch and interrupted metering.",
+            "Review whether an aggregate CHECK_NOT_RUN label should become a more precise executed-but-unresolved state.",
+            "Verify continuation preserves original candidate, attempt count and resource ledger."
+          ],
+          "limits": [
+            "No harness code is changed by this observation.",
+            "UNKNOWN is neither PASS nor a claim that a tool did not execute."
+          ],
+          "approved_for_current_context": false,
+          "qualified_rule_id": null
+        },
+        {
+          "id": "SNG-LESSON-DRAFT-07",
+          "title": "Disclose asymmetric design information as part of the treatment",
+          "kind": "EXPERIMENT_CONTROL",
+          "status": "DRAFT_UNQUALIFIED_NOT_RELEASED",
+          "observation": "The owner revoked common design-supplement approval and authorized it only for K+. K+ therefore receives both retained knowledge and a golden-derived English design supplement; K retains the original English and ordinary common context.",
+          "draft_action_for_future_review": "Report the treatment as retained knowledge plus approved design information. Score the six shared behavioral leaves and seven shared source rows identically; score the twelve supplemental design rows as mandatory only for K+ and diagnostic for K. Use a separate matched-information study to isolate the causal effect of retained meta-rules.",
+          "evidence": [
+            {
+              "path": "experiments eval/sng_paired_preparation_2026-11-06/SCOPE_APPROVAL.json",
+              "sha256": "aca30b607bf382ab599482243038874f21cd5f1bf5b4d7f4b9259b0b40963ce0"
+            },
+            {
+              "path": "experiments eval/sng_paired_preparation_2026-11-06/PROTOCOL.json",
+              "sha256": "763b4302fc9709262a90de982f5574e73188bb732517ab7d709e338f30f396c9"
+            },
+            {
+              "path": "experiments eval/sng_paired_preparation_2026-11-06/evaluation/CRITERIA.json",
+              "sha256": "89c95b8404546d1e8c47d647c38cd97a78fe5d8289db397e1872fb02832442b6"
+            }
+          ],
+          "qualification_work_remaining": [
+            "Keep source information, approval history and per-arm applicability in final tables.",
+            "If isolated meta-rule causality is needed, approve a new equal-information experiment before running it."
+          ],
+          "limits": [
+            "No current result is sufficient to attribute a difference solely to meta-rule retrieval.",
+            "This observation does not reopen or alter the approved current scope."
+          ],
+          "approved_for_current_context": false,
+          "qualified_rule_id": null
+        }
+      ]
+    },
+    {
+      "source_record": "records/experiments eval/sng_paired_preparation_2026-11-06/evaluation/LEARNING_OBSERVATIONS_CONTINUATION.json",
+      "source_sha256": "a1eb6f5153d7d07ab498a8422aa8563584642c56d58f5a9441d02b1a49f61410",
+      "created_at": "2026-11-06T05:44:14.424088+00:00",
+      "status": "POST_CONTINUATION_DRAFT_UNQUALIFIED_EVALUATOR_ONLY",
+      "active_contexts_changed": false,
+      "lessons": [
+        {
+          "id": "SNG-LESSON-CONT-01",
+          "title": "Distinguish SysML literal syntax from rendered Slang literals",
+          "observation": "K attempt6 changed untyped numeric constants to s32-prefixed quoted literals and failed parsing. K+ attempt5 uses 0 [s32] and 100 [s32] in SysML GUMBO, passes actual typing and both selected target generators. Its generated Slang/SMT display legitimately renders typed values as s32-prefixed quoted literals, illustrating why implementation or diagnostic notation must not be copied blindly into the modeling surface.",
+          "future_candidate_action": "Retain a tool-version-bound translation table for typed model literals versus generated implementation syntax. Validate signed-boundary positive and negative cases and preserve declared English ranges.",
+          "evidence": [
+            {
+              "path": "experiments eval/sng_paired_preparation_2026-11-06/engineering-state/runs/24e58e2013fb42c58008aad0d6d7e437/parse_type.stderr",
+              "sha256": "528f2e2e6efdffc96048ffe04f05a2c37d2d679e543cffc9c5a63fde8d502aea"
+            },
+            {
+              "path": "experiments eval/sng_paired_preparation_2026-11-06/prelaunch-resumed-output/sng-K/attempt-6/workspace/sng/SNG_Software.sysml",
+              "sha256": "78c00f532d21b1e6f2e44c663eeaa4a5344b31923fa3fcccdbd127aa050b7fec"
+            },
+            {
+              "path": "experiments eval/sng_paired_preparation_2026-11-06/prelaunch-resumed-output/sng-K+/attempt-5/workspace/sng/SNG_Software.sysml",
+              "sha256": "351fb4a0434fcb24244ee657f571311534709fe3b578a1aaa8544ea075a7a701"
+            },
+            {
+              "path": "experiments eval/sng_paired_preparation_2026-11-06/prelaunch-resumed-output/sng-K+/attempt-5/Microkit_check_result.json",
+              "sha256": "99ffd05dabcc50ce4c73a62bd2ad78c497ac0c14ac03f930c1fac7f83c41af9c"
+            },
+            {
+              "path": "experiments eval/sng_paired_preparation_2026-11-06/prelaunch-resumed-output/sng-K+/attempt-5/JVM_check_result.json",
+              "sha256": "830c8243d0b4bd481126602fad75c3ee0a6b4f2fa5f0833b06546a11f5daa805"
+            }
+          ],
+          "limits": [
+            "This records an executed typing/generation repair outcome, not correctness of the six behavioral requirements.",
+            "Do not generalize all numeric types or all future tool versions from one signed-32-bit candidate."
+          ],
+          "status": "DRAFT_UNQUALIFIED",
+          "qualified_rule_id": null,
+          "approved_for_active_context": false
+        },
+        {
+          "id": "SNG-LESSON-CONT-02",
+          "title": "Event predicate repair can preserve behavior intent while fixing the model-language API",
+          "observation": "The final K+ model uses recognized HasEvent and NoSend predicates and passes selected tool checks. Comparison with attempts3 and4 found all six local behavioral intents retained, including output-presence requirements and Public payload preservation; no new external traffic or input-range premise was introduced.",
+          "future_candidate_action": "For unresolved event identifiers, check exact pinned-language predicates and compare before/after requirement mappings before considering an interface redesign. Recheck candidate contracts, not only a generic capability fixture.",
+          "evidence": [
+            {
+              "path": "experiments eval/sng_paired_preparation_2026-11-06/prelaunch-resumed-output/sng-K+/attempt-5/workspace/sng/SNG_Software.sysml",
+              "sha256": "351fb4a0434fcb24244ee657f571311534709fe3b578a1aaa8544ea075a7a701"
+            },
+            {
+              "path": "experiments eval/sng_paired_preparation_2026-11-06/evaluation/review-recovery2/ENGLISH_REVIEW.json",
+              "sha256": "b7320ab90f77b36211635a8735ac44673b4356f032627bec7fed7720a33e99a5"
+            },
+            {
+              "path": "experiments eval/sng_paired_preparation_2026-11-06/evaluation/event-data-probe/COMPARISON.json",
+              "sha256": "e29a12505cb2d8b8b0121c9e4a71dcc68895cd16879229bf9771270a738f380b"
+            }
+          ],
+          "limits": [
+            "The passing generated candidate is distinct from the earlier isolated capability fixture.",
+            "Current generation was not provided these evaluator observations or the fixture results.",
+            "HasEvent/NoSend typing success does not settle predicate definedness or component implementation proof."
+          ],
+          "status": "DRAFT_UNQUALIFIED",
+          "qualified_rule_id": null,
+          "approved_for_active_context": false
+        },
+        {
+          "id": "SNG-LESSON-CONT-03",
+          "title": "Check total evaluation of absence guards after code generation",
+          "observation": "Actual generated Gate and Filter GumboX predicates combine eager Boolean | and & with Option.get. Presence tests in the same expression therefore do not alone establish that absent-message payload access is safely skipped. Parsing and generation passed, but no generated test execution or component proof discharged this issue.",
+          "future_candidate_action": "Add a separately reviewed definedness gate for generated contracts: inspect emitted evaluation semantics, exercise absent-input/absent-output cases and prove the intended total relation. Keep any repair proposal distinct from approval and rerun affected gates after change.",
+          "evidence": [
+            {
+              "path": "experiments eval/sng_paired_preparation_2026-11-06/engineering-state/objects/563102c4797b519bc8678dac2c63c24de005bd28c6f2d874310a3d8b8407f176.json",
+              "sha256": "563102c4797b519bc8678dac2c63c24de005bd28c6f2d874310a3d8b8407f176",
+              "artifact_name": "Gate_gate_gate_GumboX.scala",
+              "object_encoding": "base64",
+              "decoded_content_sha256": "bfac7818407e616524a2090227d7fdc25592f998687ec322d5cc99257b4e0f59",
+              "decoded_line_spans": [
+                [
+                  79,
+                  84
+                ],
+                [
+                  105,
+                  112
+                ]
+              ],
+              "excerpts": [
+                "79:   @strictpure def compute_spec_Req_C_Gate_Drop_guarantee(\n80:       api_input: Option[SNG_Data_Model.Message],\n81:       api_output: Option[SNG_Data_Model.Message]): B =\n82:     !(api_input.nonEmpty) |\n83:       api_input.get.security_level != SNG_Data_Model.SecurityLevel.Critical |\n84:       api_output.isEmpty",
+                "105:   @strictpure def compute_spec_Req_P_Gate_Unchanged_guarantee(\n106:       api_input: Option[SNG_Data_Model.Message],\n107:       api_output: Option[SNG_Data_Model.Message]): B =\n108:     !(api_input.nonEmpty) |\n109:       api_input.get.security_level != SNG_Data_Model.SecurityLevel.Public |\n110:       api_output.nonEmpty &\n111:         api_output.get.security_level == api_input.get.security_level &\n112:         api_output.get.payload == api_input.get.payload"
+              ]
+            },
+            {
+              "path": "experiments eval/sng_paired_preparation_2026-11-06/engineering-state/objects/d4932858a2771393864e784dfb145e79242b6b2086694dfb31f555f9aa3684d9.json",
+              "sha256": "d4932858a2771393864e784dfb145e79242b6b2086694dfb31f555f9aa3684d9",
+              "artifact_name": "Filter_msg_filter_msg_filter_GumboX.scala",
+              "object_encoding": "base64",
+              "decoded_content_sha256": "5280ca354eb459f74b54a9b426328967a3de80e04394cb81797bf0683a2fd7ae",
+              "decoded_line_spans": [
+                [
+                  138,
+                  146
+                ]
+              ],
+              "excerpts": [
+                "138:   @strictpure def compute_spec_Req_R_2_a_guarantee(\n139:       api_input: Option[SNG_Data_Model.Message],\n140:       api_output: Option[SNG_Data_Model.Message]): B =\n141:     !(api_input.nonEmpty) |\n142:       api_input.get.security_level != SNG_Data_Model.SecurityLevel.Restricted |\n143:       api_input.get.payload <= s32\"100\" |\n144:       api_output.nonEmpty &\n145:         api_output.get.security_level == SNG_Data_Model.SecurityLevel.Restricted &\n146:         api_output.get.payload == s32\"100\""
+              ]
+            }
+          ],
+          "limits": [
+            "This is a source-backed concern; no runtime counterexample was executed here.",
+            "Do not mark the entire language feature unsupported because one generated formula needs repair.",
+            "Current final models and frozen inputs remain unchanged."
+          ],
+          "status": "DRAFT_UNQUALIFIED",
+          "qualified_rule_id": null,
+          "approved_for_active_context": false
+        },
+        {
+          "id": "SNG-LESSON-CONT-04",
+          "title": "Attest to named proved implications rather than a success banner or declaration count",
+          "observation": "The final K+ integration gate passes and records two distinct Unsat implications: Gate no-Critical \u2192 Filter no-Critical, and Filter Restricted-range \u2192 Receiver Restricted-range. The source also declares Receiver_No_Critical_Input, but this execution does not report it as a distinct third proof. Three pipeline links and three input assumptions are not three demonstrated implications; none of these counts equals six behavioral leaves.",
+          "future_candidate_action": "Build attestation rows from exact source/destination predicate IDs, solver outcomes and candidate hashes. Reconcile declared obligations against actual exported claims; flag missing claims for checker/adapter investigation rather than silently assigning PASS.",
+          "evidence": [
+            {
+              "path": "experiments eval/sng_paired_preparation_2026-11-06/engineering-state/objects/7c453876ef1e5194fe9d565995a4654d53326bbb67fe40e3e5c73f4a9f52a992.json",
+              "sha256": "7c453876ef1e5194fe9d565995a4654d53326bbb67fe40e3e5c73f4a9f52a992"
+            },
+            {
+              "path": "experiments eval/sng_paired_preparation_2026-11-06/engineering-state/runs/515c31b7f7a646df8f1ed0fe4314943b/integration_constraints.stdout",
+              "sha256": "c823dc52cd2a9ffc057da283d8ddf3d23aa4ee090bed2fd66f9189659c4c5257"
+            },
+            {
+              "path": "experiments eval/sng_paired_preparation_2026-11-06/prelaunch-resumed-output/sng-K+/attempt-5/workspace/sng/SNG_Software.sysml",
+              "sha256": "351fb4a0434fcb24244ee657f571311534709fe3b578a1aaa8544ea075a7a701"
+            }
+          ],
+          "limits": [
+            "No reason for the unreported predicate is inferred without additional tool investigation.",
+            "Connection compatibility assumes the stated source guarantees; it does not prove their implementations.",
+            "Rule qualification still requires the supported gates and recorded scope/approval decisions."
+          ],
+          "status": "DRAFT_UNQUALIFIED",
+          "qualified_rule_id": null,
+          "approved_for_active_context": false
+        }
+      ]
+    }
+  ]
+}

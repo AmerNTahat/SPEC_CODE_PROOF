@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "purpose": "Reproduce the comparison and dependent-continuation figure from existing records.",
+  "audit_sha256": "6e541b49922b4a9a02c8cb3e89a8fb26bf337f007116bcc453d1d87ed1bfbbc6",
+  "token_scope": "Measured input plus output for experiment model calls; additional acquisition and supporting-session usage are reported separately.",
+  "comparisons": [
+    {
+      "system": "Producer/Consumer",
+      "arm": "K",
+      "measured_tokens": 48236,
+      "outcome": "HTTP 429",
+      "completed_model_targets": 0,
+      "estimated_unknown_usage_debit": 1000000,
+      "source": {
+        "path": "records/experiments/paired_ksu_knowledge_2026-11-05/report/tables.json"
+      }
+    },
+    {
+      "system": "Producer/Consumer",
+      "arm": "K+",
+      "measured_tokens": 179515,
+      "outcome": "Model stage passed",
+      "completed_model_targets": 1,
+      "estimated_unknown_usage_debit": 0,
+      "source": {
+        "path": "records/experiments/paired_ksu_knowledge_2026-11-05/report/tables.json"
+      }
+    },
+    {
+      "system": "SNG",
+      "arm": "K",
+      "measured_tokens": 388726,
+      "outcome": "Repair limit",
+      "completed_model_targets": 0,
+      "estimated_unknown_usage_debit": 0,
+      "source": {
+        "path": "records/experiments/sng_shared_supplement_2026-11-06/outputs/PROGRESS.json",
+        "json_pointer": "/trajectories/0"
+      }
+    },
+    {
+      "system": "SNG",
+      "arm": "K+",
+      "measured_tokens": 346224,
+      "outcome": "Model stage passed",
+      "completed_model_targets": 1,
+      "estimated_unknown_usage_debit": 0,
+      "source": {
+        "path": "records/experiments/sng_shared_supplement_2026-11-06/report/final/tables.json",
+        "json_pointer": "/arms/1/milestones/model_checks"
+      }
+    }
+  ],
+  "sng_milestones": [
+    {
+      "label": "Model stage passed",
+      "cumulative_tokens": 346224
+    },
+    {
+      "label": "Proposal rejected",
+      "cumulative_tokens": 424693
+    },
+    {
+      "label": "Paid repairs",
+      "cumulative_tokens": 576602
+    }
+  ],
+  "sng_completed_categories": [
+    {
+      "label": "Rust / Verus",
+      "result": "32 proof units"
+    },
+    {
+      "label": "English relations",
+      "result": "6 under premises"
+    },
+    {
+      "label": "Rust / GumboX",
+      "result": "33 test functions"
+    },
+    {
+      "label": "Slang / GumboX",
+      "result": "808 test cases"
+    },
+    {
+      "label": "Microkit build",
+      "result": "Passed"
+    },
+    {
+      "label": "QEMU observation",
+      "result": "20.033 s after readiness"
+    }
+  ],
+  "sng_baseline_downstream_status": "NOT_RUN",
+  "sng_cumulative_tokens_through_observation": 576602,
+  "sng_elapsed_seconds_including_pauses": 9081.304940462112,
+  "sng_observation_source": {
+    "path": "records/experiments/sng_shared_supplement_2026-11-06/continuation2/runtime20/ENGINEERING_COMPLETION.json"
+  },
+  "interpretation": [
+    "Each completed model target requires all five case-specific checks.",
+    "Later SNG categories depend on the model prerequisite.",
+    "Each category retains its own evidence units.",
+    "The final cumulative experiment-token total includes paid failures and repairs.",
+    "Per-category token costs remain unmeasured.",
+    "Elapsed time includes approval pauses and other gaps.",
+    "The paid phase ended with incomplete component/JVM checks; later authorized repairs and checks reached the six reported categories."
+  ],
+  "later_authorized_repairs": [
+    {
+      "repair": 7,
+      "description": "Serializer repair",
+      "new_experiment_model_tokens": 0,
+      "source": "records/experiments/sng_shared_supplement_2026-11-06/continuation2/ENGINEERING_COMPLETION.json"
+    },
+    {
+      "repair": 8,
+      "description": "Initialization repair",
+      "new_experiment_model_tokens": 0,
+      "source": "records/experiments/sng_shared_supplement_2026-11-06/continuation2/outputs/initialization-repair-8/ENGINEERING_COMPLETION.json"
+    }
+  ],
+  "figure_generation": {
+    "python": "3.11.11",
+    "matplotlib": "3.10.1",
+    "numpy": "2.1.3",
+    "script": "figures/plot-comparison.py",
+    "outputs": [
+      "assets/comparison-results.png",
+      "assets/comparison-results.svg"
+    ],
+    "png_dpi": 500
+  }
+}

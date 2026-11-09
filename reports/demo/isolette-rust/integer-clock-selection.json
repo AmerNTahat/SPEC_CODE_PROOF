@@ -1,0 +1,6 @@
+{
+  "status": "CANDIDATE_NOT_ACCEPTED",
+  "before_sha256": "78d087071dd512149c0edc2d8ee2ece261721799490b533709309e94505eb326",
+  "after_sha256": "84d00b554be37b9016e0a7058e7e6097b0fbd113d3a980e0ffdbe309927689f8",
+  "rationale": "Observed Rust codegen crash atFloat64 literal0.0. Integer milliseconds are an alternative sampled representation; preserving strict>1000 boundary does not prove clock progress, overflow safety or equivalence to arbitrary real-time semantics. No guard priority or requirement deletion."
+}

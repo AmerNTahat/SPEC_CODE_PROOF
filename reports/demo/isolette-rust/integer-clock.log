@@ -1,0 +1,2 @@
+24386eb0f4264b9aa12dbf934f7938a0 BLOCKED
+[('parse_type', 'PASS', 'Type checker completed'), ('architecture_capture', 'PASS', 'Instantiated AIR and resolved declarations captured; no conformance claim'), ('integration_constraints', 'UNKNOWN', 'No completed nonempty integration-constraint verification established'), ('hamr_codegen', 'PASS', 'HAMR emitted Rust/Microkit artifacts; compilation, Verus and runtime tests are separate')]

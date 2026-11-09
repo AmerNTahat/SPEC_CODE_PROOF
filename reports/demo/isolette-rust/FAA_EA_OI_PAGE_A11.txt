@@ -1,0 +1,47 @@
+The following environmental assumptions are made:
+
+•     EA-OI-1: All temperatures will be entered and displayed in degrees Fahrenheit.
+      Rationale: Minimize the complexity of this example. An actual system would probably
+      support Celsius or perhaps both Fahrenheit and Celsius
+
+•     EA4-OI-2: All temperatures will be set and displayed by the operators in increments of
+      1°F.
+      Rationale: Marketing studies have shown that customers prefer to set temperatures in
+      1 degree increments. A resolution 1°F is sufficient to be consistent with the functional
+      and performance requirements specified in the rest of the document.
+
+•     EA-OI-3: The Lower Alarm Temperature will always be ≥93°F.
+      Rationale: Exposure to temperatures less than 93°F will result in hypothermia, which can
+      lead to death within a few minutes for severely ill preterm infants.
+
+•     EA-OI-4: The Lower Alarm Temperature will always be less than or equal to the Lower
+      Desired Temperature of -1°F.
+      Rationale: If the Lower Alarm Temperature is greater than or equal to the Lower Desired
+      Temperature, the Alarm could be activated while the Current Temperature is still in the
+      Desired Temperature Range.
+
+•     EA-OI-5: The Lower Desired Temperature will always be ≥97°F.
+      Rationale: Exposing the Infant to temperatures lower than 97°F may result in excessive
+      heat loss and drop in heart rate secondary to metabolic acidosis.
+
+•     EA-OI-6: The Lower Desired Temperature will always be less than or equal to the Upper
+      Desired Temperature of -1°F.
+      Rationale: If the Lower Desired Temperature is greater than or equal to the Upper
+      Desired Temperature, it is unclear if the Heat Source should be on or off. This may result
+      in excessive cycling of the Heat Source.
+
+•     EA-OI-7: The Upper Desired Temperature will always be ≤100°F.
+      Rationale: Exposing the Infant to temperatures greater than 100°F may result in an
+      incorrect diagnosis of fever resulting in aggressive evaluation (blood culture and lumbar
+      puncture) and treatment for infection.
+
+•     EA-OI-8: The Upper Alarm Temperature will always be greater than or equal to the
+      Upper Desired Temperature of 1°F.
+      Rationale: If the Upper Alarm Temperature is less than or equal to the Upper Desired
+      Temperature, the Alarm could be activated while the Current Temperature is still in the
+      Desired Temperature Range.
+•     EA-OI-9: The Upper Alarm Temperature will always be ≤103°F.
+
+
+                                          A-11
+

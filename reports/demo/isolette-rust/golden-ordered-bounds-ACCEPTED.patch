@@ -1,0 +1,13 @@
+--- preserved-golden/Regulate.sysml
++++ human-curated-golden/Regulate.sysml
+@@ -376,6 +376,10 @@
+                     heat_control == Isolette_Data_Model::On_Off.Off;
+ 
+             compute
++                // Human-curated golden defect: FAA EA-OI-6 ordering rationale.
++                // Producer/system discharge remains a separate obligation.
++                assume ORDERED_DESIRED_BOUNDS:
++                    lower_desired_temp.degrees < upper_desired_temp.degrees;
+                 compute_cases
+                     case REQ_MHS_1 "If mode INIT then heat control is Off | AR-08-32 A.5.1.3":
+                         assume regulator_mode == Isolette_Data_Model::Regulator_Mode.Init_Regulator_Mode;

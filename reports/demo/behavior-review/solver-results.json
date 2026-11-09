@@ -1,0 +1,341 @@
+{
+  "solver": "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/linux/z3/bin/z3",
+  "solver_sha256": "33d3e79e5413944a7f4421ac3bfc43f867af4678a27310ffb3b78716a351b5c3",
+  "solver_version": "Z3 version 4.13.4 - 64 bit",
+  "scope": "Manually transcribed local guards, invariants and latency arithmetic; not full SysML/GUMBO translation, implementation proof, reachable-state proof or scheduling analysis",
+  "whole_system_acceptance": false,
+  "model_calls": 0,
+  "requirements_changed": false,
+  "checks": [
+    {
+      "name": "original_timeout_overlap",
+      "meaning": "Counterexample region: original MRM2 requires NORMAL while MRM4 requires FAILED; reachability is not established.",
+      "query": "reports/demo/behavior-review/original_timeout_overlap.smt2",
+      "query_sha256": "7972fb801c1d1ba8aeb38b85a207ff74a983e42376c056370a6cc7f26056f2b7",
+      "command": [
+        "/bin/bash",
+        "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/linux/z3/bin/z3",
+        "-smt2",
+        "/home/amertahat/SPEC_CODE_PROOF/reports/demo/behavior-review/original_timeout_overlap.smt2"
+      ],
+      "expected": "sat",
+      "actual": "sat",
+      "check_result": "MATCH",
+      "exit_code": 0,
+      "stdout": "sat\n(\n  (define-fun elapsed () Real\n    2.0)\n  (define-fun healthy () Bool\n    true)\n  (define-fun previous () Mode\n    INIT)\n)\n",
+      "stderr": "",
+      "elapsed_seconds": 0.029801558004692197
+    },
+    {
+      "name": "proposed_timeout_total",
+      "meaning": "Under the proposed timeout-priority semantics every enum mode, health flag and nonnegative elapsed time admits an output.",
+      "query": "reports/demo/behavior-review/proposed_timeout_total.smt2",
+      "query_sha256": "f49a3235badfa51237ebfcc6b6dcbc3ff88c44a8b3e9232876d02a5893b67bd4",
+      "command": [
+        "/bin/bash",
+        "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/linux/z3/bin/z3",
+        "-smt2",
+        "/home/amertahat/SPEC_CODE_PROOF/reports/demo/behavior-review/proposed_timeout_total.smt2"
+      ],
+      "expected": "unsat",
+      "actual": "unsat",
+      "check_result": "MATCH",
+      "exit_code": 0,
+      "stdout": "unsat\n",
+      "stderr": "",
+      "elapsed_seconds": 0.02987697598291561
+    },
+    {
+      "name": "proposed_timeout_deterministic",
+      "meaning": "Proposed guards cannot require different output modes simultaneously.",
+      "query": "reports/demo/behavior-review/proposed_timeout_deterministic.smt2",
+      "query_sha256": "c6361b7d765dc1f399e6bb2c6e16a3c5fc6caf4877befbc8ec4b35ce06b416ea",
+      "command": [
+        "/bin/bash",
+        "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/linux/z3/bin/z3",
+        "-smt2",
+        "/home/amertahat/SPEC_CODE_PROOF/reports/demo/behavior-review/proposed_timeout_deterministic.smt2"
+      ],
+      "expected": "unsat",
+      "actual": "unsat",
+      "check_result": "MATCH",
+      "exit_code": 0,
+      "stdout": "unsat\n",
+      "stderr": "",
+      "elapsed_seconds": 0.030391123989829794
+    },
+    {
+      "name": "strict_one_second_boundary",
+      "meaning": "At exactly1.0s an unhealthy INIT does not time out: retain source strict greater-than.",
+      "query": "reports/demo/behavior-review/strict_one_second_boundary.smt2",
+      "query_sha256": "41ac86cc840417d55242abcf0980888fa555caf99a9ecd39d382ed9c47d5ee22",
+      "command": [
+        "/bin/bash",
+        "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/linux/z3/bin/z3",
+        "-smt2",
+        "/home/amertahat/SPEC_CODE_PROOF/reports/demo/behavior-review/strict_one_second_boundary.smt2"
+      ],
+      "expected": "unsat",
+      "actual": "unsat",
+      "check_result": "MATCH",
+      "exit_code": 0,
+      "stdout": "unsat\n",
+      "stderr": "",
+      "elapsed_seconds": 0.0296534429944586
+    },
+    {
+      "name": "failure_latched_until_reinitialize",
+      "meaning": "Compute cannot leave FAILED; power-cycle initialization is a separate operation.",
+      "query": "reports/demo/behavior-review/failure_latched_until_reinitialize.smt2",
+      "query_sha256": "29b7a5d5ea713255cfc166134c930171f00295782aa9bcafd52c07f181131bf3",
+      "command": [
+        "/bin/bash",
+        "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/linux/z3/bin/z3",
+        "-smt2",
+        "/home/amertahat/SPEC_CODE_PROOF/reports/demo/behavior-review/failure_latched_until_reinitialize.smt2"
+      ],
+      "expected": "unsat",
+      "actual": "unsat",
+      "check_result": "MATCH",
+      "exit_code": 0,
+      "stdout": "unsat\n",
+      "stderr": "",
+      "elapsed_seconds": 0.029352812009165064
+    },
+    {
+      "name": "golden_early_failure_differs",
+      "meaning": "Golden INIT-unhealthy case requires FAILED already at0.2s, whereas proposed source-timed behavior stays INIT.",
+      "query": "reports/demo/behavior-review/golden_early_failure_differs.smt2",
+      "query_sha256": "36670eff32d341904c5887d745c10124992a9365d5279361e43aec51256c20c8",
+      "command": [
+        "/bin/bash",
+        "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/linux/z3/bin/z3",
+        "-smt2",
+        "/home/amertahat/SPEC_CODE_PROOF/reports/demo/behavior-review/golden_early_failure_differs.smt2"
+      ],
+      "expected": "sat",
+      "actual": "sat",
+      "check_result": "MATCH",
+      "exit_code": 0,
+      "stdout": "sat\n(\n  (define-fun healthy () Bool\n    false)\n  (define-fun previous () Mode\n    INIT)\n  (define-fun elapsed () Real\n    (/ 1.0 5.0))\n)\n",
+      "stderr": "",
+      "elapsed_seconds": 0.029347461997531354
+    },
+    {
+      "name": "old_clock_can_freeze",
+      "meaning": "Nonnegative monotonicity alone admits a frozen clock; an actual clock/progress obligation is necessary.",
+      "query": "reports/demo/behavior-review/old_clock_can_freeze.smt2",
+      "query_sha256": "c18a3861a5f37c8b3e9b7c2049f5ae3957cee3f066fd608f26a3f6b5ef906ab0",
+      "command": [
+        "/bin/bash",
+        "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/linux/z3/bin/z3",
+        "-smt2",
+        "/home/amertahat/SPEC_CODE_PROOF/reports/demo/behavior-review/old_clock_can_freeze.smt2"
+      ],
+      "expected": "sat",
+      "actual": "sat",
+      "check_result": "MATCH",
+      "exit_code": 0,
+      "stdout": "sat\n(\n  (define-fun after () Real\n    0.0)\n  (define-fun before () Real\n    0.0)\n)\n",
+      "stderr": "",
+      "elapsed_seconds": 0.02353109500836581
+    },
+    {
+      "name": "environment_is_satisfiable",
+      "meaning": "Non-vacuity check for TableA5 plusEA-OI-6 ordering.",
+      "query": "reports/demo/behavior-review/environment_is_satisfiable.smt2",
+      "query_sha256": "d967ea98a100f3c25acbbde5197f009b16cab2490a79e925bb0aa5c4a80efda3",
+      "command": [
+        "/bin/bash",
+        "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/linux/z3/bin/z3",
+        "-smt2",
+        "/home/amertahat/SPEC_CODE_PROOF/reports/demo/behavior-review/environment_is_satisfiable.smt2"
+      ],
+      "expected": "sat",
+      "actual": "sat",
+      "check_result": "MATCH",
+      "exit_code": 0,
+      "stdout": "sat\n(\n  (define-fun lo () Int\n    97)\n  (define-fun hi () Int\n    98)\n  (define-fun current () Int\n    0)\n)\n",
+      "stderr": "",
+      "elapsed_seconds": 0.027486167004099116
+    },
+    {
+      "name": "reversed_heat_guards_without_environment",
+      "meaning": "TableA7 internal domains alone allow a NORMAL heat-command overlap.",
+      "query": "reports/demo/behavior-review/reversed_heat_guards_without_environment.smt2",
+      "query_sha256": "0a22da5d410d4d692cee738800535b67c4e2cd652a0ad0b8fdad80651f899f2d",
+      "command": [
+        "/bin/bash",
+        "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/linux/z3/bin/z3",
+        "-smt2",
+        "/home/amertahat/SPEC_CODE_PROOF/reports/demo/behavior-review/reversed_heat_guards_without_environment.smt2"
+      ],
+      "expected": "sat",
+      "actual": "sat",
+      "check_result": "MATCH",
+      "exit_code": 0,
+      "stdout": "sat\n(\n  (define-fun current () Int\n    98)\n  (define-fun lo () Int\n    99)\n  (define-fun hi () Int\n    97)\n)\n",
+      "stderr": "",
+      "elapsed_seconds": 0.02486203599255532
+    },
+    {
+      "name": "source_environment_excludes_heat_overlap",
+      "meaning": "Source-backed bounds and ordering rule out simultaneous below-lower and above-upper guards.",
+      "query": "reports/demo/behavior-review/source_environment_excludes_heat_overlap.smt2",
+      "query_sha256": "9de1f3092b9f95b54434460cdee332f5a45d19898e7d1b705d2936ed051abc74",
+      "command": [
+        "/bin/bash",
+        "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/linux/z3/bin/z3",
+        "-smt2",
+        "/home/amertahat/SPEC_CODE_PROOF/reports/demo/behavior-review/source_environment_excludes_heat_overlap.smt2"
+      ],
+      "expected": "unsat",
+      "actual": "unsat",
+      "check_result": "MATCH",
+      "exit_code": 0,
+      "stdout": "unsat\n",
+      "stderr": "",
+      "elapsed_seconds": 0.024671981984283775
+    },
+    {
+      "name": "out_of_domain_copy_is_unrealizable",
+      "meaning": "A hypothetical Valid input200 cannot satisfy both unconditional copying and TableA7. TableA5 excludes this environmental witness.",
+      "query": "reports/demo/behavior-review/out_of_domain_copy_is_unrealizable.smt2",
+      "query_sha256": "c9a387ec9d706844823d6953a8028fabe1e8aa18813927d422512a623433e40c",
+      "command": [
+        "/bin/bash",
+        "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/linux/z3/bin/z3",
+        "-smt2",
+        "/home/amertahat/SPEC_CODE_PROOF/reports/demo/behavior-review/out_of_domain_copy_is_unrealizable.smt2"
+      ],
+      "expected": "unsat",
+      "actual": "unsat",
+      "check_result": "MATCH",
+      "exit_code": 0,
+      "stdout": "unsat\n",
+      "stderr": "",
+      "elapsed_seconds": 0.021390303008956835
+    },
+    {
+      "name": "source_bounds_imply_copied_internal_domains",
+      "meaning": "Restoring the omitted source environment resolves the valid-copy/domain contradiction without widening outputs.",
+      "query": "reports/demo/behavior-review/source_bounds_imply_copied_internal_domains.smt2",
+      "query_sha256": "b6b20b268fe3caf588227c9154985b82ece804d1c0e44b0c36ef5711a4757d1c",
+      "command": [
+        "/bin/bash",
+        "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/linux/z3/bin/z3",
+        "-smt2",
+        "/home/amertahat/SPEC_CODE_PROOF/reports/demo/behavior-review/source_bounds_imply_copied_internal_domains.smt2"
+      ],
+      "expected": "unsat",
+      "actual": "unsat",
+      "check_result": "MATCH",
+      "exit_code": 0,
+      "stdout": "unsat\n",
+      "stderr": "",
+      "elapsed_seconds": 0.027500983007485047
+    },
+    {
+      "name": "golden_producer_missing_desired_range_contract",
+      "meaning": "Golden Operator_Interface GUMBO supplies no desired-range guarantees. With no such premise, composition cannot discharge the restored consumer assumptions.",
+      "query": "reports/demo/behavior-review/golden_producer_missing_desired_range_contract.smt2",
+      "query_sha256": "e4dafe7dd550874a92a263989c1afaf288b9e9ec64726d34af506dbdcb8e4cf4",
+      "command": [
+        "/bin/bash",
+        "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/linux/z3/bin/z3",
+        "-smt2",
+        "/home/amertahat/SPEC_CODE_PROOF/reports/demo/behavior-review/golden_producer_missing_desired_range_contract.smt2"
+      ],
+      "expected": "sat",
+      "actual": "sat",
+      "check_result": "MATCH",
+      "exit_code": 0,
+      "stdout": "sat\n(\n  (define-fun lo () Int\n    101)\n  (define-fun hi () Int\n    101)\n  (define-fun current () Int\n    0)\n)\n",
+      "stderr": "",
+      "elapsed_seconds": 0.029362172994296998
+    },
+    {
+      "name": "hold_last_valid_range_induction",
+      "meaning": "The proposed hold-last-valid refinement preserves ordered bounds even during invalid-input propagation, assuming a valid initial stored pair and source-backed valid inputs.",
+      "query": "reports/demo/behavior-review/hold_last_valid_range_induction.smt2",
+      "query_sha256": "d26b53b105a4a43b2871de78dc9cd4adfe2cb870361c1378db94683fb73f3d2f",
+      "command": [
+        "/bin/bash",
+        "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/linux/z3/bin/z3",
+        "-smt2",
+        "/home/amertahat/SPEC_CODE_PROOF/reports/demo/behavior-review/hold_last_valid_range_induction.smt2"
+      ],
+      "expected": "unsat",
+      "actual": "unsat",
+      "check_result": "MATCH",
+      "exit_code": 0,
+      "stdout": "unsat\n",
+      "stderr": "",
+      "elapsed_seconds": 0.031366523005999625
+    },
+    {
+      "name": "candidate_initial_range_is_valid",
+      "meaning": "Proposed initial stored pair97/98 is within the source domains; values are a design choice for review, not mandated initial outputs.",
+      "query": "reports/demo/behavior-review/candidate_initial_range_is_valid.smt2",
+      "query_sha256": "ee26373b9736db41967bad5079f3c5db5952af49abc01326c3db9aeea1112465",
+      "command": [
+        "/bin/bash",
+        "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/linux/z3/bin/z3",
+        "-smt2",
+        "/home/amertahat/SPEC_CODE_PROOF/reports/demo/behavior-review/candidate_initial_range_is_valid.smt2"
+      ],
+      "expected": "unsat",
+      "actual": "unsat",
+      "check_result": "MATCH",
+      "exit_code": 0,
+      "stdout": "unsat\n",
+      "stderr": "",
+      "elapsed_seconds": 0.00979132199427113
+    },
+    {
+      "name": "golden_1000ms_can_miss_500ms_deadline",
+      "meaning": "Even zero execution/transport cost cannot ensure <500ms arbitrary-phase response for a1000ms polling stage.",
+      "query": "reports/demo/behavior-review/golden_1000ms_can_miss_500ms_deadline.smt2",
+      "query_sha256": "cda8bf89803e8de7b50b2c783800154fdf6066e888f9bb22e9fde7bb6ab47307",
+      "command": [
+        "/bin/bash",
+        "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/linux/z3/bin/z3",
+        "-smt2",
+        "/home/amertahat/SPEC_CODE_PROOF/reports/demo/behavior-review/golden_1000ms_can_miss_500ms_deadline.smt2"
+      ],
+      "expected": "sat",
+      "actual": "sat",
+      "check_result": "MATCH",
+      "exit_code": 0,
+      "stdout": "sat\n(\n  (define-fun polling_wait_ms () Real\n    (- (to_real 1000) arrival_phase_ms))\n  (define-fun arrival_phase_ms () Real\n    1.0)\n)\n",
+      "stderr": "",
+      "elapsed_seconds": 0.02380136598367244
+    },
+    {
+      "name": "illustrative_50ms_five_stage_budget",
+      "meaning": "Conditional arithmetic only: five<=50ms waits plus<=200ms other cost gives<=450ms. Actual path count, WCET, jitter, transport and rendering bounds are not measured or established.",
+      "query": "reports/demo/behavior-review/illustrative_50ms_five_stage_budget.smt2",
+      "query_sha256": "b9b9f24752ec5782028475c06a110309dfd330aa689d8251f0ecf7fa79ab3d4e",
+      "command": [
+        "/bin/bash",
+        "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/linux/z3/bin/z3",
+        "-smt2",
+        "/home/amertahat/SPEC_CODE_PROOF/reports/demo/behavior-review/illustrative_50ms_five_stage_budget.smt2"
+      ],
+      "expected": "unsat",
+      "actual": "unsat",
+      "check_result": "MATCH",
+      "exit_code": 0,
+      "stdout": "unsat\n",
+      "stderr": "",
+      "elapsed_seconds": 0.024028145999182016
+    }
+  ],
+  "all_expected_results_observed": true,
+  "source_hashes": {
+    "isolette/sysml/Steve_Miller_FAA_docAR-08-32.pdf": "b4949561cb04d46f718a16e2cc1486c0bd5a26c15778e3567c464466c24731df",
+    "reports/demo/isolette-revised-generated-Regulate.sysml": "a472cc40b17a82653547213d6654cd80851b037e4f378920dc09dd32e72aa361",
+    ".scp-workbench/app/runs/670db1da04a7439190a1dc0f9993f8e2/candidate/Regulate.sysml": "dd7de904aed4a1e57638f0f947f527d384129d130acbe7376199a111754e7bdb",
+    ".scp-workbench/app/runs/670db1da04a7439190a1dc0f9993f8e2/candidate/Operator_Interface.sysml": "f3b019962eafc16be94b1ebdab3d010aaa2b3db0048a43d5a4e0d843d7873c56"
+  }
+}

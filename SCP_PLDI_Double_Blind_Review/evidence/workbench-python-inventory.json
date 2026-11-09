@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "scope": "Author-reported local Workbench Python source snapshot",
+  "source": {
+    "kind": "Author-provided inventory summary",
+    "date": "2026-11-09",
+    "method": "The summary reports agreement between two counting methods.",
+    "revision": null,
+    "counting_recipe": null
+  },
+  "categories": [
+    {
+      "category": "implementation",
+      "files": 51,
+      "code_lines": 8255
+    },
+    {
+      "category": "automated tests",
+      "files": 44,
+      "code_lines": 3415
+    },
+    {
+      "category": "validation and support scripts",
+      "files": 35,
+      "code_lines": 2097
+    }
+  ],
+  "total": {
+    "files": 130,
+    "code_lines": 13767
+  }
+}

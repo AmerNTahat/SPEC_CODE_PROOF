@@ -1,0 +1,19 @@
+\section{Scoped Review and Attestation}
+\label{sec:attestation}
+\label{sec:scoped-attestation}
+The campaign record identifies who proposed, checked, and approved a revision. Fingerprints bind those actions to exact contents; authorization checks govern protected actions, and signed exports support independent checking of the evidence.
+
+\subsection{Identify What Was Reviewed}
+Adding $L<U$ changes the heater model's fingerprint and requires review of the revised model and its new assumption. A decision covers identified task, rule, artifact, outcome, assumption, and scope records~\cite{scpCheckpoint}. Before a protected action, the controller rechecks the reviewed contents and current approval. A mismatch makes the earlier decision inapplicable to the changed contents and returns the action for review. The history retains the responsible agent or human identifier, the decision, its rationale, and the affected versions. These links establish responsibility during an audit.
+
+\input{algorithms/scoped-review}
+
+Local acceptance requires matching reviewed contents and dependencies, passing evidence for every included mandatory check, and current approval of that scope. A human can authorize partial release by recording exclusions and their reasons; deferred obligations remain required. Failed outcomes remain in the history. When the required checks and reviews pass, the task is complete within its approved scope. Algorithm~\ref{alg:attestation} records these decisions and optionally exports a signed claim.
+
+\subsection{Signed Evidence and Independent Checks}
+\label{sec:signed-export}
+Figure~\ref{fig:attestation} follows five steps. \textbf{1--2. Check and describe.} The host snapshots inputs and records checks. An \emph{in-toto Statement} names files and fingerprints as its \emph{subjects}; its \emph{predicate} states the claim and policy~\cite{intotoStatement}.
+
+\textbf{3--4. Sign and export.} A \emph{Dead Simple Signing Envelope} (DSSE) contains the statement, data-format label, and signatures covering both~\cite{dsse}. The \emph{bundle} contains this envelope and supporting files. The private key remains outside worker-accessible directories.
+
+\textbf{5. Check independently.} The receiver supplies the expected policy and trusted keys. The verifier checks signatures, file inventory and fingerprints, configuration, dependencies, and recorded results. Altered contents or inconsistent claims are rejected. Authentic evidence from unfinished work can yield \texttt{INCOMPLETE}; \texttt{ACCEPTED} also requires the recorded engineering-acceptance flag and passing evidence for the verifier's required engineering checks~\cite{scpCheckpoint}. The signed record preserves the identity of the exported evidence, while the local review records preserve approval and responsibility for the declared scope.

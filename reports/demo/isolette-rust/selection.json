@@ -1,0 +1,30 @@
+{
+  "changes": [
+    {
+      "file": "Devices.sysml",
+      "thread_definitions": 2,
+      "before_sha256": "75232fabc07e0360f081d46c44c6a57adcb91929a2bd0f4bdb77e7dcc8156394",
+      "after_sha256": "e9c73e9f085184169f395e375b47a43ce5dd085ea8a3a5a50e0ca9ce83c7ac01"
+    },
+    {
+      "file": "Monitor.sysml",
+      "thread_definitions": 4,
+      "before_sha256": "10f80b6df8f2d21f970bac27b7bebae917b64e726c47bcbd96b15836535f55bb",
+      "after_sha256": "ac7f59171b096546b374cab00556c3f69a745dce89a9cbe127718c0ca9278282"
+    },
+    {
+      "file": "Operator_Interface.sysml",
+      "thread_definitions": 1,
+      "before_sha256": "f3b019962eafc16be94b1ebdab3d010aaa2b3db0048a43d5a4e0d843d7873c56",
+      "after_sha256": "9d4e635f08174e5e0a6ed78d31c9e86b747535d793f17e155ec6f5e21a6436c5"
+    },
+    {
+      "file": "Regulate.sysml",
+      "thread_definitions": 4,
+      "before_sha256": "a472cc40b17a82653547213d6654cd80851b037e4f378920dc09dd32e72aa361",
+      "after_sha256": "78d087071dd512149c0edc2d8ee2ece261721799490b533709309e94505eb326"
+    }
+  ],
+  "scope": "Backend selection only: HAMR_AADL Thread and Rust Implementation_Language. GUMBO contracts preserved; source/golden unchanged.",
+  "model_calls": 0
+}

@@ -1,0 +1,118 @@
+--- original/Devices.sysml
++++ isolated/Devices.sysml
+@@ -39,7 +39,8 @@
+ 		attribute Domain: CASE_Scheduling::Domain = 2;
+ 	}
+ 	
+-	part def Temperature_Sensor_i :> Thread {
++	part def Temperature_Sensor_i :> HAMR_AADL::Thread {
++        attribute :>> Implementation_Language = HAMR::Implementation_Languages::Rust;
+ 
+ 		port air : DataPort { in :>> type : Isolette_Data_Model::PhysicalTemp_i; }
+ 		port current_tempWstatus : DataPort { out :>> type : Isolette_Data_Model::TempWstatus_i; }
+@@ -81,7 +82,8 @@
+ 		attribute Domain: CASE_Scheduling::Domain = 11;
+ 	}
+ 	
+-	part def Heat_Source_i :>  Thread {
++	part def Heat_Source_i :>  HAMR_AADL::Thread {
++        attribute :>> Implementation_Language = HAMR::Implementation_Languages::Rust;
+ 		
+ 		port heat_control : DataPort { in :>> type : Isolette_Data_Model::On_Off; }
+ 		port heat_out : DataPort { out :>> type : Isolette_Environment::Heat; }
+--- original/Monitor.sysml
++++ isolated/Monitor.sysml
+@@ -128,7 +128,8 @@
+ 		attribute Domain: CASE_Scheduling::Domain = 7;
+ 	}
+ 
+-	part def Manage_Monitor_Interface_i :> Thread {
++	part def Manage_Monitor_Interface_i :> HAMR_AADL::Thread {
++        attribute :>> Implementation_Language = HAMR::Implementation_Languages::Rust;
+ 
+ 		attribute :>> Dispatch_Protocol = Supported_Dispatch_Protocols::Periodic;
+ 		attribute :>> Period = 1000 [ms];
+@@ -228,7 +229,8 @@
+ 		
+ 	}
+ 
+-	part def Manage_Monitor_Mode_i :> Thread {
++	part def Manage_Monitor_Mode_i :> HAMR_AADL::Thread {
++        attribute :>> Implementation_Language = HAMR::Implementation_Languages::Rust;
+ 
+ 		attribute :>> Dispatch_Protocol = Supported_Dispatch_Protocols::Periodic;
+ 		attribute :>> Period = 1000 [ms];
+@@ -331,7 +333,8 @@
+ 		
+ 	}
+ 
+-	part def Manage_Alarm_i :> Thread {
++	part def Manage_Alarm_i :> HAMR_AADL::Thread {
++        attribute :>> Implementation_Language = HAMR::Implementation_Languages::Rust;
+ 
+ 		attribute :>> Dispatch_Protocol = Supported_Dispatch_Protocols::Periodic;
+ 		attribute :>> Period = 1000 [ms];
+@@ -418,7 +421,8 @@
+ 		attribute Domain: CASE_Scheduling::Domain = 10;
+ 	}
+ 
+-	part def Detect_Monitor_Failure_i :> Thread {
++	part def Detect_Monitor_Failure_i :> HAMR_AADL::Thread {
++        attribute :>> Implementation_Language = HAMR::Implementation_Languages::Rust;
+ 
+ 		attribute :>> Dispatch_Protocol = Supported_Dispatch_Protocols::Periodic;
+ 		attribute :>> Period = 1000 [ms];
+--- original/Operator_Interface.sysml
++++ isolated/Operator_Interface.sysml
+@@ -93,7 +93,8 @@
+ 		attribute Domain: CASE_Scheduling::Domain = 12;
+ 	}
+ 	
+-	part def Operator_Interface_Thread_i :> Thread {
++	part def Operator_Interface_Thread_i :> HAMR_AADL::Thread {
++        attribute :>> Implementation_Language = HAMR::Implementation_Languages::Rust;
+ 
+ 		attribute :>> Dispatch_Protocol = Supported_Dispatch_Protocols::Periodic;
+ 		attribute :>> Period = 1000 [ms];
+--- original/Regulate.sysml
++++ isolated/Regulate.sysml
+@@ -10,7 +10,8 @@
+      * Contracts constrain thread implementations; they are not thread bodies.
+      * All enabled guarantees apply simultaneously, without textual priority. */
+ 
+-    part def Manage_Regulator_Interface_i :> AADL::Thread {
++    part def Manage_Regulator_Interface_i :> HAMR_AADL::Thread {
++        attribute :>> Implementation_Language = HAMR::Implementation_Languages::Rust;
+         attribute :>> Dispatch_Protocol = AADL_Project::Supported_Dispatch_Protocols::Periodic;
+         attribute :>> Period = 1000 [ms];
+         attribute Domain : CASE_Scheduling::Domain = 3;
+@@ -118,7 +119,8 @@
+         }
+     }
+ 
+-    part def Manage_Regulator_Mode_i :> AADL::Thread {
++    part def Manage_Regulator_Mode_i :> HAMR_AADL::Thread {
++        attribute :>> Implementation_Language = HAMR::Implementation_Languages::Rust;
+         attribute :>> Dispatch_Protocol = AADL_Project::Supported_Dispatch_Protocols::Periodic;
+         attribute :>> Period = 1000 [ms];
+         attribute Domain : CASE_Scheduling::Domain = 4;
+@@ -207,7 +209,8 @@
+         }
+     }
+ 
+-    part def Manage_Heat_Source_i :> AADL::Thread {
++    part def Manage_Heat_Source_i :> HAMR_AADL::Thread {
++        attribute :>> Implementation_Language = HAMR::Implementation_Languages::Rust;
+         attribute :>> Dispatch_Protocol = AADL_Project::Supported_Dispatch_Protocols::Periodic;
+         attribute :>> Period = 1000 [ms];
+         attribute Domain : CASE_Scheduling::Domain = 5;
+@@ -275,7 +278,8 @@
+         }
+     }
+ 
+-    part def Detect_Regulator_Failure_i :> AADL::Thread {
++    part def Detect_Regulator_Failure_i :> HAMR_AADL::Thread {
++        attribute :>> Implementation_Language = HAMR::Implementation_Languages::Rust;
+         attribute :>> Dispatch_Protocol = AADL_Project::Supported_Dispatch_Protocols::Periodic;
+         attribute :>> Period = 1000 [ms];
+         attribute Domain : CASE_Scheduling::Domain = 6;

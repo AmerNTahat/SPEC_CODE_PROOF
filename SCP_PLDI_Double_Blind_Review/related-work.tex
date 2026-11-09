@@ -1,0 +1,42 @@
+\section{Related Work}
+\label{sec:related}
+
+Table~\ref{tab:related-work} compares starting artifacts, checks, and endpoints. Lee and Heo formalize intent for test oracles, Huang et al.\ connect symbolic checks to robot execution and reuse, and Zhang et al.\ validate project-scale translation. \workbench{} keeps a system model, generated code in different languages, and an executable image aligned across repairs. Its archive associates each layer's result with the checked revision and the decision that allowed work to continue. Cibri\'an et al.\ validate generated SysML v2 models~\cite{cibrian2025sysml}. Research Preference Models motivate the proposed candidate-ranking policy in Appendix~\ref{app:semantic-budget}~\cite{foster2026rpm}.
+
+\paragraph{Learning from analyzers and proof checkers}
+Getafix learns contextual repair patterns for static-analysis findings~\cite{bader2019getafix}. Passerine evaluates LLM-guided repair on industrial bug reports~\cite{rondon2025passerine}. BayeSmith learns probabilistic models that use feedback to prioritize static-analysis alarms~\cite{kim2022bayesmith}. Cobblestone reuses successful parts of proposed Coq proofs and iterates on the remaining goals~\cite{kasibatla2026cobblestone}. These techniques offer complementary ways to propose repairs, prioritize diagnostics, and discharge obligations. \workbench{} coordinates feedback across changes to contracts, generated code, and executable images, and retains the evidence and authority for each repair.
+
+\paragraph{Experience as reusable guidance}
+WikiSkill distills execution experience into persistent knowledge and revisable skills~\cite{tang2026wikiskill}. This is close to our use of recorded diagnostics to derive written rules. \workbench{} makes the handoff between workers explicit through selected rule files and declared task inputs. It links each rule revision to tool results and human decisions across model, proof, test, and execution stages. The shared design question is what to retain from an attempt. Our engineering cases also ask which checks and approval a reused rule must face on the next system.
+
+\begin{table}[!t]
+\caption{Inputs and reported outcomes of related work, with the corresponding scope in \workbench{}.}
+\label{tab:related-work}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.20\linewidth}>{\raggedright\arraybackslash}p{0.37\linewidth}>{\raggedright\arraybackslash}p{0.38\linewidth}@{}}
+\toprule
+Work & Starting artifacts and reported outcome & Scope in \workbench{} \\
+\midrule
+Tahat et al.~\cite{tahat2026scp,inspecta_repo} & GUMBO synthesis and repair in supplied Isolette models, checked by HAMR/Logika over 42 units. Demo supplied Slang logic. & Constructs target models and carries them through code, checks, and execution. Binds approval to the checked revision. \\
+\addlinespace[2pt]
+Hardin et al.~\cite{hardin2025dasc,hamr} & HAMR maps architecture and contracts to generated infrastructure, implementation targets, and checks. & Invokes these stages from reviewed requirements and records results against revisions. \\
+\addlinespace[2pt]
+AGREE-Dog~\cite{agreedog_tahat2025} & AADL contract generation and repair with analyzer feedback. & Retains results and lessons across model, proof, test, and execution stages. \\
+\addlinespace[2pt]
+Lee and Heo~\cite{lee2026expecto} & Expecto maps natural language to modular test-oracle specifications. Compared against a monolithic LLM and evaluated on Defects4J bugs. & Constructs a system architecture and carries its contracts into language-specific checks and an executable image. \\
+\addlinespace[2pt]
+Huang et al.~\cite{huang2026robotic} & Natural-language robot tasks to PDDL, SMT-checked plans, and executable behavior trees with reusable skills. & Applies feedback and reuse across architecture, software proofs, and image builds, with recorded scope and approvals. \\
+\addlinespace[2pt]
+Zhang et al.~\cite{zhang2025oxidizer} & Oxidizer translates eight supplied Go projects to Rust, with type checks and 73\% mean function I/O validation using test observations. & Starts from reviewed requirements and checks a generated model and distinct Slang and Rust targets under their stated obligations. \\
+\addlinespace[2pt]
+ARc and CLOVER~\cite{bayless2025arc,sun2024clover} & Policy formalization and symbolic checks in ARc. Documentation, specification, and Dafny code consistency in CLOVER. & Links English and GUMBO to checks on generated Slang and Rust, with recorded assumptions. \\
+\addlinespace[2pt]
+AlphaVerus, VeriStruct, VeruSAGE~\cite{aggarwal2025alphaverus,sun2025veristruct,yang2025verusage} & Verifier-guided Rust/Verus generation, data-structure verification, or proof synthesis. & Uses Verus within a modeling, test, build, and runtime workflow. \\
+\addlinespace[2pt]
+WikiSkill and HyperAgents~\cite{tang2026wikiskill,zhang2026hyper} & Retained execution experience supports skill or procedure revision. & Rules carry applicability conditions and links to requirements, checks, and review. \\
+\addlinespace[2pt]
+PDD Kit and in-toto~\cite{lavaee2026pdd,intotoStatement} & PDD Kit shows intent, proofs, and tests with web-app receipts. In-toto supplies signed artifact statements. & Binds scope and evidence to revisions in an embedded workflow with budget and rule history. \\
+\bottomrule
+\end{tabular}
+\end{table}

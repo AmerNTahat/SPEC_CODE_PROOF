@@ -1,0 +1,34 @@
+\section{Requirement Coverage and Evidence Links}
+\label{app:coverage-details}
+\suppressfloats[t]
+
+This appendix supports the fidelity claims in Section~\ref{sec:fidelity}. The anonymous extract \path{evidence/coverage-method-audit.json} records the selected source identifiers, full SHA-256 fingerprints, and evidence links. Its service-source fingerprints match the SNG study freeze. The extract contains selected facts; the complete execution archive remains separate~\cite{scpCheckpoint,sngFinalReport2026}.
+
+Producer/Consumer and SNG retain requirement mappings in case-specific audit tables linked to their source, contract, and check records. Table~\ref{tab:sng-requirement-trace} follows one relation in the SNG audit. The campaign records also retain attempts, resource use, assumptions, and review decisions.
+
+\begin{table}[!htbp]
+\caption{One recorded SNG requirement-to-evidence trace. Identifiers refer to the accompanying extract.}
+\label{tab:sng-requirement-trace}
+\centering\small
+\begin{tabular}{@{}p{.17\linewidth}p{.78\linewidth}@{}}
+\hline
+Link & Recorded contents \\
+\hline
+English & \texttt{Req\_R\_2.a}: a Restricted payload above 100 becomes 100 (E1, line 38). \\
+Model & The named guarantee \path{Req_R_2_a_Clamp_Above_100} occurs in the software model (M1, line 90). \\
+Contracts & Gate preserves the Restricted message; Filter requires the present Restricted output to contain 100 (C1, C2). \\
+Evidence & Saved Gate and Filter crate proofs pass. Audit A1 links the contracts to the checked compute methods (P1, P2). \\
+Review & Approval H1 covers the initialization premise and repair. The component relation passes under its premises. \texttt{POWERUSERS-1} approved release of the recorded engineering scope on 8 November; system occurrence correspondence remains a separate obligation. \\
+\hline
+\end{tabular}
+\end{table}
+
+The example assumes empty outgoing slots at dispatch entry and relies on generated external input/output interfaces. The approved initialization premise has supporting factory/composition proofs; correspondence with the actual wrapper and physical transport remains unresolved. The audit retains these limits alongside the passing component relation.
+
+The P1 and P2 proof receipts bind their respective Rust application files, C1 and C2. Their recorded SHA-256 fingerprints match the corresponding entries in the build and observation inventories in \path{evidence/evidence-audit.json}. These matches identify the application files across checks and builds. The separate runtime evidence measures boot and receiver liveness.
+
+The controller fingerprints declared input-file bytes and resolved configuration. Stored records are rechecked against their hashes; architecture records also identify the tool and comparison procedure. Review fingerprints cover evidence, scope, exclusions, and blockers. Comparing these values during retrieval or a protected action detects changed contents. The linked proposal, check, and decision records identify the responsible agent or human for each reviewed version.
+
+Human review remains explicit for non-behavioral requirements, including timing and deployment, and for assumptions or exclusions. An exclusion records its reason, revisit condition, and approval against the assessed evidence; acceptance requires current passing included checks and current approval. Technical claims still require the applicable analysis, proof, test, or observation. For this SNG case, timing guarantees and full system correspondence remain open.
+
+The workbench also provides optional structured requirement-mapping and proof-unit services. Their configuration fields, \texttt{requirement\_ledger} and \texttt{unit\_registry}, are unset in the inspected PC/SNG model runs; these cases use the audit tables described above. A mapping result records whether an element is located. A proof-unit result additionally binds the run, configuration, input files, unit, and checked element. The accompanying extract preserves these implementation details for reproduction.

@@ -1,0 +1,75 @@
+{
+  "elapsed_seconds": 301.232841199002,
+  "result": {
+    "task_id": "964513fce75671168d2afedd9d7e0346a1d6871eb80d78e5469146884b726057",
+    "context_id": "c52d1db0b267de85c5e1c6d654509b22666e0a4ac7184cbb3d694d75d64fa0b6",
+    "model_call_id": "e30f314aadbe634ab0c153e7cdaf7c12debbe5c9bb27089d6de6a1e458e20b18",
+    "status": "BLOCKED",
+    "reason": "PolicyError: Model call deadline reached",
+    "id": "8f22589c6b4bb63c1935c0dc140cde1e5f5af8f6ea03598a08aba9d7a2c65411",
+    "failure_report": {
+      "result_id": "8f22589c6b4bb63c1935c0dc140cde1e5f5af8f6ea03598a08aba9d7a2c65411",
+      "task_id": "964513fce75671168d2afedd9d7e0346a1d6871eb80d78e5469146884b726057",
+      "diagnostics": [
+        {
+          "gate": "model_response",
+          "status": "UNKNOWN",
+          "reason": "PolicyError: Model call deadline reached"
+        }
+      ],
+      "error_families": [
+        "unclassified"
+      ],
+      "rules_consulted": [
+        {
+          "candidate_id": "30d7ecfd80c45e7168fbc3d7cd6674efe8299051666da29ec5a4ade66223c82c",
+          "rule_id": "RA-001",
+          "principle": "Allocate each English obligation to the thread that controls its effect, trace its inputs through every preserved interface, and discharge every consumer assumption through producer guarantees or explicit environmental obligations. Maintain a trace from English through architecture, GUMBO, implementation, proof, tests, and timing analysis; record missing representations as open obligations rather than treating the observed model as a complete specification.",
+          "repair_guidance": "Before accepting an application or repair, compare every trace row with prepared English and the preserved interface baseline. Classify discrepancies as requirements ambiguity, missing model behavior, representation mismatch, implementation error, composition/timing gap, or tool/environment failure. Repair the responsible artifact and rerun affected KSU checks; never remove a requirement, strengthen an assumption without justification, widen a deadline, or hide behavior behind trusted code merely to obtain a favorable result. Unresolved gaps block a preservation claim. Generalization and specialization of this draft or its repair strategy belong to Learning Mode and require subsequent validation.",
+          "matched_error_families": [],
+          "selection_reason": "Selected task rule; relevance requires review"
+        },
+        {
+          "candidate_id": "aef1109ba392d5ec716654a3776df0fc73716b26722be3d6574247fe33b6cb55",
+          "rule_id": "REQ-ALLOC-001",
+          "principle": "Allocate each required effect to the component that owns its output or state, preserve its complete English condition and temporal meaning, and trace every cross-component assumption to a connected producer guarantee or an explicit environmental assumption. Compose these local obligations into the parent requirement without changing existing interfaces.",
+          "repair_guidance": "Before accepting any proposed repair, compare the original English obligations, contracts, interfaces, and trace links with the proposed result. Resolve missing ownership, ungrounded assumptions, state initialization/update gaps, temporal omissions, and incompatible guarantees at their responsible component. Preserve invalid-input, failed-mode, hysteresis, and initialization obligations. Do not delete cases, strengthen environmental assumptions, narrow guards, or alter interfaces merely to make a proof or test pass. Unresolved semantics remain explicit blockers to claiming preservation.",
+          "matched_error_families": [],
+          "selection_reason": "Selected task rule; relevance requires review"
+        },
+        {
+          "candidate_id": "55b56ac69e27eb30663c6ce4a48017fe04cb737082988af77fe052c9287db2af",
+          "rule_id": "whole-system-role-and-flow-preservation",
+          "principle": "Preserve the complete allocation from system boundary through component containment, directed data flow, behavioral ownership, and deployment configuration. Each required output must remain traceable to its owning thread through transparent process interfaces; local behavioral correctness alone does not establish system correctness.",
+          "repair_guidance": "A proposed repair must preserve the baseline interfaces, containment, required directed paths, behavioral guarantees, state ownership, and scheduling configuration. Investigate failures at the responsible layer and rerun affected structural, implementation, proof, integration, and deployment checks. Do not remove consumers, bypass validity handling, weaken guarantees, strengthen assumptions without requirements support, or alter deployment metadata merely to make a check pass. Missing semantics remain explicit unresolved obligations.",
+          "matched_error_families": [],
+          "selection_reason": "Selected task rule; relevance requires review"
+        }
+      ],
+      "reported_rule_applications": [],
+      "application_evidence_scope": "Model annotations are not independent proof of rule use",
+      "architecture_status": "NOT_RUN",
+      "repair_state": {
+        "total_repair_attempts": 7,
+        "round_repair_attempts": 1,
+        "repair_limit_before_human": 3,
+        "run_repair_limit": 8,
+        "human_guidance_required": false,
+        "run_limit_reached": false,
+        "latest_guidance": {
+          "attempts_acknowledged": 6,
+          "authorization": "Continue up to three more repairs within existing run and campaign limits",
+          "requirements_and_release_unchanged": true,
+          "result_id": "46099f1c2bc9e5ca7a4592b46d7333685886cad1e724f4fd456201994e23ab17",
+          "reviewer": "User authorization2026-09-23: one thread per process; follow the golden example abstraction and structure in supervised training; prepare and amend the revised architecture-rule test. Recorded by controller from session instructions; not rule release or behavioral acceptance.",
+          "suggestion": "Follow the reference abstraction: one Thread per Process, four Processes inside the Regulator System. Apply the approved architecture/allocation rules and explicit English supplement; preserve FAA behavioral obligations. This is supervised development, not an untouched evaluation.",
+          "task_id": "2caee90e84590a7d676da76198e01f273629e824dc2eff06b4dcd50a4cd5ccb5",
+          "id": "e64151b83041fe1d071947b9063c954c4ba4d5d34adaea7a97ba988309ce042c"
+        }
+      },
+      "question": null,
+      "whole_system_acceptance": false,
+      "id": "663587e01792e34695893cf164c524f7922380d4ec96103eb54d873b1271f945"
+    }
+  }
+}

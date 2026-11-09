@@ -1,0 +1,10 @@
+9e705348f416435e9701da246291f7d0 CHECKED
+parse_type PASS Type checker completed
+Well-formed!
+ 
+hamr_codegen PASS HAMR emitted Rust/Microkit artifacts; compilation, Verus and runtime tests are separate
+TODO: generate codegen readme for SysMLv2 models
+Please set AM_REPOS_ROOT environment variable if you want HAMR to provision the project
+Wrote: file:///output/microkit/attestation/sysml_attestation_report.json
+Wrote: /work/.slang/StructSplit_System_Instance.json
+ 

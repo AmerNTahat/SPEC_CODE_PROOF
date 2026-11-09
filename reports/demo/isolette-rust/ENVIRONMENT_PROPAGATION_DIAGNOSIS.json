@@ -1,0 +1,35 @@
+{
+  "scope": "Manual SMT transcription of approved environmental premise plus MRI8/9 and TableA7. Establishes a contract-level distinction only; no runtime failure, scheduling reachability or whole-system proof is claimed.",
+  "model_calls": 0,
+  "checks": [
+    {
+      "name": "healthy_copy_preserves_order",
+      "command": [
+        "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/tools/sireum-4.20260810.80aad0c2/Sireum/bin/linux/cvc5",
+        "--lang=smt2",
+        "/home/amertahat/SPEC_CODE_PROOF/reports/demo/isolette-rust/healthy_copy_preserves_order.smt2"
+      ],
+      "exit_code": 0,
+      "stdout": "unsat\n",
+      "stderr": "",
+      "expected": "unsat",
+      "elapsed_seconds": 0.004288366995751858,
+      "expected_observed": true
+    },
+    {
+      "name": "failure_range_need_not_be_ordered",
+      "command": [
+        "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/tools/sireum-4.20260810.80aad0c2/Sireum/bin/linux/cvc5",
+        "--lang=smt2",
+        "/home/amertahat/SPEC_CODE_PROOF/reports/demo/isolette-rust/failure_range_need_not_be_ordered.smt2"
+      ],
+      "exit_code": 0,
+      "stdout": "sat\n",
+      "stderr": "",
+      "expected": "sat",
+      "elapsed_seconds": 0.0038320210005622357,
+      "expected_observed": true
+    }
+  ],
+  "pdf_page_sha256": "c7d747accedd52a06ad4613e877c192878d6b4ea11858fb12727f2be8fe3b508"
+}

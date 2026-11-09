@@ -1,0 +1,18 @@
+\section{Requirements Fidelity and Persistent Review}
+\label{sec:fidelity}
+\label{sec:requirements-workflow}
+
+\emph{Requirements fidelity} means that the checked obligations preserve the reviewed engineering intent. Appendix~\ref{app:requirements-review} illustrates the review and refinement loop. The reviewer reads the English source line by line and builds a requirement table: each obligation has a source passage, an interpretation, its intended model or code representation, and the assumptions needed to check it. Ambiguities, omissions, and proposed changes remain visible for review. This review includes checking extracted text against its source before approving the input.
+
+\subsection{From English Requirements to Checked Evidence}
+Semantic assessment examines whether the interpretation and formalization express the requirement. For the heater, the reviewer must decide whether the premise $L<U$ represents the intended environment. Model explanations and comparisons can help identify questions for review. Contract-feature similarity helps locate related obligations; logical equivalence requires an appropriate logical check~\cite{bayless2025arc,tahat2026scp}. Our adaptation of CLOVER connects English requirements, semantic assessment, and verification evidence around the formalization~\cite{sun2024clover}. The proposed predictor would estimate agreement with reviewed intent and the time and tokens for the next attempt. It would use prior reviews and comparable check records to prioritize candidates under the remaining allowance (Appendix~\ref{app:semantic-budget}).
+
+The reviewed task specifies inputs, rule revisions, required checks, and limits. A budgeted proposal proceeds through HAMR generation and the configured checks. Parsing checks syntax and types; architecture comparison checks components and connections; proofs establish contracts under their premises. Tests and runtime observations cover their configured cases and periods. The requirement table connects these results to the original obligations and records unresolved questions. Repairs within approved scope continue the same trajectory with its earlier consumption. Changes to requirements, assumptions, scope, or limits return to human review.
+
+\subsection{Close the Loop with an Identified Decision}
+Each campaign record retains its English inputs, candidate revisions, checks, costs, and decisions. Requirement tables and case audits connect the reviewed intent to model contracts and evidence. Fingerprints identify the exact contents covered by a review. Rechecking detects changed contents and triggers reassessment of the affected claims. Each assessment or decision identifies the responsible agent or human reviewer.
+
+A task is complete when every required check and review in its declared scope has passed. The human owner decides release. An approved partial release states the included scope, exclusions, assumptions, and remaining obligations; excluded obligations receive no verification credit. The acceptance conditions in Section~\ref{sec:attestation} bind the decision to current contents and evidence.
+
+The case studies illustrate this process. Isolette source review recovered omitted environmental dependencies and identified timeout and timing discrepancies. Producer/Consumer and SNG audits connected source requirements to model contracts and proof evidence. These reviews establish which interpretations and assumptions the evidence supports. Appendix~\ref{app:requirements-review} gives Algorithm~\ref{alg:requirements-fidelity}; Appendix~\ref{app:coverage-details} follows one SNG requirement through its contracts, proofs, and assumptions.
+

@@ -1,0 +1,344 @@
+% All 33 references cited in the DASC manuscript, in its compiled reference order.
+% Original keys from references_revised_v6.bib. Typesetting and publication-record corrections are documented in the source inventory.
+
+@inproceedings{hardin2025dasc,
+  title        = {Automated {SysML} v2 System Model to Memory-Safe Language Code Generation for Avionics Applications},
+  author       = {Hardin, David and Amundson, Isaac and Babar, Junaid and Cofer, Darren and Hasan, Saqib and Hoech, Karl and Belt, Jason and Hatcliff, John and Robby and Hallerstede, Stefan},
+  booktitle    = {Proceedings of the IEEE/AIAA Digital Avionics Systems Conference (DASC)},
+  year         = {2025},
+  publisher    = {IEEE},
+  doi          = {10.1109/DASC66011.2025.11257170},
+  url          = {https://doi.org/10.1109/DASC66011.2025.11257170}
+}
+
+@misc{openai-gpt5-2-codex,
+  author = {{OpenAI}},
+  title = {{GPT-5.2 Codex System Card}},
+  howpublished = {\url{https://openai.com/index/gpt-5-2-codex-system-card/}},
+  year = {2025},
+  note = {Accessed: 2026-02-12}
+}
+
+@misc{bubeck2025earlyscienceaccelerationexperiments,
+      title={Early science acceleration experiments with {GPT}-5}, 
+      author={Sébastien Bubeck and Christian Coester and Ronen Eldan and Timothy Gowers and Yin Tat Lee and Alexandru Lupsasca and Mehtaab Sawhney and Robert Scherrer and Mark Sellke and Brian K. Spears and Derya Unutmaz and Kevin Weil and Steven Yin and Nikita Zhivotovskiy},
+      year={2025},
+      eprint={2511.16072},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2511.16072}, 
+}
+
+@misc{gpt5-system-card,
+  author = {{OpenAI}},
+  title = {{GPT-5 System Card}},
+  howpublished = {\url{https://openai.com/index/gpt-5-system-card/}},
+  year = {2025},
+  note = {Accessed: 2026-02-12}
+}
+
+@Article{e28030332,
+AUTHOR = {Achille, Alessandro and Soatto, Stefano},
+TITLE = {{AI} Agents as Universal Task Solvers},
+JOURNAL = {Entropy},
+VOLUME = {28},
+YEAR = {2026},
+NUMBER = {3},
+ARTICLE-NUMBER = {332},
+URL = {https://www.mdpi.com/1099-4300/28/3/332},
+PubMedID = {41899984},
+ISSN = {1099-4300},
+ABSTRACT = {We describe AI agents as stochastic dynamical systems and frame the problem of learning to reason as in transductive inference: Rather than approximating the distribution of past data as in classical induction, the objective is to capture its algorithmic structure so as to reduce the time needed to solve new tasks. In this view, information from past experience serves not only to reduce a model’s uncertainty, as in Shannon’s classical theory, but to reduce the computational effort required to find solutions to unforeseen tasks. Working in the verifiable setting, where a checker or reward function is available, we establish three main results. First, we show that the optimal speed-up for a new task is tightly related to the algorithmic information it shares with the training data, yielding a theoretical justification for the power-law scaling empirically observed in reasoning models. Second, while the compression view of learning, rooted in Occam’s Razor, favors simplicity, we show that transductive inference yields its greatest benefits precisely when the data-generating mechanism is most complex. Third, we identify a possible failure mode of naïve scaling: in the limit of unbounded model size and computing, models with access to a reward signal can behave as savants, brute-forcing solutions without acquiring transferable reasoning strategies. Accordingly, we argue that a critical quantity to optimize when scaling reasoning models is time, the role of which in learning has remained largely unexplored.},
+DOI = {10.3390/e28030332}
+}
+
+@misc{sysmlv2_model_formalism_wg,
+  author       = {{Object Management Group ({OMG})}},
+  title        = {{SysML} v2 Model Formalism Working Group},
+  howpublished = {\url{https://www.omgwiki.org/OMGSysML/doku.php?id=sysml-roadmap:sysml_v2_model_formalism_working_group}},
+  note         = {Accessed: 2026-02-10}
+}
+
+@misc{sysmlv2_omg,
+  author       = {{Object Management Group}},
+  title        = {{OMG} System Modeling Language ({SysML}) v2 Specification},
+  year         = {2025},
+  url          = {https://www.omg.org/spec/SYSML}
+}
+
+@article{gumbo,
+  author     = {John Hatcliff and Danielle Stewart and Jason Belt and Robby and August Schwerdfeger},
+  title      = {An {AADL} Contract Language Supporting Integrated Model- and Code-Level Verification},
+  year       = {2023},
+  issue_date = {December 2022},
+  publisher  = {Association for Computing Machinery},
+  address    = {New York, NY, USA},
+  volume     = {42},
+  number     = {2},
+  issn       = {1094-3641},
+  url        = {https://doi.org/10.1145/3591335.3591339},
+  doi        = {10.1145/3591335.3591339},
+  abstract   = {Model-based systems engineering approaches support the early adoption of a model - a collection of abstractions - of the system under development. The system model can be augmented with key properties of the system including formal specifications of system behavior that codify portions of system and unit-level requirements. There are obvious gaps between the model with formally specified behavior and the deployed system. Previous work on component contract languages has shown how behavior can be specified in models defined using the Architecture Analysis and Design Language (AADL) - a SAE International standard (AS5506C). That work demonstrated the effectiveness of model-level formal methods specification and verification but did not provide a strong and direct connection to system implementations developed using conventional programming languages. In particular, there was no refinement of model-level contracts to programming language-level contracts nor a framework for formally verifying that program code conforms to model-level behavioral specifications.To address these gaps and to enable the practical application of model-contract languages for verification of deployed high-integrity systems, this paper describes the design of the GUMBO AADL contract language that integrates and extends key concepts from earlier contract languages. The GUMBO contract language (GCL) is closely aligned to a formal semantics of the AADL run-time framework, which provides a platform- and language- independent specification of AADL semantics. We have enhanced the HAMR AADL code generation framework to translate model-level contracts to programming language-level contracts in the Slang high-integrity language. We demonstrate how the Logika verification tool can automatically verify that Slang-based AADL component implementations conform to contracts, both at the code-level and model-level. Slang-based implementations of AADL systems can be executed directly or compiled to C for deployments on Linux or the seL4 verified microkernel.},
+  journal    = {Ada Letters},
+  month      = {April},
+  pages      = {45--54},
+  numpages   = {10}
+}
+
+@misc{gumbo_galois,
+  author       = {{Galois}},
+  title        = {GUMBO: Grand Unified Modeling of Behavioral Operators},
+  year         = {2024},
+  url          = {https://www.galois.com/project/gumbo}
+}
+
+@inproceedings{hamr,
+  author    = {John Hatcliff and
+               Jason Belt and
+               Robby and
+               Todd Carpenter},
+  title     = {{HAMR}: An {AADL} Multi-Platform Code Generation Toolset},
+  year      = {2021},
+  series    = {LNCS},
+  volume    = {13036},
+  booktitle = {10th International Symposium on Leveraging Applications of Formal Methods, Verification and Validation ({ISoLA})},
+  pages     = {274--295}
+}
+
+@manual{HAMRsite,
+  KEY          = {HAMRsite},
+  ORGANIZATION = {Kansas State University},
+  TITLE        = {Sireum {HAMR}: High Assurance Modeling and Rapid Engineering for Embedded Systems},
+  URL          = {http://hamr.sireum.org/},
+  YEAR         = {2025}
+}
+
+@inProceedings{Z3,
+  author = {De Moura, Leonardo and Bj{\o}rner, Nikolaj},
+  title = {{Z3: An Efficient SMT Solver}},
+  booktitle = {Proceedings of the Theory and practice of software, 14th international conference on Tools and algorithms for the construction and analysis of systems},
+  series = {TACAS'08/ETAPS'08},
+  year = {2008},
+  isbn = {3-540-78799-2, 978-3-540-78799-0},
+  location = {Budapest, Hungary},
+  pages = {337--340},
+  numpages = {4},
+  howpublished = {\url{http://dl.acm.org/citation.cfm?id=1792734.1792766}}
+}
+
+@inProceedings{Barrett2011CVC4,
+  author = {Barrett, Clark and Conway, Christopher L. and Deters, Morgan and Hadarean, Liana and Jovanovi\'{c}, Dejan and King, Tim and Reynolds, Andrew and Tinelli, Cesare},
+  title = {{CVC4}},
+  booktitle = {Proceedings of the 23rd international conference on Computer aided verification},
+  series = {CAV'11},
+  year = {2011},
+  isbn = {978-3-642-22109-5},
+  location = {Snowbird, UT},
+  pages = {171--177},
+  numpages = {7},
+  howpublished = {\url{http://dl.acm.org/citation.cfm?id=2032305.2032319}}
+}
+
+@article{hamr-sel4,
+	author = {Belt, Jason and Hatcliff, John and Robby and Shackleton, John and Carciofini, Jim and Carpenter, Todd and Mercer, Eric and Amundson, Isaac and Babar, Junaid and Cofer, Darren and Hardin, David and Hoech, Karl and Slind, Konrad and Kuz, Ihor and Mcleod, Kent},
+	title = {Model-Driven Development for the se{L}4 Microkernel Using the {HAMR} Framework},
+	year = {2023},
+	issue_date = {Jan 2023},
+	publisher = {Elsevier North-Holland, Inc.},
+	address = {USA},
+	volume = {134},
+	number = {C},
+	issn = {1383-7621},
+	journal = {Journal of Systems Architecture},
+	month = {February}
+}
+
+@inproceedings{sel4_klein2009,
+  author       = {Klein, Gerwin and Elphinstone, Kevin and Heiser, Gernot and Andronick, June and Cock, David and Derrin, Philip and Elkaduwe, Dhammika and Engelhardt, Kai and Kolanski, Rafal and Norrish, Michael and Sewell, Thomas and Tuch, Harvey and Winwood, Simon},
+  title        = {seL4: Formal Verification of an OS Kernel},
+  booktitle    = {Proceedings of the 22nd ACM SIGOPS Symposium on Operating Systems Principles (SOSP)},
+  year         = {2009},
+  doi          = {10.1145/1629575.1629596},
+  url          = {https://doi.org/10.1145/1629575.1629596}
+}
+
+@inproceedings{vonoswald2023transformers,
+  title={Transformers Learn In-Context by Gradient Descent},
+  author={von Oswald, Johannes and Niklasson, Eyvind and Randazzo, Ettore and Sacramento, Jo{\~a}o and Mordvintsev, Alexander and Zhmoginov, Andrey and Vladymyrov, Max},
+  booktitle={Proceedings of the 40th International Conference on Machine Learning},
+  year={2023},
+  pages={35151--35174},
+  organization={PMLR}
+}
+
+@misc{amazon2024mathematical,
+  author       = {{AWS News Blog}},
+  title        = {Prevent Factual Errors from LLM Hallucinations with Mathematically Sound Automated Reasoning Checks (Preview)},
+   howpublished = {AWS Blog Post},
+  url          = {https://aws.amazon.com/blogs/aws/prevent-factual-errors-from-llm-hallucinations-with-mathematically-sound-automated-reasoning-checks-preview/},
+
+  note         = {Accessed: 2025-05-11},
+  year         = {2024}
+}
+
+@incollection{hatcliff2024isolette,
+  author       = {Hatcliff, John and Belt, Jason},
+  title        = {The {Isolette} System: Illustrating End-to-End Artifacts for Rigorous Model-Based Engineering},
+  booktitle    = {The Combined Power of Research, Education, and Dissemination},
+  editor       = {Hinchey, M. and Steffen, B.},
+  series       = {Lecture Notes in Computer Science},
+  volume       = {15240},
+  pages        = {93--117},
+  publisher    = {Springer},
+  address      = {Cham},
+  year         = {2025},
+  doi          = {10.1007/978-3-031-73887-6_9},
+  url          = {https://doi.org/10.1007/978-3-031-73887-6_9}
+}
+
+@misc{inspecta_repo,
+  author       = {{Loonwerks}},
+  title        = {{INSPECTA Spec-Code-Proof Copilot}},
+  year         = {2026},
+  howpublished = {GitHub repository},
+  url          = {https://github.com/loonwerks/INSPECTA-Spec-Code-Proof-Copilot/tree/main?tab=readme-ov-file},
+  note         = {Accessed: 2026-05-06}
+}
+
+@book{lempia2009faa,
+  author    = {David L. Lempia and Steven P. Miller},
+  title     = {Requirements Engineering Management Handbook},
+  publisher = {Federal Aviation Administration},
+  year      = {2009},
+  note      = {{DOT/FAA/AR-08/32}},
+  url       = {https://www.faa.gov/sites/faa.gov/files/aircraft/air_cert/design_approvals/air_software/AR-08-32.pdf}
+}
+
+@article{polu2020generative,
+  title={Generative language modeling for automated theorem proving},
+  author={Polu, Stanislas and Sutskever, Ilya},
+  journal={arXiv preprint arXiv:2009.03393},
+  year={2020}
+}
+
+@article{first2023baldur,
+  title={Baldur: Whole-proof generation and repair with large language models},
+  author={First, Eyal and Rabe, Markus N and Ringer, Thomas and Brun, Yuriy},
+  journal={arXiv preprint arXiv:2303.04910},
+  year={2023}
+}
+
+@inproceedings{CoqDog,
+title        = {Proof Repair Utilizing Large Language Models: A Case Study on the Copland Remote Attestation Proofbase},
+author       = {Tahat, Amer and Hardin, David and  Petz, Adam and Alexander, Perry},
+booktitle    = {Proceedings of International Symposium On Leveraging Applications of Formal Methods Verification and Validation (AISolA)},
+year         = {2024}
+}
+
+@inproceedings{DBLP:conf/popl/SwamyHKRDFBFSKZ16,
+  author = {Nikhil Swamy and Catalin Hritcu and Chantal Keller and
+Aseem Rastogi and Antoine Delignat{-}Lavaud and
+Simon Forest and Karthikeyan Bhargavan and
+C{\'{e}}dric Fournet and Pierre{-}Yves Strub and
+Markulf Kohlweiss and Jean Karim Zinzindohoue and
+Santiago Zanella B{\'{e}}guelin},
+  bibsource = {dblp computer science bibliography, https://dblp.org},
+  biburl = {https://dblp.org/rec/conf/popl/SwamyHKRDFBFSKZ16.bib},
+  booktitle = {Proceedings of the 43rd Annual {ACM} {SIGPLAN-SIGACT}
+Symposium on Principles of Programming Languages,
+{POPL} 2016, St. Petersburg, FL, USA, January 20 -
+22, 2016},
+  doi = {10.1145/2837614.2837655},
+  editor = {Rastislav Bod{\'{\i}}k and Rupak Majumdar},
+  isbn = {978-1-4503-3549-2},
+  pages = {256--270},
+  publisher = {{ACM}},
+  timestamp = {Wed, 23 Jun 2021 15:34:31 +0200},
+  title = {Dependent types and multi-monadic effects in {F*}},
+  url = {https://doi.org/10.1145/2837614.2837655},
+  url_Link = {http://www.strub.nu/biblio/pdf/conf-popl-SwamyHKRDFBFSKZ16.pdf},
+  year = {2016}
+}
+
+@misc{aws_bedrock_ar,
+  author       = {{Amazon Web Services}},
+  title        = {Automated Reasoning checks in Amazon Bedrock Guardrails},
+  year         = {2025},
+  url          = {https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-automated-reasoning-checks.html}
+}
+
+@inproceedings{mirzadeh2025gsmsymbolic,
+  title={{GSM}-Symbolic: Understanding the Limitations of Mathematical Reasoning in Large Language Models},
+  author={Seyed Iman Mirzadeh and Keivan Alizadeh and Hooman Shahrokhi and Oncel Tuzel and Samy Bengio and Mehrdad Farajtabar},
+  booktitle={The Thirteenth International Conference on Learning Representations},
+  year={2025},
+  url={https://openreview.net/forum?id=AjXkRZIvjB}
+}
+
+@misc{sysmlv2,
+  author = {{Object Management Group ({OMG})}},
+  title = {Systems Modeling Language ({SysML}) v2 Specification},
+  url = {https://github.com/Systems-Modeling/SysML-v2-Release},
+  note = {Accessed: 2025-05-19},
+  year = {2024}
+}
+
+@misc{imandra_sysml,
+  author       = {{Imandra}},
+  title        = {Imandra {SysML}: Formal Verification for {SysML} v2 Models},
+  year         = {2024},
+  url          = {https://www.imandra.ai/sysml}
+}
+
+@inproceedings{agreedog_tahat2025,
+  author       = {Tahat, Amer and Amundson, Isaac and Hardin, David and Cofer, Darren},
+  title        = {{AGREE-Dog} Copilot: A Neuro-Symbolic Approach to Enhanced Model-Based Systems Engineering},
+  booktitle    = {Bridging the Gap Between {AI} and Reality (AISoLA 2025), Selected Papers},
+  year         = {2025},
+  doi          = {10.1007/978-3-032-07132-3_8},
+  url          = {https://link.springer.com/chapter/10.1007/978-3-032-07132-3_8}
+}
+
+@book{feiler-aadl,
+author = {Feiler, Peter H. and Gluch, David P.},
+title = {Model-Based Engineering with AADL: An Introduction to the SAE Architecture Analysis \& Design Language},
+year = {2012},
+isbn = {0321888944},
+publisher = {Addison-Wesley Professional},
+edition = {1st}
+}
+
+@misc{Hatcliff:seL4Summit2025,
+  author       = {John Hatcliff},
+  title        = {Model-Based Development for {seL4} {Microkit/Rust} with Integrated Formal Methods using {HAMR}},
+  howpublished = {Presentation at the {seL4} Summit 2025},
+  year         = {2025},
+  url          = {https://sel4summit2025.sched.com/event/26GD3},
+  note         = {Accessed: 2025-05-19}
+}
+
+@misc{sun2025veristruct,
+  title        = {{VeriStruct}: {AI}-assisted Automated Verification of Data-Structure Modules in Verus},
+  author       = {Sun, Chuyue and Sun, Yican and Amrollahi, Daneshvar and Zhang, Ethan and Lahiri, Shuvendu and Lu, Shan and Dill, David and Barrett, Clark},
+  year         = {2025},
+  eprint       = {2510.25015},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.SE},
+  url          = {https://arxiv.org/abs/2510.25015}
+}
+
+@InProceedings{compositional-analysis-agree,
+	author = {Cofer, Darren
+		and Gacek, Andrew
+		and Miller, Steven
+		and Whalen, Michael W.
+		and LaValley, Brian
+		and Sha, Lui},
+	editor = {Goodloe, Alwyn E.
+		and Person, Suzette},
+	title = {Compositional Verification of Architectural Models},
+	booktitle = {NASA Formal Methods},
+	year = {2012},
+	publisher = {Springer},
+	pages = {126--140}
+}

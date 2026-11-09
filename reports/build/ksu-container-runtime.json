@@ -1,0 +1,80 @@
+{
+  "image": "jasonbelt/microkit_provers@sha256:bab407fd7f4aac24d7bee1234cd6bab9b6a29df380c2f0491af8e3ed1888a405",
+  "container": "scp-validation-1790132941",
+  "scope": "Reused KSU runtime; actual generated Rust checks, no whole-system acceptance",
+  "model_calls": 0,
+  "checks": [
+    {
+      "command": [
+        "docker",
+        "run",
+        "-d",
+        "--name",
+        "scp-validation-1790132941",
+        "--network",
+        "none",
+        "--cap-drop",
+        "ALL",
+        "--security-opt",
+        "no-new-privileges",
+        "--user",
+        "1000:1000",
+        "--group-add",
+        "100",
+        "--mount",
+        "type=bind,src=/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/ksu-container-validation,dst=/work",
+        "-e",
+        "CARGO_HOME=/work/cargo",
+        "-e",
+        "RUSTUP_HOME=/home/microkit/.rustup",
+        "-e",
+        "RUSTUP_TOOLCHAIN=1.92.0",
+        "-e",
+        "RUSTC_BOOTSTRAP=1",
+        "-e",
+        "PATH=/home/microkit/.cargo/bin:/home/microkit/provers/verus:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+        "--entrypoint",
+        "/bin/sleep",
+        "jasonbelt/microkit_provers@sha256:bab407fd7f4aac24d7bee1234cd6bab9b6a29df380c2f0491af8e3ed1888a405",
+        "1500"
+      ],
+      "exit_code": 0,
+      "stdout": "b8e025b2f84fcf949d8883eb97cd59e81ac15f6f75c86aafa92a300360145301\n",
+      "stderr": "",
+      "elapsed_seconds": 0.11880079898401164
+    },
+    {
+      "command": [
+        "docker",
+        "exec",
+        "-e",
+        "CARGO_NET_OFFLINE=true",
+        "-e",
+        "MICROKIT_SDK=/home/microkit/provers/microkit-sdk-1.4.1",
+        "scp-validation-1790132941",
+        "make",
+        "-C",
+        "/work/generated",
+        "qemu"
+      ],
+      "exit_code": null,
+      "status": "TIMEOUT",
+      "stdout": "make: Entering directory '/work/generated'\nmake -C /work/generated/build loader.img\nmake[1]: Entering directory '/work/generated/build'\nmake -C /work/generated/crates/prod_prod \nmake[2]: Entering directory '/work/generated/crates/prod_prod'\nRUSTC_BOOTSTRAP=1 SEL4_INCLUDE_DIRS=/home/microkit/provers/microkit-sdk-1.4.1/board/qemu_virt_aarch64/debug/include cargo-verus build --features sel4 -Z build-std=core,alloc,compiler_builtins -Z build-std-features=compiler-builtins-mem --target aarch64-unknown-none --release\nmake[2]: Leaving directory '/work/generated/crates/prod_prod'\nld.lld -L/home/microkit/provers/microkit-sdk-1.4.1/board/qemu_virt_aarch64/debug/lib -L /work/generated/crates/prod_prod/target/aarch64-unknown-none/release printf.o util.o /work/generated/build/sb_queue_ProdCons_Message_1.o prod_prod.o --start-group -lmicrokit -Tmicrokit.ld --end-group -lprod_prod -o prod_prod.elf\nmake -C /work/generated/crates/cons_cons \nmake[2]: Entering directory '/work/generated/crates/cons_cons'\nRUSTC_BOOTSTRAP=1 SEL4_INCLUDE_DIRS=/home/microkit/provers/microkit-sdk-1.4.1/board/qemu_virt_aarch64/debug/include cargo-verus build --features sel4 -Z build-std=core,alloc,compiler_builtins -Z build-std-features=compiler-builtins-mem --target aarch64-unknown-none --release\nmake[2]: Leaving directory '/work/generated/crates/cons_cons'\nld.lld -L/home/microkit/provers/microkit-sdk-1.4.1/board/qemu_virt_aarch64/debug/lib -L /work/generated/crates/cons_cons/target/aarch64-unknown-none/release printf.o util.o /work/generated/build/sb_queue_ProdCons_Message_1.o cons_cons.o --start-group -lmicrokit -Tmicrokit.ld --end-group -lcons_cons -o cons_cons.elf\nxmllint --xinclude /work/generated/microkit.system -o /work/generated/microkit.system.merged\n/home/microkit/provers/microkit-sdk-1.4.1/bin/microkit /work/generated/microkit.system.merged --search-path /work/generated/build --board qemu_virt_aarch64 --config debug -o loader.img -r report.txt\nBUILT: system_cnode_size=2 built_system.number_of_system_caps=431 invocation_table_size=4096 built_system.invocation_data_size=21232\nBUILT: system_cnode_size=512 built_system.number_of_system_caps=436 invocation_table_size=24576 built_system.invocation_data_size=21232\nmake[1]: Leaving directory '/work/generated/build'\nmake -C /work/generated/build qemu\nmake[1]: Entering directory '/work/generated/build'\nmake -C /work/generated/crates/prod_prod \nmake[2]: Entering directory '/work/generated/crates/prod_prod'\nRUSTC_BOOTSTRAP=1 SEL4_INCLUDE_DIRS=/home/microkit/provers/microkit-sdk-1.4.1/board/qemu_virt_aarch64/debug/include cargo-verus build --features sel4 -Z build-std=core,alloc,compiler_builtins -Z build-std-features=compiler-builtins-mem --target aarch64-unknown-none --release\nmake[2]: Leaving directory '/work/generated/crates/prod_prod'\nld.lld -L/home/microkit/provers/microkit-sdk-1.4.1/board/qemu_virt_aarch64/debug/lib -L /work/generated/crates/prod_prod/target/aarch64-unknown-none/release printf.o util.o /work/generated/build/sb_queue_ProdCons_Message_1.o prod_prod.o --start-group -lmicrokit -Tmicrokit.ld --end-group -lprod_prod -o prod_prod.elf\nmake -C /work/generated/crates/cons_cons \nmake[2]: Entering directory '/work/generated/crates/cons_cons'\nRUSTC_BOOTSTRAP=1 SEL4_INCLUDE_DIRS=/home/microkit/provers/microkit-sdk-1.4.1/board/qemu_virt_aarch64/debug/include cargo-verus build --features sel4 -Z build-std=core,alloc,compiler_builtins -Z build-std-features=compiler-builtins-mem --target aarch64-unknown-none --release\nmake[2]: Leaving directory '/work/generated/crates/cons_cons'\nld.lld -L/home/microkit/provers/microkit-sdk-1.4.1/board/qemu_virt_aarch64/debug/lib -L /work/generated/crates/cons_cons/target/aarch64-unknown-none/release printf.o util.o /work/generated/build/sb_queue_ProdCons_Message_1.o cons_cons.o --start-group -lmicrokit -Tmicrokit.ld --end-group -lcons_cons -o cons_cons.elf\nxmllint --xinclude /work/generated/microkit.system -o /work/generated/microkit.system.merged\n/home/microkit/provers/microkit-sdk-1.4.1/bin/microkit /work/generated/microkit.system.merged --search-path /work/generated/build --board qemu_virt_aarch64 --config debug -o loader.img -r report.txt\nBUILT: system_cnode_size=2 built_system.number_of_system_caps=431 invocation_table_size=4096 built_system.invocation_data_size=21232\nBUILT: system_cnode_size=512 built_system.number_of_system_caps=436 invocation_table_size=24576 built_system.invocation_data_size=21232\nqemu-system-aarch64 -machine virt,virtualization=on \\\n\t\t-cpu cortex-a53 \\\n\t\t-serial mon:stdio \\\n\t\t-device loader,file=loader.img,addr=0x70000000,cpu-num=0 \\\n\t\t-m size=2G \\\n\t\t-nographic\nLDR|INFO: altloader for seL4 starting\nLDR|INFO: Flags:                0x0000000000000001\n             seL4 configured as hypervisor\nLDR|INFO: Kernel:      entry:   0x0000008060000000\nLDR|INFO: Root server: physmem: 0x00000000603fd000 -- 0x0000000060407000\nLDR|INFO:              virtmem: 0x000000008a000000 -- 0x000000008a00a000\nLDR|INFO:              entry  : 0x000000008a000000\nLDR|INFO: region: 0x00000000   addr: 0x0000000060000000   size: 0x0000000000348000   offset: 0x0000000000000000   type: 0x0000000000000001\nLDR|INFO: region: 0x00000001   addr: 0x00000000603fd000   size: 0x0000000000009770   offset: 0x0000000000348000   type: 0x0000000000000001\nLDR|INFO: region: 0x00000002   addr: 0x0000000060348000   size: 0x00000000000052f0   offset: 0x0000000000351770   type: 0x0000000000000001\nLDR|INFO: region: 0x00000003   addr: 0x000000006034e000   size: 0x0000000000000920   offset: 0x0000000000356a60   type: 0x0000000000000001\nLDR|INFO: region: 0x00000004   addr: 0x000000006034f000   size: 0x0000000000000088   offset: 0x0000000000357380   type: 0x0000000000000001\nLDR|INFO: region: 0x00000005   addr: 0x0000000060350000   size: 0x00000000000515f0   offset: 0x0000000000357408   type: 0x0000000000000001\nLDR|INFO: region: 0x00000006   addr: 0x00000000603a2000   size: 0x0000000000001000   offset: 0x00000000003a89f8   type: 0x0000000000000001\nLDR|INFO: region: 0x00000007   addr: 0x00000000603a3000   size: 0x0000000000000920   offset: 0x00000000003a99f8   type: 0x0000000000000001\nLDR|INFO: region: 0x00000008   addr: 0x00000000603a4000   size: 0x0000000000000088   offset: 0x00000000003aa318   type: 0x0000000000000001\nLDR|INFO: region: 0x00000009   addr: 0x00000000603a5000   size: 0x0000000000051630   offset: 0x00000000003aa3a0   type: 0x0000000000000001\nLDR|INFO: region: 0x0000000a   addr: 0x00000000603f7000   size: 0x0000000000001000   offset: 0x00000000003fb9d0   type: 0x0000000000000001\nLDR|INFO: region: 0x0000000b   addr: 0x00000000603f8000   size: 0x00000000000039e0   offset: 0x00000000003fc9d0   type: 0x0000000000000001\nLDR|INFO: region: 0x0000000c   addr: 0x00000000603fc000   size: 0x0000000000000088   offset: 0x00000000004003b0   type: 0x0000000000000001\nLDR|INFO: copying region 0x00000000\nLDR|INFO: copying region 0x00000001\nLDR|INFO: copying region 0x00000002\nLDR|INFO: copying region 0x00000003\nLDR|INFO: copying region 0x00000004\nLDR|INFO: copying region 0x00000005\nLDR|INFO: copying region 0x00000006\nLDR|INFO: copying region 0x00000007\nLDR|INFO: copying region 0x00000008\nLDR|INFO: copying region 0x00000009\nLDR|INFO: copying region 0x0000000a\nLDR|INFO: copying region 0x0000000b\nLDR|INFO: copying region 0x0000000c\nLDR|INFO: Setting all interrupts to Group 1\nLDR|INFO: GICv2 ITLinesNumber: 0x00000008\nLDR|INFO: CurrentEL=EL2\nLDR|INFO: Resetting CNTVOFF\nLDR|INFO: enabling MMU\nLDR|INFO: jumping to kernel\nBootstrapping kernel\r\nWarning: Could not infer GIC interrupt target ID, assuming 0.\r\navailable phys memory regions: 1\r\n  [60000000..c0000000]\r\nreserved virt address space regions: 3\r\n  [8060000000..8060348000]\r\n  [8060348000..80603fd000]\r\n  [80603fd000..8060407000]\r\nBooting all finished, dropped to user space\r\nMON|INFO: Microkit Bootstrap\r\nMON|INFO: bootinfo untyped list matches expected list\r\nMON|INFO: Number of bootstrap invocations: 0x00000009\r\nMON|INFO: Number of system invocations:    0x00000129\r\nMON|INFO: completed bootstrap invocations\r\nMON|INFO: completed system invocations\r\nINFO  [prod_prod::component::prod_prod_appprod_prod_MON microkit_notify: invalid channel given '61'\r\n] initialize entrypoint invoked\r\ncons_cons_MON microkit_notify: invalid channel given '59'\r\nINFO  [cons_cons::component::cons_cons_app] initialize entrypoint invoked\r\n",
+      "stderr": "make: Circular /work/generated/build/loader.img <- /work/generated/build/loader.img dependency dropped.\n    Finished `release` profile [optimized] target(s) in 0.43s\n    Finished `release` profile [optimized] target(s) in 0.43s\n    Finished `release` profile [optimized] target(s) in 0.43s\n    Finished `release` profile [optimized] target(s) in 0.43s\n",
+      "elapsed_seconds": 20.02320491700084
+    },
+    {
+      "command": [
+        "docker",
+        "rm",
+        "-f",
+        "scp-validation-1790132941"
+      ],
+      "exit_code": 0,
+      "stdout": "scp-validation-1790132941\n",
+      "stderr": "",
+      "elapsed_seconds": 0.0545033150119707
+    }
+  ],
+  "whole_system_acceptance": false
+}

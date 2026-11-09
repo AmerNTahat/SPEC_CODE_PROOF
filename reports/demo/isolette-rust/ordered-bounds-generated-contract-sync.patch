@@ -1,0 +1,14 @@
+--- stale-app/heat.rs
++++ regenerated-contract/heat.rs
+@@ -42,7 +42,10 @@
+       &mut self,
+       api: &mut thermostat_rt_manage_heat_source_implementation_Application_Api<API>)
+       requires
+-        // PLACEHOLDER MARKER TIME TRIGGERED REQUIRES
++        // BEGIN MARKER TIME TRIGGERED REQUIRES
++        // assume ORDERED_DESIRED_BOUNDS
++        old(api).Lower_Desired_Temp.degrees < old(api).Upper_Desired_Temp.degrees,
++        // END MARKER TIME TRIGGERED REQUIRES
+       ensures
+         // BEGIN MARKER TIME TRIGGERED ENSURES
+         // guarantee REQ_MHS_1

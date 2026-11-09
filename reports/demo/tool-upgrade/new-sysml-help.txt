@@ -1,0 +1,8 @@
+Sireum HAMR SysML v2 Tools
+
+Available modes:
+codegen                  SysML v2 Codegen
+config                   SysML v2 CodeGen Config
+logika                   SysML v2 Verifier
+tipe                     SysML v2 Type Checker
+translator               SysML v2 Grammar Translator to ANTLR v4

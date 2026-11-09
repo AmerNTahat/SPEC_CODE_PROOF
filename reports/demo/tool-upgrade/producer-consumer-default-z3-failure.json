@@ -1,0 +1,133 @@
+{
+  "prior_source_run_id": "7643a50c7bdc4609a2a1557a76e25fb6",
+  "scope": "New-tool compatibility for previously approved120ms allocation; no new requirement or implementation change",
+  "run": {
+    "id": "9931b85a17254f89bebc28a16eb9e13f",
+    "state": "FAILED",
+    "config": {
+      "architecture_policy": null,
+      "assistance": "automatic",
+      "budget": {
+        "aggregate_model_tokens": 1000000,
+        "concurrent_model_calls": 1,
+        "enforcement": "strict",
+        "final_validation_time_reserve": 0.2,
+        "repairs_per_issue": 3,
+        "repairs_per_run": 8,
+        "wall_seconds": 300
+      },
+      "creation_authorized": false,
+      "dataset_assignment": null,
+      "dataset_task": null,
+      "development_validation": null,
+      "final_evaluation": null,
+      "hamr_platform": "Microkit",
+      "input_files": [
+        "aadl-lib/aadl.library/AADL.sysml",
+        "aadl-lib/aadl.library/AADL_Project.sysml",
+        "aadl-lib/aadl.library/Base_Types.sysml",
+        "aadl-lib/aadl.library/Communication_Properties.sysml",
+        "aadl-lib/aadl.library/Data_Model.sysml",
+        "aadl-lib/aadl.library/Deployment_Properties.sysml",
+        "aadl-lib/aadl.library/Memory_Properties.sysml",
+        "aadl-lib/aadl.library/Programming_Properties.sysml",
+        "aadl-lib/aadl.library/Thread_Properties.sysml",
+        "aadl-lib/aadl.library/Timing_Properties.sysml",
+        "aadl-lib/aadl.library/behavior_properties.sysml",
+        "aadl-lib/hamr.aadl.library/CASE_Scheduling.sysml",
+        "aadl-lib/hamr.aadl.library/HAMR.sysml",
+        "aadl-lib/hamr.aadl.library/HAMR_AADL.sysml",
+        "aadl-lib/hamr.aadl.library/HAMR_Time_Units.sysml",
+        "prod-cons/ProdCons.sysml"
+      ],
+      "learning_materials": null,
+      "mode": "user",
+      "model": {
+        "family": "gpt",
+        "requested_profile": "astra",
+        "resolved_model_id": null
+      },
+      "model_file": "prod-cons/ProdCons.sysml",
+      "naming_policy": "preserve-existing",
+      "paid_runs_authorized": false,
+      "project": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/upgrade-compatibility/producer-consumer-120ms",
+      "rename_authorized": false,
+      "repair_allowed_files": [],
+      "required_gates": [
+        "parse_type",
+        "architecture_capture",
+        "hamr_codegen",
+        "integration_constraints"
+      ],
+      "requirement_ledger": null,
+      "resolved_operation": "verify-only",
+      "rule_release": null,
+      "schema_version": 1,
+      "sireum": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/tools/sireum-4.20260810.80aad0c2/Sireum/bin/sireum",
+      "sireum_sha256": "29054e657216ba190d51c2beb29a77125886bd48a7a525200cdbf6e4bf1ff6b4",
+      "task_operation": "verify-only",
+      "unit_registry": null
+    },
+    "config_hash": "25fc43036b7c6535bb9a0ba1856d49423db03b34c4a3b420d9c6737c25b28222",
+    "created": 1790141972.583471,
+    "deadline": 1790142272.583471,
+    "used_tokens": 0,
+    "usage_unknown": 0,
+    "reserved_tokens": 0,
+    "worker": null,
+    "result": {
+      "engineering_accepted": false,
+      "formally_verified_units": 0,
+      "gates": [
+        {
+          "evidence": {
+            "path": "objects/5fa188b2cd93c348c3ea1115466bd4004d398e19aca26f84ab5d09ecae0c706e.json",
+            "sha256": "5fa188b2cd93c348c3ea1115466bd4004d398e19aca26f84ab5d09ecae0c706e"
+          },
+          "gate": "parse_type",
+          "reason": "Type checker completed",
+          "status": "PASS"
+        },
+        {
+          "evidence": {
+            "path": "objects/01e67ba1df52619f393f2493027948cf16a59d1f1198d48ebfe0698170fa1bc9.json",
+            "sha256": "01e67ba1df52619f393f2493027948cf16a59d1f1198d48ebfe0698170fa1bc9"
+          },
+          "gate": "architecture_capture",
+          "reason": "Instantiated AIR and resolved declarations captured; no conformance claim",
+          "snapshot_id": "b0a47a767880a3c35ffa91183f548566599ab494d939ebcf7580d6c675949a26",
+          "status": "PASS"
+        },
+        {
+          "evidence": {
+            "path": "objects/72bbd7775e2ea69ffce1bcc5ec193797ad9066cfb0d2d144c5bb4a6dc0f1029f.json",
+            "sha256": "72bbd7775e2ea69ffce1bcc5ec193797ad9066cfb0d2d144c5bb4a6dc0f1029f"
+          },
+          "gate": "hamr_codegen",
+          "reason": "HAMR emitted Rust/Microkit artifacts; compilation, Verus and runtime tests are separate",
+          "status": "PASS"
+        },
+        {
+          "evidence": {
+            "path": "objects/8237bda77a609822aa8189e5d32e0e123f4cee5577f9b54c1485c31418bf94e9.json",
+            "sha256": "8237bda77a609822aa8189e5d32e0e123f4cee5577f9b54c1485c31418bf94e9"
+          },
+          "gate": "integration_constraints",
+          "reason": "HAMR tool returned a nonzero status; inspect recorded diagnostics",
+          "status": "FAIL"
+        }
+      ],
+      "model_calls": 0,
+      "project_status": "NOT_ASSESSED",
+      "scope": "Selected checks only; no application or live-demo completion claim",
+      "task_status": "FAILED"
+    },
+    "version": 4,
+    "remaining_seconds": 241.00639986991882,
+    "remaining_tokens": 1000000,
+    "source_changed": [],
+    "evidence_current_for_source": true,
+    "policy_current": true
+  },
+  "model_calls": 0
+}

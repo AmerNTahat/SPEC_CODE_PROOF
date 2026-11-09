@@ -1,0 +1,6 @@
+{
+  "scope": "Reuse existing Monitor interface algorithm and KSU DataPort initialization pattern, adapting executable enum comparisons to matches. Generated contracts unchanged. This is supervised implementation reuse, not fresh transfer evidence.",
+  "existing_source": "/home/amertahat/SPEC_CODE_PROOF/isolette/hamr/microkit/crates/thermostat_mt_mmi_mmi/src/component/thermostat_mt_mmi_mmi_app.rs",
+  "existing_source_sha256": "21462d142b8f2678d69709781193ef97b67bff34e956cf92ef65daa89def0faa",
+  "new_implementation_sha256": "cb607c19c7d665e706d1a721d79c3fa7e1e4625677525fb4160f98568b91f27c"
+}

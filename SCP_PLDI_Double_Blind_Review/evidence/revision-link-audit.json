@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "proof_input_links": {
+    "method": "Join the archived proof input record and the build/runtime file binding by the application filename and compare the SHA-256 values.",
+    "source_extracts": {
+      "evidence/coverage-method-audit.json": "c3f98d8c693e6a73e9164ef043bd1d4ea44180ce6d9062bed6ca0fd416288e4a",
+      "evidence/evidence-audit.json": "8737aa49b77e510d76c8c4483d32df1048f45e130f4bc7519e6f15b6f82537b1"
+    },
+    "shared_inventory_sha256": "72b2516fc45d252634c9ae929c343e37f3f1c200a9fff3416b34e91646bdc538",
+    "matched_files": [
+      {
+        "proof_record": "P1",
+        "application_record": "C1",
+        "source_relative_path": "microkit/crates/gate_gate/src/component/gate_gate_app.rs",
+        "source_sha256": "da8e24c7cfc2cfe47865875666436ceb39f69744095c35bd287f06c96a5e7d27",
+        "recorded_proof_input_matches_build_and_observation": true
+      },
+      {
+        "proof_record": "P2",
+        "application_record": "C2",
+        "source_relative_path": "microkit/crates/msg_filter_msg_filter/src/component/msg_filter_msg_filter_app.rs",
+        "source_sha256": "f0a22f01d0de19e3748af05a8c6623f6bd011d9499f6cb2dfa835ddb54bbbfd0",
+        "recorded_proof_input_matches_build_and_observation": true
+      }
+    ],
+    "scope": "Read-only correspondence check over historical extracts. Scope is the identity of the two recorded Rust source files across stages."
+  },
+  "checkpoint_test_rerun": {
+    "scope": "Application checkpoint tests with synthetic fixtures. No historical case proof, build, or runtime was executed.",
+    "python_version": "3.12.14",
+    "suite_command": "PYTHONPATH=workbench .venv/bin/python -m unittest discover -s workbench/tests",
+    "passed": 209,
+    "failed": 0,
+    "selected_rerun_command_prefix": "PYTHONPATH=workbench:workbench/tests .venv/bin/python -m unittest -v",
+    "selected_rerun": [
+      {
+        "test": "test_evidence_review.EvidenceReviewTests.test_stale_evidence_blocks_exclusion_and_acceptance",
+        "fixture_source": "workbench/tests/test_evidence_review.py",
+        "source_line": 49,
+        "file_sha256": "cccf74e172e86b0f57ee1b71113fc2fae3f3afb22154a11ae8a8c844ac130ab0",
+        "result": "PASS"
+      },
+      {
+        "test": "test_evidence_review.EvidenceReviewTests.test_generic_acceptance_rechecks_evidence",
+        "fixture_source": "workbench/tests/test_evidence_review.py",
+        "source_line": 53,
+        "file_sha256": "cccf74e172e86b0f57ee1b71113fc2fae3f3afb22154a11ae8a8c844ac130ab0",
+        "result": "PASS"
+      },
+      {
+        "test": "test_engineering_progress.EngineeringProgressTests.test_changed_rust_removes_credit",
+        "fixture_source": "workbench/tests/test_engineering_progress.py",
+        "source_line": 27,
+        "file_sha256": "cba45e25968b426a8b5035de0eb22e759fbecb91316010afc2c3699a39d86ac3",
+        "result": "PASS"
+      },
+      {
+        "test": "test_engineering_progress.EngineeringProgressTests.test_changed_cargo_configuration_invalidates_proof",
+        "fixture_source": "workbench/tests/test_engineering_progress.py",
+        "source_line": 40,
+        "file_sha256": "cba45e25968b426a8b5035de0eb22e759fbecb91316010afc2c3699a39d86ac3",
+        "result": "PASS"
+      },
+      {
+        "test": "test_attestation.AttestationTests.test_actual_signature_of_incomplete_record",
+        "fixture_source": "workbench/tests/test_attestation.py",
+        "source_line": 35,
+        "file_sha256": "14fdcb178a190407219617d6f9da67ef5ad7b870f3120cd2c706209728eb4a5f",
+        "result": "PASS"
+      },
+      {
+        "test": "test_attestation.AttestationTests.test_modified_subject_rejected",
+        "fixture_source": "workbench/tests/test_attestation.py",
+        "source_line": 39,
+        "file_sha256": "14fdcb178a190407219617d6f9da67ef5ad7b870f3120cd2c706209728eb4a5f",
+        "result": "PASS"
+      },
+      {
+        "test": "test_attestation.AttestationTests.test_current_source_change_rejected",
+        "fixture_source": "workbench/tests/test_attestation.py",
+        "source_line": 52,
+        "file_sha256": "14fdcb178a190407219617d6f9da67ef5ad7b870f3120cd2c706209728eb4a5f",
+        "result": "PASS"
+      }
+    ]
+  }
+}

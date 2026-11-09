@@ -1,0 +1,51 @@
+{
+  "scope": "Diagnostic manual transcription of golden heat guards; not HAMR/Logika/Verus acceptance or approval of a new premise",
+  "original_reference": "/home/amertahat/SPEC_CODE_PROOF/isolette/sysml/Regulate.sysml",
+  "reference_sha256": "6828c7fe1ae531b1dbc62938014dad1450a05ae04997817914aa369fd3865872",
+  "solver_sha256": "7562a8b0b835e3eaad5f1a7b4616cd762350cf567b6be03d7e8ee24fa5ced5ee",
+  "model_calls": 0,
+  "checks": [
+    {
+      "name": "overlap_within_desired_range",
+      "command": [
+        "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/tools/sireum-4.20260810.80aad0c2/Sireum/bin/linux/cvc5",
+        "--lang=smt2",
+        "/home/amertahat/SPEC_CODE_PROOF/reports/demo/isolette-rust/overlap_within_desired_range.smt2"
+      ],
+      "exit_code": 0,
+      "stdout": "sat\n",
+      "stderr": "",
+      "expected": "sat",
+      "expected_observed": true,
+      "elapsed_seconds": 0.004151761997491121
+    },
+    {
+      "name": "same_witness_both_guarantees",
+      "command": [
+        "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/tools/sireum-4.20260810.80aad0c2/Sireum/bin/linux/cvc5",
+        "--lang=smt2",
+        "/home/amertahat/SPEC_CODE_PROOF/reports/demo/isolette-rust/same_witness_both_guarantees.smt2"
+      ],
+      "exit_code": 0,
+      "stdout": "unsat\n",
+      "stderr": "",
+      "expected": "unsat",
+      "expected_observed": true,
+      "elapsed_seconds": 0.0037331490020733327
+    },
+    {
+      "name": "conditional_ordering_excludes_overlap",
+      "command": [
+        "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/tools/sireum-4.20260810.80aad0c2/Sireum/bin/linux/cvc5",
+        "--lang=smt2",
+        "/home/amertahat/SPEC_CODE_PROOF/reports/demo/isolette-rust/conditional_ordering_excludes_overlap.smt2"
+      ],
+      "exit_code": 0,
+      "stdout": "unsat\n",
+      "stderr": "",
+      "expected": "unsat",
+      "expected_observed": true,
+      "elapsed_seconds": 0.0037649089936167
+    }
+  ]
+}

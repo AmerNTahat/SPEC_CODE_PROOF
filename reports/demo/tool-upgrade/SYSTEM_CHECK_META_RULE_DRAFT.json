@@ -1,0 +1,155 @@
+{
+  "candidate": {
+    "record": {
+      "$schema": "../schemas/knowledge.schema.json",
+      "schema_version": "2.0",
+      "record_type": "rule",
+      "id": "SYSTEM-COMPOSITION-CHECKS-001",
+      "revision": "draft-1",
+      "state": "DRAFT",
+      "basis": "mixed",
+      "assessment_timing": "after_feedback",
+      "source_references": [
+        "191226e608d63465d3770305ba5291814f6d5376a3432c3d622c8baed081bd82"
+      ],
+      "source_artifact_hashes": [
+        "fc7e0edcb15bd461362b7ad9516ac33a6a17d865e33b207af7e488ae4eb789af"
+      ],
+      "source_episode": "Approved KSU tool workflow; executed upgraded system-property fixture and user-requested scoped qualification",
+      "available_context_manifest": null,
+      "model_configuration": null,
+      "prompt_version": "session-system-composition-curation-v1",
+      "trigger": "Qualifying system-level rules or translating English obligations spanning multiple component contracts.",
+      "principle": "Allocate each system obligation to responsible components, compose their guarantees under explicitly justified assumptions and schedules, and verify the generated system proof. Keep architecture, integration compatibility, system behavior and physical timing as separate checks. Qualify only the declared supported feature scope; report reviewed unsupported-tool and reference-coverage exclusions separately from failures.",
+      "semantic_choice": "Component proofs and graph equivalence do not entail a system property. A missing reference contract establishes a coverage gap, not tool incapability.",
+      "structural_placement": "System GUMBO composition with explicit schedule and assertion/invariant obligations; link local assume/guarantee ownership to system requirements.",
+      "repair_gate": "Require executed applicable parser, architecture, integration, generated-code and system-proof checks plus a distinguishing negative control and required rule-transfer evidence. Retain excluded feature inventory with exact version; do not convert an exclusion into a verified unit.",
+      "prerequisites": [
+        "Approved system English and data split",
+        "Pinned system-property-capable HAMR version",
+        "Explicit assumption ownership and abstract schedule",
+        "Reviewed exact qualification exclusions where applicable"
+      ],
+      "exclusions": [
+        "Inferring physical deadlines from abstract schedule proofs",
+        "Inferring full system behavior from graph isomorphism",
+        "Calling missing golden coverage a demonstrated tool limitation",
+        "Counting excluded requirements as passed",
+        "Publishing rules from parser-only or unrelated tutorial evidence"
+      ],
+      "parameters": [
+        {
+          "name": "system_obligation",
+          "role": "Requirement",
+          "constraints": "Exact English and traced system assertion"
+        },
+        {
+          "name": "schedule_assumptions",
+          "role": "Environment premises",
+          "constraints": "Explicit and justified; physical timing separate"
+        }
+      ],
+      "dependencies": [],
+      "target_compatibility": [
+        "KSU HAMR SysML/GUMBO system properties with Sireum 4.20260810.80aad0c2"
+      ],
+      "preserved_obligations": [
+        "Supported in-scope requirements and mandatory gates",
+        "Original English inventory with excluded features retained",
+        "Negative and transfer evidence for rule applicability"
+      ],
+      "counterexample": {
+        "scenario": "A model has equivalent architecture and valid local contracts, but an end-to-end system assertion is false.",
+        "expected_difference": "The system proof must reject it; architecture success cannot qualify that behavior.",
+        "source_or_test_reference": "reports/demo/tool-upgrade/system-property-verus.json"
+      },
+      "validation_gate_ids": [
+        "parse_type",
+        "architecture_capture",
+        "integration_constraints",
+        "hamr_codegen",
+        "configured_formal_verification"
+      ],
+      "evidence_references": [
+        "reports/demo/tool-upgrade/REPORT.md",
+        "reports/demo/tool-upgrade/gumbo-capability-probes.json",
+        "workbench/tests/test_capability_scope.py"
+      ],
+      "confidence_forecast_reference": null,
+      "approval_reference": null,
+      "notes": "Session-curated unvalidated draft based on approved KSU tools context, user policy and executed development feedback. The official tutorial proves selected tool capability, not this rule generalization or Isolette acceptance. No new training material or paid model extraction.",
+      "source_english_patterns": [
+        "the system shall",
+        "whenever the input is provided the output shall"
+      ],
+      "positive_paraphrases": [
+        "prove the composed system obligation under explicit assumptions"
+      ],
+      "misleading_near_matches": [
+        "all components typecheck so the system requirement is proven"
+      ],
+      "supported_operations": [
+        "complete-system",
+        "repair-system",
+        "create-system"
+      ],
+      "stack_layers": [
+        "language",
+        "gumbo",
+        "testing",
+        "repair"
+      ],
+      "semantic_roles": {
+        "actor": "composed system",
+        "condition": "justified component/environment assumptions",
+        "effect": "traced system assertion",
+        "modality": "system guarantee",
+        "quantification": "each in-scope English system obligation",
+        "temporal_scope": "explicit abstract schedule; real-time bounds separate",
+        "state_dependency": "explicit state/invariants",
+        "units_and_boundaries": "preserved source boundaries"
+      },
+      "formal_output_pattern": "English -> allocation -> local assume/guarantee -> composition/schedule -> generated VCs -> Verus -> scoped coverage and independent transfer review.",
+      "formal_pattern_status": "ABSTRACT_NOT_VALIDATED",
+      "allowed_edit_scope": [
+        "new draft repair rule and reviewed capability scope"
+      ],
+      "required_baseline": [
+        "Approved English and compatible pinned system-check tool"
+      ],
+      "diagnostic_signature": null,
+      "related_rule_ids": [
+        "REPAIR-TOOL-CAPABILITY-001"
+      ]
+    },
+    "status": "DRAFT_PENDING_VALIDATION",
+    "id": "c464629c477b0a3310c35ebbf8b3974e5c958c4c635b99e98794a932491f1ea7"
+  },
+  "provenance": {
+    "plan_id": "6004a757c4beecf5c8c5b86780ccc3fa03d136f2fd15f65b3fc395348e3359d1",
+    "candidate_id": "c464629c477b0a3310c35ebbf8b3974e5c958c4c635b99e98794a932491f1ea7",
+    "status": "DRAFT_PENDING_DEVELOPMENT_VALIDATION",
+    "focus": "whole_system_architecture",
+    "extraction_method": "session_curation_approved_KSU_context_and_development_feedback",
+    "model_calls": 0,
+    "source_ids": [
+      "191226e608d63465d3770305ba5291814f6d5376a3432c3d622c8baed081bd82"
+    ],
+    "id": "5e4d2e7134c7032e4e0a5819eb783fd1e9a1d4c55966310b6f9ce559524a431d"
+  },
+  "book": {
+    "snapshot_id": "038aee81f03847a5935549c6ff6ae757e3b10e646024a19f679c9683657a29c9",
+    "directory": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/app/learned-rulebooks/038aee81f03847a5935549c6ff6ae757e3b10e646024a19f679c9683657a29c9",
+    "candidate_count": 24,
+    "state": "DRAFT_NOT_PUBLISHED",
+    "files": [
+      "rulebook.json",
+      "RULEBOOK.md"
+    ],
+    "content_hashes": {
+      "rulebook.json": "5ef33d42c42aac739887dc62022b2ffb20c7b7657c93a68279687d903c69ed58",
+      "RULEBOOK.md": "b480728d1794638e233d33b6bdee8abb5761df0cf5de5ec8b90609390e1b7444"
+    },
+    "id": "15af9ad95deeb31aae2d3cafefe09f36b8879665be8c0aec4f7543a43c495225"
+  }
+}

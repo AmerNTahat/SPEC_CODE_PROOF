@@ -1,0 +1,168 @@
+{
+  "candidate": {
+    "record": {
+      "$schema": "../schemas/knowledge.schema.json",
+      "schema_version": "2.0",
+      "record_type": "rule",
+      "id": "GOLDEN-DEFECT-CURATION-001",
+      "revision": "draft-3",
+      "state": "DRAFT",
+      "basis": "mixed",
+      "assessment_timing": "after_feedback",
+      "source_references": [
+        "5beb80134b4043b31fb6598b9446bcf6e72f353d6f0a243d1c85f900aa797c46",
+        "7ce175e06f24534d6521864c98ce5474379ecbffd01a9c3616f42fa289c699d4",
+        "8539757b211ec65ebcf5df73b8125fe82011a6066fd3bcba864328af992b4bf1"
+      ],
+      "source_artifact_hashes": [
+        "1fad571f248ab53a590da6ed3a7c9ef58ac06312bc7ad396e8b91bb143c5ea8d",
+        "18244e35afe8416ec04098e75f0471a1b803dee1f9ffde0b06f67c813452842e",
+        "b4949561cb04d46f718a16e2cc1486c0bd5a26c15778e3567c464466c24731df"
+      ],
+      "source_episode": "Direct FAA AR-08-32 PDF page102/printedA11 inspection + approved KSU workflow + human-curated golden defect and system-boundary environmental allocation.",
+      "available_context_manifest": null,
+      "model_configuration": null,
+      "prompt_version": "session-failure-learning-v1",
+      "trigger": "A failed proof may stem from an omitted dependency in a selected English excerpt or golden contract; consult full source assumptions before demanding a new software guarantee.",
+      "principle": "Preserve the original golden contradiction, counterexample and source citations. Record the exact human-curated correction and its scope. Regenerate contracts from the repaired model, migrate only implementation bodies, and rerun the affected parser/codegen, proof and tests. Classify passing scoped evidence as REPAIRED_GOLDEN_DEFECT_ACCEPTED_BY_HUMAN, counted separately from unchanged-reference passes. Human curation alone is not a proof. When the source and human review allocate a condition to the environment, retain it as an explicit boundary premise instead of demanding software establish it. Trace internal propagation separately; never turn external approval into a fabricated composition proof.",
+      "semantic_choice": "Classify the source statement by its declared role. EA-OI-6 is explicitly an environmental assumption. Preserve human-approved strict lower<upper as an external system-boundary premise and trace its component requires; do not misclassify it as a producer software guarantee. Internal preservation still needs its own proof.",
+      "structural_placement": "Reviewed SysML/GUMBO compute assumption, regenerated Rust requires and GUMBOX precondition; immutable golden-defect review with separate validation counts.",
+      "repair_gate": "Replay contradiction; inspect full primary PDF context; record exact assumption/requirement label and citation; obtain human approval for changed premise and boundary allocation; regenerate and preserve contracts; recheck affected proofs/tests; record conditional scope and separately track internal propagation and transfer.",
+      "prerequisites": [
+        "Detected contradiction and retained counterexample",
+        "Explicit human acceptance of exact correction",
+        "Full checked artifact identity and original golden preserved"
+      ],
+      "exclusions": [
+        "Counting a human waiver as a passing proof",
+        "Silently overwriting original golden or its failed evidence",
+        "Claiming local assumption discharges its producer",
+        "Claiming repaired-reference evidence is independent held-out transfer",
+        "Copying stale generated contracts over new obligations"
+      ],
+      "parameters": [
+        {
+          "name": "assumption_owner",
+          "role": "Producer or system establishing the callee premise",
+          "constraints": "Must be traced and discharged separately; local proof alone is insufficient"
+        }
+      ],
+      "dependencies": [],
+      "target_compatibility": [
+        "KSU HAMR SysML/GUMBO system properties with Sireum 4.20260810.80aad0c2"
+      ],
+      "preserved_obligations": [
+        "Supported in-scope requirements and mandatory gates",
+        "Original English inventory with excluded features retained",
+        "Negative and transfer evidence for rule applicability"
+      ],
+      "counterexample": {
+        "scenario": "A regenerated heat model assumes strict bound ordering, but copying the previous app restores empty requires. GUMBOX uses the new precondition and passes while Verus correctly rejects the stale app contract.",
+        "expected_difference": "Preserve regenerated contract clauses and migrate only executable body. Recheck both tools before accepting the curated defect repair.",
+        "source_or_test_reference": "reports/demo/isolette-rust/verification-ordered-bounds.json"
+      },
+      "validation_gate_ids": [
+        "parse_type",
+        "hamr_codegen",
+        "configured_formal_verification",
+        "independent_requirements_tests"
+      ],
+      "evidence_references": [
+        "reports/demo/isolette-rust/HEAT_GUARD_DIAGNOSIS.json",
+        "reports/demo/isolette-rust/ordered-bounds-ACCEPTED.patch",
+        "reports/demo/isolette-rust/verification-ordered-bounds.json",
+        "isolette/sysml/Steve_Miller_FAA_docAR-08-32.pdf",
+        "reports/demo/isolette-rust/FAA_EA_OI_PAGE_A11.txt",
+        "reports/demo/isolette-rust/SYSTEM_BOUNDARY_ENVIRONMENT.json",
+        "reports/demo/isolette-rust/SYSTEM_BOUNDARY_ACCEPTANCE.json",
+        "reports/demo/isolette-rust/verification-ordered-bounds-synced.json"
+      ],
+      "confidence_forecast_reference": null,
+      "approval_reference": null,
+      "notes": "Decision trail: 1. Observed actual Verus/GUMBOX heat failure: the admitted reversed-bound input enables On and Off guarantees simultaneously. 2. Compared exact generated-task English and golden Regulate clauses: MHS2/3 were present, but the local ordering dependency was omitted. 3. Returned to the original FAA PDF, page102/printedA11, not just the selected excerpt. The page explicitly introduces environmental assumptions; EA-OI-6 gives ordering and explains the ambiguity. 4. Concluded this is a missing assumption-allocation dependency. The guidebook does not require software to establish an environmental premise merely because a component consumes it. 5. Human approved strict lower<upper, the isolated golden correction, and then explicitly approved environmental allocation at the system boundary. The possible exact1degree margin remains outside this approved correction. 6. Applied the local GUMBO premise and regenerated Rust contracts. Preserved failed stale-contract migration; corrected migration by retaining regenerated requires/ensures. Verus11/0 and5tests passed. 7. Recorded the approved environmental premise in the workbench system-boundary contract and validation/UI. External establishment is not a software proof obligation; internal forwarding/initialization/invalid-state preservation remains a separate unproved mapping. 8. After application tests/frontend checks, revise this repair candidate with the PDF-to-decision trail. The repaired case stays accepted by human; the reusable rule remains draft pending transfer.",
+      "source_english_patterns": [
+        "the component shall output",
+        "initialize the output"
+      ],
+      "positive_paraphrases": [
+        "implement the existing guarantee in the owning entry point"
+      ],
+      "misleading_near_matches": [
+        "a generated contract is an implemented behavior"
+      ],
+      "supported_operations": [
+        "complete-system",
+        "repair-system",
+        "create-system"
+      ],
+      "stack_layers": [
+        "language",
+        "gumbo",
+        "testing",
+        "repair"
+      ],
+      "semantic_roles": {
+        "actor": "composed system",
+        "condition": "justified component/environment assumptions",
+        "effect": "traced system assertion",
+        "modality": "system guarantee",
+        "quantification": "each in-scope English system obligation",
+        "temporal_scope": "explicit abstract schedule; real-time bounds separate",
+        "state_dependency": "explicit state/invariants",
+        "units_and_boundaries": "preserved source boundaries"
+      },
+      "formal_output_pattern": "ABSTRACT: check satisfiability of conflicting guard conjunction, then trace and review environment assumptions before conditional proof.",
+      "formal_pattern_status": "ABSTRACT_NOT_VALIDATED",
+      "allowed_edit_scope": [
+        "new draft repair rule and reviewed capability scope"
+      ],
+      "required_baseline": [
+        "Approved English and compatible pinned system-check tool"
+      ],
+      "diagnostic_signature": null,
+      "related_rule_ids": [
+        "REPAIR-ASSUMPTION-CLOSURE-001",
+        "PREP-CONTEXT-DEPENDENCIES-001",
+        "RUST-CONTRACT-REALIZATION-001"
+      ]
+    },
+    "status": "DRAFT_PENDING_VALIDATION",
+    "id": "5c7529a528017fd00e821b0d3ce170d70a26ada930458d110756085d586301dc"
+  },
+  "decision_trace": {
+    "candidate_id": "5c7529a528017fd00e821b0d3ce170d70a26ada930458d110756085d586301dc",
+    "supersedes_candidate_id": "0c1d290eecc4a3af429cbe778ede536426c7e4ef8927685b2af33c3a5be7d959",
+    "revision_reason": "User requested update after fix with explicit reasoning from the PDF environmental-assumption classification",
+    "decision_steps": [
+      "Observed actual Verus/GUMBOX heat failure: the admitted reversed-bound input enables On and Off guarantees simultaneously.",
+      "Compared exact generated-task English and golden Regulate clauses: MHS2/3 were present, but the local ordering dependency was omitted.",
+      "Returned to the original FAA PDF, page102/printedA11, not just the selected excerpt. The page explicitly introduces environmental assumptions; EA-OI-6 gives ordering and explains the ambiguity.",
+      "Concluded this is a missing assumption-allocation dependency. The guidebook does not require software to establish an environmental premise merely because a component consumes it.",
+      "Human approved strict lower<upper, the isolated golden correction, and then explicitly approved environmental allocation at the system boundary. The possible exact1degree margin remains outside this approved correction.",
+      "Applied the local GUMBO premise and regenerated Rust contracts. Preserved failed stale-contract migration; corrected migration by retaining regenerated requires/ensures. Verus11/0 and5tests passed.",
+      "Recorded the approved environmental premise in the workbench system-boundary contract and validation/UI. External establishment is not a software proof obligation; internal forwarding/initialization/invalid-state preservation remains a separate unproved mapping.",
+      "After application tests/frontend checks, revise this repair candidate with the PDF-to-decision trail. The repaired case stays accepted by human; the reusable rule remains draft pending transfer."
+    ],
+    "source_pdf": "/home/amertahat/SPEC_CODE_PROOF/isolette/sysml/Steve_Miller_FAA_docAR-08-32.pdf",
+    "source_pdf_sha256": "b4949561cb04d46f718a16e2cc1486c0bd5a26c15778e3567c464466c24731df",
+    "extracted_page_sha256": "115cb024d5fe19ae1f007536d44acdd3521bd43873041e10ffb68645456540d4",
+    "formal_composition_proof": "NOT_RUN",
+    "model_calls": 0,
+    "id": "2018a34ce9735fbbfe35ccf5405dddd7aa467b5402a3c1e62ec3fe1193c645c2"
+  },
+  "book": {
+    "snapshot_id": "0146fbc89acb37c1fc0300942d186b3669e4adf2eb6b52804d718b13fd41d645",
+    "directory": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/app/learned-rulebooks/0146fbc89acb37c1fc0300942d186b3669e4adf2eb6b52804d718b13fd41d645",
+    "candidate_count": 29,
+    "state": "DRAFT_NOT_PUBLISHED",
+    "files": [
+      "rulebook.json",
+      "RULEBOOK.md"
+    ],
+    "content_hashes": {
+      "rulebook.json": "60f14d533dd6b60fd1e64a0bd522f5dca78f790fbecdcc231f698528e2c80d67",
+      "RULEBOOK.md": "c5295f1baef9b7d731951089f22415046477c7180e4790283998eaefa1df1ac8"
+    },
+    "id": "870e93f9b023b1fb5a99fb69dd2261630ab50af6ddac558c909f45bfca266ea9"
+  }
+}

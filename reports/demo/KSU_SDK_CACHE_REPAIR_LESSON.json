@@ -1,0 +1,17 @@
+{
+  "run_id": "7643a50c7bdc4609a2a1557a76e25fb6",
+  "candidate_id": "d4db340b631cfe8203df30477602494ff3924cd2446a94e8f9e57e9d891da353",
+  "lesson": {
+    "principle": "Bind compiled artifacts to the complete SDK identity; when changing SDK, preserve old build evidence and rebuild C objects and linked images in a fresh build directory. An image build alone does not establish runtime compatibility.",
+    "failure": "Objects compiled againstSDK2.1.0 were reused withSDK1.4.1; runtime reported invalid channels61/59.",
+    "repair": "Preserve mixed build directory; regenerate build directory using only existingSDK1.4.1. No generated source, channels or requirements changed.",
+    "supporting_evidence": "reports/build/ksu-container-clean-sdk141-runtime.json",
+    "contrasting_evidence": "reports/build/ksu-container-runtime.json",
+    "observed_result": "Both components repeatedly enter compute during20sQEMU observation; no invalid-channel message in captured output.",
+    "limitations": "Bounded smoke evidence only; payload correctness, timing and whole-system acceptance not established.",
+    "publication": "Interactive future Learning review required"
+  },
+  "status": "QUEUED_FOR_FUTURE_RELEASE",
+  "applied_release": null,
+  "id": "de6af36f98527ec778b750fa3dd8e253dab8a6e9839f8d6eb12268479d399505"
+}

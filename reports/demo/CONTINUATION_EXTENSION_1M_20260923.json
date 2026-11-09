@@ -1,0 +1,101 @@
+{
+  "id": "3f16ff4ef866d414cedb448a3ade2dfc4c5b5807162e6aea7522abc218fb49d8",
+  "started": 1790117782.972513,
+  "used_tokens": 1182675,
+  "reserved_tokens": 0,
+  "usage_unknown": 0,
+  "estimated_debit_tokens": 5000000,
+  "control_state": "ACTIVE",
+  "failure_policy": {
+    "campaign_id": "3f16ff4ef866d414cedb448a3ade2dfc4c5b5807162e6aea7522abc218fb49d8",
+    "consent": "User 2026-09-22 explicitly selected: Authorize estimated debits within 13M. Charge a conservative 1,000,000-token debit for this failed batch and later unmetered failures within the existing 13M ceiling. Estimates remain separate from measured usage; stop before an unaffordable reservation. No clock or budget extension.",
+    "debit_per_failure": 1000000,
+    "enabled": true,
+    "hard_bound": false,
+    "id": "94898bef102214fe6d91d29cc67735122560c13c285176700abeafd4bab7c9a3"
+  },
+  "authorization": {
+    "aggregate_tokens": 13000000,
+    "automatic_extension": false,
+    "clock_starts": "first paid reservation",
+    "concurrency": 1,
+    "consent": "User authorization 2026-09-22: tokens limits should be about 14 millions tokens, wall colck 1 hour for isolette for epsilon estimation dont exceed 0.3 you may start with 0.1. for doc best efforts total tokens should not exceed 13 million. Once you reach that ask for extension. Finish all the tasks.",
+    "enforcement": "best_effort",
+    "hard_token_cap_validated": false,
+    "wall_seconds": 3600,
+    "id": "3f16ff4ef866d414cedb448a3ade2dfc4c5b5807162e6aea7522abc218fb49d8"
+  },
+  "deadline": 1790135896.6996825,
+  "continuation_remaining_tokens": 1811703,
+  "continuation_extensions": [
+    {
+      "aggregate_ceiling_unchanged": 14000000,
+      "campaign_id": "3f16ff4ef866d414cedb448a3ade2dfc4c5b5807162e6aea7522abc218fb49d8",
+      "charged_tokens_unchanged": 6182675,
+      "consent": "User2026-09-23: Authorize1M within existing14M cap; deadline unchanged, all prior debits retained.",
+      "deadline_unchanged": 1790135896.6996825,
+      "previous_remaining": 811703,
+      "tokens": 1000000,
+      "id": "185c207ee2ae3214d4418a63c815c6141f9966fac461a097f938a769c9c7c746"
+    }
+  ],
+  "time_extensions": [
+    {
+      "campaign_id": "3f16ff4ef866d414cedb448a3ade2dfc4c5b5807162e6aea7522abc218fb49d8",
+      "consent": "User: I Auterize 45 minutes more time, if you need mre time ask. Add 2700 seconds to the existing campaign deadline. Preserve all usage, estimated debits, the 14M aggregate ceiling, the existing continuation token allowance, and repair limits.",
+      "previous_deadline": 1790130382.972513,
+      "seconds": 2700,
+      "token_ceiling_unchanged": 14000000,
+      "id": "033a03494370307284513308c8aa7ec71d9c5f531ab80be1cbe25a6b0230cd00"
+    },
+    {
+      "campaign_id": "3f16ff4ef866d414cedb448a3ade2dfc4c5b5807162e6aea7522abc218fb49d8",
+      "consent": "User: I Autherize 3M token; retain 14M cap and 45 minutes more time extension. Authorizes at most 3M additional charged tokens for this continuation, within the unchanged14M aggregate ceiling, and2700 additional seconds. Preserve all measured usage and estimated debits.",
+      "previous_deadline": 1790127682.972513,
+      "seconds": 2700,
+      "token_ceiling_unchanged": 14000000,
+      "id": "0a10340a803821884bc758b62449760b6ea5dc33afcdafd8d7f134bc86889735"
+    },
+    {
+      "campaign_id": "3f16ff4ef866d414cedb448a3ade2dfc4c5b5807162e6aea7522abc218fb49d8",
+      "consent": "User explicitly authorizes30 more minutes, retaining token limit and all debits. Previous window expired while awaiting the user. Grant1800seconds from this resumption; record expired waiting separately, without resetting original start, authorized consumption, repair limits or token allowance.",
+      "expired_wait_seconds": 1013.7271695137024,
+      "previous_deadline": 1790133082.972513,
+      "resume_after_expiry": true,
+      "seconds": 1800,
+      "token_ceiling_unchanged": 14000000,
+      "id": "26abfa92099f9282aeca2487e9a7be4931c7cdaf8298f97e5f3b30b50232deab"
+    },
+    {
+      "campaign_id": "3f16ff4ef866d414cedb448a3ade2dfc4c5b5807162e6aea7522abc218fb49d8",
+      "consent": "User explicitly replied: Extend by 60 minutes; keep 13M ceiling. Preserve original measured usage, 3M estimated debits, and all prior failed calls.",
+      "previous_deadline": 1790121382.972513,
+      "seconds": 3600,
+      "token_ceiling_unchanged": 13000000,
+      "id": "7cb160b53120ee3dd2db9f78a34f2f81c921989028257570b409304094fd2179"
+    },
+    {
+      "campaign_id": "3f16ff4ef866d414cedb448a3ade2dfc4c5b5807162e6aea7522abc218fb49d8",
+      "consent": "User explicitly replied: Authorize 45 minutes; retain 14M ceiling, if you need more token ask me. Add 2700 seconds to the existing campaign deadline; preserve original start, all usage and estimates, token ceiling, and repair limits.",
+      "previous_deadline": 1790124982.972513,
+      "seconds": 2700,
+      "token_ceiling_unchanged": 14000000,
+      "id": "7f6a7751d941a39c0eea31a774e02d868764d0399e31300d1c4c7334b321ca9f"
+    }
+  ],
+  "token_extensions": [
+    {
+      "campaign_id": "3f16ff4ef866d414cedb448a3ade2dfc4c5b5807162e6aea7522abc218fb49d8",
+      "consent": "User explicitly said: Also I allow to use one more million token. Increase aggregate allowance from 13M to 14M, retaining all measured usage and estimates. This is not a wall-clock or repair-count extension.",
+      "deadline_unchanged": 1790124982.972513,
+      "previous_ceiling": 13000000,
+      "tokens": 1000000,
+      "id": "e533cdaad5a98f1ec4cbe18778e9bf4cc7dd03f99f96033197331e41ded098fa"
+    }
+  ],
+  "token_ceiling": 14000000,
+  "authorized_wall_seconds": 17100,
+  "remaining_seconds": 582.0480983257294,
+  "remaining_tokens": 7817325,
+  "scope": "Best-effort aggregate accounting; termination may leave uncertain in-flight usage"
+}

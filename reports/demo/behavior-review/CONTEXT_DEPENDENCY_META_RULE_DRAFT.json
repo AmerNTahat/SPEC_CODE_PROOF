@@ -1,0 +1,155 @@
+{
+  "candidate": {
+    "record": {
+      "$schema": "../schemas/knowledge.schema.json",
+      "schema_version": "2.0",
+      "record_type": "rule",
+      "id": "PREP-CONTEXT-DEPENDENCIES-001",
+      "revision": "draft-1",
+      "state": "DRAFT",
+      "basis": "mixed",
+      "assessment_timing": "after_feedback",
+      "source_references": [
+        "8539757b211ec65ebcf5df73b8125fe82011a6066fd3bcba864328af992b4bf1"
+      ],
+      "source_artifact_hashes": [
+        "b4949561cb04d46f718a16e2cc1486c0bd5a26c15778e3567c464466c24731df"
+      ],
+      "source_episode": "Approved FAA context plus supervised development diagnosis2026-09-23",
+      "available_context_manifest": null,
+      "model_configuration": null,
+      "prompt_version": "session-context-dependency-curation-v1",
+      "trigger": "A selected requirements section refers to external quantity tables, environmental assumptions, definitions or diagrams.",
+      "principle": "Preserve the source dependencies of a requirements passage during English preparation. Include exact approved context and diagram transcription with provenance for review; distinguish environmental premises from guarantees that components must establish.",
+      "semantic_choice": "Do not treat a section excerpt as a complete specification when it relies on earlier definitions or assumptions. Restore existing source facts before inventing repair assumptions or relaxing domains.",
+      "structural_placement": "Attach premises to the responsible system boundary and trace producer guarantees and consumer assumptions. Keep diagram transcription separate from proposed interpretations of ambiguous guards.",
+      "repair_gate": "Review source fidelity and scope; check assumption satisfiability and producer discharge; re-run affected behavioral and engineering gates. Source supplementation itself is not verification.",
+      "prerequisites": [
+        "Approved context and data split",
+        "Exact source passages and hashes",
+        "Human review before a revised preparation replaces selected English"
+      ],
+      "exclusions": [
+        "Evaluator worked answers disguised as shared context",
+        "Silent priority decisions for ambiguous state diagrams",
+        "Accepting missing golden contracts as requirement waiver"
+      ],
+      "parameters": [
+        {
+          "name": "source_dependencies",
+          "role": "Referenced approved facts",
+          "constraints": "Exact source and line or figure/page identity; no unstated premises"
+        },
+        {
+          "name": "assumption_owner",
+          "role": "Responsible boundary or producer",
+          "constraints": "Trace premise discharge separately from consumer proof"
+        }
+      ],
+      "dependencies": [],
+      "target_compatibility": [
+        "Reviewed English preparation for selected KSU HAMR workflow"
+      ],
+      "preserved_obligations": [
+        "Original English requirements and units",
+        "Environment versus system boundary",
+        "Existing approved preparation and evidence history"
+      ],
+      "counterexample": {
+        "scenario": "A regulator excerpt copies valid desired bounds but omits earlier external-range and ordering assumptions. Broad internal domains then admit reversed ranges or invalid copy-domain witnesses.",
+        "expected_difference": "Restore existing source premises and prove their boundary support; do not widen output ranges, clamp values or silently assume arbitrary ordering.",
+        "source_or_test_reference": "reports/demo/behavior-review/REVIEW.md"
+      },
+      "validation_gate_ids": [
+        "source_fidelity_review",
+        "assumption_discharge",
+        "parse_type",
+        "behavioral_validation"
+      ],
+      "evidence_references": [
+        "reports/demo/behavior-review/REVIEW.md",
+        "reports/demo/behavior-review/solver-results.json",
+        "workbench/tests/test_data_preparation.py"
+      ],
+      "confidence_forecast_reference": null,
+      "approval_reference": null,
+      "notes": "Session-assistant curated draft from approved FAA context and supervised development feedback. No paid model extraction. Local solver checks are manually transcribed diagnostics, not independent rule validation. No confidence value invented.",
+      "source_english_patterns": [
+        "environmental assumptions are made",
+        "the monitored variables are shown in table",
+        "see state machine figure"
+      ],
+      "positive_paraphrases": [
+        "include referenced boundary conditions in the prepared requirements"
+      ],
+      "misleading_near_matches": [
+        "unconstrained inputs mean the output domain should be widened"
+      ],
+      "supported_operations": [
+        "complete-system",
+        "repair-system",
+        "create-system"
+      ],
+      "stack_layers": [
+        "language",
+        "gumbo",
+        "testing",
+        "repair"
+      ],
+      "semantic_roles": {
+        "actor": "requirements preparer and boundary owner",
+        "condition": "selected passage depends on other approved source material",
+        "effect": "reviewed dependency-complete English with explicit premise ownership",
+        "modality": "source fidelity and verification obligation",
+        "quantification": "each referenced dependency relevant to the selected target",
+        "temporal_scope": "before formalization; reconsider after source amendment",
+        "state_dependency": "diagram state semantics preserved, ambiguity exposed",
+        "units_and_boundaries": "preserve source units, ranges and strict inequalities"
+      },
+      "formal_output_pattern": "Source obligation -> referenced definitions/assumptions/figures -> reviewed English -> owner and assumption-discharge evidence -> behavioral gates.",
+      "formal_pattern_status": "ABSTRACT_NOT_VALIDATED",
+      "allowed_edit_scope": [
+        "new pending preparation and draft meta-rule only"
+      ],
+      "required_baseline": [
+        "Approved original source context and selected preparation"
+      ],
+      "diagnostic_signature": null,
+      "related_rule_ids": [
+        "REQ-ALLOC-001"
+      ]
+    },
+    "status": "DRAFT_PENDING_VALIDATION",
+    "id": "0659957ffde90209b55c185122af5f529720eabfb6459f931e7142275acf235a"
+  },
+  "provenance": {
+    "plan_id": "6004a757c4beecf5c8c5b86780ccc3fa03d136f2fd15f65b3fc395348e3359d1",
+    "candidate_id": "0659957ffde90209b55c185122af5f529720eabfb6459f931e7142275acf235a",
+    "status": "DRAFT_PENDING_DEVELOPMENT_VALIDATION",
+    "focus": "requirements_allocation",
+    "batch_index": 0,
+    "batch_count": 1,
+    "extraction_method": "session_assistant_curation_of_approved_FAA_context_and_development_feedback",
+    "model_calls": 0,
+    "source_ids": [
+      "8539757b211ec65ebcf5df73b8125fe82011a6066fd3bcba864328af992b4bf1"
+    ],
+    "scope": "Supervised preparation repair pattern; unvalidated draft, not a published release",
+    "id": "da393ab7f67f2a52bc8ecc975646e2ca2d65b733de3fec77949269ca6b8f62f0"
+  },
+  "book": {
+    "snapshot_id": "2a96c87b6283e39753b1f47f9dc065bdafa7ba45c2f7a424fa156ed3891b23ab",
+    "directory": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/app/learned-rulebooks/2a96c87b6283e39753b1f47f9dc065bdafa7ba45c2f7a424fa156ed3891b23ab",
+    "candidate_count": 22,
+    "state": "DRAFT_NOT_PUBLISHED",
+    "files": [
+      "rulebook.json",
+      "RULEBOOK.md"
+    ],
+    "content_hashes": {
+      "rulebook.json": "ba3b5c9c47531ccda975ec9edb00eaaeba1f5b08877fc268e486ad4cc58626dd",
+      "RULEBOOK.md": "8dc55f7dec9fa4229ab65c742256ad78bd610a8880281a2f316426830ece1407"
+    },
+    "id": "0e55f45a9e2886c2777768477822a5285dddde63179b11dac060775118738a2a"
+  }
+}

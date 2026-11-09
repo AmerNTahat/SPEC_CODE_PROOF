@@ -1,0 +1,11 @@
+--- current/Regulate.sysml
++++ proposed-conditional/Regulate.sysml
+@@ -232,6 +232,8 @@
+                 guarantee INITIAL_HEAT_HISTORY:
+                     Previous_Heat_Control == Isolette_Data_Model::On_Off::Off;
+             compute
++                assume ORDERED_DESIRED_BOUNDS:
++                    Lower_Desired_Temp.degrees <= Upper_Desired_Temp.degrees;
+                 guarantee REQ_MHS_1:
+                     (Regulator_Mode == Isolette_Data_Model::Regulator_Mode::Init_Regulator_Mode) implies
+                     (Heat_Control == Isolette_Data_Model::On_Off::Off);

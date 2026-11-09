@@ -1,0 +1,34 @@
+% Intended method composition; Figure requirements-review gives the main account.
+% Historical case audits and the F01 recording limitation are stated in the appendix.
+\begin{algorithm}[!htbp]
+\caption{Review requirements fidelity during development}
+\label{alg:requirements-fidelity}
+\KwIn{Campaign record $\mathcal{C}$; task $T$; selected rule revisions $R$.}
+\KwOut{Updated $\mathcal{C}$ and scoped task outcome $q$.}
+Retain the original English, input versions, approved scope, and rule revisions\nllabel{ln:rf-retain}\;
+Read the source line by line; record obligations, interpretations, representations, and assumptions in the requirement table\;
+Assess meaning and unresolved questions; record the responsible reviewer or agent\;
+\lIf{$T$ lacks current human approval}{\Return \scpStatus{pending}}
+\While{authority, deadline, and allowance after consumption and reservations permit an attempt}{
+  \lIf{usage is unresolved}{\Return \scpStatus{pending}}
+  \lIf{reviewed inputs or dependencies have changed}{\Return \scpStatus{stale}}
+  Reserve allowance; request a proposal for $T$ using $R$\;
+  Record usage, proposal, and detailed call outcome\;
+  \lIf{response is invalid or check time is unavailable}{\Return \scpStatus{pending}}
+  Run HAMR and the required checks; retain results, failures, obligation links, and content fingerprints\nllabel{ln:rf-check}\;
+  Update the requirement table; review interpretation, assumptions, and unresolved obligations\;
+  Apply current human decisions with Algorithm~\ref{alg:attestation}; request any required new review; obtain $q$\;
+  \If{$q$ is accepted}{
+    Mark the included task scope complete; record the owner's release decision when supplied, with exclusions and remaining obligations\;
+    \Return $q$\;
+  }
+  \lIf{$q$ is stale or rejected}{\Return $q$}
+  \If{the next action changes meaning, scope, assumptions, or limits}{
+    Retain the proposal; \Return \scpStatus{pending} for human review\nllabel{ln:rf-amend}\;
+  }
+  \lIf{rule revision follows a current failed \texttt{NOT\_VALIDATED} use of the same rule and learning plan}{\Return \texttt{NOT\_VALIDATED}}
+  \lIf{the next action lacks repair authority}{\Return $q$}
+  Retain earlier charges and failures; refine within the approved scope and retry\;
+}
+\Return \scpStatus{pending} for further allowance or instruction\;
+\end{algorithm}

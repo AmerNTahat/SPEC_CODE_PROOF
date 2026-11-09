@@ -1,0 +1,42 @@
+\section{Background and Running Example}
+\label{sec:background}
+
+\subsection{Engineering and Verification Tools}
+SysML v2 models structure and interfaces~\cite{sysmlv2_omg}. GUMBO adds behavioral contracts~\cite{gumbo}. An \emph{assume--guarantee contract} $(A,G)$ requires $G$ when its assumptions $A$ hold. An \emph{obligation} is a property to establish under stated assumptions. HAMR derives infrastructure and contracts for Slang and Rust~\cite{hamr}. Logika checks Slang and connection obligations. Its configured integration checks use the cvc5 satisfiability modulo theories (SMT) solver~\cite{hallerstede2025logika,scpCheckpoint}. Verus checks Rust obligations and uses an SMT backend such as Z3~\cite{verusGuide}. GumboX derives executable checks, and Microkit provides a seL4 image target~\cite{hamrGumboxRust,hamr-sel4}.
+
+\begin{figure}[t]
+\centering
+\resizebox{\textwidth}{!}{\input{figures/agentic-inspecta-toolchain}}
+\caption{Engineering layers and repair feedback in \workbench{}, adapted from Hardin et al.~\cite{hardin2025dasc} and Tahat et al.~\cite{tahat2026scp,tahat2026dascslides}. The star marks neuro-symbolic generation of SysML v2/GUMBO models and Rust/Verus and Slang/Scala artifacts through agent proposals, HAMR generation, and checker-guided repair. The nested boxes show components and their contracts. Red arrows return checker diagnostics for model, code, and proof repair. Table~\ref{tab:sng-completion} records the checks exercised for SNG.}
+\Description{The starred specification box names model and code generation. Agents repair models, code, and proofs using checker diagnostics. Two SysML components carry GUMBO contracts. HAMR and the agents produce Slang or Rust artifacts, and the Microkit application is built and run. Green callouts show model and component checks. Gray callouts mark upstream assurance that depends on configuration and scope. Dashed red arrows return diagnostic feedback.}
+\label{fig:engineering-stack}
+\end{figure}
+
+A shortened GUMBO example makes an ordering assumption explicit~\cite{tahat2026scp,scpCheckpoint}:
+\begin{quote}
+\begin{minipage}{\linewidth}
+\small\ttfamily
+compute\\
+\hspace*{1em}assume lowerLTUpper: lower < upper;\\
+compute\_cases\\
+\hspace*{1em}case HEAT\_ON:\\
+\hspace*{2em}assume mode==NORMAL \&\& temp<lower;\\
+\hspace*{2em}guarantee heat\_control==On;
+\end{minipage}
+\end{quote}
+Here \texttt{temp} is measured temperature; \texttt{lower} and \texttt{upper} are desired bounds; \texttt{mode} selects operation; and \texttt{heat\_control} is the heater command. The global assumption orders the bounds; the case assumption selects when heating is required. Other declarations and cases are omitted.
+
+\subsection{A Missing Premise in a Reference Contract}
+Isolette regulates infant incubator temperature with a heater~\cite{lempia2009faa,hatcliff2024isolette}. Let $\theta$ be measured temperature, $L$ and $U$ the desired bounds, and $h$ indicate heating. In NORMAL mode, the guarantees are $\theta<L\Rightarrow h$ and $\theta>U\Rightarrow\neg h$. The inspected fragment omitted the ordering premise and allowed contradictory demands~\cite{scpCheckpoint}.
+
+The operator-interface assumption \texttt{EA-OI-6} requires the lower setting to be at least $1^{\circ}$F below the upper setting~\cite[Appendix A.3.4, p.~A-11]{lempia2009faa}. The recorded repair adds the reviewed premise $L<U$~\cite{scpCheckpoint}. Review considers representation, admissible ranges, and propagation. Section~\ref{sec:learning} follows the diagnosis and derived guidance.
+
+\subsection{Learning from Engineering Experience}
+Recent research offers complementary ways to check proposals and learn from their outcomes. AWS's ARc uses human-reviewed policy formalizations to check natural-language claims with symbolic tools~\cite{bayless2025arc}. Google DeepMind's AlphaEvolve improves proposed algorithms using automated evaluators~\cite{novikov2025alphaevolve}. Google Research's WikiSkill retains execution experience in an external knowledge base for later skill revisions~\cite{tang2026wikiskill}. Anthropic's interpretability study identifies internal representations that language models can express in words and use in reasoning~\cite{gurnee2026workspace}. These examples motivate a workflow that checks a proposal, retains what the attempt taught, and makes that lesson available to the next task.
+
+In-context learning uses examples and instructions supplied during a call~\cite{vonoswald2023transformers}. Meta-learning changes the procedure used to approach later tasks~\cite{hospedales2022meta}. \workbench{} retains selected lessons across calls as written, versioned guidance. We call this step \emph{verbalization}: it expresses reusable procedures and their applicability conditions from recorded requirements, attempts, diagnostics, and checks. Shared structure can guide the search under a finite allowance, and engineering tools assess the resulting proposals~\cite{e28030332,tahat2026scp}.
+
+Figure~\ref{fig:branching-motivation} illustrates why early checks matter in embedded engineering. A mistaken formalization can propagate through placement choices, generated code, and proof attempts. Checking a choice at the stage where it is made can expose a local repair before generating its downstream artifacts. The workbench retains the failed check and the repair that followed, providing evidence for a lesson that can guide future attempts.
+
+\subsection{Evidence, Review, and Attestation}
+Evidence links a check to assessed files and assumptions. A \emph{fingerprint} is a value computed from contents; comparing SHA-256 fingerprints detects changes when those contents are rechecked~\cite{nist_sha256,scpCheckpoint}. Review records associate each decision with its reason, exact contents, and responsible reviewer identifier. An \emph{attestation} states a claim about identified files. Its signature supports checking integrity and origin under a trusted key~\cite{intotoStatement,dsse}; Section~\ref{sec:attestation} explains how these records support an audit.

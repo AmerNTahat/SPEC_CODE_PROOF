@@ -1,0 +1,66 @@
+% Supervised rule-evolution overview. Layers group existing records;
+% they are not new wiki folders, immutable storage, or qualified skills.
+% Stage numbers match handoff.tex; Algorithm 2 gives the detailed procedure.
+\begingroup
+\hyphenpenalty=10000
+\begin{tikzpicture}[
+ x=.78cm,y=1cm,font=\sffamily\fontsize{8}{9.4}\selectfont,
+ band/.style={draw=black!55,fill=black!4,line width=.7pt,rounded corners=2pt,
+   text=black,align=left,text width=11.96cm,minimum height=.64cm,inner sep=5pt},
+ evoStep/.style={draw=black!60,line width=.7pt,rounded corners=3pt,text=black,
+   align=left,text width=2.58cm,minimum height=3.30cm,inner sep=5pt},
+ flow/.style={-{Stealth[length=1.8mm,width=1.3mm]},draw=black!85,line width=.8pt},
+ label/.style={font=\sffamily\fontsize{7.3}{8.5}\selectfont,
+   fill=white,align=center,inner sep=1.5pt},
+ note/.style={font=\sffamily\fontsize{7.3}{8.5}\selectfont,align=left}
+]
+\node[band,text width=12.65cm,minimum height=.91cm,fill=scpYellowFill,draw=scpRed!70]
+ (setup) at (8.7,8.40) {\textbf{Human-approved setup:} goal, scope, assumptions, required checks, access, and time/token limits.\\[2pt]
+ \textbf{Inputs:} reviewed sources and a candidate rule, extracted first if needed. Consequential changes require recorded review.};
+\node[band,fill=scpBlueFill,draw=scpBlue] (rules) at (8.7,7.35)
+ {\textbf{Candidate rulebook}\quad Versions; applicability conditions; required checks; links to predecessor rules.};
+\node[band,fill=black!7] (cases) at (8.7,6.45)
+ {\textbf{Cases and decisions}\quad Failure explanations; source rationale; reviewed changes; approval and evidence links.};
+\node[band,fill=black!3] (evidence) at (8.7,5.55)
+ {\textbf{Run evidence}\quad Requirements and artifact versions; formal-check results; fingerprints; recorded resource use.};
+\node[evoStep,draw=scpBlue,fill=scpBlueFill] (run) at (2.20,2.75)
+ {\parbox[t][2.97cm][t]{2.58cm}{\raggedright\textbf{1\quad Apply and check}\\[4pt]
+ Authorized agent applies a rule to an approved task.\\[3pt]
+ Generate artifacts; run formal and other checks.}};
+\node[evoStep,draw=scpRed!70,fill=scpRedFill] (diagnose) at (6.45,2.75)
+ {\parbox[t][2.97cm][t]{2.58cm}{\raggedright\textbf{2\quad Retrieve and explain}\\[4pt]
+ Retrieve prior cases and sources.\\[3pt]
+ Check the failed attempt's rule, plan, and current evidence.}};
+\node[evoStep,draw=orange!75!black,fill=scpYellowFill] (revise) at (10.70,2.75)
+ {\parbox[t][2.97cm][t]{2.58cm}{\raggedright\textbf{3\quad Propose rule revision}\\[4pt]
+ Revise the procedure, applicability, and required checks.\\[3pt]
+ Retain successor draft and predecessor.}};
+\node[evoStep,draw=scpGreen!80!black,fill=scpGreenFill] (assess) at (15.00,2.75)
+ {\parbox[t][2.97cm][t]{2.58cm}{\raggedright\textbf{4\quad Evaluate and review}\\[4pt]
+ Apply candidate. Run formal checks and review requirements.\\[3pt]
+ Record required human decisions and outcomes.}};
+% Record-layer connections are distinct from the ordered processing steps.
+\draw[flow,draw=scpBlue] (rules.west) -- (.18,7.35) -- (.18,2.75) -- (run.west);
+\node[label,rotate=90] at (.18,5.90) {selected candidate};
+\draw[flow,draw=scpBlue] (run.north east) -- (evidence.south -| run.north east);
+\node[label] at (2.20,4.78) {record artifacts,\\checks, and usage};
+\begin{scope}[on background layer]
+ \draw[flow] (cases.south -| diagnose.north) -- (diagnose.north);
+\end{scope}
+\node[label] at (6.45,4.78) {retrieve linked\\cases and evidence};
+\draw[flow,draw=scpGreen!80!black] (assess.east) -- (17.27,2.75) -- (17.27,7.35) -- (rules.east);
+\draw[flow,draw=scpGreen!80!black] (17.27,6.45) -- (cases.east);
+\draw[flow,draw=scpGreen!80!black] (17.27,5.55) -- (evidence.east);
+\node[label,rotate=90] at (17.27,5.43) {attach results and review};
+\draw[flow] (run.east) -- (diagnose.west);
+\draw[flow] (diagnose.east) -- (revise.west);
+\draw[flow] (revise.east) -- (assess.west);
+\draw[flow,draw=scpRed,dashed] (assess.south) -- (15.00,.88) -- (2.20,.88) -- (run.south);
+\node[label] at (8.7,.88) {Continue only with approval and remaining budget; retain prior consumption};
+\node[band,text width=12.65cm,minimum height=1.0cm,fill=black!4] at (8.7,.10)
+ {\textbf{Retained result:} successor draft + predecessor + evidence + review history.\\[2pt]
+ \textbf{Task acceptance:} all mandatory checks in the approved scope pass; reviewed contents and matching approval remain current.};
+\node[note,text width=13.2cm,anchor=north west] at (.18,-.65)
+ {\textbf{Recorded candidates:} the archived heater rules remain drafts awaiting qualification for publication.};
+\end{tikzpicture}
+\endgroup

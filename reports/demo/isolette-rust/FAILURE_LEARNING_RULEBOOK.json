@@ -1,0 +1,220 @@
+{
+  "candidate": {
+    "record": {
+      "$schema": "../schemas/knowledge.schema.json",
+      "schema_version": "2.0",
+      "record_type": "rule",
+      "id": "REPAIR-ASSUMPTION-CLOSURE-001",
+      "revision": "draft-1",
+      "state": "DRAFT",
+      "basis": "mixed",
+      "assessment_timing": "after_feedback",
+      "source_references": [
+        "5beb80134b4043b31fb6598b9446bcf6e72f353d6f0a243d1c85f900aa797c46",
+        "7ce175e06f24534d6521864c98ce5474379ecbffd01a9c3616f42fa289c699d4"
+      ],
+      "source_artifact_hashes": [
+        "1fad571f248ab53a590da6ed3a7c9ef58ac06312bc7ad396e8b91bb143c5ea8d",
+        "18244e35afe8416ec04098e75f0471a1b803dee1f9ffde0b06f67c813452842e"
+      ],
+      "source_episode": "Approved KSU implementation/testing guidance; curated generated-model failure feedback. Golden inspection is diagnostic evaluation only, not newly approved training material.",
+      "available_context_manifest": null,
+      "model_configuration": null,
+      "prompt_version": "session-failure-learning-v1",
+      "trigger": "Two conditional guarantees demand incompatible outputs for overlapping guards, or an English excerpt omits the environmental assumptions referenced by its terms.",
+      "principle": "Before another code repair, replay the counterexample, classify implementation versus contract failure, and test whether conflicting guards can overlap. Trace each relevant environmental assumption to its full English source and assign the producer or system obligation that establishes it. Present missing dependencies for review rather than silently weakening guarantees or importing golden behavior.",
+      "semantic_choice": "A counterexample admitted by the component precondition is meaningful even if the intended environment should forbid it. Conditional local proof does not discharge the environment assumption.",
+      "structural_placement": "Data-preparation dependency ledger, reviewed English task, component assumptions and producer/system guarantee mapping.",
+      "repair_gate": "Replay failed tests; show exact English/formal trace; test guard overlap; review any new assumption and updated English; rerun affected Verus/GUMBOX and producer/integration obligations. Stop after the user-configured checkpoint and preserve total attempts.",
+      "prerequisites": [
+        "Exact failed artifact and tool evidence",
+        "Approved source context and explicit role separation",
+        "Human approval before proof-premise or English-scope revision"
+      ],
+      "exclusions": [
+        "Treating absence of a golden assumption as a tool limitation",
+        "Changing branch priority to hide contradictory guarantees",
+        "Adding assume/admit/external_body to suppress proof failures",
+        "Reclassifying a supported contradiction as an uncovered feature",
+        "Resetting attempts or budget after revision"
+      ],
+      "parameters": [
+        {
+          "name": "assumption_owner",
+          "role": "Producer or system establishing the callee premise",
+          "constraints": "Must be traced and discharged separately; local proof alone is insufficient"
+        }
+      ],
+      "dependencies": [],
+      "target_compatibility": [
+        "KSU HAMR SysML/GUMBO system properties with Sireum 4.20260810.80aad0c2"
+      ],
+      "preserved_obligations": [
+        "Supported in-scope requirements and mandatory gates",
+        "Original English inventory with excluded features retained",
+        "Negative and transfer evidence for rule applicability"
+      ],
+      "counterexample": {
+        "scenario": "NORMAL mode, current98, lower99, upper97 satisfies both strict heat guards, demanding On and Off. The selected English lacks the ordering dependency.",
+        "expected_difference": "Ordering excludes this overlap conditionally; reviewing and discharging that premise is separate from code repair.",
+        "source_or_test_reference": "reports/demo/isolette-rust/HEAT_GUARD_DIAGNOSIS.json"
+      },
+      "validation_gate_ids": [
+        "parse_type",
+        "hamr_codegen",
+        "configured_formal_verification",
+        "independent_requirements_tests"
+      ],
+      "evidence_references": [
+        "reports/demo/isolette-rust/verification-heat-match.json",
+        "reports/demo/isolette-rust/HEAT_GUARD_DIAGNOSIS.json"
+      ],
+      "confidence_forecast_reference": null,
+      "approval_reference": null,
+      "notes": "Human-visible supervised development diagnosis, not independent transfer validation. EA-OI-6 wording and exact margin remain pending source review; no assumption is applied by this draft.",
+      "source_english_patterns": [
+        "the component shall output",
+        "initialize the output"
+      ],
+      "positive_paraphrases": [
+        "implement the existing guarantee in the owning entry point"
+      ],
+      "misleading_near_matches": [
+        "a generated contract is an implemented behavior"
+      ],
+      "supported_operations": [
+        "complete-system",
+        "repair-system",
+        "create-system"
+      ],
+      "stack_layers": [
+        "language",
+        "gumbo",
+        "testing",
+        "repair"
+      ],
+      "semantic_roles": {
+        "actor": "composed system",
+        "condition": "justified component/environment assumptions",
+        "effect": "traced system assertion",
+        "modality": "system guarantee",
+        "quantification": "each in-scope English system obligation",
+        "temporal_scope": "explicit abstract schedule; real-time bounds separate",
+        "state_dependency": "explicit state/invariants",
+        "units_and_boundaries": "preserved source boundaries"
+      },
+      "formal_output_pattern": "ABSTRACT: check satisfiability of conflicting guard conjunction, then trace and review environment assumptions before conditional proof.",
+      "formal_pattern_status": "ABSTRACT_NOT_VALIDATED",
+      "allowed_edit_scope": [
+        "new draft repair rule and reviewed capability scope"
+      ],
+      "required_baseline": [
+        "Approved English and compatible pinned system-check tool"
+      ],
+      "diagnostic_signature": null,
+      "related_rule_ids": [
+        "PREP-CONTEXT-DEPENDENCIES-001",
+        "RA-001",
+        "RUST-CONTRACT-REALIZATION-001"
+      ]
+    },
+    "status": "DRAFT_PENDING_VALIDATION",
+    "id": "4f3a4d4c932bf1223ee403373bd56648f303c1edb6dc6983cae47446200be157"
+  },
+  "provenance": {
+    "plan_id": "6004a757c4beecf5c8c5b86780ccc3fa03d136f2fd15f65b3fc395348e3359d1",
+    "candidate_id": "4f3a4d4c932bf1223ee403373bd56648f303c1edb6dc6983cae47446200be157",
+    "status": "DRAFT_PENDING_DEVELOPMENT_VALIDATION",
+    "focus": "implementation_proof_testing",
+    "extraction_method": "session_curation_approved_KSU_context_and_generated_failure_feedback",
+    "model_calls": 0,
+    "source_ids": [
+      "5beb80134b4043b31fb6598b9446bcf6e72f353d6f0a243d1c85f900aa797c46",
+      "7ce175e06f24534d6521864c98ce5474379ecbffd01a9c3616f42fa289c699d4"
+    ],
+    "id": "dbf5d6cbc74f08c04db3e3a1ff0b7a4c45b9369385313f49e004570706b3bf5a"
+  },
+  "lessons": [
+    {
+      "sequence": 1,
+      "title": "1. Generated heat implementation has missing outputs",
+      "observation": "Baseline Verus/GUMBOX failed on the generated heat scaffold.",
+      "cause": "Generated app bodies were incomplete; contracts existed but required output values were not published.",
+      "next_check": "Initialize and compute all required DataPorts without changing postconditions. Repeat proof and property tests.",
+      "rule_id": "RUST-CONTRACT-REALIZATION-001",
+      "disposition": "Implementation supplied; later checks exposed a separate failure.",
+      "evidence": [
+        {
+          "path": "/home/amertahat/SPEC_CODE_PROOF/reports/demo/isolette-rust/verification-baseline.json",
+          "sha256": "98e44e443201245892b1e182ee3ac74e7509c786145f52939fe61c42c62eaf6d"
+        }
+      ],
+      "scope": "Recorded manual component implementation rounds, not an assertion of extra paid model retries",
+      "candidate_id": null,
+      "id": "53207b84a8fb86f00e1d60015a1a65221cb39214e568d01c1c4a22b2fd58fed3"
+    },
+    {
+      "sequence": 2,
+      "title": "2. Executable enum equality rejected by Verus",
+      "observation": "First heat implementation used enum ==; proof translation rejected the trait implementation.",
+      "cause": "Tool-level expression compatibility, separate from semantic validity.",
+      "next_check": "Use an equivalent exhaustive match; rerun Verus and GUMBOX rather than label the contract unsupported.",
+      "rule_id": "RUST-CONTRACT-REALIZATION-001",
+      "disposition": "Equivalent match repair executed.",
+      "evidence": [
+        {
+          "path": "/home/amertahat/SPEC_CODE_PROOF/reports/demo/isolette-rust/verification-heat-implementation.json",
+          "sha256": "714188bbef6417f1a182b37860e2d34742e011ef90ddf2571617b240ee1a9012"
+        },
+        {
+          "path": "/home/amertahat/SPEC_CODE_PROOF/reports/demo/isolette-rust/verification-heat-match.json",
+          "sha256": "2cbcb157371ebc77a098fd45ced6b18c1322bf347e2707716a3288930c84633e"
+        }
+      ],
+      "scope": "Recorded manual component implementation rounds, not an assertion of extra paid model retries",
+      "candidate_id": null,
+      "id": "ebe5ab150ccf40c60e0d29dd2ed08e911c3df7861b1654793fd5cc763031b80c"
+    },
+    {
+      "sequence": 3,
+      "title": "3. Reversed desired bounds admit contradictory guarantees",
+      "observation": "After the match repair, Verus reported10 verified/1error; GUMBOX reported3passed/2failed. Actual shrunk witness: current0,lower1,upper-1,Normal.",
+      "cause": "REQ-MHS-2/3 guards overlap. Actual generated-task English omits EA-OI-6, while original golden heat contract has the same unconstrained guards.",
+      "next_check": "Review the complete English dependency and assumption owner; retain On/Off guarantees. Conditional ordered-bounds proof and producer/system discharge are separate.",
+      "rule_id": "REPAIR-ASSUMPTION-CLOSURE-001",
+      "disposition": "Diagnosis confirmed; proposed premise still pending approval.",
+      "evidence": [
+        {
+          "path": "/home/amertahat/SPEC_CODE_PROOF/reports/demo/isolette-rust/verification-heat-match.json",
+          "sha256": "2cbcb157371ebc77a098fd45ced6b18c1322bf347e2707716a3288930c84633e"
+        },
+        {
+          "path": "/home/amertahat/SPEC_CODE_PROOF/reports/demo/isolette-rust/HEAT_GUARD_DIAGNOSIS.json",
+          "sha256": "434147afb9a3015ce8f797db3b4575893612beba7c6767a03e412b59730653b5"
+        },
+        {
+          "path": "/home/amertahat/SPEC_CODE_PROOF/reports/demo/isolette-rust/ACTUAL_GENERATION_ENGLISH.txt",
+          "sha256": "5b45a34cbdc85a119ae23ef964ca0b974aafcb55ecee5e3516ccc77c8d2c56b0"
+        }
+      ],
+      "scope": "Recorded manual component implementation rounds, not an assertion of extra paid model retries",
+      "candidate_id": "4f3a4d4c932bf1223ee403373bd56648f303c1edb6dc6983cae47446200be157",
+      "id": "d7275480fb1e9de093c888cafcf6bd09ba32871f012a157e8291dfa8d732c523"
+    }
+  ],
+  "book": {
+    "snapshot_id": "a91ae17c68bf723d98d67d84c5a7dcc7a6d4cb48f824814c692eacdfb61ed739",
+    "directory": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/app/learned-rulebooks/a91ae17c68bf723d98d67d84c5a7dcc7a6d4cb48f824814c692eacdfb61ed739",
+    "candidate_count": 26,
+    "state": "DRAFT_NOT_PUBLISHED",
+    "files": [
+      "rulebook.json",
+      "RULEBOOK.md"
+    ],
+    "content_hashes": {
+      "rulebook.json": "f2013f930d7976015c38f5ea3d0e2dc59d343a0e3e7d7d3f02b86f87c2a10b37",
+      "RULEBOOK.md": "d19b3bf43ee30a8359880d7b265b59ee16ca13e56fe719f5a862356d7097a1fe"
+    },
+    "id": "e25f9725ad31315fef5eb4bec64a74340e32da390053d212831c4ae9e6d540de"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "source": "reports/demo/isolette-revised-generated-Regulate.sysml",
+  "source_sha256": "a472cc40b17a82653547213d6654cd80851b037e4f378920dc09dd32e72aa361",
+  "method": "Exhaustive enumeration of3 output modes for3 explicit input witnesses using manually transcribed two-guard semantics",
+  "scope": "Local guard consistency only; not automatically extracted GUMBO semantics, reachable-state proof, complete contract satisfiability or whole-system acceptance",
+  "cases": [
+    {
+      "previous_mode": "INIT",
+      "regulator_healthy": true,
+      "previous_duration_seconds": 0.5,
+      "REQ_MRM_2_guard": true,
+      "REQ_MRM_4_guard": false,
+      "allowed_outputs_for_these_two_guarantees": [
+        "NORMAL"
+      ]
+    },
+    {
+      "previous_mode": "INIT",
+      "regulator_healthy": false,
+      "previous_duration_seconds": 1.1,
+      "REQ_MRM_2_guard": false,
+      "REQ_MRM_4_guard": true,
+      "allowed_outputs_for_these_two_guarantees": [
+        "FAILED"
+      ]
+    },
+    {
+      "previous_mode": "INIT",
+      "regulator_healthy": true,
+      "previous_duration_seconds": 1.1,
+      "REQ_MRM_2_guard": true,
+      "REQ_MRM_4_guard": true,
+      "allowed_outputs_for_these_two_guarantees": []
+    }
+  ],
+  "result": "Healthy expired INIT admits no output satisfying both guarantees",
+  "next_step": "Review transition priority or justify/prove this pre-state unreachable using actual timing and execution semantics. Do not silently add an assumption.",
+  "model_calls": 0,
+  "whole_system_acceptance": false
+}

@@ -1,0 +1,141 @@
+{
+  "run": {
+    "id": "1e095cd8c50345f8afb3adb614719aa0",
+    "state": "FAILED",
+    "config": {
+      "architecture_policy": null,
+      "assistance": "automatic",
+      "budget": {
+        "aggregate_model_tokens": 1000000,
+        "concurrent_model_calls": 1,
+        "enforcement": "strict",
+        "final_validation_time_reserve": 0.2,
+        "repairs_per_issue": 3,
+        "repairs_per_run": 8,
+        "wall_seconds": 300
+      },
+      "creation_authorized": false,
+      "dataset_assignment": null,
+      "dataset_task": null,
+      "development_validation": null,
+      "final_evaluation": null,
+      "hamr_platform": "Microkit",
+      "input_files": [
+        "Devices.sysml",
+        "Isolette.sysml",
+        "Isolette_Data_Model.sysml",
+        "Isolette_Environment.sysml",
+        "Monitor.sysml",
+        "Operator_Interface.sysml",
+        "Regulate.sysml",
+        "Thermostat.sysml",
+        "sysml-aadl-libraries_1/aadl.library/AADL.sysml",
+        "sysml-aadl-libraries_1/aadl.library/AADL_Project.sysml",
+        "sysml-aadl-libraries_1/aadl.library/Base_Types.sysml",
+        "sysml-aadl-libraries_1/aadl.library/Communication_Properties.sysml",
+        "sysml-aadl-libraries_1/aadl.library/Data_Model.sysml",
+        "sysml-aadl-libraries_1/aadl.library/Deployment_Properties.sysml",
+        "sysml-aadl-libraries_1/aadl.library/Memory_Properties.sysml",
+        "sysml-aadl-libraries_1/aadl.library/Programming_Properties.sysml",
+        "sysml-aadl-libraries_1/aadl.library/Thread_Properties.sysml",
+        "sysml-aadl-libraries_1/aadl.library/Timing_Properties.sysml",
+        "sysml-aadl-libraries_1/aadl.library/behavior_properties.sysml",
+        "sysml-aadl-libraries_1/hamr.aadl.library/CASE_Scheduling.sysml",
+        "sysml-aadl-libraries_1/hamr.aadl.library/HAMR.sysml",
+        "sysml-aadl-libraries_1/hamr.aadl.library/HAMR_AADL.sysml",
+        "sysml-aadl-libraries_1/hamr.aadl.library/HAMR_Microkit.sysml",
+        "sysml-aadl-libraries_1/hamr.aadl.library/HAMR_Time_Units.sysml"
+      ],
+      "integration_solver": "cvc5",
+      "learning_materials": null,
+      "mode": "user",
+      "model": {
+        "family": "gpt",
+        "requested_profile": "astra",
+        "resolved_model_id": null
+      },
+      "model_file": "Isolette.sysml",
+      "naming_policy": "preserve-existing",
+      "paid_runs_authorized": false,
+      "project": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/isolette-rust/model",
+      "rename_authorized": false,
+      "repair_allowed_files": [],
+      "required_gates": [
+        "parse_type",
+        "architecture_capture",
+        "integration_constraints",
+        "hamr_codegen"
+      ],
+      "requirement_ledger": null,
+      "resolved_operation": "verify-only",
+      "rule_release": null,
+      "schema_version": 1,
+      "sireum": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/tools/sireum-4.20260810.80aad0c2/Sireum/bin/sireum",
+      "sireum_sha256": "29054e657216ba190d51c2beb29a77125886bd48a7a525200cdbf6e4bf1ff6b4",
+      "task_operation": "verify-only",
+      "unit_registry": null
+    },
+    "config_hash": "31f877df626f2c5139e6554d169e099a17c1c7f20d4def7c63588c62729c536c",
+    "created": 1790144970.4472892,
+    "deadline": 1790145270.4472892,
+    "used_tokens": 0,
+    "usage_unknown": 0,
+    "reserved_tokens": 0,
+    "worker": null,
+    "result": {
+      "engineering_accepted": false,
+      "formally_verified_units": 0,
+      "gates": [
+        {
+          "evidence": {
+            "path": "objects/68e6dc22bc4d161038596bf376aa2f85a71d9ce16522eb98bb7ba491f0930b99.json",
+            "sha256": "68e6dc22bc4d161038596bf376aa2f85a71d9ce16522eb98bb7ba491f0930b99"
+          },
+          "gate": "parse_type",
+          "reason": "Type checker completed",
+          "status": "PASS"
+        },
+        {
+          "evidence": {
+            "path": "objects/b193e602c5cf4081de53d0ab17af0bafda24e3d94cfdb70c9183fbfff123030d.json",
+            "sha256": "b193e602c5cf4081de53d0ab17af0bafda24e3d94cfdb70c9183fbfff123030d"
+          },
+          "gate": "architecture_capture",
+          "reason": "Instantiated AIR and resolved declarations captured; no conformance claim",
+          "snapshot_id": "4aaf58354fa46b94fc5437ab475b33c9f70c9fe411a5633d3cf2606c0fa4f7b1",
+          "status": "PASS"
+        },
+        {
+          "evidence": {
+            "path": "objects/ceb83e712a22adcf7bc9734c51f8016d8a32fef3558b8894d3c0f98522fe5e13.json",
+            "sha256": "ceb83e712a22adcf7bc9734c51f8016d8a32fef3558b8894d3c0f98522fe5e13"
+          },
+          "gate": "integration_constraints",
+          "reason": "No completed nonempty integration-constraint verification established",
+          "status": "UNKNOWN"
+        },
+        {
+          "evidence": {
+            "path": "objects/ec9df874d8e1a88eea1dc14e7dc202b0477acbf541f9ce8adbde321dace64ffd.json",
+            "sha256": "ec9df874d8e1a88eea1dc14e7dc202b0477acbf541f9ce8adbde321dace64ffd"
+          },
+          "gate": "hamr_codegen",
+          "reason": "HAMR tool returned a nonzero status; inspect recorded diagnostics",
+          "status": "FAIL"
+        }
+      ],
+      "model_calls": 0,
+      "project_status": "NOT_ASSESSED",
+      "scope": "Selected checks only; no application or live-demo completion claim",
+      "task_status": "FAILED"
+    },
+    "version": 4,
+    "remaining_seconds": 233.78609371185303,
+    "remaining_tokens": 1000000,
+    "source_changed": [],
+    "evidence_current_for_source": true,
+    "policy_current": true
+  },
+  "elapsed_seconds": 66.22942786998465,
+  "model_calls": 0
+}

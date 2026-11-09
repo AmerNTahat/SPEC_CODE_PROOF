@@ -1,0 +1,2 @@
+fresh_generated CHECKED [('parse_type', 'PASS', 'Type checker completed'), ('architecture_capture', 'PASS', 'Instantiated AIR and resolved declarations captured; no conformance claim')]
+approved_reference CHECKED [('parse_type', 'PASS', 'Type checker completed'), ('architecture_capture', 'PASS', 'Instantiated AIR and resolved declarations captured; no conformance claim')]

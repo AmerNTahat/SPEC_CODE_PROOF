@@ -1,0 +1,70 @@
+\subsection{Source Lines by File Role}
+\label{app:source-role-counts}
+The authors' local source audit classifies each file once by its primary purpose, including test-related files under \path{src/main}. Tables~\ref{tab:role-model}, \ref{tab:role-rust}, and~\ref{tab:role-slang} report aggregate counts as lines (files). Lines are nonblank physical source lines after removal of ordinary comments. The classification counts whole files. For example, serialization, interface, and conditional-test files may contain lines serving more than one purpose. The model rows include GUMBO contracts, and the implementation roles can include embedded contracts and proofs. The local audit tabulates shared SysML libraries and C/header support separately. The authors retain the per-file classification CSV locally. This appendix provides the aggregate counts.
+
+\begin{table}[!htbp]
+\caption{SysML v2 and GUMBO source by recorded model snapshot.}
+\label{tab:role-model}
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{.68\linewidth}r@{}}
+\toprule
+Model snapshot & Lines (files) \\
+\midrule
+Isolette successful Rust/Microkit build & 936 (8) \\
+Producer/Consumer Rust/Microkit resumption & 73 (1) \\
+Producer/Consumer paired $K^{+}$ JVM generation & 73 (1) \\
+SNG model shared by both backends & 202 (5) \\
+Isolette current retained model & 846 (8) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[!htbp]
+\caption{Rust/Verus source by file role in the three successful build inventories. P/C denotes Producer/Consumer.}
+\label{tab:role-rust}
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{.50\linewidth}rrr@{}}
+\toprule
+Role & \shortstack[r]{Isolette\\build} & \shortstack[r]{P/C\\resumption} & \shortstack[r]{SNG\\build} \\
+\midrule
+Component implementation and embedded contracts & 833 (11) & 106 (2) & 291 (2) \\
+Runtime sender/receiver components & 0 & 0 & 133 (2) \\
+Port APIs and foreign-interface code & 2,683 (22) & 197 (4) & 478 (8) \\
+Module, logging, and runtime support & 1,067 (44) & 194 (8) & 386 (16) \\
+Executable contract checkers & 1,682 (11) & 120 (2) & 454 (2) \\
+Data types and supporting definitions & 188 (15) & 35 (5) & 53 (6) \\
+Dedicated tests and test support & 4,974 (66) & 537 (12) & 944 (22) \\
+\midrule
+\textbf{Total} & \textbf{11,427 (169)} & \textbf{1,189 (33)} & \textbf{2,739 (58)} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[!htbp]
+\caption{Slang/Scala source by file role in the retained Isolette project, the Producer/Consumer guided JVM checkpoint, and the SNG build.}
+\label{tab:role-slang}
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{.50\linewidth}rrr@{}}
+\toprule
+Role & \shortstack[r]{Isolette\\retained} & \shortstack[r]{P/C\\paired $K^{+}$} & \shortstack[r]{SNG\\build} \\
+\midrule
+Component entrypoints and embedded contracts & 777 (15) & 37 (2) & 92 (2) \\
+Environment simulation, runtime observation, and monitoring & 2,741 (35) & 0 & 53 (2) \\
+Architecture, port APIs, and bridges & 2,775 (27) & 502 (9) & 826 (13) \\
+Contract checkers and state containers & 1,107 (20) & 103 (5) & 205 (5) \\
+Serialization and data utilities & 7,806 (16) & 2,458 (5) & 2,589 (6) \\
+Test cases, harnesses, and support & 5,394 (106) & 864 (20) & 986 (26) \\
+Test-data generators & 8,777 (15) & 3,522 (6) & 3,645 (6) \\
+Bundled ART runtime library & 1,796 (28) & 1,796 (28) & 1,796 (28) \\
+\midrule
+\textbf{Total} & \textbf{31,173 (262)} & \textbf{9,282 (75)} & \textbf{10,192 (88)} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The retained Isolette model (846 lines) and Slang/Scala project (31,173 lines) total 32,019 lines in 270 files. The successful Rust build has its own 936-line model and 11,427 Rust/Verus lines, totaling 12,363 lines.
+
+SNG has 1,930 lines of dedicated tests, harnesses, and support across both backends. Its test-data generators contribute another 3,645 lines. Together these roles account for 5,575 of 13,133 lines (42.5\%) in the counted build inventory. Table~\ref{tab:sng-completion} reports executed tests in their own units, with 33 Rust test functions and 808 Slang/JVM test cases. The Slang/Scala role inventory classifies 88 SNG files. The matched build and observation inventories record 89 \path{.scala} paths within their 201 paths. The two counts refer to their respective inventories.

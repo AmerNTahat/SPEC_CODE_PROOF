@@ -1,0 +1,40 @@
+\section{Workbench Architecture and Accountability}
+\label{sec:architecture}
+
+\begin{figure}[t]
+\centering
+\input{figures/attestation-boundary}
+\caption{Accountability boundary and optional evidence export in \workbench{}~\cite{scpCheckpoint,intotoStatement,dsse}. The worker proposes artifacts; host services record checks and create a signed claim about selected evidence. Steps 1--4 prepare and export that record; step 5 checks it against independently supplied policy and trusted keys. A signature establishes the integrity and origin of the signed record. Local human authorization and acceptance of engineering obligations require their own recorded decisions and checks.}
+\Description{A model worker proposes artifacts across an authority boundary. The host snapshots and checks inputs, constructs a statement, signs it, exports a bundle, and independently verifies it using supplied policy and keys.}
+\label{fig:attestation}
+\end{figure}
+
+\workbench{} governs a target system's models, code, and proofs (Figure~\ref{fig:engineering-stack}). The worker proposes artifacts; host services retain checks and decisions and optionally export signed evidence (Figure~\ref{fig:attestation})~\cite{scpCheckpoint}.
+
+\subsection{Approved Scope and Campaign Records}
+At setup, the engineer approves the \emph{scope}: the obligations, assumptions, required checks, and limits for the task. Acceptance requires every mandatory check in that scope to pass on current reviewed contents with matching approval. Authorized exclusions retain their reasons and failed evidence without verification credit.
+
+The algorithms use $\mathcal{C}$ for the \emph{campaign record}: requirements and sources, artifact and rule versions, checks, decisions, scope, and resource consumption. A requirement table links source passages to their interpretation and evidence. Identifiers retrieve these records; fingerprints identify the exact contents checked or approved. Records also name the agent or human responsible for a proposal, check, or decision. Section~\ref{sec:fidelity} follows this review process, and Section~\ref{sec:attestation} explains authorization and signed export.
+
+\subsection{Execution Environments and Shared Records}
+\label{sec:execution-environments}
+The execution service prepares inputs, invokes tools, and retains results. The engineer delegates generation, checks, and permitted repairs within approved limits on scope, time, tokens, and access to files and context. Changes to requirements, assumptions, or limits require a decision tied to the affected revision. The Python package exposes these services through the browser and command-line interface~\cite{scpCheckpoint}. The measured Workbench snapshot contains 8,255 implementation lines across 51 Python files (Appendix~\ref{app:evaluation-details}).
+
+For example, \texttt{generate\_and\_check}$(t,c)$ in \texttt{development.py} processes task $t$ within campaign $c$, a group of tasks sharing resource limits. It checks approval and input versions, requests a budgeted proposal, prepares its workspace, and runs configured checks. The archive links each result to the task, model call, source inventory, command, and diagnostics. On continuation, the controller checks the current inputs and approval and carries prior charges forward.
+
+Each case and comparison arm starts in a separate workspace. The host assembles the dispatch from declared task files and selected rule versions. An authorized continuation can pass the preceding candidate and diagnostics as inputs to a fresh worker. In the audited SNG runs the worker used an ephemeral Codex session, a temporary worker home, a cleared environment, allowlisted mounts, and selected context supplied through standard input. Tool network access was disabled. Formal checks use separate output directories, and common tool installations and caches can be shared. Runtime scripts build images in containers and launch configured QEMU guests. The host archive retains workspace identities, inputs, commands, outcomes, and observation scopes~\cite{scpCheckpoint,checkpointResults}.
+
+These workspaces and their linked records also supply the experience used for learning. Verbalization turns selected requirements, attempts, diagnostics, and checked results into written lessons that can guide later work within the campaign or on another system (Section~\ref{sec:learning}).
+
+\begin{figure}[t]
+\centering
+\input{figures/control-handoff}
+\caption{Illustrative controlled handoff in \workbench{}~\cite{scpCheckpoint}. The eight numbered exchanges connect approved setup, bounded proposals, host checks, evidence retrieval, and recorded human decisions. The worker and host have separate responsibilities; a review request (5) and the recorded review decision (6) are separate records. Each subsequent task receives the selected rule revision and available allowance (2, 8), while prior outcomes and consumption remain linked to the case. Section~\ref{sec:control-handoff} follows the same numbers.}
+\Description{Eight numbered interactions connect operator setup, agent proposals, host checks, evidence recording, review requests, decisions, retrieval, and continuation under remaining allowance.}
+\label{fig:control-handoff}
+\end{figure}
+
+
+
+
+

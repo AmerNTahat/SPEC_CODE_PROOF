@@ -1,0 +1,11 @@
+{
+  "version": "4.20260810.80aad0c2",
+  "asset_id": 514997664,
+  "asset_updated_at": "2026-08-14T22:22:57Z",
+  "download_url": "https://github.com/sireum/kekinian/releases/download/4.20260810.80aad0c2/sireum-cli-linux-amd64.tar.xz",
+  "sha256": "153a140b7fad24a17bfc9d7ce2d6cee8a3e41df2b400e34ba38a73b4bb81cb9d",
+  "publisher_digest_matched": true,
+  "directory": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/tools/sireum-4.20260810.80aad0c2/Sireum",
+  "elapsed_seconds": 12.007489757001167,
+  "scope": "Official CLI distribution unpacked in a new directory following documented manual binary path. Full installer not executed because it replaces DIR and writes Maven artifacts under HOME. No original installation replaced; compatibility not yet established."
+}

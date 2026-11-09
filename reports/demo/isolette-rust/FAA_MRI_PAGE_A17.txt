@@ -1,0 +1,44 @@
+The requirements for the Display Temperature controlled variable are as follows:
+
+•      REQ-MRI-4: If the Regulator Mode is NORMAL, the Display Temperature shall be set
+       to the value of the Current Temperature rounded to the nearest integer.
+       Rationale: Displaying the rounded value of the Current Temperature provides the the
+       most accurate display of the Current Temperature possible using an integer display.
+       When combined with the accuracy of the Temperature Sensor (EA-TS-2), the Display
+       Temperature should be within 0.6°F of the actual value.
+
+•      REQ-MRI-5: If the Regulator Mode is not NORMAL, the value of the Display
+       Temperature is UNSPECIFIED.
+       Rationale: In modes other than NORMAL, the value of Display Temperature is not
+       meaningful and should not be used.
+       Latency: < Max Operator Response Time
+       Tolerance: ±0.6°F
+
+The requirements for the Regulator Interface Failure internal variable are as follows:
+
+•      REQ-MRI-6: If the Status attribute of the Lower Desired Temperature or the Upper
+       Desired Temperature is Invalid, the Regulator Interface Failure shall be set to True.
+
+•      REQ-MRI-7: If the Status attribute of the Lower Desired Temperature and the Upper
+       Desired Temperature is Valid, the Regulator Interface Failure shall be set to False.
+       Rationale: The Regulator Interface Failure internal variable indicates if any errors have
+       occurred in sensing the Operator Interface monitored variables needed by the Regulate
+       Temperature Function. Note that its initial value on power-up will always be True since
+       the Status of the Lower Desired Temperature and the Upper Desired Temperature are
+       initially Invalid.
+
+The requirements for the Desired Range internal variable are as follows:
+
+•      REQ-MRI-8: If the Regulator Interface Failure is False, the Desired Range shall be set to
+       the Desired Temperature Range.
+
+•      REQ-MRI-9: If the Regulator Interface Failure is True, the Desired Range is
+       UNSPECIFIED.
+       Rationale: The Desired Range is only meaningful when there is not a Regulator Interface
+       Failure. If there is, its value should not be used, and it can be set to any value.
+
+
+
+
+                                            A-17
+

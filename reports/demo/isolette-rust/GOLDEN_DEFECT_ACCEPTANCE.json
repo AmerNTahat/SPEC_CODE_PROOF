@@ -1,0 +1,102 @@
+{
+  "case_key": "ec8aae9f85a81f3127fed2992febc9da1624c087fb723e2d3519f538fc1964c0",
+  "revision": 2,
+  "contradiction_report": "/home/amertahat/SPEC_CODE_PROOF/reports/demo/isolette-rust/HEAT_GUARD_DIAGNOSIS.json",
+  "title": "Isolette heat-control golden contradiction: desired-bound ordering",
+  "target": "Isolette/Regulate/Manage_Heat_Source",
+  "requirement_ids": [
+    "REQ-MHS-2",
+    "REQ-MHS-3"
+  ],
+  "comment": "Discovered golden defect: the original Regulate heat contract admits reversed bounds, making its On/Off guarantees contradictory. Human-curated strict ordering repair follows FAA EA-OI-6 rationale. Count this checked conditional component repair separately from an unchanged golden pass.",
+  "human_consent": "User: I agree on strict lower<upper ordering; apply the repair, make a meta-rule, cite the discovered golden contradiction and guidebook, and count the checked repair as repaired-golden-defect accepted by human. Original golden preserved.",
+  "citations": [
+    {
+      "path": "isolette/sysml/Regulate.sysml",
+      "lines": "384-393",
+      "description": "Original contradictory compute-case guards without local ordering premise"
+    },
+    {
+      "path": "reports/demo/isolette-rust/ACTUAL_GENERATION_ENGLISH.txt",
+      "lines": "237-241",
+      "description": "Selected English MHS2/3, missing EA-OI6 dependency"
+    },
+    {
+      "path": "reports/demo/behavior-review/PREPARED_ENGLISH_WITH_DEPENDENCIES.md",
+      "lines": "426-430",
+      "description": "FAA AR-08-32 EA-OI-6 ordering rationale; PDF102/printedA11"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "/home/amertahat/SPEC_CODE_PROOF/isolette/sysml/Regulate.sysml",
+      "sha256": "6828c7fe1ae531b1dbc62938014dad1450a05ae04997817914aa369fd3865872"
+    },
+    {
+      "path": "/home/amertahat/SPEC_CODE_PROOF/reports/demo/isolette-rust/ACTUAL_GENERATION_ENGLISH.txt",
+      "sha256": "5b45a34cbdc85a119ae23ef964ca0b974aafcb55ecee5e3516ccc77c8d2c56b0"
+    },
+    {
+      "path": "/home/amertahat/SPEC_CODE_PROOF/reports/demo/behavior-review/PREPARED_ENGLISH_WITH_DEPENDENCIES.md",
+      "sha256": "af39cfb313875822bf61f28bfdde22113d28726e544d8f53969fd1bf79446f23"
+    },
+    {
+      "path": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/isolette-rust/ordered-bounds/Regulate.sysml",
+      "sha256": "98a674fed06551332f0f6ed0cb40cce83dee583618f5dfdf191e0a994caba38c"
+    },
+    {
+      "path": "/home/amertahat/SPEC_CODE_PROOF/reports/demo/isolette-rust/ordered-bounds-ACCEPTED.patch",
+      "sha256": "713347b5a6be26184c19a2fd5fd59006a4726c7710588da6f6b02fd193a7e3ed"
+    },
+    {
+      "path": "/home/amertahat/SPEC_CODE_PROOF/reports/demo/isolette-rust/ordered-bounds-generated-contract-sync.patch",
+      "sha256": "40079274f4da7fb428faf38735fc338d5283e5e17ba735c43a2f387cd237fe31"
+    },
+    {
+      "path": "/home/amertahat/SPEC_CODE_PROOF/reports/demo/isolette-rust/ordered-bounds-checks.json",
+      "sha256": "ff4937de1af748cd7017e88db0bf2ecf99929cfb57a67ca9e1dacb73b49d9255"
+    },
+    {
+      "path": "/home/amertahat/SPEC_CODE_PROOF/reports/demo/isolette-rust/verification-ordered-bounds-synced.json",
+      "sha256": "853d91d760f4ba45dc8cf5f436a45fa5772c79b18949461d0db628137026eabe"
+    },
+    {
+      "path": "/home/amertahat/SPEC_CODE_PROOF/reports/demo/isolette-rust/HEAT_GUARD_DIAGNOSIS.json",
+      "sha256": "434147afb9a3015ce8f797db3b4575893612beba7c6767a03e412b59730653b5"
+    },
+    {
+      "path": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/isolette-rust/reference-ordered-bounds/Regulate.sysml",
+      "sha256": "c9151838094521efa6e04d065954a4dfcb5e19b9183856a44f752b1d52f5b958"
+    },
+    {
+      "path": "/home/amertahat/SPEC_CODE_PROOF/reports/demo/isolette-rust/golden-ordered-bounds-ACCEPTED.patch",
+      "sha256": "bc2c4cf8c4841d64f4a6ede664045dddbf1adf857734a1525d36616f3a1ce1f0"
+    },
+    {
+      "path": "/home/amertahat/SPEC_CODE_PROOF/reports/demo/isolette-rust/golden-ordered-bounds-checks.json",
+      "sha256": "44c44decfcd4713f89de4e05481c76845879368cd591d7e02aa925bacdbb4291"
+    },
+    {
+      "path": "/home/amertahat/SPEC_CODE_PROOF/reports/demo/isolette-rust/HUMAN_CURATED_HEAT_ENGLISH.md",
+      "sha256": "a20d19c556cfc706136ded2577fbe4f96e4b01d68170d54c284d535046c03b2d"
+    }
+  ],
+  "model_report": "/home/amertahat/SPEC_CODE_PROOF/reports/demo/isolette-rust/ordered-bounds-checks.json",
+  "verification_report": "/home/amertahat/SPEC_CODE_PROOF/reports/demo/isolette-rust/verification-ordered-bounds-synced.json",
+  "component": "thermostat_rt_manage_heat_source_implementation",
+  "open_obligations": [
+    "Producer/operator-interface must establish strict ordering or the system must explicitly require it of the environment.",
+    "Exact FAA one-degree separation is not claimed; this approved repair is strict lower<upper.",
+    "Other Isolette components and sampled-clock/timing obligations remain outside this component result.",
+    "Reuse-rule transfer remains in progress; this is human-curated development evidence."
+  ],
+  "scope": "Conditional component repair of a documented golden contradiction; original evidence retained",
+  "id": "7d0fbd5a55d5e8a0cc15c32921e902f9e2e4204c7ec3f166007d4cf0c295f800",
+  "status": "REPAIRED_GOLDEN_DEFECT_ACCEPTED_BY_HUMAN",
+  "blockers": [],
+  "counts_as_accepted_repair_case": true,
+  "unchanged_golden_pass": false,
+  "whole_system_acceptance": false,
+  "rule_transfer_accepted": false,
+  "criterion": "Cited golden contradiction + explicit human curation + current repaired artifact + passing scoped parser/codegen/Verus/GUMBOX checks. Keep producer/system obligations open."
+}

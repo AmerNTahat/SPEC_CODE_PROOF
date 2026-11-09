@@ -1,0 +1,154 @@
+--- generated-before/Regulate.sysml
++++ supervised-structural-experiment/Regulate.sysml
+@@ -10,6 +10,11 @@
+      * Scheduling and physical integration obligations appear below. */
+ 
+     part def Manage_Regulator_Interface_i :> AADL::Thread {
++        // Human-approved supervised architecture profile; FAA timing remains an open obligation.
++        attribute :>> Dispatch_Protocol = AADL_Project::Supported_Dispatch_Protocols::Periodic;
++        attribute :>> Period = 1000 [HAMR_Time_Units::ms];
++        attribute Domain : CASE_Scheduling::Domain = 3;
++
+         port Current_Temperature : AADL::DataPort { in :>> type : Isolette_Data_Model::TempWstatus_i; }
+         port Lower_Desired_Temperature : AADL::DataPort { in :>> type : Isolette_Data_Model::TempWstatus_i; }
+         port Upper_Desired_Temperature : AADL::DataPort { in :>> type : Isolette_Data_Model::TempWstatus_i; }
+@@ -117,6 +122,11 @@
+     }
+ 
+     part def Manage_Regulator_Mode_i :> AADL::Thread {
++        // Human-approved supervised architecture profile; FAA timing remains an open obligation.
++        attribute :>> Dispatch_Protocol = AADL_Project::Supported_Dispatch_Protocols::Periodic;
++        attribute :>> Period = 1000 [HAMR_Time_Units::ms];
++        attribute Domain : CASE_Scheduling::Domain = 4;
++
+         port Current_Temperature : AADL::DataPort { in :>> type : Isolette_Data_Model::TempWstatus_i; }
+         port Regulator_Interface_Failure : AADL::DataPort { in :>> type : Isolette_Data_Model::Failure_Flag_i; }
+         port Regulator_Internal_Failure : AADL::DataPort { in :>> type : Isolette_Data_Model::Failure_Flag_i; }
+@@ -209,6 +219,11 @@
+     }
+ 
+     part def Manage_Heat_Source_i :> AADL::Thread {
++        // Human-approved supervised architecture profile; FAA timing remains an open obligation.
++        attribute :>> Dispatch_Protocol = AADL_Project::Supported_Dispatch_Protocols::Periodic;
++        attribute :>> Period = 1000 [HAMR_Time_Units::ms];
++        attribute Domain : CASE_Scheduling::Domain = 5;
++
+         port Current_Temperature : AADL::DataPort { in :>> type : Isolette_Data_Model::TempWstatus_i; }
+         port Lower_Desired_Temp : AADL::DataPort { in :>> type : Isolette_Data_Model::Temp_i; }
+         port Upper_Desired_Temp : AADL::DataPort { in :>> type : Isolette_Data_Model::Temp_i; }
+@@ -275,6 +290,11 @@
+     }
+ 
+     part def Detect_Regulator_Failure_i :> AADL::Thread {
++        // Human-approved supervised architecture profile; FAA timing remains an open obligation.
++        attribute :>> Dispatch_Protocol = AADL_Project::Supported_Dispatch_Protocols::Periodic;
++        attribute :>> Period = 1000 [HAMR_Time_Units::ms];
++        attribute Domain : CASE_Scheduling::Domain = 6;
++
+         port Regulator_Internal_Failure : AADL::DataPort { out :>> type : Isolette_Data_Model::Failure_Flag_i; }
+ 
+         language "GUMBO" /*{
+@@ -298,7 +318,7 @@
+         }
+     }
+ 
+-    part def Regulate_Temperature_i :> AADL::Process {
++    part def Regulate_Temperature_i :> AADL::System {
+         port current_tempWstatus : AADL::DataPort { in :>> type : Isolette_Data_Model::TempWstatus_i; }
+         port lower_desired_tempWstatus : AADL::DataPort { in :>> type : Isolette_Data_Model::TempWstatus_i; }
+         port upper_desired_tempWstatus : AADL::DataPort { in :>> type : Isolette_Data_Model::TempWstatus_i; }
+@@ -306,10 +326,10 @@
+         port regulator_status : AADL::DataPort { out :>> type : Isolette_Data_Model::Status; }
+         port displayed_temp : AADL::DataPort { out :>> type : Isolette_Data_Model::Temp_i; }
+ 
+-        part manage_regulator_interface : Manage_Regulator_Interface_i;
+-        part manage_regulator_mode : Manage_Regulator_Mode_i;
+-        part manage_heat_source : Manage_Heat_Source_i;
+-        part detect_regulator_failure : Detect_Regulator_Failure_i;
++        part manage_regulator_interface : Manage_Regulator_Interface_i_Process;
++        part manage_regulator_mode : Manage_Regulator_Mode_i_Process;
++        part manage_heat_source : Manage_Heat_Source_i_Process;
++        part detect_regulator_failure : Detect_Regulator_Failure_i_Process;
+ 
+         connection temperature_to_interface : AADL::FeatureConnection connect
+             current_tempWstatus to manage_regulator_interface.Current_Temperature;
+@@ -387,6 +407,7 @@
+              * tolerance budgets. End-to-end physical obligations remain open. */
+         }
+         requirement Scheduling_Integration {
++            doc /* HUMAN-APPROVED REVISION: explicit reference-derived Periodic1000ms/domains3..6 supersede the old missing-deployment diagnosis below. This does not meet or relax FAA response deadlines; timing remains unresolved. */
+             doc /* Supplied diagnostics report missing Dispatch Protocol for
+              * all four regulator threads and tool fallback to Sporadic.
+              * This fallback is not a source scheduling requirement. Neither
+@@ -398,6 +419,7 @@
+              * before claiming executable real-time regulation. */
+         }
+         requirement Architecture_Review {
++            doc /* HUMAN-APPROVED REVISION: the former four-thread Process is now a System with four single-thread Process wrappers. The following diagnostic is retained as historical context, not the current architecture claim. */
+             doc /* Review of the supplied generated architecture excerpt:
+              * manage_regulator_interface and detect_regulator_failure appear
+              * under anIncubator.thermostat.rt with the retained classifiers
+@@ -426,5 +448,63 @@
+         }
+     }
+ 
++    part def Manage_Regulator_Interface_i_Process :> AADL::Process {
++        part worker : Manage_Regulator_Interface_i;
++        attribute Domain : CASE_Scheduling::Domain = 3;
++        port Current_Temperature : AADL::DataPort { in :>> type : Isolette_Data_Model::TempWstatus_i; }
++        connection forward_Current_Temperature : AADL::FeatureConnection connect Current_Temperature to worker.Current_Temperature;
++        port Lower_Desired_Temperature : AADL::DataPort { in :>> type : Isolette_Data_Model::TempWstatus_i; }
++        connection forward_Lower_Desired_Temperature : AADL::FeatureConnection connect Lower_Desired_Temperature to worker.Lower_Desired_Temperature;
++        port Upper_Desired_Temperature : AADL::DataPort { in :>> type : Isolette_Data_Model::TempWstatus_i; }
++        connection forward_Upper_Desired_Temperature : AADL::FeatureConnection connect Upper_Desired_Temperature to worker.Upper_Desired_Temperature;
++        port Regulator_Mode : AADL::DataPort { in :>> type : Isolette_Data_Model::Regulator_Mode; }
++        connection forward_Regulator_Mode : AADL::FeatureConnection connect Regulator_Mode to worker.Regulator_Mode;
++        port Regulator_Status : AADL::DataPort { out :>> type : Isolette_Data_Model::Status; }
++        connection forward_Regulator_Status : AADL::FeatureConnection connect worker.Regulator_Status to Regulator_Status;
++        port Display_Temperature : AADL::DataPort { out :>> type : Isolette_Data_Model::Temp_i; }
++        connection forward_Display_Temperature : AADL::FeatureConnection connect worker.Display_Temperature to Display_Temperature;
++        port Lower_Desired_Temp : AADL::DataPort { out :>> type : Isolette_Data_Model::Temp_i; }
++        connection forward_Lower_Desired_Temp : AADL::FeatureConnection connect worker.Lower_Desired_Temp to Lower_Desired_Temp;
++        port Upper_Desired_Temp : AADL::DataPort { out :>> type : Isolette_Data_Model::Temp_i; }
++        connection forward_Upper_Desired_Temp : AADL::FeatureConnection connect worker.Upper_Desired_Temp to Upper_Desired_Temp;
++        port Regulator_Interface_Failure : AADL::DataPort { out :>> type : Isolette_Data_Model::Failure_Flag_i; }
++        connection forward_Regulator_Interface_Failure : AADL::FeatureConnection connect worker.Regulator_Interface_Failure to Regulator_Interface_Failure;
++    }
++
++    part def Manage_Regulator_Mode_i_Process :> AADL::Process {
++        part worker : Manage_Regulator_Mode_i;
++        attribute Domain : CASE_Scheduling::Domain = 4;
++        port Current_Temperature : AADL::DataPort { in :>> type : Isolette_Data_Model::TempWstatus_i; }
++        connection forward_Current_Temperature : AADL::FeatureConnection connect Current_Temperature to worker.Current_Temperature;
++        port Regulator_Interface_Failure : AADL::DataPort { in :>> type : Isolette_Data_Model::Failure_Flag_i; }
++        connection forward_Regulator_Interface_Failure : AADL::FeatureConnection connect Regulator_Interface_Failure to worker.Regulator_Interface_Failure;
++        port Regulator_Internal_Failure : AADL::DataPort { in :>> type : Isolette_Data_Model::Failure_Flag_i; }
++        connection forward_Regulator_Internal_Failure : AADL::FeatureConnection connect Regulator_Internal_Failure to worker.Regulator_Internal_Failure;
++        port Regulator_Mode : AADL::DataPort { out :>> type : Isolette_Data_Model::Regulator_Mode; }
++        connection forward_Regulator_Mode : AADL::FeatureConnection connect worker.Regulator_Mode to Regulator_Mode;
++    }
++
++    part def Manage_Heat_Source_i_Process :> AADL::Process {
++        part worker : Manage_Heat_Source_i;
++        attribute Domain : CASE_Scheduling::Domain = 5;
++        port Current_Temperature : AADL::DataPort { in :>> type : Isolette_Data_Model::TempWstatus_i; }
++        connection forward_Current_Temperature : AADL::FeatureConnection connect Current_Temperature to worker.Current_Temperature;
++        port Lower_Desired_Temp : AADL::DataPort { in :>> type : Isolette_Data_Model::Temp_i; }
++        connection forward_Lower_Desired_Temp : AADL::FeatureConnection connect Lower_Desired_Temp to worker.Lower_Desired_Temp;
++        port Upper_Desired_Temp : AADL::DataPort { in :>> type : Isolette_Data_Model::Temp_i; }
++        connection forward_Upper_Desired_Temp : AADL::FeatureConnection connect Upper_Desired_Temp to worker.Upper_Desired_Temp;
++        port Regulator_Mode : AADL::DataPort { in :>> type : Isolette_Data_Model::Regulator_Mode; }
++        connection forward_Regulator_Mode : AADL::FeatureConnection connect Regulator_Mode to worker.Regulator_Mode;
++        port Heat_Control : AADL::DataPort { out :>> type : Isolette_Data_Model::On_Off; }
++        connection forward_Heat_Control : AADL::FeatureConnection connect worker.Heat_Control to Heat_Control;
++    }
++
++    part def Detect_Regulator_Failure_i_Process :> AADL::Process {
++        part worker : Detect_Regulator_Failure_i;
++        attribute Domain : CASE_Scheduling::Domain = 6;
++        port Regulator_Internal_Failure : AADL::DataPort { out :>> type : Isolette_Data_Model::Failure_Flag_i; }
++        connection forward_Regulator_Internal_Failure : AADL::FeatureConnection connect worker.Regulator_Internal_Failure to Regulator_Internal_Failure;
++    }
++
+     alias Regulate_i for Regulate_Temperature_i;
+ }

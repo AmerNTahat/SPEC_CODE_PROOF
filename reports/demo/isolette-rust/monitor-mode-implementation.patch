@@ -1,0 +1,30 @@
+--- generated/thermostat_mt_mmm_mmm_app.rs
++++ implemented/thermostat_mt_mmm_mmm_app.rs
+@@ -32,6 +32,8 @@
+         // END MARKER INITIALIZATION ENSURES
+     {
+       log_info("initialize entrypoint invoked");
++      self.lastMonitorMode = Isolette_Data_Model::Monitor_Mode::Init_Monitor_Mode;
++      api.put_monitor_mode(Isolette_Data_Model::Monitor_Mode::Init_Monitor_Mode);
+     }
+ 
+     pub fn timeTriggered<API: thermostat_mt_mmm_mmm_Full_Api> (
+@@ -74,6 +76,18 @@
+         // END MARKER TIME TRIGGERED ENSURES
+     {
+       log_info("compute entrypoint invoked");
++      let temperature = api.get_current_tempWstatus();
++      let interface_failure = api.get_interface_failure();
++      let internal_failure = api.get_internal_failure();
++      let valid = match temperature.status { Isolette_Data_Model::ValueStatus::Valid => true, _ => false };
++      let healthy = valid && !interface_failure.flag && !internal_failure.flag;
++      let next = match self.lastMonitorMode {
++        Isolette_Data_Model::Monitor_Mode::Init_Monitor_Mode => if healthy { Isolette_Data_Model::Monitor_Mode::Normal_Monitor_Mode } else { Isolette_Data_Model::Monitor_Mode::Init_Monitor_Mode },
++        Isolette_Data_Model::Monitor_Mode::Normal_Monitor_Mode => if healthy { Isolette_Data_Model::Monitor_Mode::Normal_Monitor_Mode } else { Isolette_Data_Model::Monitor_Mode::Failed_Monitor_Mode },
++        Isolette_Data_Model::Monitor_Mode::Failed_Monitor_Mode => Isolette_Data_Model::Monitor_Mode::Failed_Monitor_Mode,
++      };
++      self.lastMonitorMode = next;
++      api.put_monitor_mode(next);
+     }
+ 
+     pub fn notify(

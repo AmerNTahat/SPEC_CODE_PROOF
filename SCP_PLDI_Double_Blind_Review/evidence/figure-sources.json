@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "purpose": "Source attribution for the main requirements-review workflow and the semantic-prediction and budget appendix drawings.",
+  "sources": [
+    {
+      "id": "D1",
+      "description": "DASC slide deck; slides 7 and 12 inspected",
+      "sha256": "123470cc2b3c9733128e9f65263e5a4b9ea250f43309bf4b6bad1f414889f864"
+    },
+    {
+      "id": "D2",
+      "description": "DASC PDF; slide 7 inspected",
+      "sha256": "79c06423efccc9996bd6422ca89f4e13fbf95df2e45fcd9b2d06bac1b31853dc"
+    },
+    {
+      "id": "D3",
+      "description": "Unmodified image extracted from slide 12, ppt/media/image4.png",
+      "sha256": "6747fdd9485cbbdd48d4997cff60d61457185750a424a6b00d50a7b5df846d87"
+    }
+  ],
+  "reuse": "The manuscript drawings adapt the cited conceptual structures. The DASC slide 12 redraw retains the reviewed reference, candidate directions and applicability boundary; green checks indicate favorable prediction followed by formal assurance, and red crosses indicate refinement or review.",
+  "references": {
+    "CLOVER": "https://theory.stanford.edu/~barrett/pubs/SSP%2B24.pdf",
+    "ARc": "https://arxiv.org/abs/2511.09008v2",
+    "RPM": "https://arxiv.org/abs/2608.13940v2",
+    "HyperAgents": "https://arxiv.org/abs/2603.19461v1"
+  },
+  "measurement_scope": "DASC branch counts, curve, candidate positions and prediction marks are illustrative. The comparison plot uses the separate measured-data extract.",
+  "background_snapshot": {
+    "file": "assets/dasc-branching-snapshot.png",
+    "source": "DASC 2026 presentation draft, slide 9, base comparison panels",
+    "source_sha256": "e2fda43a578aa5bb3c8ce7dea6b21a5157bf9d6a00260fa21467165a68e1c63a",
+    "crop_pdf_points": [
+      33,
+      98,
+      927,
+      452
+    ],
+    "render_scale": 3,
+    "source_state": "Both late-checking and guided-repair panels; later adaptation-round animation overlays excluded.",
+    "rendered_asset_sha256": "802bec07007a9f3f0c24bb43a582906d32b4c74402f5ce098d52943dbbef31c2",
+    "interpretation": "Illustrative branch counts and schematic check failures."
+  },
+  "requirements_flow": {
+    "file": "figures/requirements-review-flow.tex",
+    "conceptual_source": "Bayless et al., ARc, Figure 1 (page 4)",
+    "artwork": "Original TikZ drawing of the SCP Workbench stages and feedback.",
+    "prediction_status": "The joint agreement and cost predictor is proposed."
+  }
+}

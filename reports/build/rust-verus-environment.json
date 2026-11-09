@@ -1,0 +1,20 @@
+{
+  "host_rust": "INSTALLED_ISOLATED_1.92.0",
+  "host_verus": "INSTALLED_BUT_HOST_GLIBC_INCOMPATIBLE",
+  "execution_profile": "REUSED_EXISTING_KSU_CONTAINER",
+  "image": "jasonbelt/microkit_provers@sha256:bab407fd7f4aac24d7bee1234cd6bab9b6a29df380c2f0491af8e3ed1888a405",
+  "rust": "1.92.0",
+  "verus": "0.2026.01.23.1650a05",
+  "sdk": "Existing default1.4.1 passes image build; alternate2.1 rejects domain_schedule XML",
+  "initial_audit_limitation": "Container toolchain was discovered after host Rust installation; it was not on host PATH. No existing tool was replaced.",
+  "original_sireum": "REUSED_UNCHANGED",
+  "codex": "REUSED_UNCHANGED_0.155.1",
+  "model_tokens_this_work": 0,
+  "checks": [
+    "reports/build/ksu-container-checks.json",
+    "reports/build/ksu-container-engineering.json",
+    "reports/build/ksu-container-repair.json",
+    "reports/build/ksu-container-sdk141.json"
+  ],
+  "whole_system_acceptance": false
+}

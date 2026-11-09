@@ -1,0 +1,150 @@
+{
+  "scope": "Actual upgraded checks of historical generated Isolette source, unchanged. Not new generation, rule transfer or whole-system acceptance.",
+  "historical_generated_run_id": "7d406413c64a4219b7674ed71411eaee",
+  "model_calls": 0,
+  "elapsed_seconds": 65.14575315700495,
+  "run": {
+    "id": "d203636c718c436fb8a0393807635595",
+    "state": "BLOCKED",
+    "config": {
+      "architecture_policy": null,
+      "assistance": "automatic",
+      "budget": {
+        "aggregate_model_tokens": 1000000,
+        "concurrent_model_calls": 1,
+        "enforcement": "strict",
+        "final_validation_time_reserve": 0.2,
+        "repairs_per_issue": 3,
+        "repairs_per_run": 8,
+        "wall_seconds": 300
+      },
+      "creation_authorized": false,
+      "dataset_assignment": null,
+      "dataset_task": null,
+      "development_validation": null,
+      "final_evaluation": null,
+      "hamr_platform": "Microkit",
+      "input_files": [
+        "Devices.sysml",
+        "Isolette.sysml",
+        "Isolette_Data_Model.sysml",
+        "Isolette_Environment.sysml",
+        "Monitor.sysml",
+        "Operator_Interface.sysml",
+        "Regulate.sysml",
+        "Thermostat.sysml",
+        "sysml-aadl-libraries_1/aadl.library/AADL.sysml",
+        "sysml-aadl-libraries_1/aadl.library/AADL_Project.sysml",
+        "sysml-aadl-libraries_1/aadl.library/Base_Types.sysml",
+        "sysml-aadl-libraries_1/aadl.library/Communication_Properties.sysml",
+        "sysml-aadl-libraries_1/aadl.library/Data_Model.sysml",
+        "sysml-aadl-libraries_1/aadl.library/Deployment_Properties.sysml",
+        "sysml-aadl-libraries_1/aadl.library/Memory_Properties.sysml",
+        "sysml-aadl-libraries_1/aadl.library/Programming_Properties.sysml",
+        "sysml-aadl-libraries_1/aadl.library/Thread_Properties.sysml",
+        "sysml-aadl-libraries_1/aadl.library/Timing_Properties.sysml",
+        "sysml-aadl-libraries_1/aadl.library/behavior_properties.sysml",
+        "sysml-aadl-libraries_1/hamr.aadl.library/CASE_Scheduling.sysml",
+        "sysml-aadl-libraries_1/hamr.aadl.library/HAMR.sysml",
+        "sysml-aadl-libraries_1/hamr.aadl.library/HAMR_AADL.sysml",
+        "sysml-aadl-libraries_1/hamr.aadl.library/HAMR_Microkit.sysml",
+        "sysml-aadl-libraries_1/hamr.aadl.library/HAMR_Time_Units.sysml"
+      ],
+      "integration_solver": "cvc5",
+      "learning_materials": null,
+      "mode": "user",
+      "model": {
+        "family": "gpt",
+        "requested_profile": "astra",
+        "resolved_model_id": null
+      },
+      "model_file": "Isolette.sysml",
+      "naming_policy": "preserve-existing",
+      "paid_runs_authorized": false,
+      "project": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/upgrade-compatibility/fresh_generated",
+      "rename_authorized": false,
+      "repair_allowed_files": [],
+      "required_gates": [
+        "parse_type",
+        "architecture_capture",
+        "integration_constraints",
+        "hamr_codegen"
+      ],
+      "requirement_ledger": null,
+      "resolved_operation": "verify-only",
+      "rule_release": null,
+      "schema_version": 1,
+      "sireum": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/tools/sireum-4.20260810.80aad0c2/Sireum/bin/sireum",
+      "sireum_sha256": "29054e657216ba190d51c2beb29a77125886bd48a7a525200cdbf6e4bf1ff6b4",
+      "task_operation": "verify-only",
+      "unit_registry": null
+    },
+    "config_hash": "501248cb554c712c8b31b9fc1bdf8880d4fa37152fcc36117aae285779808215",
+    "created": 1790144554.958433,
+    "deadline": 1790144854.958433,
+    "used_tokens": 0,
+    "usage_unknown": 0,
+    "reserved_tokens": 0,
+    "worker": null,
+    "result": {
+      "engineering_accepted": false,
+      "formally_verified_units": 0,
+      "gates": [
+        {
+          "evidence": {
+            "path": "objects/03a85f15a96747cb75b011985319206df0b05c0ce7cb4fadced9ad54c472b79f.json",
+            "sha256": "03a85f15a96747cb75b011985319206df0b05c0ce7cb4fadced9ad54c472b79f"
+          },
+          "gate": "parse_type",
+          "reason": "Type checker completed",
+          "status": "PASS"
+        },
+        {
+          "evidence": {
+            "path": "objects/636cbcc65d1f440045128a00cbcef4348ca4a70b3471e8ad0b8f68bfae4f48c7.json",
+            "sha256": "636cbcc65d1f440045128a00cbcef4348ca4a70b3471e8ad0b8f68bfae4f48c7"
+          },
+          "gate": "architecture_capture",
+          "reason": "Instantiated AIR and resolved declarations captured; no conformance claim",
+          "snapshot_id": "83287718e1325785a779a0c420d5266216dd5a89ff29fce50e565d3a32fbcd56",
+          "status": "PASS"
+        },
+        {
+          "evidence": {
+            "path": "objects/3c443038348db2f59e74815c39cb104151fed03059a196bff60cf116ac2f7974.json",
+            "sha256": "3c443038348db2f59e74815c39cb104151fed03059a196bff60cf116ac2f7974"
+          },
+          "gate": "integration_constraints",
+          "reason": "No completed nonempty integration-constraint verification established",
+          "status": "UNKNOWN"
+        },
+        {
+          "evidence": {
+            "path": "objects/042808f33f7d0b900fb18a9b92ebb8d3994e8506072377d3a7887a0e092580ed.json",
+            "sha256": "042808f33f7d0b900fb18a9b92ebb8d3994e8506072377d3a7887a0e092580ed"
+          },
+          "gate": "hamr_codegen",
+          "reason": "Generator returned without expected Rust/Microkit artifacts",
+          "status": "UNKNOWN"
+        }
+      ],
+      "model_calls": 0,
+      "project_status": "NOT_ASSESSED",
+      "scope": "Selected checks only; no application or live-demo completion claim",
+      "task_status": "BLOCKED"
+    },
+    "version": 4,
+    "remaining_seconds": 234.86565446853638,
+    "remaining_tokens": 1000000,
+    "source_changed": [],
+    "evidence_current_for_source": true,
+    "policy_current": true
+  },
+  "artifact_inventory": {
+    "c_files": 45,
+    "rust_files": 0,
+    "cargo_manifests": 0,
+    "interpretation": "Generator emitted C artifacts; the expected Rust/Microkit gate was not satisfied. No Verus proof of this Isolette was run."
+  },
+  "integration_interpretation": "Logika exited0 with no nonempty integration-constraint verification evidence; not a behavioral proof."
+}

@@ -1,0 +1,20 @@
+{
+  "status": "PENDING_HUMAN_REVIEW",
+  "patch": "reports/demo/isolette-rust/ordered-bounds-PROPOSAL.patch",
+  "actual_GUMBOX_counterexample": {
+    "mode": "Normal",
+    "current": 0,
+    "lower": 1,
+    "upper": -1,
+    "prior_heat": "Onn"
+  },
+  "failure": "REQ_MHS_2 requires On while REQ_MHS_3 requires Off for reversed bounds",
+  "proposed_scope": "Conditional local component verification under ordered desired bounds. Do not assert the producer establishes this premise; integration/system proof remains open.",
+  "source_basis": "FAA EA-OI-6 ordering discussion in reports/demo/behavior-review/REVIEW.md; exact earlier supplemented English remains pending. This is not removal of a failed postcondition.",
+  "attempts": "Generated baseline failed; implementation with enum equality failed; match-based implementation failed actual postcondition and GUMBOX. Stop automatic heat repairs pending human guidance.",
+  "reused_rule_ids": [
+    "RA-001",
+    "mode-qualified-hysteresis-retention",
+    "RUST-CONTRACT-REALIZATION-001"
+  ]
+}

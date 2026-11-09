@@ -1,0 +1,29 @@
+{
+  "status": "INVENTORY_ONLY",
+  "tools": {
+    "codex": {
+      "path": "/home/amertahat/SPEC_CODE_PROOF/codex-155",
+      "exists": true,
+      "sha256": "0753dfe1d8b87a52436deb13eb1c549661ef4c84fee2c5aa688385eebeccb761"
+    },
+    "sireum": {
+      "path": "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/sireum",
+      "exists": true,
+      "sha256": "6333d4e737064b6db470bcb85863a997675182470eb5d4d763bd806487c8d952"
+    },
+    "python": {
+      "path": "/home/amertahat/SPEC_CODE_PROOF/.venv/bin/python",
+      "exists": true,
+      "sha256": "d249890da775ba4f1133d845fb94842e26f75d703844b9f396905b9822b56391"
+    },
+    "worker_sandbox": {
+      "path": "/home/amertahat/SPEC_CODE_PROOF/tools/codex-runtime-v0.155.1/codex-resources/bwrap",
+      "exists": true,
+      "sha256": "77360cb751ccedc5971391444ac86a8a33c15b04d6b4a6fe45f5d25496e62c4c"
+    }
+  },
+  "model_calls": 0,
+  "engineering_compatibility": "NOT_ESTABLISHED",
+  "hard_token_cap": "NOT_VALIDATED",
+  "installations": 0
+}

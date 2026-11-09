@@ -1,0 +1,176 @@
+\section{Evaluation}
+\label{sec:evaluation}
+\suppressfloats[t]
+
+We evaluate guidance reuse and reconstruction (RQ1), control of repairs and continuation (RQ2), and the connection between reviewed requirements and checked artifacts (RQ3). The cases follow guidance from Isolette Monitor to the Regulator holdout, then examine new construction and later reconstruction for Producer/Consumer and the Simple Network Guard (SNG). We distinguish model checkpoints, successful builds, and bounded runtime observations.
+
+\paragraph{Protocol and timing}
+Candidate workspaces isolate runs of the INSPECTA tools~\cite{hardin2025dasc}. Experiment calls requested \texttt{gpt-6-astra} through Codex~0.155.1. In each later reconstruction pair, $K$ receives the common requirements, libraries, and guides, including the shared design supplement where applicable. $K^{+}$ adds a selected rule bundle. Each arm has a 500,000-token allowance and a 24-minute model-stage limit. Each pair reports one trajectory per arm. Completion requires all five specified model checks. Table~\ref{tab:sng-comparison} reports the measured work through that endpoint or the observed stop~\cite{sigplanEmpirical2018}. Appendix~\ref{app:resource-details} gives the configuration, clock definitions, and estimated debits.
+
+\begin{table}[!htbp]
+\caption{Later common-input model pairs. Times are in seconds. Dispatch includes client and controller call handling, checks sum the recorded tool intervals, and elapsed time includes gaps. A dash marks an unavailable elapsed interval at that endpoint.}
+\label{tab:sng-comparison}
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{.24\linewidth}>{\raggedright\arraybackslash}p{.24\linewidth}rrrr@{}}
+\toprule
+Case and arm & Outcome & \shortstack[r]{Measured\\tokens} & Dispatch & Checks & Elapsed \\
+\midrule
+Producer/Consumer $K$ & HTTP 429 & 48,236 & 36.35 & 17.40 & 57.86 \\
+Producer/Consumer $K^{+}$ & Five checks passed & 179,515 & 109.53 & 94.45 & 210.19 \\
+SNG $K$ & Repair limit & 388,726 & 682.71 & 362.30 & 1,052.77 \\
+SNG $K^{+}$ & Five checks passed & 346,224 & 532.43 & 154.10 & --- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Isolette: Monitor Guidance and Regulator Continuation}
+Isolette regulates an infant incubator~\cite{hatcliff2024isolette}. Monitor supplied training examples and Regulator served as a component holdout for model generation and extension to Rust/Verus. Six successive candidates used draft guidance from preceding attempts. The fifth first passed parsing and architecture capture. Revised, approved English and reference abstractions then supported structural agreement~\cite{isoletteConsolidatedReport2026}.
+
+The revised generation completion was recorded 22\,min 27\,s after revised-input approval. The historical ledger attributes 341,178 measured tokens and 32.43 minutes of summed reservation-to-usage intervals to generation attempts and English preparation, with a separate 1M estimated timeout debit. The repaired Rust continuation completed 11 of 11 component proof/test pairs with 62 conditional obligations. Twenty-nine GumboX and 23 other test functions passed. A Microkit build passed, followed by a 20.008-second observation command including startup. The results cover the approved environmental premises and physical-operator exclusion. Appendix~\ref{app:evaluation-details} gives the review chronology and separately scoped probes.
+
+\subsection{Producer/Consumer: First Construction and Later Reconstruction}
+\label{sec:reuse-evaluation}
+\paragraph{First construction}
+Producer/\allowbreak{}Consumer was held out of the documented Monitor training split~\cite{scpCheckpoint}. The campaign team reports that the first separate workspace received English requirements and existing rulebooks. The worker constructed the SysML v2/GUMBO target from scratch. Its repairs became a source of guidance for later Producer/\allowbreak{}Consumer and SNG work~\cite{producerConsumerConsolidatedReport2026}. A separate historical checkpoint reports 2 of 2 component pairs, 5 of 5 GumboX tests, and 4 of 4 other tests passing on 23 September, with bounded observation. The case-level summary leaves the checked candidate's identity unspecified~\cite{checkpointResults}.
+
+\paragraph{Later paired reconstruction}
+The producer's output range $[0,90]$ implies the consumer's assumption $[0,100]$. Both arms received identical English, 15 libraries, nine workflow guides, and the same controller. $K^{+}$ ran first with six general entries from Isolette/HAMR and three from earlier Producer/\allowbreak{}Consumer repairs covering port refinement, effective processor binding, and signed-32 literals.
+
+The five checks cover parsing and types, JVM generation, the Logika connection implication, architecture capture, and effective binding. $K^{+}$ passed the checkpoint and a separate directed-graph comparison. The paired $K$ stopped on HTTP~429, as did a separate authorized follow-up. The paired row describes work observed before interruption, and $K$'s completion time and token use remain unknown. Appendix~\ref{app:resource-details} reports the follow-up timing and the separate 1M estimated debit for each interruption~\cite{producerConsumerConsolidatedReport2026}.
+
+\subsection{SNG: First Construction and Later Reconstruction}
+\label{sec:sng-evaluation}
+SNG passes classified messages through a gate and filter to a receiver, with contracts for dropping, forwarding, and payload bounds~\cite{hamrTutorials2026}.
+
+\paragraph{First construction with earlier-system rules}
+All 11 retained entries at the first guided dispatch came from general rules and earlier system work, including Producer/\allowbreak{}Consumer repairs. Both arms received SNG English and guides with SNG examples. The guided arm also received approved reference-derived design choices. It passed its in-loop model checkpoint with two verified connection units after five repairs and 397,520 measured tokens. The ordinary-input arm stopped after six repairs and 387,144 measured tokens. The differing design inputs limit attribution to guidance (Appendix~\ref{app:evaluation-details}).
+
+\paragraph{Later reconstruction with shared design inputs}
+The earlier SNG attempts and recoveries yielded 11 draft SNG lessons. A separate reconstruction supplied $K^{+}$ with 66 selected entries, including those drafts and earlier-system guidance. Both arms used the same English, libraries, guides, approved design supplement, checks, and allowance. The five checks cover parsing and types, Microkit generation, JVM generation, Logika integration, and architecture capture. The guided arm passed all five and a separate directed-graph comparison. It reached the checkpoint with 42,502 fewer measured tokens than $K$ used at its repair-limit stop. Dispatch plus check intervals summed to 686.53\,s for $K^{+}$ at the checkpoint and 1,045.02\,s for $K$ at the stop. The endpoints differ, and the $K$ stop leaves time to completion unknown. This pair evaluates the full supplied bundle (RQ1).
+
+With the five-check checkpoint as the target, $K^{+}$ completed 1/1 at 346,224 measured tokens per completion. $K$ completed 0/1 under the same 500,000-token ceiling. Appendix~\ref{app:resource-details} uses $+\infty$ to display zero completed targets and retains the measured tokens at the stop.
+
+One retained lesson came from a parser rejection. An earlier SysML model used rendered Slang literal syntax. The draft rule distinguishes SysML's \texttt{0 [s32]} from the generated Slang notation. The archive links the rejected attempt to the lesson and matches its text in the supplied 66-entry snapshot (Appendix~\ref{app:evaluation-details}).
+
+\paragraph{Continuation of the later candidate}
+A source-preservation check rejected a proposal to remove an existing test function. The controller retained its 78,469-token charge, bringing usage to 424,693. Authorized paid repairs added 151,909 tokens. Two later authorized repairs addressed serialization and initialization without additional experiment-model calls. The guided trajectory used 576,602 worker tokens and 18.72 minutes of dispatch across eight calls. From guided controller start to observation end it took 2\,h 31\,min 21\,s, including approval pauses. The $K$ arm's dependent checks were \texttt{NOT\_RUN}. Table~\ref{tab:sng-completion} reports the guided build and checks.
+
+\begin{table}[!htbp]
+\caption{Artifact provenance and evidence for the later SNG $K^{+}$ trajectory~\cite{sngFinalReport2026}.}
+\label{tab:sng-completion}
+\centering\small
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{.16\linewidth}>{\raggedright\arraybackslash}p{.32\linewidth}>{\raggedright\arraybackslash}p{.47\linewidth}@{}}
+\toprule
+Stage & Produced artifact & Check or observation \\
+\midrule
+Model & SysML v2/GUMBO from the declared English, guides, and design inputs. & Five model checks and directed-graph comparison passed. \\
+Code and proofs & HAMR-generated infrastructure and contracts with repaired Rust and Slang application artifacts. & Verus verified 32 target-crate units, including six initialization/composition checks. Six English component relations were checked under recorded premises. \\
+Tests & Rust and Slang/JVM test results. & 33 Rust test functions and 808 JVM test cases passed. \\
+Image & 4,957,232-byte Microkit loader image. & Verification-enabled build passed in 103.501\,s. Build and observation inventories matched 201 paths. \\
+Runtime & QEMU loader run and receiver log. & 20.033\,s after readiness, 18 receiver messages, zero configured anomaly matches, and one interrupt-controller warning. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{From requirement to image}
+The SNG requirement \texttt{Req\_R\_2.a} clamps a Restricted payload above 100 to 100. The audit follows its GUMBO guarantee into two Verus-checked contracts. Gate preserves the Restricted message, and Filter requires a present Restricted output with payload 100. At the model layer, a Logika check establishes that Gate's guarantee implies Filter's assumption that no Critical message arrives, provided the connected values agree. The dispatch proofs assume empty output slots at entry. Factory and composition proofs support that premise for the reviewed initialization path. The recorded Gate and Filter proof inputs match the fingerprints of those Rust files in the build and observation inventories. The loader digest identifies the QEMU image, and the runtime log records boot and receiver activity. The clamp result rests on the scoped contracts and their premises. Wrapper and event-buffer correspondence, transport, non-interference, and physical timing remain open~\cite{microkitManual}. Appendix~\ref{app:coverage-details} gives the exact contracts, proof records, and premises.
+
+\subsection{Artifact Size and Completion Time}
+The three successful build outputs contain \textbf{26,758 source lines}. Table~\ref{tab:source-line-counts} separates these builds from the earlier model endpoints so their sizes and recorded times can be interpreted together. Appendix~\ref{app:evaluation-details} gives per-language counts for the builds and the additional Scala inventories.
+
+\begin{table}[!htbp]
+\caption{Output inventories and recorded timing intervals. Counts include contracts, proofs, generated code, tests, and bundled support in the listed languages. Ordinary comments and blank lines are excluded. Dashes mark unavailable measurements.}
+\label{tab:source-line-counts}
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{.33\linewidth}rr>{\raggedright\arraybackslash}p{.47\linewidth}@{}}
+\toprule
+Case and endpoint & Lines & Files & Recorded interval \\
+\midrule
+Isolette revised model generation & --- & --- & 22\,min 27\,s from input approval to generation completion record \\
+Isolette Rust/Microkit build & 12,363 & 177 & Observation command 20.008\,s including startup \\
+Producer/Consumer $K^{+}$ JVM checkpoint & 9,355 & 76 & 210.19\,s elapsed to the five-check endpoint \\
+Producer/Consumer Rust/Microkit resumption & 1,262 & 34 & --- \\
+SNG $K^{+}$ Rust/Microkit and JVM build & 13,133 & 151 & 2\,h 31\,min 21\,s from guided controller start through observation, including pauses \\
+\midrule
+\textbf{Sum of three builds} & \textbf{26,758} & \textbf{362} & \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Dedicated tests, harnesses, test support, and test-data generators account for 4,974 lines in the Isolette build, 537 in the Producer/\allowbreak{}Consumer Rust resumption, and 5,575 of 13,133 lines (42.5\%) in the SNG build. SNG includes 1,930 lines of tests, harnesses, and their support and 3,645 lines of test-data generators. The two core component files per backend contain 291 Rust and 92 Slang lines, respectively, including embedded contracts. The 808 passing JVM cases count executions. Appendix~\ref{app:source-role-counts} gives the file-role breakdown for each backend.
+
+\subsection{Model-Token Costs and Authorization}
+For total input $I$, cached input $H$, and output $O$, GPT-6 Astra Standard base pricing gives $(10(I-H)+H+50O)/10^6$ USD~\cite{openaiAstraPricing2026}. Table~\ref{tab:cost-summary} separates the worker trajectory from the supporting sessions. Those sessions span preparation, both arms, and continuation. They recorded 131.61M tokens, of which 129.84M were cached input. At base rates cached input contributes \$129.84 to their \$166.67 estimate. Allocating both later arms and those sessions to the 13,133-line build gives \$179.06 at base rates. Pricing all supporting usage at long-prompt rates instead raises this allocation to \$333.75, or \$25.41 per 1,000 inventoried lines. Appendix~\ref{app:resource-details} gives the derivation and rate scenarios.
+
+\begin{table}[!htbp]
+\caption{Illustrative SNG base-rate model-token costs. The $K^{+}$ model checkpoint is included in the guided continuation. Per-line rates use the delivered source inventory. Tools, hosts, and labor are outside the model-token estimates.}
+\label{tab:cost-summary}
+\centering\small
+\begin{tabular}{@{}p{.55\linewidth}rr@{}}
+\toprule
+Scope & USD & USD per 1,000 lines \\
+\midrule
+$K$ model-stage stop & 4.76 & --- \\
+$K^{+}$ model checkpoint & 4.25 & --- \\
+$K^{+}$ worker through observation & 7.64 & 0.58 \\
+Three supporting sessions & 166.67 & --- \\
+Later pair and three supporting sessions & 179.06 & 13.63 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+SNG's continuation raised the guided worker allowance from 500,000 to 600,000 tokens. The runtime authorization shortened the planned observation from 320 to 20 seconds and extended the deadline by one hour. Earlier consumption and eight used repairs stayed in the record. On 8 November the owner approved release of the three case results within their recorded scopes. The receipts identify reviewed contents, premises, and exclusions (Appendix~\ref{app:evaluation-details}).
+
+\paragraph{Experiment-worker ledger}
+Table~\ref{tab:ledger-scope} partitions 117 distinct calls through SNG closeout, recorded at 10:23:50 UTC on 6 November 2026. Each row combines that case's attempts and preparation phases. Measured tokens equal input plus output; cached input is a subset of input. Seven interrupted calls carry estimated debits. Tables~\ref{tab:sng-comparison} and~\ref{tab:sng-cost-detail} identify the selected task costs within these histories.
+
+\begin{table}[!htbp]
+\caption{Experiment-worker accounting through SNG closeout. Each call appears once. Historical acquisition in Table~\ref{tab:historical-cost} is included in these rows.}
+\label{tab:ledger-scope}
+\centering\small
+\begin{tabular}{@{}lrrrrr@{}}
+\hline
+History & Input & Output & Cached input & Measured & Est. debit \\
+\hline
+Isolette & 702,356 & 100,364 & 37,888 & 802,720 & 1M \\
+Producer/Consumer & 1,071,521 & 34,521 & 46,592 & 1,106,042 & 2M \\
+SNG & 1,635,512 & 114,480 & 23,552 & 1,749,992 & 0 \\
+Shared & 589,315 & 68,692 & 13,056 & 658,007 & 4M \\
+\hline
+Total & 3,998,704 & 318,057 & 121,088 & 4,316,761 & 7M \\
+\hline
+\end{tabular}
+\end{table}
+
+The total is $4{,}316{,}761+7{,}000{,}000=11{,}316{,}761$ accounted tokens. The overall experiment-worker allowance was 28M tokens. The SNG iteration used 965,328 measured tokens against a separate 1M limit, covering the stopped baseline and guided work through observation. Appendix~\ref{app:resource-details} partitions earlier acquisition and nested campaign accounting.
+
+\subsection{Evidence Retention and Scope}
+The Producer/Consumer source audit mapped 36 model/scope items and two workflow constraints from the English requirements. Review criteria were recorded after the $K^{+}$ run completed and before evaluator inspection. The $K^{+}$ audit recorded 34 represented items and four satisfied items, with one verified connection implication. The SNG audit followed observation and linked six English component relations to contracts and proofs under recorded premises. Appendix~\ref{app:evaluation-details} gives the review chronology. Appendix~\ref{app:coverage-details} traces named requirements and their assumptions.
+
+\paragraph{Controller tests}
+The controlled tests used fresh stores and controlled time. The audit matched 45 saved assertions across P01--P12. Table~\ref{tab:controller-results} reports their results and a fault probe for metering failure (RQ2--RQ3). F01 injected a 100k estimated debit against a 200k reservation. The resulting exception left the reservation and unresolved-usage state in place. The controller blocked further calls but saved no detailed call record. The control with a matching 200k debit retained the record.
+
+\begin{table}[!htbp]
+\caption{Controlled tests of the controller. F01 and its control exercise the reservation-to-debit path.}
+\label{tab:controller-results}
+\centering\small
+\begin{tabular}{@{}p{.35\columnwidth}p{.60\columnwidth}@{}}
+\toprule
+Test group & Recorded result \\
+\midrule
+Budget & 7/7 cases passed. \\
+Authorization & 3/3 cases passed. \\
+Durability & 1/1 case passed. \\
+Retrieval & 1/1 case passed. Decisions and evidence recovered after normal service reopening. \\
+F01, 200k reservation and 100k debit & Exception. Further calls blocked. No detailed call record saved. \\
+Control, 200k reservation and debit & One detailed call record retained. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The application checkpoint exercises revision binding in fixture-based tests. Changed evidence blocks approval, a changed Rust file or Cargo configuration invalidates verification credit, and a tampered signed subject is rejected~\cite{scpCheckpoint,checkpointBuild}. The SNG continuation supplies an engineering example with a rejected proposal, a separately authorized scope, and matched build and runtime receipts.
+
+\paragraph{Inspecting and repeating results}
+The archived records support inspection of the input snapshot, decisions, and observed endpoints. Replaying SNG would start from the frozen implementation and image with the recorded scope held fixed. Fresh synthesis starts from the English and selected rulebook and can produce a different candidate requiring its own review. Appendix~\ref{app:evaluation-details} lists the records required for replay.

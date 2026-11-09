@@ -1,0 +1,8 @@
+{
+  "revision": 1,
+  "attempts_before_human": 6,
+  "previous_limit": 3,
+  "consent": "User explicitly requests six repair attempts instead of three, with lessons from each failure. Preserve prior attempts,14M cap, continuation allowance and total run limits. Do not infer approval of ordered-bounds assumption.",
+  "preserved": "Existing attempts, run cap, campaign time/tokens and requirement approvals are unchanged",
+  "id": "f5ff319d21aeb81409fb9cdd46f398e640c2dc5317c84c37c394722f129f01a0"
+}

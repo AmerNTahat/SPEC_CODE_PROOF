@@ -1,0 +1,61 @@
+\section{Budgeted Supervised Meta-Learning}
+\label{sec:learning}
+
+The handoff in Figure~\ref{fig:control-handoff} supplies reviewed tasks with selected guidance. The learning process in Figure~\ref{fig:handoff} uses attempts and checks from campaign workspaces to revise that guidance. It repeats within a campaign and carries accumulated lessons into later systems. The heater case shows how a failure can motivate a new rule and define where it applies.
+
+\begin{figure}[t]
+\centering
+\input{figures/handoff-wide}
+\caption{Supervised rule evolution in \workbench{}. A layered presentation inspired by WikiSkill~\cite{tang2026wikiskill} separates recorded evidence, cases and decisions, and candidate guidance. The four stages apply a candidate, interpret prior experience, propose a revision, and evaluate it under review. Updates retain the preceding rule and supporting records. Further attempts require current approval and remaining allowance. Acceptance concerns the reviewed task scope; candidate rules require independent tests before publication for reuse. Section~\ref{sec:handoff} explains the stages; Figure~\ref{fig:evolution} gives a concrete rule history.}
+\Description{Three persistent layers store evidence, reviewed cases, and candidate guidance. Four stages apply guidance, interpret experience, propose revised rules, and run formal checks and review within approved scope.}
+\label{fig:handoff}
+\end{figure}
+
+\input{control-handoff}
+\begin{figure}[t]
+\centering
+\input{figures/evolution-example}
+\caption{A heater reference case becomes a source of candidate guidance~\cite{scpCheckpoint}. Steps 1--2 expose conflicting guarantees in the contract fragment. Step 3 records review of an added ordering assumption and the checks required afterwards. Step 4 shows selected rule revisions with links to sources and checks; drafts 1, 2, and 4 are selected from the archive. The added assumption was approved, while the candidate rules await qualification. Horizontal arrows show revision order; intermediate and later drafts are omitted.}
+\Description{A temperature contract permits conflicting heater commands without an ordering assumption. Review adds an assumption and records supporting evidence. Three selected draft rules retain that lesson and remain pending independent qualification.}
+\label{fig:evolution}
+\end{figure}
+
+\input{handoff}
+
+
+
+\subsection{From Experience to a Candidate Rule}
+Learning turns recorded attempts, diagnostics, and checks into reusable guidance. A \emph{meta-rule} states when it applies, its assumptions, a procedure, and the required checks. The \emph{Generalizer} extracts a procedure shared by related tasks; the \emph{Specializer} supplies the current interfaces, assumptions, and obligations. These strategies use the same model worker. Each proposed rule retains its sources and earlier versions, extending SCP's supervised learning and repair process with persistent review and accounting~\cite{tahat2026scp,scpCheckpoint}.
+
+The file handoff in Section~\ref{sec:execution-environments} makes the reusable knowledge explicit. A new target receives a rule snapshot with its own task inputs. The host archive retains the diagnostic, rule revision, and check that motivated each lesson, so a subsequent attempt can refine the rule and leave the earlier history inspectable. Section~\ref{sec:evaluation} identifies the rules carried between the evaluated cases.
+
+Earlier SCP used a similarity comparison when considering formalizations~\cite{tahat2026scp}. The workbench computes cosine distance to retrieve related rules and to compare contract features after architecture checking. It also records model forecasts with explanations. These signals can help prioritize interpretation and review (Section~\ref{sec:fidelity}).
+
+An early \emph{semantic gate} would use the predicted agreement between English requirements and a proposed interpretation to choose whether to proceed to formalization, refine the interpretation, or request review. Automatic admission and branch ranking are proposed extensions of the available comparison and forecast services. Formal checks and human review then assess the candidate. Appendix~\ref{app:semantic-budget} gives the representations, cosine geometry, and connection to budgeted candidate selection~\cite{foster2026rpm,tahat2026dascslides}.
+
+\subsection{Learning from the Heater Case}
+Figure~\ref{fig:evolution} follows a reference correction (upper row) and the candidate guidance derived from it (lower row).
+
+\textbf{(1) Check the reference contract.} Using the notation of Section~\ref{sec:background}, the heater fragment requires $\theta<L\Rightarrow h$ and $\theta>U\Rightarrow\neg h$ in NORMAL mode, without ordering $L$ and $U$.
+
+\textbf{(2) Retain the conflicting input.} The diagnostic script uses $\theta=98$, $L=99$, and $U=97$: both conditions hold, requiring heating on and off simultaneously~\cite{scpCheckpoint}. This exposes the missing constraint in the fragment; $U=97$ lies outside the handbook's full upper-bound range~\cite{lempia2009faa}. Giving one output priority changes a guarantee; filtering tests changes coverage; adding an ordering assumption restricts inputs. Each repair therefore needs an explanation of how it meets the requirement.
+
+\textbf{(3) Review the assumption.} The repair record approves $L<U$ and retains both guarantees. It cites \texttt{EA-OI-6}, the operator-interface environmental assumption in Lempia and Miller's handbook requiring $L\leq U-1^{\circ}\mathrm{F}$~\cite[Appendix A.3.4, p.~A-11]{lempia2009faa}. Strict ordering gives this margin for integer degree settings; other representations require the margin to be stated explicitly. Review records responsibility for the chosen premise; proof and tests assess the repaired artifact, with internal propagation retained as an obligation.
+
+\textbf{(4) Revise the rule.} The figure shows revisions of \texttt{GOLDEN-\allowbreak{}DEFECT-\allowbreak{}CURATION-001}. \texttt{draft-1} requires cited correction, consent, failure retention, regeneration, and checks with Verus and GumboX. \texttt{draft-2} distinguishes environmental assumptions from software guarantees. \texttt{draft-4} adds the complete sources and build context and requires reassessment of regenerated contracts and proofs. Each revision retains its predecessor and supporting evidence; these archived candidates await qualification for publication~\cite{scpCheckpoint}.
+
+Section~\ref{sec:retrieval} explains retrieval of these linked records.
+
+\subsection{Learning Within an Allowance}
+Algorithm~\ref{alg:learning} receives the case, reviewed sources, and an optional candidate selected directly or through the retrieval comparison. It can also extract a new draft from the sources. Algorithm~\ref{alg:requirements-fidelity} supplies the development and fidelity-review procedure.
+\input{algorithms/notation}
+\input{algorithms/rule-evolution}
+
+The first phase extracts a draft and retains its origin (lines~\ref{ln:learn-review}--\ref{ln:learn-extract-end}). The second applies it to a reviewed task. Rewriting requires current failed evidence from the same rule and plan, recorded as \texttt{NOT\_VALIDATED}; the revised rule keeps links to the failure and earlier rule (lines~\ref{ln:learn-task}--\ref{ln:learn-successor}).
+
+\paragraph{Resource accounting}
+\label{sec:resource-accounting}
+The campaign's resource ledger retains time, tokens, and attempts across retries. Process deadlines bound execution; token reservations estimate usage, then the ledger records measured consumption and any excess. The estimate may be lower than the usage reported by the provider. Exhausted allowances or unresolved usage stop calls. Approved extensions preserve prior consumption (Section~\ref{sec:interface}).
+
+\paragraph{Qualification for reuse}
+Algorithm~\ref{alg:learning} returns a task outcome and a revised candidate. Publishing that rule uses the separate qualification and approval service, which checks evidence for declared examples. The archived heater drafts retain their qualification status~\cite{scpCheckpoint}.

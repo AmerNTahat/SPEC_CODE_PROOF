@@ -1,0 +1,13 @@
+\subsection{Controlled Handoff}
+\label{sec:control-handoff}
+A \emph{handoff} supplies an authorized agent with inputs and permitted actions and returns its proposal for host checks. Figure~\ref{fig:control-handoff} follows eight exchanges.
+
+\textbf{1--2. Approve and prepare.} The engineer approves the workflow, scope, access, and limits (1). The harness retrieves current inputs and the selected rule, checks allowance, and specifies permitted actions and output format (2). Evaluator-only artifacts remain separate from dispatched context. Shared task documents and approved reference-derived supplements are declared inputs whose provenance is retained.
+
+\textbf{3--4. Propose and check.} The worker returns an artifact or rule proposal and usage report (3). The host runs formal and other checks and records versions, outcomes, and fingerprints (4).
+
+\textbf{5--7. Retrieve and review.} The engineer retrieves pending requests and evidence (5), records the decision and rationale (6), and the host checks its contents and links it to prior records (7). A request alone grants no authority.
+
+\textbf{8. Continue within limits.} Agents select permitted repairs while approval and allowance remain current. Expanding scope, assumptions, access, or budgets requires renewed human authorization. Prior charges and unresolved outcomes remain recorded~\cite{scpCheckpoint}.
+
+A revised rule selected for another task enters at exchange~2; its outcomes return at exchange~4. Figure~\ref{fig:handoff} explains how this experience informs revision.

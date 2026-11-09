@@ -1,0 +1,112 @@
+{
+  "image": "jasonbelt/microkit_provers@sha256:bab407fd7f4aac24d7bee1234cd6bab9b6a29df380c2f0491af8e3ed1888a405",
+  "container": "scp-validation-1790132816",
+  "scope": "Reused KSU runtime; actual generated Rust checks, no whole-system acceptance",
+  "model_calls": 0,
+  "checks": [
+    {
+      "command": [
+        "docker",
+        "run",
+        "-d",
+        "--name",
+        "scp-validation-1790132816",
+        "--network",
+        "none",
+        "--cap-drop",
+        "ALL",
+        "--security-opt",
+        "no-new-privileges",
+        "--user",
+        "1000:1000",
+        "--group-add",
+        "100",
+        "--mount",
+        "type=bind,src=/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/ksu-container-validation,dst=/work",
+        "-e",
+        "CARGO_HOME=/work/cargo",
+        "-e",
+        "RUSTUP_HOME=/home/microkit/.rustup",
+        "-e",
+        "RUSTUP_TOOLCHAIN=1.92.0",
+        "-e",
+        "RUSTC_BOOTSTRAP=1",
+        "-e",
+        "PATH=/home/microkit/.cargo/bin:/home/microkit/provers/verus:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+        "--entrypoint",
+        "/bin/sleep",
+        "jasonbelt/microkit_provers@sha256:bab407fd7f4aac24d7bee1234cd6bab9b6a29df380c2f0491af8e3ed1888a405",
+        "1500"
+      ],
+      "exit_code": 0,
+      "stdout": "fa3f96df9ada6dc0f19dc4c5366389169de3b4fb7e7e5e29913e81bff90eefd4\n",
+      "stderr": "",
+      "elapsed_seconds": 0.11129772098502144
+    },
+    {
+      "command": [
+        "docker",
+        "exec",
+        "-e",
+        "CARGO_NET_OFFLINE=true",
+        "scp-validation-1790132816",
+        "make",
+        "-C",
+        "/work/generated/crates/cons_cons",
+        "verus"
+      ],
+      "exit_code": 0,
+      "stdout": "make: Entering directory '/work/generated/crates/cons_cons'\nRUSTC_BOOTSTRAP=1 cargo-verus verify -Z build-std=core,alloc,compiler_builtins -Z build-std-features=compiler-builtins-mem --target aarch64-unknown-none\nverification results:: 7 verified, 0 errors\nmake: Leaving directory '/work/generated/crates/cons_cons'\n",
+      "stderr": "   Compiling cons_cons v0.1.0 (/work/generated/crates/cons_cons)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.86s\n",
+      "elapsed_seconds": 1.12117177300388
+    },
+    {
+      "command": [
+        "docker",
+        "exec",
+        "scp-validation-1790132816",
+        "cargo",
+        "test",
+        "--offline",
+        "--manifest-path",
+        "/work/generated/crates/cons_cons/Cargo.toml"
+      ],
+      "exit_code": 0,
+      "stdout": "\nrunning 5 tests\ntest test::tests::GUMBOX_tests::prop_testComputeCB_macro ... ok\ntest test::tests::GUMBOX_tests::prop_testInitializeCB_macro ... ok\ntest test::tests::tests::test_initialization ... ok\ntest test::tests::GUMBOX_tests::prop_testComputeCBwGSV_macro ... ok\ntest test::tests::tests::test_compute ... ok\n\ntest result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s\n\n",
+      "stderr": "   Compiling cons_cons v0.1.0 (/work/generated/crates/cons_cons)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.33s\n     Running unittests src/lib.rs (/work/generated/crates/cons_cons/target/debug/deps/cons_cons-db5dc69d6c7887e6)\n",
+      "elapsed_seconds": 0.46076440799515694
+    },
+    {
+      "command": [
+        "docker",
+        "exec",
+        "-e",
+        "CARGO_NET_OFFLINE=true",
+        "-e",
+        "MICROKIT_SDK=/home/microkit/provers/microkit-sdk-2.1.0",
+        "scp-validation-1790132816",
+        "make",
+        "-C",
+        "/work/generated",
+        "-j2"
+      ],
+      "exit_code": 2,
+      "stdout": "make: Entering directory '/work/generated'\nmake -C /work/generated/build loader.img\nmake[1]: Entering directory '/work/generated/build'\nmake -C /work/generated/crates/prod_prod \nmake -C /work/generated/crates/cons_cons \nmake[2]: Entering directory '/work/generated/build'\nmake[2]: Entering directory '/work/generated/build'\nRUSTC_BOOTSTRAP=1 SEL4_INCLUDE_DIRS=/home/microkit/provers/microkit-sdk-2.1.0/board/qemu_virt_aarch64/debug/include cargo-verus build --features sel4 -Z build-std=core,alloc,compiler_builtins -Z build-std-features=compiler-builtins-mem --target aarch64-unknown-none --release\nRUSTC_BOOTSTRAP=1 SEL4_INCLUDE_DIRS=/home/microkit/provers/microkit-sdk-2.1.0/board/qemu_virt_aarch64/debug/include cargo-verus build --features sel4 -Z build-std=core,alloc,compiler_builtins -Z build-std-features=compiler-builtins-mem --target aarch64-unknown-none --release\nmake[2]: Leaving directory '/work/generated/crates/prod_prod'\nld.lld -L/home/microkit/provers/microkit-sdk-2.1.0/board/qemu_virt_aarch64/debug/lib -L /work/generated/crates/prod_prod/target/aarch64-unknown-none/release printf.o util.o /work/generated/build/sb_queue_ProdCons_Message_1.o prod_prod.o --start-group -lmicrokit -Tmicrokit.ld --end-group -lprod_prod -o prod_prod.elf\nverification results:: 7 verified, 0 errors\nmake[2]: Leaving directory '/work/generated/crates/cons_cons'\nld.lld -L/home/microkit/provers/microkit-sdk-2.1.0/board/qemu_virt_aarch64/debug/lib -L /work/generated/crates/cons_cons/target/aarch64-unknown-none/release printf.o util.o /work/generated/build/sb_queue_ProdCons_Message_1.o cons_cons.o --start-group -lmicrokit -Tmicrokit.ld --end-group -lcons_cons -o cons_cons.elf\nxmllint --xinclude /work/generated/microkit.system -o /work/generated/microkit.system.merged\n/home/microkit/provers/microkit-sdk-2.1.0/bin/microkit /work/generated/microkit.system.merged --search-path /work/generated/build --board qemu_virt_aarch64 --config debug -o loader.img -r report.txt\nmake[1]: Leaving directory '/work/generated/build'\nmake: Leaving directory '/work/generated'\n",
+      "stderr": "make: Circular /work/generated/build/loader.img <- /work/generated/build/loader.img dependency dropped.\nmake[2]: warning: jobserver unavailable: using -j1.  Add '+' to parent make rule.\nmake[2]: warning: jobserver unavailable: using -j1.  Add '+' to parent make rule.\n    Blocking waiting for file lock on package cache\n    Blocking waiting for file lock on package cache\n    Blocking waiting for file lock on package cache\n    Blocking waiting for file lock on package cache\n    Blocking waiting for file lock on package cache\n    Blocking waiting for file lock on package cache\n    Blocking waiting for file lock on package cache\n    Blocking waiting for file lock on package cache\n    Finished `release` profile [optimized] target(s) in 0.47s\n   Compiling cons_cons v0.1.0 (/work/generated/crates/cons_cons)\n    Finished `release` profile [optimized] target(s) in 0.97s\nError: invalid XML element 'domain_schedule': /work/generated/microkit.system.merged:5:65\nmake[1]: *** [Makefile:91: loader.img] Error 1\nmake: *** [Makefile:54: /work/generated/build/loader.img] Error 2\n",
+      "elapsed_seconds": 1.2967651509970892
+    },
+    {
+      "command": [
+        "docker",
+        "rm",
+        "-f",
+        "scp-validation-1790132816"
+      ],
+      "exit_code": 0,
+      "stdout": "scp-validation-1790132816\n",
+      "stderr": "",
+      "elapsed_seconds": 0.05631262602400966
+    }
+  ],
+  "whole_system_acceptance": false
+}

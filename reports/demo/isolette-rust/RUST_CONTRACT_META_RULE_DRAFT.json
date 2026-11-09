@@ -1,0 +1,159 @@
+{
+  "candidate": {
+    "record": {
+      "$schema": "../schemas/knowledge.schema.json",
+      "schema_version": "2.0",
+      "record_type": "rule",
+      "id": "RUST-CONTRACT-REALIZATION-001",
+      "revision": "draft-1",
+      "state": "DRAFT",
+      "basis": "mixed",
+      "assessment_timing": "after_feedback",
+      "source_references": [
+        "5beb80134b4043b31fb6598b9446bcf6e72f353d6f0a243d1c85f900aa797c46",
+        "7ce175e06f24534d6521864c98ce5474379ecbffd01a9c3616f42fa289c699d4"
+      ],
+      "source_artifact_hashes": [
+        "1fad571f248ab53a590da6ed3a7c9ef58ac06312bc7ad396e8b91bb143c5ea8d",
+        "18244e35afe8416ec04098e75f0471a1b803dee1f9ffde0b06f67c813452842e"
+      ],
+      "source_episode": "Approved KSU implementation/testing guides plus executed Isolette Rust backend and component diagnostics",
+      "available_context_manifest": null,
+      "model_configuration": null,
+      "prompt_version": "session-rust-contract-realization-v1",
+      "trigger": "GUMBO contracts exist but code generation emits C, Rust generation rejects an expression, or component proofs/GUMBOX fail on missing outputs.",
+      "principle": "Select the documented Rust implementation language explicitly. Check backend representation compatibility before assuming missing behavioral contracts. Preserve generated requirements and implement the application entry points, initializing every output DataPort and maintaining state/output consistency. Run Verus and generated GUMBOX tests separately; missing output panics and violated postconditions guide repairs without weakening contracts.",
+      "semantic_choice": "An implementation-language or numeric-expression backend failure is not absence of English/GUMBO behavior. Integer time encoding is a reviewed sampling/units abstraction, not automatic proof of physical time.",
+      "structural_placement": "Model HAMR_AADL thread implementation-language property; generated component app bodies and user test file. Preserve generated bridge, executable GUMBOX contracts and proof ensures clauses.",
+      "repair_gate": "Parse and generate Rust; verify component implementation with Verus; execute initialization/compute/GSV GUMBOX suites and explicit units; retain failed counterexamples and repeat affected checks. A passing diagnostic-output implication does not establish platform fault detection.",
+      "prerequisites": [
+        "Approved KSU workflow and selected model",
+        "Explicit backend and artifact inventory",
+        "Original contracts/source hashes",
+        "Reviewed representation changes before acceptance"
+      ],
+      "exclusions": [
+        "Claiming a C build as a Rust/Verus proof",
+        "Removing postconditions or adding assumptions to suppress failures",
+        "Adding external_body/assume/admit to application logic",
+        "Claiming five test functions prove five requirements",
+        "Claiming sampled ticks prove a physical deadline"
+      ],
+      "parameters": [
+        {
+          "name": "output_ports",
+          "role": "Owned component outputs",
+          "constraints": "Publish required DataPorts during initialize; update per exact contracts"
+        },
+        {
+          "name": "backend_representation",
+          "role": "Supported numeric representation",
+          "constraints": "Preserve units/bounds; expose sampling, progress and overflow obligations"
+        }
+      ],
+      "dependencies": [],
+      "target_compatibility": [
+        "KSU HAMR SysML/GUMBO system properties with Sireum 4.20260810.80aad0c2"
+      ],
+      "preserved_obligations": [
+        "Supported in-scope requirements and mandatory gates",
+        "Original English inventory with excluded features retained",
+        "Negative and transfer evidence for rule applicability"
+      ],
+      "counterexample": {
+        "scenario": "The generated failure reporter never writes its output. Verus rejects its conditional postcondition and GUMBOX initialization panics on an absent DataPort value.",
+        "expected_difference": "Implement propagation of the existing diagnostic flag without changing the contract, then repeat both tools. Do not claim the fault-detection mechanism itself was verified.",
+        "source_or_test_reference": "reports/demo/isolette-rust/verification-detector-repair.json"
+      },
+      "validation_gate_ids": [
+        "parse_type",
+        "hamr_codegen",
+        "configured_formal_verification",
+        "independent_requirements_tests"
+      ],
+      "evidence_references": [
+        "reports/demo/isolette-rust/checks.json",
+        "reports/demo/isolette-rust/integer-clock-checks.json",
+        "reports/demo/isolette-rust/verification-baseline.json",
+        "reports/demo/isolette-rust/verification-detector-repair.json"
+      ],
+      "confidence_forecast_reference": null,
+      "approval_reference": null,
+      "notes": "Session-curated draft using approved KSU guides and executed supervised development feedback. Not independently transferred or published. Original source/golden/contracts preserved. No paid extraction.",
+      "source_english_patterns": [
+        "the component shall output",
+        "initialize the output"
+      ],
+      "positive_paraphrases": [
+        "implement the existing guarantee in the owning entry point"
+      ],
+      "misleading_near_matches": [
+        "a generated contract is an implemented behavior"
+      ],
+      "supported_operations": [
+        "complete-system",
+        "repair-system",
+        "create-system"
+      ],
+      "stack_layers": [
+        "language",
+        "gumbo",
+        "testing",
+        "repair"
+      ],
+      "semantic_roles": {
+        "actor": "composed system",
+        "condition": "justified component/environment assumptions",
+        "effect": "traced system assertion",
+        "modality": "system guarantee",
+        "quantification": "each in-scope English system obligation",
+        "temporal_scope": "explicit abstract schedule; real-time bounds separate",
+        "state_dependency": "explicit state/invariants",
+        "units_and_boundaries": "preserved source boundaries"
+      },
+      "formal_output_pattern": "Backend selection -> supported representation -> generated contracts -> owned app body -> Verus + GUMBOX -> exact-scope evidence and limitations.",
+      "formal_pattern_status": "ABSTRACT_NOT_VALIDATED",
+      "allowed_edit_scope": [
+        "new draft repair rule and reviewed capability scope"
+      ],
+      "required_baseline": [
+        "Approved English and compatible pinned system-check tool"
+      ],
+      "diagnostic_signature": null,
+      "related_rule_ids": [
+        "SYSTEM-COMPOSITION-CHECKS-001",
+        "PREP-CONTEXT-DEPENDENCIES-001"
+      ]
+    },
+    "status": "DRAFT_PENDING_VALIDATION",
+    "id": "5fbbc7cb22de429f03626ebe5acee3675b593f631c5c5696309c7b9e1d0628f7"
+  },
+  "provenance": {
+    "plan_id": "6004a757c4beecf5c8c5b86780ccc3fa03d136f2fd15f65b3fc395348e3359d1",
+    "candidate_id": "5fbbc7cb22de429f03626ebe5acee3675b593f631c5c5696309c7b9e1d0628f7",
+    "status": "DRAFT_PENDING_DEVELOPMENT_VALIDATION",
+    "focus": "implementation_proof_testing",
+    "extraction_method": "session_curation_approved_KSU_context_and_executed_development_feedback",
+    "model_calls": 0,
+    "source_ids": [
+      "5beb80134b4043b31fb6598b9446bcf6e72f353d6f0a243d1c85f900aa797c46",
+      "7ce175e06f24534d6521864c98ce5474379ecbffd01a9c3616f42fa289c699d4"
+    ],
+    "id": "cc197162fb226961eaf93031d1d2c4933014c1fabac8e7b7e0e9acfa4f9938e5"
+  },
+  "book": {
+    "snapshot_id": "4ac11959814b2783e106e5af32f83aa33c43cab8c707a638a4cd935e5f49f29e",
+    "directory": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/app/learned-rulebooks/4ac11959814b2783e106e5af32f83aa33c43cab8c707a638a4cd935e5f49f29e",
+    "candidate_count": 25,
+    "state": "DRAFT_NOT_PUBLISHED",
+    "files": [
+      "rulebook.json",
+      "RULEBOOK.md"
+    ],
+    "content_hashes": {
+      "rulebook.json": "f48bad5224e4778f94afe128dcf04e8f46a7435e5d78bab631be2a734a920f91",
+      "RULEBOOK.md": "a0957d4959ccc8591dee9b8f9c3902ec694192b1a27e1eab0eaddbd9d2debf76"
+    },
+    "id": "5097c6e38893ee336a1bf0138c406cb68da0e0d20e83f13b12ea1c70d380c819"
+  }
+}

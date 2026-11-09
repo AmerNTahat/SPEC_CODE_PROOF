@@ -1,0 +1,118 @@
+{
+  "scope": "Official KSU capability fixture, not a trained-rule benchmark or Isolette acceptance",
+  "model_calls": 0,
+  "run": {
+    "id": "58a45a06d51c4f5b832ab3d75d94e724",
+    "state": "FAILED",
+    "config": {
+      "architecture_policy": null,
+      "assistance": "automatic",
+      "budget": {
+        "aggregate_model_tokens": 1000000,
+        "concurrent_model_calls": 1,
+        "enforcement": "strict",
+        "final_validation_time_reserve": 0.2,
+        "repairs_per_issue": 3,
+        "repairs_per_run": 8,
+        "wall_seconds": 150
+      },
+      "creation_authorized": false,
+      "dataset_assignment": null,
+      "dataset_task": null,
+      "development_validation": null,
+      "final_evaluation": null,
+      "hamr_platform": "Microkit",
+      "input_files": [
+        "aadl-lib/aadl.library/AADL.sysml",
+        "aadl-lib/aadl.library/AADL_Project.sysml",
+        "aadl-lib/aadl.library/Base_Types.sysml",
+        "aadl-lib/aadl.library/Communication_Properties.sysml",
+        "aadl-lib/aadl.library/Data_Model.sysml",
+        "aadl-lib/aadl.library/Deployment_Properties.sysml",
+        "aadl-lib/aadl.library/Memory_Properties.sysml",
+        "aadl-lib/aadl.library/Programming_Properties.sysml",
+        "aadl-lib/aadl.library/Thread_Properties.sysml",
+        "aadl-lib/aadl.library/Timing_Properties.sysml",
+        "aadl-lib/aadl.library/behavior_properties.sysml",
+        "aadl-lib/hamr.aadl.library/CASE_Scheduling.sysml",
+        "aadl-lib/hamr.aadl.library/HAMR.sysml",
+        "aadl-lib/hamr.aadl.library/HAMR_AADL.sysml",
+        "aadl-lib/hamr.aadl.library/HAMR_AADL_Preview.sysml",
+        "aadl-lib/hamr.aadl.library/HAMR_Microkit.sysml",
+        "aadl-lib/hamr.aadl.library/HAMR_ROS.sysml",
+        "aadl-lib/hamr.aadl.library/HAMR_Time_Units.sysml",
+        "struct-split/Platform.sysml",
+        "struct-split/SysPropStructSplit.sysml",
+        "struct-split/SysPropStructSplit_Data_Model.sysml",
+        "struct-split/SysPropStructSplit_Properties.sysml",
+        "struct-split/SysPropStructSplit_Software.sysml"
+      ],
+      "learning_materials": null,
+      "mode": "user",
+      "model": {
+        "family": "gpt",
+        "requested_profile": "astra",
+        "resolved_model_id": null
+      },
+      "model_file": "struct-split/SysPropStructSplit.sysml",
+      "naming_policy": "preserve-existing",
+      "paid_runs_authorized": false,
+      "project": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/upgrade-system-property-example/sysmlv2",
+      "rename_authorized": false,
+      "repair_allowed_files": [],
+      "required_gates": [
+        "parse_type",
+        "hamr_codegen"
+      ],
+      "requirement_ledger": null,
+      "resolved_operation": "verify-only",
+      "rule_release": null,
+      "schema_version": 1,
+      "sireum": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/tools/sireum-4.20260810.80aad0c2/Sireum/bin/sireum",
+      "sireum_sha256": "29054e657216ba190d51c2beb29a77125886bd48a7a525200cdbf6e4bf1ff6b4",
+      "task_operation": "verify-only",
+      "unit_registry": null
+    },
+    "config_hash": "af2bf1785423c2007892d878ef803f3f0bb01924608a4779d814f7b7a7adfbfc",
+    "created": 1790141243.1619165,
+    "deadline": 1790141393.1619165,
+    "used_tokens": 0,
+    "usage_unknown": 0,
+    "reserved_tokens": 0,
+    "worker": null,
+    "result": {
+      "engineering_accepted": false,
+      "formally_verified_units": 0,
+      "gates": [
+        {
+          "evidence": {
+            "path": "objects/21e3fbcef18b6e8bd98d5c31ad8686280a07b43987034e7525e35f276ed33566.json",
+            "sha256": "21e3fbcef18b6e8bd98d5c31ad8686280a07b43987034e7525e35f276ed33566"
+          },
+          "gate": "parse_type",
+          "reason": "Type checker completed",
+          "status": "PASS"
+        },
+        {
+          "evidence": {
+            "path": "objects/5165af60d5e9fba1ce06a404b513105c27406916c5a31fa69a2551dc340026bb.json",
+            "sha256": "5165af60d5e9fba1ce06a404b513105c27406916c5a31fa69a2551dc340026bb"
+          },
+          "gate": "hamr_codegen",
+          "reason": "HAMR tool returned a nonzero status; inspect recorded diagnostics",
+          "status": "FAIL"
+        }
+      ],
+      "model_calls": 0,
+      "project_status": "NOT_ASSESSED",
+      "scope": "Selected checks only; no application or live-demo completion claim",
+      "task_status": "FAILED"
+    },
+    "version": 4,
+    "remaining_seconds": 143.5149302482605,
+    "remaining_tokens": 1000000,
+    "source_changed": [],
+    "evidence_current_for_source": true,
+    "policy_current": true
+  }
+}

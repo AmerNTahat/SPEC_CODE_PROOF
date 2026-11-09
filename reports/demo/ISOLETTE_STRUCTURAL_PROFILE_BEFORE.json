@@ -1,0 +1,1054 @@
+{
+  "reference": {
+    "profile": "one-thread-per-process-v1",
+    "roots": [
+      {
+        "root": "Air_Instance",
+        "component_counts": {
+          "System": 1
+        },
+        "processes": [],
+        "one_thread_per_process": {
+          "status": "UNKNOWN",
+          "violations": [],
+          "unresolved_components": []
+        },
+        "gumbo_owners": [],
+        "gumbo_owner_categories": {}
+      },
+      {
+        "root": "Heat_Source_System_i_Instance",
+        "component_counts": {
+          "System": 1,
+          "Process": 1,
+          "Thread": 1
+        },
+        "processes": [
+          {
+            "owner": "Heat_Source_System_i_Instance::cpi",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          }
+        ],
+        "one_thread_per_process": {
+          "status": "PASS",
+          "violations": [],
+          "unresolved_components": []
+        },
+        "gumbo_owners": [],
+        "gumbo_owner_categories": {}
+      },
+      {
+        "root": "Isolette_Environment_Normal_Operation_Normal_Operation_Instance",
+        "component_counts": {
+          "System": 9,
+          "Process": 11,
+          "Thread": 11,
+          "Processor": 1,
+          "Abstract": 2
+        },
+        "processes": [
+          {
+            "owner": "Isolette_Environment_Normal_Operation_Normal_Operation_Instance::anIncubator::thermostat::rt::mri",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Isolette_Environment_Normal_Operation_Normal_Operation_Instance::anIncubator::thermostat::rt::mhs",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Isolette_Environment_Normal_Operation_Normal_Operation_Instance::anIncubator::thermostat::rt::mrm",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Isolette_Environment_Normal_Operation_Normal_Operation_Instance::anIncubator::thermostat::rt::drf",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Isolette_Environment_Normal_Operation_Normal_Operation_Instance::anIncubator::thermostat::mt::mmi",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Isolette_Environment_Normal_Operation_Normal_Operation_Instance::anIncubator::thermostat::mt::ma",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Isolette_Environment_Normal_Operation_Normal_Operation_Instance::anIncubator::thermostat::mt::mmm",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Isolette_Environment_Normal_Operation_Normal_Operation_Instance::anIncubator::thermostat::mt::dmf",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Isolette_Environment_Normal_Operation_Normal_Operation_Instance::anIncubator::operator_interface::oip",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Isolette_Environment_Normal_Operation_Normal_Operation_Instance::anIncubator::temperature_sensor::cpi",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Isolette_Environment_Normal_Operation_Normal_Operation_Instance::anIncubator::heat_source::cpi",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          }
+        ],
+        "one_thread_per_process": {
+          "status": "PASS",
+          "violations": [],
+          "unresolved_components": []
+        },
+        "gumbo_owners": [
+          {
+            "owner": "Isolette_Environment_Normal_Operation_Normal_Operation_Instance::anIncubator::thermostat::rt::mri::mri",
+            "owner_category": "Thread"
+          },
+          {
+            "owner": "Isolette_Environment_Normal_Operation_Normal_Operation_Instance::anIncubator::thermostat::rt::mhs::mhs",
+            "owner_category": "Thread"
+          },
+          {
+            "owner": "Isolette_Environment_Normal_Operation_Normal_Operation_Instance::anIncubator::thermostat::rt::mrm::mrm",
+            "owner_category": "Thread"
+          },
+          {
+            "owner": "Isolette_Environment_Normal_Operation_Normal_Operation_Instance::anIncubator::thermostat::mt::mmi::mmi",
+            "owner_category": "Thread"
+          },
+          {
+            "owner": "Isolette_Environment_Normal_Operation_Normal_Operation_Instance::anIncubator::thermostat::mt::ma::ma",
+            "owner_category": "Thread"
+          },
+          {
+            "owner": "Isolette_Environment_Normal_Operation_Normal_Operation_Instance::anIncubator::thermostat::mt::mmm::mmm",
+            "owner_category": "Thread"
+          },
+          {
+            "owner": "Isolette_Environment_Normal_Operation_Normal_Operation_Instance::anIncubator::operator_interface::oip::oit",
+            "owner_category": "Thread"
+          }
+        ],
+        "gumbo_owner_categories": {
+          "Thread": 7
+        }
+      },
+      {
+        "root": "Isolette_Single_Sensor_Instance",
+        "component_counts": {
+          "System": 7,
+          "Process": 11,
+          "Thread": 11,
+          "Processor": 1
+        },
+        "processes": [
+          {
+            "owner": "Isolette_Single_Sensor_Instance::thermostat::rt::mri",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Isolette_Single_Sensor_Instance::thermostat::rt::mhs",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Isolette_Single_Sensor_Instance::thermostat::rt::mrm",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Isolette_Single_Sensor_Instance::thermostat::rt::drf",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Isolette_Single_Sensor_Instance::thermostat::mt::mmi",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Isolette_Single_Sensor_Instance::thermostat::mt::ma",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Isolette_Single_Sensor_Instance::thermostat::mt::mmm",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Isolette_Single_Sensor_Instance::thermostat::mt::dmf",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Isolette_Single_Sensor_Instance::operator_interface::oip",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Isolette_Single_Sensor_Instance::temperature_sensor::cpi",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Isolette_Single_Sensor_Instance::heat_source::cpi",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          }
+        ],
+        "one_thread_per_process": {
+          "status": "PASS",
+          "violations": [],
+          "unresolved_components": []
+        },
+        "gumbo_owners": [
+          {
+            "owner": "Isolette_Single_Sensor_Instance::thermostat::rt::mri::mri",
+            "owner_category": "Thread"
+          },
+          {
+            "owner": "Isolette_Single_Sensor_Instance::thermostat::rt::mhs::mhs",
+            "owner_category": "Thread"
+          },
+          {
+            "owner": "Isolette_Single_Sensor_Instance::thermostat::rt::mrm::mrm",
+            "owner_category": "Thread"
+          },
+          {
+            "owner": "Isolette_Single_Sensor_Instance::thermostat::mt::mmi::mmi",
+            "owner_category": "Thread"
+          },
+          {
+            "owner": "Isolette_Single_Sensor_Instance::thermostat::mt::ma::ma",
+            "owner_category": "Thread"
+          },
+          {
+            "owner": "Isolette_Single_Sensor_Instance::thermostat::mt::mmm::mmm",
+            "owner_category": "Thread"
+          },
+          {
+            "owner": "Isolette_Single_Sensor_Instance::operator_interface::oip::oit",
+            "owner_category": "Thread"
+          }
+        ],
+        "gumbo_owner_categories": {
+          "Thread": 7
+        }
+      },
+      {
+        "root": "Monitor_Temperature_i_Instance",
+        "component_counts": {
+          "System": 1,
+          "Process": 4,
+          "Thread": 4
+        },
+        "processes": [
+          {
+            "owner": "Monitor_Temperature_i_Instance::mmi",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Monitor_Temperature_i_Instance::ma",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Monitor_Temperature_i_Instance::mmm",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Monitor_Temperature_i_Instance::dmf",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          }
+        ],
+        "one_thread_per_process": {
+          "status": "PASS",
+          "violations": [],
+          "unresolved_components": []
+        },
+        "gumbo_owners": [
+          {
+            "owner": "Monitor_Temperature_i_Instance::mmi::mmi",
+            "owner_category": "Thread"
+          },
+          {
+            "owner": "Monitor_Temperature_i_Instance::ma::ma",
+            "owner_category": "Thread"
+          },
+          {
+            "owner": "Monitor_Temperature_i_Instance::mmm::mmm",
+            "owner_category": "Thread"
+          }
+        ],
+        "gumbo_owner_categories": {
+          "Thread": 3
+        }
+      },
+      {
+        "root": "Operator_Interface_System_i_Instance",
+        "component_counts": {
+          "System": 1,
+          "Process": 1,
+          "Thread": 1
+        },
+        "processes": [
+          {
+            "owner": "Operator_Interface_System_i_Instance::oip",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          }
+        ],
+        "one_thread_per_process": {
+          "status": "PASS",
+          "violations": [],
+          "unresolved_components": []
+        },
+        "gumbo_owners": [
+          {
+            "owner": "Operator_Interface_System_i_Instance::oip::oit",
+            "owner_category": "Thread"
+          }
+        ],
+        "gumbo_owner_categories": {
+          "Thread": 1
+        }
+      },
+      {
+        "root": "Regulate_Temperature_i_Instance",
+        "component_counts": {
+          "System": 1,
+          "Process": 4,
+          "Thread": 4
+        },
+        "processes": [
+          {
+            "owner": "Regulate_Temperature_i_Instance::mri",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Regulate_Temperature_i_Instance::mhs",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Regulate_Temperature_i_Instance::mrm",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Regulate_Temperature_i_Instance::drf",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          }
+        ],
+        "one_thread_per_process": {
+          "status": "PASS",
+          "violations": [],
+          "unresolved_components": []
+        },
+        "gumbo_owners": [
+          {
+            "owner": "Regulate_Temperature_i_Instance::mri::mri",
+            "owner_category": "Thread"
+          },
+          {
+            "owner": "Regulate_Temperature_i_Instance::mhs::mhs",
+            "owner_category": "Thread"
+          },
+          {
+            "owner": "Regulate_Temperature_i_Instance::mrm::mrm",
+            "owner_category": "Thread"
+          }
+        ],
+        "gumbo_owner_categories": {
+          "Thread": 3
+        }
+      },
+      {
+        "root": "System_Instance",
+        "component_counts": {
+          "System": 1
+        },
+        "processes": [],
+        "one_thread_per_process": {
+          "status": "UNKNOWN",
+          "violations": [],
+          "unresolved_components": []
+        },
+        "gumbo_owners": [],
+        "gumbo_owner_categories": {}
+      },
+      {
+        "root": "Temperature_Sensor_System_i_Instance",
+        "component_counts": {
+          "System": 1,
+          "Process": 1,
+          "Thread": 1
+        },
+        "processes": [
+          {
+            "owner": "Temperature_Sensor_System_i_Instance::cpi",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          }
+        ],
+        "one_thread_per_process": {
+          "status": "PASS",
+          "violations": [],
+          "unresolved_components": []
+        },
+        "gumbo_owners": [],
+        "gumbo_owner_categories": {}
+      },
+      {
+        "root": "Thermostat_Single_Sensor_System_i_Instance",
+        "component_counts": {
+          "System": 3,
+          "Process": 8,
+          "Thread": 8
+        },
+        "processes": [
+          {
+            "owner": "Thermostat_Single_Sensor_System_i_Instance::rt::mri",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Thermostat_Single_Sensor_System_i_Instance::rt::mhs",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Thermostat_Single_Sensor_System_i_Instance::rt::mrm",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Thermostat_Single_Sensor_System_i_Instance::rt::drf",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Thermostat_Single_Sensor_System_i_Instance::mt::mmi",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Thermostat_Single_Sensor_System_i_Instance::mt::ma",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Thermostat_Single_Sensor_System_i_Instance::mt::mmm",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Thermostat_Single_Sensor_System_i_Instance::mt::dmf",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          }
+        ],
+        "one_thread_per_process": {
+          "status": "PASS",
+          "violations": [],
+          "unresolved_components": []
+        },
+        "gumbo_owners": [
+          {
+            "owner": "Thermostat_Single_Sensor_System_i_Instance::rt::mri::mri",
+            "owner_category": "Thread"
+          },
+          {
+            "owner": "Thermostat_Single_Sensor_System_i_Instance::rt::mhs::mhs",
+            "owner_category": "Thread"
+          },
+          {
+            "owner": "Thermostat_Single_Sensor_System_i_Instance::rt::mrm::mrm",
+            "owner_category": "Thread"
+          },
+          {
+            "owner": "Thermostat_Single_Sensor_System_i_Instance::mt::mmi::mmi",
+            "owner_category": "Thread"
+          },
+          {
+            "owner": "Thermostat_Single_Sensor_System_i_Instance::mt::ma::ma",
+            "owner_category": "Thread"
+          },
+          {
+            "owner": "Thermostat_Single_Sensor_System_i_Instance::mt::mmm::mmm",
+            "owner_category": "Thread"
+          }
+        ],
+        "gumbo_owner_categories": {
+          "Thread": 6
+        }
+      }
+    ],
+    "scope": "Diagnostic design profile. Apply only where explicitly selected/approved; multiple threads per process are otherwise legal.",
+    "gumbo_scope": "Resolved contract ownership only; absence of a contract is not proof of a missing requirement. Compare with English allocation.",
+    "behavioral_acceptance": false,
+    "snapshot_id": "dfa73b96172919a347630e9ca2514c29bc3de435b5b490807e2512db11370f71",
+    "evidence_current": true,
+    "source_outline": {
+      "declarations": [
+        {
+          "name": "Regulate_Temperature_i",
+          "base": "System",
+          "line": 20
+        },
+        {
+          "name": "Manage_Regulator_Interface_Process",
+          "base": "Process",
+          "line": 111
+        },
+        {
+          "name": "Manage_Regulator_Interface_i",
+          "base": "Thread",
+          "line": 163
+        },
+        {
+          "name": "Manage_Regulator_Mode_Process_i",
+          "base": "Process",
+          "line": 230
+        },
+        {
+          "name": "Manage_Regulator_Mode_i",
+          "base": "Thread",
+          "line": 262
+        },
+        {
+          "name": "Manage_Heat_Source_Process_i",
+          "base": "Process",
+          "line": 325
+        },
+        {
+          "name": "Manage_Heat_Source_i",
+          "base": "Thread",
+          "line": 360
+        },
+        {
+          "name": "Detect_Regulator_Failure_Process_i",
+          "base": "Process",
+          "line": 414
+        },
+        {
+          "name": "Detect_Regulator_Failure_i",
+          "base": "Thread",
+          "line": 426
+        }
+      ],
+      "category_order": [
+        "System",
+        "Process",
+        "Thread",
+        "Process",
+        "Thread",
+        "Process",
+        "Thread",
+        "Process",
+        "Thread"
+      ],
+      "status": "ADVISORY",
+      "scope": "Lexical outline of direct part definitions; not a full SysML parser or equivalence gate. Declaration order is a style preference unless separately approved."
+    }
+  },
+  "generated": {
+    "profile": "one-thread-per-process-v1",
+    "roots": [
+      {
+        "root": "Air_Instance",
+        "component_counts": {
+          "System": 1
+        },
+        "processes": [],
+        "one_thread_per_process": {
+          "status": "UNKNOWN",
+          "violations": [],
+          "unresolved_components": []
+        },
+        "gumbo_owners": [],
+        "gumbo_owner_categories": {}
+      },
+      {
+        "root": "Heat_Source_System_i_Instance",
+        "component_counts": {
+          "System": 1,
+          "Process": 1,
+          "Thread": 1
+        },
+        "processes": [
+          {
+            "owner": "Heat_Source_System_i_Instance::cpi",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          }
+        ],
+        "one_thread_per_process": {
+          "status": "PASS",
+          "violations": [],
+          "unresolved_components": []
+        },
+        "gumbo_owners": [],
+        "gumbo_owner_categories": {}
+      },
+      {
+        "root": "Isolette_Environment_Normal_Operation_Normal_Operation_Instance",
+        "component_counts": {
+          "System": 8,
+          "Process": 8,
+          "Thread": 11,
+          "Processor": 1,
+          "Abstract": 2
+        },
+        "processes": [
+          {
+            "owner": "Isolette_Environment_Normal_Operation_Normal_Operation_Instance::anIncubator::thermostat::rt",
+            "direct_threads": 4,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Isolette_Environment_Normal_Operation_Normal_Operation_Instance::anIncubator::thermostat::mt::mmi",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Isolette_Environment_Normal_Operation_Normal_Operation_Instance::anIncubator::thermostat::mt::ma",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Isolette_Environment_Normal_Operation_Normal_Operation_Instance::anIncubator::thermostat::mt::mmm",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Isolette_Environment_Normal_Operation_Normal_Operation_Instance::anIncubator::thermostat::mt::dmf",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Isolette_Environment_Normal_Operation_Normal_Operation_Instance::anIncubator::operator_interface::oip",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Isolette_Environment_Normal_Operation_Normal_Operation_Instance::anIncubator::temperature_sensor::cpi",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Isolette_Environment_Normal_Operation_Normal_Operation_Instance::anIncubator::heat_source::cpi",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          }
+        ],
+        "one_thread_per_process": {
+          "status": "FAIL",
+          "violations": [
+            {
+              "rule": "one-thread-per-process",
+              "owner": "Isolette_Environment_Normal_Operation_Normal_Operation_Instance::anIncubator::thermostat::rt",
+              "direct_threads": 4,
+              "other_execution_children": 0
+            }
+          ],
+          "unresolved_components": []
+        },
+        "gumbo_owners": [
+          {
+            "owner": "Isolette_Environment_Normal_Operation_Normal_Operation_Instance::anIncubator::thermostat::rt::manage_regulator_interface",
+            "owner_category": "Thread"
+          },
+          {
+            "owner": "Isolette_Environment_Normal_Operation_Normal_Operation_Instance::anIncubator::thermostat::rt::manage_regulator_mode",
+            "owner_category": "Thread"
+          },
+          {
+            "owner": "Isolette_Environment_Normal_Operation_Normal_Operation_Instance::anIncubator::thermostat::rt::manage_heat_source",
+            "owner_category": "Thread"
+          },
+          {
+            "owner": "Isolette_Environment_Normal_Operation_Normal_Operation_Instance::anIncubator::thermostat::rt::detect_regulator_failure",
+            "owner_category": "Thread"
+          },
+          {
+            "owner": "Isolette_Environment_Normal_Operation_Normal_Operation_Instance::anIncubator::thermostat::mt::mmi::mmi",
+            "owner_category": "Thread"
+          },
+          {
+            "owner": "Isolette_Environment_Normal_Operation_Normal_Operation_Instance::anIncubator::thermostat::mt::ma::ma",
+            "owner_category": "Thread"
+          },
+          {
+            "owner": "Isolette_Environment_Normal_Operation_Normal_Operation_Instance::anIncubator::thermostat::mt::mmm::mmm",
+            "owner_category": "Thread"
+          },
+          {
+            "owner": "Isolette_Environment_Normal_Operation_Normal_Operation_Instance::anIncubator::operator_interface::oip::oit",
+            "owner_category": "Thread"
+          }
+        ],
+        "gumbo_owner_categories": {
+          "Thread": 8
+        }
+      },
+      {
+        "root": "Isolette_Single_Sensor_Instance",
+        "component_counts": {
+          "System": 6,
+          "Process": 8,
+          "Thread": 11,
+          "Processor": 1
+        },
+        "processes": [
+          {
+            "owner": "Isolette_Single_Sensor_Instance::thermostat::rt",
+            "direct_threads": 4,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Isolette_Single_Sensor_Instance::thermostat::mt::mmi",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Isolette_Single_Sensor_Instance::thermostat::mt::ma",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Isolette_Single_Sensor_Instance::thermostat::mt::mmm",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Isolette_Single_Sensor_Instance::thermostat::mt::dmf",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Isolette_Single_Sensor_Instance::operator_interface::oip",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Isolette_Single_Sensor_Instance::temperature_sensor::cpi",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Isolette_Single_Sensor_Instance::heat_source::cpi",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          }
+        ],
+        "one_thread_per_process": {
+          "status": "FAIL",
+          "violations": [
+            {
+              "rule": "one-thread-per-process",
+              "owner": "Isolette_Single_Sensor_Instance::thermostat::rt",
+              "direct_threads": 4,
+              "other_execution_children": 0
+            }
+          ],
+          "unresolved_components": []
+        },
+        "gumbo_owners": [
+          {
+            "owner": "Isolette_Single_Sensor_Instance::thermostat::rt::manage_regulator_interface",
+            "owner_category": "Thread"
+          },
+          {
+            "owner": "Isolette_Single_Sensor_Instance::thermostat::rt::manage_regulator_mode",
+            "owner_category": "Thread"
+          },
+          {
+            "owner": "Isolette_Single_Sensor_Instance::thermostat::rt::manage_heat_source",
+            "owner_category": "Thread"
+          },
+          {
+            "owner": "Isolette_Single_Sensor_Instance::thermostat::rt::detect_regulator_failure",
+            "owner_category": "Thread"
+          },
+          {
+            "owner": "Isolette_Single_Sensor_Instance::thermostat::mt::mmi::mmi",
+            "owner_category": "Thread"
+          },
+          {
+            "owner": "Isolette_Single_Sensor_Instance::thermostat::mt::ma::ma",
+            "owner_category": "Thread"
+          },
+          {
+            "owner": "Isolette_Single_Sensor_Instance::thermostat::mt::mmm::mmm",
+            "owner_category": "Thread"
+          },
+          {
+            "owner": "Isolette_Single_Sensor_Instance::operator_interface::oip::oit",
+            "owner_category": "Thread"
+          }
+        ],
+        "gumbo_owner_categories": {
+          "Thread": 8
+        }
+      },
+      {
+        "root": "Monitor_Temperature_i_Instance",
+        "component_counts": {
+          "System": 1,
+          "Process": 4,
+          "Thread": 4
+        },
+        "processes": [
+          {
+            "owner": "Monitor_Temperature_i_Instance::mmi",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Monitor_Temperature_i_Instance::ma",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Monitor_Temperature_i_Instance::mmm",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Monitor_Temperature_i_Instance::dmf",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          }
+        ],
+        "one_thread_per_process": {
+          "status": "PASS",
+          "violations": [],
+          "unresolved_components": []
+        },
+        "gumbo_owners": [
+          {
+            "owner": "Monitor_Temperature_i_Instance::mmi::mmi",
+            "owner_category": "Thread"
+          },
+          {
+            "owner": "Monitor_Temperature_i_Instance::ma::ma",
+            "owner_category": "Thread"
+          },
+          {
+            "owner": "Monitor_Temperature_i_Instance::mmm::mmm",
+            "owner_category": "Thread"
+          }
+        ],
+        "gumbo_owner_categories": {
+          "Thread": 3
+        }
+      },
+      {
+        "root": "Operator_Interface_System_i_Instance",
+        "component_counts": {
+          "System": 1,
+          "Process": 1,
+          "Thread": 1
+        },
+        "processes": [
+          {
+            "owner": "Operator_Interface_System_i_Instance::oip",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          }
+        ],
+        "one_thread_per_process": {
+          "status": "PASS",
+          "violations": [],
+          "unresolved_components": []
+        },
+        "gumbo_owners": [
+          {
+            "owner": "Operator_Interface_System_i_Instance::oip::oit",
+            "owner_category": "Thread"
+          }
+        ],
+        "gumbo_owner_categories": {
+          "Thread": 1
+        }
+      },
+      {
+        "root": "System_Instance",
+        "component_counts": {
+          "System": 1
+        },
+        "processes": [],
+        "one_thread_per_process": {
+          "status": "UNKNOWN",
+          "violations": [],
+          "unresolved_components": []
+        },
+        "gumbo_owners": [],
+        "gumbo_owner_categories": {}
+      },
+      {
+        "root": "Temperature_Sensor_System_i_Instance",
+        "component_counts": {
+          "System": 1,
+          "Process": 1,
+          "Thread": 1
+        },
+        "processes": [
+          {
+            "owner": "Temperature_Sensor_System_i_Instance::cpi",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          }
+        ],
+        "one_thread_per_process": {
+          "status": "PASS",
+          "violations": [],
+          "unresolved_components": []
+        },
+        "gumbo_owners": [],
+        "gumbo_owner_categories": {}
+      },
+      {
+        "root": "Thermostat_Single_Sensor_System_i_Instance",
+        "component_counts": {
+          "System": 2,
+          "Process": 5,
+          "Thread": 8
+        },
+        "processes": [
+          {
+            "owner": "Thermostat_Single_Sensor_System_i_Instance::rt",
+            "direct_threads": 4,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Thermostat_Single_Sensor_System_i_Instance::mt::mmi",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Thermostat_Single_Sensor_System_i_Instance::mt::ma",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Thermostat_Single_Sensor_System_i_Instance::mt::mmm",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          },
+          {
+            "owner": "Thermostat_Single_Sensor_System_i_Instance::mt::dmf",
+            "direct_threads": 1,
+            "other_execution_children": 0
+          }
+        ],
+        "one_thread_per_process": {
+          "status": "FAIL",
+          "violations": [
+            {
+              "rule": "one-thread-per-process",
+              "owner": "Thermostat_Single_Sensor_System_i_Instance::rt",
+              "direct_threads": 4,
+              "other_execution_children": 0
+            }
+          ],
+          "unresolved_components": []
+        },
+        "gumbo_owners": [
+          {
+            "owner": "Thermostat_Single_Sensor_System_i_Instance::rt::manage_regulator_interface",
+            "owner_category": "Thread"
+          },
+          {
+            "owner": "Thermostat_Single_Sensor_System_i_Instance::rt::manage_regulator_mode",
+            "owner_category": "Thread"
+          },
+          {
+            "owner": "Thermostat_Single_Sensor_System_i_Instance::rt::manage_heat_source",
+            "owner_category": "Thread"
+          },
+          {
+            "owner": "Thermostat_Single_Sensor_System_i_Instance::rt::detect_regulator_failure",
+            "owner_category": "Thread"
+          },
+          {
+            "owner": "Thermostat_Single_Sensor_System_i_Instance::mt::mmi::mmi",
+            "owner_category": "Thread"
+          },
+          {
+            "owner": "Thermostat_Single_Sensor_System_i_Instance::mt::ma::ma",
+            "owner_category": "Thread"
+          },
+          {
+            "owner": "Thermostat_Single_Sensor_System_i_Instance::mt::mmm::mmm",
+            "owner_category": "Thread"
+          }
+        ],
+        "gumbo_owner_categories": {
+          "Thread": 7
+        }
+      }
+    ],
+    "scope": "Diagnostic design profile. Apply only where explicitly selected/approved; multiple threads per process are otherwise legal.",
+    "gumbo_scope": "Resolved contract ownership only; absence of a contract is not proof of a missing requirement. Compare with English allocation.",
+    "behavioral_acceptance": false,
+    "snapshot_id": "e40994e32bcb9336482ed188ceaf0e9c77fbb2a04540a79862e6ad23b95e326a",
+    "evidence_current": true,
+    "source_outline": {
+      "declarations": [
+        {
+          "name": "Manage_Regulator_Interface_i",
+          "base": "AADL::Thread",
+          "line": 12
+        },
+        {
+          "name": "Manage_Regulator_Mode_i",
+          "base": "AADL::Thread",
+          "line": 119
+        },
+        {
+          "name": "Manage_Heat_Source_i",
+          "base": "AADL::Thread",
+          "line": 211
+        },
+        {
+          "name": "Detect_Regulator_Failure_i",
+          "base": "AADL::Thread",
+          "line": 277
+        },
+        {
+          "name": "Regulate_Temperature_i",
+          "base": "AADL::Process",
+          "line": 301
+        }
+      ],
+      "category_order": [
+        "Thread",
+        "Thread",
+        "Thread",
+        "Thread",
+        "Process"
+      ],
+      "status": "ADVISORY",
+      "scope": "Lexical outline of direct part definitions; not a full SysML parser or equivalence gate. Declaration order is a style preference unless separately approved."
+    }
+  }
+}

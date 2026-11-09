@@ -1,0 +1,208 @@
+{
+  "scope": "Text inventory of existing GUMBO source, not verified-unit or complete English coverage count. Real parser checks are separate.",
+  "files": [
+    {
+      "file": "Isolette_Data_Model.sysml",
+      "gumbo_blocks": [
+        {
+          "owner": "TempWstatus_i",
+          "line": 13,
+          "block_sha256": "00bd7aaf0d91226dc9c53655a2cf8042e39dc940af057016b3800623bdaecba3",
+          "initialize_present": false,
+          "compute_present": false,
+          "integration_present": false,
+          "named_guarantees": [],
+          "compute_cases": []
+        },
+        {
+          "owner": "Temp_i",
+          "line": 23,
+          "block_sha256": "00bd7aaf0d91226dc9c53655a2cf8042e39dc940af057016b3800623bdaecba3",
+          "initialize_present": false,
+          "compute_present": false,
+          "integration_present": false,
+          "named_guarantees": [],
+          "compute_cases": []
+        },
+        {
+          "owner": "PhysicalTemp_i",
+          "line": 33,
+          "block_sha256": "00bd7aaf0d91226dc9c53655a2cf8042e39dc940af057016b3800623bdaecba3",
+          "initialize_present": false,
+          "compute_present": false,
+          "integration_present": false,
+          "named_guarantees": [],
+          "compute_cases": []
+        }
+      ]
+    },
+    {
+      "file": "Monitor.sysml",
+      "gumbo_blocks": [
+        {
+          "owner": "Manage_Monitor_Interface_i",
+          "line": 149,
+          "block_sha256": "96e4556daa4855025589909589b0078263b03402501ed390d310b2ee6877973f",
+          "initialize_present": true,
+          "compute_present": true,
+          "integration_present": false,
+          "named_guarantees": [
+            "monitorStatusInitiallyInit"
+          ],
+          "compute_cases": [
+            "REQ_MMI_1",
+            "REQ_MMI_2",
+            "REQ_MMI_3",
+            "REQ_MMI_4",
+            "REQ_MMI_5",
+            "REQ_MMI_6"
+          ]
+        },
+        {
+          "owner": "Manage_Monitor_Mode_i",
+          "line": 245,
+          "block_sha256": "04f750edf90a97a4f7c921789caf77f4736f8740f5f8288a2aedeab3f9769d61",
+          "initialize_present": true,
+          "compute_present": true,
+          "integration_present": false,
+          "named_guarantees": [
+            "monitorModeInitiallyInit"
+          ],
+          "compute_cases": [
+            "REQ_MMM_INIT_TO_NORMAL",
+            "REQ_MMM_INIT_STAYS_INIT",
+            "REQ_MMM_NORMAL_STAYS_NORMAL",
+            "REQ_MMM_NORMAL_TO_FAILED",
+            "REQ_MMM_FAILED_STAYS_FAILED"
+          ]
+        },
+        {
+          "owner": "Manage_Alarm_i",
+          "line": 350,
+          "block_sha256": "235201b2fda49505f9197c437b6921f9e6f093a693291de80064a5eaaa2ff2ce",
+          "initialize_present": true,
+          "compute_present": true,
+          "integration_present": false,
+          "named_guarantees": [
+            "alarmInitiallyOff"
+          ],
+          "compute_cases": [
+            "REQ_MA_1",
+            "REQ_MA_2_LOW",
+            "REQ_MA_2_HIGH",
+            "REQ_MA_3_LOW_HYSTERESIS",
+            "REQ_MA_3_HIGH_HYSTERESIS",
+            "REQ_MA_4",
+            "REQ_MA_5"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "Operator_Interface.sysml",
+      "gumbo_blocks": [
+        {
+          "owner": "Operator_Interface_Thread_i",
+          "line": 115,
+          "block_sha256": "16228fa5eac05f6df9256388dccbbfbe7c3fde9cc48a436e4d1b0dc96d092962",
+          "initialize_present": false,
+          "compute_present": true,
+          "integration_present": false,
+          "named_guarantees": [
+            "Table_A_12_LowerAlarmTemp",
+            "Table_A_12_UpperAlarmTemp"
+          ],
+          "compute_cases": []
+        }
+      ]
+    },
+    {
+      "file": "Regulate.sysml",
+      "gumbo_blocks": [
+        {
+          "owner": "Manage_Regulator_Interface_i",
+          "line": 31,
+          "block_sha256": "2845674dd16bff9b00e861182946a02503943d02f8da4c3966b4f1cf750723cc",
+          "initialize_present": true,
+          "compute_present": true,
+          "integration_present": false,
+          "named_guarantees": [
+            "MRI_INITIAL_STATUS",
+            "MRI_INITIAL_FAILURE",
+            "MRI_INITIAL_LOWER_DOMAIN",
+            "MRI_INITIAL_UPPER_DOMAIN",
+            "MRI_INITIAL_DISPLAY_DOMAIN",
+            "REQ_MRI_1",
+            "REQ_MRI_2",
+            "REQ_MRI_3",
+            "REQ_MRI_4",
+            "REQ_MRI_6",
+            "REQ_MRI_7",
+            "REQ_MRI_8",
+            "TABLE_A7_LOWER_DOMAIN",
+            "TABLE_A7_UPPER_DOMAIN"
+          ],
+          "compute_cases": []
+        },
+        {
+          "owner": "Manage_Regulator_Mode_i",
+          "line": 135,
+          "block_sha256": "66bc06ddef5765052efcf9be254711b097da5ebd878ff131738ebcc393441b44",
+          "initialize_present": true,
+          "compute_present": true,
+          "integration_present": false,
+          "named_guarantees": [
+            "REQ_MRM_1",
+            "MODE_INITIAL_HISTORY",
+            "MODE_INITIAL_CLOCK",
+            "MODE_INITIAL_HEALTH",
+            "TABLE_A10_REGULATOR_STATUS",
+            "REQ_MRM_2",
+            "REQ_MRM_3",
+            "REQ_MRM_4",
+            "INIT_PERSISTENCE",
+            "NORMAL_PERSISTENCE",
+            "FAILED_LATCH",
+            "MODE_HISTORY_COMMIT",
+            "CLOCK_NONNEGATIVE",
+            "CLOCK_ENTRY_RESET",
+            "CLOCK_NONDECREASING_WITHIN_MODE"
+          ],
+          "compute_cases": []
+        },
+        {
+          "owner": "Manage_Heat_Source_i",
+          "line": 226,
+          "block_sha256": "4d4576b6986b829ad147de76b0c3b17f74fee0e4f51f85736670263124ecd9be",
+          "initialize_present": true,
+          "compute_present": true,
+          "integration_present": false,
+          "named_guarantees": [
+            "INITIAL_HEAT_OFF",
+            "INITIAL_HEAT_HISTORY",
+            "REQ_MHS_1",
+            "REQ_MHS_2",
+            "REQ_MHS_3",
+            "REQ_MHS_4",
+            "REQ_MHS_5",
+            "HEAT_HISTORY_COMMIT"
+          ],
+          "compute_cases": []
+        },
+        {
+          "owner": "Detect_Regulator_Failure_i",
+          "line": 289,
+          "block_sha256": "8354fba9611c82a1d559914d1c822db211d9de83bf16b8988c0768c18733e559",
+          "initialize_present": true,
+          "compute_present": true,
+          "integration_present": false,
+          "named_guarantees": [
+            "INITIAL_DETECTED_INTERNAL_FAILURE",
+            "DETECTED_INTERNAL_FAILURE"
+          ],
+          "compute_cases": []
+        }
+      ]
+    }
+  ]
+}

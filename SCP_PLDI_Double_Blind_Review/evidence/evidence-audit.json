@@ -1,0 +1,1923 @@
+{
+  "audit_kind": "Read-only reanalysis of existing artifacts; no engineering/test/model execution",
+  "recorded_utc": "2026-11-07T03:02:32.822421+00:00",
+  "source_root": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20",
+  "completion_record": {
+    "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/ENGINEERING_COMPLETION.json",
+    "sha256": "c778538b4c15ffd60c9e59deb055ac0c01c976255269d0bc6b9f0c5c7ae82462"
+  },
+  "checks": {
+    "completion_links": {
+      "passed": 4,
+      "audited": 4,
+      "records": [
+        {
+          "field": "completion.authority",
+          "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/ENGINEERING_AUTHORITY.json",
+          "expected_sha256": "5624039112cbd4203d753ee315ce198ca88864ca55c3562af15dc9a7cfb6776a",
+          "actual_sha256": "5624039112cbd4203d753ee315ce198ca88864ca55c3562af15dc9a7cfb6776a",
+          "matches": true
+        },
+        {
+          "field": "completion.build.receipt",
+          "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/build/result.json",
+          "expected_sha256": "ed7e12455b2e9843dda7bb72ecfa92e21228f98e9e6810d7830b7cb8ad6ccd63",
+          "actual_sha256": "ed7e12455b2e9843dda7bb72ecfa92e21228f98e9e6810d7830b7cb8ad6ccd63",
+          "matches": true
+        },
+        {
+          "field": "completion.observation.receipt",
+          "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/qemu/result.json",
+          "expected_sha256": "26727440734d4e0e82c019097606bec81e92d1f1d20a2ec053d5c12e8ce4281b",
+          "actual_sha256": "26727440734d4e0e82c019097606bec81e92d1f1d20a2ec053d5c12e8ce4281b",
+          "matches": true
+        },
+        {
+          "field": "completion.prior_evidence.initialization_completion",
+          "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/outputs/initialization-repair-8/ENGINEERING_COMPLETION.json",
+          "expected_sha256": "fa36af086e7e28deb527f199a4742e6b64d220b2d1a12211db7034f80ab3bf45",
+          "actual_sha256": "fa36af086e7e28deb527f199a4742e6b64d220b2d1a12211db7034f80ab3bf45",
+          "matches": true
+        }
+      ]
+    },
+    "build": {
+      "exit_code_recorded": 0,
+      "timed_out_recorded": false,
+      "elapsed_seconds_recorded": 103.50073753809556,
+      "status_recorded": "PASS"
+    },
+    "runtime": {
+      "receipt_path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/qemu/result.json",
+      "stdout_path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/qemu/stdout.log",
+      "receiver_substring": "Receiver: event received",
+      "initialization_substring": "initialize entrypoint invoked",
+      "receiver_lines_counted": 18,
+      "initialization_lines_counted": 4,
+      "readiness_epoch_recorded": 1793960439.902577,
+      "observation_end_epoch_recorded": 1793960459.9356334,
+      "duration_by_subtraction_seconds": 20.033056497573853,
+      "duration_reported_seconds": 20.03305649687536,
+      "absolute_difference_seconds": 6.984919309616089e-10,
+      "within_one_microsecond": true,
+      "requested_seconds": 20,
+      "meets_requested_duration": true,
+      "stop_reason_recorded": "OBSERVATION_COMPLETE",
+      "process_exit_before_cleanup_recorded": null,
+      "guest_clock_uptime_measured_recorded": false,
+      "full_system_acceptance_recorded": "OPEN",
+      "oracle_scope_recorded": "Boot and receiver liveness plus logged anomalies. Payload correctness, complete stimulus-cycle coverage, occurrence correspondence and delivery remain unverified."
+    },
+    "loader_binding": {
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/build/loader.img",
+      "expected_sha256": "88216fe9bc00374fc742e3dc63348894ce0fb23a4f5755f76a7d2da21919af05",
+      "actual_sha256": "88216fe9bc00374fc742e3dc63348894ce0fb23a4f5755f76a7d2da21919af05",
+      "matches": true
+    },
+    "source_manifests": {
+      "unique_files_audited": 201,
+      "phases": [
+        {
+          "phase": "build",
+          "receipt_path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/build/result.json",
+          "receipt_sha256": "ed7e12455b2e9843dda7bb72ecfa92e21228f98e9e6810d7830b7cb8ad6ccd63",
+          "status_recorded": "PASS",
+          "unique_source_paths": 201,
+          "matching_current_files": 201,
+          "missing_paths": [],
+          "mismatched_paths": [],
+          "before_equals_after": true,
+          "canonical_manifest_sha256": "72b2516fc45d252634c9ae929c343e37f3f1c200a9fff3416b34e91646bdc538"
+        },
+        {
+          "phase": "qemu",
+          "receipt_path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/qemu/result.json",
+          "receipt_sha256": "26727440734d4e0e82c019097606bec81e92d1f1d20a2ec053d5c12e8ce4281b",
+          "status_recorded": "PASS_FOR_OBSERVED_WINDOW",
+          "unique_source_paths": 201,
+          "matching_current_files": 201,
+          "missing_paths": [],
+          "mismatched_paths": [],
+          "before_equals_after": true,
+          "canonical_manifest_sha256": "72b2516fc45d252634c9ae929c343e37f3f1c200a9fff3416b34e91646bdc538"
+        }
+      ],
+      "counting_note": "The same 201 paths were checked against two identical before/after inventories; this is not 402 independent files or independent experimental replications."
+    },
+    "log_bindings": {
+      "passed": 4,
+      "audited": 4,
+      "records": [
+        {
+          "phase": "build",
+          "stream": "stdout",
+          "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/build/stdout.log",
+          "expected_sha256": "03c8169a64986583f4ea026b1fa149fa63e29b6f80ef4dcb2a231bf760abea3a",
+          "actual_sha256": "03c8169a64986583f4ea026b1fa149fa63e29b6f80ef4dcb2a231bf760abea3a",
+          "matches": true
+        },
+        {
+          "phase": "build",
+          "stream": "stderr",
+          "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/build/stderr.log",
+          "expected_sha256": "c86f96f666d590f7562bc6f1f1cf8e853bbb3e003daf3db3db882537e253b8bd",
+          "actual_sha256": "c86f96f666d590f7562bc6f1f1cf8e853bbb3e003daf3db3db882537e253b8bd",
+          "matches": true
+        },
+        {
+          "phase": "qemu",
+          "stream": "stdout",
+          "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/qemu/stdout.log",
+          "expected_sha256": "b8a356b63d790cf6a07ef35fff1a96b0e6835584014acf0984850fc2d0b56861",
+          "actual_sha256": "b8a356b63d790cf6a07ef35fff1a96b0e6835584014acf0984850fc2d0b56861",
+          "matches": true
+        },
+        {
+          "phase": "qemu",
+          "stream": "stderr",
+          "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/qemu/stderr.log",
+          "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "matches": true
+        }
+      ]
+    },
+    "pilot_record_reanalysis": {
+      "cases": [
+        {
+          "case": "P01",
+          "path": "records/checkpoint/evaluation-protocol/pilot/run-final/P01.json",
+          "sha256": "46f44767cd03537548c79b02bd62fd9305e2fe88f2758f1d6e5e13ca8709d5d4",
+          "status_recorded": "PASS",
+          "expected_actual_assertions": 2,
+          "assertions_equal_by_recomparison": 2,
+          "rejection_observations": 2,
+          "rejections_recorded_true": 2
+        },
+        {
+          "case": "P02",
+          "path": "records/checkpoint/evaluation-protocol/pilot/run-final/P02.json",
+          "sha256": "021e8bdc311af098b1e14b91cc8389729bb55937c5d92c23c942383f148e6bce",
+          "status_recorded": "PASS",
+          "expected_actual_assertions": 4,
+          "assertions_equal_by_recomparison": 4,
+          "rejection_observations": 1,
+          "rejections_recorded_true": 1
+        },
+        {
+          "case": "P03",
+          "path": "records/checkpoint/evaluation-protocol/pilot/run-final/P03.json",
+          "sha256": "c5e691753500829ae74b20d2ee147f89d82c724b5cfdb354d8018adcbb7025f2",
+          "status_recorded": "PASS",
+          "expected_actual_assertions": 6,
+          "assertions_equal_by_recomparison": 6,
+          "rejection_observations": 1,
+          "rejections_recorded_true": 1
+        },
+        {
+          "case": "P04",
+          "path": "records/checkpoint/evaluation-protocol/pilot/run-final/P04.json",
+          "sha256": "c8653b1d5a68e357f489ecf48d6cd081e1e4fb1b051d172621f9c4fa120e3cbe",
+          "status_recorded": "PASS",
+          "expected_actual_assertions": 5,
+          "assertions_equal_by_recomparison": 5,
+          "rejection_observations": 1,
+          "rejections_recorded_true": 1
+        },
+        {
+          "case": "P05",
+          "path": "records/checkpoint/evaluation-protocol/pilot/run-final/P05.json",
+          "sha256": "822f9c194a46cb073fa0c0ede4fb39faed0323006714a286def836ec9eccff3c",
+          "status_recorded": "PASS",
+          "expected_actual_assertions": 2,
+          "assertions_equal_by_recomparison": 2,
+          "rejection_observations": 1,
+          "rejections_recorded_true": 1
+        },
+        {
+          "case": "P06",
+          "path": "records/checkpoint/evaluation-protocol/pilot/run-final/P06.json",
+          "sha256": "8040e4f1cc754ce191fec1c32cad927b0e5bdb9e0228015ab204a220526b9e82",
+          "status_recorded": "PASS",
+          "expected_actual_assertions": 6,
+          "assertions_equal_by_recomparison": 6,
+          "rejection_observations": 3,
+          "rejections_recorded_true": 3
+        },
+        {
+          "case": "P07",
+          "path": "records/checkpoint/evaluation-protocol/pilot/run-final/P07.json",
+          "sha256": "2433778def609ca3b41e1156109e97afc579898e1a1bac9b1354201e6413f091",
+          "status_recorded": "PASS",
+          "expected_actual_assertions": 2,
+          "assertions_equal_by_recomparison": 2,
+          "rejection_observations": 3,
+          "rejections_recorded_true": 3
+        },
+        {
+          "case": "P08",
+          "path": "records/checkpoint/evaluation-protocol/pilot/run-final/P08.json",
+          "sha256": "4a23f6d4ef66cbe2681c321960f43a6e8bc5d7396ce489123cc240433feccbde",
+          "status_recorded": "PASS",
+          "expected_actual_assertions": 4,
+          "assertions_equal_by_recomparison": 4,
+          "rejection_observations": 1,
+          "rejections_recorded_true": 1
+        },
+        {
+          "case": "P09",
+          "path": "records/checkpoint/evaluation-protocol/pilot/run-final/P09.json",
+          "sha256": "a3c20118748aa09f047b6efea9fdf9a6ec56cb2faf3063c5f11b96457be4a7c9",
+          "status_recorded": "PASS",
+          "expected_actual_assertions": 4,
+          "assertions_equal_by_recomparison": 4,
+          "rejection_observations": 1,
+          "rejections_recorded_true": 1
+        },
+        {
+          "case": "P10",
+          "path": "records/checkpoint/evaluation-protocol/pilot/run-final/P10.json",
+          "sha256": "0ec4ec3a6a9c75208a4658c05372e1ac65b52bac37d8e9c5764284b38f8b4cba",
+          "status_recorded": "PASS",
+          "expected_actual_assertions": 4,
+          "assertions_equal_by_recomparison": 4,
+          "rejection_observations": 3,
+          "rejections_recorded_true": 3
+        },
+        {
+          "case": "P11",
+          "path": "records/checkpoint/evaluation-protocol/pilot/run-final/P11.json",
+          "sha256": "1943ac2e525148884cd8c60a166930df78dd8bf0538ea0be25339e2c4e36faa2",
+          "status_recorded": "PASS",
+          "expected_actual_assertions": 3,
+          "assertions_equal_by_recomparison": 3,
+          "rejection_observations": 1,
+          "rejections_recorded_true": 1
+        },
+        {
+          "case": "P12",
+          "path": "records/checkpoint/evaluation-protocol/pilot/run-final/P12.json",
+          "sha256": "18f43bf954437e52494c01c0a67a459c97db53930caac0ed70ff7bf79061229d",
+          "status_recorded": "PASS",
+          "expected_actual_assertions": 3,
+          "assertions_equal_by_recomparison": 3,
+          "rejection_observations": 1,
+          "rejections_recorded_true": 1
+        }
+      ],
+      "case_count": 12,
+      "recorded_pass_count": 12,
+      "assertions_total": 45,
+      "assertions_equal_by_recomparison": 45,
+      "scope": "Recomparison of stored expected/actual values and reading recorded rejections, not rerunning the pilot or independently verifying all live service behavior."
+    },
+    "f01_existing_fault_probe": [
+      {
+        "case": "F01",
+        "path": "records/checkpoint/evaluation-protocol/pilot/failure-debit-probe-final/F01.json",
+        "sha256": "0ec605f5db3701e712a05e199857c4e4a5238969ac3bab62913271108e5bcf85",
+        "status_recorded": "FAIL",
+        "oracle_expected_call_records": 1,
+        "call_records_in_archived_result": 0,
+        "policy_debit": 100000,
+        "reservation": 200000,
+        "usage_unknown_recorded": 1,
+        "next_admission_rejected_recorded": true,
+        "interpretation": "Required per-call outcome missing after accounting exception"
+      },
+      {
+        "case": "F01-control",
+        "path": "records/checkpoint/evaluation-protocol/pilot/failure-debit-probe-final/F01-control.json",
+        "sha256": "4b86cc9c9df3c7536271ea7cb2377becccc05826155d062e6ba399a6cf669079",
+        "status_recorded": "PASS",
+        "oracle_expected_call_records": 1,
+        "call_records_in_archived_result": 1,
+        "policy_debit": 200000,
+        "reservation": 200000,
+        "usage_unknown_recorded": 0,
+        "next_admission_rejected_recorded": false,
+        "interpretation": "Matched adequate-debit control preserves failed per-call outcome"
+      }
+    ]
+  },
+  "limits": [
+    "A matching digest proves byte identity under the supplied expected digest, not the truth of a tool claim.",
+    "The proof/test summaries and all 67 campaign calls were not independently reconstructed.",
+    "No complete acceptance/admission population or independent semantic oracle was constructed; no end-to-end false-acceptance rate is claimed.",
+    "The runtime anomaly oracle was not independently rederived; message counts and duration were independently recomputed.",
+    "Deterministic pilot observations are not independent statistical replications or deployment failure-rate estimates."
+  ],
+  "source_file_bindings": [
+    {
+      "relative_path": "microkit/Makefile",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/Makefile",
+      "expected_sha256": "774a95c06b6840265f9724663656e750fc73b56c88cb05466a77ca2947ca5833",
+      "actual_sha256": "774a95c06b6840265f9724663656e750fc73b56c88cb05466a77ca2947ca5833",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/attestation/sysml_appraise.json",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/attestation/sysml_appraise.json",
+      "expected_sha256": "4bb50764f5fa9aaffbd4c6ffa3d70a7cff87343602b04ed3da19e7b0f9098779",
+      "actual_sha256": "4bb50764f5fa9aaffbd4c6ffa3d70a7cff87343602b04ed3da19e7b0f9098779",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/attestation/sysml_attestation.cmd",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/attestation/sysml_attestation.cmd",
+      "expected_sha256": "ad7bbd862406d17d1db16bd75ac914ef8169438b70d647ccf0ec23c3cf8e1fab",
+      "actual_sha256": "ad7bbd862406d17d1db16bd75ac914ef8169438b70d647ccf0ec23c3cf8e1fab",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/attestation/sysml_attestation_report.json",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/attestation/sysml_attestation_report.json",
+      "expected_sha256": "ffa132e58f93b88718e3c29bf3acaf14212d92db852d5a7faf6f4b85fa39c322",
+      "actual_sha256": "ffa132e58f93b88718e3c29bf3acaf14212d92db852d5a7faf6f4b85fa39c322",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/attestation/sysml_provision.json",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/attestation/sysml_provision.json",
+      "expected_sha256": "4b31585b51f88a94d924d4c4a38f563d32488cc710365be975bc8393a997e263",
+      "actual_sha256": "4b31585b51f88a94d924d4c4a38f563d32488cc710365be975bc8393a997e263",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/components/gate_gate/include/gate_gate.h",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/components/gate_gate/include/gate_gate.h",
+      "expected_sha256": "73b97640217a0bf71f14ad90502e4d91f16f46165a55aea407f45bf2baa9536a",
+      "actual_sha256": "73b97640217a0bf71f14ad90502e4d91f16f46165a55aea407f45bf2baa9536a",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/components/gate_gate/src/gate_gate.c",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/components/gate_gate/src/gate_gate.c",
+      "expected_sha256": "366862a75497a4715ac76257b3f55570f3512e617ed21b876b62510ab19474d4",
+      "actual_sha256": "366862a75497a4715ac76257b3f55570f3512e617ed21b876b62510ab19474d4",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/components/gate_gate/src/gate_gate_MON.c",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/components/gate_gate/src/gate_gate_MON.c",
+      "expected_sha256": "f90a37819ad73a44a911691d6e9eef27ab75465420e9f441873ede27a2b25581",
+      "actual_sha256": "f90a37819ad73a44a911691d6e9eef27ab75465420e9f441873ede27a2b25581",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/components/gate_gate/src/gate_gate_user.c",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/components/gate_gate/src/gate_gate_user.c",
+      "expected_sha256": "5a831f4baa0620ed30a5e292d7dec6f83d270501bd45341b2de9bb7dd033def5",
+      "actual_sha256": "5a831f4baa0620ed30a5e292d7dec6f83d270501bd45341b2de9bb7dd033def5",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/components/msg_filter_msg_filter/include/msg_filter_msg_filter.h",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/components/msg_filter_msg_filter/include/msg_filter_msg_filter.h",
+      "expected_sha256": "73b97640217a0bf71f14ad90502e4d91f16f46165a55aea407f45bf2baa9536a",
+      "actual_sha256": "73b97640217a0bf71f14ad90502e4d91f16f46165a55aea407f45bf2baa9536a",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/components/msg_filter_msg_filter/src/msg_filter_msg_filter.c",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/components/msg_filter_msg_filter/src/msg_filter_msg_filter.c",
+      "expected_sha256": "dcf188e7cecc205cb0c7e028a5a63a6ae194d46cd0ff5209cd333c9b47330252",
+      "actual_sha256": "dcf188e7cecc205cb0c7e028a5a63a6ae194d46cd0ff5209cd333c9b47330252",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/components/msg_filter_msg_filter/src/msg_filter_msg_filter_MON.c",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/components/msg_filter_msg_filter/src/msg_filter_msg_filter_MON.c",
+      "expected_sha256": "13dadeeef93f19c1d96612499af209fbe7cd08d86cf77a97c1d3f329e8d5035b",
+      "actual_sha256": "13dadeeef93f19c1d96612499af209fbe7cd08d86cf77a97c1d3f329e8d5035b",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/components/msg_filter_msg_filter/src/msg_filter_msg_filter_user.c",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/components/msg_filter_msg_filter/src/msg_filter_msg_filter_user.c",
+      "expected_sha256": "c6c809484424b7d1529881747dff46c319eb4b3451ea7df0110309d5def51145",
+      "actual_sha256": "c6c809484424b7d1529881747dff46c319eb4b3451ea7df0110309d5def51145",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/components/pacer/src/pacer.c",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/components/pacer/src/pacer.c",
+      "expected_sha256": "90e60a8776f8424f07f955e22a4fbcd3cdaa67c2c921b02e43f02527a52e4d8e",
+      "actual_sha256": "90e60a8776f8424f07f955e22a4fbcd3cdaa67c2c921b02e43f02527a52e4d8e",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/components/test_receiver_test_receiver/include/test_receiver_test_receiver.h",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/components/test_receiver_test_receiver/include/test_receiver_test_receiver.h",
+      "expected_sha256": "69253f489c49b2551d0a6e997878f2a80eed007bab6c7afc2d483883e193f53b",
+      "actual_sha256": "69253f489c49b2551d0a6e997878f2a80eed007bab6c7afc2d483883e193f53b",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/components/test_receiver_test_receiver/src/test_receiver_test_receiver.c",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/components/test_receiver_test_receiver/src/test_receiver_test_receiver.c",
+      "expected_sha256": "42a9d1f34fd35e1f241347a09eaf5898b2580e632e0d26d7b7257ae3fc71c73e",
+      "actual_sha256": "42a9d1f34fd35e1f241347a09eaf5898b2580e632e0d26d7b7257ae3fc71c73e",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/components/test_receiver_test_receiver/src/test_receiver_test_receiver_MON.c",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/components/test_receiver_test_receiver/src/test_receiver_test_receiver_MON.c",
+      "expected_sha256": "e7f43a9dce3d92b6944cdc3b3cfcd6124655949099e6e197c58a15d0f945764c",
+      "actual_sha256": "e7f43a9dce3d92b6944cdc3b3cfcd6124655949099e6e197c58a15d0f945764c",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/components/test_receiver_test_receiver/src/test_receiver_test_receiver_user.c",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/components/test_receiver_test_receiver/src/test_receiver_test_receiver_user.c",
+      "expected_sha256": "f089879ad49a2e7e4ffef464f3c5565b06ad58be0fc4482eac03cc11eef765f4",
+      "actual_sha256": "f089879ad49a2e7e4ffef464f3c5565b06ad58be0fc4482eac03cc11eef765f4",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/components/test_sender_test_sender/include/test_sender_test_sender.h",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/components/test_sender_test_sender/include/test_sender_test_sender.h",
+      "expected_sha256": "2dbad3ee30031012a51c232eea447939a5847b999e834733200ecc18b4cb4452",
+      "actual_sha256": "2dbad3ee30031012a51c232eea447939a5847b999e834733200ecc18b4cb4452",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/components/test_sender_test_sender/src/test_sender_test_sender.c",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/components/test_sender_test_sender/src/test_sender_test_sender.c",
+      "expected_sha256": "d1c40599963650ab3b00a8e39bf5387ed85fa361c95292364b25afe5b39ef008",
+      "actual_sha256": "d1c40599963650ab3b00a8e39bf5387ed85fa361c95292364b25afe5b39ef008",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/components/test_sender_test_sender/src/test_sender_test_sender_MON.c",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/components/test_sender_test_sender/src/test_sender_test_sender_MON.c",
+      "expected_sha256": "2fdb13c567dc48124ecaae398d5f39e1e0a7a8a16e628d1aa403d7ed909aca23",
+      "actual_sha256": "2fdb13c567dc48124ecaae398d5f39e1e0a7a8a16e628d1aa403d7ed909aca23",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/components/test_sender_test_sender/src/test_sender_test_sender_user.c",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/components/test_sender_test_sender/src/test_sender_test_sender_user.c",
+      "expected_sha256": "5fc4ea0f6f1f6a6526c429947489d650bb31360198f2e64e185493bc1f4407e5",
+      "actual_sha256": "5fc4ea0f6f1f6a6526c429947489d650bb31360198f2e64e185493bc1f4407e5",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/data/Cargo.toml",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/data/Cargo.toml",
+      "expected_sha256": "cdf8a265e071161e02978e78ba0be6edb721e1c5c5ca9829121fc2b05b06ed89",
+      "actual_sha256": "cdf8a265e071161e02978e78ba0be6edb721e1c5c5ca9829121fc2b05b06ed89",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/data/rust-toolchain.toml",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/data/rust-toolchain.toml",
+      "expected_sha256": "fa00eb0d8b0a203a20b340e15433c67bbed704f56bba822859953288dbe6b636",
+      "actual_sha256": "fa00eb0d8b0a203a20b340e15433c67bbed704f56bba822859953288dbe6b636",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/data/src/SNG_Data_Model/Message.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/data/src/SNG_Data_Model/Message.rs",
+      "expected_sha256": "bd4bbdb5a8c8305a9dc038f8818f5901e440fd0e4b68beb1a56c74c26a3bb0ab",
+      "actual_sha256": "bd4bbdb5a8c8305a9dc038f8818f5901e440fd0e4b68beb1a56c74c26a3bb0ab",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/data/src/SNG_Data_Model/SecurityLevel.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/data/src/SNG_Data_Model/SecurityLevel.rs",
+      "expected_sha256": "f52c04e524eded6798d9d49e2538cda6f77f0db49d4bef044040b1d4d494cef2",
+      "actual_sha256": "f52c04e524eded6798d9d49e2538cda6f77f0db49d4bef044040b1d4d494cef2",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/data/src/SNG_Data_Model/mod.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/data/src/SNG_Data_Model/mod.rs",
+      "expected_sha256": "d40f8396f1233836383737e88b630eae078ee0d460becec15c663cf07fb184c8",
+      "actual_sha256": "d40f8396f1233836383737e88b630eae078ee0d460becec15c663cf07fb184c8",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/data/src/lib.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/data/src/lib.rs",
+      "expected_sha256": "02358a043320b94b76a19332450c7cda89e05f0d6a49359ceb772ceb7c4dc069",
+      "actual_sha256": "02358a043320b94b76a19332450c7cda89e05f0d6a49359ceb772ceb7c4dc069",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/data/src/sb_event_counter.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/data/src/sb_event_counter.rs",
+      "expected_sha256": "3c8ea63a5bad1465f8039ca6558043ef34bce8a0e61346deec26e9358edf92e3",
+      "actual_sha256": "3c8ea63a5bad1465f8039ca6558043ef34bce8a0e61346deec26e9358edf92e3",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/data/src/sb_microkit_types.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/data/src/sb_microkit_types.rs",
+      "expected_sha256": "c938539ed9fbd237891203b8fb5d3443977c48a45764e4308969bafd80baf2ab",
+      "actual_sha256": "c938539ed9fbd237891203b8fb5d3443977c48a45764e4308969bafd80baf2ab",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/gate_gate/Cargo.toml",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/gate_gate/Cargo.toml",
+      "expected_sha256": "af8973ffad54ce76e57a511db7d84e51ae444e1adc16da38299366d0f2b5cbdc",
+      "actual_sha256": "af8973ffad54ce76e57a511db7d84e51ae444e1adc16da38299366d0f2b5cbdc",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/gate_gate/Makefile",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/gate_gate/Makefile",
+      "expected_sha256": "92889e209ed5a106c5b9dc31636c900b710c1edd2754f4b7cea4a95daf56f54f",
+      "actual_sha256": "92889e209ed5a106c5b9dc31636c900b710c1edd2754f4b7cea4a95daf56f54f",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/gate_gate/rust-toolchain.toml",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/gate_gate/rust-toolchain.toml",
+      "expected_sha256": "fa00eb0d8b0a203a20b340e15433c67bbed704f56bba822859953288dbe6b636",
+      "actual_sha256": "fa00eb0d8b0a203a20b340e15433c67bbed704f56bba822859953288dbe6b636",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/gate_gate/src/bridge/extern_c_api.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/gate_gate/src/bridge/extern_c_api.rs",
+      "expected_sha256": "d663f6113fff8e086334dac5b8f8a96c0eda1e1e9ad1e2b774009522e145772f",
+      "actual_sha256": "d663f6113fff8e086334dac5b8f8a96c0eda1e1e9ad1e2b774009522e145772f",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/gate_gate/src/bridge/gate_gate_GUMBOX.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/gate_gate/src/bridge/gate_gate_GUMBOX.rs",
+      "expected_sha256": "6dddc153090054bae4ecffd39a25aefd93527cc1f2fdcd003934813bf57ed911",
+      "actual_sha256": "6dddc153090054bae4ecffd39a25aefd93527cc1f2fdcd003934813bf57ed911",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/gate_gate/src/bridge/gate_gate_api.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/gate_gate/src/bridge/gate_gate_api.rs",
+      "expected_sha256": "4bac5e79590ebaadc90a8bcff9e45616aebdbea8d09612600cd80e25b4fd36a1",
+      "actual_sha256": "4bac5e79590ebaadc90a8bcff9e45616aebdbea8d09612600cd80e25b4fd36a1",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/gate_gate/src/bridge/mod.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/gate_gate/src/bridge/mod.rs",
+      "expected_sha256": "94b90ae1068829796426dfb8365c96e015f2d6ad39af8c55ab765c5ce141a2d1",
+      "actual_sha256": "94b90ae1068829796426dfb8365c96e015f2d6ad39af8c55ab765c5ce141a2d1",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/gate_gate/src/component/gate_gate_app.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/gate_gate/src/component/gate_gate_app.rs",
+      "expected_sha256": "da8e24c7cfc2cfe47865875666436ceb39f69744095c35bd287f06c96a5e7d27",
+      "actual_sha256": "da8e24c7cfc2cfe47865875666436ceb39f69744095c35bd287f06c96a5e7d27",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/gate_gate/src/component/mod.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/gate_gate/src/component/mod.rs",
+      "expected_sha256": "fa6c2643a08c8da34b6ff4caf3ccac52671b13470db743afa8e13b735fd46648",
+      "actual_sha256": "fa6c2643a08c8da34b6ff4caf3ccac52671b13470db743afa8e13b735fd46648",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/gate_gate/src/lib.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/gate_gate/src/lib.rs",
+      "expected_sha256": "c10214b930a8dfbc7aa49a05de01686208581c35b0ba6790f699fe0ee85ae19b",
+      "actual_sha256": "c10214b930a8dfbc7aa49a05de01686208581c35b0ba6790f699fe0ee85ae19b",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/gate_gate/src/logging.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/gate_gate/src/logging.rs",
+      "expected_sha256": "49b30b204f1e4dabe9c9d7514d24b78d244b90e78da2a77013844f3ac5653d70",
+      "actual_sha256": "49b30b204f1e4dabe9c9d7514d24b78d244b90e78da2a77013844f3ac5653d70",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/gate_gate/src/test/mod.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/gate_gate/src/test/mod.rs",
+      "expected_sha256": "c07908cad52f20d928cbc57286845225c61d9e60806251d73dc5e6e44f772a15",
+      "actual_sha256": "c07908cad52f20d928cbc57286845225c61d9e60806251d73dc5e6e44f772a15",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/gate_gate/src/test/tests.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/gate_gate/src/test/tests.rs",
+      "expected_sha256": "8040f03f1cc7ac055afb1376a7865b2232d1cd212a26ef22cf894980f59ecb45",
+      "actual_sha256": "8040f03f1cc7ac055afb1376a7865b2232d1cd212a26ef22cf894980f59ecb45",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/gate_gate/src/test/util/cb_apis.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/gate_gate/src/test/util/cb_apis.rs",
+      "expected_sha256": "ec7b13818751b0f3e81f1fc47def6c84a34cb4c4deda96f1adbefde1336f5bef",
+      "actual_sha256": "ec7b13818751b0f3e81f1fc47def6c84a34cb4c4deda96f1adbefde1336f5bef",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/gate_gate/src/test/util/generators.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/gate_gate/src/test/util/generators.rs",
+      "expected_sha256": "367fae7b9930bab15e3bd912dbe7d8b57a30412310bf402f0344ad02d04805d6",
+      "actual_sha256": "367fae7b9930bab15e3bd912dbe7d8b57a30412310bf402f0344ad02d04805d6",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/gate_gate/src/test/util/mod.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/gate_gate/src/test/util/mod.rs",
+      "expected_sha256": "9bce87f127ed64a9011b5cd294e6c4ae8fa002e05eb71ecdba31a79ca89231f2",
+      "actual_sha256": "9bce87f127ed64a9011b5cd294e6c4ae8fa002e05eb71ecdba31a79ca89231f2",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/gate_gate/src/test/util/test_apis.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/gate_gate/src/test/util/test_apis.rs",
+      "expected_sha256": "df801aa541c1a88af584f1e1d102cdf38460727c7bb670c6f89d2ccae3a0c2a2",
+      "actual_sha256": "df801aa541c1a88af584f1e1d102cdf38460727c7bb670c6f89d2ccae3a0c2a2",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/msg_filter_msg_filter/Cargo.toml",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/msg_filter_msg_filter/Cargo.toml",
+      "expected_sha256": "cf0b81d2c74af79f7abb41b3d0197a0ded627117ffa20752d8dd3095d7dcae16",
+      "actual_sha256": "cf0b81d2c74af79f7abb41b3d0197a0ded627117ffa20752d8dd3095d7dcae16",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/msg_filter_msg_filter/Makefile",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/msg_filter_msg_filter/Makefile",
+      "expected_sha256": "92889e209ed5a106c5b9dc31636c900b710c1edd2754f4b7cea4a95daf56f54f",
+      "actual_sha256": "92889e209ed5a106c5b9dc31636c900b710c1edd2754f4b7cea4a95daf56f54f",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/msg_filter_msg_filter/rust-toolchain.toml",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/msg_filter_msg_filter/rust-toolchain.toml",
+      "expected_sha256": "fa00eb0d8b0a203a20b340e15433c67bbed704f56bba822859953288dbe6b636",
+      "actual_sha256": "fa00eb0d8b0a203a20b340e15433c67bbed704f56bba822859953288dbe6b636",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/msg_filter_msg_filter/src/bridge/extern_c_api.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/msg_filter_msg_filter/src/bridge/extern_c_api.rs",
+      "expected_sha256": "d663f6113fff8e086334dac5b8f8a96c0eda1e1e9ad1e2b774009522e145772f",
+      "actual_sha256": "d663f6113fff8e086334dac5b8f8a96c0eda1e1e9ad1e2b774009522e145772f",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/msg_filter_msg_filter/src/bridge/mod.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/msg_filter_msg_filter/src/bridge/mod.rs",
+      "expected_sha256": "f2143b5851863346d308da9bcf14885af8f0b7a696d3820ab71827fe97dd5097",
+      "actual_sha256": "f2143b5851863346d308da9bcf14885af8f0b7a696d3820ab71827fe97dd5097",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/msg_filter_msg_filter/src/bridge/msg_filter_msg_filter_GUMBOX.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/msg_filter_msg_filter/src/bridge/msg_filter_msg_filter_GUMBOX.rs",
+      "expected_sha256": "69515385c179b0081a846bdacd274619c4bb1bb82bcf2c1978ee10669e6f5737",
+      "actual_sha256": "69515385c179b0081a846bdacd274619c4bb1bb82bcf2c1978ee10669e6f5737",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/msg_filter_msg_filter/src/bridge/msg_filter_msg_filter_api.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/msg_filter_msg_filter/src/bridge/msg_filter_msg_filter_api.rs",
+      "expected_sha256": "c11cd13e5b2a3c9d37bb0981e54c2aac4e03a06dcf20adf9d10c166f7b42843c",
+      "actual_sha256": "c11cd13e5b2a3c9d37bb0981e54c2aac4e03a06dcf20adf9d10c166f7b42843c",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/msg_filter_msg_filter/src/component/mod.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/msg_filter_msg_filter/src/component/mod.rs",
+      "expected_sha256": "9fc46dd1acf328a266598df767e6e133e9f8102780a722ec144cd818af1da312",
+      "actual_sha256": "9fc46dd1acf328a266598df767e6e133e9f8102780a722ec144cd818af1da312",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/msg_filter_msg_filter/src/component/msg_filter_msg_filter_app.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/msg_filter_msg_filter/src/component/msg_filter_msg_filter_app.rs",
+      "expected_sha256": "f0a22f01d0de19e3748af05a8c6623f6bd011d9499f6cb2dfa835ddb54bbbfd0",
+      "actual_sha256": "f0a22f01d0de19e3748af05a8c6623f6bd011d9499f6cb2dfa835ddb54bbbfd0",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/msg_filter_msg_filter/src/lib.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/msg_filter_msg_filter/src/lib.rs",
+      "expected_sha256": "25f1db84bbfbb17088e2c34a8ae96a5a7c22dbeffad2f9e343961c08a41ed2a3",
+      "actual_sha256": "25f1db84bbfbb17088e2c34a8ae96a5a7c22dbeffad2f9e343961c08a41ed2a3",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/msg_filter_msg_filter/src/logging.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/msg_filter_msg_filter/src/logging.rs",
+      "expected_sha256": "49b30b204f1e4dabe9c9d7514d24b78d244b90e78da2a77013844f3ac5653d70",
+      "actual_sha256": "49b30b204f1e4dabe9c9d7514d24b78d244b90e78da2a77013844f3ac5653d70",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/msg_filter_msg_filter/src/test/mod.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/msg_filter_msg_filter/src/test/mod.rs",
+      "expected_sha256": "c07908cad52f20d928cbc57286845225c61d9e60806251d73dc5e6e44f772a15",
+      "actual_sha256": "c07908cad52f20d928cbc57286845225c61d9e60806251d73dc5e6e44f772a15",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/msg_filter_msg_filter/src/test/tests.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/msg_filter_msg_filter/src/test/tests.rs",
+      "expected_sha256": "6e1747d5a3e61c30df8b9d1b411c77efe7d6f9b5a29d5698789effb8a8a333d1",
+      "actual_sha256": "6e1747d5a3e61c30df8b9d1b411c77efe7d6f9b5a29d5698789effb8a8a333d1",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/msg_filter_msg_filter/src/test/util/cb_apis.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/msg_filter_msg_filter/src/test/util/cb_apis.rs",
+      "expected_sha256": "8a32b2f446a3894bf44ec81d6901e46a3836275671318ee6cf2f8faf58da57ff",
+      "actual_sha256": "8a32b2f446a3894bf44ec81d6901e46a3836275671318ee6cf2f8faf58da57ff",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/msg_filter_msg_filter/src/test/util/generators.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/msg_filter_msg_filter/src/test/util/generators.rs",
+      "expected_sha256": "367fae7b9930bab15e3bd912dbe7d8b57a30412310bf402f0344ad02d04805d6",
+      "actual_sha256": "367fae7b9930bab15e3bd912dbe7d8b57a30412310bf402f0344ad02d04805d6",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/msg_filter_msg_filter/src/test/util/mod.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/msg_filter_msg_filter/src/test/util/mod.rs",
+      "expected_sha256": "9bce87f127ed64a9011b5cd294e6c4ae8fa002e05eb71ecdba31a79ca89231f2",
+      "actual_sha256": "9bce87f127ed64a9011b5cd294e6c4ae8fa002e05eb71ecdba31a79ca89231f2",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/msg_filter_msg_filter/src/test/util/test_apis.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/msg_filter_msg_filter/src/test/util/test_apis.rs",
+      "expected_sha256": "df801aa541c1a88af584f1e1d102cdf38460727c7bb670c6f89d2ccae3a0c2a2",
+      "actual_sha256": "df801aa541c1a88af584f1e1d102cdf38460727c7bb670c6f89d2ccae3a0c2a2",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/test_receiver_test_receiver/Cargo.toml",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/test_receiver_test_receiver/Cargo.toml",
+      "expected_sha256": "7596f6d1e3e39e23811b45c55ad94462b59987f4ca1242a2b13255210b0b2b80",
+      "actual_sha256": "7596f6d1e3e39e23811b45c55ad94462b59987f4ca1242a2b13255210b0b2b80",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/test_receiver_test_receiver/Makefile",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/test_receiver_test_receiver/Makefile",
+      "expected_sha256": "92889e209ed5a106c5b9dc31636c900b710c1edd2754f4b7cea4a95daf56f54f",
+      "actual_sha256": "92889e209ed5a106c5b9dc31636c900b710c1edd2754f4b7cea4a95daf56f54f",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/test_receiver_test_receiver/rust-toolchain.toml",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/test_receiver_test_receiver/rust-toolchain.toml",
+      "expected_sha256": "fa00eb0d8b0a203a20b340e15433c67bbed704f56bba822859953288dbe6b636",
+      "actual_sha256": "fa00eb0d8b0a203a20b340e15433c67bbed704f56bba822859953288dbe6b636",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/test_receiver_test_receiver/src/bridge/extern_c_api.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/test_receiver_test_receiver/src/bridge/extern_c_api.rs",
+      "expected_sha256": "9094d23fb632773c4a592dcd4e41e05bbec2075296e7e916874d3db5ab38ad01",
+      "actual_sha256": "9094d23fb632773c4a592dcd4e41e05bbec2075296e7e916874d3db5ab38ad01",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/test_receiver_test_receiver/src/bridge/mod.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/test_receiver_test_receiver/src/bridge/mod.rs",
+      "expected_sha256": "d3319f069620b57c9dcda09020250bdd8da23d635f6052fb7250068e443b883c",
+      "actual_sha256": "d3319f069620b57c9dcda09020250bdd8da23d635f6052fb7250068e443b883c",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/test_receiver_test_receiver/src/bridge/test_receiver_test_receiver_api.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/test_receiver_test_receiver/src/bridge/test_receiver_test_receiver_api.rs",
+      "expected_sha256": "e2ef978395dca4d1889888002776529aaf274f889e10f99cbf2bbb3b0fc7983a",
+      "actual_sha256": "e2ef978395dca4d1889888002776529aaf274f889e10f99cbf2bbb3b0fc7983a",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/test_receiver_test_receiver/src/component/mod.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/test_receiver_test_receiver/src/component/mod.rs",
+      "expected_sha256": "c834f54a3e689684054a6ff16864cd88d2a4ffa298f46ed1d9253563a4a59dd9",
+      "actual_sha256": "c834f54a3e689684054a6ff16864cd88d2a4ffa298f46ed1d9253563a4a59dd9",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/test_receiver_test_receiver/src/component/test_receiver_test_receiver_app.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/test_receiver_test_receiver/src/component/test_receiver_test_receiver_app.rs",
+      "expected_sha256": "92616c553ce63e0afe55a6d76da99953e1e8df32dd8da5b74d667c276dc92b1a",
+      "actual_sha256": "92616c553ce63e0afe55a6d76da99953e1e8df32dd8da5b74d667c276dc92b1a",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/test_receiver_test_receiver/src/lib.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/test_receiver_test_receiver/src/lib.rs",
+      "expected_sha256": "01eb4d3568a1acf74c6204ecd3c2cda78b39458ab919bc74d62eefd32b0071dd",
+      "actual_sha256": "01eb4d3568a1acf74c6204ecd3c2cda78b39458ab919bc74d62eefd32b0071dd",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/test_receiver_test_receiver/src/logging.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/test_receiver_test_receiver/src/logging.rs",
+      "expected_sha256": "49b30b204f1e4dabe9c9d7514d24b78d244b90e78da2a77013844f3ac5653d70",
+      "actual_sha256": "49b30b204f1e4dabe9c9d7514d24b78d244b90e78da2a77013844f3ac5653d70",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/test_receiver_test_receiver/src/test/mod.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/test_receiver_test_receiver/src/test/mod.rs",
+      "expected_sha256": "c07908cad52f20d928cbc57286845225c61d9e60806251d73dc5e6e44f772a15",
+      "actual_sha256": "c07908cad52f20d928cbc57286845225c61d9e60806251d73dc5e6e44f772a15",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/test_receiver_test_receiver/src/test/tests.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/test_receiver_test_receiver/src/test/tests.rs",
+      "expected_sha256": "a6bbe9726a14469f15c9d7c664f3ae78f57f6eb85134b5fe4cd57baa07569a86",
+      "actual_sha256": "a6bbe9726a14469f15c9d7c664f3ae78f57f6eb85134b5fe4cd57baa07569a86",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/test_receiver_test_receiver/src/test/util/generators.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/test_receiver_test_receiver/src/test/util/generators.rs",
+      "expected_sha256": "367fae7b9930bab15e3bd912dbe7d8b57a30412310bf402f0344ad02d04805d6",
+      "actual_sha256": "367fae7b9930bab15e3bd912dbe7d8b57a30412310bf402f0344ad02d04805d6",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/test_receiver_test_receiver/src/test/util/mod.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/test_receiver_test_receiver/src/test/util/mod.rs",
+      "expected_sha256": "83331fcc2131afdd3f5ce5267402d25fbc4e602cd46dce526ffaac3027da78b7",
+      "actual_sha256": "83331fcc2131afdd3f5ce5267402d25fbc4e602cd46dce526ffaac3027da78b7",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/test_receiver_test_receiver/src/test/util/test_apis.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/test_receiver_test_receiver/src/test/util/test_apis.rs",
+      "expected_sha256": "421a0ace8eb665e8ebd813551ce1cb5e3a2204a9f3c1122c2ded541c9b7d8b01",
+      "actual_sha256": "421a0ace8eb665e8ebd813551ce1cb5e3a2204a9f3c1122c2ded541c9b7d8b01",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/test_sender_test_sender/Cargo.toml",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/test_sender_test_sender/Cargo.toml",
+      "expected_sha256": "2e41822a1bd0ff0e43420d670d3bbe3bfa8e4d0960cc5b41b0de91b8ad38c87e",
+      "actual_sha256": "2e41822a1bd0ff0e43420d670d3bbe3bfa8e4d0960cc5b41b0de91b8ad38c87e",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/test_sender_test_sender/Makefile",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/test_sender_test_sender/Makefile",
+      "expected_sha256": "92889e209ed5a106c5b9dc31636c900b710c1edd2754f4b7cea4a95daf56f54f",
+      "actual_sha256": "92889e209ed5a106c5b9dc31636c900b710c1edd2754f4b7cea4a95daf56f54f",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/test_sender_test_sender/rust-toolchain.toml",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/test_sender_test_sender/rust-toolchain.toml",
+      "expected_sha256": "fa00eb0d8b0a203a20b340e15433c67bbed704f56bba822859953288dbe6b636",
+      "actual_sha256": "fa00eb0d8b0a203a20b340e15433c67bbed704f56bba822859953288dbe6b636",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/test_sender_test_sender/src/bridge/extern_c_api.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/test_sender_test_sender/src/bridge/extern_c_api.rs",
+      "expected_sha256": "e01208b9496c23d67f715d0e40c264c534d4e8895a2861843c64c56efe322aab",
+      "actual_sha256": "e01208b9496c23d67f715d0e40c264c534d4e8895a2861843c64c56efe322aab",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/test_sender_test_sender/src/bridge/mod.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/test_sender_test_sender/src/bridge/mod.rs",
+      "expected_sha256": "1669eae8471e1cc165472f6a18ac7347d4ba87d1a2b00d40f48807fcd6781a67",
+      "actual_sha256": "1669eae8471e1cc165472f6a18ac7347d4ba87d1a2b00d40f48807fcd6781a67",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/test_sender_test_sender/src/bridge/test_sender_test_sender_api.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/test_sender_test_sender/src/bridge/test_sender_test_sender_api.rs",
+      "expected_sha256": "5c5bbd4c7968241ceafb381a545af8f346fdb968e465c249f74bde8ad3d6d6b6",
+      "actual_sha256": "5c5bbd4c7968241ceafb381a545af8f346fdb968e465c249f74bde8ad3d6d6b6",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/test_sender_test_sender/src/component/mod.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/test_sender_test_sender/src/component/mod.rs",
+      "expected_sha256": "fa7496284070f26e1b5b512b7add68ce37e5140a545eb22f6f888abb5f9379e0",
+      "actual_sha256": "fa7496284070f26e1b5b512b7add68ce37e5140a545eb22f6f888abb5f9379e0",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/test_sender_test_sender/src/component/test_sender_test_sender_app.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/test_sender_test_sender/src/component/test_sender_test_sender_app.rs",
+      "expected_sha256": "77720234f9838cddd2edfc16e79c364d802b1ea40ee61fe4f46fdfe98e9a3d63",
+      "actual_sha256": "77720234f9838cddd2edfc16e79c364d802b1ea40ee61fe4f46fdfe98e9a3d63",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/test_sender_test_sender/src/lib.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/test_sender_test_sender/src/lib.rs",
+      "expected_sha256": "71a81daf3d721ab3d729eaaec28d4957609e70d9db77596fbc172866a620ebf4",
+      "actual_sha256": "71a81daf3d721ab3d729eaaec28d4957609e70d9db77596fbc172866a620ebf4",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/test_sender_test_sender/src/logging.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/test_sender_test_sender/src/logging.rs",
+      "expected_sha256": "49b30b204f1e4dabe9c9d7514d24b78d244b90e78da2a77013844f3ac5653d70",
+      "actual_sha256": "49b30b204f1e4dabe9c9d7514d24b78d244b90e78da2a77013844f3ac5653d70",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/test_sender_test_sender/src/test/mod.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/test_sender_test_sender/src/test/mod.rs",
+      "expected_sha256": "c07908cad52f20d928cbc57286845225c61d9e60806251d73dc5e6e44f772a15",
+      "actual_sha256": "c07908cad52f20d928cbc57286845225c61d9e60806251d73dc5e6e44f772a15",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/test_sender_test_sender/src/test/tests.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/test_sender_test_sender/src/test/tests.rs",
+      "expected_sha256": "eb522458e1055d880be9f928fb08d4353beb3f274ff80719fe96da5d50fbc3e9",
+      "actual_sha256": "eb522458e1055d880be9f928fb08d4353beb3f274ff80719fe96da5d50fbc3e9",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/test_sender_test_sender/src/test/util/generators.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/test_sender_test_sender/src/test/util/generators.rs",
+      "expected_sha256": "367fae7b9930bab15e3bd912dbe7d8b57a30412310bf402f0344ad02d04805d6",
+      "actual_sha256": "367fae7b9930bab15e3bd912dbe7d8b57a30412310bf402f0344ad02d04805d6",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/test_sender_test_sender/src/test/util/mod.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/test_sender_test_sender/src/test/util/mod.rs",
+      "expected_sha256": "83331fcc2131afdd3f5ce5267402d25fbc4e602cd46dce526ffaac3027da78b7",
+      "actual_sha256": "83331fcc2131afdd3f5ce5267402d25fbc4e602cd46dce526ffaac3027da78b7",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/crates/test_sender_test_sender/src/test/util/test_apis.rs",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/crates/test_sender_test_sender/src/test/util/test_apis.rs",
+      "expected_sha256": "0e6e7e4f7ff153a899a97f956747cc3acba8fe412bdf7c69eb8da1a0ac53c32d",
+      "actual_sha256": "0e6e7e4f7ff153a899a97f956747cc3acba8fe412bdf7c69eb8da1a0ac53c32d",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/microkit.dot",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/microkit.dot",
+      "expected_sha256": "a9103a3b928097bf8dd1c30a0c7da939c50f44b3cf518f776cef17b4cdb64f87",
+      "actual_sha256": "a9103a3b928097bf8dd1c30a0c7da939c50f44b3cf518f776cef17b4cdb64f87",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/microkit.schedule.xml",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/microkit.schedule.xml",
+      "expected_sha256": "bbbe68a1217bcab01e1dc4099bceb687367087edafb12ac948f19e7444d973bd",
+      "actual_sha256": "bbbe68a1217bcab01e1dc4099bceb687367087edafb12ac948f19e7444d973bd",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/microkit.system",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/microkit.system",
+      "expected_sha256": "97311ccc4395d751419edc39bfb844087ef6b4159ce521a3d404dedf738655db",
+      "actual_sha256": "97311ccc4395d751419edc39bfb844087ef6b4159ce521a3d404dedf738655db",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/reporting/codegen_report_sysml.json",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/reporting/codegen_report_sysml.json",
+      "expected_sha256": "8a3f6c0abc0be19064e526ba5ca0b59619456feca376b3d69a53be750e32dad4",
+      "actual_sha256": "8a3f6c0abc0be19064e526ba5ca0b59619456feca376b3d69a53be750e32dad4",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/system.mk",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/system.mk",
+      "expected_sha256": "6e478952d30e3b9ca9056d96c198f6b151210a1d0f424ec5580f82023a4db18d",
+      "actual_sha256": "6e478952d30e3b9ca9056d96c198f6b151210a1d0f424ec5580f82023a4db18d",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/types/include/sb_aadl_types.h",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/types/include/sb_aadl_types.h",
+      "expected_sha256": "f100c831cdc213dcffad02c6191c562453d8d85e37607dba21a893ccd4d75fd7",
+      "actual_sha256": "f100c831cdc213dcffad02c6191c562453d8d85e37607dba21a893ccd4d75fd7",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/types/include/sb_event_counter.h",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/types/include/sb_event_counter.h",
+      "expected_sha256": "19880a140ddfeba8f6cd013b0539197c7a859e84d480ae1d9faa09e05a2654c8",
+      "actual_sha256": "19880a140ddfeba8f6cd013b0539197c7a859e84d480ae1d9faa09e05a2654c8",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/types/include/sb_queue_SNG_Data_Model_Message_1.h",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/types/include/sb_queue_SNG_Data_Model_Message_1.h",
+      "expected_sha256": "de8273937062bde05c9adce7b43d7f46b5a923ae6f9866a54b85492ba5e9d04d",
+      "actual_sha256": "de8273937062bde05c9adce7b43d7f46b5a923ae6f9866a54b85492ba5e9d04d",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/types/include/sb_types.h",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/types/include/sb_types.h",
+      "expected_sha256": "bb8a1201e7c2848e5b6f641fdd503b81940393ac3e2770ee2885b373ba206f61",
+      "actual_sha256": "bb8a1201e7c2848e5b6f641fdd503b81940393ac3e2770ee2885b373ba206f61",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/types/src/sb_queue_SNG_Data_Model_Message_1.c",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/types/src/sb_queue_SNG_Data_Model_Message_1.c",
+      "expected_sha256": "88f4ea8a2cae6b3e46e6bf1cac99e27a7c4eadc561a51da3d65e8bae7dd324ae",
+      "actual_sha256": "88f4ea8a2cae6b3e46e6bf1cac99e27a7c4eadc561a51da3d65e8bae7dd324ae",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/util/include/printf.h",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/util/include/printf.h",
+      "expected_sha256": "d57ce86b4de6a4457651d73432f59a8c5a70997034083e534b63dc13641c11ed",
+      "actual_sha256": "d57ce86b4de6a4457651d73432f59a8c5a70997034083e534b63dc13641c11ed",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/util/include/util.h",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/util/include/util.h",
+      "expected_sha256": "7e904a467346a7c48f1ed5377d3c30e5d6a7ae3f7cc52a20a6de5461cc02ad2b",
+      "actual_sha256": "7e904a467346a7c48f1ed5377d3c30e5d6a7ae3f7cc52a20a6de5461cc02ad2b",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/util/src/printf.c",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/util/src/printf.c",
+      "expected_sha256": "36501be4d49ac0979e447b3b935fcae170252c6cacbe66940c16402a405c4db7",
+      "actual_sha256": "36501be4d49ac0979e447b3b935fcae170252c6cacbe66940c16402a405c4db7",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "microkit/util/src/util.c",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/microkit/util/src/util.c",
+      "expected_sha256": "7319c3e7f9420c9122c80aeaa859e97dddbe39c0c1af6327babc4c931a2568b7",
+      "actual_sha256": "7319c3e7f9420c9122c80aeaa859e97dddbe39c0c1af6327babc4c931a2568b7",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/bin/project.cmd",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/bin/project.cmd",
+      "expected_sha256": "a6d20c5c94523280c55303381c14e3f0bf6b023323f169f3ddd38a16c0c6d795",
+      "actual_sha256": "a6d20c5c94523280c55303381c14e3f0bf6b023323f169f3ddd38a16c0c6d795",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/bin/sergen.cmd",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/bin/sergen.cmd",
+      "expected_sha256": "5cfc14a4353ead7bc4ffdbb49b73c005425ff9977f5631325b41482fccbd8d80",
+      "actual_sha256": "5cfc14a4353ead7bc4ffdbb49b73c005425ff9977f5631325b41482fccbd8d80",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/bin/slangcheck.cmd",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/bin/slangcheck.cmd",
+      "expected_sha256": "0b49702c63a031ed3e9088cbfb9cc73526be99ec96c0e48638bea8a621916e32",
+      "actual_sha256": "0b49702c63a031ed3e9088cbfb9cc73526be99ec96c0e48638bea8a621916e32",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/architecture/base/Arch.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/architecture/base/Arch.scala",
+      "expected_sha256": "d06807248570fb41e94b568e0b9dabaf648b61941203e3816a7221382d2f1f56",
+      "actual_sha256": "d06807248570fb41e94b568e0b9dabaf648b61941203e3816a7221382d2f1f56",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/architecture/base/Demo.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/architecture/base/Demo.scala",
+      "expected_sha256": "c1e5cc99ce4e02858c05798dc503d3039521e4a134a76100708377885ab3f054",
+      "actual_sha256": "c1e5cc99ce4e02858c05798dc503d3039521e4a134a76100708377885ab3f054",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/architecture/base/Platform.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/architecture/base/Platform.scala",
+      "expected_sha256": "d0b2cad8c17167c9d4efbc1006888bd2b0964579d48a354ba068de960b98d6e7",
+      "actual_sha256": "d0b2cad8c17167c9d4efbc1006888bd2b0964579d48a354ba068de960b98d6e7",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/architecture/base/ScheduleProvider.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/architecture/base/ScheduleProvider.scala",
+      "expected_sha256": "197284e10a86f084faca288f4cedf0fced548d187c39b5a057285b1fac3cd91c",
+      "actual_sha256": "197284e10a86f084faca288f4cedf0fced548d187c39b5a057285b1fac3cd91c",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/architecture/base/Schedulers.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/architecture/base/Schedulers.scala",
+      "expected_sha256": "9800d32fe9d193c6507231fe565456e42a0c2a371773d2844a6628dd797a0c9b",
+      "actual_sha256": "9800d32fe9d193c6507231fe565456e42a0c2a371773d2844a6628dd797a0c9b",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/art/art/ArchitectureDescription.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/art/art/ArchitectureDescription.scala",
+      "expected_sha256": "ef8c701ea5f60c8c12917833646ed1acb8cb9fd375e03103ec98b41e85b72d24",
+      "actual_sha256": "ef8c701ea5f60c8c12917833646ed1acb8cb9fd375e03103ec98b41e85b72d24",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/art/art/Art.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/art/art/Art.scala",
+      "expected_sha256": "a854d5eb54c34b7f65d136aa70964f603eef60d5a2449a1cd653919f6a7126bb",
+      "actual_sha256": "a854d5eb54c34b7f65d136aa70964f603eef60d5a2449a1cd653919f6a7126bb",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/art/art/ArtDebug.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/art/art/ArtDebug.scala",
+      "expected_sha256": "f07d1a80815c784ecb8ccbd6bd2e61e0d95e88f46fbe72af5d49976b27ed6a47",
+      "actual_sha256": "f07d1a80815c784ecb8ccbd6bd2e61e0d95e88f46fbe72af5d49976b27ed6a47",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/art/art/ArtDebug_Ext.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/art/art/ArtDebug_Ext.scala",
+      "expected_sha256": "7f5a328f9167367e900f8fc9d52d5e7103904498b14bafbe06b3cc7e8315e53f",
+      "actual_sha256": "7f5a328f9167367e900f8fc9d52d5e7103904498b14bafbe06b3cc7e8315e53f",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/art/art/ArtNative.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/art/art/ArtNative.scala",
+      "expected_sha256": "ff38f3fdd5838c51839900285dff823895f1ed5e7060afbdf9eb3f997c3637ac",
+      "actual_sha256": "ff38f3fdd5838c51839900285dff823895f1ed5e7060afbdf9eb3f997c3637ac",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/art/art/ArtNativeSlang.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/art/art/ArtNativeSlang.scala",
+      "expected_sha256": "1efc018a664d422636c5b99a513e12e5fe2a92f4e856fb7af77e6468a41c14a9",
+      "actual_sha256": "1efc018a664d422636c5b99a513e12e5fe2a92f4e856fb7af77e6468a41c14a9",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/art/art/ArtNative_Ext.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/art/art/ArtNative_Ext.scala",
+      "expected_sha256": "ebf8ccb08424133978751cc620195fc8140f621f143d1851029f6ebc5a0f6f21",
+      "actual_sha256": "ebf8ccb08424133978751cc620195fc8140f621f143d1851029f6ebc5a0f6f21",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/art/art/ArtTimer.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/art/art/ArtTimer.scala",
+      "expected_sha256": "dc4ddc1b7e88a2c74e6ea0fd1bbcf05a0df94c26e9852cd8286b2ec249b9b03c",
+      "actual_sha256": "dc4ddc1b7e88a2c74e6ea0fd1bbcf05a0df94c26e9852cd8286b2ec249b9b03c",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/art/art/ArtTimer_Ext.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/art/art/ArtTimer_Ext.scala",
+      "expected_sha256": "74450f0b747d660e38a22bc867ece8f8f35aba7474c3f4568bb411c328d32b4c",
+      "actual_sha256": "74450f0b747d660e38a22bc867ece8f8f35aba7474c3f4568bb411c328d32b4c",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/art/art/DataContent.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/art/art/DataContent.scala",
+      "expected_sha256": "c174e74f5df59691aabb326aee4986785ea8265575741604759db2d6f47bc89a",
+      "actual_sha256": "c174e74f5df59691aabb326aee4986785ea8265575741604759db2d6f47bc89a",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/art/art/scheduling/Scheduler.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/art/art/scheduling/Scheduler.scala",
+      "expected_sha256": "60ee96dac44ab3a3fb6425d6ef3eee0455fcadc8ff51dfa7512ee26cbca226a8",
+      "actual_sha256": "60ee96dac44ab3a3fb6425d6ef3eee0455fcadc8ff51dfa7512ee26cbca226a8",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/art/art/scheduling/legacy/Legacy.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/art/art/scheduling/legacy/Legacy.scala",
+      "expected_sha256": "1295f26c7c63f7ac49c30b1180b4175ac3ed7ba0e364365b0b35acecd4c8ac85",
+      "actual_sha256": "1295f26c7c63f7ac49c30b1180b4175ac3ed7ba0e364365b0b35acecd4c8ac85",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/art/art/scheduling/legacy/LegacyInterface_Ext.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/art/art/scheduling/legacy/LegacyInterface_Ext.scala",
+      "expected_sha256": "f532fad0e12b0bd8faa30a97f003214bd81a5d9bb655950717c3b27a059fb519",
+      "actual_sha256": "f532fad0e12b0bd8faa30a97f003214bd81a5d9bb655950717c3b27a059fb519",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/art/art/scheduling/nop/NopScheduler.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/art/art/scheduling/nop/NopScheduler.scala",
+      "expected_sha256": "9aa9e13cb6a9c209ce2731ba652f2bdf4e456d2f4c65172877aa7be513e7e1f9",
+      "actual_sha256": "9aa9e13cb6a9c209ce2731ba652f2bdf4e456d2f4c65172877aa7be513e7e1f9",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/art/art/scheduling/roundrobin/RoundRobin.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/art/art/scheduling/roundrobin/RoundRobin.scala",
+      "expected_sha256": "32ce561b36811f7b9e86e4381f960a70afe5268180306d404b841a7823e9220c",
+      "actual_sha256": "32ce561b36811f7b9e86e4381f960a70afe5268180306d404b841a7823e9220c",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/art/art/scheduling/roundrobin/RoundRobinExtensions_Ext.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/art/art/scheduling/roundrobin/RoundRobinExtensions_Ext.scala",
+      "expected_sha256": "3448d9152344bf57d6ac7aae0223fd1f132abe5223ca2888569f3af256601358",
+      "actual_sha256": "3448d9152344bf57d6ac7aae0223fd1f132abe5223ca2888569f3af256601358",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/art/art/scheduling/static/CliCommandProvider.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/art/art/scheduling/static/CliCommandProvider.scala",
+      "expected_sha256": "cb866cd9bc7bbda23af50f048524efe4be8a0075d555deb7cf1f81ab405260d8",
+      "actual_sha256": "cb866cd9bc7bbda23af50f048524efe4be8a0075d555deb7cf1f81ab405260d8",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/art/art/scheduling/static/CliInfoProvider.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/art/art/scheduling/static/CliInfoProvider.scala",
+      "expected_sha256": "bb9b0dfe29b34d330680330cf147504f80a01c5007f0c80d595ddaa8dafcc9e3",
+      "actual_sha256": "bb9b0dfe29b34d330680330cf147504f80a01c5007f0c80d595ddaa8dafcc9e3",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/art/art/scheduling/static/Command.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/art/art/scheduling/static/Command.scala",
+      "expected_sha256": "fbcfa7b6a9e7fdcf6dc7b5f8d0ea3c6c5be8f49f5e7faabc9014e59fe468036f",
+      "actual_sha256": "fbcfa7b6a9e7fdcf6dc7b5f8d0ea3c6c5be8f49f5e7faabc9014e59fe468036f",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/art/art/scheduling/static/CommandInterpreter.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/art/art/scheduling/static/CommandInterpreter.scala",
+      "expected_sha256": "4a7e7b5af62a65c87ada352ff26ae970f8b5015a72ae6c31da1b03be0ef4a837",
+      "actual_sha256": "4a7e7b5af62a65c87ada352ff26ae970f8b5015a72ae6c31da1b03be0ef4a837",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/art/art/scheduling/static/DefaultCommandProvider.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/art/art/scheduling/static/DefaultCommandProvider.scala",
+      "expected_sha256": "fa75eddd3b292c5dc3a4315fbd8b8746e349b9e31f3d562d845a8891c3c78b90",
+      "actual_sha256": "fa75eddd3b292c5dc3a4315fbd8b8746e349b9e31f3d562d845a8891c3c78b90",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/art/art/scheduling/static/Explorer.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/art/art/scheduling/static/Explorer.scala",
+      "expected_sha256": "526035de9d30d3c5ed0416bd2c6379cacd6040c56a8878d4c559cc0bffb6490c",
+      "actual_sha256": "526035de9d30d3c5ed0416bd2c6379cacd6040c56a8878d4c559cc0bffb6490c",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/art/art/scheduling/static/ISZCommandProvider.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/art/art/scheduling/static/ISZCommandProvider.scala",
+      "expected_sha256": "1290f431f98dc03b3610b6354d90a8a133a7f50bf113fc4753b62f4eadfc62e0",
+      "actual_sha256": "1290f431f98dc03b3610b6354d90a8a133a7f50bf113fc4753b62f4eadfc62e0",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/art/art/scheduling/static/Schedule.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/art/art/scheduling/static/Schedule.scala",
+      "expected_sha256": "452f4c36f89e49bfc59cb1f4480bd3c75641b691ffcf4f61bcf1419f4480943b",
+      "actual_sha256": "452f4c36f89e49bfc59cb1f4480bd3c75641b691ffcf4f61bcf1419f4480943b",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/art/art/scheduling/static/StateObserver.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/art/art/scheduling/static/StateObserver.scala",
+      "expected_sha256": "d81038ea3a8d9d4fc80d3dc43fbb537de2460ab136bb3dc263b647e85adbe3c5",
+      "actual_sha256": "d81038ea3a8d9d4fc80d3dc43fbb537de2460ab136bb3dc263b647e85adbe3c5",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/art/art/scheduling/static/StaticScheduler.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/art/art/scheduling/static/StaticScheduler.scala",
+      "expected_sha256": "83eb3b8467ea77771d763fd52ecfd299dec7bc56a942ec8e3ca3ff1d7058af59",
+      "actual_sha256": "83eb3b8467ea77771d763fd52ecfd299dec7bc56a942ec8e3ca3ff1d7058af59",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/art/art/scheduling/static/StaticSchedulerIO.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/art/art/scheduling/static/StaticSchedulerIO.scala",
+      "expected_sha256": "4897e5cb0c0062b1d5da90aa524d23556a21cd1b30c7e91a73c06ce3ed618acb",
+      "actual_sha256": "4897e5cb0c0062b1d5da90aa524d23556a21cd1b30c7e91a73c06ce3ed618acb",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/art/art/scheduling/static/StaticSchedulerIO_Ext.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/art/art/scheduling/static/StaticSchedulerIO_Ext.scala",
+      "expected_sha256": "6a6fe239f196bc2f5db49b899da6dea22b881832d329f7749ef4fa055f75d205",
+      "actual_sha256": "6a6fe239f196bc2f5db49b899da6dea22b881832d329f7749ef4fa055f75d205",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/bridge/base/SNG_Software/Filter_Api.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/bridge/base/SNG_Software/Filter_Api.scala",
+      "expected_sha256": "59e4106fa9461118336f3faf0eed5ed7888aea3c4370a7cb1c2541b1150d45b8",
+      "actual_sha256": "59e4106fa9461118336f3faf0eed5ed7888aea3c4370a7cb1c2541b1150d45b8",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/bridge/base/SNG_Software/Filter_msg_filter_msg_filter_Bridge.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/bridge/base/SNG_Software/Filter_msg_filter_msg_filter_Bridge.scala",
+      "expected_sha256": "ec63d11bfbbf3796099b1ead67dcfbddc77d5d0d5b65391a0a75c0fb89158fff",
+      "actual_sha256": "ec63d11bfbbf3796099b1ead67dcfbddc77d5d0d5b65391a0a75c0fb89158fff",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/bridge/base/SNG_Software/Filter_msg_filter_msg_filter_GumboX.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/bridge/base/SNG_Software/Filter_msg_filter_msg_filter_GumboX.scala",
+      "expected_sha256": "ffd7f49a1c0176281188d0acf26ce92b8b44bf602a7966bf7fee2dd1db609d4d",
+      "actual_sha256": "ffd7f49a1c0176281188d0acf26ce92b8b44bf602a7966bf7fee2dd1db609d4d",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/bridge/base/SNG_Software/Gate_Api.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/bridge/base/SNG_Software/Gate_Api.scala",
+      "expected_sha256": "a18e28825fad5a307deb61bf79c0d30755fab0e1fa671740fb0b3229b8ec164f",
+      "actual_sha256": "a18e28825fad5a307deb61bf79c0d30755fab0e1fa671740fb0b3229b8ec164f",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/bridge/base/SNG_Software/Gate_gate_gate_Bridge.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/bridge/base/SNG_Software/Gate_gate_gate_Bridge.scala",
+      "expected_sha256": "85a4b80130d9e3e52d243056d716513c7d80ca7ede2bc6bbdb976be2b1df84f4",
+      "actual_sha256": "85a4b80130d9e3e52d243056d716513c7d80ca7ede2bc6bbdb976be2b1df84f4",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/bridge/base/SNG_Software/Gate_gate_gate_GumboX.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/bridge/base/SNG_Software/Gate_gate_gate_GumboX.scala",
+      "expected_sha256": "63a68c7832c414f735e72456b1df8322abe6e6ed4a77205a3e0fb90ac960d2e4",
+      "actual_sha256": "63a68c7832c414f735e72456b1df8322abe6e6ed4a77205a3e0fb90ac960d2e4",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/bridge/base/SNG_Software/TestReceiver_Api.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/bridge/base/SNG_Software/TestReceiver_Api.scala",
+      "expected_sha256": "4a2068f4011802205a6c9ef9f842a5f8e53ddabb43f577a1eeab349f418901e7",
+      "actual_sha256": "4a2068f4011802205a6c9ef9f842a5f8e53ddabb43f577a1eeab349f418901e7",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/bridge/base/SNG_Software/TestReceiver_test_receiver_test_receiver_Bridge.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/bridge/base/SNG_Software/TestReceiver_test_receiver_test_receiver_Bridge.scala",
+      "expected_sha256": "cd3e79106a2a3ad97bd3392bb694f0df4554f6cf612fa0c1253709c6b23e1ee5",
+      "actual_sha256": "cd3e79106a2a3ad97bd3392bb694f0df4554f6cf612fa0c1253709c6b23e1ee5",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/bridge/base/SNG_Software/TestSender_Api.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/bridge/base/SNG_Software/TestSender_Api.scala",
+      "expected_sha256": "c162aa9db90cc4d40a5682465cbb04614b79b9f379fa29a7ba78d2401f886631",
+      "actual_sha256": "c162aa9db90cc4d40a5682465cbb04614b79b9f379fa29a7ba78d2401f886631",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/bridge/base/SNG_Software/TestSender_test_sender_test_sender_Bridge.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/bridge/base/SNG_Software/TestSender_test_sender_test_sender_Bridge.scala",
+      "expected_sha256": "efdb78f521a8ee595c658a3698652c3931979bb11fab0be3e057fa50c04252e5",
+      "actual_sha256": "efdb78f521a8ee595c658a3698652c3931979bb11fab0be3e057fa50c04252e5",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/component/base/SNG_Software/Filter_msg_filter_msg_filter.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/component/base/SNG_Software/Filter_msg_filter_msg_filter.scala",
+      "expected_sha256": "e0c6c9f4f579a5a7411cd1d0e26513362fc9b228a38597e8a9839429113dc37b",
+      "actual_sha256": "e0c6c9f4f579a5a7411cd1d0e26513362fc9b228a38597e8a9839429113dc37b",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/component/base/SNG_Software/Gate_gate_gate.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/component/base/SNG_Software/Gate_gate_gate.scala",
+      "expected_sha256": "694183d5458a9d25fa577d02a4f8da0e4dc064ef0c06ef5bd2566a7ebfa33e14",
+      "actual_sha256": "694183d5458a9d25fa577d02a4f8da0e4dc064ef0c06ef5bd2566a7ebfa33e14",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/component/base/SNG_Software/TestReceiver_test_receiver_test_receiver.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/component/base/SNG_Software/TestReceiver_test_receiver_test_receiver.scala",
+      "expected_sha256": "80a70e727dda5ded410461cac419160eb628aa37fe0eec5bdeab8171268b55b0",
+      "actual_sha256": "80a70e727dda5ded410461cac419160eb628aa37fe0eec5bdeab8171268b55b0",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/component/base/SNG_Software/TestSender_test_sender_test_sender.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/component/base/SNG_Software/TestSender_test_sender_test_sender.scala",
+      "expected_sha256": "fd48512d02cff827fb1bc349c5fe23c90aedc0214061ed96e7c4a3f5441019c7",
+      "actual_sha256": "fd48512d02cff827fb1bc349c5fe23c90aedc0214061ed96e7c4a3f5441019c7",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/data/base/Aux_Types.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/data/base/Aux_Types.scala",
+      "expected_sha256": "8073022d543a5bcc85df05e946d235e405daafd8f032ab18415d528745a78028",
+      "actual_sha256": "8073022d543a5bcc85df05e946d235e405daafd8f032ab18415d528745a78028",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/data/base/Base_Types.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/data/base/Base_Types.scala",
+      "expected_sha256": "69e8d489087e1918043dd87b0fcf7016f178844233fbfbfae6dc4a090e330145",
+      "actual_sha256": "69e8d489087e1918043dd87b0fcf7016f178844233fbfbfae6dc4a090e330145",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/data/base/SNG_Data_Model/Message.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/data/base/SNG_Data_Model/Message.scala",
+      "expected_sha256": "48cc11723ea8c74b56d32694f2109f970f9bbe157a70f8a213e0c3763ccd003e",
+      "actual_sha256": "48cc11723ea8c74b56d32694f2109f970f9bbe157a70f8a213e0c3763ccd003e",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/data/base/SNG_Data_Model/SecurityLevel.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/data/base/SNG_Data_Model/SecurityLevel.scala",
+      "expected_sha256": "4f1d4dcb57bb411d1ddf071698c495342150b39958a2a17de992a1be95cc993c",
+      "actual_sha256": "4f1d4dcb57bb411d1ddf071698c495342150b39958a2a17de992a1be95cc993c",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/data/base/SNG_Software/Filter_msg_filter_msg_filter_Containers.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/data/base/SNG_Software/Filter_msg_filter_msg_filter_Containers.scala",
+      "expected_sha256": "ac7f9a58359ee5970368285b97046abe6523fc54874f0df6d041c0a90354ea8a",
+      "actual_sha256": "ac7f9a58359ee5970368285b97046abe6523fc54874f0df6d041c0a90354ea8a",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/data/base/SNG_Software/Gate_gate_gate_Containers.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/data/base/SNG_Software/Gate_gate_gate_Containers.scala",
+      "expected_sha256": "2d1a8d642b6f9933fb3ee779c88b62123f8cede02d4c8bea702bbaa60805cdbb",
+      "actual_sha256": "2d1a8d642b6f9933fb3ee779c88b62123f8cede02d4c8bea702bbaa60805cdbb",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/data/base/util/Container.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/data/base/util/Container.scala",
+      "expected_sha256": "9171edd7c1fc778c278721e49d40b57b5dd12e80b6b8eef6fcc14ac2985b347f",
+      "actual_sha256": "9171edd7c1fc778c278721e49d40b57b5dd12e80b6b8eef6fcc14ac2985b347f",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/inspector/base/InspectorDemo.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/inspector/base/InspectorDemo.scala",
+      "expected_sha256": "26d04530cb1ada2239ec9d0afcc62b0300dc28e939f42a39b4952bbb4e71ffa8",
+      "actual_sha256": "26d04530cb1ada2239ec9d0afcc62b0300dc28e939f42a39b4952bbb4e71ffa8",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/util/base/JSON.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/util/base/JSON.scala",
+      "expected_sha256": "88a2ba095b7157a1d3d134213735a15f1f2de11206a4f2d71d581c3fbd09ea64",
+      "actual_sha256": "88a2ba095b7157a1d3d134213735a15f1f2de11206a4f2d71d581c3fbd09ea64",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/util/base/MsgPack.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/util/base/MsgPack.scala",
+      "expected_sha256": "1b69efea632fb59e38863c94834466af1ecfc00a0b0d310b6273365390ed8ddd",
+      "actual_sha256": "1b69efea632fb59e38863c94834466af1ecfc00a0b0d310b6273365390ed8ddd",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/util/base/SlangCheckConfig.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/util/base/SlangCheckConfig.scala",
+      "expected_sha256": "bbc3327a22eb48b959a27dd089fbbd100a9527646548dabd550be1b0369b05ae",
+      "actual_sha256": "bbc3327a22eb48b959a27dd089fbbd100a9527646548dabd550be1b0369b05ae",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/util/base/SlangCheckDataTypeId.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/util/base/SlangCheckDataTypeId.scala",
+      "expected_sha256": "bfc0f7f660a0746ed6db345277409a13c70c189540650ab269a5c1dd59e96460",
+      "actual_sha256": "bfc0f7f660a0746ed6db345277409a13c70c189540650ab269a5c1dd59e96460",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/util/base/SlangCheckGenerator.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/util/base/SlangCheckGenerator.scala",
+      "expected_sha256": "83746d811d08ca4d29c718d9633839dc17efc750c554d2e2310893ecb27d0df3",
+      "actual_sha256": "83746d811d08ca4d29c718d9633839dc17efc750c554d2e2310893ecb27d0df3",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/main/util/base/SlangCheckRandom.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/main/util/base/SlangCheckRandom.scala",
+      "expected_sha256": "ad5b2c95482e57cbf1145435974c614f214edc4eb879f6794fdc012f4c547def",
+      "actual_sha256": "ad5b2c95482e57cbf1145435974c614f214edc4eb879f6794fdc012f4c547def",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/test/bridge/base/SNG_Software/Filter_msg_filter_msg_filter_GumboX_UnitTests.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/test/bridge/base/SNG_Software/Filter_msg_filter_msg_filter_GumboX_UnitTests.scala",
+      "expected_sha256": "c99ab9bad3e5f756b12011e53df306d70c08acadc661b21aef0bf729111f8d28",
+      "actual_sha256": "c99ab9bad3e5f756b12011e53df306d70c08acadc661b21aef0bf729111f8d28",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/test/bridge/base/SNG_Software/Filter_msg_filter_msg_filter_Test.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/test/bridge/base/SNG_Software/Filter_msg_filter_msg_filter_Test.scala",
+      "expected_sha256": "9323f2bb4cdb3ab14e9b7ab2a519f9cc2d98c164d71c8a6f74defe2b0afc825f",
+      "actual_sha256": "9323f2bb4cdb3ab14e9b7ab2a519f9cc2d98c164d71c8a6f74defe2b0afc825f",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/test/bridge/base/SNG_Software/Gate_gate_gate_GumboX_UnitTests.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/test/bridge/base/SNG_Software/Gate_gate_gate_GumboX_UnitTests.scala",
+      "expected_sha256": "17ef3e56b81152f14450aa40feaeba8102fa7e7b95a4562ceab814706671887b",
+      "actual_sha256": "17ef3e56b81152f14450aa40feaeba8102fa7e7b95a4562ceab814706671887b",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/test/bridge/base/SNG_Software/Gate_gate_gate_Test.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/test/bridge/base/SNG_Software/Gate_gate_gate_Test.scala",
+      "expected_sha256": "0c2081a9aef9c6bbd0b889e1205a5778cc229a463328587ff7f41659c3749baa",
+      "actual_sha256": "0c2081a9aef9c6bbd0b889e1205a5778cc229a463328587ff7f41659c3749baa",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/test/bridge/base/SNG_Software/TestReceiver_test_receiver_test_receiver_Test.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/test/bridge/base/SNG_Software/TestReceiver_test_receiver_test_receiver_Test.scala",
+      "expected_sha256": "e77be1499a4996fd8763f0ca0db991625ae343ffa915201426ee594cf5f50cea",
+      "actual_sha256": "e77be1499a4996fd8763f0ca0db991625ae343ffa915201426ee594cf5f50cea",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/test/bridge/base/SNG_Software/TestSender_test_sender_test_sender_Test.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/test/bridge/base/SNG_Software/TestSender_test_sender_test_sender_Test.scala",
+      "expected_sha256": "b584e140ce8c0d63d545be81a295d472d07e94dfcafa498e2c83f23bb4fc2778",
+      "actual_sha256": "b584e140ce8c0d63d545be81a295d472d07e94dfcafa498e2c83f23bb4fc2778",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/test/util/base/DSC_RecordUnsatPre.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/test/util/base/DSC_RecordUnsatPre.scala",
+      "expected_sha256": "0d9addd26673efa06e0c8735d17712d3825347f4394a283bbfb57308f202a4c3",
+      "actual_sha256": "0d9addd26673efa06e0c8735d17712d3825347f4394a283bbfb57308f202a4c3",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/test/util/base/GumboXUtil.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/test/util/base/GumboXUtil.scala",
+      "expected_sha256": "8b941e90e956fdb74f25a8ec1dcad40c76db6085fb29ba92d22dac335ae9f0c9",
+      "actual_sha256": "8b941e90e956fdb74f25a8ec1dcad40c76db6085fb29ba92d22dac335ae9f0c9",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/test/util/base/SNG_Software/Filter_msg_filter_msg_filter_DSC_UnitTests.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/test/util/base/SNG_Software/Filter_msg_filter_msg_filter_DSC_UnitTests.scala",
+      "expected_sha256": "96a4750b7d39317d1c1fa91e5ba675889a66eedf15ca8cf294bbe834062a281d",
+      "actual_sha256": "96a4750b7d39317d1c1fa91e5ba675889a66eedf15ca8cf294bbe834062a281d",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/test/util/base/SNG_Software/Filter_msg_filter_msg_filter_GumboX_TestHarness.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/test/util/base/SNG_Software/Filter_msg_filter_msg_filter_GumboX_TestHarness.scala",
+      "expected_sha256": "11f779edc2e0f64b409c696bd9cdf85db8441283548539092a05fda594ce8f7c",
+      "actual_sha256": "11f779edc2e0f64b409c696bd9cdf85db8441283548539092a05fda594ce8f7c",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/test/util/base/SNG_Software/Filter_msg_filter_msg_filter_GumboX_TestHarness_ScalaTest.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/test/util/base/SNG_Software/Filter_msg_filter_msg_filter_GumboX_TestHarness_ScalaTest.scala",
+      "expected_sha256": "aa08dad1a9c20fd2430caa48334f0c696db834b7511e37da71640a58149df9f2",
+      "actual_sha256": "aa08dad1a9c20fd2430caa48334f0c696db834b7511e37da71640a58149df9f2",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/test/util/base/SNG_Software/Filter_msg_filter_msg_filter_Profiles.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/test/util/base/SNG_Software/Filter_msg_filter_msg_filter_Profiles.scala",
+      "expected_sha256": "9975a77684c0c5747c1304d29fd998a3b3c2f36656991a2aaf63b4b4b50a8fbd",
+      "actual_sha256": "9975a77684c0c5747c1304d29fd998a3b3c2f36656991a2aaf63b4b4b50a8fbd",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/test/util/base/SNG_Software/Filter_msg_filter_msg_filter_ScalaTest.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/test/util/base/SNG_Software/Filter_msg_filter_msg_filter_ScalaTest.scala",
+      "expected_sha256": "216f516f4531109aa9b9f41041848be289c672a4b3f4648c024f932de04169cf",
+      "actual_sha256": "216f516f4531109aa9b9f41041848be289c672a4b3f4648c024f932de04169cf",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/test/util/base/SNG_Software/Filter_msg_filter_msg_filter_TestApi.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/test/util/base/SNG_Software/Filter_msg_filter_msg_filter_TestApi.scala",
+      "expected_sha256": "4e6d4f7111cdacd711a57c279c4d8653d54cd69c46a9b2361d66da99de2bfbcd",
+      "actual_sha256": "4e6d4f7111cdacd711a57c279c4d8653d54cd69c46a9b2361d66da99de2bfbcd",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/test/util/base/SNG_Software/Filter_msg_filter_msg_filter_UnitTestConfiguration_Util.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/test/util/base/SNG_Software/Filter_msg_filter_msg_filter_UnitTestConfiguration_Util.scala",
+      "expected_sha256": "ae69579769b2bc6d138d2169ee98d4cfc2745c1fb6f2d6ae4a872b38028361ab",
+      "actual_sha256": "ae69579769b2bc6d138d2169ee98d4cfc2745c1fb6f2d6ae4a872b38028361ab",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/test/util/base/SNG_Software/Gate_gate_gate_DSC_UnitTests.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/test/util/base/SNG_Software/Gate_gate_gate_DSC_UnitTests.scala",
+      "expected_sha256": "27bfca70434c0ae83c3e7c097cbc66e2ea4617f94b551879368a5ec94d2a9eba",
+      "actual_sha256": "27bfca70434c0ae83c3e7c097cbc66e2ea4617f94b551879368a5ec94d2a9eba",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/test/util/base/SNG_Software/Gate_gate_gate_GumboX_TestHarness.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/test/util/base/SNG_Software/Gate_gate_gate_GumboX_TestHarness.scala",
+      "expected_sha256": "970f3a279feaa562c278c7c4d94aeb5b4061f1370acd478d6a110e50751a3376",
+      "actual_sha256": "970f3a279feaa562c278c7c4d94aeb5b4061f1370acd478d6a110e50751a3376",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/test/util/base/SNG_Software/Gate_gate_gate_GumboX_TestHarness_ScalaTest.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/test/util/base/SNG_Software/Gate_gate_gate_GumboX_TestHarness_ScalaTest.scala",
+      "expected_sha256": "759c72bb4aa015248372d977115d46f11a66786ca43fb272d318d2963bf9d90b",
+      "actual_sha256": "759c72bb4aa015248372d977115d46f11a66786ca43fb272d318d2963bf9d90b",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/test/util/base/SNG_Software/Gate_gate_gate_Profiles.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/test/util/base/SNG_Software/Gate_gate_gate_Profiles.scala",
+      "expected_sha256": "ac7d5a5b39055bf309f7a5c37e6cd019999b95b15b7c629687e552e20adefe67",
+      "actual_sha256": "ac7d5a5b39055bf309f7a5c37e6cd019999b95b15b7c629687e552e20adefe67",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/test/util/base/SNG_Software/Gate_gate_gate_ScalaTest.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/test/util/base/SNG_Software/Gate_gate_gate_ScalaTest.scala",
+      "expected_sha256": "7646b086b548450f06678904dd2751cb6a3803762aba5dc016a80421485cde8b",
+      "actual_sha256": "7646b086b548450f06678904dd2751cb6a3803762aba5dc016a80421485cde8b",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/test/util/base/SNG_Software/Gate_gate_gate_TestApi.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/test/util/base/SNG_Software/Gate_gate_gate_TestApi.scala",
+      "expected_sha256": "683d10472ffd02c6d2f4549291d1421e2bb3154f58cd83727d43a708e4e0b66d",
+      "actual_sha256": "683d10472ffd02c6d2f4549291d1421e2bb3154f58cd83727d43a708e4e0b66d",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/test/util/base/SNG_Software/Gate_gate_gate_UnitTestConfiguration_Util.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/test/util/base/SNG_Software/Gate_gate_gate_UnitTestConfiguration_Util.scala",
+      "expected_sha256": "8a5e005c09b2b15370e290fdcdf1a498b7b15625159d3e7d4c5a9642dac89f39",
+      "actual_sha256": "8a5e005c09b2b15370e290fdcdf1a498b7b15625159d3e7d4c5a9642dac89f39",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/test/util/base/SNG_Software/TestReceiver_test_receiver_test_receiver_ScalaTest.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/test/util/base/SNG_Software/TestReceiver_test_receiver_test_receiver_ScalaTest.scala",
+      "expected_sha256": "e357fdd6bdcb03d9828a4a283a93f6202c38960913e0c958e188729a642a18e8",
+      "actual_sha256": "e357fdd6bdcb03d9828a4a283a93f6202c38960913e0c958e188729a642a18e8",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/test/util/base/SNG_Software/TestReceiver_test_receiver_test_receiver_TestApi.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/test/util/base/SNG_Software/TestReceiver_test_receiver_test_receiver_TestApi.scala",
+      "expected_sha256": "132955c61c1c5eeb33dba9e05446d66e4d04f66a9c5531fdbd79d5dce4644c44",
+      "actual_sha256": "132955c61c1c5eeb33dba9e05446d66e4d04f66a9c5531fdbd79d5dce4644c44",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/test/util/base/SNG_Software/TestSender_test_sender_test_sender_ScalaTest.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/test/util/base/SNG_Software/TestSender_test_sender_test_sender_ScalaTest.scala",
+      "expected_sha256": "912d577f61f886c09f277bbfc9a94ad0d27826f72173a20d701086000bbd465f",
+      "actual_sha256": "912d577f61f886c09f277bbfc9a94ad0d27826f72173a20d701086000bbd465f",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/test/util/base/SNG_Software/TestSender_test_sender_test_sender_TestApi.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/test/util/base/SNG_Software/TestSender_test_sender_test_sender_TestApi.scala",
+      "expected_sha256": "0f2effef5ae58db41a6a5f42ed229c02865316ced2e768b54db3b47e114923a1",
+      "actual_sha256": "0f2effef5ae58db41a6a5f42ed229c02865316ced2e768b54db3b47e114923a1",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/test/util/base/util/MutableBase.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/test/util/base/util/MutableBase.scala",
+      "expected_sha256": "37d58eef06c2a709b864311f56298873fc2499e0d3efa7d66005c18168a6cc0b",
+      "actual_sha256": "37d58eef06c2a709b864311f56298873fc2499e0d3efa7d66005c18168a6cc0b",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/src/test/util/base/util/UnitTestConfiguration.scala",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/src/test/util/base/util/UnitTestConfiguration.scala",
+      "expected_sha256": "39a185d740f2219d7e8cb66e02cd8ebc4699c4948acf6dbe20da49f2e025792c",
+      "actual_sha256": "39a185d740f2219d7e8cb66e02cd8ebc4699c4948acf6dbe20da49f2e025792c",
+      "exists": true,
+      "matches": true
+    },
+    {
+      "relative_path": "slang/versions.properties",
+      "path": "records/experiments eval/sng_shared_supplement_2026-11-06/continuation2/runtime20/outputs/workspace/slang/versions.properties",
+      "expected_sha256": "cdda9da1ea35bfa597999677030d1b66644b211601d07d2ea55e42a0e3e36d66",
+      "actual_sha256": "cdda9da1ea35bfa597999677030d1b66644b211601d07d2ea55e42a0e3e36d66",
+      "exists": true,
+      "matches": true
+    }
+  ],
+  "source_file_binding_note": "Root independently recomputed and retained these per-file results after final reviewer check; documentary hashing only, no engineering replay.",
+  "source_audit_sha256": "a6e5e3cda2b086c2f3188d0c854b2b12f0be573696fe149797d69271cf822845",
+  "extract_note": "Existing read-only audit with absolute local paths replaced by anonymous record identifiers. The values and recorded outcomes are preserved. This is an audit extract, not the complete underlying execution archive or a new engineering run."
+}

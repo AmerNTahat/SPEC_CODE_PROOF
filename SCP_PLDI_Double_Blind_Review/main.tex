@@ -1,0 +1,60 @@
+% PLDI 2027 review paper. Compile main.tex with pdfLaTeX and BibTeX.
+% Official format: https://pldi27.sigplan.org/track/pldi-2027-papers
+\documentclass[acmsmall,screen,review,anonymous,nonacm]{acmart}
+\citestyle{acmnumeric}
+\settopmatter{printacmref=false}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,fit,calc,backgrounds,shapes.geometric}
+\usepackage{xurl}
+\urlstyle{same}
+\input{diagram-style}
+\input{algorithms/style}
+\newcommand{\papersection}[2]{\ref{#1}}
+\newcommand{\paperfigure}[2]{\ref{#1}}
+\newcommand{\workbench}{SCP Workbench}
+\hypersetup{pdfauthor={},pdftitle={Rule Evolution for Formally Verifiable seL4 Applications}}
+\title[Rule Evolution for Verifiable seL4 Applications]{Rule Evolution for Formally Verifiable seL4 Applications}
+\subtitle{From Requirements to Execution with the Accountable Neuro-Symbolic SCP Workbench}
+\author{Anonymous Author(s)}
+
+\begin{document}
+\begin{abstract}
+\input{abstract}
+\end{abstract}
+\ccsdesc[500]{Software and its engineering~Formal methods}
+\ccsdesc[300]{Computing methodologies~Artificial intelligence}
+\keywords{supervised meta-learning, formal verification, neuro-symbolic engineering, seL4, scoped attestation, model-based systems engineering}
+\maketitle
+\hypersetup{pdfauthor={},pdftitle={Rule Evolution for Formally Verifiable seL4 Applications}}
+
+\input{introduction}
+\input{background}
+\input{architecture}
+\input{attestation}
+\input{learning}
+\input{fidelity}
+\input{evaluation}
+\input{related-work}
+\input{limitations}
+\input{conclusion}
+\input{ai-use}
+\label{paper-content-end}
+
+\input{data-availability}
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{dasc2026,additional}
+\clearpage
+\appendix
+\input{appendix-evaluation-details}
+\input{appendix-resource-details}
+\clearpage
+\input{appendix-requirements-review}
+\clearpage
+\input{appendix-semantic-budget}
+\clearpage
+\input{appendix-coverage-details}
+\clearpage
+\input{appendix-interface-details}
+\end{document}

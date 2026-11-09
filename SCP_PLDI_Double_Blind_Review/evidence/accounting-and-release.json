@@ -1,0 +1,931 @@
+{
+  "schema_version": 1,
+  "record_kind": "SELECTED_ACCOUNTING_AND_OWNER_RELEASE_EXTRACT",
+  "audit_capture_utc": "2026-11-08T18:17:25.288377+00:00",
+  "source_audit_sha256": "e7931a63b61a30ad206feaf20117c28b956664883cae9343d9c9b6093da4a844",
+  "source_release_index_sha256": "7d3af4585554cfd33733301d422f331205e522b261fba111f5d53b218777844f",
+  "source_evidence_manifest_sha256": "f63397bdc40882f43b8c2d9292e81367794e5df4f96719a696b02ec811c7a149",
+  "method": "Read-only extraction of the reconciled receipt audit, dated primary review records, and new owner release receipts. No model, engineering or test execution was repeated.",
+  "paper_cutoff": {
+    "source": "records/sng-shared/continuation2/runtime20/CAMPAIGN_CLOSEOUT.json",
+    "recorded_utc": "2026-11-06T10:23:50.471986+00:00",
+    "scope": "50 older historical calls plus 67 parent calls through SNG closeout",
+    "parent_measured_tokens": 3060221,
+    "parent_estimated_unknown_usage_debits": 2000000,
+    "parent_token_ceiling": 6310229,
+    "global_ceiling": 28000000,
+    "aggregate_accounted_tokens": 11316761,
+    "remaining_repairs": 0
+  },
+  "disjoint_case_history_totals": [
+    {
+      "calls": 23,
+      "metered_calls": 22,
+      "unknown_use_calls": 1,
+      "input_tokens": 702356,
+      "output_tokens": 100364,
+      "cached_input_subset": 37888,
+      "measured_tokens": 802720,
+      "case": "Isolette",
+      "estimated_unknown_usage_debit": 1000000,
+      "scope": "Sum of disjoint recorded phases assigned to this case; multiple inputs/attempts, not cost of one matched successful run."
+    },
+    {
+      "calls": 35,
+      "metered_calls": 33,
+      "unknown_use_calls": 2,
+      "input_tokens": 1071521,
+      "output_tokens": 34521,
+      "cached_input_subset": 46592,
+      "measured_tokens": 1106042,
+      "case": "Producer/Consumer",
+      "estimated_unknown_usage_debit": 2000000,
+      "scope": "Sum of disjoint recorded phases assigned to this case; multiple inputs/attempts, not cost of one matched successful run."
+    },
+    {
+      "calls": 28,
+      "metered_calls": 28,
+      "unknown_use_calls": 0,
+      "input_tokens": 1635512,
+      "output_tokens": 114480,
+      "cached_input_subset": 23552,
+      "measured_tokens": 1749992,
+      "case": "SNG",
+      "estimated_unknown_usage_debit": 0,
+      "scope": "Sum of disjoint recorded phases assigned to this case; multiple inputs/attempts, not cost of one matched successful run."
+    },
+    {
+      "calls": 31,
+      "metered_calls": 27,
+      "unknown_use_calls": 4,
+      "input_tokens": 589315,
+      "output_tokens": 68692,
+      "cached_input_subset": 13056,
+      "measured_tokens": 658007,
+      "case": "shared",
+      "estimated_unknown_usage_debit": 4000000,
+      "scope": "Sum of disjoint recorded phases assigned to this case; multiple inputs/attempts, not cost of one matched successful run."
+    }
+  ],
+  "paper_cutoff_total": {
+    "calls": 117,
+    "metered_calls": 110,
+    "unknown_use_calls": 7,
+    "input_tokens": 3998704,
+    "output_tokens": 318057,
+    "cached_input_subset": 121088,
+    "measured_tokens": 4316761,
+    "estimated_unknown_usage_debit": 7000000,
+    "accounted_total": 11316761
+  },
+  "disjoint_phase_totals": [
+    {
+      "id": "historical-Isolette",
+      "case": "Isolette",
+      "phase": "Historical generation/preparation attribution",
+      "calls": 9,
+      "metered_calls": 8,
+      "unknown_use_calls": 1,
+      "input_tokens": 290046,
+      "output_tokens": 51132,
+      "cached_input_subset": 32128,
+      "measured_tokens": 341178,
+      "estimated_unknown_usage_debit": 1000000,
+      "source": "records/historical/cost_attribution.csv",
+      "subcategories": [
+        {
+          "name": "generation_Isolette",
+          "measured_tokens": 315342
+        },
+        {
+          "name": "prep_validation_Isolette",
+          "measured_tokens": 25836
+        }
+      ]
+    },
+    {
+      "id": "historical-Producer/Consumer",
+      "case": "Producer/Consumer",
+      "phase": "Historical generation/preparation attribution",
+      "calls": 10,
+      "metered_calls": 10,
+      "unknown_use_calls": 0,
+      "input_tokens": 244337,
+      "output_tokens": 13018,
+      "cached_input_subset": 23552,
+      "measured_tokens": 257355,
+      "estimated_unknown_usage_debit": 0,
+      "source": "records/historical/cost_attribution.csv",
+      "subcategories": [
+        {
+          "name": "generation_ProducerConsumer",
+          "measured_tokens": 242186
+        },
+        {
+          "name": "prep_validation_ProducerConsumer",
+          "measured_tokens": 15169
+        }
+      ]
+    },
+    {
+      "id": "historical-shared",
+      "case": "shared",
+      "phase": "Historical generation/preparation attribution",
+      "calls": 31,
+      "metered_calls": 27,
+      "unknown_use_calls": 4,
+      "input_tokens": 589315,
+      "output_tokens": 68692,
+      "cached_input_subset": 13056,
+      "measured_tokens": 658007,
+      "estimated_unknown_usage_debit": 4000000,
+      "source": "records/historical/cost_attribution.csv",
+      "subcategories": [
+        {
+          "name": "prep_training_Monitor",
+          "measured_tokens": 101134
+        },
+        {
+          "name": "shared_isolette_simple_probe",
+          "measured_tokens": 11898
+        },
+        {
+          "name": "shared_rule_learning",
+          "measured_tokens": 529698
+        },
+        {
+          "name": "shared_unit_definition",
+          "measured_tokens": 15277
+        }
+      ]
+    },
+    {
+      "id": "isolette-OFF-pilot",
+      "case": "Isolette",
+      "phase": "pilot",
+      "calls": 7,
+      "metered_calls": 7,
+      "unknown_use_calls": 0,
+      "input_tokens": 200514,
+      "output_tokens": 23901,
+      "cached_input_subset": 0,
+      "measured_tokens": 224415,
+      "estimated_unknown_usage_debit": 0,
+      "source": "records/experiments/rule_off_2026-11-05/outputs/results.json"
+    },
+    {
+      "id": "producer_consumer-OFF-pilot",
+      "case": "Producer/Consumer",
+      "phase": "pilot",
+      "calls": 6,
+      "metered_calls": 6,
+      "unknown_use_calls": 0,
+      "input_tokens": 139789,
+      "output_tokens": 5474,
+      "cached_input_subset": 5760,
+      "measured_tokens": 145263,
+      "estimated_unknown_usage_debit": 0,
+      "source": "records/experiments/rule_off_2026-11-05/outputs/results.json"
+    },
+    {
+      "id": "isolette-OFF-corrected_with_continuation",
+      "case": "Isolette",
+      "phase": "corrected_with_continuation",
+      "calls": 7,
+      "metered_calls": 7,
+      "unknown_use_calls": 0,
+      "input_tokens": 211796,
+      "output_tokens": 25331,
+      "cached_input_subset": 5760,
+      "measured_tokens": 237127,
+      "estimated_unknown_usage_debit": 0,
+      "source": "records/experiments/rule_off_2026-11-05/outputs_continued/results.json"
+    },
+    {
+      "id": "producer_consumer-OFF-corrected_with_continuation",
+      "case": "Producer/Consumer",
+      "phase": "corrected_with_continuation",
+      "calls": 7,
+      "metered_calls": 7,
+      "unknown_use_calls": 0,
+      "input_tokens": 164180,
+      "output_tokens": 6406,
+      "cached_input_subset": 11520,
+      "measured_tokens": 170586,
+      "estimated_unknown_usage_debit": 0,
+      "source": "records/experiments/rule_off_2026-11-05/outputs_continued/results.json"
+    },
+    {
+      "id": "PC-paired-pair1-K+",
+      "case": "Producer/Consumer",
+      "phase": "PC-paired",
+      "calls": 3,
+      "metered_calls": 3,
+      "unknown_use_calls": 0,
+      "input_tokens": 176448,
+      "output_tokens": 3067,
+      "cached_input_subset": 0,
+      "measured_tokens": 179515,
+      "estimated_unknown_usage_debit": 0,
+      "source": "records/experiments/paired_ksu_knowledge_2026-11-05/report/tables.json"
+    },
+    {
+      "id": "PC-paired-pair1-K0",
+      "case": "Producer/Consumer",
+      "phase": "PC-paired",
+      "calls": 2,
+      "metered_calls": 1,
+      "unknown_use_calls": 1,
+      "input_tokens": 47299,
+      "output_tokens": 937,
+      "cached_input_subset": 0,
+      "measured_tokens": 48236,
+      "estimated_unknown_usage_debit": 1000000,
+      "source": "records/experiments/paired_ksu_knowledge_2026-11-05/report/tables.json"
+    },
+    {
+      "id": "PC-followup-K0-followup",
+      "case": "Producer/Consumer",
+      "phase": "PC-followup",
+      "calls": 7,
+      "metered_calls": 6,
+      "unknown_use_calls": 1,
+      "input_tokens": 299468,
+      "output_tokens": 5619,
+      "cached_input_subset": 5760,
+      "measured_tokens": 305087,
+      "estimated_unknown_usage_debit": 1000000,
+      "source": "records/experiments/baseline_followup_2026-11-05/report/tables.json"
+    },
+    {
+      "id": "SNG-earlier-K",
+      "case": "SNG",
+      "phase": "Earlier unequal-supplement study, including recoveries",
+      "calls": 7,
+      "metered_calls": 7,
+      "unknown_use_calls": 0,
+      "input_tokens": 363055,
+      "output_tokens": 24089,
+      "cached_input_subset": 11776,
+      "measured_tokens": 387144,
+      "estimated_unknown_usage_debit": 0,
+      "source": "records/sng-initial/report/tables.json"
+    },
+    {
+      "id": "SNG-earlier-K+",
+      "case": "SNG",
+      "phase": "Earlier unequal-supplement study, including recoveries",
+      "calls": 6,
+      "metered_calls": 6,
+      "unknown_use_calls": 0,
+      "input_tokens": 378314,
+      "output_tokens": 19206,
+      "cached_input_subset": 0,
+      "measured_tokens": 397520,
+      "estimated_unknown_usage_debit": 0,
+      "source": "records/sng-initial/report/tables.json"
+    },
+    {
+      "id": "SNG-reported_pair-K",
+      "case": "SNG",
+      "phase": "Reported shared-supplement study",
+      "calls": 7,
+      "metered_calls": 7,
+      "unknown_use_calls": 0,
+      "input_tokens": 364365,
+      "output_tokens": 24361,
+      "cached_input_subset": 11776,
+      "measured_tokens": 388726,
+      "estimated_unknown_usage_debit": 0,
+      "source": "records/experiments/sng_shared_supplement_2026-11-06/outputs/PROGRESS.json"
+    },
+    {
+      "id": "SNG-reported_pair-K+",
+      "case": "SNG",
+      "phase": "Reported shared-supplement study",
+      "calls": 6,
+      "metered_calls": 6,
+      "unknown_use_calls": 0,
+      "input_tokens": 393838,
+      "output_tokens": 30855,
+      "cached_input_subset": 0,
+      "measured_tokens": 424693,
+      "estimated_unknown_usage_debit": 0,
+      "source": "records/experiments/sng_shared_supplement_2026-11-06/outputs/PROGRESS.json"
+    },
+    {
+      "id": "SNG-paid_continuation-K+",
+      "case": "SNG",
+      "phase": "Reported shared-supplement study paid continuation",
+      "calls": 2,
+      "metered_calls": 2,
+      "unknown_use_calls": 0,
+      "input_tokens": 135940,
+      "output_tokens": 15969,
+      "cached_input_subset": 0,
+      "measured_tokens": 151909,
+      "estimated_unknown_usage_debit": 0,
+      "source": "records/experiments/sng_shared_supplement_2026-11-06/continuation/outputs/PROGRESS.json"
+    }
+  ],
+  "selected_completed_task_and_failure_rows": [
+    {
+      "id": "PC-paired-pair1-K+",
+      "case": "Producer/Consumer",
+      "calls": 3,
+      "metered_calls": 3,
+      "unknown_use_calls": 0,
+      "input_tokens": 176448,
+      "output_tokens": 3067,
+      "cached_input_subset": 0,
+      "measured_tokens": 179515,
+      "estimated_unknown_usage_debit": 0,
+      "target_definition": "Five PC model-stage checks",
+      "completed_targets": 1,
+      "status_at_original_record": "IN_LOOP_CHECKPOINT_PASS",
+      "elapsed_seconds": 210.1917052268982
+    },
+    {
+      "id": "PC-paired-pair1-K0",
+      "case": "Producer/Consumer",
+      "calls": 2,
+      "metered_calls": 1,
+      "unknown_use_calls": 1,
+      "input_tokens": 47299,
+      "output_tokens": 937,
+      "cached_input_subset": 0,
+      "measured_tokens": 48236,
+      "estimated_unknown_usage_debit": 1000000,
+      "target_definition": "Five PC model-stage checks",
+      "completed_targets": 0,
+      "status_at_original_record": "MODEL_RESPONSE_BLOCKED",
+      "elapsed_seconds": 57.85754418373108
+    },
+    {
+      "id": "PC-followup-K0-followup",
+      "case": "Producer/Consumer",
+      "calls": 7,
+      "metered_calls": 6,
+      "unknown_use_calls": 1,
+      "input_tokens": 299468,
+      "output_tokens": 5619,
+      "cached_input_subset": 5760,
+      "measured_tokens": 305087,
+      "estimated_unknown_usage_debit": 1000000,
+      "target_definition": "Separate unpaired follow-up to the same PC checkpoint",
+      "completed_targets": 0,
+      "status_at_original_record": "MODEL_RESPONSE_BLOCKED",
+      "elapsed_seconds": 940.4947111606598
+    },
+    {
+      "id": "SNG-reported_pair-K",
+      "case": "SNG",
+      "calls": 7,
+      "metered_calls": 7,
+      "unknown_use_calls": 0,
+      "input_tokens": 364365,
+      "output_tokens": 24361,
+      "cached_input_subset": 11776,
+      "measured_tokens": 388726,
+      "estimated_unknown_usage_debit": 0,
+      "target_definition": "Five SNG model-stage checks",
+      "completed_targets": 0,
+      "status_at_original_record": "REPAIR_LIMIT",
+      "elapsed_seconds": 1052.7746450901031
+    },
+    {
+      "id": "SNG-K+-model-prefix",
+      "case": "SNG",
+      "calls": 5,
+      "metered_calls": 5,
+      "unknown_use_calls": 0,
+      "input_tokens": 326487,
+      "output_tokens": 19737,
+      "cached_input_subset": 0,
+      "measured_tokens": 346224,
+      "estimated_unknown_usage_debit": 0,
+      "target_definition": "Five SNG model-stage checks",
+      "completed_targets": 1,
+      "nested_prefix_of": "SNG-K+-through-runtime",
+      "model_plus_check_seconds": 686.533939834917,
+      "wall_seconds": null
+    },
+    {
+      "id": "SNG-K+-through-runtime",
+      "case": "SNG",
+      "calls": 8,
+      "metered_calls": 8,
+      "unknown_use_calls": 0,
+      "input_tokens": 529778,
+      "output_tokens": 46824,
+      "cached_input_subset": 0,
+      "measured_tokens": 576602,
+      "estimated_unknown_usage_debit": 0,
+      "target_definition": "Six separately defined dependent validation categories; different evidence units",
+      "completed_targets": 6,
+      "includes_rejected_proposal_and_paid_repairs": true,
+      "includes_later_deterministic_repairs_without_additional_experiment_model_tokens": true,
+      "elapsed_seconds": 9081.304940462112
+    }
+  ],
+  "sng_cost_reconciliation": {
+    "model_checkpoint_tokens": 346224,
+    "rejected_proposal_increment": 78469,
+    "paid_repair_increment": 151909,
+    "later_deterministic_model_token_increment": 0,
+    "cumulative_engineering_task_tokens": 576602,
+    "dependent_completed_categories": 6,
+    "descriptive_tokens_per_category": 96100.33333333333,
+    "counts_by_evidence_unit": {
+      "target_Verus_units": 32,
+      "conditional_English_component_relations": 6,
+      "Rust_test_functions": 33,
+      "Slang_JVM_test_cases": 808,
+      "Microkit_builds": 1,
+      "QEMU_observation_seconds_after_readiness": 20.03305649687536
+    },
+    "overlap": "Six selected initialization/composition proofs are included among the 32 target units.",
+    "baseline": "The failed model prerequisite left all six downstream categories NOT_RUN; zero completed categories does not measure their unexecuted tool outcomes."
+  },
+  "budget_authorizations": [
+    {
+      "source": "records/pc-pair/AUTHORIZATION.json",
+      "study_id": "paired-ksu-knowledge-controls-2026-11-05",
+      "global_ceiling": 14000000,
+      "block_tokens": 2000000,
+      "wall_seconds": 3600,
+      "deadline": 1793899801.1064007,
+      "trajectory_wall_seconds": 1440,
+      "reservation_tokens": 100000,
+      "unmetered_debit_tokens": 1000000,
+      "trajectory_limits": {
+        "pair1-K0": 500000,
+        "pair1-K+": 500000
+      }
+    },
+    {
+      "source": "records/pc-followup/AUTHORIZATION.json",
+      "study_id": "baseline-followup-2026-11-05",
+      "global_ceiling": 14000000,
+      "block_tokens": 1772249,
+      "wall_seconds": 3600,
+      "deadline": 1793899801.1064007,
+      "trajectory_wall_seconds": 1440,
+      "reservation_tokens": 100000,
+      "unmetered_debit_tokens": 1000000,
+      "trajectory_limits": {
+        "K0-followup": 451764
+      }
+    },
+    {
+      "source": "records/sng-initial/AUTHORIZATION.json",
+      "study_id": "sng-knowledge-reuse-2026-11-06",
+      "max_repairs": 6,
+      "global_ceiling": 14000000,
+      "block_tokens": 3000000,
+      "reservation_tokens": 100000,
+      "unmetered_debit_tokens": 1000000,
+      "wall_seconds": 3600,
+      "trajectory_wall_seconds": 1440,
+      "trajectory_limits": {
+        "sng-K": 500000,
+        "sng-K+": 500000
+      },
+      "deadline": 1793943070.9552662
+    },
+    {
+      "source": "records/sng-shared/AUTHORIZATION.json",
+      "study_id": "sng-shared-supplement-2026-11-06",
+      "max_repairs": 6,
+      "global_ceiling": 28000000,
+      "block_tokens": 2000000,
+      "measured_token_limit": 1000000,
+      "parent_token_ceiling": 6310229,
+      "wall_seconds": 3600,
+      "deadline": 1793953905.5465648,
+      "trajectory_wall_seconds": 1440,
+      "reservation_tokens": 100000,
+      "unmetered_debit_tokens": 1000000,
+      "trajectory_limits": {
+        "sng-K": 500000,
+        "sng-K+": 500000
+      }
+    },
+    {
+      "source": "records/sng-shared/continuation/AUTHORIZATION.json",
+      "study_id": "sng-shared-supplement-2026-11-06-continuation",
+      "deadline": 1793955705.5465648,
+      "parent_token_ceiling": 6310229,
+      "max_repairs": 6,
+      "trajectory_limits": {
+        "sng-K+": 600000
+      },
+      "measured_token_limit": 1000000,
+      "block_tokens": 2000000,
+      "unmetered_debit_tokens": 1000000,
+      "global_ceiling": 28000000,
+      "reservation_tokens": 100000
+    }
+  ],
+  "later_ledger_observation": {
+    "captured_utc": "2026-11-08T18:17:25.288377+00:00",
+    "parent_calls": 91,
+    "parent_measured_tokens": 4442961,
+    "parent_estimated_unknown_usage_debits": 2000000,
+    "parent_accounted_tokens": 6442961,
+    "parent_token_ceiling": 7560221,
+    "parent_remaining_accounting_allowance": 1117260,
+    "current_observed_global_accounted_tokens": 12699501,
+    "current_observed_global_measured_tokens": 5699501,
+    "global_estimated_unknown_usage_debits": 7000000,
+    "captured_observation_sha256": "8f2a32fd04015cdbdce4587fd8f66c7824bc2a3b640091e9511eff3ce2aeaf19",
+    "excluded_from_paper_cutoff": true,
+    "later_work": {
+      "system": "BASS",
+      "same_parent_campaign": true,
+      "new_calls_after_SNG_closeout": 24,
+      "measured_tokens": 1382740,
+      "first_usage_utc": "2026-11-06T23:37:23.584369+00:00",
+      "last_usage_utc": "2026-11-07T01:18:44.575342+00:00",
+      "scope": "Call-ID/accounting membership only; BASS experimental outcomes were not analyzed.",
+      "membership_source": "records/later-bass/context_revision1/report/final/tables.json",
+      "nested_report_call_counts": [
+        14,
+        19,
+        24
+      ]
+    }
+  },
+  "additional_usage": {
+    "shared_history": "The shared-preparation row is included once in the paper cutoff total; it is not added again to per-case histories.",
+    "selected_support_sessions": {
+      "input_tokens": 131126542,
+      "cached_input_tokens": 129839872,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 479187,
+      "reasoning_output_tokens": 137081,
+      "total_tokens": 131605729
+    },
+    "support_session_cutoff_utc": "2026-11-06T10:20:59.935633Z",
+    "scope": "Three supporting SNG sessions cover preparation, both arms and continuation. They are separate from the experiment-worker ledger. Main coordination, earlier work and active human effort are not fully attributed.",
+    "token_subsets": "Cached input is included in input; reasoning output is included in output.",
+    "budget_limit": "The experiment-worker ceiling does not establish budget compliance across all interactive-agent usage."
+  },
+  "requirements_review_records": [
+    {
+      "source": "records/pc-pair/evaluation/CRITERIA.json",
+      "recorded_time": "2026-11-05T16:34:01.823414+00:00",
+      "recorded_status": "CRITERIA_FROZEN_BEFORE_GENERATED_OUTPUT_INSPECTION"
+    },
+    {
+      "source": "records/pc-pair/evaluation/ENGLISH_REVIEW.json",
+      "recorded_time": "2026-11-05T16:43:56.380029+00:00",
+      "recorded_status": null,
+      "reviews": [
+        {
+          "trial_id": "pair1-K+",
+          "arm": "K+",
+          "status": "SOURCE_CONFORMANCE_PASS_PENDING_HUMAN_REVIEW",
+          "method": "Manual original-English-to-final-source mapping, with cited executed current parser/AIR/integration evidence; no reference model read and no new engineering check",
+          "counts": {
+            "PASS_REPRESENTED": 34,
+            "PASS_SATISFIED": 4
+          },
+          "model_scope_counts": {
+            "PASS_REPRESENTED": 34,
+            "PASS_SATISFIED": 2
+          },
+          "model_scope_total": 36,
+          "workflow_constraint_total": 2,
+          "unique_verified_connection_implications": 1,
+          "source_only_review": true,
+          "golden_model_read": false,
+          "check_run_id": "cd05ad494b9e4ca19851b1229a61a354"
+        },
+        {
+          "trial_id": "pair1-K0",
+          "arm": "K0",
+          "status": "SOURCE_CONFORMANCE_NOT_ESTABLISHED",
+          "method": "Manual original-English-to-final-source mapping, with cited executed current parser/AIR/integration evidence; no reference model read and no new engineering check",
+          "counts": {
+            "PASS_REPRESENTED": 28,
+            "UNKNOWN": 3,
+            "FAIL": 4,
+            "PASS_SATISFIED": 3
+          },
+          "model_scope_counts": {
+            "PASS_REPRESENTED": 28,
+            "UNKNOWN": 3,
+            "FAIL": 3,
+            "PASS_SATISFIED": 2
+          },
+          "model_scope_total": 36,
+          "workflow_constraint_total": 2,
+          "unique_verified_connection_implications": 0,
+          "source_only_review": true,
+          "golden_model_read": false,
+          "check_run_id": "443fd7ff09394f6a92147cd9234658ea"
+        }
+      ]
+    },
+    {
+      "source": "records/pc-followup/evaluation/ENGLISH_REVIEW.json",
+      "recorded_time": "2026-11-05T17:34:07.543995+00:00",
+      "recorded_status": null,
+      "reviews": [
+        {
+          "trial_id": "K0-followup",
+          "arm": "K0",
+          "status": "SOURCE_CONFORMANCE_NOT_ESTABLISHED",
+          "method": "Unchanged original-English criteria; manual terminal-source mapping with current executed parser/evidence records; no golden model or new engineering call",
+          "counts": {
+            "PASS_REPRESENTED": 28,
+            "UNKNOWN": 3,
+            "FAIL": 4,
+            "PASS_SATISFIED": 3
+          },
+          "model_scope_counts": {
+            "PASS_REPRESENTED": 28,
+            "UNKNOWN": 3,
+            "FAIL": 3,
+            "PASS_SATISFIED": 2
+          },
+          "model_scope_total": 36,
+          "workflow_constraint_total": 2,
+          "unique_verified_connection_implications": 0,
+          "source_only_review": true,
+          "golden_model_read": false,
+          "check_run_id": "65f277eaec734cb896a85aac31ba067a"
+        }
+      ]
+    },
+    {
+      "source": "records/sng-shared/evaluation/REVIEW_PROTOCOL.json",
+      "recorded_time": "2026-11-06T07:32:15.567584+00:00",
+      "recorded_status": "PREPARED_AWAITING_NEW_CANDIDATES"
+    },
+    {
+      "source": "records/sng-shared/evaluation/ENGLISH_REVIEW.json",
+      "recorded_time": "2026-11-06T08:12:36.521119+00:00",
+      "recorded_status": "INDEPENDENT_REVIEW_COMPLETE_FOR_CURRENT_TERMINAL_CANDIDATES"
+    },
+    {
+      "source": "records/sng-shared/continuation2/evaluation/initialization/ENGLISH_REVIEW.json",
+      "recorded_time": "2026-11-06T09:52:25.221233+00:00",
+      "recorded_status": "CURRENT_COMPONENT_PROOF_REVIEW_SYSTEM_SCOPE_OPEN",
+      "summary": {
+        "english_leaves": 6,
+        "typed_source_relations": 6,
+        "component_dispatch_relations_verified": 6,
+        "component_percent": 100.0,
+        "full_english_system_claims_verified": 0,
+        "full_english_percent": 0.0,
+        "human_result_approvals": 0,
+        "framework_premise_approved": true,
+        "full_crate_target_verified": 32,
+        "full_crate_target_errors": 0,
+        "selected_initialization_functions_credited": 6,
+        "selected_initialization_functions_expected": 6,
+        "rust_tests_passed": 33,
+        "rust_tests_failed": 0,
+        "rust_tests_total": 33,
+        "slang_tests_passed": 808,
+        "slang_tests_failed": 0,
+        "slang_tests_total": 808
+      }
+    },
+    {
+      "source": "records/sng-shared/continuation2/runtime20/evaluation/coverage/BROADER_REQUIREMENTS_AUDIT.json",
+      "recorded_time": "2026-11-06T10:52:13.892142+00:00",
+      "recorded_status": "BROADER_REQUIREMENTS_REVIEW_SYSTEM_SCOPE_OPEN"
+    },
+    {
+      "source": "records/sng-shared/continuation2/runtime20/evaluation/coverage/NAMED_CONTRACT_PROOF_AUDIT.json",
+      "recorded_time": "2026-11-06T10:54:22.288273+00:00",
+      "recorded_status": "READ_ONLY_CURRENT_REQUIREMENT_PROOF_AUDIT_COMPLETE"
+    }
+  ],
+  "isolette_review_chronology": {
+    "pre_generation_revised_input_approval": {
+      "source": "records/isolette-and-pc/ISOLETTE_REVISED_TEST_APPROVED.json",
+      "decided_utc": "2026-09-23T03:30:27.439019+00:00",
+      "scope": "Recorded approval of the exact revised task requirements and reference abstraction. The separate readable preparation draft must not replace this approved task record."
+    },
+    "latest_revised_generation_recorded_utc": "2026-09-23T03:52:54.775715+00:00",
+    "later_scope_review_source": "records/isolette-and-pc/isolette-rust/TIMEOUT_FINAL_REVIEW.json",
+    "scope_review_exact_timestamp": null,
+    "scope_review_timestamp_status": "No review timestamp in this saved report; do not infer it from file modification time.",
+    "separately_recorded_operator_exclusion_approval_utc": "2026-09-23T22:41:27.746300+00:00",
+    "provenance_reanalysis_utc": "2026-11-06T22:22:24.119328+00:00",
+    "conformance_evidence": [
+      "records/isolette-and-pc/behavior-review/REVIEW.md",
+      "records/isolette-and-pc/behavior-review/solver-results.json",
+      "records/isolette-and-pc/isolette-rust/HUMAN_CURATED_HEAT_ENGLISH.md",
+      "records/isolette-and-pc/isolette-rust/verification-timeout-and-unavailable.json",
+      "records/isolette-and-pc/isolette-rust/system-verification-unique-aliases.json"
+    ],
+    "scope": "Source-specific FAA reasoning and manually transcribed local constraints support reviewed assumptions and repairs; bound component proofs/tests concern the repaired implementation. No complete English denominator is established."
+  },
+  "review_timing_interpretation": [
+    "Approved source and input definitions precede their corresponding generation. Terminal English-to-candidate audits are separate assessments made after generation.",
+    "PC criteria were recorded at 16:34:01.823414 UTC on November 5, after K+ ended at 16:33:50.981876 UTC and during K, before the evaluator inspected outputs. The final paired English audit was recorded at 16:43:56.380029 UTC.",
+    "SNG-2 criteria were recorded at 07:32:15.567584 UTC on November 6, after the first K dispatch at 07:32:06.503709 UTC, with no new candidates inspected. The final named-contract audit at 10:54:22.288273 UTC follows runtime end at 10:20:59.935633 UTC.",
+    "Inspected final PC and SNG model configurations have requirement_ledger=null and unit_registry=null. Their source and contract audits must not be described as execution of the generic ledger gate.",
+    "The November 8 user decision is a new review and release event; it does not backdate earlier criteria or change which technical checks ran."
+  ],
+  "inspected_generic_coverage_configuration": [
+    {
+      "source": "records/pc-pair/outputs/pair1-K+/attempt-2/check_result.json",
+      "sha256": "31f2047a789701ba2672e6f65d13bb833018707e82e4ce6927950cb1c115a8c8",
+      "requirement_ledger": null,
+      "unit_registry": null
+    },
+    {
+      "source": "records/sng-shared/outputs/sng-K+/model-4/Microkit_check_result.json",
+      "sha256": "dfcffb63826c55ff12bde9fd0b32a2f0f0b4c3aa3304446f31a2368693591266",
+      "requirement_ledger": null,
+      "unit_registry": null
+    }
+  ],
+  "owner_release_decisions": [
+    {
+      "case_id": "isolette",
+      "name": "Isolette",
+      "recorded_utc": "2026-11-08T18:17:43.411675+00:00",
+      "reviewer": "POWERUSERS-1",
+      "human_review_status": "APPROVED",
+      "release_status": "APPROVED_FOR_RELEASE",
+      "release_scope": "Retained Isolette case reports and the completed component verification, component tests, Microkit build and bounded observation of the approved timeout-priority candidate, under the recorded environmental assumptions and physical-operator exclusion.",
+      "candidate_identity": {
+        "model_run_id": "cf2bf0aa4e6e46df840eb3ecc6bc3c6c",
+        "model": {
+          "path": "records/workbench/runs/cf2bf0aa4e6e46df840eb3ecc6bc3c6c/candidate/Regulate.sysml",
+          "sha256": "3d45a1e981b492c3f133bb273658d9c06dbb45aa6ae27d3234201e54f5f4ffde",
+          "bytes": 35255
+        },
+        "implementation_files": 217
+      },
+      "completed_tasks": [
+        "11 of 11 component proof/test pairs",
+        "29 GumboX and 23 other test functions",
+        "62 conditional proof obligations",
+        "Microkit build and 20.008-second observation command, including startup"
+      ],
+      "remaining_technical_obligations": [
+        "The recorded system-composition probe has 5 verified conditions and 2 errors.",
+        "Allocation and internal assumption propagation, implementation/interface preservation, requirement-derived tests, and state/time composition retain the recorded coverage limits.",
+        "Physical operator acquisition and display/alarm interaction use the approved coverage exclusion; unavailable-device behavior returns Invalid status.",
+        "Physical timing and clock-abstraction validation require further evidence."
+      ],
+      "premises": [
+        "Recorded desired-temperature bounds and strict ordering: 97 degrees Fahrenheit <= lower < upper <= 100 degrees Fahrenheit.",
+        "Approved timeout-priority semantics use the initialization elapsed counter >1000ms.",
+        "Component proofs retain their declared preconditions and approved environment assumptions."
+      ],
+      "human_review_completion": {
+        "basis": "Owner reports that the reviews have been completed and approved.",
+        "exact_completion_time_utc": null,
+        "receipt_time_meaning": "Time this decision was recorded; the earlier review completion time was not supplied."
+      },
+      "evidence_subset_sha256": "ae06a939141dd4d2a978941d8e941c874fca3e0874e1238c65f77942098d1490",
+      "decision_effect": "Owner approval of release within the stated case scope. Historical execution results and native workbench acceptance records retain their original status and date.",
+      "completion_rule": "A task is complete when every mandatory check in its approved scope and every required review has passed.",
+      "scope_change_rule": "A change to the reviewed source, assumptions, evidence or release scope requires a new review decision.",
+      "primary_receipt": {
+        "record_id": "records/isolette/owner_release_2026-11-08/APPROVAL.json",
+        "sha256": "11af790f100ed6a062465c243d757136c83fcdabb2e585f1e60863699b4fd41f"
+      }
+    },
+    {
+      "case_id": "producer_consumer",
+      "name": "Producer/Consumer",
+      "recorded_utc": "2026-11-08T18:17:43.411675+00:00",
+      "reviewer": "POWERUSERS-1",
+      "human_review_status": "APPROVED",
+      "release_status": "APPROVED_FOR_RELEASE",
+      "release_scope": "Retained Producer/Consumer case reports and the paired K+ attempt-2 model checkpoint, directed architecture comparison and source-conformance review for the supplied English requirements.",
+      "candidate_identity": {
+        "check_run_id": "cd05ad494b9e4ca19851b1229a61a354",
+        "model": {
+          "path": "records/pc-pair/outputs/pair1-K+/attempt-2/workspace/prod-cons/ProdCons.sysml",
+          "sha256": "38a7012f2091140726f4b66e17a8f34bd163373ac9769b1c9eaac60c4ae454a6",
+          "bytes": 2637
+        },
+        "input_files": 16
+      },
+      "completed_tasks": [
+        "Parsing and typing",
+        "Slang/JVM generation",
+        "Logika connection implication",
+        "Architecture capture",
+        "Effective-binding checks",
+        "Directed architecture comparison",
+        "Owner approval of the source-conformance review"
+      ],
+      "remaining_technical_obligations": [
+        "The paired experiment covers the model checkpoint; Rust/Microkit implementation, system timing/transport and runtime checks have no completed results in this pair.",
+        "Later leaf computation is unspecified by the reference used for this model reconstruction.",
+        "Historical interrupted and failed comparison runs retain their original outcomes."
+      ],
+      "premises": [
+        "Producer range [0,90] satisfies the consumer assumption [0,100].",
+        "The approved model scope is defined by the supplied English and recorded comparison criteria."
+      ],
+      "human_review_completion": {
+        "basis": "Owner reports that the reviews have been completed and approved.",
+        "exact_completion_time_utc": null,
+        "receipt_time_meaning": "Time this decision was recorded; the earlier review completion time was not supplied."
+      },
+      "evidence_subset_sha256": "6c011b3d043b40dd713614215a10c73964dab046d1986dd1eebba32a6786fb7e",
+      "decision_effect": "Owner approval of release within the stated case scope. Historical execution results and native workbench acceptance records retain their original status and date.",
+      "completion_rule": "A task is complete when every mandatory check in its approved scope and every required review has passed.",
+      "scope_change_rule": "A change to the reviewed source, assumptions, evidence or release scope requires a new review decision.",
+      "primary_receipt": {
+        "record_id": "records/producer-consumer/owner_release_2026-11-08/APPROVAL.json",
+        "sha256": "c3fc8e2f5d82a68670556e299b2979f5009698339951d9ce7c633e5f62a4c5d6"
+      }
+    },
+    {
+      "case_id": "sng",
+      "name": "Simple Network Guard (SNG)",
+      "recorded_utc": "2026-11-08T18:17:43.411675+00:00",
+      "reviewer": "POWERUSERS-1",
+      "human_review_status": "APPROVED",
+      "release_status": "APPROVED_FOR_RELEASE",
+      "release_scope": "Retained SNG comparison and continuation reports, the completed model stage, and six completed downstream validation categories for the initialization-repair-8 source and approved 20-second observation.",
+      "candidate_identity": {
+        "source_identity": "72b2516fc45d252634c9ae929c343e37f3f1c200a9fff3416b34e91646bdc538",
+        "implementation_files": 201,
+        "loader_image": {
+          "path": "records/sng-shared/continuation2/runtime20/outputs/workspace/microkit/build/loader.img",
+          "sha256": "88216fe9bc00374fc742e3dc63348894ce0fb23a4f5755f76a7d2da21919af05",
+          "bytes": 4957232
+        }
+      },
+      "completed_tasks": [
+        "Rust target-crate Verus: 32 units, zero errors",
+        "English component relations: 6 of 6 under recorded premises",
+        "Rust GumboX: 33 test functions",
+        "Slang/JVM GumboX: 808 test cases",
+        "Microkit build: 103.50073753809556 seconds",
+        "QEMU observation: 20.03305649687536 host seconds after readiness, 18 receiver messages and zero configured anomaly matches"
+      ],
+      "remaining_technical_obligations": [
+        "Unsafe static-C wrapper and physical event-buffer correspondence.",
+        "System transport, occurrence/delivery and non-interference properties.",
+        "Physical timing, payload correspondence and complete runtime stimulus-cycle coverage."
+      ],
+      "premises": [
+        "Component dispatch proofs assume empty outgoing slots at entry and the recorded generated-interface premises.",
+        "Six selected initialization/composition proofs overlap the 32 target proof units.",
+        "Runtime evidence covers the approved observed interval."
+      ],
+      "human_review_completion": {
+        "basis": "Owner reports that the reviews have been completed and approved.",
+        "exact_completion_time_utc": null,
+        "receipt_time_meaning": "Time this decision was recorded; the earlier review completion time was not supplied."
+      },
+      "evidence_subset_sha256": "00d9802d541dcbc84675fee271b31dfb9df6e3c23e74e8c9aeed9ab02eb019a5",
+      "decision_effect": "Owner approval of release within the stated case scope. Historical execution results and native workbench acceptance records retain their original status and date.",
+      "completion_rule": "A task is complete when every mandatory check in its approved scope and every required review has passed.",
+      "scope_change_rule": "A change to the reviewed source, assumptions, evidence or release scope requires a new review decision.",
+      "primary_receipt": {
+        "record_id": "records/sng-shared/continuation2/runtime20/owner_release_2026-11-08/APPROVAL.json",
+        "sha256": "4d3da9d3b7f8f555a32fda8c0d1b10234bc9692d87cdc06a75b8ccf196f9abc3"
+      },
+      "engineering_completion_utc": "2026-11-06T10:20:59.935633+00:00"
+    }
+  ],
+  "interpretation": [
+    "A completed task requires all mandatory checks and required reviews for its approved scope.",
+    "Case-history totals contain several attempts and input revisions. Selected successful task costs and nested model-stage prefixes must not be added to those histories.",
+    "Isolette later repaired engineering has no fully matched all-agent cost or elapsed total.",
+    "Owner approval is a new dated release decision. Historical pending reviews, native acceptance records and technical outcomes retain their original dates and scope.",
+    "The archive identifiers name original records; this extract does not package the complete execution archive."
+  ],
+  "primary_source_hashes": {
+    "records/historical/cost_attribution.csv": "945d983460640119a8af6304fef7956438738a6fb422ef5a16b3823f2408cc01",
+    "records/sng-initial/report/tables.json": "2278b3cfd1dc2fcab13a95935478ba01d4b15ff5b0255572a077f7fcdaebd337",
+    "records/isolette/owner_release_2026-11-08/APPROVAL.json": "11af790f100ed6a062465c243d757136c83fcdabb2e585f1e60863699b4fd41f",
+    "records/producer-consumer/owner_release_2026-11-08/APPROVAL.json": "c3fc8e2f5d82a68670556e299b2979f5009698339951d9ce7c633e5f62a4c5d6",
+    "records/sng-shared/continuation2/runtime20/owner_release_2026-11-08/APPROVAL.json": "4d3da9d3b7f8f555a32fda8c0d1b10234bc9692d87cdc06a75b8ccf196f9abc3",
+    "records/pc-pair/evaluation/CRITERIA.json": "269244f13a01d9dbbbbee532f9eef5988e71c3782214237eb845451c3e2cb848",
+    "records/pc-pair/evaluation/ENGLISH_REVIEW.json": "c860a2eca0d626ae4efdfb0de5afa265fa352d35a7f2c0d96d4afcc029c58661",
+    "records/pc-followup/evaluation/ENGLISH_REVIEW.json": "2cdc03b8683c7f4a6c69ef78b4b19ec41a7dd744ab0a6b96c07fdc066b3bc49c",
+    "records/sng-shared/evaluation/REVIEW_PROTOCOL.json": "e9af1f4b1cc837878978b72b2fc7d568341ea73e24f0098bef9e29638d1c272d",
+    "records/sng-shared/evaluation/ENGLISH_REVIEW.json": "ea0e3e2dac35055c860133667135ec49e8b8bbafff8c5018f6dd8cea962d056c",
+    "records/sng-shared/continuation2/evaluation/initialization/ENGLISH_REVIEW.json": "7f356f1cf4f88861d99be6f84d6b17a3453d20c1c249ede978e288c09c1afcc0",
+    "records/sng-shared/continuation2/runtime20/evaluation/coverage/BROADER_REQUIREMENTS_AUDIT.json": "dfc046e7f35240853b7018505d4f05b0facfaec2d1775ff94a757f14b013a05f",
+    "records/sng-shared/continuation2/runtime20/evaluation/coverage/NAMED_CONTRACT_PROOF_AUDIT.json": "55387fd7ac02ae557ac31f7c5897211b1d31c9a3065f1202cc2c64c09e74256a",
+    "records/sng-shared/continuation2/runtime20/CAMPAIGN_CLOSEOUT.json": "f4e4d1553f1ee10edeb78144a318d631afdb05261b836fb3345b31fd1e2a4f73",
+    "records/pc-pair/AUTHORIZATION.json": "876e6681a31c670bc5f4ed0e1d9eb1817932e4f9ab0efe9045f1303f227c16aa",
+    "records/pc-followup/AUTHORIZATION.json": "ec9fe66b26506006fbbc0bc787d3da3f39709d921cf3ce0e5efb2209f3781493",
+    "records/sng-initial/AUTHORIZATION.json": "afbb1f92cc02a02b4c23e227c8435992b5141dd87196692d42b06285d3ec034b",
+    "records/sng-shared/AUTHORIZATION.json": "0eaed324972bc06971bee60081df2e710b44d69e0d72640bf977245dbdb7b63f",
+    "records/sng-shared/continuation/AUTHORIZATION.json": "b502c4c0dc45a6a3ba03faa8d28e73c68dc457eb2de661513d556eda5f0af301",
+    "records/later-bass/context_revision1/report/final/tables.json": "b2216002412c0d42addb4d9300b371e266c70aa76f52ea9e6a00a8ffea36622b",
+    "records/off-comparisons/state/objects/55faa12bc52d204dd3b766a66780d2d560f6ed86d0044413de83f5a4709b14e8.json": "55faa12bc52d204dd3b766a66780d2d560f6ed86d0044413de83f5a4709b14e8",
+    "records/pc-pair/outputs/pair1-K+/attempt-2/check_result.json": "31f2047a789701ba2672e6f65d13bb833018707e82e4ce6927950cb1c115a8c8",
+    "records/sng-shared/outputs/sng-K+/model-4/Microkit_check_result.json": "dfcffb63826c55ff12bde9fd0b32a2f0f0b4c3aa3304446f31a2368693591266"
+  }
+}

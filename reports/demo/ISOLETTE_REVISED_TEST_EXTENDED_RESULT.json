@@ -1,0 +1,120 @@
+{
+  "elapsed_seconds": 292.00334493798437,
+  "result": {
+    "task_id": "964513fce75671168d2afedd9d7e0346a1d6871eb80d78e5469146884b726057",
+    "plan_id": "6004a757c4beecf5c8c5b86780ccc3fa03d136f2fd15f65b3fc395348e3359d1",
+    "context_id": "8216e9e360502f8ca1887d2b05b063f0bb480fa54b0114b715e53a8bcae90f95",
+    "model_call_id": "7d52b8ac7c5524755531f43332544da39d95c30b4684b31eef95ae8a526fd544",
+    "candidate_ids": [
+      "55b56ac69e27eb30663c6ce4a48017fe04cb737082988af77fe052c9287db2af",
+      "aef1109ba392d5ec716654a3776df0fc73716b26722be3d6574247fe33b6cb55",
+      "30d7ecfd80c45e7168fbc3d7cd6674efe8299051666da29ec5a4ade66223c82c"
+    ],
+    "previous_result_id": "46099f1c2bc9e5ca7a4592b46d7333685886cad1e724f4fd456201994e23ab17",
+    "generated_run_id": "7d406413c64a4219b7674ed71411eaee",
+    "reference_run_id": "a3580a9ac0f9484593a23fc02e318302",
+    "comparison_id": "98bd8c48084f5f265f0ae3a11f52c2526f4dd4be951c98b0fa16fb114e8d968b",
+    "status": "STRUCTURE_CHECKED_BEHAVIOR_UNASSESSED",
+    "whole_system_acceptance": false,
+    "source_files_modified": 0,
+    "generation_annotations": [
+      "whole-system-role-and-flow-preservation (55b56ac69e27eb30663c6ce4a48017fe04cb737082988af77fe052c9287db2af): Trigger: the previous file declared Regulate_Temperature_i as one Process containing four Threads, contrary to ARCH-R-1/2; diagnostics reported missing dispatch protocols. Repair: retain the public classifier and boundary names, change its category to System, introduce four one-thread Process wrappers with 9/4/5/1 ports and 19 forwarding connections, retain all 14 parent connections, and explicitly assign domains 3/4/5/6 on both levels and Periodic 1000 ms on each Thread. No hardware is invented.",
+      "RA-001 (30d7ecfd80c45e7168fbc3d7cd6674efe8299051666da29ec5a4ade66223c82c): Trigger: architecture-only repair could lose stateful FAA behavior or mistake reference scheduling for timing compliance. Repair: retain executable interface, heat, mode, history, initialization and timeout predicates; retain strict physical deadlines and explicit representation, clock, composition and satisfiability gaps. Apply the allocation principle to Regulate; do not transfer Monitor-specific alarm hysteresis, FAILED alarm behavior, domains or five-second deadline.",
+      "REQ-ALLOC-001 (aef1109ba392d5ec716654a3776df0fc73716b26722be3d6574247fe33b6cb55): Trigger: conditional range copying, invalid-input handling and prior-command retention require distinct owner-local obligations. Repair: keep invalid-status detection and conditional copying on Interface, health and persistent transitions on Mode, and inclusive-band heat retention on Heat. Preserve output-dependent implications and explicit history commits without adding global validity assumptions. Add allocation paths and pending implementation/proof/test obligations.",
+      "draft-mode-conditioned-owned-assignment (development retry guidance): Trigger: supplied diagnostics and source do not establish architectural conformance, and the resolved capture contains no visible components. Repair: distinguish the actual dispatch warnings and structural mismatch from nonexistent parse errors; preserve behavioral clauses and record renewed type/architecture inspection as pending."
+    ],
+    "limitations": [
+      "No tools were used. This complete replacement file has not been parsed, instantiated, generated, tested or verified; no check or acceptance result is claimed.",
+      "All 91 resolved components were omitted from the supplied capture. Enclosing processor allocations and changed containment paths cannot be verified or repaired from this target alone.",
+      "The required 1000 ms periodic configuration cannot guarantee arbitrary-phase visible responses strictly below 0.5 seconds under ordinary periodic sampling. The FAA deadline remains unchanged.",
+      "Integer temperature copying expresses nearest-integer rounding only on the existing integer abstraction. Fractional measurements, 0.1-degree sensor resolution and physical display accuracy require a justified representation mapping.",
+      "Elapsed-time predicates permit a frozen clock; actual clock acquisition and progress remain unimplemented. Healthy expired INIT enables contradictory transitions until priority or justified unreachability is resolved.",
+      "Valid out-of-domain desired inputs conflict with copying and Table A-7 guarantees; reversed bounds can enable contradictory heat commands. These conflicts remain explicit rather than being hidden by unsupported assumptions.",
+      "Platform failure detection, initialization publication, Rust bodies, invalid-range non-use during delayed mode propagation, transport semantics and end-to-end timing proofs remain outstanding. Contracts alone do not implement these mechanisms."
+    ],
+    "scope": "Development evidence only; publication still requires supporting/contrasting validation and review",
+    "id": "12ee3c605fdd2d4a8c6fc180b6539a0d84bbe13d1ab9fd22f46e9f2d3f75963f",
+    "failure_report": {
+      "result_id": "12ee3c605fdd2d4a8c6fc180b6539a0d84bbe13d1ab9fd22f46e9f2d3f75963f",
+      "task_id": "964513fce75671168d2afedd9d7e0346a1d6871eb80d78e5469146884b726057",
+      "diagnostics": [
+        {
+          "gate": "parse_type",
+          "status": "PASS",
+          "reason": "Type checker completed",
+          "tool_output": {
+            "stdout": "Well-formed!\n",
+            "stderr": ""
+          }
+        },
+        {
+          "gate": "architecture_capture",
+          "status": "PASS",
+          "reason": "Instantiated AIR and resolved declarations captured; no conformance claim",
+          "tool_output": {
+            "stdout": "INSPECTA_ARCHITECTURE_EXPORTED:10\n",
+            "stderr": ""
+          }
+        }
+      ],
+      "error_families": [
+        "unclassified"
+      ],
+      "rules_consulted": [
+        {
+          "candidate_id": "30d7ecfd80c45e7168fbc3d7cd6674efe8299051666da29ec5a4ade66223c82c",
+          "rule_id": "RA-001",
+          "principle": "Allocate each English obligation to the thread that controls its effect, trace its inputs through every preserved interface, and discharge every consumer assumption through producer guarantees or explicit environmental obligations. Maintain a trace from English through architecture, GUMBO, implementation, proof, tests, and timing analysis; record missing representations as open obligations rather than treating the observed model as a complete specification.",
+          "repair_guidance": "Before accepting an application or repair, compare every trace row with prepared English and the preserved interface baseline. Classify discrepancies as requirements ambiguity, missing model behavior, representation mismatch, implementation error, composition/timing gap, or tool/environment failure. Repair the responsible artifact and rerun affected KSU checks; never remove a requirement, strengthen an assumption without justification, widen a deadline, or hide behavior behind trusted code merely to obtain a favorable result. Unresolved gaps block a preservation claim. Generalization and specialization of this draft or its repair strategy belong to Learning Mode and require subsequent validation.",
+          "matched_error_families": [],
+          "selection_reason": "Selected task rule; relevance requires review"
+        },
+        {
+          "candidate_id": "aef1109ba392d5ec716654a3776df0fc73716b26722be3d6574247fe33b6cb55",
+          "rule_id": "REQ-ALLOC-001",
+          "principle": "Allocate each required effect to the component that owns its output or state, preserve its complete English condition and temporal meaning, and trace every cross-component assumption to a connected producer guarantee or an explicit environmental assumption. Compose these local obligations into the parent requirement without changing existing interfaces.",
+          "repair_guidance": "Before accepting any proposed repair, compare the original English obligations, contracts, interfaces, and trace links with the proposed result. Resolve missing ownership, ungrounded assumptions, state initialization/update gaps, temporal omissions, and incompatible guarantees at their responsible component. Preserve invalid-input, failed-mode, hysteresis, and initialization obligations. Do not delete cases, strengthen environmental assumptions, narrow guards, or alter interfaces merely to make a proof or test pass. Unresolved semantics remain explicit blockers to claiming preservation.",
+          "matched_error_families": [],
+          "selection_reason": "Selected task rule; relevance requires review"
+        },
+        {
+          "candidate_id": "55b56ac69e27eb30663c6ce4a48017fe04cb737082988af77fe052c9287db2af",
+          "rule_id": "whole-system-role-and-flow-preservation",
+          "principle": "Preserve the complete allocation from system boundary through component containment, directed data flow, behavioral ownership, and deployment configuration. Each required output must remain traceable to its owning thread through transparent process interfaces; local behavioral correctness alone does not establish system correctness.",
+          "repair_guidance": "A proposed repair must preserve the baseline interfaces, containment, required directed paths, behavioral guarantees, state ownership, and scheduling configuration. Investigate failures at the responsible layer and rerun affected structural, implementation, proof, integration, and deployment checks. Do not remove consumers, bypass validity handling, weaken guarantees, strengthen assumptions without requirements support, or alter deployment metadata merely to make a check pass. Missing semantics remain explicit unresolved obligations.",
+          "matched_error_families": [],
+          "selection_reason": "Selected task rule; relevance requires review"
+        }
+      ],
+      "reported_rule_applications": [
+        "whole-system-role-and-flow-preservation (55b56ac69e27eb30663c6ce4a48017fe04cb737082988af77fe052c9287db2af): Trigger: the previous file declared Regulate_Temperature_i as one Process containing four Threads, contrary to ARCH-R-1/2; diagnostics reported missing dispatch protocols. Repair: retain the public classifier and boundary names, change its category to System, introduce four one-thread Process wrappers with 9/4/5/1 ports and 19 forwarding connections, retain all 14 parent connections, and explicitly assign domains 3/4/5/6 on both levels and Periodic 1000 ms on each Thread. No hardware is invented.",
+        "RA-001 (30d7ecfd80c45e7168fbc3d7cd6674efe8299051666da29ec5a4ade66223c82c): Trigger: architecture-only repair could lose stateful FAA behavior or mistake reference scheduling for timing compliance. Repair: retain executable interface, heat, mode, history, initialization and timeout predicates; retain strict physical deadlines and explicit representation, clock, composition and satisfiability gaps. Apply the allocation principle to Regulate; do not transfer Monitor-specific alarm hysteresis, FAILED alarm behavior, domains or five-second deadline.",
+        "REQ-ALLOC-001 (aef1109ba392d5ec716654a3776df0fc73716b26722be3d6574247fe33b6cb55): Trigger: conditional range copying, invalid-input handling and prior-command retention require distinct owner-local obligations. Repair: keep invalid-status detection and conditional copying on Interface, health and persistent transitions on Mode, and inclusive-band heat retention on Heat. Preserve output-dependent implications and explicit history commits without adding global validity assumptions. Add allocation paths and pending implementation/proof/test obligations.",
+        "draft-mode-conditioned-owned-assignment (development retry guidance): Trigger: supplied diagnostics and source do not establish architectural conformance, and the resolved capture contains no visible components. Repair: distinguish the actual dispatch warnings and structural mismatch from nonexistent parse errors; preserve behavioral clauses and record renewed type/architecture inspection as pending."
+      ],
+      "application_evidence_scope": "Model annotations are not independent proof of rule use",
+      "architecture_status": "PASS",
+      "repair_state": {
+        "total_repair_attempts": 8,
+        "round_repair_attempts": 2,
+        "repair_limit_before_human": 3,
+        "run_repair_limit": 8,
+        "human_guidance_required": false,
+        "run_limit_reached": true,
+        "latest_guidance": {
+          "attempts_acknowledged": 6,
+          "authorization": "Continue up to three more repairs within existing run and campaign limits",
+          "requirements_and_release_unchanged": true,
+          "result_id": "46099f1c2bc9e5ca7a4592b46d7333685886cad1e724f4fd456201994e23ab17",
+          "reviewer": "User authorization2026-09-23: one thread per process; follow the golden example abstraction and structure in supervised training; prepare and amend the revised architecture-rule test. Recorded by controller from session instructions; not rule release or behavioral acceptance.",
+          "suggestion": "Follow the reference abstraction: one Thread per Process, four Processes inside the Regulator System. Apply the approved architecture/allocation rules and explicit English supplement; preserve FAA behavioral obligations. This is supervised development, not an untouched evaluation.",
+          "task_id": "2caee90e84590a7d676da76198e01f273629e824dc2eff06b4dcd50a4cd5ccb5",
+          "id": "e64151b83041fe1d071947b9063c954c4ba4d5d34adaea7a97ba988309ce042c"
+        }
+      },
+      "question": null,
+      "whole_system_acceptance": false,
+      "id": "d5f214d03142ad43595aaddf7557d65e435f04939a8a004dc215ee6a5b652555"
+    }
+  }
+}

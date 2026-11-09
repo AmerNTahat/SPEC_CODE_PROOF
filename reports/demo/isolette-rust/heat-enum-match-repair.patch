@@ -1,0 +1,16 @@
+--- enum-equality/thermostat_rt_manage_heat_source_implementation_app.rs
++++ enum-match/thermostat_rt_manage_heat_source_implementation_app.rs
+@@ -73,11 +73,11 @@
+       let current = api.get_Current_Temperature();
+       let lower = api.get_Lower_Desired_Temp();
+       let upper = api.get_Upper_Desired_Temp();
+-      let command = if mode == Isolette_Data_Model::Regulator_Mode::Normal_Regulator_Mode {
++      let command = match mode { Isolette_Data_Model::Regulator_Mode::Normal_Regulator_Mode => {
+         if current.degrees < lower.degrees { Isolette_Data_Model::On_Off::Onn }
+         else if current.degrees > upper.degrees { Isolette_Data_Model::On_Off::Off }
+         else { self.Previous_Heat_Control }
+-      } else { Isolette_Data_Model::On_Off::Off };
++      }, _ => Isolette_Data_Model::On_Off::Off };
+       self.Previous_Heat_Control = command;
+       api.put_Heat_Control(command);
+     }

@@ -1,0 +1,22 @@
+% Shared palette follows the supplied high-assurance diagram.
+% Pastel fills are separate from saturated outlines; labels preserve grayscale meaning.
+\definecolor{scpBlue}{RGB}{31,78,121}
+\definecolor{scpGreen}{RGB}{0,140,64}
+\definecolor{scpRed}{RGB}{192,0,0}
+\definecolor{scpGray}{RGB}{94,102,112}
+\definecolor{scpBlueFill}{RGB}{221,235,247}
+\definecolor{scpGreenFill}{RGB}{227,243,209}
+\definecolor{scpRedFill}{RGB}{255,232,232}
+\definecolor{scpGrayFill}{RGB}{241,238,235}
+\definecolor{scpYellowFill}{RGB}{255,242,204}
+\definecolor{scpPurple}{RGB}{112,48,160}
+\tikzset{
+  scpProposal/.style={draw=scpBlue,fill=scpBlueFill,text=black},
+  scpCheck/.style={draw=scpGreen,fill=scpGreenFill,text=black},
+  scpOpen/.style={draw=scpRed,fill=scpRedFill,text=black,dashed},
+  scpRecord/.style={draw=scpGray,fill=scpGrayFill,text=black},
+  scpDataFlow/.style={draw=scpBlue},
+  scpCheckFlow/.style={draw=scpGreen},
+  scpRepairFlow/.style={draw=scpRed,dashed},
+  scpRecordFlow/.style={draw=scpGray}
+}

@@ -1,0 +1,285 @@
+{
+  "rules": [
+    {
+      "candidate_id": "0659957ffde90209b55c185122af5f529720eabfb6459f931e7142275acf235a",
+      "rule_id": "PREP-CONTEXT-DEPENDENCIES-001",
+      "status": "TRANSFER_NOT_STARTED",
+      "attempted_examples": [],
+      "accepted_golden_scopes": [],
+      "transfer_review_ids": [],
+      "scope_expansion": "Only named examples with current acceptance evidence; exclusions remain attached. No universal coverage claim."
+    },
+    {
+      "candidate_id": "086a42eb7066daf9cfec2874f84e4a132f8644896b809ce811a7c554f97c08fd",
+      "rule_id": "HAMR-WORKFLOW-BUDGET-PRESERVATION-001",
+      "status": "TRANSFER_NOT_STARTED",
+      "attempted_examples": [],
+      "accepted_golden_scopes": [],
+      "transfer_review_ids": [],
+      "scope_expansion": "Only named examples with current acceptance evidence; exclusions remain attached. No universal coverage claim."
+    },
+    {
+      "candidate_id": "0d121c62e14e382d0fba59095526a9effdb207d1323505024a958b6a3563a88d",
+      "rule_id": "draft-mode-gated-hysteresis",
+      "status": "TRANSFER_NOT_STARTED",
+      "attempted_examples": [],
+      "accepted_golden_scopes": [],
+      "transfer_review_ids": [],
+      "scope_expansion": "Only named examples with current acceptance evidence; exclusions remain attached. No universal coverage claim."
+    },
+    {
+      "candidate_id": "1d82ed661fc7f12784476dcb1be44198024d8a6feca36d079d2271ccceac39dd",
+      "rule_id": "alarm-hysteresis-refinement",
+      "status": "TRANSFER_NOT_STARTED",
+      "attempted_examples": [],
+      "accepted_golden_scopes": [],
+      "transfer_review_ids": [],
+      "scope_expansion": "Only named examples with current acceptance evidence; exclusions remain attached. No universal coverage claim."
+    },
+    {
+      "candidate_id": "21c1bd02cd508b03b2bd38370d042f678b608502fc7512c54130f21d60bb34b4",
+      "rule_id": "draft-mode-conditioned-owned-assignment",
+      "status": "TRANSFER_IN_PROGRESS",
+      "attempted_examples": [
+        "Regulate.sysml",
+        "prod-cons/ProdCons.sysml"
+      ],
+      "accepted_golden_scopes": [],
+      "transfer_review_ids": [],
+      "scope_expansion": "Only named examples with current acceptance evidence; exclusions remain attached. No universal coverage claim."
+    },
+    {
+      "candidate_id": "2f6a4a209a63ac0a05762c01f53fe896c1bd55e9913ba6b4cb71e4028d473239",
+      "rule_id": "REPAIR-TOOL-CAPABILITY-001",
+      "status": "TRANSFER_NOT_STARTED",
+      "attempted_examples": [],
+      "accepted_golden_scopes": [],
+      "transfer_review_ids": [],
+      "scope_expansion": "Only named examples with current acceptance evidence; exclusions remain attached. No universal coverage claim."
+    },
+    {
+      "candidate_id": "30d7ecfd80c45e7168fbc3d7cd6674efe8299051666da29ec5a4ade66223c82c",
+      "rule_id": "RA-001",
+      "status": "TRANSFER_IN_PROGRESS",
+      "attempted_examples": [
+        "Regulate.sysml"
+      ],
+      "accepted_golden_scopes": [],
+      "transfer_review_ids": [],
+      "scope_expansion": "Only named examples with current acceptance evidence; exclusions remain attached. No universal coverage claim."
+    },
+    {
+      "candidate_id": "5052af9f84a61c0d5b004512674586d0952617fa55a6d53b93a7ed23f1206b07",
+      "rule_id": "status-gated-range-transfer",
+      "status": "TRANSFER_NOT_STARTED",
+      "attempted_examples": [],
+      "accepted_golden_scopes": [],
+      "transfer_review_ids": [],
+      "scope_expansion": "Only named examples with current acceptance evidence; exclusions remain attached. No universal coverage claim."
+    },
+    {
+      "candidate_id": "55b56ac69e27eb30663c6ce4a48017fe04cb737082988af77fe052c9287db2af",
+      "rule_id": "whole-system-role-and-flow-preservation",
+      "status": "TRANSFER_IN_PROGRESS",
+      "attempted_examples": [
+        "Regulate.sysml"
+      ],
+      "accepted_golden_scopes": [],
+      "transfer_review_ids": [],
+      "scope_expansion": "Only named examples with current acceptance evidence; exclusions remain attached. No universal coverage claim."
+    },
+    {
+      "candidate_id": "580a5d8089bb6360654dbebc528ad95c2f6bdfd3e309f13af50526b73f9bb564",
+      "rule_id": "mode-qualified-hysteresis-retention",
+      "status": "TRANSFER_NOT_STARTED",
+      "attempted_examples": [],
+      "accepted_golden_scopes": [],
+      "transfer_review_ids": [],
+      "scope_expansion": "Only named examples with current acceptance evidence; exclusions remain attached. No universal coverage claim."
+    },
+    {
+      "candidate_id": "67899bb3d0a26969a7455df9c4e621a1e9bf8bb9a12b99b766c01290a2bd31e6",
+      "rule_id": "mode-guarded-hysteresis-owned-output",
+      "status": "TRANSFER_NOT_STARTED",
+      "attempted_examples": [],
+      "accepted_golden_scopes": [],
+      "transfer_review_ids": [],
+      "scope_expansion": "Only named examples with current acceptance evidence; exclusions remain attached. No universal coverage claim."
+    },
+    {
+      "candidate_id": "6bfb6864c501b63ddfa81a5f7131f9612af5f0d71a84dc7a74fc6399dee21c1f",
+      "rule_id": "conditional-command-retention",
+      "status": "TRANSFER_NOT_STARTED",
+      "attempted_examples": [],
+      "accepted_golden_scopes": [],
+      "transfer_review_ids": [],
+      "scope_expansion": "Only named examples with current acceptance evidence; exclusions remain attached. No universal coverage claim."
+    },
+    {
+      "candidate_id": "6d23020af4c22925db119a7edea580a94c567aa90fa3bcf4c2a9822aeb709b08",
+      "rule_id": "draft-mode-conditioned-owned-assignment",
+      "status": "TRANSFER_IN_PROGRESS",
+      "attempted_examples": [
+        "Regulate.sysml",
+        "prod-cons/ProdCons.sysml"
+      ],
+      "accepted_golden_scopes": [],
+      "transfer_review_ids": [],
+      "scope_expansion": "Only named examples with current acceptance evidence; exclusions remain attached. No universal coverage claim."
+    },
+    {
+      "candidate_id": "86f8ab7b6b14e48505ca83df82e792e7ed489c7556c8fe62b48d7d396722d128",
+      "rule_id": "DRAFT-MODE-GATED-HYSTERESIS",
+      "status": "TRANSFER_NOT_STARTED",
+      "attempted_examples": [],
+      "accepted_golden_scopes": [],
+      "transfer_review_ids": [],
+      "scope_expansion": "Only named examples with current acceptance evidence; exclusions remain attached. No universal coverage claim."
+    },
+    {
+      "candidate_id": "8bd1983a76638c6fbc1e5e91ca1ac6ae09d5a1cfe8c30c4a92786a856e970d64",
+      "rule_id": "monitor-alarm-contract-workflow",
+      "status": "TRANSFER_NOT_STARTED",
+      "attempted_examples": [],
+      "accepted_golden_scopes": [],
+      "transfer_review_ids": [],
+      "scope_expansion": "Only named examples with current acceptance evidence; exclusions remain attached. No universal coverage claim."
+    },
+    {
+      "candidate_id": "aef1109ba392d5ec716654a3776df0fc73716b26722be3d6574247fe33b6cb55",
+      "rule_id": "REQ-ALLOC-001",
+      "status": "TRANSFER_IN_PROGRESS",
+      "attempted_examples": [
+        "Regulate.sysml"
+      ],
+      "accepted_golden_scopes": [],
+      "transfer_review_ids": [],
+      "scope_expansion": "Only named examples with current acceptance evidence; exclusions remain attached. No universal coverage claim."
+    },
+    {
+      "candidate_id": "b9e72e1640da2fb6bbc2847fdde9c22d990d32a3105348efa251976a4cb0758b",
+      "rule_id": "DRAFT-MODE-GATED-HYSTERESIS-001",
+      "status": "TRANSFER_NOT_STARTED",
+      "attempted_examples": [],
+      "accepted_golden_scopes": [],
+      "transfer_review_ids": [],
+      "scope_expansion": "Only named examples with current acceptance evidence; exclusions remain attached. No universal coverage claim."
+    },
+    {
+      "candidate_id": "bd31b63b67fba034b61991c519c68ba4b9b1a3100b78249edab5cd38b7b72c70",
+      "rule_id": "DRAFT-MODE-GATED-HYSTERESIS",
+      "status": "TRANSFER_NOT_STARTED",
+      "attempted_examples": [],
+      "accepted_golden_scopes": [],
+      "transfer_review_ids": [],
+      "scope_expansion": "Only named examples with current acceptance evidence; exclusions remain attached. No universal coverage claim."
+    },
+    {
+      "candidate_id": "c464629c477b0a3310c35ebbf8b3974e5c958c4c635b99e98794a932491f1ea7",
+      "rule_id": "SYSTEM-COMPOSITION-CHECKS-001",
+      "status": "TRANSFER_NOT_STARTED",
+      "attempted_examples": [],
+      "accepted_golden_scopes": [],
+      "transfer_review_ids": [],
+      "scope_expansion": "Only named examples with current acceptance evidence; exclusions remain attached. No universal coverage claim."
+    },
+    {
+      "candidate_id": "ce107613a9bd6fca36c8edced63abe0b62ceec1887c768cf0b89f792f823904f",
+      "rule_id": "hold-command-under-explicit-guard",
+      "status": "TRANSFER_NOT_STARTED",
+      "attempted_examples": [],
+      "accepted_golden_scopes": [],
+      "transfer_review_ids": [],
+      "scope_expansion": "Only named examples with current acceptance evidence; exclusions remain attached. No universal coverage claim."
+    },
+    {
+      "candidate_id": "d4db340b631cfe8203df30477602494ff3924cd2446a94e8f9e57e9d891da353",
+      "rule_id": "HAMR-WORKFLOW-BUDGET-PRESERVATION-001",
+      "status": "TRANSFER_NOT_STARTED",
+      "attempted_examples": [],
+      "accepted_golden_scopes": [],
+      "transfer_review_ids": [],
+      "scope_expansion": "Only named examples with current acceptance evidence; exclusions remain attached. No universal coverage claim."
+    },
+    {
+      "candidate_id": "e04ea67870760178d85966be5f831328ec284dc333ff5e6aa800f871e52509f6",
+      "rule_id": "STRUCT-APPROVED-DEPLOYMENT-001",
+      "status": "TRANSFER_NOT_STARTED",
+      "attempted_examples": [],
+      "accepted_golden_scopes": [],
+      "transfer_review_ids": [],
+      "scope_expansion": "Only named examples with current acceptance evidence; exclusions remain attached. No universal coverage claim."
+    },
+    {
+      "candidate_id": "e497a7ffe86dc00a0e17e08d0b999a19529f449748e2c5c00b51497fcf1fad25",
+      "rule_id": "validity-gated-interface-transfer",
+      "status": "TRANSFER_NOT_STARTED",
+      "attempted_examples": [],
+      "accepted_golden_scopes": [],
+      "transfer_review_ids": [],
+      "scope_expansion": "Only named examples with current acceptance evidence; exclusions remain attached. No universal coverage claim."
+    },
+    {
+      "candidate_id": "e8f3d669144d6f4532dbd1c8b66c69de69fc874b2a714c5e5b0bbdcbf4e1c58d",
+      "rule_id": "DRAFT-MODE-GUARDED-HYSTERESIS",
+      "status": "TRANSFER_NOT_STARTED",
+      "attempted_examples": [],
+      "accepted_golden_scopes": [],
+      "transfer_review_ids": [],
+      "scope_expansion": "Only named examples with current acceptance evidence; exclusions remain attached. No universal coverage claim."
+    }
+  ],
+  "proofs": [
+    {
+      "limitations": "Tool-capability fixture, not a trained-rule transfer result or Isolette proof.",
+      "obligations": "Generated system-composition proof:111 system-crate obligations verified/0errors, plus separate dependency/data obligations.",
+      "report_path": "/home/amertahat/SPEC_CODE_PROOF/reports/demo/tool-upgrade/system-property-verus.json",
+      "report_sha256": "ff4f592bbe6d7f80cd2dad86aef3dad00590f071a0e4b84c7a03183fd9f83430",
+      "result": "PASS; deliberately false property correctly rejected",
+      "target": "Official KSU system-property tutorial fixture",
+      "tool": "Verus",
+      "id": "07cabf9eb14a94f955d09e4dea7ee3f65fea35dd0af6b9e61036b74ac133983f",
+      "report_current": true,
+      "scope": "Historical executed check disclosure; does not attach proof to another run or certify a rule."
+    },
+    {
+      "limitations": "Earlier consumer proof failed. This pass is for the repaired copy, not the latest Isolette model. A separate SDK image build still failed at that stage.",
+      "obligations": "Consumer verification reported7 verified/0errors; five recorded Rust tests passed.",
+      "report_path": "/home/amertahat/SPEC_CODE_PROOF/reports/build/ksu-container-repair.json",
+      "report_sha256": "b64374a94749e0601350a87c9c07a4455970f337a448224d7173cd757dbb1bb5",
+      "result": "PASS after repair",
+      "target": "Producer/Consumer, isolated repaired consumer Rust implementation",
+      "tool": "Verus",
+      "id": "183a7a9144b8acf0a6b5e86e00eb7dc378ed56d4455136d1a420bcef4e2bb397",
+      "report_current": true,
+      "scope": "Historical executed check disclosure; does not attach proof to another run or certify a rule."
+    },
+    {
+      "limitations": "This is not a Verus proof or a behavioral pass. The source lacks the explicit Rust implementation-language selection used by Producer/Consumer. Configuration/evidence gap, not unsupported English.",
+      "obligations": "Actual codegen emitted45 C files,0 Rust files and0 Cargo manifests. Logika exited0 but established no nonempty integration-constraint proof.",
+      "report_path": "/home/amertahat/SPEC_CODE_PROOF/reports/demo/tool-upgrade/isolette-engineering.json",
+      "report_sha256": "2ec53bc64f013f1cbb1758a74741306ee825bfc80a51a89cd9450e7a6410454e",
+      "result": "Parser/architecture PASS; integration and expected Rust generation UNKNOWN",
+      "target": "Latest generated Isolette, unchanged source; rund203636c718c436fb8a0393807635595",
+      "tool": "Upgraded HAMR / Logika",
+      "id": "335221d8e1f7ddfb2b4dd6a9209e2b64b6942a84f210b231103c718de2c5dfc9",
+      "report_current": true,
+      "scope": "Historical executed check disclosure; does not attach proof to another run or certify a rule."
+    },
+    {
+      "limitations": "Not an Isolette behavioral proof and not full English equivalence.",
+      "obligations": "Reported connection integration constraints using CVC5; run5b52680915114b5983054fd8f55fb70f.",
+      "report_path": "/home/amertahat/SPEC_CODE_PROOF/reports/demo/tool-upgrade/producer-consumer-compatibility.json",
+      "report_sha256": "da70fa668f325b4d3d00bdf35ef7c264c62569998eac2781d881a66ff912df6e",
+      "result": "PASS",
+      "target": "Producer/Consumer, approved120ms source",
+      "tool": "Logika",
+      "id": "f3ead7c0a93ed31aafbe45ee43c8bef8b315a29a622aa17f95d5140bc5e9201c",
+      "report_current": true,
+      "scope": "Historical executed check disclosure; does not attach proof to another run or certify a rule."
+    }
+  ],
+  "status": "TRANSFER_IN_PROGRESS",
+  "execution_notice": "In progress describes the validation workflow stage, not a currently running paid model call.",
+  "acceptance_and_transfer_are_separate": true
+}

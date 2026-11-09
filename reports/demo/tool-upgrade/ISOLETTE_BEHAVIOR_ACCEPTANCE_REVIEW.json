@@ -1,0 +1,45 @@
+{
+  "acceptance_scope": "This generated model against this reviewed golden scope only; no full-PDF claim and no reusable-rule publication.",
+  "blockers": [
+    "configured_formal_verification: NOT_RUN",
+    "independent_requirements_tests: NOT_RUN"
+  ],
+  "capability_scope_id": null,
+  "excluded_requirements": [],
+  "generated_evidence_digest": "c46569a08ec97672faebb8bdabc926dc4eb6715939eaf2a9e202608cc099aba2",
+  "generated_run_id": "7d406413c64a4219b7674ed71411eaee",
+  "graph_assessment_id": "12ace63821330c976e9892ebd9e96de7f0e6dabc72d4460f5988dce334574cec",
+  "reference_evidence_digest": "111858bd174c54c6e7ef2e28cd7d98838b2727d55e92597e9c389086a846862e",
+  "reference_run_id": "a3580a9ac0f9484593a23fc02e318302",
+  "required_checks": [
+    "architecture_capture",
+    "configured_formal_verification",
+    "independent_requirements_tests",
+    "parse_type"
+  ],
+  "result_id": "12ee3c605fdd2d4a8c6fc180b6539a0d84bbe13d1ab9fd22f46e9f2d3f75963f",
+  "rule_transfer_required": false,
+  "task_id": "964513fce75671168d2afedd9d7e0346a1d6871eb80d78e5469146884b726057",
+  "id": "7fd403305c663cdca950574633340f8c116c88575542f6cd76b1937d1609247d",
+  "approval": {
+    "action": "accept_golden_behavior",
+    "subject": {
+      "review_digest": "f636fa83491286d32f5616298bbc8177fddf870f05129209d82cb1ef79ba40ea",
+      "review_id": "7fd403305c663cdca950574633340f8c116c88575542f6cd76b1937d1609247d"
+    },
+    "subject_digest": "44223560019cb1bef6cc6c11cba35d7636422c8d5f839a1bbf8a9f3476216e53",
+    "id": "60c825b1cbc006896ccda7f72c486464463fb5e5749493db81f256ef9c491494",
+    "status": "PENDING",
+    "reviewer": null,
+    "decided_at": null
+  },
+  "checks_current": true,
+  "ready_for_review": false,
+  "current_blockers": [
+    "configured_formal_verification: NOT_RUN",
+    "independent_requirements_tests: NOT_RUN"
+  ],
+  "status": "CHECKS_INCOMPLETE",
+  "whole_system_acceptance": false,
+  "publishes_rules": false
+}

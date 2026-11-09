@@ -1,0 +1,175 @@
+{
+  "repository": "santoslab/hamr-tutorials",
+  "commit": "50c90fa356c436c1ceb4d4138a9d32fe8369829c",
+  "scope": "Tool capability test only; not a new training split or replacement for required live demonstrations",
+  "files": [
+    {
+      "path": "sysmlv2/aadl-lib/README.md",
+      "url": "https://raw.githubusercontent.com/santoslab/hamr-tutorials/50c90fa356c436c1ceb4d4138a9d32fe8369829c/HAMR-SysMLv2-Rust-seL4-P-DP-SysPropStructSplit/sysmlv2/aadl-lib/README.md",
+      "sha256": "c961ec5564d150eadcc1a5e9d9682eeed9f5dd653fa6f0ae6c500209f91fd039",
+      "git_blob": "83f79c9532626acea7873cea13fcb2a18b052a72"
+    },
+    {
+      "path": "sysmlv2/aadl-lib/aadl.library/.project",
+      "url": "https://raw.githubusercontent.com/santoslab/hamr-tutorials/50c90fa356c436c1ceb4d4138a9d32fe8369829c/HAMR-SysMLv2-Rust-seL4-P-DP-SysPropStructSplit/sysmlv2/aadl-lib/aadl.library/.project",
+      "sha256": "65b2d81f64d56b1f8f3a778d817a4e474e39e30ffb16da4df60594f8796385e4",
+      "git_blob": "73902026ac73f4ce153b168e26347d7291109ed0"
+    },
+    {
+      "path": "sysmlv2/aadl-lib/aadl.library/AADL.sysml",
+      "url": "https://raw.githubusercontent.com/santoslab/hamr-tutorials/50c90fa356c436c1ceb4d4138a9d32fe8369829c/HAMR-SysMLv2-Rust-seL4-P-DP-SysPropStructSplit/sysmlv2/aadl-lib/aadl.library/AADL.sysml",
+      "sha256": "00e8e3bf44441c0e4f81032d5f2f6dfcb17513af3a18934d5cc019e16fac8730",
+      "git_blob": "a9a0fc502c79a0bcc11c55383960441b3065dc00"
+    },
+    {
+      "path": "sysmlv2/aadl-lib/aadl.library/AADL_Project.sysml",
+      "url": "https://raw.githubusercontent.com/santoslab/hamr-tutorials/50c90fa356c436c1ceb4d4138a9d32fe8369829c/HAMR-SysMLv2-Rust-seL4-P-DP-SysPropStructSplit/sysmlv2/aadl-lib/aadl.library/AADL_Project.sysml",
+      "sha256": "2d9f9a14665a2dc127adc0ecc8783a98b715cd625c11241f7148737bbbf3d6f6",
+      "git_blob": "cd06f97e9c7c8003b4bac70364383de97a72695f"
+    },
+    {
+      "path": "sysmlv2/aadl-lib/aadl.library/Base_Types.sysml",
+      "url": "https://raw.githubusercontent.com/santoslab/hamr-tutorials/50c90fa356c436c1ceb4d4138a9d32fe8369829c/HAMR-SysMLv2-Rust-seL4-P-DP-SysPropStructSplit/sysmlv2/aadl-lib/aadl.library/Base_Types.sysml",
+      "sha256": "8d22ba99c72b97dd9d850e4dd64ca3a40ce24d39c458b0856576ef3b38706957",
+      "git_blob": "db62b87a6baa057c6e68d9c2e392f1012d666ef6"
+    },
+    {
+      "path": "sysmlv2/aadl-lib/aadl.library/Communication_Properties.sysml",
+      "url": "https://raw.githubusercontent.com/santoslab/hamr-tutorials/50c90fa356c436c1ceb4d4138a9d32fe8369829c/HAMR-SysMLv2-Rust-seL4-P-DP-SysPropStructSplit/sysmlv2/aadl-lib/aadl.library/Communication_Properties.sysml",
+      "sha256": "e09a7c2e8b9c5df567979795aba99c8a37196e03b3d9a87c95488a7c3eacff67",
+      "git_blob": "7f3568ee6c1f08ab5d5247723eac1a2caee31c44"
+    },
+    {
+      "path": "sysmlv2/aadl-lib/aadl.library/Data_Model.sysml",
+      "url": "https://raw.githubusercontent.com/santoslab/hamr-tutorials/50c90fa356c436c1ceb4d4138a9d32fe8369829c/HAMR-SysMLv2-Rust-seL4-P-DP-SysPropStructSplit/sysmlv2/aadl-lib/aadl.library/Data_Model.sysml",
+      "sha256": "ba9e3838d5fe4a956e87bd3b64e0edd7ebf0a1a741200bf731163c170e94f1b4",
+      "git_blob": "9ec441205b26b0b5021cb5ff4d8140d8b65e9f60"
+    },
+    {
+      "path": "sysmlv2/aadl-lib/aadl.library/Deployment_Properties.sysml",
+      "url": "https://raw.githubusercontent.com/santoslab/hamr-tutorials/50c90fa356c436c1ceb4d4138a9d32fe8369829c/HAMR-SysMLv2-Rust-seL4-P-DP-SysPropStructSplit/sysmlv2/aadl-lib/aadl.library/Deployment_Properties.sysml",
+      "sha256": "07c3f379432616aae2ec1ae2b66f2710aa788793b764b4c17db17ae2aa8a8060",
+      "git_blob": "929980cee5e233be5b05278bb73f5b014f91ac0c"
+    },
+    {
+      "path": "sysmlv2/aadl-lib/aadl.library/Memory_Properties.sysml",
+      "url": "https://raw.githubusercontent.com/santoslab/hamr-tutorials/50c90fa356c436c1ceb4d4138a9d32fe8369829c/HAMR-SysMLv2-Rust-seL4-P-DP-SysPropStructSplit/sysmlv2/aadl-lib/aadl.library/Memory_Properties.sysml",
+      "sha256": "375151c140066c0176b8fb20370f6713adb66b75a218d8f0075c221278690d91",
+      "git_blob": "7e3d52b4a2018e2a889a8260e14554382bc7a3c0"
+    },
+    {
+      "path": "sysmlv2/aadl-lib/aadl.library/Programming_Properties.sysml",
+      "url": "https://raw.githubusercontent.com/santoslab/hamr-tutorials/50c90fa356c436c1ceb4d4138a9d32fe8369829c/HAMR-SysMLv2-Rust-seL4-P-DP-SysPropStructSplit/sysmlv2/aadl-lib/aadl.library/Programming_Properties.sysml",
+      "sha256": "a7e90c1659c3a8291f31ad8ba3b92379a25398ddf72ce6ec059061ac9807fa23",
+      "git_blob": "11ae3890b3958fa721155a011145ae742c386db9"
+    },
+    {
+      "path": "sysmlv2/aadl-lib/aadl.library/Thread_Properties.sysml",
+      "url": "https://raw.githubusercontent.com/santoslab/hamr-tutorials/50c90fa356c436c1ceb4d4138a9d32fe8369829c/HAMR-SysMLv2-Rust-seL4-P-DP-SysPropStructSplit/sysmlv2/aadl-lib/aadl.library/Thread_Properties.sysml",
+      "sha256": "d9d074bb89d175c493276a7c9fd4383f389dcb06cd33b0cff4bbd658fa8724d5",
+      "git_blob": "5792671a18377ca3a88b15f8a23c7e824d5d4b26"
+    },
+    {
+      "path": "sysmlv2/aadl-lib/aadl.library/Timing_Properties.sysml",
+      "url": "https://raw.githubusercontent.com/santoslab/hamr-tutorials/50c90fa356c436c1ceb4d4138a9d32fe8369829c/HAMR-SysMLv2-Rust-seL4-P-DP-SysPropStructSplit/sysmlv2/aadl-lib/aadl.library/Timing_Properties.sysml",
+      "sha256": "5b3916143fff5bcfeb6c840603d7221ca692f8ec1bf33d56f6de3f0ae8d68f87",
+      "git_blob": "835063258968a3016f7e5a0de5d85a16a26e5080"
+    },
+    {
+      "path": "sysmlv2/aadl-lib/aadl.library/behavior_properties.sysml",
+      "url": "https://raw.githubusercontent.com/santoslab/hamr-tutorials/50c90fa356c436c1ceb4d4138a9d32fe8369829c/HAMR-SysMLv2-Rust-seL4-P-DP-SysPropStructSplit/sysmlv2/aadl-lib/aadl.library/behavior_properties.sysml",
+      "sha256": "6c7399d99da108050a7096c558d92554de04c387a0f4db1a77e1f716b9f07d4b",
+      "git_blob": "f9e8b4fcaff7645ef2d562f946d83009ccc7f558"
+    },
+    {
+      "path": "sysmlv2/aadl-lib/aadl.library/license.txt",
+      "url": "https://raw.githubusercontent.com/santoslab/hamr-tutorials/50c90fa356c436c1ceb4d4138a9d32fe8369829c/HAMR-SysMLv2-Rust-seL4-P-DP-SysPropStructSplit/sysmlv2/aadl-lib/aadl.library/license.txt",
+      "sha256": "baee2f8dbd8c036c565185906c8e68c1c64f320212b1141ec46708d8712e418c",
+      "git_blob": "253dda96915786f70519e2c97228a02f00e27e02"
+    },
+    {
+      "path": "sysmlv2/aadl-lib/hamr.aadl.library/CASE_Scheduling.sysml",
+      "url": "https://raw.githubusercontent.com/santoslab/hamr-tutorials/50c90fa356c436c1ceb4d4138a9d32fe8369829c/HAMR-SysMLv2-Rust-seL4-P-DP-SysPropStructSplit/sysmlv2/aadl-lib/hamr.aadl.library/CASE_Scheduling.sysml",
+      "sha256": "0394e4195da9039c6533cf53262563282c9b5162c5639c5197ae4200062eb228",
+      "git_blob": "01e9a10afd22e57091fd6c473485a6aacfa13e7e"
+    },
+    {
+      "path": "sysmlv2/aadl-lib/hamr.aadl.library/HAMR.sysml",
+      "url": "https://raw.githubusercontent.com/santoslab/hamr-tutorials/50c90fa356c436c1ceb4d4138a9d32fe8369829c/HAMR-SysMLv2-Rust-seL4-P-DP-SysPropStructSplit/sysmlv2/aadl-lib/hamr.aadl.library/HAMR.sysml",
+      "sha256": "573ab5e26caacaa46dcf5ffba0ecd129967d02d74eb57660115e613164b7d0c7",
+      "git_blob": "20e58f2633b5a09022f341c70656d9351fce425b"
+    },
+    {
+      "path": "sysmlv2/aadl-lib/hamr.aadl.library/HAMR_AADL.sysml",
+      "url": "https://raw.githubusercontent.com/santoslab/hamr-tutorials/50c90fa356c436c1ceb4d4138a9d32fe8369829c/HAMR-SysMLv2-Rust-seL4-P-DP-SysPropStructSplit/sysmlv2/aadl-lib/hamr.aadl.library/HAMR_AADL.sysml",
+      "sha256": "8459c45e5069efbceea979910720eebb1d91a3d4883f493b1331b9ca0625e107",
+      "git_blob": "010428fa66c0d06aa116a16e4de4e6186a780e68"
+    },
+    {
+      "path": "sysmlv2/aadl-lib/hamr.aadl.library/HAMR_AADL_Preview.sysml",
+      "url": "https://raw.githubusercontent.com/santoslab/hamr-tutorials/50c90fa356c436c1ceb4d4138a9d32fe8369829c/HAMR-SysMLv2-Rust-seL4-P-DP-SysPropStructSplit/sysmlv2/aadl-lib/hamr.aadl.library/HAMR_AADL_Preview.sysml",
+      "sha256": "8bd29aa87c411bc660af2edc9da127ed4037006f704796652da614a97ecb56f1",
+      "git_blob": "0e02504b9536d0407a6f712df4b36cd00dd1a957"
+    },
+    {
+      "path": "sysmlv2/aadl-lib/hamr.aadl.library/HAMR_Microkit.sysml",
+      "url": "https://raw.githubusercontent.com/santoslab/hamr-tutorials/50c90fa356c436c1ceb4d4138a9d32fe8369829c/HAMR-SysMLv2-Rust-seL4-P-DP-SysPropStructSplit/sysmlv2/aadl-lib/hamr.aadl.library/HAMR_Microkit.sysml",
+      "sha256": "db8adb54ea1eccc1e524471bf528cb6dba0bc2a4c8734d50d62747d83117c055",
+      "git_blob": "59f6e9c9635b90e944a3032679e36bbd70a6972e"
+    },
+    {
+      "path": "sysmlv2/aadl-lib/hamr.aadl.library/HAMR_ROS.sysml",
+      "url": "https://raw.githubusercontent.com/santoslab/hamr-tutorials/50c90fa356c436c1ceb4d4138a9d32fe8369829c/HAMR-SysMLv2-Rust-seL4-P-DP-SysPropStructSplit/sysmlv2/aadl-lib/hamr.aadl.library/HAMR_ROS.sysml",
+      "sha256": "4cee76fd087fe0b43bb3dbc7227195d93402658615bfb76bf05ccec1d4cb644f",
+      "git_blob": "4ab94d0c3b6ddfebf4ca152a8d546ded361be625"
+    },
+    {
+      "path": "sysmlv2/aadl-lib/hamr.aadl.library/HAMR_Time_Units.sysml",
+      "url": "https://raw.githubusercontent.com/santoslab/hamr-tutorials/50c90fa356c436c1ceb4d4138a9d32fe8369829c/HAMR-SysMLv2-Rust-seL4-P-DP-SysPropStructSplit/sysmlv2/aadl-lib/hamr.aadl.library/HAMR_Time_Units.sysml",
+      "sha256": "1ee89387619a2cb3459cb94bf0f55c3576998ed754dbcc8282acc7042f019d7a",
+      "git_blob": "878a2a73508492cf5c90e212118b7622611b34a0"
+    },
+    {
+      "path": "sysmlv2/bin/clean.cmd",
+      "url": "https://raw.githubusercontent.com/santoslab/hamr-tutorials/50c90fa356c436c1ceb4d4138a9d32fe8369829c/HAMR-SysMLv2-Rust-seL4-P-DP-SysPropStructSplit/sysmlv2/bin/clean.cmd",
+      "sha256": "f4373bb209a3cd74798c3517d1f65787d25073018bbff72c471362112f6ec83d",
+      "git_blob": "d84052c99de8b67a6728be07a7a7034ba7f0c54c"
+    },
+    {
+      "path": "sysmlv2/bin/run-hamr.cmd",
+      "url": "https://raw.githubusercontent.com/santoslab/hamr-tutorials/50c90fa356c436c1ceb4d4138a9d32fe8369829c/HAMR-SysMLv2-Rust-seL4-P-DP-SysPropStructSplit/sysmlv2/bin/run-hamr.cmd",
+      "sha256": "f31c4c876a23a4e32f1bb4eba438bc050dd6103c64411942b5e208eeb79c4827",
+      "git_blob": "0821067f8def2fb49de87df9e22a03f1d2aa283a"
+    },
+    {
+      "path": "sysmlv2/struct-split/Platform.sysml",
+      "url": "https://raw.githubusercontent.com/santoslab/hamr-tutorials/50c90fa356c436c1ceb4d4138a9d32fe8369829c/HAMR-SysMLv2-Rust-seL4-P-DP-SysPropStructSplit/sysmlv2/struct-split/Platform.sysml",
+      "sha256": "f63cbfa2e658d460a6d2b5e449c72adb1ab26bab7e027fcff2ce478b20f3d01f",
+      "git_blob": "8b97990cd46440322c628f8614c04cd3fef12830"
+    },
+    {
+      "path": "sysmlv2/struct-split/SysPropStructSplit.sysml",
+      "url": "https://raw.githubusercontent.com/santoslab/hamr-tutorials/50c90fa356c436c1ceb4d4138a9d32fe8369829c/HAMR-SysMLv2-Rust-seL4-P-DP-SysPropStructSplit/sysmlv2/struct-split/SysPropStructSplit.sysml",
+      "sha256": "6d50015d2b5396226e69220530e516163eb1a8a743d075eb1078df1c639807d6",
+      "git_blob": "f0ade14c529f0a43ba956efac4704a5964b399b9"
+    },
+    {
+      "path": "sysmlv2/struct-split/SysPropStructSplit_Data_Model.sysml",
+      "url": "https://raw.githubusercontent.com/santoslab/hamr-tutorials/50c90fa356c436c1ceb4d4138a9d32fe8369829c/HAMR-SysMLv2-Rust-seL4-P-DP-SysPropStructSplit/sysmlv2/struct-split/SysPropStructSplit_Data_Model.sysml",
+      "sha256": "a99590974f9fff46775ec70f884da2b1d926b9ddf38041f8ce1385f386e84495",
+      "git_blob": "7cdaa240609cfe74d4a2f6388ecdce756040f0cc"
+    },
+    {
+      "path": "sysmlv2/struct-split/SysPropStructSplit_Properties.sysml",
+      "url": "https://raw.githubusercontent.com/santoslab/hamr-tutorials/50c90fa356c436c1ceb4d4138a9d32fe8369829c/HAMR-SysMLv2-Rust-seL4-P-DP-SysPropStructSplit/sysmlv2/struct-split/SysPropStructSplit_Properties.sysml",
+      "sha256": "81913ace04138f6e4b27b72111dce9269e20ec9d035699f46632d51f0838c9d5",
+      "git_blob": "b8d78d16e4ad200e917056ba32fb2a3c479f01ca"
+    },
+    {
+      "path": "sysmlv2/struct-split/SysPropStructSplit_Software.sysml",
+      "url": "https://raw.githubusercontent.com/santoslab/hamr-tutorials/50c90fa356c436c1ceb4d4138a9d32fe8369829c/HAMR-SysMLv2-Rust-seL4-P-DP-SysPropStructSplit/sysmlv2/struct-split/SysPropStructSplit_Software.sysml",
+      "sha256": "229fe8206f4aa3fbd7c0336c94193a3f4138a8848ff7ea4563f43e042d31726c",
+      "git_blob": "71b756ec16667e774a2ef87561c3bd37ebbec170"
+    }
+  ]
+}

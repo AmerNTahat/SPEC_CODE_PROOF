@@ -1,0 +1,31 @@
+\begin{algorithm}[!htbp]
+\caption{Learn a candidate rule from retained campaign experience}
+\label{alg:learning}
+\KwIn{Campaign record $\mathcal{C}$; reviewed sources $M$; optional draft rule $r$.}
+\KwOut{Updated $\mathcal{C}$ and $r$; current task outcome $q$.}
+\scpPhase{Prepare the rule}
+\If{the source or plan is unapproved}{
+  \Return \scpStatus{pending} for review\nllabel{ln:learn-review}\;
+}
+\If{the reviewed source or plan changed}{
+  \Return \scpStatus{stale}\;
+}
+\If{no draft $r$ is supplied}{
+  Extract $r$ from $M$ with a budgeted call\;
+  \If{no draft is returned}{\Return \scpStatus{pending}\;}
+  Retain $r$, its sources, and the call record\nllabel{ln:learn-extract-end}\;
+}
+\scpPhase{Apply and revise the rule}
+\While{recorded permission and budget permit another attempt}{
+  Select a currently approved prepared task $T$\nllabel{ln:learn-task}\;
+  \If{no such task is available}{\Return \scpStatus{pending}\;}
+  Apply $r$ to $T$ in a budgeted call; check; set $q$\;
+  \If{$q$ is not \texttt{NOT\_VALIDATED}}{\Return $q$\;}
+  \If{the failure uses another rule or plan}{\Return \scpStatus{rejected}\;}
+  \If{diagnostic inputs changed}{\Return \scpStatus{stale}\;}
+  Revise $r$ from permitted feedback in a budgeted call\;
+  \If{no revision is returned}{\Return \scpStatus{pending}\;}
+  Retain both rules, failure, and attempts; use the new rule as $r$\nllabel{ln:learn-successor}\;
+}
+\Return \scpStatus{pending} for more allowance or human guidance\;
+\end{algorithm}

@@ -1,0 +1,35 @@
+% ARc-inspired staged workflow. The dashed path is proposed.
+\begingroup
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\begin{tikzpicture}[
+  x=1cm,y=1cm,font=\sffamily\fontsize{9}{10.6}\selectfont,
+  card/.style={rounded corners=2pt,line width=.65pt,align=center,
+    text width=2.72cm,inner xsep=3.5pt,inner ysep=3pt,minimum height=1.68cm},
+  support/.style={card,minimum height=1.03cm},
+  flow/.style={-{Stealth[length=1.7mm,width=1.2mm]},line width=.8pt,draw=black!85},
+  advisory/.style={dashed,draw=scpBlue}
+]
+\node[card,scpRecord] (english) at (0,0)
+  {\textbf{Natural language}\\[2pt]Reviewed\\requirements};
+\node[card,scpProposal] (formal) at (3.54,0)
+  {\textbf{Formalization}\\[2pt]SysML v2 /\\GUMBO};
+\node[card,scpProposal] (learn) at (7.08,0)
+  {\textbf{Supervised\\self-evolution}\\[2pt]Rule reuse\\and revision};
+\node[card,scpCheck] (hamr) at (10.62,0)
+  {\textbf{HAMR toolchain}\\[2pt]Generation and\\formal checks};
+\draw[flow] (english) -- (formal);
+\draw[flow] (formal) -- (learn);
+\draw[flow] (learn) -- (hamr);
+
+\node[support,advisory,fill=scpBlue!4,text width=5.82cm] (predict) at (1.63,-2.34)
+  {\textbf{Proposed predictor}\\[2pt]Semantic agreement and next-attempt cost};
+\node[support,scpRecord,text width=5.38cm] (review) at (9.25,-2.34)
+  {\textbf{Human review and archive}\\[2pt]Meaning, scope, decisions,\\and check results};
+\draw[flow,advisory] (predict.north -| formal.south) -- (formal.south);
+\draw[flow] (hamr.south) -- (review.north -| hamr.south);
+\draw[flow,draw=scpGray] (review.north -| learn.south) -- (learn.south);
+\node[align=center,font=\sffamily\fontsize{8}{9.3}\selectfont] at (8.85,-1.30)
+  {Diagnostics and\\reviewed outcomes};
+\end{tikzpicture}
+\endgroup

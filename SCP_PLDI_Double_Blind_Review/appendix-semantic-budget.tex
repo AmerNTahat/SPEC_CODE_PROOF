@@ -1,0 +1,64 @@
+\section{Early Assessment and Budgeted Search}
+\label{app:semantic-budget}
+An early semantic assessment asks whether a proposed interpretation is likely to preserve the source obligations and assumptions. Its prediction can guide which candidate receives the next formalization attempt. Research Preference Models motivate assessing candidates before costly execution~\cite{foster2026rpm}; reusable algorithmic structure provides a reason to expect earlier experience to help the search~\cite{e28030332}. Verification and human review then assess the resulting artifacts and their scope.
+
+\subsection{Semantic Prediction and Its Geometry}
+The workbench supplies the comparisons and forecasts in Table~\ref{tab:semantic-comparisons}~\cite{scpCheckpoint}. Automatic use of their predictions to admit attempts and rank search branches is a proposed extension. The later SNG reconstruction supplied 66 preselected entries in its $K^{+}$ input and used that set throughout. Section~\ref{sec:fidelity} describes the separate source and contract reviews.
+
+\begin{table}[!htbp]
+\caption{Comparison inputs and outputs in the inspected implementation.}
+\label{tab:semantic-comparisons}
+\centering\small
+\begin{tabular}{@{}p{.20\linewidth}p{.43\linewidth}p{.31\linewidth}@{}}
+\hline
+Mechanism & Inputs & Output and use \\
+\hline
+Rule retrieval & Task query; rule trigger and principle & Lexical cosine distance; selects related guidance. \\
+Contract comparison & Features of assumptions and guarantees after architecture assessment & Cosine distance; supports review of contract differences. \\
+Model forecast & Reviewed learning material, declared task, and available feedback & Model belief score and explanation for the next application. \\
+\hline
+\end{tabular}
+\end{table}
+
+For rule retrieval, $x$ counts words and symbols in the task query and $y$ those in a rule's trigger and principle. Nonzero vectors satisfy the configured comparison when
+\begin{equation}
+d_{\cos}(x,y)=1-\frac{x\cdot y}{\|x\|\|y\|}\leq\epsilon.
+\label{eq:retrieval-distance}
+\end{equation}
+The retrieval default is $\epsilon=0.1$, with allowed values in $[0,0.3]$. Contract comparison uses features of assumptions and guarantees after architecture checking. These representations approximate similarity: counting words and symbols gives $a\leq b$ and $b\leq a$ the same representation. A model assessment can examine the relation and explain uncertainty. A distance limit corresponds to an angle $\theta_{\max}=\arccos(1-\epsilon_{\max})$ around the reference direction.
+
+Figure~\ref{fig:semantic-cone} retains the reference, candidate directions, and applicability boundary illustrated by Tahat et al.~\cite[slide~12]{tahat2026dascslides}. Green and check marks denote a favorable prediction that sends a candidate to formal assurance within the remaining budget. Crosses identify illustrative candidates for refinement or review. The construction extends to any specification language for which paired requirements, candidate representations, and suitable checks are defined; the engineering cases here use SysML/GUMBO. Forecast calibration is a subject for future evaluation.
+
+\begin{figure}[!htbp]
+\centering
+\input{figures/semantic-cone}
+\caption{Semantic prediction around a reviewed reference, redrawn from Tahat et al.~\cite[slide~12]{tahat2026dascslides}. Green and check marks indicate favorable predictions: proceed to formal assurance. Red and crosses indicate refinement or review. Positions, heights, and marks are illustrative. The geometry applies to a chosen representation in any specification language; formal checks and human decisions establish the accepted scope.}
+\Description{A blue reference direction for reviewed English and a formal specification lies at the center of a bell-shaped illustration. Symmetric candidate directions lie inside and outside a distance boundary. Green checks predict suitability for the next assurance phase; red crosses request refinement or review. Arrows broaden or narrow applicability.}
+\label{fig:semantic-cone}
+\end{figure}
+
+\subsection{Rule Application and Budgeted Search}
+Changing $\epsilon$ broadens or narrows the similarity comparison. Revising a rule changes its conditions and procedure. Each application retains the selected version and supporting evidence.
+
+Figure~\ref{fig:budget-tree} follows Tahat et al.~\cite[slide~7]{tahat2026dascslides} from requirements through formalization and placement to code and proof. An incorrect assumption or placement can affect several downstream artifacts. Checking an earlier choice can reveal a repair before those descendants are generated. The displayed branch counts illustrate this dependency.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=.90\linewidth]{assets/dasc-branching-snapshot.png}
+\caption{Late checking and local repair, cropped from the presentation by Tahat et al.~\cite{tahat2026dascslides}. The left panel illustrates how an early choice can multiply downstream artifacts before a failure is detected. The right panel shows checks on formalization, placement, and proof that return diagnostics at the failing stage. The branch counts are illustrative.}
+\Description{The left panel is a branching tree from a requirement through formalization and placement choices to code and proof artifacts. The right panel shows a candidate contract, its placement, and proof obligations, with local repair feedback at each of three checks.}
+\label{fig:branching-motivation}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\input{figures/budget-tree}
+\caption{Illustrative search and local repair, redrawn from Tahat et al.~\cite[slide~7]{tahat2026dascslides}. The $1\rightarrow3\rightarrow6\rightarrow12$ expansion shows possible branching. Checks can stop an unsuitable choice and return diagnostics to the stage that produced it. These counts describe the illustration; the experiments report their actual attempts and consumption separately.}
+\Description{The left tree grows from one requirement to three formalizations, six placement choices, and twelve code or proof branches. The right path checks formalization, placement, and proof choices as they arise, with local repair loops. One approved allowance covers earlier and future attempts.}
+\label{fig:budget-tree}
+\end{figure}
+
+\paragraph{Proposed agreement and cost prediction}
+For a requirement and candidate under stated premises, an agreement model could learn from human review outcomes, using the on-demand forecast and contract-feature similarity as inputs. A cost model could estimate incremental wall time and model tokens from attempts with comparable artifact sizes, check plans, and tool versions. Candidate ordering would favor likely agreement within the remaining time and token allowance. Estimates with sparse supporting records would carry uncertainty and could trigger review. Linking predictions to observed costs and review outcomes would let us evaluate calibration and saved effort.
+
+Further attempts require current authority, an unexpired deadline, and available allowance after recorded consumption and outstanding reservations. Unresolved usage blocks further model calls. A stopped branch retains its attempted artifacts, diagnostics, and charges. An implementation repair can continue within current authority; a change to requirements, assumptions, scope, or limits returns to human review. A current failed use of the same rule and learning plan can supply feedback for rule revision. An authorized extension preserves earlier consumption across the continuing campaign.

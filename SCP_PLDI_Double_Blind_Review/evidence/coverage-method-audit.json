@@ -1,0 +1,532 @@
+{
+  "schema_version": 1,
+  "extract_kind": "Anonymous selected facts from existing evidence and service source; read-only comparison, with no new model or engineering execution.",
+  "recorded_audit_time": "2026-11-06T10:54:22.288273+00:00",
+  "identity_policy": "Source IDs are anonymous aliases. Each SHA-256 identifies the full original file bytes; hashes of omitted archives are not a promise that those files are bundled. Service hashes were compared with F1 and current source bytes.",
+  "sources": {
+    "A1": {
+      "original_basename": "NAMED_CONTRACT_PROOF_AUDIT.json",
+      "role": "Recorded read-only audit of named English relations, contracts and proof receipts",
+      "sha256": "55387fd7ac02ae557ac31f7c5897211b1d31c9a3065f1202cc2c64c09e74256a",
+      "current_bytes_checked": true
+    },
+    "A2": {
+      "original_basename": "BROADER_REQUIREMENTS_AUDIT.json",
+      "role": "Recorded audit of additional English requirements and open system obligations",
+      "sha256": "dfc046e7f35240853b7018505d4f05b0facfaec2d1775ff94a757f14b013a05f",
+      "current_bytes_checked": true
+    },
+    "F1": {
+      "original_basename": "STUDY_FREEZE.json",
+      "role": "Pre-execution study file-identity freeze",
+      "sha256": "f2dbc1853a21c3863c36c7e5104a8a5962af4589f7ec4ec53ceec59ac34286e3",
+      "current_bytes_checked": true
+    },
+    "E1": {
+      "original_basename": "requirements.md",
+      "role": "Exact supplied English requirements",
+      "sha256": "5ed67608a2585eebc2eb81ca42b1797d55365a8b7df1308e5a800a4e9e21d27a",
+      "current_bytes_checked": true,
+      "matches_hash_in_named_audit": true,
+      "lines": [
+        38
+      ]
+    },
+    "M1": {
+      "original_basename": "SNG_Software.sysml",
+      "role": "Model containing the named clamping guarantee",
+      "sha256": "88879331867d6d097132affc17f3c305ab493a9a8f90e3c63200d538fbf71ace",
+      "current_bytes_checked": true,
+      "matches_hash_in_named_audit": true,
+      "lines": [
+        90
+      ]
+    },
+    "C1": {
+      "original_basename": "gate_gate_app.rs",
+      "role": "Current gate_gate application contracts and compute method",
+      "sha256": "da8e24c7cfc2cfe47865875666436ceb39f69744095c35bd287f06c96a5e7d27",
+      "current_bytes_checked": true,
+      "matches_hash_in_named_audit": true,
+      "lines": [
+        38,
+        65
+      ]
+    },
+    "P1": {
+      "original_basename": "result.json",
+      "role": "Saved unrestricted gate_gate Verus crate-check receipt",
+      "sha256": "25f249d8fcf78186a1384a6a69e3601ad9f22812f9554258e2822683be628d81",
+      "current_bytes_checked": true,
+      "matches_hash_in_named_audit": true
+    },
+    "L1": {
+      "original_basename": "stdout.log",
+      "role": "Saved gate_gate verifier stdout",
+      "sha256": "19ae34679aa6b903ed9a6869c196d7520bb166d4bf4cd710991b557bcec6ae47",
+      "current_bytes_checked": true,
+      "matches_hash_in_named_audit": true
+    },
+    "C2": {
+      "original_basename": "msg_filter_msg_filter_app.rs",
+      "role": "Current msg_filter_msg_filter application contracts and compute method",
+      "sha256": "f0a22f01d0de19e3748af05a8c6623f6bd011d9499f6cb2dfa835ddb54bbbfd0",
+      "current_bytes_checked": true,
+      "matches_hash_in_named_audit": true,
+      "lines": [
+        38,
+        75
+      ]
+    },
+    "P2": {
+      "original_basename": "result.json",
+      "role": "Saved unrestricted msg_filter_msg_filter Verus crate-check receipt",
+      "sha256": "5dcd9d3148b1f7d80cd8a15cc4e628de26e0669d0362b0b15430daaefc6b7e74",
+      "current_bytes_checked": true,
+      "matches_hash_in_named_audit": true
+    },
+    "L2": {
+      "original_basename": "stdout.log",
+      "role": "Saved msg_filter_msg_filter verifier stdout",
+      "sha256": "f6e55ecf6d01962049e321aa4921fa6e61bb6e12114f29c1c88d4087215cb48f",
+      "current_bytes_checked": true,
+      "matches_hash_in_named_audit": true
+    },
+    "H1": {
+      "original_basename": "INITIALIZATION_OWNER_APPROVAL.json",
+      "role": "Owner approval of the exact initialization premise and repair",
+      "sha256": "f6a7acf303e25715866afeff1e0b7ff327bd4e795eb3ac5f523afd4793f1ad82",
+      "current_bytes_checked": true,
+      "matches_hash_in_named_audit": true
+    },
+    "PC1": {
+      "original_basename": "check_result.json",
+      "role": "Saved Producer/Consumer selected model checkpoint run configuration and result",
+      "sha256": "31f2047a789701ba2672e6f65d13bb833018707e82e4ce6927950cb1c115a8c8",
+      "current_bytes_checked": true
+    },
+    "SNG1": {
+      "original_basename": "Microkit_check_result.json",
+      "role": "Saved SNG selected model checkpoint run configuration and result",
+      "sha256": "dfcffb63826c55ff12bde9fd0b32a2f0f0b4c3aa3304446f31a2368693591266",
+      "current_bytes_checked": true
+    },
+    "S1": {
+      "original_basename": "requirements.py",
+      "role": "Service implementation",
+      "sha256": "7773362ea9f9fa497f5fa481bb1b4502dd53a96b032ecce861eb2d5bdbe9f050",
+      "current_bytes_checked": true,
+      "lines": [
+        14,
+        57,
+        62,
+        68,
+        76
+      ]
+    },
+    "S2": {
+      "original_basename": "metrics.py",
+      "role": "Service implementation",
+      "sha256": "5d08c8e61e5bfbd839fcdf2e1ab8def1a1404b064227fef3586f51c8db599306",
+      "current_bytes_checked": true,
+      "lines": [
+        37,
+        121
+      ]
+    },
+    "S3": {
+      "original_basename": "controller.py",
+      "role": "Service implementation",
+      "sha256": "68791efac630bbe23f391cbaab60c82fb07bb07c62ef6a83e7804e7593eeea11",
+      "current_bytes_checked": true,
+      "lines": [
+        93,
+        136,
+        356
+      ]
+    },
+    "S4": {
+      "original_basename": "storage.py",
+      "role": "Service implementation",
+      "sha256": "e047609a2356366b15a1813cbadaf844b34c39fcd56316014da5e022975c3f69",
+      "current_bytes_checked": true,
+      "lines": [
+        159,
+        178,
+        197
+      ]
+    },
+    "S5": {
+      "original_basename": "evidence_review.py",
+      "role": "Service implementation",
+      "sha256": "af2de071d15aab0e377eddbcbaaab056d200578009c0b293c96ebf8f45f8c454",
+      "current_bytes_checked": true,
+      "lines": [
+        92,
+        223,
+        236,
+        241
+      ]
+    },
+    "S6": {
+      "original_basename": "development.py",
+      "role": "Service implementation",
+      "sha256": "cf9647073031fe9f559951a00898b9c940498b282dd0093138541dfb1f149c3e",
+      "current_bytes_checked": true,
+      "lines": [
+        48,
+        189
+      ]
+    },
+    "S7": {
+      "original_basename": "learning.py",
+      "role": "Service implementation",
+      "sha256": "f639dbec0e1753b8aafab3782e9df3ce7285da06220c0dc8d5fa315a24ad48dc",
+      "current_bytes_checked": true,
+      "lines": [
+        109,
+        232
+      ]
+    },
+    "S8": {
+      "original_basename": "model_worker.py",
+      "role": "Service implementation",
+      "sha256": "1a989987c11981c48502f6e6ebedc5b52b1a890a771273458eaf9ea35ab56b64",
+      "current_bytes_checked": true,
+      "lines": [
+        59
+      ]
+    },
+    "S9": {
+      "original_basename": "approvals.py",
+      "role": "Service implementation",
+      "sha256": "e3c1158cad86a0fd1e907aa0c739e68b7ec56cfb6dba9e760de6332cd3bdbf2f",
+      "current_bytes_checked": true,
+      "lines": [
+        31,
+        95
+      ]
+    }
+  },
+  "recorded_requirement_trace": {
+    "audit_source_id": "A1",
+    "requirement_id": "Req_R_2.a",
+    "english_source_id": "E1",
+    "english_line": 38,
+    "english_excerpt": "(a) if the payload of InR is greater than 100, the payload  of OutR is modified to have the value of 100,",
+    "requirement_context": "Req_R_2 concerns Restricted input/output messages; case (a) specifies clamping values greater than 100 to 100.",
+    "model_source_id": "M1",
+    "model_line": 90,
+    "model_guarantee_name": "Req_R_2_a_Clamp_Above_100",
+    "current_contracts": [
+      {
+        "component": "gate_gate",
+        "contract_name": "Req_R_1_Gate_Pass_Restricted_Unchanged",
+        "source_id": "C1",
+        "source_line": 65,
+        "compute_method": "timeTriggered",
+        "compute_method_line": 38,
+        "proof_source_id": "P1"
+      },
+      {
+        "component": "msg_filter_msg_filter",
+        "contract_name": "Req_R_2_a_Clamp_Above_100",
+        "source_id": "C2",
+        "source_line": 75,
+        "compute_method": "timeTriggered",
+        "compute_method_line": 38,
+        "proof_source_id": "P2"
+      }
+    ],
+    "proofs": [
+      {
+        "source_id": "P1",
+        "stdout_source_id": "L1",
+        "status": "PASS",
+        "exit_code": 0,
+        "timed_out": false,
+        "source_manifests_before_after_equal": true,
+        "recorded_manifest_file_count": 201,
+        "application_source_id": "C1",
+        "application_hash_matches_before_and_after": true,
+        "source_files_modified_by_check": [],
+        "raw_receipt_verified_count_including_dependencies": 1203,
+        "audit_derived_target_units_verified": 9,
+        "audit_derived_target_errors": 0,
+        "audit_derived_dependency_units_verified": 1194,
+        "count_scope": "Crate-level proof summaries; the named requirement is a relation mapped by A1, without a registered per-requirement unit identifier."
+      },
+      {
+        "source_id": "P2",
+        "stdout_source_id": "L2",
+        "status": "PASS",
+        "exit_code": 0,
+        "timed_out": false,
+        "source_manifests_before_after_equal": true,
+        "recorded_manifest_file_count": 201,
+        "application_source_id": "C2",
+        "application_hash_matches_before_and_after": true,
+        "source_files_modified_by_check": [],
+        "raw_receipt_verified_count_including_dependencies": 1203,
+        "audit_derived_target_units_verified": 9,
+        "audit_derived_target_errors": 0,
+        "audit_derived_dependency_units_verified": 1194,
+        "count_scope": "Crate-level proof summaries; the named requirement is a relation mapped by A1, without a registered per-requirement unit identifier."
+      }
+    ],
+    "generic_requirement_ledger_id": null,
+    "generic_formal_unit_registry_id": null,
+    "generic_formal_unit_id": null,
+    "recorded_component_status": "PASS_UNDER_RECORDED_PREMISES",
+    "component_formal_pass": true,
+    "full_english_formal_pass": false,
+    "current_local_meaning": "A current Restricted payload greater than 100 yields a present Restricted output with payload 100.",
+    "remaining_system_obligation": "Correspondence between the original ingress occurrence and the later filtered egress occurrence remains open.",
+    "premises": [
+      {
+        "id": "INIT_EMPTY_OUTPUT",
+        "recorded_status": "HUMAN_APPROVED_AND_PROVED_FOR_FRESH_FACTORY_COMPOSITION",
+        "note": "Factories, generic initialization under its entry premise, and fresh-factory composition all pass selected proofs. The actual unsafe static C wrapper is a different execution path and remains unverified.",
+        "approval_source_id": "H1"
+      },
+      {
+        "id": "COMPUTE_EMPTY_OUTPUT",
+        "recorded_status": "FRAMEWORK_ENTRY_PRECONDITION",
+        "note": "Every dispatch proof requires outgoing ghost event slots empty at entry; current wrapper/runtime correspondence and its preservation across actual dispatches are not proved."
+      },
+      {
+        "id": "FILTER_NO_CRITICAL_INPUT",
+        "recorded_status": "ABSTRACT_CONNECTION_IMPLICATION_PROVED",
+        "note": "The trusted external input bridge promises the input/ghost relation and non-Critical classification. One Logika implication connects the Gate guarantee to this assumption under connection-value equality. It does not prove physical transport equality, no loss or eventual delivery."
+      },
+      {
+        "id": "GHOST_TO_RUNTIME_IO",
+        "recorded_status": "TRUST_BOUNDARY",
+        "note": "Generated external_body input/output methods connect ghost port state to unsafe C APIs; their physical correspondence is outside these component proofs."
+      }
+    ],
+    "approval": {
+      "source_id": "H1",
+      "approved": true,
+      "recorded_utc": "2026-11-06T09:43:23.723997+00:00",
+      "proposal_sha256": "0affdfd1e29ca4a8118fa09c6a3b04ba290adfe9a6d3eb42dbd859944555c2d5",
+      "proposal_json_sha256": "39b149308d50e07c80a4a765fd5a2487b659c5b38cf9d2b706b98c73479af987",
+      "scope": "Exact initialization factory/premise patch with component, factory and composition-witness proof checks; preserve open unsafe static-wrapper and physical event-buffer correspondence obligations.",
+      "repair_ordinal": 8,
+      "new_time_grant_seconds": 0,
+      "new_token_grant": 0,
+      "basis_for_broader_status": "A1 human_status and full_english_formal_pass",
+      "broader_result_acceptance_granted_by_this_approval": false
+    },
+    "human_status": "Exact initialization premise/repair approved; this audit does not grant broader result or rulebook acceptance.",
+    "recorded_audit_denominators": {
+      "functional_leaves": 6,
+      "named_parent_requirements": 4,
+      "source_files_rechecked_by_A1": 201,
+      "scope": "Six is only the functional case decomposition of four named requirements. It excludes other English interface/data/deployment/design/test-harness expectations and is not a total-all-English denominator."
+    },
+    "additional_obligations_source_id": "A2"
+  },
+  "selected_model_run_configurations": [
+    {
+      "source_id": "PC1",
+      "case": "Producer/Consumer selected model checkpoint",
+      "requirement_ledger": null,
+      "unit_registry": null,
+      "required_gates": [
+        "parse_type",
+        "hamr_codegen",
+        "integration_constraints",
+        "architecture_capture"
+      ],
+      "interpretation": "The generic requirements-coverage and formal-unit registry services were not configured in this selected model run."
+    },
+    {
+      "source_id": "SNG1",
+      "case": "SNG selected model checkpoint",
+      "requirement_ledger": null,
+      "unit_registry": null,
+      "required_gates": [
+        "parse_type",
+        "hamr_codegen",
+        "integration_constraints",
+        "architecture_capture"
+      ],
+      "interpretation": "The generic requirements-coverage and formal-unit registry services were not configured in this selected model run."
+    }
+  ],
+  "implemented_services": [
+    {
+      "source_id": "S1",
+      "implementation_file": "requirements.py",
+      "functions": [
+        "Requirements.propose",
+        "Requirements.request_review",
+        "Requirements.fresh",
+        "Requirements.approved",
+        "Requirements.coverage"
+      ],
+      "sha256_in_study_freeze": "7773362ea9f9fa497f5fa481bb1b4502dd53a96b032ecce861eb2d5bdbe9f050",
+      "current_hash_matches_study_freeze": true
+    },
+    {
+      "source_id": "S2",
+      "implementation_file": "metrics.py",
+      "functions": [
+        "Metrics.propose",
+        "Metrics._formal_unit_verified"
+      ],
+      "sha256_in_study_freeze": "5d08c8e61e5bfbd839fcdf2e1ab8def1a1404b064227fef3586f51c8db599306",
+      "current_hash_matches_study_freeze": true
+    },
+    {
+      "source_id": "S3",
+      "implementation_file": "controller.py",
+      "functions": [
+        "Controller.create",
+        "Controller.status",
+        "Controller.execute"
+      ],
+      "sha256_in_study_freeze": "68791efac630bbe23f391cbaab60c82fb07bb07c62ef6a83e7804e7593eeea11",
+      "current_hash_matches_study_freeze": true
+    },
+    {
+      "source_id": "S4",
+      "implementation_file": "storage.py",
+      "functions": [
+        "Store.object",
+        "Store.load_object",
+        "Store.read_record"
+      ],
+      "sha256_in_study_freeze": "e047609a2356366b15a1813cbadaf844b34c39fcd56316014da5e022975c3f69",
+      "current_hash_matches_study_freeze": true
+    },
+    {
+      "source_id": "S5",
+      "implementation_file": "evidence_review.py",
+      "functions": [
+        "EvidenceReview.inspect",
+        "EvidenceReview.exclude",
+        "EvidenceReview.accept",
+        "EvidenceReview.validate"
+      ],
+      "sha256_in_study_freeze": "af2de071d15aab0e377eddbcbaaab056d200578009c0b293c96ebf8f45f8c454",
+      "current_hash_matches_study_freeze": true
+    },
+    {
+      "source_id": "S6",
+      "implementation_file": "development.py",
+      "functions": [
+        "Development.compare_graph",
+        "Development.generate_and_check"
+      ],
+      "sha256_in_study_freeze": "cf9647073031fe9f559951a00898b9c940498b282dd0093138541dfb1f149c3e",
+      "current_hash_matches_study_freeze": true
+    },
+    {
+      "source_id": "S7",
+      "implementation_file": "learning.py",
+      "functions": [
+        "Learning.extract",
+        "Learning.learn_workflow_failure"
+      ],
+      "sha256_in_study_freeze": "f639dbec0e1753b8aafab3782e9df3ce7285da06220c0dc8d5fa315a24ad48dc",
+      "current_hash_matches_study_freeze": true
+    },
+    {
+      "source_id": "S8",
+      "implementation_file": "model_worker.py",
+      "functions": [
+        "ModelWorker.propose"
+      ],
+      "sha256_in_study_freeze": "1a989987c11981c48502f6e6ebedc5b52b1a890a771273458eaf9ea35ab56b64",
+      "current_hash_matches_study_freeze": true
+    },
+    {
+      "source_id": "S9",
+      "implementation_file": "approvals.py",
+      "functions": [
+        "Approvals.decide",
+        "Approvals.require"
+      ],
+      "sha256_in_study_freeze": "e3c1158cad86a0fd1e907aa0c739e68b7ec56cfb6dba9e760de6332cd3bdbf2f",
+      "current_hash_matches_study_freeze": true
+    }
+  ],
+  "generic_coverage_behavior": {
+    "sources": [
+      "S1",
+      "S2"
+    ],
+    "ledger_links": [
+      "exact cited source passage and source hash",
+      "reviewed obligation and owner",
+      "representation and mapped element identities",
+      "required gate identities"
+    ],
+    "mapping_results": [
+      "MAPPED",
+      "UNMAPPED"
+    ],
+    "mapping_checked_obligations": 0,
+    "mapping_semantically_reviewed": false,
+    "unit_links": [
+      "approved obligation ID",
+      "formal element IDs",
+      "implementation files",
+      "formal gate IDs"
+    ],
+    "proof_binding_fields": [
+      "run_id",
+      "config_sha256",
+      "input_manifest_sha256",
+      "unit_id",
+      "element_id",
+      "gate",
+      "status"
+    ],
+    "missing_or_mismatched_link_behavior": "Missing ledger yields NOT_RUN. Unresolved element or ownership yields FAIL mapping. Missing or mismatched formal-unit evidence is rejected by the verification predicate."
+  },
+  "fingerprint_and_review_behavior": {
+    "sources": [
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S9"
+    ],
+    "input_scope": "Explicitly declared input-file bytes, including permitted dirty/untracked contents; no claim of a hash of the entire filesystem.",
+    "bound_contents": [
+      "resolved configuration",
+      "declared input-file manifest",
+      "stored check evidence",
+      "architecture snapshots and tool/normalization identities",
+      "graph/comparison implementation hashes",
+      "reviewed scope, current evidence, exclusions and blockers",
+      "approval subject digest or review fingerprint"
+    ],
+    "stale_inputs": "Changed declared source bytes or policy approval invalidates evidence_current_for_source/policy_current; fresh review or checking is required.",
+    "tampered_objects": "A mismatched object hash/path is rejected when loaded.",
+    "exclusions": "Require a classification, reason, revisit condition and approval tied to the evidence fingerprint. Original observed results remain retained.",
+    "acceptance": "All included mandatory evidence must be current and passing; current approval must match the resulting fingerprint. Exclusion approval and acceptance approval are separate.",
+    "human_review_scope": "Requirement interpretation, non-behavioral requirements, assumptions and exclusions require explicit review. Technical claims still require the applicable analysis/proof/test/observation.",
+    "attribution_limit": "Reviewer identifiers attribute local decisions; they do not authenticate a person."
+  },
+  "design_and_role_boundary": {
+    "sources": [
+      "S7",
+      "S8"
+    ],
+    "early_semantic_prediction_admission": "Design-level extension; no implemented forecast-driven semantic admission rule established by these sources.",
+    "generalize_and_specialize": "Implemented workflow strategies using the same ModelWorker.",
+    "worker_requested_model_alias": "gpt-6-astra",
+    "forecast_interpretation": "Model-reported belief; no calibrated success probability or acceptance authority."
+  },
+  "limits": [
+    "This extract follows one relation from the separate SNG audit and does not claim generic-ledger coverage for every case.",
+    "The recorded 201-file audit is prior evidence; this extraction rechecked only the selected source files listed above.",
+    "The saved component proof receipts include dependency counts; these are kept distinct from target-crate units and requirement counts.",
+    "Full-system occurrence correspondence, external-interface correspondence and timing guarantees remain unresolved in the selected evidence.",
+    "Original source files, complete proof dependencies and the full execution archive are not bundled by this extract."
+  ]
+}

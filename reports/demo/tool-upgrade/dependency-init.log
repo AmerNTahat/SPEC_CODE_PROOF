@@ -1,0 +1,43 @@
+Extracting Z3 ...
+
+Please wait while downloading CVC5 1.3.4 ...
+
+
+
+Downloading cvc5 WASM server ...
+
+Exception in thread "subprocess-shutdown-hook-monitor" java.io.IOException: Cannot run program "autoconf" (in directory "/tmp/18064143865224438389/verilator"): Exec failed, error: 20 (Not a directory) 
+	at java.base@25.0.3/java.lang.ProcessBuilder.start(ProcessBuilder.java:1112)
+	at java.base@25.0.3/java.lang.ProcessBuilder.start(ProcessBuilder.java:1046)
+	at os.proc.proc$lzycompute$1(ProcessOps.scala:345)
+	at os.proc.os$proc$$proc$1(ProcessOps.scala:344)
+	at os.proc$$anon$2.run(ProcessOps.scala:335)
+	at org.graalvm.nativeimage.builder/com.oracle.svm.core.thread.PlatformThreads.threadStartRoutine(PlatformThreads.java:915)
+	at org.graalvm.nativeimage.builder/com.oracle.svm.core.thread.PlatformThreads.threadStartRoutine(PlatformThreads.java:898)
+Caused by: java.io.IOException: Exec failed, error: 20 (Not a directory) 
+	at java.base@25.0.3/java.lang.ProcessImpl.forkAndExec(Native Method)
+	at java.base@25.0.3/java.lang.ProcessImpl.<init>(ProcessImpl.java:300)
+	at java.base@25.0.3/java.lang.ProcessImpl.start(ProcessImpl.java:231)
+	at java.base@25.0.3/java.lang.ProcessBuilder.start(ProcessBuilder.java:1078)
+	... 6 more
+Downloading JaCoCo Agent 0.8.15 ...
+
+Downloading JaCoCo CLI 0.8.15 ...
+
+
+Please wait while downloading checkstack.pl v6.19 ...
+
+Exception in thread "subprocess-shutdown-hook" java.io.IOException: Cannot run program "autoconf" (in directory "/tmp/18064143865224438389/verilator"): Exec failed, error: 20 (Not a directory) 
+	at java.base@25.0.3/java.lang.ProcessBuilder.start(ProcessBuilder.java:1112)
+	at java.base@25.0.3/java.lang.ProcessBuilder.start(ProcessBuilder.java:1046)
+	at os.proc.proc$lzycompute$1(ProcessOps.scala:345)
+	at os.proc.os$proc$$proc$1(ProcessOps.scala:344)
+	at os.proc$$anon$1.run(ProcessOps.scala:329)
+	at org.graalvm.nativeimage.builder/com.oracle.svm.core.thread.PlatformThreads.threadStartRoutine(PlatformThreads.java:915)
+	at org.graalvm.nativeimage.builder/com.oracle.svm.core.thread.PlatformThreads.threadStartRoutine(PlatformThreads.java:898)
+Caused by: java.io.IOException: Exec failed, error: 20 (Not a directory) 
+	at java.base@25.0.3/java.lang.ProcessImpl.forkAndExec(Native Method)
+	at java.base@25.0.3/java.lang.ProcessImpl.<init>(ProcessImpl.java:300)
+	at java.base@25.0.3/java.lang.ProcessImpl.start(ProcessImpl.java:231)
+	at java.base@25.0.3/java.lang.ProcessBuilder.start(ProcessBuilder.java:1078)
+	... 6 more

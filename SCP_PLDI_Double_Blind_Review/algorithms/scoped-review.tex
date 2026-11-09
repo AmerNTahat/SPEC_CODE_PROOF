@@ -1,0 +1,30 @@
+\begin{algorithm}[!htbp]
+\caption{Review a scope and check an optional signed export}
+\label{alg:attestation}
+\KwIn{Campaign record $\mathcal{C}$; available human decisions; optional export policy and trusted keys.}
+\KwOut{Updated $\mathcal{C}$; local review outcome $q$; export verdict $v$.}
+\scpPhase{Record decisions about the current scope}
+Refresh evidence and scope; set $q$ to \scpStatus{pending}\nllabel{ln:review-resolve}\;
+\ForEach{available decision}{
+  \If{a grant or deferral concerns changed contents}{
+    Set $q$ to \scpStatus{stale}; stop this loop\;
+  }
+  \If{acceptance is rejected}{
+    Record the rejection; set $q$ to \scpStatus{rejected}; stop this loop\;
+  }
+  Apply authorized scope changes, deferrals, or revocations; preserve original outcomes\;
+  \If{the human decision grants acceptance}{
+    Recheck the subject fingerprint and mandatory scoped checks together; approve only if they pass\;
+  }
+  Refresh the campaign record and the contents under review\;
+}
+\If{required contents have changed}{Set $q$ to \scpStatus{stale}\;}
+\If{$q$ is neither stale nor rejected}{
+  Set $q$ to accepted only if every mandatory check in the approved scope passes and its approval is current\nllabel{ln:review-eligible-end}\;
+}
+\scpPhase{Check a signed export, when requested}
+\If{no export is requested}{\Return $q$, \scpStatus{not exported}\nllabel{ln:review-noexport}\;}
+Package selected run evidence and sign it on the host\;
+Check the signature, contents, and claimed result against the external policy and trusted keys; obtain $v$\;
+\Return $q,v$\nllabel{ln:review-return}\;
+\end{algorithm}

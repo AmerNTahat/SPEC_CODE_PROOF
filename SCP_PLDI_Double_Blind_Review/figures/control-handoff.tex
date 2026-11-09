@@ -1,0 +1,45 @@
+% R18: restored eight-exchange handoff, matching the user-supplied handoff.tex.
+% Full-width handoff sequence. Body only; wrap in figure*.
+% Requires diagram-style and arrows.meta. Numbered arrows identify events,
+% Actor inputs are detailed in the adjacent prose; the header identifies roles.
+% Numbered exchanges do not imply successful completion. The single-user CLI/UI share persistent records.
+% Neutral panels and black data paths remain legible in print. Dashed red paths
+% mark authorization-dependent transitions; wording and numbers also encode meaning.
+% The engineer is outside both managed-worker and host-control frames.
+\begin{tikzpicture}[
+ x=.78cm,y=1cm,font=\sffamily\fontsize{8.2}{9.4}\selectfont,
+ actor/.style={draw=black!65,fill=black!4,text=black,line width=.7pt,rounded corners=2pt,align=center,
+   text width=2.42cm,minimum height=1.10cm,inner sep=4pt},
+ flow/.style={-{Stealth[length=2.0mm,width=1.5mm]},draw=black,line width=.8pt},
+ authorized/.style={draw=scpRed,dashed,line width=.9pt},
+ label/.style={align=center,fill=white,inner sep=2pt},
+ note/.style={draw=black!65,fill=black!4,text=black,line width=.65pt,rounded corners=2pt,align=center,inner sep=4pt}
+]
+\path[use as bounding box] (-.3,2.05) rectangle (17.25,-8.00);
+\path[draw=scpBlue,fill=scpBlue!2,line width=.8pt,rounded corners=3pt]
+ (3.60,1.95) rectangle (7.95,-7.86);
+\path[draw=black!65,fill=black!1,line width=.8pt,rounded corners=3pt]
+ (8.20,1.95) rectangle (17.16,-7.86);
+\node[font=\sffamily\bfseries\fontsize{8.1}{9.3}\selectfont,text=scpBlue]
+ at (5.775,1.65) {MANAGED WORKER};
+\node[font=\sffamily\bfseries\fontsize{8.1}{9.3}\selectfont]
+ at (12.68,1.65) {HOST CONTROL AND EVIDENCE};
+\node[actor,draw=scpRed!75,fill=scpYellowFill] (human) at (1.50,.50) {\textbf{Engineer}\\Neuro-symbolic workflow};
+\node[actor,draw=scpBlue,fill=scpBlueFill] (worker) at (5.775,.50) {\textbf{Authorized agent}\\Artifact/rule proposals};
+\node[actor,fill=orange!9] (controller) at (10.35,.50) {\textbf{Host controller}\\Steps and policy};
+\node[actor,draw=scpGreen,fill=scpGreenFill] (archive) at (15.20,.50) {\textbf{Checks and archive}\\Evidence and decisions};
+\foreach \n in {human,controller,worker,archive}
+  \draw[draw=scpGray!65,densely dotted,line width=.6pt] (\n.south) -- (\n.south |- 0,-7.73);
+\draw[flow,authorized] (1.50,-.95) -- node[label,above]{\textbf{1}\quad Approve workflow, scope, access, and limits} (10.35,-.95);
+\draw[flow] (10.35,-1.80) -- node[label,above]{\textbf{2}\quad Inputs, rule, permitted actions;\\output format and allowance} (5.775,-1.80);
+\draw[flow] (5.775,-2.65) -- node[label,above]{\textbf{3}\quad Return artifact/rule proposal\\and usage report} (10.35,-2.65);
+\draw[flow] (10.35,-3.55) -- node[label,above]{\textbf{4}\quad Run formal and other checks;\\archive revisions and evidence} (15.20,-3.55);
+\draw[flow] (15.20,-4.30) -- node[label,above]{\textbf{5}\quad Retrieve evidence, scope, and pending requests} (1.50,-4.30);
+\node[note,draw=scpRed,fill=orange!8,dashed,text width=8.0cm] at (8.35,-4.88)
+  {\textbf{PENDING:} required check or decision missing. Record the approval decision and retain failed evidence.};
+\draw[flow,authorized] (1.50,-5.77) -- node[label,above]{\textbf{6}\quad Record decision, reason, and reviewed contents} (10.35,-5.77);
+\draw[flow,authorized] (10.35,-6.50) -- node[label,above]{\textbf{7}\quad Recheck versions, checks, and approval;\\link decision to prior records} (15.20,-6.50);
+\draw[flow,authorized] (10.35,-7.40) -- node[label,above]{\textbf{8}\quad Admit next permitted step;\\preserve prior consumption} (5.775,-7.40);
+\node[note,text width=2.25cm] at (15.20,-7.40) {CLI and UI share\\campaign records};
+\node[note,text width=2.42cm] at (1.50,-7.40) {Acceptance concerns\\the approved scope};
+\end{tikzpicture}

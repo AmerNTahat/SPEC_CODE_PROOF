@@ -1,0 +1,7 @@
+{
+  "scope": "Implement output propagation of the existing diagnostic state; no new detector algorithm or proof of platform fault detection. GUMBO contracts unchanged.",
+  "source_sha256": "68fe8bf30db159ea486798eed8148633d86e42ae98ec9fe2a520c4558ea7de1d",
+  "implementation_sha256": "08f9d9e3bedaa450a14fb901db3cd7009a11a812f1a0f4bdf01f15459db0e243",
+  "changed_file": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/isolette-rust/rust-detector-repair/crates/thermostat_rt_detect_regulator_failure_implementation/src/component/thermostat_rt_detect_regulator_failure_implementation_app.rs",
+  "model_calls": 0
+}

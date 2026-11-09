@@ -1,0 +1,153 @@
+{
+  "schema_version": 2,
+  "scope": "Descriptive calculations from saved SNG outcomes. No new executions or billing reconstruction.",
+  "model_stage": {
+    "target": "A single model-stage target with five mandatory checks.",
+    "zero_completion_display": "+infinity denotes zero observed completions; eventual cost to completion is unknown.",
+    "arms": [
+      {
+        "arm": "K",
+        "authorized_ceiling_tokens": 500000,
+        "observed_tokens": 388726,
+        "completed_targets": 0,
+        "target_count": 1,
+        "tokens_per_completion": null
+      },
+      {
+        "arm": "K+",
+        "authorized_ceiling_tokens": 500000,
+        "observed_tokens": 346224,
+        "completed_targets": 1,
+        "target_count": 1,
+        "tokens_per_completion": 346224
+      }
+    ]
+  },
+  "guided_continuation": {
+    "measured_experiment_tokens": 576602,
+    "category_counts": {
+      "target_Verus_units": 32,
+      "conditional_English_component_relations": 6,
+      "Rust_test_functions": 33,
+      "Slang_JVM_test_cases": 808,
+      "Microkit_builds": 1,
+      "QEMU_observation_seconds_after_readiness": 20.03305649687536
+    },
+    "interpretation": "Scope of the completed SNG build and checks. The cost-per-line denominator uses the delivered source inventory."
+  },
+  "illustrative_api_pricing": {
+    "model": "gpt-6-astra",
+    "rate_card_url": "https://developers.openai.com/api/docs/models/gpt-6-astra",
+    "rate_card_accessed": "2026-11-08",
+    "unit": "USD per million tokens",
+    "token_order": [
+      "uncached_input",
+      "cached_input",
+      "output"
+    ],
+    "standard_base_rates": [
+      10,
+      1,
+      50
+    ],
+    "standard_long_prompt_rates": [
+      20,
+      2,
+      75
+    ],
+    "long_prompt_above_input_tokens": 272000,
+    "formula": "Sum over requests of (p_uncached * (input_total - cached_input) + p_cached * cached_input + p_output * output) / 1e6 for the three recorded token classes",
+    "selected_worker_call_count": 15,
+    "selected_worker_max_input_tokens": 70503,
+    "support_prompt_sizes": "Per-call prompt sizes are unavailable in the released extract. The base-rate estimate treats all tokens at base rates; an all-long scenario is shown separately.",
+    "support_recorded_cache_writes": 0,
+    "excludes": [
+      "cache-write charges",
+      "tool charges",
+      "host costs",
+      "human labor",
+      "estimated unknown-usage debits"
+    ],
+    "overlap": "Guided model checkpoint is a prefix of guided through observation. Supporting-session counters cover preparation, both arms, and continuation.",
+    "rows": [
+      {
+        "scope": "SNG-reported_pair-K",
+        "uncached_input": 352589,
+        "cached_input": 11776,
+        "output": 24361,
+        "base_api_usd": "4.755716",
+        "base_cached_input_usd": "0.011776"
+      },
+      {
+        "scope": "SNG-K+-model-prefix",
+        "uncached_input": 326487,
+        "cached_input": 0,
+        "output": 19737,
+        "base_api_usd": "4.251720",
+        "base_cached_input_usd": "0.000000"
+      },
+      {
+        "scope": "SNG-K+-through-runtime",
+        "uncached_input": 529778,
+        "cached_input": 0,
+        "output": 46824,
+        "base_api_usd": "7.638980",
+        "base_cached_input_usd": "0.000000"
+      },
+      {
+        "scope": "three SNG supporting sessions through the observation cutoff",
+        "uncached_input": 1286670,
+        "cached_input": 129839872,
+        "output": 479187,
+        "base_api_usd": "166.665922",
+        "all_long_prompt_standard_scenario_usd": "321.352169",
+        "base_cached_input_usd": "129.839872"
+      }
+    ],
+    "dasc_2026_comparison": {
+      "source": "https://loonwerks.com/publications/pdf/tahat2026dasc.pdf",
+      "location": "Section V.C and Table II",
+      "illustrative_usd_per_million": [
+        60,
+        0,
+        270
+      ],
+      "denominator": "Verified GUMBO units"
+    }
+  },
+  "source_extracts": [
+    "evidence/accounting-and-release.json",
+    "evidence/timing-model-audit.json",
+    "evidence/support-session-usage.json",
+    "evidence/source-line-counts.json"
+  ],
+  "per_delivered_source_line": {
+    "denominator": {
+      "file": "evidence/source-line-counts.json",
+      "row": "sng_rust_jvm",
+      "source_lines": 13133
+    },
+    "guided_worker_through_observation": {
+      "scope": "SNG-K+-through-runtime",
+      "standard": {
+        "illustrative_usd": "7.638980",
+        "usd_per_source_line": "0.000581662986",
+        "usd_per_1000_source_lines": "0.581662986"
+      }
+    },
+    "selected_comparison_plus_support_allocation": {
+      "scope": "Charge the stopped baseline, the guided worker through observation, and all three selected supporting sessions to the one delivered SNG build",
+      "base_support_scenario": {
+        "illustrative_usd": "179.060618",
+        "usd_per_source_line": "0.013634403259",
+        "usd_per_1000_source_lines": "13.634403259"
+      },
+      "long_support_scenario": {
+        "illustrative_usd": "333.746865",
+        "usd_per_source_line": "0.025412842839",
+        "usd_per_1000_source_lines": "25.412842839"
+      }
+    },
+    "interpretation": "Line counts measure artifact size. Proof units, tests, and runtime evidence are reported in their own scopes."
+  }
+}

@@ -1,0 +1,109 @@
+% Native-width PACMPL adaptation of the agent/toolchain illustration.
+% The nested target artifacts and separate upstream/application proof targets
+% retain the source figure's meaning; arrows describe available capabilities.
+\begingroup
+\hyphenpenalty=10000
+\newcommand{\scpRobot}{%
+  \tikz[x=.78pt,y=.78pt,baseline=-1.5pt,draw=scpBlue,line width=.45pt]{%
+    \draw[rounded corners=.8pt,fill=scpBlueFill] (0,0) rectangle (9,6);
+    \draw (0,2)--(-1.2,2) (9,2)--(10.2,2) (4.5,6)--(4.5,8);
+    \fill[scpBlue] (4.5,8) circle (.60) (2.6,3.8) circle (.52) (6.4,3.8) circle (.52);
+    \draw (3.2,1.8)--(5.8,1.8);
+  }%
+}
+\begin{tikzpicture}[
+ x=1cm,y=1cm,
+ font=\sffamily\fontsize{8.2}{9.5}\selectfont,
+ panel/.style={draw=scpBlue,line width=.7pt,rounded corners=2pt,fill=scpBlueFill!50},
+ agent/.style={draw=scpBlue,line width=.65pt,rounded corners=2pt,fill=white,
+   text width=2.64cm,align=center,inner sep=4pt,minimum height=.70cm},
+ layer/.style={draw=scpBlue,line width=.65pt,fill=scpBlueFill,
+   text width=5.72cm,align=center,inner sep=4pt,minimum height=.65cm},
+ proof/.style={draw=scpGreen!75!black,line width=.7pt,fill=scpGreenFill,
+   text width=2.42cm,align=center,inner sep=4pt,minimum height=.70cm},
+ upstream/.style={proof,draw=black!50,fill=black!4},
+ flow/.style={-{Stealth[length=1.7mm,width=1.25mm]},line width=.8pt,draw=black!80},
+ proposal/.style={flow,draw=scpBlue},
+ repair/.style={flow,draw=scpRed,dashed},
+ check/.style={flow,draw=scpGreen!80!black,dashed,line width=1pt},
+ prior/.style={check,draw=black!50},
+ label/.style={fill=white,inner sep=1pt,align=center,font=\sffamily\fontsize{7.6}{8.7}\selectfont}
+]
+\path[use as bounding box] (0,-.70) rectangle (13.70,9.50);
+% Agent workflow, distinct from the target system's artifacts.
+\draw[panel] (.03,.55) rectangle (3.13,9.45);
+\node[align=center,font=\sffamily\bfseries\fontsize{8.5}{9.8}\selectfont,text=scpBlue]
+ at (1.58,9.12) {Agent workflow};
+\node[agent] (requirements) at (1.58,8.10) {English requirements\\Design context};
+\node[agent] (specagent) at (1.58,6.45) {\scpRobot\ \textbf{Spec agent}\\SysML v2/GUMBO/\\code\(^{\star}\)};
+\node[agent,fill=scpYellowFill] (rules) at (1.58,4.75)
+ {\textbf{Candidate meta-rules}\\Guidance; checks\\with provenance};
+\node[agent] (repairagent) at (1.58,3.15)
+ {\scpRobot\ \textbf{Repair agent}\\Model/code/Proofs\\repairs};
+\node[agent,draw=scpRed,fill=scpRedFill] (diagnostics) at (1.58,1.45)
+ {\scpRobot\ \textbf{Diagnostics}\\Errors and\\counterexamples};
+\draw[proposal] (requirements.south) -- (specagent.north);
+\draw[flow,draw=scpGreen!80!black,dotted] (rules.north) -- (specagent.south);
+\draw[flow,draw=scpGreen!80!black,dotted] (rules.south) -- (repairagent.north);
+\draw[repair] (diagnostics.north) -- node[label,right]{failure} (repairagent.south);
+\draw[proposal] (repairagent.east) -- (3.00,3.15) -- (3.00,6.45) -- (specagent.east);
+\draw[proposal] (repairagent.east) -- (3.65,3.15);
+\node[label,rotate=90] at (3.00,4.25) {retry plan};
+% Target architecture: two components and their contracts.
+\draw[draw=scpBlue,line width=.7pt,fill=white] (3.65,6.92) rectangle (9.78,8.74);
+\node[anchor=west,font=\sffamily\bfseries\fontsize{8.2}{9.5}\selectfont]
+ at (3.80,8.49) {Target SysML v2 architecture model};
+\foreach \x in {3.86,6.85}{
+ \draw[draw=scpBlue,line width=.6pt,fill=scpGreenFill] (\x,7.14) rectangle +(2.70,.99);
+ \node[anchor=north west,inner sep=2pt] at (\x,8.08) {GUMBO contract};
+ \draw[draw=scpBlue,line width=.6pt,fill=scpGrayFill] (\x+.17,7.14) rectangle +(2.35,.48);
+ \node at (\x+1.345,7.39) {Component};
+}
+\draw[<->,draw=scpPurple,line width=1.15pt] (6.58,7.52) -- (6.85,7.52);
+\draw[proposal] (specagent.east) -- (3.36,6.45) -- (3.36,7.52) -- (3.65,7.52);
+% Generation and implementation layers.
+\node[layer] (generation) at (6.715,5.92) {\textbf{HAMR model-driven generation}};
+\draw[flow] (6.715,6.92) -- (generation.north);
+\draw[draw=scpBlue,line width=.7pt,fill=white] (3.65,2.73) rectangle (8.58,5.08);
+\node[anchor=west,font=\sffamily\bfseries\fontsize{8.2}{9.5}\selectfont]
+ at (3.80,4.80) {Infrastructure and application targets};
+\foreach \x in {3.85,6.28}{
+ \draw[draw=scpBlue,line width=.6pt,fill=scpBlueFill] (\x,2.96) rectangle +(2.10,1.47);
+ \node[align=center] at (\x+1.05,4.20) {Code stub};
+ \draw[draw=scpBlue,line width=.6pt,fill=scpGreenFill] (\x+.10,2.96) rectangle +(1.90,.98);
+ \node[align=center,font=\sffamily\fontsize{7.9}{9.0}\selectfont] at (\x+1.05,3.63)
+   {Logika/Verus\\contracts};
+ \draw[draw=scpBlue,line width=.6pt,fill=scpGrayFill] (\x+.20,2.96) rectangle +(1.70,.38);
+ \node at (\x+1.05,3.15) {Slang or Rust};
+}
+\draw[<->,draw=scpPurple,line width=1.15pt] (5.95,4.00) -- (6.28,4.00);
+\draw[draw=scpBlue,line width=.7pt,fill=scpGreenFill] (8.83,2.73) rectangle (9.78,5.08);
+\node[rotate=90] at (9.305,3.905) {seL4/Microkit};
+\draw[flow] (generation.south) -- (6.715,5.08);
+\node[layer] (compiler) at (6.715,1.82) {Compile and assemble image};
+\draw[flow] (6.715,2.73) -- (compiler.north);
+\draw[flow] (9.305,2.73) -- (9.305,2.24) -- (8.8,2.24) -- (8.8,2.14);
+\node[layer,fill=white] (binary) at (6.715,.68) {Target executable or system image};
+\draw[flow] (compiler.south) -- (binary.north);
+% Application targets are green; upstream assurance is gray.
+\node[proof] (composition) at (12.10,7.72) {Connection checks\\Logika / cvc5};
+\node[upstream] (codegen) at (12.10,5.92) {Code-generation\\proofs (upstream)};
+\node[upstream] (kernel) at (12.10,4.55) {Kernel assurance\\(by configuration)};
+\node[proof] (component) at (12.10,3.25) {Component checks\\Logika or Verus};
+\node[upstream] (correspondence) at (12.10,1.82) {Correspondence\\proofs (upstream)};
+\node[proof,draw=scpBlue,fill=scpBlueFill] (runtime) at (12.10,.68) {Bounded QEMU\\observation};
+\draw[check] (9.78,7.72) -- (composition.west);
+\draw[prior] (generation.east) -- (codegen.west);
+\draw[prior] (9.78,4.55) -- (kernel.west);
+\draw[check] (8.58,3.25) -- (component.west);
+\draw[prior] (compiler.east) -- (correspondence.west);
+\draw[flow] (binary.east) -- (runtime.west);
+% Failure feedback remains separate from proof targets.
+\draw[repair] (10.30,7.72) -- (10.10,7.72) -- (10.10,.03) -- (3.34,.03) -- (3.34,1.45) -- (diagnostics.east);
+\draw[repair] ($(component.south west)+(0,.11)$) -- (10.10,2.98);
+\node[label,text=scpRed] at (6.715,.03) {Failure diagnostics returned for repair};
+\node[align=left,anchor=north west,text width=13.30cm,font=\sffamily\fontsize{7.8}{9.0}\selectfont]
+ at (.10,-.30) {Green callouts identify application checks. Gray callouts indicate upstream assurance where available.\\
+ Verus uses Z3 for Rust proofs. GumboX supplies executable tests for the selected target.};
+\end{tikzpicture}
+\endgroup

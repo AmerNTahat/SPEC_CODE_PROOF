@@ -1,0 +1,2 @@
+d203636c718c436fb8a0393807635595 BLOCKED
+[('parse_type', 'PASS', 'Type checker completed'), ('architecture_capture', 'PASS', 'Instantiated AIR and resolved declarations captured; no conformance claim'), ('integration_constraints', 'UNKNOWN', 'No completed nonempty integration-constraint verification established'), ('hamr_codegen', 'UNKNOWN', 'Generator returned without expected Rust/Microkit artifacts')]

@@ -1,0 +1,11 @@
+(set-logic QF_LRA)
+(declare-const current Real)
+(declare-const lower Real)
+(declare-const upper Real)
+(declare-const heat_on Bool)
+; Restrict to Normal mode. These are the REQ_MHS_2/3 guard inequalities.
+(define-fun below () Bool (< current lower))
+(define-fun above () Bool (> current upper))
+(assert (<= lower upper))
+(assert (and below above))
+(check-sat)

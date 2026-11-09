@@ -1,0 +1,25 @@
+{
+  "scope": "Diagnostic comparison only; no evaluator training authorization or proof-premise approval",
+  "artifacts": [
+    {
+      "path": "isolette/sysml/Regulate.sysml",
+      "sha256": "6828c7fe1ae531b1dbc62938014dad1450a05ae04997817914aa369fd3865872"
+    },
+    {
+      "path": ".scp-workbench/upgrade-compatibility/approved_reference/Regulate.sysml",
+      "sha256": "dd7de904aed4a1e57638f0f947f527d384129d130acbe7376199a111754e7bdb"
+    },
+    {
+      "path": "reports/demo/isolette-rust/ACTUAL_GENERATION_ENGLISH.txt",
+      "sha256": "5b45a34cbdc85a119ae23ef964ca0b974aafcb55ecee5e3516ccc77c8d2c56b0"
+    },
+    {
+      "path": "reports/demo/behavior-review/PREPARED_ENGLISH_WITH_DEPENDENCIES.md",
+      "sha256": "af39cfb313875822bf61f28bfdde22113d28726e544d8f53969fd1bf79446f23"
+    },
+    {
+      "path": "reports/demo/isolette-rust/FAILURE_LEARNING_REVIEW.md",
+      "sha256": "8233bdc45e561368c9fda00c1f26c4e81aa253ec88c963b77daa5f286af28725"
+    }
+  ]
+}

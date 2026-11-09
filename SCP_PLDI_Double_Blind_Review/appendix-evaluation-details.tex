@@ -1,0 +1,121 @@
+\section{Supporting Evaluation Details}
+\label{app:evaluation-details}
+\suppressfloats[t]
+The case reports document the inputs and adaptations~\cite{isoletteConsolidatedReport2026,producerConsumerConsolidatedReport2026,sngFinalReport2026} and use the HAMR workflow~\cite{hatcliff2024isolette,hamrTutorials2026}. This appendix records learning, costs, and review dates for Section~\ref{sec:evaluation}. The extracts \path{evidence/sng-learning-records.json} and \path{evidence/evidence-audit.json} retain lesson texts, results, and hashes.
+
+\paragraph{Inputs}
+The later SNG reconstruction used Codex~0.155.1 and requested \texttt{gpt-6-astra}. The tools were Sireum~\texttt{4.20260810.80aad0c2} and cvc5~1.3.4, revision \texttt{f3b21c4}. Both arms received \path{common_inputs/requirements.md}, the same libraries and guides, and the approved choices in \path{common_inputs/design_supplement.json}. The protocol and attempt contexts identify these inputs. Appendix~\ref{app:resource-details} records the worker configuration.
+
+\paragraph{Additional Isolette checks}
+The separate composition probe verified five conditions and reported two verification errors. A separate assisted Isolette candidate passed parsing/types and architecture capture, then failed its directed-graph comparison~\cite{isoletteConsolidatedReport2026,checkpointResults}. The completed Rust continuation in Section~\ref{sec:evaluation} has its own candidate and evidence records.
+
+\paragraph{Producer/Consumer input and accounting boundaries}
+The first construction supplied English requirements and existing rulebooks for a new target. The reported dispatch inputs come from the research team's account. The checkpoint workflow guide independently documents Producer/\allowbreak{}Consumer as held out of the Monitor training split~\cite{scpCheckpoint}. The original first-dispatch manifest would identify the exact file bytes. Later, the paired reconstruction's guided arm added six general entries and three rules from target-specific repairs. Table~\ref{tab:historical-cost} attributes 257,355 measured tokens across historical generation and English preparation. Its elapsed span covers those attributed calls and gaps.
+
+\paragraph{First SNG construction and subsequent learning}
+The first SNG $K^{+}$ dispatch contained eleven retained entries from general rules and earlier systems, including Producer/\allowbreak{}Consumer. Both first-run arms received common guides with SNG model, implementation, and test examples. The guided arm also received approved reference-derived design choices. The first guided candidate passed its in-loop model checkpoint at 397,520 measured tokens after five repairs, with two checked connection units and full English review pending. The ordinary-input baseline stopped at 387,144 tokens after six repairs. The earlier run summary is preserved in \path{evidence/timing-model-audit.json}.
+
+Seven draft observations in \path{LEARNING_OBSERVATIONS_DRAFT.json} and four in \path{LEARNING_OBSERVATIONS_CONTINUATION.json} arose from the early SNG attempts and recoveries. All eleven texts occur among the 66 entries supplied to the later shared-supplement reconstruction. These entries were selected for the experiment, with qualification for publication still open. For example, a parse failure produced guidance to use SysML literals such as \texttt{0 [s32]} in a model. The rendered Slang notation belongs in the generated code. The later candidate received the lesson before passing its model checks after repair. The later comparison tests the full guidance bundle.
+
+\paragraph{Cumulative cost and completion}
+Table~\ref{tab:sng-cost-detail} shows successive SNG $K^{+}$ milestones. Each increment contributes to the cumulative experiment-model cost of the same task. The rejected proposal removed an existing test function; its usage remains charged. Later authorization retained the candidate and earlier consumption.
+
+\begin{table}[!htbp]
+\caption{SNG $K^{+}$ experiment-model tokens through successive milestones.}
+\label{tab:sng-cost-detail}
+\centering\small
+\begin{tabular}{@{}p{.51\linewidth}rr@{}}
+\hline
+Recorded point & Increment & Cumulative \\
+\hline
+Five model checks passed & 346,224 & 346,224 \\
+Implementation proposal rejected & 78,469 & 424,693 \\
+Authorized paid repairs & 151,909 & 576,602 \\
+Later deterministic repairs and runtime & 0 & 576,602 \\
+\hline
+\end{tabular}
+\end{table}
+
+The later $K^{+}$ trajectory used $346{,}224+78{,}469+151{,}909=576{,}602$ measured experiment-model tokens through observation. The later $K$ arm spent 388,726 tokens at its model-stage repair limit. Its dependent checks retain \texttt{NOT\_RUN} status. Appendix~\ref{app:resource-details} reports historical acquisition and supporting sessions separately.
+
+\paragraph{Requirements review and release dates}
+Table~\ref{tab:review-chronology} orders the recorded input approvals, engineering results, source reviews, and release decisions. It shows when each review entered the evidence chain.
+
+\begin{table}[!htbp]
+\caption{Recorded review chronology, in UTC. Times identify the stated event or decision record.}
+\label{tab:review-chronology}
+\centering\small
+\begin{tabular}{@{}p{.20\linewidth}p{.28\linewidth}p{.47\linewidth}@{}}
+\hline
+Case & Date and time & Event \\
+\hline
+Isolette & 23 Sep, 03:30:27 & Revised input approved. \\
+ & 23 Sep, 03:52:54 & Revised generation completed. \\
+Producer/\allowbreak{}Consumer reconstruction & 5 Nov, 16:33:50 & $K^{+}$ model run completed. \\
+ & 5 Nov, 16:34:01 & Criteria recorded before evaluator inspection. \\
+ & 5 Nov, 16:43:56 & Source audit recorded. \\
+Later SNG & 6 Nov, 07:32:15 & Shared-supplement protocol recorded nine seconds after this reconstruction's first $K$ dispatch, before inspecting new candidates. \\
+ & 6 Nov, 08:12:36 & Terminal source review recorded. \\
+ & 6 Nov, 10:20:59 & Runtime observation ended. \\
+ & 6 Nov, 10:52:13 & Broader requirements audit recorded. \\
+ & 6 Nov, 10:54:22 & Named-contract audit recorded. \\
+All three & 8 Nov, 18:17:43 & Owner release approvals recorded. \\
+\hline
+\end{tabular}
+\end{table}
+
+Isolette source review used FAA requirements, transcribed guards and timing constraints, and repaired component evidence. Producer/Consumer's audit classified 38 source-checklist items: 36 model/scope items and two workflow constraints. The $K^{+}$ review marked 34 represented and four satisfied. SNG's named-contract audit linked six English component relations to contracts and recorded proofs under stated premises. Appendix~\ref{app:coverage-details} follows these requirement links.
+
+Reviewer \texttt{POWERUSERS-1}'s release receipts record approval of the three case reviews. Isolette's included scope covers timeout-priority component verification, tests, build, and observation under the environmental assumptions and physical-operator exclusion. Producer/\allowbreak{}Consumer's covers the paired $K^{+}$ model, directed architecture comparison, and source-conformance review. SNG's covers the completed model and six downstream categories for its initialization-repair-8 source and approved observation. The receipts identify candidate and evidence hashes and retain the remaining system obligations. The extract \path{evidence/accounting-and-release.json} preserves these dated decisions; changed contents, assumptions, evidence, or scope require renewed review.
+
+\paragraph{Checks of retained evidence}
+A read-only audit matched the same 201 paths in SNG's build and observation inventories. These comprise 108 Microkit workspace files and 93 Slang workspace files, including 89 \texttt{.scala}, 58 \texttt{.rs}, 16 \texttt{.c}, and 10 \texttt{.h} paths plus 28 other project files. The audit also matched four completion links, four log digests, and the loader digest. Subtracting readiness from observation end reproduced 20.033 seconds. The runtime log contained 18 receiver messages. The Isolette release receipt identifies 217 implementation files. The later Producer/Consumer release identifies 16 model-check inputs. Each count describes its own inventory.
+
+\paragraph{Source-line inventory}
+The 8 November source audit identifies the measured snapshots and retains per-file counts and fingerprints. The anonymized summary in \path{evidence/source-line-counts.json} records the original aggregate counts. The follow-up role audit in Appendix~\ref{app:source-role-counts} adds file counts and includes the model associated with the retained Isolette Scala project.
+
+\paragraph{Workbench Python footprint}
+The local Workbench inventory reports 8,255 implementation lines in 51 Python files, 3,415 automated-test lines in 44 files, and 2,097 validation and support lines in 35 files, totaling 13,767 lines in 130 files. The summary reports agreement between two counting methods. The anonymized counts in \path{evidence/workbench-python-inventory.json} describe the Workbench snapshot. Table~\ref{tab:source-line-counts} describes the system builds.
+
+\paragraph{Compact evidence for inspection and replay}
+The current extracts support inspection of the reported provenance and outcomes. For independent replay, the case can be distributed at its checked endpoint. Table~\ref{tab:endpoint-package} identifies the files needed for each purpose. A local setup recipe can recreate the tool environment. If a receipt is redacted for release, the manifest can record its original fingerprint separately from the fingerprint of the released excerpt.
+
+\begin{table}[!htbp]
+\caption{Records for independently inspecting the historical run and repeating the checked SNG endpoint.}
+\label{tab:endpoint-package}
+\centering\small
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{.23\linewidth}>{\raggedright\arraybackslash}p{.71\linewidth}@{}}
+\toprule
+Question & Smallest relevant records or artifacts \\
+\midrule
+What entered the worker? & Initial dispatch manifest with file roles and fingerprints, task inputs, selected rule versions and their origins. Record common inputs and the selected bundle separately for the paired runs. \\
+What did the engineer decide? & Decisive diagnostics and proposal outcomes, approval records with assumptions and scope, and links to the affected revisions. \\
+What did the tools check? & Frozen model, source, proof and test inputs, the build inventory, selected check logs and receipts, and pinned tool versions and commands. \\
+What image ran? & The 4,957,232-byte loader image and its fingerprint, QEMU launch command and observation configuration, and the matching receipt and output. The recorded observation contains 18 receiver messages over 20.033\,s after readiness. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Selected tool records}
+Table~\ref{tab:tool-evidence-extracts} summarizes the archived evidence visible in the submitted audit extracts. A tool result identifies what was checked. The artifact and receipt fingerprints allow the reported result to be associated with the version that was checked.
+
+\begin{table}[!htbp]
+\caption{Tool evidence summarized from the case audit extracts. The rows report different checks and may refer to different candidates.}
+\label{tab:tool-evidence-extracts}
+\centering\small
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{.22\linewidth}>{\raggedright\arraybackslash}p{.72\linewidth}@{}}
+\toprule
+Stage & Archived record excerpt \\
+\midrule
+Sireum and HAMR & Later SNG guided model passed parsing and typing, Rust/Microkit and Slang/JVM generation, and architecture capture. An earlier repair record preserves the SysML signed-literal diagnostic and retained guidance. \\
+Logika with cvc5 & The later Producer/Consumer model record passes the connection implication from producer range [0,90] to consumer assumption [0,100]. The SNG configuration names cvc5 1.3.4 and the SNG model checkpoint records a passing Logika integration check. \\
+Verus & The SNG continuation reports 32 target-crate units verified with zero errors, including six initialization and composition units. The extract records the Verus outcome. \\
+GumboX & SNG reports 33 Rust test functions and 808 Slang/JVM test cases passing. The two branches use different counting units. \\
+Microkit and QEMU & Build receipt records exit code 0 and matches the loader digest. The observation receipt and log record 20.033\,s after readiness and 18 receiver messages. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The controller-test extract in \path{evidence/evidence-audit.json} records the 45 expected/actual assertions and the F01/control traces summarized in Table~\ref{tab:controller-results}.
+
+\input{appendix-role-inventory}

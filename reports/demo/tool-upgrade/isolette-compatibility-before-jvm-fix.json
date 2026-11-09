@@ -1,0 +1,75 @@
+{
+  "tool": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/tools/sireum-4.20260810.80aad0c2/Sireum/bin/sireum",
+  "scope": "Read-only compatibility checks of historical generated and reference files under a new tool identity; no model repair, source promotion or behavioral acceptance",
+  "checks": [
+    {
+      "label": "fresh_generated",
+      "run_id": "8257c0db19f044ceab7d1aab61c2a7ab",
+      "state": "BLOCKED",
+      "result": {
+        "engineering_accepted": false,
+        "formally_verified_units": 0,
+        "gates": [
+          {
+            "evidence": {
+              "path": "objects/47da5706708cc406b7bb574fbe8734d9eb969bafa8e45fdea3f96b52b7004102.json",
+              "sha256": "47da5706708cc406b7bb574fbe8734d9eb969bafa8e45fdea3f96b52b7004102"
+            },
+            "gate": "parse_type",
+            "reason": "Type checker completed",
+            "status": "PASS"
+          },
+          {
+            "evidence": {
+              "path": "objects/b1fbfdc3ff36052d8a6dbf6380199d3df89aaa172a9a4f902a52beee59e02019.json",
+              "sha256": "b1fbfdc3ff36052d8a6dbf6380199d3df89aaa172a9a4f902a52beee59e02019"
+            },
+            "gate": "architecture_capture",
+            "reason": "Trusted architecture export rejected or could not start",
+            "snapshot_id": null,
+            "status": "UNKNOWN"
+          }
+        ],
+        "model_calls": 0,
+        "project_status": "NOT_ASSESSED",
+        "scope": "Selected checks only; no application or live-demo completion claim",
+        "task_status": "BLOCKED"
+      }
+    },
+    {
+      "label": "approved_reference",
+      "run_id": "b6efd7bc2c9440f9ba5c037e3c4877e3",
+      "state": "BLOCKED",
+      "result": {
+        "engineering_accepted": false,
+        "formally_verified_units": 0,
+        "gates": [
+          {
+            "evidence": {
+              "path": "objects/719757baeb3a72abf0b20f8b05a16bdf505f1e4cdd9c46195e8eaea0ca4850e6.json",
+              "sha256": "719757baeb3a72abf0b20f8b05a16bdf505f1e4cdd9c46195e8eaea0ca4850e6"
+            },
+            "gate": "parse_type",
+            "reason": "Type checker completed",
+            "status": "PASS"
+          },
+          {
+            "evidence": {
+              "path": "objects/51620989b91ac8b067c13067b1b88da4ccb91285564f55f71ab7f3f15b2457c7.json",
+              "sha256": "51620989b91ac8b067c13067b1b88da4ccb91285564f55f71ab7f3f15b2457c7"
+            },
+            "gate": "architecture_capture",
+            "reason": "Trusted architecture export rejected or could not start",
+            "snapshot_id": null,
+            "status": "UNKNOWN"
+          }
+        ],
+        "model_calls": 0,
+        "project_status": "NOT_ASSESSED",
+        "scope": "Selected checks only; no application or live-demo completion claim",
+        "task_status": "BLOCKED"
+      }
+    }
+  ],
+  "model_calls": 0
+}

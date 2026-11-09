@@ -1,0 +1,19 @@
+% Print-sized excerpts from the same unedited application capture.
+\begingroup
+\setlength{\fboxsep}{4pt}
+\setlength{\fboxrule}{0.4pt}
+\fcolorbox{black!35}{black!3}{%
+\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+\small\color{black}
+\textbf{(a) Verification status and evidence link}
+\par\vspace{2pt}
+\centering
+\includegraphics[width=.82\linewidth,trim=0bp 170bp 1115bp 150bp,clip]{assets/ui-approval-accepted.png}
+\par\vspace{5pt}
+\raggedright
+\textbf{(b) Per-requirement results and approval}
+\par\vspace{2pt}
+\includegraphics[width=\linewidth,trim=830bp 31bp 10bp 0bp,clip]{assets/ui-approval-accepted.png}
+\end{minipage}%
+}
+\endgroup

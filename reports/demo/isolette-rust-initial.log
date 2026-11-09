@@ -1,0 +1,2 @@
+1e095cd8c50345f8afb3adb614719aa0 FAILED
+[('parse_type', 'PASS', 'Type checker completed'), ('architecture_capture', 'PASS', 'Instantiated AIR and resolved declarations captured; no conformance claim'), ('integration_constraints', 'UNKNOWN', 'No completed nonempty integration-constraint verification established'), ('hamr_codegen', 'FAIL', 'HAMR tool returned a nonzero status; inspect recorded diagnostics')]

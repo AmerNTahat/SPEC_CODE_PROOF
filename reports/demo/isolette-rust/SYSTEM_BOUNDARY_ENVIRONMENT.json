@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "status": "APPROVED_ENVIRONMENTAL_PREMISE",
+  "human_consent": "User: make them assumptions then, do this repair Explicitly defining it as an approved environmental assumption at the system boundary. Scope: the already approved strict desired-temperature ordering, FAA EA-OI-6; no other FAA assumption or numeric margin silently added.",
+  "assumptions": [
+    {
+      "id": "EA-OI-6-ORDERING",
+      "boundary": "Isolette::Isolette_Single_Sensor operator-controlled desired-temperature settings; concrete software input boundary Thermostat::Thermostat_Single_Sensor_System_i.lower_desired_tempWstatus / upper_desired_tempWstatus",
+      "predicate": "Lower Desired Temperature < Upper Desired Temperature",
+      "source_citation": "FAA AR-08-32, EA-OI-6, PDF page102 / printedA11, explicitly under environmental assumptions. Strict-ordering scope approved by the user; exact one-degree margin not asserted.",
+      "human_consent": "User: make them assumptions then, do this repair Explicitly defining it as an approved environmental assumption at the system boundary. Scope: the already approved strict desired-temperature ordering, FAA EA-OI-6; no other FAA assumption or numeric margin silently added.",
+      "allocation": "External operator/environment is assumed to supply ordered desired settings. At the thermostat input boundary the degree fields are ordered. The heat component consumes ORDERED_DESIRED_BOUNDS. Internal forwarding, initialization and invalid-status handling must preserve or establish the applicable component premise.",
+      "mapping_status": "DECLARED_NOT_PROVED",
+      "component_predicate": "Lower_Desired_Temp.degrees < Upper_Desired_Temp.degrees",
+      "external_establishment_obligation": "NOT_REQUIRED_AS_SOFTWARE_GUARANTEE: approved environmental premise",
+      "internal_propagation_obligation": "OPEN: boundary ordering alone does not prove preservation through Manage_Regulator_Interface, including initialization and invalid inputs",
+      "evidence_scope": "Workbench system-boundary contract declaration. Existing conditional component Verus evidence is unchanged; no new formal composition proof is claimed."
+    }
+  ],
+  "whole_system_acceptance": false,
+  "formal_system_composition_status": "NOT_RUN",
+  "original_models_preserved": true
+}

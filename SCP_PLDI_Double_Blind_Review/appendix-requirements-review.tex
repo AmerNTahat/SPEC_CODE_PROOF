@@ -1,0 +1,17 @@
+\section{Requirements Review Procedure and Case Evidence}
+\label{app:requirements-review}
+Algorithm~\ref{alg:requirements-fidelity} details Figure~\ref{fig:requirements-review}. Campaign record $\mathcal{C}$ retains the English inputs, requirement table, candidates, costs, evidence, and decisions. Task $T$ names the reviewed scope, checks, and limits; $R$ identifies selected rule revisions. The table maps each source obligation to its interpretation, representation, assumptions, evidence, and review status.
+
+\begin{figure}[!htbp]
+\centering
+\input{figures/requirements-review-flow}
+\caption{From reviewed natural-language requirements to checked artifacts, inspired by ARc's formalization and feedback loop~\cite[Fig.~1, p.~4]{bayless2025arc}. Diagnostics and reviewed outcomes inform repairs and rule updates. The dashed predictor would advise which candidate to check next. Actual allowance and recorded approvals govern attempts.}
+\Description{Four stages link natural-language requirements, SysML v2 and GUMBO formalization, supervised rule use and revision, and HAMR generation and formal checks. A dashed proposed predictor estimates semantic agreement and next-attempt cost. Check results flow to human review and the archive. Diagnostics and reviewed outcomes feed supervised self-evolution.}
+\label{fig:requirements-review}
+\end{figure}
+
+\input{algorithms/requirements-fidelity}
+
+This procedure composes development, accounting, and review services~\cite{scpCheckpoint}. The reported Producer/Consumer and SNG cases used saved source and proof audits. Their review criteria followed the start of generation; SNG's final six-relation audit followed runtime. Appendix~\ref{app:coverage-details} gives the actual mappings and service configuration.
+
+Appendix~\ref{app:semantic-budget} describes the proposed use of predictions to select attempts. Historical engineering results retain their status; later owner release decisions record their dates and scopes.

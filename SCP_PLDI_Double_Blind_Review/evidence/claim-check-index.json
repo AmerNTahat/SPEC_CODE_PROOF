@@ -1,0 +1,1324 @@
+{
+  "schema_version": 1,
+  "manuscript_version": "v51",
+  "prepared_date": "2026-11-09",
+  "purpose": "Source locations for selected claims, linked to packaged audit extracts and public references.",
+  "line_convention": "One-based source lines in the packaged LaTeX files. Each location is bound to the file and exact line bytes by SHA-256. Original-record line pairs denote inclusive ranges; an empty list refers to the complete record.",
+  "record_convention": "A records/ identifier names an inspected original; provided_in_package indicates whether its bytes accompany this manuscript source package.",
+  "entries": [
+    {
+      "id": "C01",
+      "claim": "Campaign records retain inputs, revisions, checks, costs and decisions; case audits connect source obligations to evidence.",
+      "manuscript": [
+        {
+          "file": "fidelity.tex",
+          "source_line": 13,
+          "section_label": "sec:fidelity",
+          "file_sha256": "85136a3e1f399a5e0655ac84c993f3436b5e37ce52ca9167a55c8e69e4b397d1",
+          "line_sha256": "8c6985e51af2864297504f3b4560ff2ee99d89f2b88be59d6393d2926e1e3e9b"
+        }
+      ],
+      "support": [
+        {
+          "file": "evidence/coverage-method-audit.json",
+          "fields": [
+            "recorded_requirement_trace",
+            "selected_model_run_configurations"
+          ],
+          "sha256": "c3f98d8c693e6a73e9164ef043bd1d4ea44180ce6d9062bed6ca0fd416288e4a",
+          "provided_in_package": true
+        }
+      ]
+    },
+    {
+      "id": "C02",
+      "claim": "Fingerprints identify reviewed contents; rechecking detects changes, and decision records identify the responsible reviewer or agent.",
+      "manuscript": [
+        {
+          "file": "fidelity.tex",
+          "source_line": 13,
+          "section_label": "sec:fidelity",
+          "file_sha256": "85136a3e1f399a5e0655ac84c993f3436b5e37ce52ca9167a55c8e69e4b397d1",
+          "line_sha256": "8c6985e51af2864297504f3b4560ff2ee99d89f2b88be59d6393d2926e1e3e9b"
+        },
+        {
+          "file": "attestation.tex",
+          "source_line": 7,
+          "section_label": "sec:attestation",
+          "file_sha256": "dd628e1428613a03ddf6262f28e0a562b06c4dda726f9116f83373cf628819df",
+          "line_sha256": "2fba67b529a7be1abcb9c9a836d8061cd552d2a4b1133200e86f5f49a4afb20c"
+        }
+      ],
+      "support": [
+        {
+          "file": "evidence/coverage-method-audit.json",
+          "fields": [
+            "fingerprint_and_review_behavior",
+            "implemented_services"
+          ],
+          "sha256": "c3f98d8c693e6a73e9164ef043bd1d4ea44180ce6d9062bed6ca0fd416288e4a",
+          "provided_in_package": true
+        }
+      ]
+    },
+    {
+      "id": "C03",
+      "claim": "Local acceptance requires current evidence, passing included mandatory checks, and matching approval; signed export has its stated independent verification predicate.",
+      "manuscript": [
+        {
+          "file": "attestation.tex",
+          "source_line": 11,
+          "section_label": "sec:attestation",
+          "file_sha256": "dd628e1428613a03ddf6262f28e0a562b06c4dda726f9116f83373cf628819df",
+          "line_sha256": "cd98d45c1b7435c591348cb56db33bb30c75d991f6d353279969927c1ce0bac8"
+        },
+        {
+          "file": "attestation.tex",
+          "source_line": 19,
+          "section_label": "sec:signed-export",
+          "file_sha256": "dd628e1428613a03ddf6262f28e0a562b06c4dda726f9116f83373cf628819df",
+          "line_sha256": "27e5d219804ab2eb89f8e080d2e10b0bdb3818e4815b5c19f97415235e852e23"
+        }
+      ],
+      "support": [
+        {
+          "record": "records/workbench/inspecta_scp/evidence_review.py",
+          "lines": [
+            186,
+            248
+          ],
+          "sha256": "af2de071d15aab0e377eddbcbaaab056d200578009c0b293c96ebf8f45f8c454",
+          "provided_in_package": false
+        },
+        {
+          "record": "records/workbench/inspecta_scp/verify_attestation.py",
+          "lines": [
+            15,
+            99
+          ],
+          "sha256": "8f7441c7f6f9d7c94d7b67640e5aa1b426cc627955bcc058d4f3200ba3c2c609",
+          "provided_in_package": false
+        },
+        {
+          "file": "evidence/coverage-method-audit.json",
+          "fields": [
+            "fingerprint_and_review_behavior"
+          ],
+          "sha256": "c3f98d8c693e6a73e9164ef043bd1d4ea44180ce6d9062bed6ca0fd416288e4a",
+          "provided_in_package": true
+        }
+      ]
+    },
+    {
+      "id": "C04",
+      "claim": "Source review identified specific Isolette omissions and timing discrepancies; PC and SNG audits mapped source requirements to contracts and proof evidence.",
+      "manuscript": [
+        {
+          "file": "fidelity.tex",
+          "source_line": 17,
+          "section_label": "sec:fidelity",
+          "file_sha256": "85136a3e1f399a5e0655ac84c993f3436b5e37ce52ca9167a55c8e69e4b397d1",
+          "line_sha256": "e2ee97f55d84ec01759a3fe35fa012316651a85ad69eb873f03f4b0324ef7d61"
+        }
+      ],
+      "support": [
+        {
+          "record": "records/reports/demo/behavior-review/REVIEW.md",
+          "lines": [
+            25,
+            80
+          ],
+          "sha256": "7b90d3595392eb8b99af2ac07bb95fda7786f20a9876959b305081665bb88ff1",
+          "provided_in_package": false
+        },
+        {
+          "file": "evidence/coverage-method-audit.json",
+          "fields": [
+            "sources",
+            "recorded_requirement_trace"
+          ],
+          "sha256": "c3f98d8c693e6a73e9164ef043bd1d4ea44180ce6d9062bed6ca0fd416288e4a",
+          "provided_in_package": true
+        },
+        {
+          "file": "evidence/accounting-and-release.json",
+          "fields": [
+            "requirements_review_records",
+            "review_timing_interpretation"
+          ],
+          "sha256": "97d1c8b51bce812f689a3c67c2938b2c1f594ef9b8ef028785cf6f0831490ce1",
+          "provided_in_package": true
+        }
+      ]
+    },
+    {
+      "id": "C05",
+      "claim": "EA-OI-6 requires the lower desired temperature to be at least one Fahrenheit degree below the upper; strict ordering gives this margin for integer degree settings.",
+      "manuscript": [
+        {
+          "file": "learning.tex",
+          "source_line": 43,
+          "section_label": "sec:learning",
+          "file_sha256": "a6caf945bcadef9c4aa325db0549e155457f0c977664b13b9e90fafe42a66529",
+          "line_sha256": "b5ca5876cfa882d3871d695d6851ec2b9c8359eb3708fb12d1ebc772e2f339a9"
+        }
+      ],
+      "support": [
+        {
+          "url": "https://www.faa.gov/sites/faa.gov/files/aircraft/air_cert/design_approvals/air_software/AR-08-32.pdf",
+          "citation_key": "lempia2009faa",
+          "location": "Appendix A.3.4, printed page A-11, EA-OI-6; Table A-5 for integer settings"
+        }
+      ]
+    },
+    {
+      "id": "C06",
+      "claim": "The later SNG checkpoint costs are nested within the 576,602-token continuation. The first SNG construction is a separate trajectory.",
+      "manuscript": [
+        {
+          "file": "appendix-evaluation-details.tex",
+          "source_line": 25,
+          "section_label": "app:evaluation-details",
+          "file_sha256": "c0a8f128caa0d24b663433d14a9c812167e1f1b6c703d882b70b79b1b0c2faa5",
+          "line_sha256": "6cc1ac1df2364243c437cbd1d7f406bed5d169476df7bc63f89032aec435f480"
+        },
+        {
+          "file": "evaluation.tex",
+          "source_line": 12,
+          "section_label": "sec:evaluation",
+          "file_sha256": "958ac44c01b1a14d66ef68bf6e18f75be70dcca0729dd2121a45d3da5293370a",
+          "line_sha256": "83e4679eca3c999ab56a2917e8429918ca481084ab20c77b6c10ad0360e35f0d"
+        }
+      ],
+      "support": [
+        {
+          "file": "evidence/accounting-and-release.json",
+          "fields": [
+            "selected_completed_task_and_failure_rows",
+            "sng_cost_reconciliation",
+            "paper_cutoff_total"
+          ],
+          "sha256": "97d1c8b51bce812f689a3c67c2938b2c1f594ef9b8ef028785cf6f0831490ce1",
+          "provided_in_package": true
+        },
+        {
+          "file": "evidence/comparison-plot-data.json",
+          "fields": [
+            "schema_version",
+            "purpose",
+            "audit_sha256",
+            "token_scope",
+            "comparisons",
+            "sng_milestones",
+            "sng_completed_categories",
+            "sng_baseline_downstream_status",
+            "sng_cumulative_tokens_through_observation",
+            "sng_elapsed_seconds_including_pauses",
+            "sng_observation_source",
+            "interpretation",
+            "later_authorized_repairs",
+            "figure_generation"
+          ],
+          "sha256": "3aefdd44e20783d166e67adfd0ed04fe9eee745376af7f388518e610e616dee6",
+          "provided_in_package": true
+        }
+      ]
+    },
+    {
+      "id": "C07",
+      "claim": "The later SNG continuation reports distinct evidence units and one cumulative experiment-worker cost. Its elapsed time includes pauses.",
+      "manuscript": [
+        {
+          "file": "evaluation.tex",
+          "source_line": 61,
+          "section_label": "sec:sng-evaluation",
+          "file_sha256": "958ac44c01b1a14d66ef68bf6e18f75be70dcca0729dd2121a45d3da5293370a",
+          "line_sha256": "7d1abee6c15ab85d27623430e990fed44ec1b60ad686239037c22cc6ed8235b8"
+        },
+        {
+          "file": "evaluation.tex",
+          "source_line": 57,
+          "section_label": "sec:sng-evaluation",
+          "file_sha256": "958ac44c01b1a14d66ef68bf6e18f75be70dcca0729dd2121a45d3da5293370a",
+          "line_sha256": "2675ef1a4b3d7cdaa2723d6acc385a0836961269e1b9d74a1b038c8d117d412e"
+        }
+      ],
+      "support": [
+        {
+          "file": "evidence/accounting-and-release.json",
+          "fields": [
+            "sng_cost_reconciliation",
+            "additional_usage"
+          ],
+          "sha256": "97d1c8b51bce812f689a3c67c2938b2c1f594ef9b8ef028785cf6f0831490ce1",
+          "provided_in_package": true
+        },
+        {
+          "file": "evidence/timing-model-audit.json",
+          "fields": [
+            "schema_version",
+            "audit_date",
+            "scope",
+            "units",
+            "definitions",
+            "anti_double_counting",
+            "experiments",
+            "sng_model_checkpoint",
+            "sng_full_dependent_continuation",
+            "sng_separately_recorded_deterministic_segments",
+            "sng_supplemental_diagnostic_intervals",
+            "PC-paired-call_intervals",
+            "PC-followup-call_intervals",
+            "pc_controller_segments",
+            "sng_earlier_first_campaign",
+            "historical_attribution",
+            "assisted_repair_timing",
+            "model_configuration",
+            "unchanged_input_provenance_sources",
+            "bounded_metadata_scan",
+            "host_resources",
+            "model_receipt_audit",
+            "source_files_sha256",
+            "source_audit_sha256",
+            "package_scope"
+          ],
+          "sha256": "6e541b49922b4a9a02c8cb3e89a8fb26bf337f007116bcc453d1d87ed1bfbbc6",
+          "provided_in_package": true
+        }
+      ]
+    },
+    {
+      "id": "C08",
+      "claim": "POWERUSERS-1 approved the three stated case scopes for release on 8 November 2026; historical outcomes retain their dates.",
+      "manuscript": [
+        {
+          "file": "evaluation.tex",
+          "source_line": 124,
+          "section_label": "sec:evaluation",
+          "file_sha256": "958ac44c01b1a14d66ef68bf6e18f75be70dcca0729dd2121a45d3da5293370a",
+          "line_sha256": "77f1d5cb70fab5bdf9b2bd214af7e9ce2554a16358def71432da3a41514eab59"
+        },
+        {
+          "file": "appendix-evaluation-details.tex",
+          "source_line": 69,
+          "section_label": "app:evaluation-details",
+          "file_sha256": "c0a8f128caa0d24b663433d14a9c812167e1f1b6c703d882b70b79b1b0c2faa5",
+          "line_sha256": "43a42705f5acdf6ebf0da2a7939427bcf88561b50ffd29f7ac5a99c919d23d8a"
+        }
+      ],
+      "support": [
+        {
+          "file": "evidence/accounting-and-release.json",
+          "fields": [
+            "owner_release_decisions",
+            "review_timing_interpretation",
+            "primary_source_hashes"
+          ],
+          "sha256": "97d1c8b51bce812f689a3c67c2938b2c1f594ef9b8ef028785cf6f0831490ce1",
+          "provided_in_package": true
+        }
+      ]
+    },
+    {
+      "id": "C09",
+      "claim": "The 28M allowance and 6 November cutoff refer to experiment-worker accounting; supporting sessions and later calls are reported separately.",
+      "manuscript": [
+        {
+          "file": "evaluation.tex",
+          "source_line": 131,
+          "section_label": "sec:evaluation",
+          "file_sha256": "958ac44c01b1a14d66ef68bf6e18f75be70dcca0729dd2121a45d3da5293370a",
+          "line_sha256": "cef65dbbbbada94e074c8ad07a7f2746bfd882f6af3add0d4c85370ed19947cf"
+        }
+      ],
+      "support": [
+        {
+          "file": "evidence/accounting-and-release.json",
+          "fields": [
+            "paper_cutoff",
+            "paper_cutoff_total",
+            "budget_authorizations",
+            "later_ledger_observation",
+            "additional_usage"
+          ],
+          "sha256": "97d1c8b51bce812f689a3c67c2938b2c1f594ef9b8ef028785cf6f0831490ce1",
+          "provided_in_package": true
+        }
+      ]
+    },
+    {
+      "id": "C10",
+      "claim": "The illustrated green region predicts suitability for formal assurance; automatic admission and branch ranking are proposed extensions. The main workflow marks joint agreement and cost prediction as proposed.",
+      "manuscript": [
+        {
+          "file": "appendix-semantic-budget.tex",
+          "source_line": 6,
+          "section_label": "app:semantic-budget",
+          "file_sha256": "a557a76feb229bd3426064c7e9e913766df591c4e65939816e6afa0f2bb9a99e",
+          "line_sha256": "2c58afef2201c7aac8708d01fb6b32feb86f85db9215ae9ea936fd3969db7d64"
+        },
+        {
+          "file": "appendix-semantic-budget.tex",
+          "source_line": 30,
+          "section_label": "app:semantic-budget",
+          "file_sha256": "a557a76feb229bd3426064c7e9e913766df591c4e65939816e6afa0f2bb9a99e",
+          "line_sha256": "eee661911eac993f4f9b1dc191f9e6eb4c6c3b4db0109f8418e2ff7c24260ccd"
+        },
+        {
+          "file": "appendix-requirements-review.tex",
+          "source_line": 8,
+          "section_label": "app:requirements-review",
+          "file_sha256": "11dd7feade8bf3da14f93de4ee8019f98df0ec9435908b829c3a1d4143d3792d",
+          "line_sha256": "6fb0f6fca52e50c1087ef8e0bb587ac5b1361707d81c75df2b56b03944fa8510"
+        },
+        {
+          "file": "appendix-semantic-budget.tex",
+          "source_line": 62,
+          "section_label": "app:semantic-budget",
+          "file_sha256": "a557a76feb229bd3426064c7e9e913766df591c4e65939816e6afa0f2bb9a99e",
+          "line_sha256": "24108fa842a24b9232925edcb655d7fb194574b5656ab878fc895f030b6a34c8"
+        }
+      ],
+      "support": [
+        {
+          "file": "evidence/figure-sources.json",
+          "fields": [
+            "sources",
+            "reuse",
+            "measurement_scope",
+            "requirements_flow"
+          ],
+          "sha256": "8beaa01d6986fc310fca643a01980dcb7507c7731ec03d5487dbee39ebbc6136",
+          "provided_in_package": true
+        }
+      ]
+    },
+    {
+      "id": "C11",
+      "claim": "FRET supports structured requirements and simulation. Its integration and the proposed verification and multi-user extension are future work.",
+      "manuscript": [
+        {
+          "file": "limitations.tex",
+          "source_line": 9,
+          "section_label": "sec:limitations",
+          "file_sha256": "89f8d774bdfefeb9405bb0643502eba3cd8cabb4997d54bb2b045d7792b2e801",
+          "line_sha256": "9fc853c133139959448fc362284580cedd00cbaa5fdbb2ee6b213fbe32a7a8d9"
+        }
+      ],
+      "support": [
+        {
+          "url": "https://software.nasa.gov/software/ARC-18066-1",
+          "citation_key": "nasaFret",
+          "scope": "The NASA source supports FRET capabilities. The integration, attestation verification and multi-user service are stated research directions."
+        }
+      ]
+    },
+    {
+      "id": "C12",
+      "claim": "The cases extend the earlier Isolette study to Rust/Verus and use guidance from earlier work and subsequent repairs in distinct engineering tasks.",
+      "manuscript": [
+        {
+          "file": "evaluation.tex",
+          "source_line": 5,
+          "section_label": "sec:evaluation",
+          "file_sha256": "958ac44c01b1a14d66ef68bf6e18f75be70dcca0729dd2121a45d3da5293370a",
+          "line_sha256": "f25a35389c83c620eb08e1da273adbe070b8552c05fa5488f6c68880a7d62e22"
+        },
+        {
+          "file": "evaluation.tex",
+          "source_line": 38,
+          "section_label": "sec:reuse-evaluation",
+          "file_sha256": "958ac44c01b1a14d66ef68bf6e18f75be70dcca0729dd2121a45d3da5293370a",
+          "line_sha256": "ad10e99f50a129f1b3d3f78ffc859e29b6be5a837960f441ee6e1bc442e73719"
+        },
+        {
+          "file": "evaluation.tex",
+          "source_line": 47,
+          "section_label": "sec:sng-evaluation",
+          "file_sha256": "958ac44c01b1a14d66ef68bf6e18f75be70dcca0729dd2121a45d3da5293370a",
+          "line_sha256": "908e924c21e22bc3fd7b0bdbe8377bcec359d4b4cd0f3d32f48e120337230553"
+        }
+      ],
+      "support": [
+        {
+          "url": "https://loonwerks.com/publications/pdf/tahat2026dasc.pdf",
+          "citation_key": "tahat2026scp",
+          "sha256": "aa5d792b82787f6b3c275ab333bd4352dd5992d3fe0f7958cae5b7d8f7e4bac1",
+          "location": "Section V-A, pp. 6–7; Section VII"
+        },
+        {
+          "record": "records/rule-books_7/final-process-definition-rule-book.md",
+          "lines": [
+            9,
+            17
+          ],
+          "sha256": "94a6c6fd93e9021506bc91b9cf36b1c15a3059ba5d190b2f4e17ae9433058f7b",
+          "provided_in_package": false
+        },
+        {
+          "record": "records/experiments eval/paired_ksu_knowledge_2026-11-05/outputs/pair1-K+/attempt-0/context.json",
+          "lines": [],
+          "sha256": "aad8b1d1e78d58acdfa0f03fd0bf341787bef064c138d202c7b75d4de69cdf80",
+          "provided_in_package": false
+        },
+        {
+          "record": "records/experiments eval/sng_paired_preparation_2026-11-06/outputs/sng-K+/attempt-0/context.json",
+          "lines": [],
+          "sha256": "902d99154e012a5622bcfd08e941115e5d5c6c09f8636e00e8001df254d2ea27",
+          "provided_in_package": false
+        },
+        {
+          "record": "records/experiments eval/sng_shared_supplement_2026-11-06/outputs/sng-K+/model-0/context.json",
+          "lines": [],
+          "sha256": "b8d89f9112f427b5438506dd900239f8fcf2d09f2d049f210ccfe1715ecfdfa6",
+          "provided_in_package": false
+        },
+        {
+          "file": "evidence/sng-learning-records.json",
+          "fields": [
+            "initial_retained_entry_count",
+            "later_retained_entry_count",
+            "later_sng_lesson_count",
+            "lesson_records"
+          ],
+          "sha256": "f27804b66e0cc231a83228c326846c786a5295c36566fc9dae705c919d6510b8",
+          "provided_in_package": true
+        }
+      ]
+    },
+    {
+      "id": "C13",
+      "claim": "The additional Isolette checks record a separate composition result of five verified conditions and two errors, and a separate assisted candidate's graph-comparison failure.",
+      "manuscript": [
+        {
+          "file": "appendix-evaluation-details.tex",
+          "source_line": 10,
+          "section_label": "app:evaluation-details",
+          "file_sha256": "c0a8f128caa0d24b663433d14a9c812167e1f1b6c703d882b70b79b1b0c2faa5",
+          "line_sha256": "a95b8d5748f58822c1c0f06d2a628756be8916a98f2350e700e29228fe2d508e"
+        }
+      ],
+      "support": [
+        {
+          "record": "records/reports/demo/isolette-rust/system-verification-unique-aliases.json",
+          "lines": [
+            46,
+            47
+          ],
+          "sha256": "578b76c77d2dea5611e3c34ee72a66aca2ce975c68b539c6574ee6aa5f073d9c",
+          "provided_in_package": false
+        },
+        {
+          "record": "records/experiments eval/rulebook7_assisted_2026-11-05/report/tables.json",
+          "lines": [
+            74,
+            89
+          ],
+          "sha256": "5c7b101872902db5753e6c6d396f1b3064181ea234df6069e37d820f99fff6ea",
+          "provided_in_package": false
+        }
+      ]
+    },
+    {
+      "id": "C14",
+      "claim": "The first guided SNG dispatch carried 11 earlier or general guidance entries. Its design supplement differed from the ordinary-input baseline. The guided candidate reached its in-loop checkpoint at 397,520 measured tokens.",
+      "manuscript": [
+        {
+          "file": "evaluation.tex",
+          "source_line": 47,
+          "section_label": "sec:sng-evaluation",
+          "file_sha256": "958ac44c01b1a14d66ef68bf6e18f75be70dcca0729dd2121a45d3da5293370a",
+          "line_sha256": "908e924c21e22bc3fd7b0bdbe8377bcec359d4b4cd0f3d32f48e120337230553"
+        },
+        {
+          "file": "appendix-evaluation-details.tex",
+          "source_line": 16,
+          "section_label": "app:evaluation-details",
+          "file_sha256": "c0a8f128caa0d24b663433d14a9c812167e1f1b6c703d882b70b79b1b0c2faa5",
+          "line_sha256": "7522c8f8a20842b80fe4d4cd6591f5ccd9e086145c922ec9aa9c878ace8226f8"
+        }
+      ],
+      "support": [
+        {
+          "file": "evidence/sng-learning-records.json",
+          "fields": [
+            "initial_retained_entry_ids",
+            "initial_retained_entry_count",
+            "common_guide_checks"
+          ],
+          "sha256": "f27804b66e0cc231a83228c326846c786a5295c36566fc9dae705c919d6510b8",
+          "provided_in_package": true
+        },
+        {
+          "file": "evidence/timing-model-audit.json",
+          "fields": [
+            "sng_earlier_first_campaign"
+          ],
+          "sha256": "6e541b49922b4a9a02c8cb3e89a8fb26bf337f007116bcc453d1d87ed1bfbbc6",
+          "provided_in_package": true
+        }
+      ]
+    },
+    {
+      "id": "C15",
+      "claim": "The later SNG reconstruction used shared design inputs and 66 selected guidance entries in its guided arm, including 11 draft SNG lessons. Its dependent continuation reached the checked Microkit build and bounded observation.",
+      "manuscript": [
+        {
+          "file": "evaluation.tex",
+          "source_line": 50,
+          "section_label": "sec:sng-evaluation",
+          "file_sha256": "958ac44c01b1a14d66ef68bf6e18f75be70dcca0729dd2121a45d3da5293370a",
+          "line_sha256": "fcb12841ee9040955169b5f97e2ae80d49245910657f0754201b731dfb7c3e33"
+        },
+        {
+          "file": "evaluation.tex",
+          "source_line": 61,
+          "section_label": "sec:sng-evaluation",
+          "file_sha256": "958ac44c01b1a14d66ef68bf6e18f75be70dcca0729dd2121a45d3da5293370a",
+          "line_sha256": "7d1abee6c15ab85d27623430e990fed44ec1b60ad686239037c22cc6ed8235b8"
+        },
+        {
+          "file": "abstract.tex",
+          "source_line": 3,
+          "section_label": "sec:introduction",
+          "file_sha256": "e167281183136046171efa6e920ce3f24a5e6c223934cf229c9362387229c422",
+          "line_sha256": "196343676c28fc148204177c70412453e59617a892de09d1feb8c12db88da30b"
+        }
+      ],
+      "support": [
+        {
+          "file": "evidence/sng-learning-records.json",
+          "fields": [
+            "later_retained_entry_count",
+            "later_sng_lesson_count",
+            "lesson_records"
+          ],
+          "sha256": "f27804b66e0cc231a83228c326846c786a5295c36566fc9dae705c919d6510b8",
+          "provided_in_package": true
+        },
+        {
+          "file": "evidence/timing-model-audit.json",
+          "fields": [
+            "sng_model_checkpoint",
+            "sng_full_dependent_continuation"
+          ],
+          "sha256": "6e541b49922b4a9a02c8cb3e89a8fb26bf337f007116bcc453d1d87ed1bfbbc6",
+          "provided_in_package": true
+        },
+        {
+          "file": "evidence/evidence-audit.json",
+          "fields": [
+            "completion_record",
+            "checks"
+          ],
+          "sha256": "8737aa49b77e510d76c8c4483d32df1048f45e130f4bc7519e6f15b6f82537b1",
+          "provided_in_package": true
+        }
+      ]
+    },
+    {
+      "id": "C16",
+      "claim": "The SNG clamp audit maps the GUMBO requirement to Gate and Filter Verus proofs under recorded premises. A model-level Logika implication uses connection-value equality. The image observation supplies distinct runtime evidence. The recorded Gate and Filter proof inputs match their Rust source fingerprints in the build and observation inventories.",
+      "manuscript": [
+        {
+          "file": "evaluation.tex",
+          "source_line": 77,
+          "section_label": "sec:sng-evaluation",
+          "file_sha256": "958ac44c01b1a14d66ef68bf6e18f75be70dcca0729dd2121a45d3da5293370a",
+          "line_sha256": "b97b66a59ef4043cafac38dd85ad8fa62ac209ca6efd4c9acba70a715c080bad"
+        },
+        {
+          "file": "evaluation.tex",
+          "source_line": 71,
+          "section_label": "sec:sng-evaluation",
+          "file_sha256": "958ac44c01b1a14d66ef68bf6e18f75be70dcca0729dd2121a45d3da5293370a",
+          "line_sha256": "57feac3ff85504d033293e61ced551f64302912da0ed852f781474e47af0cf58"
+        },
+        {
+          "file": "appendix-coverage-details.tex",
+          "source_line": 28,
+          "section_label": "app:coverage-details",
+          "file_sha256": "7755057a5815435aedd39bc72cbf2c19c4cf42f0f1d2707784d4dfc50c66067f",
+          "line_sha256": "5fcf6e7d4d7d1f76bb664e00952dc972257f4bb663c826d54bf1fe6896e93fad"
+        },
+        {
+          "file": "introduction.tex",
+          "source_line": 17,
+          "section_label": "sec:introduction",
+          "file_sha256": "209e242e982d6afc49720486e98cada1c8d305e380fb14a496040d14e47204ed",
+          "line_sha256": "7b316d54ac4b309d9f857319173f4954225d65a8a9e01e5ac157acb1139c88ae"
+        }
+      ],
+      "support": [
+        {
+          "file": "evidence/coverage-method-audit.json",
+          "fields": [
+            "recorded_requirement_trace",
+            "selected_model_run_configurations"
+          ],
+          "sha256": "c3f98d8c693e6a73e9164ef043bd1d4ea44180ce6d9062bed6ca0fd416288e4a",
+          "provided_in_package": true
+        },
+        {
+          "file": "evidence/evidence-audit.json",
+          "fields": [
+            "checks",
+            "limits"
+          ],
+          "sha256": "8737aa49b77e510d76c8c4483d32df1048f45e130f4bc7519e6f15b6f82537b1",
+          "provided_in_package": true
+        },
+        {
+          "file": "evidence/revision-link-audit.json",
+          "fields": [
+            "proof_input_links"
+          ],
+          "sha256": "e250fc85a538caaded70d2546f4aa4bfe3ea4547ff63967e1761de7d0690ae81",
+          "provided_in_package": true
+        }
+      ]
+    },
+    {
+      "id": "C17",
+      "claim": "The pilot cases tested selected controller paths. F01 blocked new calls without saving a detailed call record, while the matching control retained it.",
+      "manuscript": [
+        {
+          "file": "evaluation.tex",
+          "source_line": 153,
+          "section_label": "sec:evaluation",
+          "file_sha256": "958ac44c01b1a14d66ef68bf6e18f75be70dcca0729dd2121a45d3da5293370a",
+          "line_sha256": "71eae7bbcb94c9aa6d1fdad749af39352b06bd102580b8a8514bf21e0fd1e931"
+        },
+        {
+          "file": "evaluation.tex",
+          "source_line": 157,
+          "section_label": "sec:evaluation",
+          "file_sha256": "958ac44c01b1a14d66ef68bf6e18f75be70dcca0729dd2121a45d3da5293370a",
+          "line_sha256": "3a94d32309dd83ab5a85c501248d2535fc63205a1d1a9338858eec0bc426c6f8"
+        }
+      ],
+      "support": [
+        {
+          "file": "evidence/evidence-audit.json",
+          "fields": [
+            "checks",
+            "limits"
+          ],
+          "sha256": "8737aa49b77e510d76c8c4483d32df1048f45e130f4bc7519e6f15b6f82537b1",
+          "provided_in_package": true
+        }
+      ]
+    },
+    {
+      "id": "C18",
+      "claim": "The DASC 2026 evaluation used supplied Isolette models and focused on GUMBO formalization with HAMR and Logika. The companion demo supplied the Scala/Slang application logic.",
+      "manuscript": [
+        {
+          "file": "introduction.tex",
+          "source_line": 8,
+          "section_label": "sec:introduction",
+          "file_sha256": "209e242e982d6afc49720486e98cada1c8d305e380fb14a496040d14e47204ed",
+          "line_sha256": "c1a6b7455a86fef9b8cbf8da3379decc083148d1bde86e7780beca8ac6b6a319"
+        },
+        {
+          "file": "related-work.tex",
+          "source_line": 21,
+          "section_label": "sec:related",
+          "file_sha256": "d69245865dfdef2f6ee91d3d7916a75bea07607da893924770f2423b89320ae5",
+          "line_sha256": "c98d024175e4341450ca94f6a7ca5b7845c1d29dfab52d03cb45287beec1b378"
+        }
+      ],
+      "support": [
+        {
+          "url": "https://loonwerks.com/publications/pdf/tahat2026dasc.pdf",
+          "citation_key": "tahat2026scp",
+          "location": "Section V-A"
+        },
+        {
+          "url": "https://github.com/loonwerks/INSPECTA-Spec-Code-Proof-Copilot",
+          "citation_key": "inspecta_repo",
+          "location": "Companion demo description"
+        }
+      ]
+    },
+    {
+      "id": "C19",
+      "claim": "Producer/Consumer first entered as a new workbench target supplied with English requirements and existing rulebooks. The September checkpoint's case-level results and later paired reconstruction have separate scopes.",
+      "manuscript": [
+        {
+          "file": "evaluation.tex",
+          "source_line": 35,
+          "section_label": "sec:reuse-evaluation",
+          "file_sha256": "958ac44c01b1a14d66ef68bf6e18f75be70dcca0729dd2121a45d3da5293370a",
+          "line_sha256": "23b4c52e9b94fc6fc8683227adde5f5238660b7c8c2a6e067de3d8da6bc3dcf2"
+        },
+        {
+          "file": "appendix-evaluation-details.tex",
+          "source_line": 13,
+          "section_label": "app:evaluation-details",
+          "file_sha256": "c0a8f128caa0d24b663433d14a9c812167e1f1b6c703d882b70b79b1b0c2faa5",
+          "line_sha256": "9d7b987ff0d17f38c61021c1aca99e6538bb48914991708b3b3cc4ad4ec93570"
+        }
+      ],
+      "support": [
+        {
+          "file": "evidence/checkpoint-app-audit.json",
+          "fields": [
+            "producer_consumer"
+          ],
+          "sha256": "3d515fb06f8993df47b8903774b141710846264f35a4fbecf3aafe963bf940b3",
+          "provided_in_package": true
+        },
+        {
+          "file": "evidence/timing-model-audit.json",
+          "fields": [
+            "historical_attribution"
+          ],
+          "sha256": "6e541b49922b4a9a02c8cb3e89a8fb26bf337f007116bcc453d1d87ed1bfbbc6",
+          "provided_in_package": true
+        },
+        {
+          "file": "evidence/accounting-and-release.json",
+          "fields": [
+            "selected_completed_task_and_failure_rows"
+          ],
+          "sha256": "97d1c8b51bce812f689a3c67c2938b2c1f594ef9b8ef028785cf6f0831490ce1",
+          "provided_in_package": true
+        }
+      ]
+    },
+    {
+      "id": "C20",
+      "claim": "The selective application checkout installed, built, passed 209 application tests, and served the local starter UI/API. Engineering replay requires separate inputs.",
+      "manuscript": [
+        {
+          "file": "data-availability.tex",
+          "source_line": 3,
+          "section_label": "sec:data-availability",
+          "file_sha256": "84b9387603b1619e8432d08a7b1bbc4f3bbf24a6f0db4eab7a12bb91fcfd363f",
+          "line_sha256": "6d21af4d81f7acd123bb456b63c24f558979faff789ec5e1505a10da40a1eaf9"
+        }
+      ],
+      "support": [
+        {
+          "file": "evidence/checkpoint-app-audit.json",
+          "fields": [
+            "environment",
+            "setup",
+            "unit_tests",
+            "startup",
+            "engineering_boundary"
+          ],
+          "sha256": "3d515fb06f8993df47b8903774b141710846264f35a4fbecf3aafe963bf940b3",
+          "provided_in_package": true
+        }
+      ]
+    },
+    {
+      "id": "C21",
+      "claim": "The later SNG engineering result includes a 4,957,232-byte loader image and a matched build and observation source inventory.",
+      "manuscript": [
+        {
+          "file": "evaluation.tex",
+          "source_line": 70,
+          "section_label": "sec:sng-evaluation",
+          "file_sha256": "958ac44c01b1a14d66ef68bf6e18f75be70dcca0729dd2121a45d3da5293370a",
+          "line_sha256": "f7d9e5c09716cc1ee264da5055434e1bd90316c53a05921501f1c3fdbd58d696"
+        }
+      ],
+      "support": [
+        {
+          "file": "evidence/accounting-and-release.json",
+          "fields": [
+            "owner_release_decisions"
+          ],
+          "sha256": "97d1c8b51bce812f689a3c67c2938b2c1f594ef9b8ef028785cf6f0831490ce1",
+          "provided_in_package": true
+        },
+        {
+          "file": "evidence/evidence-audit.json",
+          "fields": [
+            "checks"
+          ],
+          "sha256": "8737aa49b77e510d76c8c4483d32df1048f45e130f4bc7519e6f15b6f82537b1",
+          "provided_in_package": true
+        }
+      ]
+    },
+    {
+      "id": "C22",
+      "claim": "The SNG baseline stopped below its model-stage ceiling with zero completions. The guided model passed all five checks.",
+      "manuscript": [
+        {
+          "file": "appendix-resource-details.tex",
+          "source_line": 116,
+          "section_label": "app:resource-details",
+          "file_sha256": "6cd12bf681df26e5305b26b2ba68666126d8177e1e22fa475c4f985391a6df3f",
+          "line_sha256": "88f6fa2f50be49349d1f4e9160429d7afef1e8c6dbe54184c3fab13522963e84"
+        }
+      ],
+      "support": [
+        {
+          "file": "evidence/cost-normalization.json",
+          "fields": [
+            "model_stage"
+          ],
+          "sha256": "d01fd4122859fe488a49352f6e5aa1c367edc182cbfd8fa680b0e2df1b21736d",
+          "provided_in_package": true
+        }
+      ]
+    },
+    {
+      "id": "C23",
+      "claim": "Illustrative GPT-6 Astra Standard rates weight uncached input, cached input, and output by request tier. Supporting-session scenarios are reported separately from experiment-worker usage.",
+      "manuscript": [
+        {
+          "file": "appendix-resource-details.tex",
+          "source_line": 81,
+          "section_label": "app:resource-details",
+          "file_sha256": "6cd12bf681df26e5305b26b2ba68666126d8177e1e22fa475c4f985391a6df3f",
+          "line_sha256": "95241f21712b17071de10f4e24282e903b793cffb31b7aae2fab9ed9624dbba0"
+        },
+        {
+          "file": "evaluation.tex",
+          "source_line": 105,
+          "section_label": "sec:evaluation",
+          "file_sha256": "958ac44c01b1a14d66ef68bf6e18f75be70dcca0729dd2121a45d3da5293370a",
+          "line_sha256": "92c7e9b9fddb4ef26bdc52560e0e287c2c055978cff6086a13bbe2338f722ede"
+        },
+        {
+          "file": "appendix-resource-details.tex",
+          "source_line": 86,
+          "section_label": "app:resource-details",
+          "file_sha256": "6cd12bf681df26e5305b26b2ba68666126d8177e1e22fa475c4f985391a6df3f",
+          "line_sha256": "4636a7c9a6e0e4abc03e513d24c477a078a2b82f8a131385caed602193280869"
+        }
+      ],
+      "support": [
+        {
+          "file": "evidence/cost-normalization.json",
+          "fields": [
+            "illustrative_api_pricing"
+          ],
+          "sha256": "d01fd4122859fe488a49352f6e5aa1c367edc182cbfd8fa680b0e2df1b21736d",
+          "provided_in_package": true
+        }
+      ]
+    },
+    {
+      "id": "C24",
+      "claim": "Case inventories identify 217 Isolette implementation files, 16 Producer/Consumer model-check inputs, and 201 matched SNG build and observation paths.",
+      "manuscript": [
+        {
+          "file": "appendix-evaluation-details.tex",
+          "source_line": 72,
+          "section_label": "app:evaluation-details",
+          "file_sha256": "c0a8f128caa0d24b663433d14a9c812167e1f1b6c703d882b70b79b1b0c2faa5",
+          "line_sha256": "6be5f76b4b49a70f07d0f7a93c7268312ab89178f01f273227d51f44ba288a23"
+        }
+      ],
+      "support": [
+        {
+          "file": "evidence/evidence-audit.json",
+          "fields": [
+            "checks.source_manifests",
+            "source_file_bindings"
+          ],
+          "sha256": "8737aa49b77e510d76c8c4483d32df1048f45e130f4bc7519e6f15b6f82537b1",
+          "provided_in_package": true
+        },
+        {
+          "file": "evidence/accounting-and-release.json",
+          "fields": [
+            "owner_release_decisions"
+          ],
+          "sha256": "97d1c8b51bce812f689a3c67c2938b2c1f594ef9b8ef028785cf6f0831490ce1",
+          "provided_in_package": true
+        }
+      ]
+    },
+    {
+      "id": "C25",
+      "claim": "The synthetic UI review retains the original failure after a separate recorded scope exclusion.",
+      "manuscript": [
+        {
+          "file": "appendix-interface-details.tex",
+          "source_line": 19,
+          "section_label": "app:interface-details",
+          "file_sha256": "c3afd7e3851f69554297dedea0fa4288452bc071d336db5dad55bd6d33febbc9",
+          "line_sha256": "4d3afde40b59f2ffcdc7bbf29cf1b2555d86869fad1ba4fd256c19eb3069822b"
+        }
+      ],
+      "support": [
+        {
+          "file": "assets/ui-approval-accepted.png",
+          "fields": [
+            "Original application capture; cropped for display"
+          ],
+          "sha256": "92136886be82d962e4bf1e73f77dd59ec7684bdf43cb51c8138db3c274b538b2",
+          "provided_in_package": true
+        }
+      ]
+    },
+    {
+      "id": "C26",
+      "claim": "An earlier parser rejection led to draft guidance distinguishing typed SysML literals from generated Slang notation. The later guided SNG reconstruction received that guidance in its 66-entry bundle.",
+      "manuscript": [
+        {
+          "file": "evaluation.tex",
+          "source_line": 54,
+          "section_label": "sec:sng-evaluation",
+          "file_sha256": "958ac44c01b1a14d66ef68bf6e18f75be70dcca0729dd2121a45d3da5293370a",
+          "line_sha256": "72e966e7cdd7bc4a389d816f5eed53069aaaa51ed3d09560906bea24b8d35b93"
+        },
+        {
+          "file": "appendix-evaluation-details.tex",
+          "source_line": 18,
+          "section_label": "app:evaluation-details",
+          "file_sha256": "c0a8f128caa0d24b663433d14a9c812167e1f1b6c703d882b70b79b1b0c2faa5",
+          "line_sha256": "1207398ce75d1c8d368376b41c15335c3d25cc662dcab8f9ac55b50ab05b97e2"
+        }
+      ],
+      "support": [
+        {
+          "file": "evidence/sng-learning-records.json",
+          "fields": [
+            "later_retained_entry_count",
+            "lesson_records"
+          ],
+          "sha256": "f27804b66e0cc231a83228c326846c786a5295c36566fc9dae705c919d6510b8",
+          "provided_in_package": true
+        }
+      ]
+    },
+    {
+      "id": "C27",
+      "claim": "The Background connects symbolic policy checks, evaluator-guided algorithm improvement, persistent skill knowledge, and verbalizable model representations to the Workbench motivation.",
+      "manuscript": [
+        {
+          "file": "background.tex",
+          "source_line": 35,
+          "section_label": "sec:background",
+          "file_sha256": "caeabe381f86cfe056d14ed605a9ec77d379f9db276cefa1c63a80cab96177da",
+          "line_sha256": "846f33b9360293de373b815c042c754cba6cbadecfdd3b0d8989d1519f73b4e9"
+        }
+      ],
+      "support": [
+        {
+          "url": "https://arxiv.org/abs/2511.09008v2",
+          "citation_key": "bayless2025arc"
+        },
+        {
+          "url": "https://arxiv.org/abs/2506.13131",
+          "citation_key": "novikov2025alphaevolve"
+        },
+        {
+          "url": "https://arxiv.org/html/2608.27454v1",
+          "citation_key": "tang2026wikiskill"
+        },
+        {
+          "url": "https://www.transformer-circuits.pub/2026/workspace/index.html",
+          "citation_key": "gurnee2026workspace"
+        }
+      ]
+    },
+    {
+      "id": "C28",
+      "claim": "The Appendix D motivation figure crops two panels of the DASC slide; the branch counts are illustrative.",
+      "manuscript": [
+        {
+          "file": "appendix-semantic-budget.tex",
+          "source_line": 48,
+          "section_label": "app:semantic-budget",
+          "file_sha256": "a557a76feb229bd3426064c7e9e913766df591c4e65939816e6afa0f2bb9a99e",
+          "line_sha256": "46089a926f35a62ca66611052d88d8c107575fa9a7c961c2a77c28873a6b1c83"
+        }
+      ],
+      "support": [
+        {
+          "file": "evidence/figure-sources.json",
+          "fields": [
+            "background_snapshot"
+          ],
+          "sha256": "8beaa01d6986fc310fca643a01980dcb7507c7731ec03d5487dbee39ebbc6136",
+          "provided_in_package": true
+        }
+      ]
+    },
+    {
+      "id": "C29",
+      "claim": "Declared task inputs and selected rule files cross the worker boundary. The frozen SNG configuration uses ephemeral sessions, a temporary worker home, an isolated environment and mount allowlist, explicit context, and disabled tool network access.",
+      "manuscript": [
+        {
+          "file": "architecture.tex",
+          "source_line": 25,
+          "section_label": "sec:execution-environments",
+          "file_sha256": "32de2ced1bc5c29b980ed63c3b53b471d12c6b9bcedb9a8dbd08c91f8c7a7eeb",
+          "line_sha256": "e9028b8aeea7bc41d2c9aa316c2713e9d334e833c9dbc4c78ac29b76ad40f669"
+        },
+        {
+          "file": "evaluation.tex",
+          "source_line": 8,
+          "section_label": "sec:evaluation",
+          "file_sha256": "958ac44c01b1a14d66ef68bf6e18f75be70dcca0729dd2121a45d3da5293370a",
+          "line_sha256": "20cf0118f24cf55963f20738ec99fa68b553c2fbad6f4dea2f8003724b10350f"
+        }
+      ],
+      "support": [
+        {
+          "file": "evidence/timing-model-audit.json",
+          "fields": [
+            "model_configuration"
+          ],
+          "sha256": "6e541b49922b4a9a02c8cb3e89a8fb26bf337f007116bcc453d1d87ed1bfbbc6",
+          "provided_in_package": true
+        }
+      ]
+    },
+    {
+      "id": "C30",
+      "claim": "The checkpoint fixture tests reject stale approvals and a modified signed subject and withdraw proof credit after Rust or Cargo input changes. All 209 tests passed in the rerun.",
+      "manuscript": [
+        {
+          "file": "evaluation.tex",
+          "source_line": 173,
+          "section_label": "sec:evaluation",
+          "file_sha256": "958ac44c01b1a14d66ef68bf6e18f75be70dcca0729dd2121a45d3da5293370a",
+          "line_sha256": "68b29480ec092527fd63ae9da387cc0a93297b388d17d96c9d5098ce609d73db"
+        },
+        {
+          "file": "data-availability.tex",
+          "source_line": 3,
+          "section_label": "sec:data-availability",
+          "file_sha256": "84b9387603b1619e8432d08a7b1bbc4f3bbf24a6f0db4eab7a12bb91fcfd363f",
+          "line_sha256": "6d21af4d81f7acd123bb456b63c24f558979faff789ec5e1505a10da40a1eaf9"
+        }
+      ],
+      "support": [
+        {
+          "file": "evidence/revision-link-audit.json",
+          "fields": [
+            "checkpoint_test_rerun"
+          ],
+          "sha256": "e250fc85a538caaded70d2546f4aa4bfe3ea4547ff63967e1761de7d0690ae81",
+          "provided_in_package": true
+        }
+      ]
+    },
+    {
+      "id": "C31",
+      "claim": "The three successful build inventories contain 26,758 nonblank source lines across the counted languages. The separate Producer/Consumer JVM and retained Isolette model-and-Scala inventories have different scopes.",
+      "manuscript": [
+        {
+          "file": "evaluation.tex",
+          "source_line": 80,
+          "section_label": "sec:evaluation",
+          "file_sha256": "958ac44c01b1a14d66ef68bf6e18f75be70dcca0729dd2121a45d3da5293370a",
+          "line_sha256": "88909059e5f58af5376a777e619302927e1d909032f1872af9527a79ccba0a8b"
+        },
+        {
+          "file": "evaluation.tex",
+          "source_line": 83,
+          "section_label": "sec:evaluation",
+          "file_sha256": "958ac44c01b1a14d66ef68bf6e18f75be70dcca0729dd2121a45d3da5293370a",
+          "line_sha256": "712f3fca51c6b65508dd8b4d6263722900dd0cf48be383994ae011fd652d1f50"
+        },
+        {
+          "file": "appendix-evaluation-details.tex",
+          "source_line": 75,
+          "section_label": "app:evaluation-details",
+          "file_sha256": "c0a8f128caa0d24b663433d14a9c812167e1f1b6c703d882b70b79b1b0c2faa5",
+          "line_sha256": "63fb549d5ae3dff96dc9909a4e91887f6ccb9115b2eb0a029c3c312af07ec4a3"
+        },
+        {
+          "file": "abstract.tex",
+          "source_line": 3,
+          "section_label": "sec:introduction",
+          "file_sha256": "e167281183136046171efa6e920ce3f24a5e6c223934cf229c9362387229c422",
+          "line_sha256": "196343676c28fc148204177c70412453e59617a892de09d1feb8c12db88da30b"
+        }
+      ],
+      "support": [
+        {
+          "file": "evidence/source-line-counts.json",
+          "fields": [
+            "source",
+            "counting_method",
+            "rows",
+            "successful_build_total"
+          ],
+          "sha256": "680fb575901ce594a02b5f87a1b62ecd9b2ce41f4f5aa4a9872de39367edeb11",
+          "provided_in_package": true
+        }
+      ]
+    },
+    {
+      "id": "C32",
+      "claim": "The SNG guided worker through observation reprices to $7.64 at Astra Standard rates. Its matched 13,133-line build gives $0.58 per 1,000 source lines. Charging the stopped baseline and selected supporting sessions to the same output gives $13.63 per 1,000 lines under the base-rate support scenario.",
+      "manuscript": [
+        {
+          "file": "evaluation.tex",
+          "source_line": 119,
+          "section_label": "sec:evaluation",
+          "file_sha256": "958ac44c01b1a14d66ef68bf6e18f75be70dcca0729dd2121a45d3da5293370a",
+          "line_sha256": "cde326c5fa27d6a31b8df6c815ecd4c9e2b88bd8b9fa7ef43076d2903f83e4d6"
+        },
+        {
+          "file": "appendix-resource-details.tex",
+          "source_line": 107,
+          "section_label": "app:resource-details",
+          "file_sha256": "6cd12bf681df26e5305b26b2ba68666126d8177e1e22fa475c4f985391a6df3f",
+          "line_sha256": "9d77804a91b3a5bf0c0e079854adfd60534e8e322635fa655809fceb3f26c0b8"
+        },
+        {
+          "file": "appendix-resource-details.tex",
+          "source_line": 113,
+          "section_label": "app:resource-details",
+          "file_sha256": "6cd12bf681df26e5305b26b2ba68666126d8177e1e22fa475c4f985391a6df3f",
+          "line_sha256": "b97269b46ea41d9f334d449ca945fff77fabda3b255c343ad8b250f35a7462ea"
+        }
+      ],
+      "support": [
+        {
+          "file": "evidence/cost-normalization.json",
+          "fields": [
+            "illustrative_api_pricing",
+            "per_delivered_source_line"
+          ],
+          "sha256": "d01fd4122859fe488a49352f6e5aa1c367edc182cbfd8fa680b0e2df1b21736d",
+          "provided_in_package": true
+        },
+        {
+          "file": "evidence/source-line-counts.json",
+          "fields": [
+            "counting_method",
+            "rows"
+          ],
+          "sha256": "680fb575901ce594a02b5f87a1b62ecd9b2ce41f4f5aa4a9872de39367edeb11",
+          "provided_in_package": true
+        }
+      ]
+    },
+    {
+      "id": "C33",
+      "claim": "The local Workbench Python inventory reports 8,255 implementation lines in 51 files, and 13,767 lines in 130 files including automated tests and validation and support scripts.",
+      "manuscript": [
+        {
+          "file": "architecture.tex",
+          "source_line": 21,
+          "section_label": "sec:execution-environments",
+          "file_sha256": "32de2ced1bc5c29b980ed63c3b53b471d12c6b9bcedb9a8dbd08c91f8c7a7eeb",
+          "line_sha256": "628f074d0ae5d53bbe524f6389f8e93e9964361294aecd9035a1fa77bd118b06"
+        },
+        {
+          "file": "appendix-evaluation-details.tex",
+          "source_line": 78,
+          "section_label": "app:evaluation-details",
+          "file_sha256": "c0a8f128caa0d24b663433d14a9c812167e1f1b6c703d882b70b79b1b0c2faa5",
+          "line_sha256": "954d0d326212c4966801e2b3edc48161ecef1fcc6c02511c05bc6d2f8797a503"
+        }
+      ],
+      "support": [
+        {
+          "file": "evidence/workbench-python-inventory.json",
+          "fields": [
+            "scope",
+            "source",
+            "categories",
+            "total"
+          ],
+          "sha256": "ec620cd880ac54955ce0d8dc2729e7624185118f107cb616d622b270825f0649",
+          "provided_in_package": true
+        }
+      ]
+    },
+    {
+      "id": "C34",
+      "claim": "The three successful build inventories total 362 counted file entries. SNG has 5,575 test, harness, support, and test-data generator lines (42.5%). The separate retained Isolette model and Scala inventory totals 32,019 lines in 270 files.",
+      "manuscript": [
+        {
+          "file": "evaluation.tex",
+          "source_line": 97,
+          "section_label": "sec:evaluation",
+          "file_sha256": "958ac44c01b1a14d66ef68bf6e18f75be70dcca0729dd2121a45d3da5293370a",
+          "line_sha256": "3992834b5e71a28e3b0672a555ef8975155fe496d432fae1670ddd7bad8b9411"
+        },
+        {
+          "file": "evaluation.tex",
+          "source_line": 102,
+          "section_label": "sec:evaluation",
+          "file_sha256": "958ac44c01b1a14d66ef68bf6e18f75be70dcca0729dd2121a45d3da5293370a",
+          "line_sha256": "c3654222e326f231a84a46b1bef9a4c1d9ec938e4da187dfcaf964d75d7d5cd2"
+        },
+        {
+          "file": "appendix-role-inventory.tex",
+          "source_line": 68,
+          "section_label": "app:source-role-counts",
+          "file_sha256": "ba3354e26eb29138a057ac3c0889249586f6514e87216a0fe39b37982294cdef",
+          "line_sha256": "b326af090e2a1eaa3ef1366a51a83d46573e35875db4ab8c2e829d083e771327"
+        }
+      ],
+      "support": [
+        {
+          "file": "evidence/source-role-counts.json",
+          "fields": [
+            "source",
+            "selected_outputs",
+            "sum_of_three_build_inventories",
+            "sng_test_role_share"
+          ],
+          "sha256": "e7eace3c58ee5a3be7aa0d495ca6a2c17ee517687d378881f264cda3a8e71465",
+          "provided_in_package": true
+        }
+      ]
+    },
+    {
+      "id": "C35",
+      "claim": "The recorded comparative model times describe two common-input pairs with different stop and pass outcomes. The Isolette revised-generation interval and later SNG observation span describe distinct events.",
+      "manuscript": [
+        {
+          "file": "evaluation.tex",
+          "source_line": 12,
+          "section_label": "sec:evaluation",
+          "file_sha256": "958ac44c01b1a14d66ef68bf6e18f75be70dcca0729dd2121a45d3da5293370a",
+          "line_sha256": "83e4679eca3c999ab56a2917e8429918ca481084ab20c77b6c10ad0360e35f0d"
+        },
+        {
+          "file": "evaluation.tex",
+          "source_line": 30,
+          "section_label": "sec:evaluation",
+          "file_sha256": "958ac44c01b1a14d66ef68bf6e18f75be70dcca0729dd2121a45d3da5293370a",
+          "line_sha256": "63ebb93e7c70409d79b2d917453b8e5931ef9ad003ee0f25ab815cd922512679"
+        },
+        {
+          "file": "evaluation.tex",
+          "source_line": 57,
+          "section_label": "sec:sng-evaluation",
+          "file_sha256": "958ac44c01b1a14d66ef68bf6e18f75be70dcca0729dd2121a45d3da5293370a",
+          "line_sha256": "2675ef1a4b3d7cdaa2723d6acc385a0836961269e1b9d74a1b038c8d117d412e"
+        }
+      ],
+      "support": [
+        {
+          "file": "evidence/timing-model-audit.json",
+          "fields": [
+            "pc_controller_segments",
+            "sng_model_checkpoint",
+            "sng_full_dependent_continuation"
+          ],
+          "sha256": "6e541b49922b4a9a02c8cb3e89a8fb26bf337f007116bcc453d1d87ed1bfbbc6",
+          "provided_in_package": true
+        },
+        {
+          "file": "evidence/accounting-and-release.json",
+          "fields": [
+            "isolette_review_chronology",
+            "sng_cost_reconciliation"
+          ],
+          "sha256": "97d1c8b51bce812f689a3c67c2938b2c1f594ef9b8ef028785cf6f0831490ce1",
+          "provided_in_package": true
+        }
+      ]
+    }
+  ]
+}

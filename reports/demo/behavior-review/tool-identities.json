@@ -1,0 +1,14 @@
+{
+  "scope": "Local source and executable identities; parser probe run artifacts are authoritative for observed syntax acceptance",
+  "files": {
+    "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/sireum": "6333d4e737064b6db470bcb85863a997675182470eb5d4d763bd806487c8d952",
+    "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/bin/sireum.jar": "cac598547221ef4cda977af304bfd697207e984cd86616d12587c2cf86754d04",
+    "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/hamr/sysml/parser/jvm/src/main/scala/org/sireum/hamr/sysml/parser/SysMLAstBuilder.scala": "54f4cae4ce1339defde252fa08c02f752a234639e735d14e77066d42b575726c",
+    "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/hamr/air/shared/src/main/scala/org/sireum/hamr/ir/GumboAST.scala": "8d7f7611bd932e95579549353ae1d0a22c702cae083430a6bdf699c5109fc98e"
+  },
+  "source_commits": {
+    "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/hamr/sysml": "5d606815ddd52559de3f3790e444dae13fd63bcb",
+    "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/hamr/codegen": "57c5ca5a03fd90a6b412e08ae6d7f7cc79716ac9",
+    "/home/amertahat/SPEC_CODE_PROOF_CoPILOT/INSPECTA-models/kekinian/hamr/air": "5fe7353ecd423bd3c625d9a354d40ea9d377d721"
+  }
+}

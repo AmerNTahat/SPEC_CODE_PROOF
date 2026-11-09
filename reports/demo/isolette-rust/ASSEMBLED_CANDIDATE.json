@@ -1,0 +1,25 @@
+{
+  "directory": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/isolette-rust/rust-assembled-candidate",
+  "verified_component_files": [
+    {
+      "crate": "thermostat_rt_detect_regulator_failure_implementation",
+      "file": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/isolette-rust/rust-assembled-candidate/crates/thermostat_rt_detect_regulator_failure_implementation/src/component/thermostat_rt_detect_regulator_failure_implementation_app.rs",
+      "sha256": "08f9d9e3bedaa450a14fb901db3cd7009a11a812f1a0f4bdf01f15459db0e243",
+      "proof_report": "/home/amertahat/SPEC_CODE_PROOF/reports/demo/isolette-rust/verification-detector-repair.json"
+    },
+    {
+      "crate": "thermostat_mt_mmi_mmi",
+      "file": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/isolette-rust/rust-assembled-candidate/crates/thermostat_mt_mmi_mmi/src/component/thermostat_mt_mmi_mmi_app.rs",
+      "sha256": "cb607c19c7d665e706d1a721d79c3fa7e1e4625677525fb4160f98568b91f27c",
+      "proof_report": "/home/amertahat/SPEC_CODE_PROOF/reports/demo/isolette-rust/verification-monitor-interface.json"
+    },
+    {
+      "crate": "thermostat_mt_mmm_mmm",
+      "file": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/isolette-rust/rust-assembled-candidate/crates/thermostat_mt_mmm_mmm/src/component/thermostat_mt_mmm_mmm_app.rs",
+      "sha256": "fc87cebf48e027418844f3b8506e1746dda782260b75d6f4fad7b43169437dba",
+      "proof_report": "/home/amertahat/SPEC_CODE_PROOF/reports/demo/isolette-rust/verification-monitor-mode.json"
+    }
+  ],
+  "scope": "Three separately checked bodies assembled into one candidate workspace; other components retain generated scaffolding. Not an accepted or whole-system verified build.",
+  "model_calls": 0
+}

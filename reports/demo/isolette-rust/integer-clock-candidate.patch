@@ -1,0 +1,54 @@
+--- rust-float/Regulate.sysml
++++ candidate-integer-ms/Regulate.sysml
+@@ -136,14 +136,14 @@
+             state
+                 Previous_Regulator_Mode : Isolette_Data_Model::Regulator_Mode;
+                 Regulator_Status : Base_Types::Boolean;
+-                Duration_INMODE : Base_Types::Float_64;
++                Duration_INMODE : Base_Types::Integer_64;
+             initialize
+                 guarantee REQ_MRM_1:
+                     Regulator_Mode == Isolette_Data_Model::Regulator_Mode::Init_Regulator_Mode;
+                 guarantee MODE_INITIAL_HISTORY:
+                     Previous_Regulator_Mode == Isolette_Data_Model::Regulator_Mode::Init_Regulator_Mode;
+                 guarantee MODE_INITIAL_CLOCK:
+-                    Duration_INMODE == 0.0;
++                    Duration_INMODE == 0[s64];
+                 guarantee MODE_INITIAL_HEALTH:
+                     not Regulator_Status;
+             compute
+@@ -161,11 +161,11 @@
+                     (Regulator_Mode == Isolette_Data_Model::Regulator_Mode::Failed_Regulator_Mode);
+                 guarantee REQ_MRM_4:
+                     (In(Previous_Regulator_Mode) == Isolette_Data_Model::Regulator_Mode::Init_Regulator_Mode and
+-                     In(Duration_INMODE) > 1.0) implies
++                     In(Duration_INMODE) > 1000[s64]) implies
+                     (Regulator_Mode == Isolette_Data_Model::Regulator_Mode::Failed_Regulator_Mode);
+                 guarantee INIT_PERSISTENCE:
+                     (In(Previous_Regulator_Mode) == Isolette_Data_Model::Regulator_Mode::Init_Regulator_Mode and
+-                     not Regulator_Status and In(Duration_INMODE) <= 1.0) implies
++                     not Regulator_Status and In(Duration_INMODE) <= 1000[s64]) implies
+                     (Regulator_Mode == Isolette_Data_Model::Regulator_Mode::Init_Regulator_Mode);
+                 guarantee NORMAL_PERSISTENCE:
+                     (In(Previous_Regulator_Mode) == Isolette_Data_Model::Regulator_Mode::Normal_Regulator_Mode and
+@@ -177,17 +177,17 @@
+                 guarantee MODE_HISTORY_COMMIT:
+                     Previous_Regulator_Mode == Regulator_Mode;
+                 guarantee CLOCK_NONNEGATIVE:
+-                    Duration_INMODE >= 0.0;
++                    Duration_INMODE >= 0[s64];
+                 guarantee CLOCK_ENTRY_RESET:
+                     (Regulator_Mode != In(Previous_Regulator_Mode)) implies
+-                    (Duration_INMODE == 0.0);
++                    (Duration_INMODE == 0[s64]);
+                 guarantee CLOCK_NONDECREASING_WITHIN_MODE:
+                     (Regulator_Mode == In(Previous_Regulator_Mode)) implies
+                     (Duration_INMODE >= In(Duration_INMODE));
+         }*/
+ 
+         requirement Mode_Clock_Integration {
+-            doc /* Duration_INMODE denotes elapsed residence time in seconds.
++            doc /* Duration_INMODE denotes sampled elapsed residence time in integer milliseconds. This candidate requires reviewed clock abstraction, progress and overflow handling; it does not establish physical-time equivalence.
+              * The executable reset and monotonicity predicates do not supply
+              * a clock or exclude frozen time. Integrate actual elapsed time
+              * at guard evaluation, with coherent pre-state snapshots and

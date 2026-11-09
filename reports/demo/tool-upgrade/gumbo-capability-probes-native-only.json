@@ -1,0 +1,39 @@
+{
+  "scope": "Pinned Sireum parser/type checker probes only; passing syntax does not prove clock progress, contracts, system properties or deadlines",
+  "model_calls": 0,
+  "whole_system_acceptance": false,
+  "checks": [
+    {
+      "name": "state_elapsed_integer",
+      "source": "package Capability {\n private import AADL::*;\n part def Worker :> Thread {\n  port elapsed_ms : DataPort { in :>> type : Base_Types::Integer_32; }\n  port expired : DataPort { out :>> type : Base_Types::Boolean; }\n  language \"GUMBO\" /*{\n   state remembered_ms: Base_Types::Integer_32;\n   initialize guarantee initial: remembered_ms == 0 [s32];\n   compute\n    guarantee timeout_condition: expired == (elapsed_ms > 1000 [s32]);\n    guarantee remember: remembered_ms == elapsed_ms;\n    guarantee old_value: In(remembered_ms) == In(remembered_ms);\n    \n  }*/\n }\n part def WorkerProcess :> Process { part worker : Worker; }\n part def Root :> System {\n  part process : WorkerProcess;\n  \n }\n}\n",
+      "run_id": "b36d09517ba24d21a5bbc54debc83256",
+      "status": "PASS",
+      "reason": "Type checker completed",
+      "stdout": "\n* file:///work/Capability.sysml\n  - [16, 37] Dispatch Protocol not specified for thread worker, assuming Sporadic\nWell-formed!\n",
+      "stderr": "",
+      "elapsed_seconds": 2.3273937159974594
+    },
+    {
+      "name": "native_until_syntax",
+      "source": "package Capability {\n private import AADL::*;\n part def Worker :> Thread {\n  port elapsed_ms : DataPort { in :>> type : Base_Types::Integer_32; }\n  port expired : DataPort { out :>> type : Base_Types::Boolean; }\n  language \"GUMBO\" /*{\n   state remembered_ms: Base_Types::Integer_32;\n   initialize guarantee initial: remembered_ms == 0 [s32];\n   compute\n    guarantee timeout_condition: expired == (elapsed_ms > 1000 [s32]);\n    guarantee remember: remembered_ms == elapsed_ms;\n    guarantee old_value: In(remembered_ms) == In(remembered_ms);\n    guarantee temporal: (not expired) until expired;\n  }*/\n }\n part def WorkerProcess :> Process { part worker : Worker; }\n part def Root :> System {\n  part process : WorkerProcess;\n  \n }\n}\n",
+      "run_id": "ca85520afcc142eeb8208d64dbb7acda",
+      "status": "FAIL",
+      "reason": "Checker process rejected the model",
+      "stdout": "\n",
+      "stderr": "* file:///work/Capability.sysml\n  - [13, 39] mismatched input 'until' expecting {'implies', 'or', 'xor', 'and', 'hastype', 'istype', 'as', '<', '>', '[', ')', ',', '@', '#', '**', '*', '..', '.', '->', '.?', '??', '|', '&', '==', '!=', '===', '!==', '<=', '>=', '+', '-', '/', '%', '^'}\n  - [14, 3] extraneous input '}*/' expecting {'dependency', 'comment', 'locale', 'doc', 'rep', 'language', 'library', 'metadata', 'abstract', 'ref', 'redefines', 'standard', 'package', 'alias', 'ordered', 'nonunique', 'defined', 'subsets', 'references', 'crosses', 'variation', 'variant', 'derived', 'constant', 'end', 'attribute', 'enum', 'occurrence', 'individual', 'event', 'then', 'item', 'part', 'port', 'binding', 'bind', 'succession', 'first', 'connection', 'connect', 'interface', 'allocation', 'allocate', 'flow', 'message', 'action', 'perform', 'in', 'state', 'exhibit', 'calc', 'constraint', 'assert', 'not', 'requirement', 'satisfy', 'concern', 'case', 'analysis', 'verification', 'use', 'include', 'view', 'rendering', 'viewpoint', 'public', 'private', 'protected', 'out', 'inout', 'snapshot', 'timeslice', '<', '}', '[', '@', '#', ':>>', ':>', ':', '::>', '=>', RULE_ID, RULE_UNRESTRICTED_NAME, RULE_REGULAR_COMMENT}\n",
+      "elapsed_seconds": 2.0347216830123216
+    },
+    {
+      "name": "documented_system_composition",
+      "source": "package Capability {\n private import AADL::*;\n part def Worker :> Thread {\n  port elapsed_ms : DataPort { in :>> type : Base_Types::Integer_32; }\n  port expired : DataPort { out :>> type : Base_Types::Boolean; }\n  language \"GUMBO\" /*{\n   state remembered_ms: Base_Types::Integer_32;\n   initialize guarantee initial: remembered_ms == 0 [s32];\n   compute\n    guarantee timeout_condition: expired == (elapsed_ms > 1000 [s32]);\n    guarantee remember: remembered_ms == elapsed_ms;\n    guarantee old_value: In(remembered_ms) == In(remembered_ms);\n    \n  }*/\n }\n part def WorkerProcess :> Process { part worker : Worker; }\n part def Root :> System {\n  part process : WorkerProcess;\n  language \"GUMBO\" /*{\n composition nominal {\n  components w = process.worker;\n  ports expired = w.expired;\n  schema { w }\n  property BooleanOutput { after w : expired or not expired; }\n }\n}*/\n }\n}\n",
+      "run_id": "0d071e469d8748de9a447a4a875557e2",
+      "status": "PASS",
+      "reason": "Type checker completed",
+      "stdout": "\n* file:///work/Capability.sysml\n  - [16, 37] Dispatch Protocol not specified for thread worker, assuming Sporadic\nWell-formed!\n",
+      "stderr": "",
+      "elapsed_seconds": 2.355509910004912
+    }
+  ],
+  "sireum": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/tools/sireum-4.20260810.80aad0c2/Sireum/bin/sireum",
+  "launcher_sha256": "29054e657216ba190d51c2beb29a77125886bd48a7a525200cdbf6e4bf1ff6b4"
+}

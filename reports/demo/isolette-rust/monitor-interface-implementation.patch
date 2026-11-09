@@ -1,0 +1,35 @@
+--- generated/thermostat_mt_mmi_mmi_app.rs
++++ implemented/thermostat_mt_mmi_mmi_app.rs
+@@ -28,6 +28,10 @@
+         // END MARKER INITIALIZATION ENSURES
+     {
+       log_info("initialize entrypoint invoked");
++      api.put_monitor_status(Isolette_Data_Model::Status::Init_Status);
++      api.put_interface_failure(Isolette_Data_Model::Failure_Flag_i { flag: false });
++      api.put_lower_alarm_temp(Isolette_Data_Model::Temp_i { degrees: 0 });
++      api.put_upper_alarm_temp(Isolette_Data_Model::Temp_i { degrees: 0 });
+     }
+ 
+     pub fn timeTriggered<API: thermostat_mt_mmi_mmi_Full_Api> (
+@@ -68,6 +72,21 @@
+         // END MARKER TIME TRIGGERED ENSURES
+     {
+       log_info("compute entrypoint invoked");
++      let lower = api.get_lower_alarm_tempWstatus();
++      let upper = api.get_upper_alarm_tempWstatus();
++      let mode = api.get_monitor_mode();
++      let status = match mode {
++        Isolette_Data_Model::Monitor_Mode::Init_Monitor_Mode => Isolette_Data_Model::Status::Init_Status,
++        Isolette_Data_Model::Monitor_Mode::Normal_Monitor_Mode => Isolette_Data_Model::Status::On_Status,
++        Isolette_Data_Model::Monitor_Mode::Failed_Monitor_Mode => Isolette_Data_Model::Status::Failed_Status,
++      };
++      let lower_valid = match lower.status { Isolette_Data_Model::ValueStatus::Valid => true, _ => false };
++      let upper_valid = match upper.status { Isolette_Data_Model::ValueStatus::Valid => true, _ => false };
++      let failure = !(lower_valid && upper_valid);
++      api.put_monitor_status(status);
++      api.put_interface_failure(Isolette_Data_Model::Failure_Flag_i { flag: failure });
++      api.put_lower_alarm_temp(Isolette_Data_Model::Temp_i { degrees: if failure { 0 } else { lower.degrees } });
++      api.put_upper_alarm_temp(Isolette_Data_Model::Temp_i { degrees: if failure { 0 } else { upper.degrees } });
+     }
+ 
+     pub fn notify(

@@ -1,0 +1,37 @@
+{
+  "predecessor_task_id": "2caee90e84590a7d676da76198e01f273629e824dc2eff06b4dcd50a4cd5ccb5",
+  "plan_id": "6004a757c4beecf5c8c5b86780ccc3fa03d136f2fd15f65b3fc395348e3359d1",
+  "validation_plan_id": "6004a757c4beecf5c8c5b86780ccc3fa03d136f2fd15f65b3fc395348e3359d1",
+  "profile_id": "isolette-migrated-reference.profile",
+  "target_file": "Regulate.sysml",
+  "shared_files": [
+    "Isolette_Data_Model.sysml",
+    "sysml-aadl-libraries_1/aadl.library/AADL.sysml",
+    "sysml-aadl-libraries_1/aadl.library/AADL_Project.sysml",
+    "sysml-aadl-libraries_1/aadl.library/Base_Types.sysml",
+    "sysml-aadl-libraries_1/aadl.library/Communication_Properties.sysml",
+    "sysml-aadl-libraries_1/aadl.library/Data_Model.sysml",
+    "sysml-aadl-libraries_1/aadl.library/Deployment_Properties.sysml",
+    "sysml-aadl-libraries_1/aadl.library/Memory_Properties.sysml",
+    "sysml-aadl-libraries_1/aadl.library/Programming_Properties.sysml",
+    "sysml-aadl-libraries_1/aadl.library/Thread_Properties.sysml",
+    "sysml-aadl-libraries_1/aadl.library/Timing_Properties.sysml",
+    "sysml-aadl-libraries_1/aadl.library/behavior_properties.sysml",
+    "sysml-aadl-libraries_1/hamr.aadl.library/CASE_Scheduling.sysml",
+    "sysml-aadl-libraries_1/hamr.aadl.library/HAMR.sysml",
+    "sysml-aadl-libraries_1/hamr.aadl.library/HAMR_AADL.sysml",
+    "sysml-aadl-libraries_1/hamr.aadl.library/HAMR_Microkit.sysml",
+    "sysml-aadl-libraries_1/hamr.aadl.library/HAMR_Time_Units.sysml"
+  ],
+  "prepared_requirements_id": "93dec850f20cbc1579d8205c8de7a2229642e4c0f422a9976bf6b68848fb5cd0",
+  "candidate_ids": [
+    "55b56ac69e27eb30663c6ce4a48017fe04cb737082988af77fe052c9287db2af",
+    "aef1109ba392d5ec716654a3776df0fc73716b26722be3d6574247fe33b6cb55",
+    "30d7ecfd80c45e7168fbc3d7cd6674efe8299051666da29ec5a4ade66223c82c"
+  ],
+  "revision_reason": "User requested a revised architecture/allocation-rule test and source-to-English gap audit; explicitly review reference-derived design supplement, preserve FAA behavior and repair history.",
+  "status": "REVIEW_ENGLISH_THEN_PREPARE_TASK",
+  "remaining_run_repairs": 2,
+  "scope": "Architecture reconstruction only; behavioral/reference conflicts remain separate blockers",
+  "id": "00a78074586cdc053123699bc2838db395acaef27af8a36daffb300122c11ffe"
+}

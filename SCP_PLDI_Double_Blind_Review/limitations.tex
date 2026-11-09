@@ -1,0 +1,9 @@
+\section{Limitations and Future Work}
+\label{sec:limitations}
+The reported handoffs demonstrate reuse in the observed engineering tasks. The matched SNG pair evaluates the supplied bundle, which includes SNG-specific lessons, at one model checkpoint. Repeated runs on held-out tasks with common inputs and budgets could estimate success and cost and separate the contributions of earlier-system and target-specific rules. We plan to measure host resource use and active review time and assess semantic forecasts against later checks.
+
+We plan to extend composition proofs to timing, buffering, and delivery, and add runtime checks for payload correspondence and complete stimulus cycles. Fault injection can exercise the F01 call-recording path. An independent signed-export replay on a frozen engineering case would extend the checkpoint's fixture-based verification tests.
+
+More precise analyzers and stronger proof automation could improve the diagnostics available to the repair loop and discharge additional obligations. We plan to evaluate upgraded tools on frozen artifacts and record their versions, premises, and outcomes before reviewing the affected scope again.
+
+We are investigating NASA's Formal Requirements Elicitation Tool (FRET) to let reviewers examine structured requirements and simulate their interpretation before generation~\cite{nasaFret}. We plan to verify approval and evidence-handling rules, including scope changes and revocation. The current workbench supports an engineer delegating tasks to agents on a trusted host. A multi-user web service would let engineers delegate scoped reviews and approvals to one another and retrieve the resulting evidence under authenticated roles.

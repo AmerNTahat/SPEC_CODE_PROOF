@@ -1,0 +1,102 @@
+This is BibTeX, Version 0.99d (TeX Live 2019/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+The style file: ACM-Reference-Format.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Database file #1: dasc2026.bib
+Database file #2: additional.bib
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=200001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Warning--page numbers missing in both pages and numpages fields in e28030332
+Warning--empty publisher in aggarwal2025alphaverus
+Warning--empty address in aggarwal2025alphaverus
+Warning--page numbers missing in both pages and numpages fields in behrang2025drfix
+Warning--page numbers missing in both pages and numpages fields in hamr-sel4
+Warning--articleno or eid field, but no numpages field, in cibrian2025sysml
+Warning--page numbers missing in both pages and numpages fields in cibrian2025sysml
+Warning--articleno or eid, but no pages or numpages field in cibrian2025sysml
+Warning--empty year in inspectaProject
+Warning--using n.d. in inspectaProject
+Warning--empty publisher in hallerstede2025logika
+Warning--empty address in hallerstede2025logika
+Warning--empty address in hardin2025dasc
+Warning--page numbers missing in both pages and numpages fields in hardin2025dasc
+Warning--empty publisher in hamr
+Warning--empty address in hamr
+Warning--page numbers missing in both pages and numpages fields in huang2026robotic
+Warning--empty year in intotoStatement
+Warning--using n.d. in intotoStatement
+Warning--empty publisher in kasibatla2026cobblestone
+Warning--empty address in kasibatla2026cobblestone
+Warning--page numbers missing in both pages and numpages fields in kasibatla2026cobblestone
+Warning--empty publisher in kim2022bayesmith
+Warning--empty address in kim2022bayesmith
+Warning--page numbers missing in both pages and numpages fields in lee2026expecto
+Warning--empty address in lempia2009faa
+Warning--empty year in nasaFret
+Warning--using n.d. in nasaFret
+Warning--empty publisher in rondon2025passerine
+Warning--empty address in rondon2025passerine
+Warning--empty year in dsse
+Warning--using n.d. in dsse
+Warning--empty year in hamrGumboxRust
+Warning--using n.d. in hamrGumboxRust
+Warning--empty address in sun2024clover
+Warning--empty publisher in agreedog_tahat2025
+Warning--empty address in agreedog_tahat2025
+Warning--page numbers missing in both pages and numpages fields in agreedog_tahat2025
+Warning--empty publisher in tahat2026scp
+Warning--empty address in tahat2026scp
+Warning--page numbers missing in both pages and numpages fields in tahat2026scp
+Warning--empty year in verusGuide
+Warning--using n.d. in verusGuide
+Warning--empty publisher in vonoswald2023transformers
+Warning--empty address in vonoswald2023transformers
+You've used 52 entries,
+            6335 wiz_defined-function locations,
+            1845 strings with 31920 characters,
+and the built_in function-call counts, 55383 in all, are:
+= -- 6290
+> -- 2621
+< -- 1
++ -- 907
+- -- 928
+* -- 4487
+:= -- 6056
+add.period$ -- 267
+call.type$ -- 52
+change.case$ -- 483
+chr.to.int$ -- 46
+cite$ -- 97
+duplicate$ -- 4410
+empty$ -- 3209
+format.name$ -- 1063
+if$ -- 12653
+int.to.chr$ -- 8
+int.to.str$ -- 1
+missing$ -- 95
+newline$ -- 574
+num.names$ -- 360
+pop$ -- 1885
+preamble$ -- 1
+purify$ -- 843
+quote$ -- 0
+skip$ -- 1602
+stack$ -- 0
+substring$ -- 3338
+swap$ -- 313
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 1369
+warning$ -- 45
+while$ -- 274
+width$ -- 0
+write$ -- 1104
+(There were 45 warnings)

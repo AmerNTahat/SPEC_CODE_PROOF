@@ -1,0 +1,385 @@
+{
+  "schema_version": 1,
+  "source": {
+    "kind": "Aggregate counts supplied by the authors from a local per-file classification audit",
+    "date": "2026-11-09",
+    "per_file_csv": "source-role-files.csv",
+    "per_file_csv_in_package": false
+  },
+  "scope": "Nonblank physical lines after removing ordinary comments. Each counted file is classified once by its primary purpose. The entire file is counted. Shared SysML libraries and C/header support are tabulated separately in the local audit. These counts are neither proof coverage nor counts of executed tests.",
+  "sysml_v2_gumbo": [
+    {
+      "snapshot": "Isolette successful Rust/Microkit build",
+      "source_lines": 936,
+      "files": 8
+    },
+    {
+      "snapshot": "Producer/Consumer Rust/Microkit resumption",
+      "source_lines": 73,
+      "files": 1
+    },
+    {
+      "snapshot": "Producer/Consumer paired K+ JVM generation",
+      "source_lines": 73,
+      "files": 1
+    },
+    {
+      "snapshot": "SNG model shared by both backends",
+      "source_lines": 202,
+      "files": 5
+    },
+    {
+      "snapshot": "Isolette current retained model",
+      "source_lines": 846,
+      "files": 8
+    }
+  ],
+  "rust_verus": {
+    "columns": [
+      "isolette_rust",
+      "pc_rust_resumption",
+      "sng_rust_jvm"
+    ],
+    "rows": [
+      {
+        "role": "Component implementation and embedded contracts",
+        "counts": [
+          {
+            "source_lines": 833,
+            "files": 11
+          },
+          {
+            "source_lines": 106,
+            "files": 2
+          },
+          {
+            "source_lines": 291,
+            "files": 2
+          }
+        ]
+      },
+      {
+        "role": "Runtime sender/receiver components",
+        "counts": [
+          {
+            "source_lines": 0,
+            "files": 0
+          },
+          {
+            "source_lines": 0,
+            "files": 0
+          },
+          {
+            "source_lines": 133,
+            "files": 2
+          }
+        ]
+      },
+      {
+        "role": "Port APIs and foreign-interface code",
+        "counts": [
+          {
+            "source_lines": 2683,
+            "files": 22
+          },
+          {
+            "source_lines": 197,
+            "files": 4
+          },
+          {
+            "source_lines": 478,
+            "files": 8
+          }
+        ]
+      },
+      {
+        "role": "Module, logging, and runtime support",
+        "counts": [
+          {
+            "source_lines": 1067,
+            "files": 44
+          },
+          {
+            "source_lines": 194,
+            "files": 8
+          },
+          {
+            "source_lines": 386,
+            "files": 16
+          }
+        ]
+      },
+      {
+        "role": "Executable contract checkers",
+        "counts": [
+          {
+            "source_lines": 1682,
+            "files": 11
+          },
+          {
+            "source_lines": 120,
+            "files": 2
+          },
+          {
+            "source_lines": 454,
+            "files": 2
+          }
+        ]
+      },
+      {
+        "role": "Data types and supporting definitions",
+        "counts": [
+          {
+            "source_lines": 188,
+            "files": 15
+          },
+          {
+            "source_lines": 35,
+            "files": 5
+          },
+          {
+            "source_lines": 53,
+            "files": 6
+          }
+        ]
+      },
+      {
+        "role": "Dedicated tests and test support",
+        "counts": [
+          {
+            "source_lines": 4974,
+            "files": 66
+          },
+          {
+            "source_lines": 537,
+            "files": 12
+          },
+          {
+            "source_lines": 944,
+            "files": 22
+          }
+        ]
+      },
+      {
+        "role": "Total",
+        "counts": [
+          {
+            "source_lines": 11427,
+            "files": 169
+          },
+          {
+            "source_lines": 1189,
+            "files": 33
+          },
+          {
+            "source_lines": 2739,
+            "files": 58
+          }
+        ]
+      }
+    ]
+  },
+  "slang_scala": {
+    "columns": [
+      "isolette_retained_model_and_scala",
+      "pc_paired_kplus_jvm",
+      "sng_rust_jvm"
+    ],
+    "rows": [
+      {
+        "role": "Component entrypoints and embedded contracts",
+        "counts": [
+          {
+            "source_lines": 777,
+            "files": 15
+          },
+          {
+            "source_lines": 37,
+            "files": 2
+          },
+          {
+            "source_lines": 92,
+            "files": 2
+          }
+        ]
+      },
+      {
+        "role": "Environment simulation, runtime observation, and monitoring",
+        "counts": [
+          {
+            "source_lines": 2741,
+            "files": 35
+          },
+          {
+            "source_lines": 0,
+            "files": 0
+          },
+          {
+            "source_lines": 53,
+            "files": 2
+          }
+        ]
+      },
+      {
+        "role": "Architecture, port APIs, and bridges",
+        "counts": [
+          {
+            "source_lines": 2775,
+            "files": 27
+          },
+          {
+            "source_lines": 502,
+            "files": 9
+          },
+          {
+            "source_lines": 826,
+            "files": 13
+          }
+        ]
+      },
+      {
+        "role": "Contract checkers and state containers",
+        "counts": [
+          {
+            "source_lines": 1107,
+            "files": 20
+          },
+          {
+            "source_lines": 103,
+            "files": 5
+          },
+          {
+            "source_lines": 205,
+            "files": 5
+          }
+        ]
+      },
+      {
+        "role": "Serialization and data utilities",
+        "counts": [
+          {
+            "source_lines": 7806,
+            "files": 16
+          },
+          {
+            "source_lines": 2458,
+            "files": 5
+          },
+          {
+            "source_lines": 2589,
+            "files": 6
+          }
+        ]
+      },
+      {
+        "role": "Test cases, harnesses, and support",
+        "counts": [
+          {
+            "source_lines": 5394,
+            "files": 106
+          },
+          {
+            "source_lines": 864,
+            "files": 20
+          },
+          {
+            "source_lines": 986,
+            "files": 26
+          }
+        ]
+      },
+      {
+        "role": "Test-data generators",
+        "counts": [
+          {
+            "source_lines": 8777,
+            "files": 15
+          },
+          {
+            "source_lines": 3522,
+            "files": 6
+          },
+          {
+            "source_lines": 3645,
+            "files": 6
+          }
+        ]
+      },
+      {
+        "role": "Bundled ART runtime library",
+        "counts": [
+          {
+            "source_lines": 1796,
+            "files": 28
+          },
+          {
+            "source_lines": 1796,
+            "files": 28
+          },
+          {
+            "source_lines": 1796,
+            "files": 28
+          }
+        ]
+      },
+      {
+        "role": "Total",
+        "counts": [
+          {
+            "source_lines": 31173,
+            "files": 262
+          },
+          {
+            "source_lines": 9282,
+            "files": 75
+          },
+          {
+            "source_lines": 10192,
+            "files": 88
+          }
+        ]
+      }
+    ]
+  },
+  "selected_outputs": {
+    "isolette_rust": {
+      "source_lines": 12363,
+      "files": 177
+    },
+    "pc_rust_resumption": {
+      "source_lines": 1262,
+      "files": 34
+    },
+    "sng_rust_jvm": {
+      "source_lines": 13133,
+      "files": 151
+    },
+    "pc_paired_kplus_jvm": {
+      "source_lines": 9355,
+      "files": 76
+    },
+    "isolette_retained_model_and_scala": {
+      "source_lines": 32019,
+      "files": 270
+    }
+  },
+  "sum_of_three_build_inventories": {
+    "source_lines": 26758,
+    "files": 362
+  },
+  "sng_test_role_share": {
+    "tests_harnesses_and_test_support": {
+      "source_lines": 1930,
+      "files": 48
+    },
+    "test_data_generators": {
+      "source_lines": 3645,
+      "files": 6
+    },
+    "total": {
+      "source_lines": 5575,
+      "files": 54
+    },
+    "percent_of_sng_source_lines": 42.5
+  }
+}

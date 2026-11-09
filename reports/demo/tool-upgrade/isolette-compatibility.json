@@ -1,0 +1,75 @@
+{
+  "tool": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/tools/sireum-4.20260810.80aad0c2/Sireum/bin/sireum",
+  "scope": "Read-only compatibility checks of historical generated and reference files under a new tool identity; no model repair, source promotion or behavioral acceptance",
+  "checks": [
+    {
+      "label": "fresh_generated",
+      "run_id": "6a664100e69f4e2f89bbc70979fcf419",
+      "state": "CHECKED",
+      "result": {
+        "engineering_accepted": false,
+        "formally_verified_units": 0,
+        "gates": [
+          {
+            "evidence": {
+              "path": "objects/2f60048fc4f4366ee26fb7ff699ef732341810683ea481703e09e8f8693ba846.json",
+              "sha256": "2f60048fc4f4366ee26fb7ff699ef732341810683ea481703e09e8f8693ba846"
+            },
+            "gate": "parse_type",
+            "reason": "Type checker completed",
+            "status": "PASS"
+          },
+          {
+            "evidence": {
+              "path": "objects/2b2d568b8a5a0eff6458b108fb8d09876216b7ca4811969b578a62e4b6ca09fb.json",
+              "sha256": "2b2d568b8a5a0eff6458b108fb8d09876216b7ca4811969b578a62e4b6ca09fb"
+            },
+            "gate": "architecture_capture",
+            "reason": "Instantiated AIR and resolved declarations captured; no conformance claim",
+            "snapshot_id": "c3cdb936cd2b95350d5292715af4a51fdc6e7aded28080c937bbbfb83da81d06",
+            "status": "PASS"
+          }
+        ],
+        "model_calls": 0,
+        "project_status": "NOT_ASSESSED",
+        "scope": "Selected checks only; no application or live-demo completion claim",
+        "task_status": "CHECKED"
+      }
+    },
+    {
+      "label": "approved_reference",
+      "run_id": "938be78d12d840e494ec84e18974afe6",
+      "state": "CHECKED",
+      "result": {
+        "engineering_accepted": false,
+        "formally_verified_units": 0,
+        "gates": [
+          {
+            "evidence": {
+              "path": "objects/bf6428c98a7575412fc07aeea7b2ee0c79abdecb97b36c1bc0fe8e166547a64d.json",
+              "sha256": "bf6428c98a7575412fc07aeea7b2ee0c79abdecb97b36c1bc0fe8e166547a64d"
+            },
+            "gate": "parse_type",
+            "reason": "Type checker completed",
+            "status": "PASS"
+          },
+          {
+            "evidence": {
+              "path": "objects/2ba71004e1ccc8b728ef8c257a08af8a5eb6212091bb0638caf176daad628c1e.json",
+              "sha256": "2ba71004e1ccc8b728ef8c257a08af8a5eb6212091bb0638caf176daad628c1e"
+            },
+            "gate": "architecture_capture",
+            "reason": "Instantiated AIR and resolved declarations captured; no conformance claim",
+            "snapshot_id": "e2e87ff5935009bcdf0ca6e85b99fa6edd51497d130d9da0da60da57c7a75b96",
+            "status": "PASS"
+          }
+        ],
+        "model_calls": 0,
+        "project_status": "NOT_ASSESSED",
+        "scope": "Selected checks only; no application or live-demo completion claim",
+        "task_status": "CHECKED"
+      }
+    }
+  ],
+  "model_calls": 0
+}

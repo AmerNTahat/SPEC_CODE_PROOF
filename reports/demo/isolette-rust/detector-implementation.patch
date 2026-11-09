@@ -1,0 +1,18 @@
+--- generated/thermostat_rt_detect_regulator_failure_implementation_app.rs
++++ repaired/thermostat_rt_detect_regulator_failure_implementation_app.rs
+@@ -32,6 +32,7 @@
+         // END MARKER INITIALIZATION ENSURES
+     {
+       log_info("initialize entrypoint invoked");
++      api.put_Regulator_Internal_Failure(Isolette_Data_Model::Failure_Flag_i { flag: self.Internal_Failure_Detected });
+     }
+ 
+     pub fn timeTriggered<API: thermostat_rt_detect_regulator_failure_implementation_Full_Api> (
+@@ -46,6 +47,7 @@
+         // END MARKER TIME TRIGGERED ENSURES
+     {
+       log_info("compute entrypoint invoked");
++      api.put_Regulator_Internal_Failure(Isolette_Data_Model::Failure_Flag_i { flag: self.Internal_Failure_Detected });
+     }
+ 
+     pub fn notify(

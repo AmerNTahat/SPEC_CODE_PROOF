@@ -1,0 +1,159 @@
+{
+  "candidate": {
+    "record": {
+      "$schema": "../schemas/knowledge.schema.json",
+      "schema_version": "2.0",
+      "record_type": "rule",
+      "id": "STRUCT-APPROVED-DEPLOYMENT-001",
+      "revision": "draft-1",
+      "state": "DRAFT",
+      "basis": "mixed",
+      "assessment_timing": "after_feedback",
+      "source_references": [
+        "d7ef18732a5def5da9422e3e47db924dd4ae4c9b806fcc86f11c932b377db935"
+      ],
+      "source_artifact_hashes": [
+        "43664d0fe5904aed949d4c12e824c905d7bc1b4e89efa0409038c1b6f52ff605"
+      ],
+      "source_episode": "Approved Monitor training and user-directed Isolette structural diagnosis2026-09-23",
+      "available_context_manifest": null,
+      "model_configuration": null,
+      "prompt_version": "session-structural-curation-v1",
+      "trigger": "Generation or repair must preserve an explicitly approved System/Process/Thread deployment abstraction.",
+      "principle": "Recover the deployment abstraction from the approved training example during data preparation; state it explicitly in the reviewed English design profile. Preserve that abstraction during generation and verify it on resolved AIR. A functional list does not by itself specify Process/Thread grouping.",
+      "semantic_choice": "For the approved Isolette profile, allocate one Thread to each Process and preserve directed wrapper forwarding. Multiple Threads per Process remain legal under other explicitly approved profiles.",
+      "structural_placement": "Place behavioral GUMBO contracts on their owning Thread as in the Monitor example. Show System/Process/Thread declaration order separately as a style observation; do not confuse source order with graph equivalence.",
+      "repair_gate": "Check System/Process/Thread counts, direct containment, exact typed directed graph mapping, wrapper ports and forwarding, GUMBO ownership, and English assume/guarantee allocation. A matching shape does not discharge behavior, timing or implementation proofs.",
+      "prerequisites": [
+        "Exact approved training split",
+        "Reviewed deployment profile and behavioral English",
+        "Successful Sireum parse and AIR capture"
+      ],
+      "exclusions": [
+        "Untouched final evaluation models as training sources",
+        "Applying one Thread per Process globally without profile approval",
+        "Copying omissions or defects from the example into behavioral requirements"
+      ],
+      "parameters": [
+        {
+          "name": "deployment_profile",
+          "role": "Approved containment and execution abstraction",
+          "constraints": "For Isolette one Thread per Process; explicitly review other groupings."
+        },
+        {
+          "name": "contract_owner",
+          "role": "Thread that owns the required effect",
+          "constraints": "Trace from English assumptions/guarantees; do not infer completeness from existing contracts."
+        }
+      ],
+      "dependencies": [],
+      "target_compatibility": [
+        "Selected KSU HAMR SysML/AADL profile with resolved Component AIR"
+      ],
+      "preserved_obligations": [
+        "All approved English behavioral requirements",
+        "Port direction and payload types",
+        "Directed flows and ownership",
+        "Timing obligations remain independently open"
+      ],
+      "counterexample": {
+        "scenario": "Four functions are placed as four Threads directly inside one Process while the approved design uses four single-Thread Processes inside one System.",
+        "expected_difference": "Both have four Threads but containment, wrapper ports and directed forwarding differ. Reject under this profile; do not reject a separately approved four-Thread Process design.",
+        "source_or_test_reference": "reports/demo/ISOLETTE_STRUCTURAL_PROFILE_BEFORE.json"
+      },
+      "validation_gate_ids": [
+        "parse_type",
+        "architecture_capture",
+        "directed_graph",
+        "english_requirement_allocation"
+      ],
+      "evidence_references": [
+        "reports/demo/ISOLETTE_STRUCTURAL_PROFILE_BEFORE.json",
+        "workbench/tests/test_structural_patterns.py"
+      ],
+      "confidence_forecast_reference": null,
+      "approval_reference": null,
+      "notes": "Session-assistant proposal from the already approved original Monitor source plus explicit human design direction. The Regulator comparison is supervised development diagnosis, not independent evaluation or rule-release evidence. No new paid extraction call. No confidence value invented.",
+      "source_english_patterns": [
+        "one Thread per Process",
+        "preserve the approved System/Process/Thread hierarchy"
+      ],
+      "positive_paraphrases": [
+        "each Process owns one corresponding Thread"
+      ],
+      "misleading_near_matches": [
+        "four functions imply four Threads in one Process"
+      ],
+      "supported_operations": [
+        "complete-system",
+        "repair-system",
+        "create-system"
+      ],
+      "stack_layers": [
+        "language",
+        "architecture",
+        "gumbo",
+        "testing",
+        "deployment",
+        "repair"
+      ],
+      "semantic_roles": {
+        "actor": "approved behavioral Thread",
+        "condition": "selected deployment profile",
+        "effect": "preserved containment and directed interface flows",
+        "modality": "approved design constraint",
+        "quantification": "every Process within selected root",
+        "temporal_scope": "static allocation; timing checked separately",
+        "state_dependency": "preserve state ownership from English",
+        "units_and_boundaries": "one direct Thread per Process for this profile"
+      },
+      "formal_output_pattern": "System -> Process(role) -> Thread(role); inputs forwarded inward, outputs outward. GUMBO assumptions/guarantees remain owned by responsible Thread. Source order is advisory.",
+      "formal_pattern_status": "ABSTRACT_NOT_VALIDATED",
+      "allowed_edit_scope": [
+        "approved generated target and its authorized wrappers"
+      ],
+      "required_baseline": [
+        "reviewed English and deployment profile",
+        "source-linked training example"
+      ],
+      "diagnostic_signature": null,
+      "related_rule_ids": [
+        "whole-system-role-and-flow-preservation",
+        "REQ-ALLOC-001",
+        "RA-001"
+      ]
+    },
+    "status": "DRAFT_PENDING_VALIDATION",
+    "id": "e04ea67870760178d85966be5f831328ec284dc333ff5e6aa800f871e52509f6"
+  },
+  "provenance": {
+    "plan_id": "6004a757c4beecf5c8c5b86780ccc3fa03d136f2fd15f65b3fc395348e3359d1",
+    "candidate_id": "e04ea67870760178d85966be5f831328ec284dc333ff5e6aa800f871e52509f6",
+    "status": "DRAFT_PENDING_DEVELOPMENT_VALIDATION",
+    "focus": "system_architecture",
+    "batch_index": 0,
+    "batch_count": 1,
+    "extraction_method": "session_assistant_curation_of_approved_Monitor_training",
+    "model_calls": 0,
+    "source_ids": [
+      "d7ef18732a5def5da9422e3e47db924dd4ae4c9b806fcc86f11c932b377db935"
+    ],
+    "scope": "Human-guided structural specialization; not independently validated or published",
+    "id": "7a16a2c91ca96d62a7dcc28c14343f960ecfa0abbb36698adbfdd3a6e99964ce"
+  },
+  "book": {
+    "snapshot_id": "147f7cc22a775b4e545bc5a0be09fc921943710ec83342b108964e5ae53b022c",
+    "directory": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/app/learned-rulebooks/147f7cc22a775b4e545bc5a0be09fc921943710ec83342b108964e5ae53b022c",
+    "candidate_count": 21,
+    "state": "DRAFT_NOT_PUBLISHED",
+    "files": [
+      "rulebook.json",
+      "RULEBOOK.md"
+    ],
+    "content_hashes": {
+      "rulebook.json": "9e3524ef154c12b8a9cd85c0aa93abf83dfef845e76b8471d5078f536d1890dc",
+      "RULEBOOK.md": "0e1626da7760138e0716914676314b13f1cb985325963732d045cdc2c3ce5e7e"
+    },
+    "id": "6fc2a7d7ad468e1e6fa9335fc4fd03455926cefa5e3cdb4536590b83e627f573"
+  }
+}

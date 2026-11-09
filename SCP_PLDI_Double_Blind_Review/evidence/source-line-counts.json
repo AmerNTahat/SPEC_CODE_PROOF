@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "source": {
+    "kind": "Summary transcribed from the authors' local source audit",
+    "date": "2026-11-08",
+    "local_report": "Source_Line_Counts_2026-11-08.odt",
+    "local_tables": [
+      "summary.csv",
+      "per-file-counts.csv"
+    ]
+  },
+  "counting_method": {
+    "unit": "Nonblank physical source lines after removal of ordinary comments",
+    "included": [
+      "contracts",
+      "proofs",
+      "generated code",
+      "tests",
+      "bundled support in the listed languages"
+    ],
+    "separate_in_local_audit": [
+      "shared SysML libraries",
+      "C/header support"
+    ],
+    "unreported_count": null,
+    "sng_model": "Counted once across the two backends",
+    "build_total_scope": "Sum of the three successful-build rows across the reported languages"
+  },
+  "rows": [
+    {
+      "id": "isolette_rust",
+      "case": "Isolette",
+      "output": "Rust/Microkit build",
+      "group": "successful_build",
+      "sysml_v2_gumbo": 936,
+      "rust_verus": 11427,
+      "slang_scala": null,
+      "total": 12363
+    },
+    {
+      "id": "pc_rust_resumption",
+      "case": "Producer/Consumer",
+      "output": "Rust/Microkit resumption build",
+      "group": "successful_build",
+      "sysml_v2_gumbo": 73,
+      "rust_verus": 1189,
+      "slang_scala": null,
+      "total": 1262
+    },
+    {
+      "id": "sng_rust_jvm",
+      "case": "SNG",
+      "output": "Rust/Microkit and JVM build",
+      "group": "successful_build",
+      "sysml_v2_gumbo": 202,
+      "rust_verus": 2739,
+      "slang_scala": 10192,
+      "total": 13133
+    },
+    {
+      "id": "pc_guided_jvm",
+      "case": "Producer/Consumer",
+      "output": "Guided model checks and successful Slang/JVM generation",
+      "group": "additional_inventory",
+      "sysml_v2_gumbo": 73,
+      "rust_verus": null,
+      "slang_scala": 9282,
+      "total": 9355
+    },
+    {
+      "id": "isolette_scala_retained",
+      "case": "Isolette",
+      "output": "Retained Slang/Scala project",
+      "group": "additional_inventory",
+      "sysml_v2_gumbo": null,
+      "rust_verus": null,
+      "slang_scala": 31173,
+      "total": 31173
+    }
+  ],
+  "successful_build_total": {
+    "sysml_v2_gumbo": 1211,
+    "rust_verus": 15355,
+    "slang_scala": 10192,
+    "total": 26758
+  }
+}

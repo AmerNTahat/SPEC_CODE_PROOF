@@ -1,0 +1,11 @@
+--- a/Regulate.sysml
++++ b/Regulate.sysml
+@@ -151,7 +151,7 @@
+                      Current_Temperature.status == Isolette_Data_Model::ValueStatus::Valid);
+                 guarantee REQ_MRM_2:
+                     (In(Previous_Regulator_Mode) == Isolette_Data_Model::Regulator_Mode::Init_Regulator_Mode and
+-                     Regulator_Status) implies
++                     Regulator_Status and In(Duration_INMODE) <= 1.0) implies
+                     (Regulator_Mode == Isolette_Data_Model::Regulator_Mode::Normal_Regulator_Mode);
+                 guarantee REQ_MRM_3:
+                     (In(Previous_Regulator_Mode) == Isolette_Data_Model::Regulator_Mode::Normal_Regulator_Mode and

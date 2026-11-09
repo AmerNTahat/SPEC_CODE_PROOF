@@ -1,0 +1,13 @@
+--- before/Regulate.sysml
++++ human-approved/Regulate.sysml
+@@ -232,6 +232,10 @@
+                 guarantee INITIAL_HEAT_HISTORY:
+                     Previous_Heat_Control == Isolette_Data_Model::On_Off::Off;
+             compute
++                // Human-approved golden-defect repair: FAA EA-OI-6 ordering rationale.
++                // Strict ordering is a local premise; producer/system discharge remains open.
++                assume ORDERED_DESIRED_BOUNDS:
++                    Lower_Desired_Temp.degrees < Upper_Desired_Temp.degrees;
+                 guarantee REQ_MHS_1:
+                     (Regulator_Mode == Isolette_Data_Model::Regulator_Mode::Init_Regulator_Mode) implies
+                     (Heat_Control == Isolette_Data_Model::On_Off::Off);

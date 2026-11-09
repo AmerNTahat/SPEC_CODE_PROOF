@@ -1,0 +1,80 @@
+{
+  "status": "HUMAN_REVIEW_REQUIRED",
+  "scope": "Human-facing source/contract gap audit, not proof of completeness or behavioral equivalence",
+  "prior_task_id": "2caee90e84590a7d676da76198e01f273629e824dc2eff06b4dcd50a4cd5ccb5",
+  "reference": ".scp-workbench/app/runs/670db1da04a7439190a1dc0f9993f8e2/candidate/Regulate.sysml",
+  "generated": ".scp-workbench/app/runs/d7a507adaad2482287b7091587274f3b/candidate/Regulate.sysml",
+  "reference_sha256": "dd7de904aed4a1e57638f0f947f527d384129d130acbe7376199a111754e7bdb",
+  "generated_sha256": "20e6a52f36f22e73e574de742262a816f360b17d3207a3c03bc94cc26cc07299",
+  "original_english_sha256": "ff9acace7c663b4507d0d16a60aa2d2e3dd89c215179ac32c24326e13b628184",
+  "findings": [
+    {
+      "gap": "Regulator category and wrappers",
+      "english_status": "NOT_SPECIFIED_AS_AADL_DESIGN",
+      "english_evidence": "A.5.1 allocates four subfunctions; it does not say System -> four Process wrappers -> one Thread each.",
+      "reference": "Regulate_Temperature_i is a System with four Process children, each with one Thread.",
+      "generated": "Regulate_Temperature_i is one Process directly containing the four Threads.",
+      "consequence": "Exactly one fewer System and three fewer Processes in the enclosing Sensor root, while thread count stays equal.",
+      "classification": "Underspecified reconstruction input; not evidence of a missing functional requirement."
+    },
+    {
+      "gap": "Nineteen wrapper ports and forwarding connections",
+      "english_status": "FUNCTIONAL_FLOW_PRESENT_WRAPPER_LEVEL_ABSENT",
+      "english_evidence": "Figure A-3 and A.5.1.1\u20134 describe role-to-role data flow, not the additional wrapper layer.",
+      "reference": "Process wrappers have9+4+5+1=19 ports and19 forwarding connections.",
+      "generated": "Direct Threads retain the functional paths without this layer.",
+      "consequence": "Accounts for139 vs120 ports and114 vs95 declared connections in the Sensor root.",
+      "classification": "Same architectural input gap; connectivity/type checks still required."
+    },
+    {
+      "gap": "Periodic1000ms and domains3/4/5/6",
+      "english_status": "NOT_SPECIFIED",
+      "english_evidence": "English gives end-to-end response <0.5s and heat response <6s, not these deployment values.",
+      "reference": "Four periodic threads,1000ms; domains3,4,5,6 on owning processes and threads.",
+      "generated": "No declared dispatch/period/domain; explicit unresolved deployment note.",
+      "classification": "Reference design decisions absent from English.1000ms periodic sampling may conflict with <0.5s response; do not silently treat reference as requirement authority."
+    },
+    {
+      "gap": "Display rounding and accuracy",
+      "english_status": "PRESENT",
+      "english_evidence": "REQ-MRI-4 and Display Temperature latency/tolerance require nearest integer and physical accuracy\u00b10.6\u00b0F.",
+      "reference": "No REQ_MRI_4 executable contract in this reference.",
+      "generated": "REQ_MRI_4 copies the shared Integer_32 degrees value and explicitly leaves physical reconstruction/rounding unresolved.",
+      "classification": "Partial representation/integration gap, not a missing English requirement; no proof of physical fidelity."
+    },
+    {
+      "gap": "Heat command retention",
+      "english_status": "PRESENT",
+      "english_evidence": "REQ-MHS-4: retain Heat Control between inclusive bounds.",
+      "reference": "No REQ_MHS_4 contract in the reference.",
+      "generated": "REQ_MHS_4 plus Previous_Heat_Control initialization and commit are present.",
+      "classification": "Generated contract covers a clause missing from the reference contract set; behavioral correctness still needs proof/tests."
+    },
+    {
+      "gap": "Init timeout and elapsed-time progress",
+      "english_status": "PRESENT",
+      "english_evidence": "Table A-9 and Figure A-4 define1.0s regulator initialization timeout.",
+      "reference": "Fails immediately on unhealthy INIT; no elapsed-time state, and lastRegulatorMode lifecycle is incomplete.",
+      "generated": "Contains REQ_MRM_4 and clock constraints, but admits a frozen clock and lacks actual time acquisition.",
+      "classification": "Partial formalization/implementation gap; generated text acknowledges missing progress. Healthy INIT plus expired timeout also needs guard-overlap review."
+    },
+    {
+      "gap": "Response latency and implementation",
+      "english_status": "PRESENT",
+      "english_evidence": "Operator-visible response<0.5s; heat-source response<6s.",
+      "reference": "Periodic1000ms declarations do not establish these end-to-end bounds.",
+      "generated": "Requirements are retained as prose obligations; no scheduling/implementation/runtime evidence discharges them.",
+      "classification": "Known unmet validation obligations, not absence of English."
+    },
+    {
+      "gap": "Failure detection criteria",
+      "english_status": "EXPLICITLY_PLATFORM_DEPENDENT",
+      "english_evidence": "A.5.1.4 says detailed requirements cannot be specified until an implementation platform is chosen.",
+      "reference": "Failure output Thread has no detection behavior.",
+      "generated": "Implication from an internal-detection predicate; predicate updates/coverage remain open.",
+      "classification": "Source intentionally leaves design work; do not invent diagnostic behavior or claim complete implementation."
+    }
+  ],
+  "root_cause": "Reconstruction demanded unstated deployment structure while only a local behavior rule was selected. This is an input/specification and rule-selection mismatch, not just renaming. Intentional deferral of unsupported scheduling is visible in the generated source; the agent internal cause cannot be proven.",
+  "all_english_requirements_satisfied": false
+}

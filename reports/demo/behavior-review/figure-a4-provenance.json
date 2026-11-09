@@ -1,0 +1,17 @@
+{
+  "source_pdf": "isolette/sysml/Steve_Miller_FAA_docAR-08-32.pdf",
+  "source_sha256": "b4949561cb04d46f718a16e2cc1486c0bd5a26c15778e3567c464466c24731df",
+  "pdf_page_1_based": 109,
+  "printed_page": "A-18",
+  "figure": "A-4",
+  "image_sha256": "644851a2dcb20fd43f95e9ed34199a5858d56f71ca7404eeca7238c4b7f57651",
+  "image_origin": "pdftoppm rendered PDF page, visually inspected; not generated illustration",
+  "transcription_status": "PENDING_REVIEW",
+  "prepared_revision_id": "c29f7775771a56e2ac7bea245d9d05877407624b21f856051f90e015e609244a",
+  "context_line_range": [
+    4579,
+    4722
+  ],
+  "paid_model_calls": 0,
+  "acceptance": false
+}

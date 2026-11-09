@@ -1,0 +1,211 @@
+{
+  "schema_version": 1,
+  "audit_date": "2026-11-08",
+  "source_audit_sha256": "414ff2a414dc7e02c3cc047d91e0565a57e64c4e5fbc1ea4a283afd40b585054",
+  "method": "Read-only metadata extraction from three explicitly named SNG2 supporting-agent sessions. Use one final cumulative snapshot at or before final bounded observation end per session; do not sum snapshots. First snapshot equals first call usage. All distinct counter increases equal that event's last-call usage. Cached tokens are part of input; reasoning tokens part of output. Work starts before the measured paired experiment. Not exhaustive project overhead. No prompts, account limits, or credentials copied. Calls spanning the cutoff may be omitted.",
+  "cutoff_utc": "2026-11-06T10:20:59.935633Z",
+  "selected_session_totals": {
+    "input_tokens": 131126542,
+    "cached_input_tokens": 129839872,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 479187,
+    "reasoning_output_tokens": 137081,
+    "total_tokens": 131605729
+  },
+  "limitations": [
+    "Counter snapshots do not identify active human work or monetary charges.",
+    "Sessions may include tasks beyond the timed experiment within the selected period.",
+    "No attempt to divide shared historical/main coordinating-thread usage among cases.",
+    "Calls spanning cutoff may be omitted; elapsed session spans overlap and are not summed."
+  ],
+  "sessions": [
+    {
+      "role": "sng2_proof_worker",
+      "session_created_utc": "2026-11-06T07:09:09.117Z",
+      "cli_version": "0.167.0",
+      "cutoff_utc": "2026-11-06T10:20:59.935633Z",
+      "prefix_sha256": "15fd84bb2632620312cd3267c60a04bb15e7bc75200e8d6e1b8fbb2c479b21ff",
+      "prefix_line_count": 2403,
+      "requested_model_effort": [
+        [
+          "gpt-6-astra",
+          "ultra"
+        ]
+      ],
+      "token_event_count": 291,
+      "distinct_usage_snapshots": 287,
+      "unusable_events": 0,
+      "decreases": [],
+      "first_usage": {
+        "timestamp": "2026-11-06T07:09:21.051Z",
+        "total_token_usage": {
+          "input_tokens": 215718,
+          "cached_input_tokens": 206208,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 233,
+          "reasoning_output_tokens": 17,
+          "total_tokens": 215951
+        },
+        "last_token_usage": {
+          "input_tokens": 215718,
+          "cached_input_tokens": 206208,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 233,
+          "reasoning_output_tokens": 17,
+          "total_tokens": 215951
+        },
+        "last_usage_includes_reasoning": true
+      },
+      "last_usage": {
+        "timestamp": "2026-11-06T10:20:07.294Z",
+        "total_token_usage": {
+          "input_tokens": 43158601,
+          "cached_input_tokens": 42618880,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 137373,
+          "reasoning_output_tokens": 43424,
+          "total_tokens": 43295974
+        },
+        "last_token_usage": {
+          "input_tokens": 184387,
+          "cached_input_tokens": 182528,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 528,
+          "reasoning_output_tokens": 450,
+          "total_tokens": 184915
+        },
+        "last_usage_includes_reasoning": true
+      },
+      "first_total_equals_last_call": true,
+      "source_record": "records/support/session-S1.jsonl"
+    },
+    {
+      "role": "sng2_admission",
+      "session_created_utc": "2026-11-06T07:08:30.958Z",
+      "cli_version": "0.167.0",
+      "cutoff_utc": "2026-11-06T10:20:59.935633Z",
+      "prefix_sha256": "57944ad08bcccde47cd929a930847f420b9601c8e190b52a09965c7de263e9b8",
+      "prefix_line_count": 2611,
+      "requested_model_effort": [
+        [
+          "gpt-6-astra",
+          "ultra"
+        ]
+      ],
+      "token_event_count": 308,
+      "distinct_usage_snapshots": 304,
+      "unusable_events": 0,
+      "decreases": [],
+      "first_usage": {
+        "timestamp": "2026-11-06T07:08:41.956Z",
+        "total_token_usage": {
+          "input_tokens": 215137,
+          "cached_input_tokens": 206208,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 238,
+          "reasoning_output_tokens": 41,
+          "total_tokens": 215375
+        },
+        "last_token_usage": {
+          "input_tokens": 215137,
+          "cached_input_tokens": 206208,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 238,
+          "reasoning_output_tokens": 41,
+          "total_tokens": 215375
+        },
+        "last_usage_includes_reasoning": true
+      },
+      "last_usage": {
+        "timestamp": "2026-11-06T10:20:11.819Z",
+        "total_token_usage": {
+          "input_tokens": 41017495,
+          "cached_input_tokens": 40697216,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 171754,
+          "reasoning_output_tokens": 41921,
+          "total_tokens": 41189249
+        },
+        "last_token_usage": {
+          "input_tokens": 181480,
+          "cached_input_tokens": 180864,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 176,
+          "reasoning_output_tokens": 109,
+          "total_tokens": 181656
+        },
+        "last_usage_includes_reasoning": true
+      },
+      "first_total_equals_last_call": true,
+      "source_record": "records/support/session-S2.jsonl"
+    },
+    {
+      "role": "sng2_context",
+      "session_created_utc": "2026-11-06T07:08:48.979Z",
+      "cli_version": "0.167.0",
+      "cutoff_utc": "2026-11-06T10:20:59.935633Z",
+      "prefix_sha256": "2f97bd069b33e490b8857a1b60c27464443ebd7f071e047272d353290f2326c1",
+      "prefix_line_count": 2831,
+      "requested_model_effort": [
+        [
+          "gpt-6-astra",
+          "ultra"
+        ]
+      ],
+      "token_event_count": 339,
+      "distinct_usage_snapshots": 336,
+      "unusable_events": 0,
+      "decreases": [],
+      "first_usage": {
+        "timestamp": "2026-11-06T07:09:02.850Z",
+        "total_token_usage": {
+          "input_tokens": 215366,
+          "cached_input_tokens": 206208,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 170,
+          "reasoning_output_tokens": 36,
+          "total_tokens": 215536
+        },
+        "last_token_usage": {
+          "input_tokens": 215366,
+          "cached_input_tokens": 206208,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 170,
+          "reasoning_output_tokens": 36,
+          "total_tokens": 215536
+        },
+        "last_usage_includes_reasoning": true
+      },
+      "last_usage": {
+        "timestamp": "2026-11-06T10:19:59.178Z",
+        "total_token_usage": {
+          "input_tokens": 46950446,
+          "cached_input_tokens": 46523776,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 170060,
+          "reasoning_output_tokens": 51736,
+          "total_tokens": 47120506
+        },
+        "last_token_usage": {
+          "input_tokens": 183718,
+          "cached_input_tokens": 183680,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 89,
+          "reasoning_output_tokens": 0,
+          "total_tokens": 183807
+        },
+        "last_usage_includes_reasoning": true
+      },
+      "first_total_equals_last_call": true,
+      "source_record": "records/support/session-S3.jsonl"
+    }
+  ],
+  "independent_counter_check": {
+    "source_audit_sha256": "2ce959224f1af1f9d02d0aa63c77b9feeabff1eb72371f1aa522cef3b4749ef8",
+    "distinct_cumulative_updates": 927,
+    "unchanged_repeated_snapshots": 11,
+    "all_counter_increases_equal_last_call_usage": true,
+    "all_source_prefix_hashes_match": true,
+    "cross_session_identical_timestamped_usage_events": 0
+  }
+}

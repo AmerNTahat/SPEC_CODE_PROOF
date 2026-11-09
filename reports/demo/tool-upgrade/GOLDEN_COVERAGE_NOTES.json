@@ -1,0 +1,90 @@
+{
+  "notes": [
+    {
+      "english_requirement": "FAA Figure A-4: INIT to FAILED after Duration(INMODE)>1.0s.",
+      "evidence_report": "reports/demo/behavior-review/REVIEW.md",
+      "feature": "Initialization timeout",
+      "golden_observation": "The examined mode contracts fail immediately for unhealthy INIT and do not encode elapsed residence time.",
+      "qualification_effect": "Eligible for explicitly scoped exclusion under the user-approved policy, only when all remaining applicable rule checks pass; no passing credit and no whole-PDF acceptance.",
+      "reference_files": [
+        {
+          "path": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/reference-review/f0ba38578c96419688bb42918cf0beb4/proposed-reference/Regulate.sysml",
+          "sha256": "dd7de904aed4a1e57638f0f947f527d384129d130acbe7376199a111754e7bdb"
+        },
+        {
+          "path": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/reference-review/f0ba38578c96419688bb42918cf0beb4/proposed-reference/Operator_Interface.sysml",
+          "sha256": "f3b019962eafc16be94b1ebdab3d010aaa2b3db0048a43d5a4e0d843d7873c56"
+        }
+      ],
+      "reference_role": "Isolette development reference (Regulator/Operator Interface); this is not added to the approved Monitor training context.",
+      "revisit_condition": "Reassess when the golden reference, tool version, rulebook feature scope or English changes.",
+      "scope": "Supervised coverage review, not rule qualification or proof of tool incapability",
+      "user_policy": "User authorizes accepting rules for covered scope if golden omissions are the only remaining differences; disclose features not covered in golden yet.",
+      "id": "60c7665d0ab319e3950ebfddb2d2ccafcf9e7836691f52280689c6984fe60fe0",
+      "reference_current": true,
+      "scope_status": "RECORDED_COVERAGE_LIMIT",
+      "verification_credit": 0,
+      "establishes_tool_limitation": false
+    },
+    {
+      "english_requirement": "FAA Table A-5 and EA-OI assumptions constrain desired bounds and their ordering.",
+      "evidence_report": "reports/demo/behavior-review/REVIEW.md",
+      "feature": "Desired-temperature range and ordering guarantees",
+      "golden_observation": "The examined Operator Interface contracts constrain alarm bounds, but lack corresponding desired-range/order guarantees.",
+      "qualification_effect": "Eligible for explicitly scoped exclusion under the user-approved policy, only when all remaining applicable rule checks pass; no passing credit and no whole-PDF acceptance.",
+      "reference_files": [
+        {
+          "path": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/reference-review/f0ba38578c96419688bb42918cf0beb4/proposed-reference/Regulate.sysml",
+          "sha256": "dd7de904aed4a1e57638f0f947f527d384129d130acbe7376199a111754e7bdb"
+        },
+        {
+          "path": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/reference-review/f0ba38578c96419688bb42918cf0beb4/proposed-reference/Operator_Interface.sysml",
+          "sha256": "f3b019962eafc16be94b1ebdab3d010aaa2b3db0048a43d5a4e0d843d7873c56"
+        }
+      ],
+      "reference_role": "Isolette development reference (Regulator/Operator Interface); this is not added to the approved Monitor training context.",
+      "revisit_condition": "Reassess when the golden reference, tool version, rulebook feature scope or English changes.",
+      "scope": "Supervised coverage review, not rule qualification or proof of tool incapability",
+      "user_policy": "User authorizes accepting rules for covered scope if golden omissions are the only remaining differences; disclose features not covered in golden yet.",
+      "id": "cab87ba5fe364a7ff02ddbade3213b55de2d38de9ea1ee2e34f4a9df527cd09a",
+      "reference_current": true,
+      "scope_status": "RECORDED_COVERAGE_LIMIT",
+      "verification_credit": 0,
+      "establishes_tool_limitation": false
+    },
+    {
+      "english_requirement": "FAA status/display response requirements specify a strict bound below0.5s.",
+      "evidence_report": "reports/demo/behavior-review/REVIEW.md",
+      "feature": "Response-time guarantee below500ms",
+      "golden_observation": "The inspected reference uses1000ms periods and does not establish the required end-to-end response guarantee.",
+      "qualification_effect": "Eligible for explicitly scoped exclusion under the user-approved policy, only when all remaining applicable rule checks pass; no passing credit and no whole-PDF acceptance.",
+      "reference_files": [
+        {
+          "path": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/reference-review/f0ba38578c96419688bb42918cf0beb4/proposed-reference/Regulate.sysml",
+          "sha256": "dd7de904aed4a1e57638f0f947f527d384129d130acbe7376199a111754e7bdb"
+        },
+        {
+          "path": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/reference-review/f0ba38578c96419688bb42918cf0beb4/proposed-reference/Operator_Interface.sysml",
+          "sha256": "f3b019962eafc16be94b1ebdab3d010aaa2b3db0048a43d5a4e0d843d7873c56"
+        }
+      ],
+      "reference_role": "Isolette development reference (Regulator/Operator Interface); this is not added to the approved Monitor training context.",
+      "revisit_condition": "Reassess when the golden reference, tool version, rulebook feature scope or English changes.",
+      "scope": "Supervised coverage review, not rule qualification or proof of tool incapability",
+      "user_policy": "User authorizes accepting rules for covered scope if golden omissions are the only remaining differences; disclose features not covered in golden yet.",
+      "id": "f3f5fb82970d37a6d120149b0a9f27b9085c24b31eae735308a616daf1214f2a",
+      "reference_current": true,
+      "scope_status": "RECORDED_COVERAGE_LIMIT",
+      "verification_credit": 0,
+      "establishes_tool_limitation": false
+    }
+  ],
+  "candidate_count": 24,
+  "candidates_without_completed_review": 24,
+  "qualification_policy": "Accept only for the declared covered scope when all applicable checks and rule-validation evidence pass. Disclose excluded golden features separately; no full-PDF coverage claim.",
+  "acceptance_from_coverage_notes": false,
+  "remaining_blockers": [
+    "Independent rule-application/transfer attestation adapter is incomplete"
+  ],
+  "scope": "Coverage notes and review inventory only; no publication or verification inferred"
+}

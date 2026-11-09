@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "scope": "Application setup and startup in a clean checkout of the selective source checkpoint. The engineering case inputs are separate.",
+  "environment": {
+    "platform": "Linux x86_64",
+    "python": "3.12.14",
+    "node": "24.22.1",
+    "npm": "11.9.0"
+  },
+  "setup": {
+    "command": "./scripts/setup-workbench.sh",
+    "exit_code": 0,
+    "pinned_python_dependencies_installed": true,
+    "frontend_build_passed": true,
+    "pip_check_passed": true,
+    "npm_warning": "The older lockfile required registry metadata during installation."
+  },
+  "unit_tests": {
+    "command": "PYTHONPATH=workbench .venv/bin/python -m unittest discover -s workbench/tests",
+    "passed": 209,
+    "failures": 0
+  },
+  "startup": {
+    "commands": [
+      "./inspecta-scp onboard",
+      "./inspecta-scp ui --port 8766"
+    ],
+    "onboard_status": "IMPLEMENTATION_IN_PROGRESS",
+    "loopback_http": {
+      "/": 200,
+      "/assets/app.js": 200,
+      "/api/overview": 200,
+      "/api/learning": 200,
+      "/api/overview (unauthenticated)": 401
+    },
+    "browser_smoke": "Unrun. Firefox was unavailable."
+  },
+  "engineering_boundary": {
+    "starter_offline_state": "BLOCKED",
+    "starter_offline_measured_model_tokens": 0,
+    "configured_sireum_present": false,
+    "pinned_codex_worker_present": false,
+    "saved_engineering_cases_in_checkpoint": false,
+    "application_tests_replay_case_proofs": false
+  },
+  "producer_consumer": {
+    "first_construction": {
+      "source": "Research-team clarification of the original campaign inputs.",
+      "task_inputs": [
+        "English requirements",
+        "existing rulebooks"
+      ],
+      "target_specific_repair_history_at_entry": false,
+      "completed_target_model_supplied": false
+    },
+    "checkpoint_split": "The workflow guide lists Producer/Consumer as a held-out case in the documented training split.",
+    "first_dispatch_manifest_in_checkpoint": false,
+    "historical_checkpoint": {
+      "date": "2026-09-23",
+      "component_pairs": [
+        2,
+        2
+      ],
+      "GumboX_tests": [
+        5,
+        5
+      ],
+      "other_tests": [
+        4,
+        4
+      ],
+      "bounded_runtime_observation_reported": true,
+      "candidate_identity_in_summary": false
+    }
+  }
+}

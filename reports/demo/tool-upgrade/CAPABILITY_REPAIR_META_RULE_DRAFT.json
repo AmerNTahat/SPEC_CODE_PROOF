@@ -1,0 +1,150 @@
+{
+  "candidate": {
+    "record": {
+      "$schema": "../schemas/knowledge.schema.json",
+      "schema_version": "2.0",
+      "record_type": "rule",
+      "id": "REPAIR-TOOL-CAPABILITY-001",
+      "revision": "draft-1",
+      "state": "DRAFT",
+      "basis": "mixed",
+      "assessment_timing": "after_feedback",
+      "source_references": [
+        "191226e608d63465d3770305ba5291814f6d5376a3432c3d622c8baed081bd82"
+      ],
+      "source_artifact_hashes": [
+        "fc7e0edcb15bd461362b7ad9516ac33a6a17d865e33b207af7e488ae4eb789af"
+      ],
+      "source_episode": "Approved KSU tools context; user-approved version-scoped repair policy and executed upgrade feedback",
+      "available_context_manifest": null,
+      "model_configuration": null,
+      "prompt_version": "session-version-scope-curation-v1",
+      "trigger": "A requirement fails with the selected tool version or dependency environment.",
+      "principle": "Diagnose modeling, implementation, environment and genuine tool expressiveness failures separately. Review documented alternative encodings and execute capability probes. Defer an exact English obligation only after reviewed evidence establishes that the selected version cannot support it; retain it for later upgrade, give no passing credit, and invalidate the exclusion when the tool changes.",
+      "semantic_choice": "A syntax rejection is not proof that equivalent state-based formalization is unavailable. A periodic scheduling mismatch is not an unsupported temporal requirement.",
+      "structural_placement": "Version-bound capability scope attached to exact approved English and validation configuration; preserve original coverage and evidence.",
+      "repair_gate": "Review exact English, executed tool identity, alternative encodings and evidence; approve scope separately; revalidate after upgrade. Passing remaining targets does not imply whole-system acceptance.",
+      "prerequisites": [
+        "Approved English",
+        "Executed pinned tool capability evidence",
+        "Documented alternative encoding review",
+        "Human approval of exact deferral"
+      ],
+      "exclusions": [
+        "Treating missing contracts as unsupported",
+        "Treating solver runtime incompatibility as unsupported English",
+        "Silently dropping failed requirements",
+        "Counting deferred targets as verified"
+      ],
+      "parameters": [
+        {
+          "name": "tool_identity",
+          "role": "Version boundary",
+          "constraints": "Executed identity and hashes, rechecked for freshness"
+        },
+        {
+          "name": "deferred_requirement",
+          "role": "Explicit coverage exception",
+          "constraints": "Exact English, reason, alternatives, evidence and revisit condition"
+        }
+      ],
+      "dependencies": [],
+      "target_compatibility": [
+        "Reviewed English preparation for selected KSU HAMR workflow"
+      ],
+      "preserved_obligations": [
+        "Original English and total target count",
+        "Unresolved modeling and implementation failures remain mandatory",
+        "Deferred targets receive no passing credit"
+      ],
+      "counterexample": {
+        "scenario": "Bundled Z3 cannot run on host glibc, while the documented CVC5 backend verifies the same integration constraints.",
+        "expected_difference": "Select the supported working backend; do not waive the English requirement.",
+        "source_or_test_reference": "reports/demo/tool-upgrade/producer-consumer-compatibility.json"
+      },
+      "validation_gate_ids": [
+        "capability_probe",
+        "capability_scope_review",
+        "parse_type",
+        "behavioral_validation"
+      ],
+      "evidence_references": [
+        "reports/demo/tool-upgrade/REPORT.md",
+        "reports/demo/tool-upgrade/gumbo-capability-probes.json",
+        "workbench/tests/test_capability_scope.py"
+      ],
+      "confidence_forecast_reference": null,
+      "approval_reference": null,
+      "notes": "Session-curated unvalidated draft. Approved KSU context supplies tool-workflow provenance; user policy and new executed development feedback supply this proposed refinement. Tutorial fixture is not added to training. No paid model call or release approval.",
+      "source_english_patterns": [
+        "not supported by the selected tool version"
+      ],
+      "positive_paraphrases": [
+        "retain an explicit requirement for later version revalidation"
+      ],
+      "misleading_near_matches": [
+        "the golden lacks a contract so the requirement is unsupported"
+      ],
+      "supported_operations": [
+        "complete-system",
+        "repair-system",
+        "create-system"
+      ],
+      "stack_layers": [
+        "language",
+        "gumbo",
+        "testing",
+        "repair"
+      ],
+      "semantic_roles": {
+        "actor": "validator and human reviewer",
+        "condition": "capability suspected",
+        "effect": "evidence-based scope or supported repair",
+        "modality": "explicit reviewed deferral",
+        "quantification": "each exact obligation",
+        "temporal_scope": "selected version only",
+        "state_dependency": "review equivalent state encodings",
+        "units_and_boundaries": "original units and boundaries retained"
+      },
+      "formal_output_pattern": "English obligation -> failure classification -> alternative encoding review -> capability evidence -> reviewed version scope -> later upgrade revalidation.",
+      "formal_pattern_status": "ABSTRACT_NOT_VALIDATED",
+      "allowed_edit_scope": [
+        "new draft repair rule and reviewed capability scope"
+      ],
+      "required_baseline": [
+        "Approved English and exact executed tool identity"
+      ],
+      "diagnostic_signature": null,
+      "related_rule_ids": []
+    },
+    "status": "DRAFT_PENDING_VALIDATION",
+    "id": "2f6a4a209a63ac0a05762c01f53fe896c1bd55e9913ba6b4cb71e4028d473239"
+  },
+  "provenance": {
+    "plan_id": "6004a757c4beecf5c8c5b86780ccc3fa03d136f2fd15f65b3fc395348e3359d1",
+    "candidate_id": "2f6a4a209a63ac0a05762c01f53fe896c1bd55e9913ba6b4cb71e4028d473239",
+    "status": "DRAFT_PENDING_DEVELOPMENT_VALIDATION",
+    "focus": "repair",
+    "extraction_method": "session_curation_of_approved_KSU_context_user_policy_and_development_feedback",
+    "model_calls": 0,
+    "source_ids": [
+      "191226e608d63465d3770305ba5291814f6d5376a3432c3d622c8baed081bd82"
+    ],
+    "id": "ff8c499c5940d8ee4ba690d22af6118ea63e11512013c0cf24025974c9a2a9c3"
+  },
+  "book": {
+    "snapshot_id": "24459e37555ab8999436081915229edda7214c337b39d39b7d52711641e9db9f",
+    "directory": "/home/amertahat/SPEC_CODE_PROOF/.scp-workbench/app/learned-rulebooks/24459e37555ab8999436081915229edda7214c337b39d39b7d52711641e9db9f",
+    "candidate_count": 23,
+    "state": "DRAFT_NOT_PUBLISHED",
+    "files": [
+      "rulebook.json",
+      "RULEBOOK.md"
+    ],
+    "content_hashes": {
+      "rulebook.json": "dd5e07406490cfd6c4daf1f80b0fccd921b340497b00a907ddf7a633b64ded70",
+      "RULEBOOK.md": "bb05a709e9dbe8b4e2e0509cef79a456bdc7cfb2c0ad7aeaa3c597e634811299"
+    },
+    "id": "7ac59179a74a54204dd0ab15c38bebf0b4a23fa22a1ce9f6d66e58fdf0902990"
+  }
+}

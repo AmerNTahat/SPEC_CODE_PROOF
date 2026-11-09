@@ -1,0 +1,78 @@
+% Compact full-width figure. Requires TikZ arrows.meta and diagram-style.tex.
+\begin{tikzpicture}[
+  x=.78cm,y=1cm,>=Latex,
+  font=\sffamily\fontsize{8.2}{9.5}\selectfont,
+  stage/.style={draw,rounded corners=2pt,line width=.6pt,align=left,
+    inner sep=5pt,text width=4.05cm,minimum height=1.62cm},
+  flow/.style={->,line width=.65pt},
+  labeltext/.style={font=\sffamily\fontsize{7.6}{8.8}\selectfont,fill=white,inner sep=2pt},
+  titletext/.style={font=\sffamily\fontsize{8.6}{10}\selectfont\bfseries,anchor=west}
+]
+\path[use as bounding box] (0,0) rectangle (17.5,8.0);
+\draw[scpBlue,rounded corners=3pt,line width=.7pt] (.02,.05) rectangle (3.55,7.95);
+\draw[scpGray,rounded corners=3pt,line width=.7pt] (3.95,.05) rectangle (17.48,7.95);
+\draw[scpGray,densely dashed,line width=.6pt] (3.75,.12) -- (3.75,7.88);
+
+\node[titletext,text=scpBlue,align=left,text width=2.28cm] at (.22,7.49) {AUTHORIZED\\MODEL WORKER};
+\node[titletext] at (4.2,7.62) {HOST CONTROLLER AND INDEPENDENT VERIFIER};
+
+\node[scpRecord,draw,rounded corners=2pt,align=left,
+  text width=9.36cm,inner sep=5pt,minimum height=.9cm] (operator) at (10.7,6.85)
+  {\textbf{Operator-supplied settings}\\
+   Run configuration; expected policy and trusted public keys supplied outside the bundle.};
+
+\node[stage,scpProposal,text width=2.14cm,minimum height=1.55cm] (worker) at (1.78,5.15)
+  {\textbf{Proposals}\\[2pt]
+   Models, code, and rules\\
+   Selected context in\\
+   Proposals out};
+
+\node[stage,scpCheck] (snapshot) at (7.07,5.15)
+  {\textbf{1\enspace Snapshot and check}\\[2pt]
+   Fixed inputs + SHA-256 fingerprints\\
+   Run checks; retain evidence};
+
+\node[stage,scpCheck] (statement) at (13.52,5.15)
+  {\textbf{2\enspace Create statement}\\[2pt]
+   in-toto subjects: files + digests\\
+   Predicate: policy digest + claim};
+
+\node[stage,scpCheck] (sign) at (13.52,3.2)
+  {\textbf{3\enspace Sign on host}\\[2pt]
+   DSSE + host-held private key\\
+   Key outside worker-accessible paths};
+
+\node[stage,scpCheck] (export) at (7.07,3.2)
+  {\textbf{4\enspace Export bundle}\\[2pt]
+   Inputs, events, and results\\
+   Evidence + signed envelope};
+
+\node[draw,scpRecord,rounded corners=2pt,align=left,
+  text width=9.36cm,inner sep=5pt,minimum height=1.55cm] (verify) at (10.7,1.15)
+  {\textbf{5\enspace Verify independently}\\[2pt]
+   Check signatures, digests, expected policy, results, and current dependencies.\\
+   Authentic incomplete evidence remains \texttt{INCOMPLETE}; acceptance requires the policy's gates.\\
+   \textcolor{scpRed}{Reject altered records, policy mismatches, or unmet acceptance conditions.}};
+
+\draw[flow,scpDataFlow] (worker.east) -- node[labeltext,above]{proposal} (snapshot.west);
+\draw[flow,scpCheckFlow] (snapshot.east) -- (statement.west);
+\draw[flow,scpCheckFlow] (statement.south) -- node[labeltext,right]{statement} (sign.north);
+\draw[flow,scpCheckFlow] (sign.west) -- (export.east);
+\draw[flow,scpRecordFlow] (export.south) -- (export.south |- verify.north);
+\draw[flow,scpRecordFlow,dashed] (operator.south -| snapshot.north) --
+  node[labeltext,right]{run settings} (snapshot.north);
+\draw[flow,scpRecordFlow,dashed] (operator.south -| statement.north) --
+  node[labeltext,right]{policy} (statement.north);
+\draw[flow,scpRecordFlow,dashed] (operator.east) -- (17.12,6.85) -- (17.12,1.15) -- (verify.east);
+\node[labeltext,rotate=90] at (17.12,3.75) {expected policy + trusted public keys};
+
+\draw[flow,scpRepairFlow] (snapshot.south) -- (7.07,4.16) -- (1.78,4.16) -- (worker.south);
+\node[labeltext,text=scpRed] at (4.48,4.16) {selected check feedback};
+
+\node[align=left,anchor=north west,text width=2.20cm] at (.27,3.45)
+  {\textbf{Authority}\\[2pt]
+   Propose content.\\[7pt]
+   \textbf{Isolation}\\[2pt]
+   Selected context only.\\
+   No project or controller-state mount.};
+\end{tikzpicture}

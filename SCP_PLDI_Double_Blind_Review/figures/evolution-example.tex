@@ -1,0 +1,64 @@
+% Condensed from public draft-rules.json, GOLDEN-DEFECT-CURATION-001.
+% Selected actual revisions draft-1, draft-2, draft-4; draft-3 is omitted.
+% Approval of the case premise is distinct from qualification of any rule.
+% The input is a documented SMT diagnosis for a contract fragment, not a
+% recovered full-system GUMBOX execution trace.
+\begin{tikzpicture}[
+ x=.78cm,y=1cm,
+ font=\fontsize{8}{9.4}\selectfont,
+ card/.style={draw=black!65,text=black,rounded corners=2pt,line width=.6pt,
+   align=left,inner sep=5pt},
+ record/.style={card,text width=3.82cm,minimum height=3.47cm,anchor=north},
+ candidate/.style={card,text width=3.82cm,minimum height=3.30cm,anchor=north},
+ arrow/.style={-{Stealth[length=1.7mm]},draw=black!75,line width=.7pt}
+]
+\node[record,draw=scpBlue!75,fill=scpBlueFill!65!white] (requirements) at (2.7,7.25)
+ {\begin{minipage}[t][3.12cm][t]{3.82cm}\raggedright\textbf{1. Check reference fragment}\\[2pt]
+  Golden reference, NORMAL mode.\\
+  $\theta$: temperature; $L,U$: lower and upper\\
+  bounds; $h$: heating is on.\\
+  \textbf{Assume:} ordering not specified.\\
+  \textbf{Guarantee:} $\theta<L\Rightarrow h$;\\
+  \hspace*{1.20cm}$\theta>U\Rightarrow\neg h$.\end{minipage}};
+\node[record,draw=scpRed!75,fill=scpRedFill!70!white,dashed] (conflict) at (8.65,7.25)
+ {\begin{minipage}[t][3.12cm][t]{3.82cm}\raggedright\textbf{2. Retain the conflict}\\[2pt]
+  \textbf{Input to the fragment:}\\
+  $\theta=98,\ L=99,\ U=97$.\\
+  Both conditions hold: heating must be\\
+  on and off ($h\land\neg h$).\\
+  \textbf{Next action:} review the source.\end{minipage}};
+\node[record,draw=scpGreen!75!black,fill=scpGreenFill!70!white] (decision) at (14.6,7.25)
+ {\begin{minipage}[t][3.12cm][t]{3.82cm}\raggedright\textbf{3. Review ordering}\\[2pt]
+  \textbf{Add:} $L<U$; keep both guarantees.\\
+  \textbf{Source:} EA-OI-6 handbook.\\
+  \textbf{Decision:} assumption approved.\\
+  \textbf{Recheck:} contracts, proofs, tests.\\
+  \textbf{Open:} order propagation.\end{minipage}};
+\draw[arrow] (requirements.east) -- (conflict.west);
+\draw[arrow] (conflict.east) -- (decision.west);
+\path[draw=black!50,fill=black!1,rounded corners=2pt,line width=.6pt]
+ (-.03,-.52) rectangle (17.33,3.53);
+\node[anchor=north west,font=\fontsize{8.2}{9.5}\selectfont\bfseries] at (.12,3.41)
+ {4. Revise guidance: retain the failure and require new checks};
+\node[candidate,draw=scpBlue!70,fill=scpBlueFill!65!white] (first) at (2.7,2.96)
+ {\begin{minipage}[t][2.95cm][t]{3.82cm}\raggedright\textbf{draft-1: Record the correction}\\[3pt]
+  \textbf{Change:} require a source citation, approval of the change, and the original failed case.\\[3pt]
+  \textbf{Checks:} regenerate contracts;\\
+  repeat scoped Verus/GUMBOX checks.\end{minipage}};
+\node[candidate,draw=orange!65!black,fill=scpYellowFill!70!white] (second) at (8.65,2.96)
+ {\begin{minipage}[t][2.95cm][t]{3.82cm}\raggedright\textbf{draft-2: Clarify responsibility}\\[3pt]
+  \textbf{Change:} record the reviewed ordering assumption as an input condition.\\[3pt]
+  \textbf{Checks:} retain scoped checks;\\
+  track the order across connections.\end{minipage}};
+\node[candidate,draw=orange!75!black,fill=orange!10] (third) at (14.6,2.96)
+ {\begin{minipage}[t][2.95cm][t]{3.82cm}\raggedright\textbf{draft-4: Check source and build}\\[3pt]
+  \textbf{Change:} inspect full source; preserve reviewed assumptions and contracts.\\[3pt]
+  \textbf{Checks:} bind proofs to source and build configuration; repeat affected proofs and tests.\end{minipage}};
+% Fixed-height cards keep both revision arrows horizontal.
+\draw[arrow] (first.east) -- (second.west);
+\draw[arrow] (second.east) -- (third.west);
+\draw[arrow] (decision.south) -- (14.6,3.53);
+\node[card,draw=black!55,fill=black!3,text width=13.0cm,align=center,minimum height=.93cm,inner sep=3pt] at (8.65,-1.18)
+ {\textbf{Retained:} source fingerprints link the failure, approved correction, and checks.\\[2pt]
+  \textbf{Status:} rules unvalidated (\texttt{ABSTRACT\_NOT\_VALIDATED}); rulebook unpublished (\texttt{DRAFT\_NOT\_PUBLISHED}).};
+\end{tikzpicture}

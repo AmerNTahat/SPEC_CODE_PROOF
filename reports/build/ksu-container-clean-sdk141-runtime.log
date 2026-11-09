@@ -1,0 +1,4 @@
+['/bin/sleep', 'jasonbelt/microkit_provers@sha256:bab407fd7f4aac24d7bee1234cd6bab9b6a29df380c2f0491af8e3ed1888a405', '1500'] 0
+['-C', '/work/generated', '-j2'] 0
+['-C', '/work/generated', 'qemu'] None
+['rm', '-f', 'scp-validation-1790134559'] 0
